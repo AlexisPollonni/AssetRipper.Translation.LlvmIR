@@ -5,30 +5,30 @@ using System.Text;
 
 namespace AssetRipper.Translation.LlvmIR;
 
-internal static unsafe partial class LibLLVMSharp
+internal static unsafe partial class LLVMShims
 {
-	[LibraryImport("libLLVMSharp", EntryPoint = "llvmsharp_Function_getReturnType")]
+	[LibraryImport("LLVMShims", EntryPoint = "FunctionGetReturnType")]
 	[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
 	private static partial LLVMOpaqueType* FunctionGetReturnType(LLVMOpaqueValue* Fn);
 
-	[LibraryImport("libLLVMSharp", EntryPoint = "llvmsharp_Function_getFunctionType")]
+	[LibraryImport("LLVMShims", EntryPoint = "FunctionGetFunctionType")]
 	[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
 	private static partial LLVMOpaqueType* FunctionGetFunctionType(LLVMOpaqueValue* Fn);
 
-	[LibraryImport("libLLVMSharp", EntryPoint = "llvmsharp_ConstantDataArray_getData")]
+	[LibraryImport("LLVMShims", EntryPoint = "ConstantDataArrayGetData")]
 	[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-	private static partial byte* ConstantDataArrayGetData(LLVMOpaqueValue* ConstantDataArray, int* out_size);
+	private static partial byte* ConstantDataArrayGetData(LLVMOpaqueValue* constantDataArray, int* out_size);
 
-	[LibraryImport("libLLVMSharp", EntryPoint = "llvmsharp_Value_getDemangledName")]
+	[LibraryImport("LLVMShims", EntryPoint = "ValueGetDemangledName")]
 	[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
 	private static partial int ValueGetDemangledName(LLVMOpaqueValue* value, byte* buffer, int buffer_size);
 
-	[LibraryImport("libLLVMSharp", EntryPoint = "llvmsharp_Instruction_hasNoSignedWrap")]
+	[LibraryImport("LLVMShims", EntryPoint = "InstructionHasNoSignedWrap")]
 	[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
 	[return: MarshalAs(UnmanagedType.U1)]
 	private static partial bool InstructionHasNoSignedWrap(LLVMOpaqueValue* instruction);
 
-	[LibraryImport("libLLVMSharp", EntryPoint = "llvmsharp_Instruction_hasNoUnsignedWrap")]
+	[LibraryImport("LLVMShims", EntryPoint = "InstructionHasNoUnsignedWrap")]
 	[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
 	[return: MarshalAs(UnmanagedType.U1)]
 	private static partial bool InstructionHasNoUnsignedWrap(LLVMOpaqueValue* instruction);
