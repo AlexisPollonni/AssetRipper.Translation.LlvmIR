@@ -1,12 +1,9 @@
 ﻿using AsmResolver;
 using AsmResolver.DotNet;
-using AsmResolver.DotNet.Cloning;
-using AsmResolver.DotNet.Code.Cil;
-using AsmResolver.DotNet.Collections;
 using AsmResolver.DotNet.Signatures;
-using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
+using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using LLVMSharp.Interop;
 using System.Diagnostics;
@@ -34,6 +31,7 @@ internal sealed partial class ModuleContext
 			typeof(MangledNameAttribute),
 			typeof(DemangledNameAttribute),
 			typeof(CleanNameAttribute),
+			typeof(InlineAssemblyAttribute),
 			typeof(MightThrowAttribute),
 			typeof(ExceptionInfo),
 			typeof(StackFrame),
@@ -41,6 +39,7 @@ internal sealed partial class ModuleContext
 			typeof(FatalException),
 			typeof(PointerIndices),
 			typeof(NativeMemoryHelper),
+			typeof(AssemblyFunctions),
 		]);
 
 		Module = module;
@@ -97,6 +96,11 @@ internal sealed partial class ModuleContext
 		}
 
 		return arrayType;
+	}
+
+	public InlineArrayContext GetContextForInlineArray(TypeSignature arrayType)
+	{
+		return InlineArrayTypes[(TypeDefinition)arrayType.ToTypeDefOrRef()];
 	}
 
 	public void CreateFunctions()
