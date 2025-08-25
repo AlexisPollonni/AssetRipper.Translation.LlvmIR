@@ -1,4 +1,10 @@
 ﻿cmake_minimum_required(VERSION 3.20)
+
+# Set policy for FetchContent timestamp handling
+if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+endif()
+
 project(LLVMShims CXX)
 
 # Standards
@@ -24,16 +30,19 @@ set(LLVM_INCLUDE_EXAMPLES OFF CACHE BOOL "Include examples")
 set(LLVM_INCLUDE_BENCHMARKS OFF CACHE BOOL "Include benchmarks")
 set(LLVM_BUILD_TOOLS OFF CACHE BOOL "Build tools")
 
+# Set a persistent cache directory
+set(FETCHCONTENT_BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.deps" CACHE PATH "FetchContent base directory")
+
 # --- Fetch and Include LLVM ---
 message(STATUS ">> Declaring LLVM FetchContent...")
 FetchContent_Declare(
-  llvm
-  GIT_REPOSITORY https://github.com/llvm/llvm-project.git
-  GIT_TAG        "llvmorg-20.1.8" # Pin to a specific stable version
-  GIT_SHALLOW    TRUE
-  UPDATE_DISCONNECTED TRUE # Prevents checking git remote on every configure
-  SOURCE_SUBDIR  llvm
+        llvm
+        URL https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-20.1.8.tar.gz
+        # URL_HASH SHA256=<hash>  # Get hash from GitHub releases
+        UPDATE_DISCONNECTED TRUE
+        SOURCE_SUBDIR  llvm
 )
+
 message(STATUS ">> Calling FetchContent_MakeAvailable for LLVM. This will take a long time...")
 FetchContent_MakeAvailable(llvm)
 message(STATUS ">> LLVM FetchContent_MakeAvailable finished.")
@@ -41,14 +50,14 @@ message(STATUS ">> LLVM FetchContent_MakeAvailable finished.")
 # --- Use LLVM in our Project ---
 # Get the source and binary directories for LLVM from FetchContent
 FetchContent_GetProperties(llvm)
-if(NOT llvm_POPULATED)
+if (NOT llvm_POPULATED)
     message(FATAL_ERROR "LLVM was not populated by FetchContent")
-endif()
+endif ()
 
 # Set up LLVM include directories manually using FetchContent paths
-set(LLVM_INCLUDE_DIRS 
-    ${llvm_SOURCE_DIR}/llvm/include
-    ${llvm_BINARY_DIR}/include
+set(LLVM_INCLUDE_DIRS
+        ${llvm_SOURCE_DIR}/llvm/include
+        ${llvm_BINARY_DIR}/include
 )
 
 message(STATUS ">> LLVM include directories: ${LLVM_INCLUDE_DIRS}")
