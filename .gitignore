@@ -11,3 +11,5 @@ bin
 launchSettings.json
 .DS_Store
 .antlr/
+/LLVMShims/cmake-build-debug/*
+/LLVMShims/cmake-build-release/*
