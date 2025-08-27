@@ -20,7 +20,7 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 	{
 		GlobalVariable = globalVariable;
 		Module = module;
-		DemangledName = LibLLVMSharp.ValueGetDemangledName(globalVariable);
+		DemangledName = LLVMShims.ValueGetDemangledName(globalVariable);
 		CleanName = ExtractCleanName(MangledName, DemangledName, module.Options.RenamedSymbols);
 	}
 

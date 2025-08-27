@@ -22,7 +22,7 @@ internal sealed class FunctionContext : IHasName
 		Module = module;
 
 		MangledName = Function.Name;
-		DemangledName = LibLLVMSharp.ValueGetDemangledName(function);
+		DemangledName = LLVMShims.ValueGetDemangledName(function);
 		CleanName = ExtractCleanName(MangledName, DemangledName, module.Options.RenamedSymbols, module.Options.ParseDemangledSymbols);
 	}
 
@@ -91,8 +91,8 @@ internal sealed class FunctionContext : IHasName
 	public bool MightThrowAnException { get; set; }
 	public LLVMValueRef Function { get; }
 	public unsafe bool IsVariadic => LLVM.IsFunctionVarArg(FunctionType) != 0;
-	public LLVMTypeRef FunctionType => LibLLVMSharp.FunctionGetFunctionType(Function);
-	public LLVMTypeRef ReturnType => LibLLVMSharp.FunctionGetReturnType(Function);
+	public LLVMTypeRef FunctionType => LLVMShims.FunctionGetFunctionType(Function);
+	public LLVMTypeRef ReturnType => LLVMShims.FunctionGetReturnType(Function);
 	public TypeSignature ReturnTypeSignature => Module.GetTypeSignature(ReturnType);
 	public bool IsVoidReturn => ReturnType.Kind == LLVMTypeKind.LLVMVoidTypeKind;
 	public FunctionContext? PersonalityFunction => Function.HasPersonalityFn

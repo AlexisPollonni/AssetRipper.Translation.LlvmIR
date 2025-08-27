@@ -1150,7 +1150,7 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMValueKind.LLVMConstantDataArrayValueKind:
 				{
-					ReadOnlySpan<byte> data = LibLLVMSharp.ConstantDataArrayGetData(value);
+					ReadOnlySpan<byte> data = LLVMShims.ConstantDataArrayGetData(value);
 					writer.Write(data);
 				}
 				break;
@@ -1325,7 +1325,7 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMValueKind.LLVMConstantDataArrayValueKind:
 				{
-					ReadOnlySpan<byte> data = LibLLVMSharp.ConstantDataArrayGetData(value);
+					ReadOnlySpan<byte> data = LLVMShims.ConstantDataArrayGetData(value);
 
 					TypeSignature arrayType = GetTypeSignature(value.TypeOf);
 
