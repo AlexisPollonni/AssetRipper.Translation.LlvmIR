@@ -25,12 +25,4 @@
 	<ItemGroup>
 		<ProjectReference Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<ContentWithTargetPath Include="bin\libLLVMSharp.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<TargetPath>libLLVMSharp.dll</TargetPath>
-		</ContentWithTargetPath>
-	</ItemGroup>
-
 </Project>
