@@ -101,8 +101,9 @@ internal sealed class InlineArrayContext
 		}
 
 		//Inequality operator
+		MethodDefinition inequalityOperator;
 		{
-			MethodDefinition inequalityOperator = new("op_Inequality", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName | MethodAttributes.Static, MethodSignature.CreateStatic(module.Definition.CorLibTypeFactory.Boolean, arrayType.ToTypeSignature(), arrayType.ToTypeSignature()));
+			inequalityOperator = new("op_Inequality", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName | MethodAttributes.Static, MethodSignature.CreateStatic(module.Definition.CorLibTypeFactory.Boolean, arrayType.ToTypeSignature(), arrayType.ToTypeSignature()));
 			inequalityOperator.CilMethodBody = new(inequalityOperator);
 			CilInstructionCollection instructions = inequalityOperator.CilMethodBody.Instructions;
 			instructions.Add(CilOpCodes.Ldarg_0);
@@ -176,8 +177,22 @@ internal sealed class InlineArrayContext
 		//IEqualityOperators
 		{
 			ITypeDefOrRef iEqualityOperators = module.Definition.DefaultImporter.ImportType(typeof(IEqualityOperators<,,>));
-			GenericInstanceTypeSignature genericInstance = iEqualityOperators.MakeGenericInstanceType(arrayType.ToTypeSignature(), arrayType.ToTypeSignature(), module.Definition.CorLibTypeFactory.Boolean);
-			arrayType.Interfaces.Add(new InterfaceImplementation(genericInstance.ToTypeDefOrRef()));
+			ITypeDefOrRef genericInstance = iEqualityOperators.MakeGenericInstanceType(arrayType.ToTypeSignature(), arrayType.ToTypeSignature(), module.Definition.CorLibTypeFactory.Boolean).ToTypeDefOrRef();
+			arrayType.Interfaces.Add(new InterfaceImplementation(genericInstance));
+
+			MethodSignature methodSignature = MethodSignature.CreateStatic(new GenericParameterSignature(GenericParameterType.Type, 2), new GenericParameterSignature(GenericParameterType.Type, 0), new GenericParameterSignature(GenericParameterType.Type, 1));
+
+			// op_Equality
+			{
+				MemberReference interfaceMethod = new(genericInstance, "op_Equality", methodSignature);
+				arrayType.MethodImplementations.Add(new MethodImplementation(interfaceMethod, equalityOperator));
+			}
+
+			// op_Inequality
+			{
+				MemberReference interfaceMethod = new(genericInstance, "op_Inequality", methodSignature);
+				arrayType.MethodImplementations.Add(new MethodImplementation(interfaceMethod, inequalityOperator));
+			}
 		}
 
 		InlineArrayContext result = new(module, arrayType, type, size);
@@ -216,11 +231,12 @@ internal sealed class InlineArrayContext
 			const string methodName = $"get_{propertyName}";
 			MethodSignature methodSignature = MethodSignature.CreateStatic(Module.Definition.CorLibTypeFactory.Int32);
 
-			GenericInstanceTypeSignature interfaceType = Module.InlineArrayInterface.MakeGenericInstanceType(elementType);
+			GenericInstanceTypeSignature interfaceType1 = Module.InjectedTypes[typeof(IInlineArray<>)].MakeGenericInstanceType(elementType);
+			GenericInstanceTypeSignature interfaceType2 = Module.InjectedTypes[typeof(IInlineArray<,>)].MakeGenericInstanceType(Type.ToTypeSignature(), elementType);
 
-			Type.Interfaces.Add(new InterfaceImplementation(interfaceType.ToTypeDefOrRef()));
+			Type.Interfaces.Add(new InterfaceImplementation(interfaceType2.ToTypeDefOrRef()));
 
-			MemberReference interfaceMethod = new(interfaceType.ToTypeDefOrRef(), methodName, methodSignature);
+			MemberReference interfaceMethod = new(interfaceType1.ToTypeDefOrRef(), methodName, methodSignature);
 
 			if (@explicit && Length == length)
 			{
@@ -232,8 +248,8 @@ internal sealed class InlineArrayContext
 			MethodAttributes attributes;
 			if (@explicit)
 			{
-				string @namespace = interfaceType.Namespace is { Length: > 0 }
-					? interfaceType.Namespace + "."
+				string @namespace = interfaceType1.Namespace is { Length: > 0 }
+					? interfaceType1.Namespace + "."
 					: string.Empty;
 				prefix = $"{@namespace}{nameof(IInlineArray<>)}<{elementType.FullName}>.";
 				attributes = MethodAttributes.Private | MethodAttributes.HideBySig | MethodAttributes.SpecialName | MethodAttributes.Static;
