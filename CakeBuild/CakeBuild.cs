@@ -1,14 +1,17 @@
-﻿using Microsoft.Build.Construction;
-using Microsoft.Build.Definition;
-using Microsoft.Build.Evaluation;
+﻿using Microsoft.Build.Evaluation;
+using Microsoft.Build.Locator;
+using Shouldly;
 
-var target = Argument("target", "BuildLLVMShims");
+MSBuildLocator.RegisterDefaults();
+
+var target = Argument("target", "CopyNativeBinariesToProject");
 var configuration = Argument("configuration", "Release");
+var targetRid = Argument("targetRid", GetMsBuildRid());
+var currentProjectName = Argument("currentProject", "AssetRipper.Translation.LlvmIR");
 
-var llvmLocalRepo = Argument("llvm-local-repo-path", new DirectoryPath("./LLVMShims/llvm-project"));
-var llvmRemoteUri = Argument("llvm-remote-uri", new Uri("https://github.com/llvm/llvm-project.git"));
-
-var solution = FindSolution();
+DirectoryPath llvmShimsSrcPath = "./LLVMShims/";
+var artifactsPath = FindArtifactsFolder();
+var cmakeBuildPath = artifactsPath.Combine("./obj/LLVMShims/cmake-build/");
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -21,55 +24,64 @@ Task("Clean")
 		CleanDirectory($"./src/Example/bin/{configuration}");
 	});
 
-Task("BuildLLVMShims")
+Task("ConfigLLVMShims")
 	.Does(() =>
 	{
-		DirectoryPath shimsSrcPath = "./LLVMShims/";
-		DirectoryPath buildPath = shimsSrcPath.Combine("./cmake-build/");
-		
+		Information($"Building LLVM shims to {cmakeBuildPath}");
 		CMake(new()
 		{
-			SourcePath = shimsSrcPath,
-			OutputPath = buildPath,
+			SourcePath = llvmShimsSrcPath,
+			OutputPath = cmakeBuildPath,
+			EnvironmentVariables =
+			{
+				{ "MSBUILD_EXE_PATH", "" }, { "MSBuildExtensionsPath", "" }, { "MSBuildSDKsPath", "" },
+			}
 		});
-		CMakeBuild(new()
+	});
+
+Task("BuildLLVMShims")
+	.IsDependentOn("ConfigLLVMShims")
+	.Does(() =>
+	{
+  CMakeBuild(new()
 		{
-			BinaryPath = buildPath,
+			BinaryPath = cmakeBuildPath,
 			Configuration = configuration,
-			Targets = ["LLVMShims"],
+   Targets = ["LLVMShims"],
+			CleanFirst = false,
+			EnvironmentVariables =
+			{
+				{ "IgnoreWarnIntDirInTempDetected", "true" },
+				{"MSBUILD_EXE_PATH", ""},
+				{"MSBuildExtensionsPath", ""},
+				{"MSBuildSDKsPath", ""},
+			},
 		});
-		
-		var libraryFiles = GetFiles($"{buildPath}/{configuration}/**/*.{{dll,so,dylib}}");
-		
+	});
+
+Task("CopyNativeBinariesToProject")
+	.IsDependentOn("BuildLLVMShims")
+	.Does(() =>
+	{
+  var libraryFiles = GetFiles($"{cmakeBuildPath}/{configuration}/**/*.{{dll,so,dylib}}");
+
+		Information($"Current platform RID: {targetRid}");
 		Information($"Found {libraryFiles.Count} library files:");
-		foreach(var file in libraryFiles)
+		foreach (var file in libraryFiles)
 		{
 			Information($"  - {file}");
 		}
 
-		var libFile = libraryFiles.Single();
+		var msbuildProj = FindProject(currentProjectName);
 
-		var slnFile = SolutionFile.Parse(solution.SlnPath.FullPath);
+		DirectoryPath outDir = msbuildProj.GetPropertyValue("OutDir").ShouldNotBeNull();
+		var nativeDir = outDir.Combine($"./runtimes/{targetRid}/native/");
+		EnsureDirectoryExists(nativeDir);
 
-		var libProj = slnFile.ProjectsInOrder.Single(p => p.ProjectName == "AssetRipper.Translation.LlvmIR");
-
-		var msbuildProj = Project.FromFile(libProj.AbsolutePath, new());
-
-		var itemGroup = msbuildProj.Xml.ItemGroups.FirstOrDefault(e => e.Label == "NativeLibraries");
+		CopyFiles(libraryFiles, nativeDir);
+		Information($"Copied library files to {nativeDir}");
 		
-		itemGroup ??= msbuildProj.Xml.AddItemGroup();
-		itemGroup.Label = "NativeLibraries";
 		
-		itemGroup.RemoveAllChildren();
-		
-		// Add Content item to the ItemGroup
-		var contentItem = itemGroup.AddItem("Content", libFile.FullPath);
-		contentItem.AddMetadata("CopyToOutputDirectory", "PreserveNewest");
-		contentItem.AddMetadata("Link", $"runtimes\\win-x64\\native\\{libFile.GetFilename()}");
-		
-		Information($"Added library file to project: {libFile.GetFilename()}");
-		
-		msbuildProj.Save();
 	});
 
 Task("Build")
@@ -114,4 +126,29 @@ return;
 	return slnFile is null
 		? throw new FileNotFoundException("Could not find solution file")
 		: (slnFile.FullName, ParseSolution(slnFile.FullName).Projects);
+}
+
+Project FindProject(string name)
+{
+	var libProj = FindSolution().Projects.Single(p => p.Name == name);
+
+	var collection = ProjectCollection.GlobalProjectCollection;
+	var msbuildProj = collection.GetLoadedProjects(libProj.Path.FullPath)
+		.SingleOrDefault();
+	
+	msbuildProj ??= collection.LoadProject(libProj.Path.FullPath);
+	
+	return msbuildProj;
+}
+
+DirectoryPath FindArtifactsFolder()
+{
+	var proj = FindProject("CakeBuild");
+	
+	return proj.GetPropertyValue("ArtifactsPath");
+}
+
+string GetMsBuildRid()
+{
+	return FindProject("AssetRipper.Translation.LlvmIR").GetPropertyValue("RuntimeIdentifier");
 }

@@ -22,4 +22,31 @@
 	<ItemGroup>
 		<ProjectReference Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
+
+    <PropertyGroup>
+        <TargetsForTfmSpecificBuildOutput>
+            $(TargetsForTfmSpecificBuildOutput);_CopyNativeBinariesToRuntime
+        </TargetsForTfmSpecificBuildOutput>
+    </PropertyGroup>
+
+    <Target Name="_CopyNativeBinariesToRuntime">
+        <Error Condition="'$(RuntimeIdentifier)' == ''" Text="You must provide a Runtime Identifier (RID) to build this project"/>
+        <Message Importance="High" Text="RID=$(RuntimeIdentifier) OutDir=$(OutDir) ArtifactsPath=$(ArtifactsPath)" />
+        
+        <Exec WorkingDirectory="$(SolutionDir)"
+              Command='dotnet run --project ".\CakeBuild\CakeBuild.csproj" -c $(Configuration) --target=CopyNativeBinariesToProject --targetRid=$(RuntimeIdentifier) --currentProject=$(MSBuildProjectName)' />
+
+        <ItemGroup>
+            <_NativeFilesToExport Include="$(OutDir)runtimes\$(RuntimeIdentifier)\native\**\*.*" />
+        </ItemGroup>
+        
+        <Message Importance="High" Text="Exporting native: @(_NativeFilesToExport)" />
+        <ItemGroup>
+            <TfmSpecificBuildOutput Include="@(_NativeFilesToExport)">
+                <!-- Preserve runtimes/... structure in consumer’s bin -->
+                <TargetPath>%(RecursiveDir)%(Filename)%(Extension)</TargetPath>
+                <CopyToOutput>true</CopyToOutput>
+            </TfmSpecificBuildOutput>
+        </ItemGroup>
+    </Target>
 </Project>
