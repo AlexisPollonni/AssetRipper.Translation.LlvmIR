@@ -1,0 +1,26 @@
+﻿<Project Sdk="MSBuild.Sdk.CMake/0.1.0">
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <CMakePlatform>any</CMakePlatform>
+        <CMakeBuildRootDirectory>$(ArtifactsPath)\obj\$(MSBuildProjectName)</CMakeBuildRootDirectory>
+    </PropertyGroup>
+    <ItemGroup>
+      <Content Include="**\CMakeLists.txt" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="**\*.cpp" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="**\*.h" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <CMakeDefine Include="CMAKE_VS_GLOBALS" Value="IgnoreWarnIntDirInTempDetected=True"/>
+    </ItemGroup>
+    
+    <Target Name="CopyBinariesToRuntimeDir" AfterTargets="Build">
+        <!--   TODO   -->
+    </Target>
+</Project>
