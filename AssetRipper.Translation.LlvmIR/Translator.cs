@@ -14,11 +14,6 @@ namespace AssetRipper.Translation.LlvmIR;
 
 public static unsafe class Translator
 {
-	static Translator()
-	{
-		Patches.Apply();
-	}
-
 	public static ModuleDefinition Translate(string name, string content, TranslatorOptions? options = null)
 	{
 		return Translate(name, Encoding.UTF8.GetBytes(content), options);
