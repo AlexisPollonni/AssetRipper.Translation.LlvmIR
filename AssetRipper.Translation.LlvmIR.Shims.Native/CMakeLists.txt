@@ -138,3 +138,10 @@ endif()
 # Notes:
 # - To add more LLVM components, include them in llvm_map_components_to_libnames, e.g., "analysis;bitreader".
 # - With EXCLUDE_FROM_ALL, building the target LLVMShims will trigger only the needed LLVM libs as dependencies.
+
+install(
+  TARGETS LLVMShims
+  RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}  # .dll/.exe on Windows
+  LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}  # .so/.dylib on Linux/macOS
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}  # .lib/.a import/static libs
+)

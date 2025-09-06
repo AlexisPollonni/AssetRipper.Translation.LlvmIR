@@ -1,26 +1,62 @@
 ﻿<Project Sdk="MSBuild.Sdk.CMake/0.1.0">
+    <Sdk Name="Microsoft.NET.Sdk" />
     <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-
         <CMakePlatform>any</CMakePlatform>
         <CMakeBuildRootDirectory>$(ArtifactsPath)\obj\$(MSBuildProjectName)</CMakeBuildRootDirectory>
+        
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
+    
     <ItemGroup>
-      <Content Include="**\CMakeLists.txt" />
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="**\*.cpp" />
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="**\*.h" />
+      <None Pack="false" Include="**\CMakeLists.txt" />
+      <None Pack="false" Include="**\*.cpp" />
+      <None Pack="false" Include="**\*.h" />
     </ItemGroup>
 
     <ItemGroup>
         <CMakeDefine Include="CMAKE_VS_GLOBALS" Value="IgnoreWarnIntDirInTempDetected=True"/>
     </ItemGroup>
+
+    <Target Name="ResolveRuntimeNativePath" Returns="">
+        <Error Condition="'$(RuntimeIdentifier)' == ''" Text="RuntimeIdentifier is not set. Please specify a RID (e.g., win-x64, linux-x64) to package native binaries." />
+
+        <PropertyGroup>
+            <_RuntimeNativeDir>$(OutputPath)runtimes\$(RuntimeIdentifier)\native</_RuntimeNativeDir>
+        </PropertyGroup>
+    </Target>
     
-    <Target Name="CopyBinariesToRuntimeDir" AfterTargets="Build">
-        <!--   TODO   -->
+    <Target Name="CleanCMake" AfterTargets="Clean" DependsOnTargets="ResolveRuntimeNativePath">
+        <CallTarget
+                Targets="BuildClean;ConfigClean"
+                RunEachTargetSeparately="true"
+                ContinueOnError="WarnAndContinue" />
+        
+        <Message Condition="'$(RuntimeIdentifier)' != ''" Importance="high" Text="Removing directory $(_RuntimeNativeDir)" />
+        <RemoveDir Condition="'$(RuntimeIdentifier)' != ''" Directories="$(_RuntimeNativeDir)"/>
+    </Target>
+    
+    <Target Name="BuildCMake" AfterTargets="CoreBuild" DependsOnTargets="ResolveRuntimeNativePath">
+        <PropertyGroup>
+            <CMakeInstallPrefix Condition="'$(CMakeInstallPrefix)' == ''">$(_RuntimeNativeDir)</CMakeInstallPrefix>
+        </PropertyGroup>
+
+        <Message Importance="High" Text="[CopyBinariesToRuntimeDir] Building and installing native binaries to '$(CMakeInstallPrefix)' for RID '$(RuntimeIdentifier)'." />
+
+        <MSBuild Projects="$(MSBuildThisFileFullPath)"
+                 Targets="ExecuteTarget"
+                 Properties="CMakeTarget=install;CMakeInstallPrefix=$(CMakeInstallPrefix)" />
+
+        <!-- Gather native binaries produced by CMake -->
+        <ItemGroup>
+            <_NativeBinaries Include="$(CMakeInstallPrefix)\*.dll;$(CMakeInstallPrefix)\*.so;$(CMakeInstallPrefix)\*.dylib" />
+        </ItemGroup>
+
+        <!-- Fail if no binaries were found -->
+        <Error Condition="'@(_NativeBinaries)' == ''" Text="[CopyBinariesToRuntimeDir] No native binaries were found under '$(CMakeBuildDirectory)'. Ensure your CMake build produced .dll/.so/.dylib outputs." />
+        
+        <!-- Mark binaries as packable into runtimes/<rid>/native in the NuGet package -->
+        <ItemGroup Condition="'@(_NativeBinaries)' != ''">
+            <None Include="@(_NativeBinaries)" Pack="true" PackagePath="runtimes\$(RuntimeIdentifier)\native" Visible="false" />
+        </ItemGroup>
     </Target>
 </Project>
