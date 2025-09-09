@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <CMakeDefine Include="CMAKE_VS_GLOBALS" Value="IgnoreWarnIntDirInTempDetected=True"/>
+        <CMakeDefine Include="CMAKE_VS_GLOBALS" Value="IgnoreWarnIntDirInTempDetected=True" Visible="false"/>
     </ItemGroup>
 
     <ItemGroup>
