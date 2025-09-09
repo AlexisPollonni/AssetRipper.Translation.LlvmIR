@@ -1,62 +1,114 @@
 ﻿<Project Sdk="MSBuild.Sdk.CMake/0.1.0">
-    <Sdk Name="Microsoft.NET.Sdk" />
+    <Sdk Name="Microsoft.NET.Sdk"/>
     <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <IsNativeMetaPackage Condition="$(IsNativeMetaPackage) == ''">false</IsNativeMetaPackage>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <IsPackable>true</IsPackable>
+
         <CMakePlatform>any</CMakePlatform>
         <CMakeBuildRootDirectory>$(ArtifactsPath)\obj\$(MSBuildProjectName)</CMakeBuildRootDirectory>
-        
-        <IsPackable>true</IsPackable>
     </PropertyGroup>
-    
+
     <ItemGroup>
-      <None Pack="false" Include="**\CMakeLists.txt" />
-      <None Pack="false" Include="**\*.cpp" />
-      <None Pack="false" Include="**\*.h" />
+        <Content Remove="**\CMakeLists.txt"/>
+        <Content Remove="**\*.cpp"/>
+        <Content Remove="**\*.h"/>
     </ItemGroup>
 
     <ItemGroup>
         <CMakeDefine Include="CMAKE_VS_GLOBALS" Value="IgnoreWarnIntDirInTempDetected=True"/>
     </ItemGroup>
 
-    <Target Name="ResolveRuntimeNativePath" Returns="">
-        <Error Condition="'$(RuntimeIdentifier)' == ''" Text="RuntimeIdentifier is not set. Please specify a RID (e.g., win-x64, linux-x64) to package native binaries." />
+    <ItemGroup>
+        <PackageReference Include="LLVMSharp.Interop" Version="20.1.2"/>
+        <PackageReference Include="NuJet" Version="0.0.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+
+    <Target Name="ResolveRuntimeNativePath">
+        <Error Condition="'$(RuntimeIdentifier)' == ''" Text="RuntimeIdentifier is not set. Please specify a RID (e.g., win-x64, linux-x64) to package native binaries."/>
 
         <PropertyGroup>
             <_RuntimeNativeDir>$(OutputPath)runtimes\$(RuntimeIdentifier)\native</_RuntimeNativeDir>
         </PropertyGroup>
     </Target>
-    
+
     <Target Name="CleanCMake" AfterTargets="Clean" DependsOnTargets="ResolveRuntimeNativePath">
         <CallTarget
                 Targets="BuildClean;ConfigClean"
                 RunEachTargetSeparately="true"
-                ContinueOnError="WarnAndContinue" />
-        
-        <Message Condition="'$(RuntimeIdentifier)' != ''" Importance="high" Text="Removing directory $(_RuntimeNativeDir)" />
+                ContinueOnError="WarnAndContinue"/>
+
+        <Message Condition="'$(RuntimeIdentifier)' != ''" Importance="high" Text="Removing directory $(_RuntimeNativeDir)"/>
         <RemoveDir Condition="'$(RuntimeIdentifier)' != ''" Directories="$(_RuntimeNativeDir)"/>
     </Target>
-    
-    <Target Name="BuildCMake" AfterTargets="CoreBuild" DependsOnTargets="ResolveRuntimeNativePath">
+
+    <Target Name="BuildCMake" Condition="!$(IsNativeMetaPackage)" AfterTargets="AfterBuild" DependsOnTargets="ResolveRuntimeNativePath">
         <PropertyGroup>
             <CMakeInstallPrefix Condition="'$(CMakeInstallPrefix)' == ''">$(_RuntimeNativeDir)</CMakeInstallPrefix>
         </PropertyGroup>
 
-        <Message Importance="High" Text="[CopyBinariesToRuntimeDir] Building and installing native binaries to '$(CMakeInstallPrefix)' for RID '$(RuntimeIdentifier)'." />
+        <Message Importance="High" Text="[CopyBinariesToRuntimeDir] Building and installing native binaries to '$(CMakeInstallPrefix)' for RID '$(RuntimeIdentifier)'."/>
 
         <MSBuild Projects="$(MSBuildThisFileFullPath)"
                  Targets="ExecuteTarget"
-                 Properties="CMakeTarget=install;CMakeInstallPrefix=$(CMakeInstallPrefix)" />
+                 Properties="CMakeTarget=install;CMakeInstallPrefix=$(CMakeInstallPrefix)"/>
 
         <!-- Gather native binaries produced by CMake -->
         <ItemGroup>
-            <_NativeBinaries Include="$(CMakeInstallPrefix)\*.dll;$(CMakeInstallPrefix)\*.so;$(CMakeInstallPrefix)\*.dylib" />
+            <_NativeBinaries Include="$(CMakeInstallPrefix)\*.dll;$(CMakeInstallPrefix)\*.so;$(CMakeInstallPrefix)\*.dylib"/>
         </ItemGroup>
 
         <!-- Fail if no binaries were found -->
-        <Error Condition="'@(_NativeBinaries)' == ''" Text="[CopyBinariesToRuntimeDir] No native binaries were found under '$(CMakeBuildDirectory)'. Ensure your CMake build produced .dll/.so/.dylib outputs." />
-        
+        <Error Condition="'@(_NativeBinaries)' == ''" Text="[CopyBinariesToRuntimeDir] No native binaries were found under '$(CMakeBuildDirectory)'. Ensure your CMake build produced .dll/.so/.dylib outputs."/>
+
         <!-- Mark binaries as packable into runtimes/<rid>/native in the NuGet package -->
-        <ItemGroup Condition="'@(_NativeBinaries)' != ''">
-            <None Include="@(_NativeBinaries)" Pack="true" PackagePath="runtimes\$(RuntimeIdentifier)\native" Visible="false" />
+        <ItemGroup>
+            <None Include="@(_NativeBinaries)" Pack="true" PackagePath="runtimes\$(RuntimeIdentifier)\native" Visible="false"/>
         </ItemGroup>
+    </Target>
+
+    <Target Name="PackNativeTarget" Condition="!$(IsNativeMetaPackage)" AfterTargets="Build" BeforeTargets="Pack;LocalDevelopment_AfterBuild" DependsOnTargets="BuildCMake">
+        <!-- If not the meta package, set the package id to match the current RID -->
+        <PropertyGroup>
+            <PackageId>$(MSBuildProjectName).$(RuntimeIdentifier)</PackageId>
+            <Description>AssetRipper LLVM IR Shims (native) for $(RuntimeIdentifier)</Description>
+            <PackageTags>native;runtimes;$(RuntimeIdentifier);llvm;shims</PackageTags>
+        </PropertyGroup>
+
+        <Message Importance="High" Text="Preparing to pack native target [id: $(PackageId)]"/>
+    </Target>
+
+    <Target Name="PackNativeMeta" Condition="$(IsNativeMetaPackage)" AfterTargets="Build" BeforeTargets="Pack;LocalDevelopment_AfterBuild">
+        <Message Importance="High" Text="Preparing to pack native metapackage [id: $(PackageId)]"/>
+
+        <!-- Include runtime json file for meta-package -->
+        <ItemGroup>
+            <None Include="runtime.json" Pack="true" PackagePath="/" Visible="false"/>
+        </ItemGroup>
+
+        <PropertyGroup>
+            <IncludeBuildOutput>false</IncludeBuildOutput>
+            <IncludeContentInPack>false</IncludeContentInPack>
+            <DevelopmentDependency>true</DevelopmentDependency>
+
+            <Description>AssetRipper LLVM IR Shims (meta-package). Resolves to platform-specific native packages via runtime.json.</Description>
+            <PackageTags>meta;runtimes;native;llvm;shims</PackageTags>
+        </PropertyGroup>
+    </Target>
+
+    <!-- Unfortunately NuJet assumes the package path to always be above the out dir, for local dev changing this breaks the build -->
+    <!-- This means using the default packaging path under the artifacts directory is impossible. This changes it under the bin/ child directory -->
+    <Target Name="FixUpNuJetPackagePath" AfterTargets="Build">
+        <PropertyGroup>
+            <!-- Normalize OutDir to an absolute path and then go one level up -->
+            <_ResolvedOutDir>$([System.IO.Path]::GetFullPath('$(OutDir)'))</_ResolvedOutDir>
+            <PackageOutputPath>$([System.IO.Path]::GetFullPath('$(_ResolvedOutDir)..'))</PackageOutputPath>
+        </PropertyGroup>
+        <Message Importance="High" Text="[FixUpNuJetPackagePath] PackageOutputPath = '$(PackageOutputPath)'" />
     </Target>
 </Project>
