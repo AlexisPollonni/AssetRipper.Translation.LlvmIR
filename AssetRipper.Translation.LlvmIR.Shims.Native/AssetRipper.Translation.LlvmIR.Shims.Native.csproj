@@ -2,7 +2,6 @@
     <Sdk Name="Microsoft.NET.Sdk"/>
     <PropertyGroup>
         <OutputType>Library</OutputType>
-        <IsNativeMetaPackage Condition="$(IsNativeMetaPackage) == ''">false</IsNativeMetaPackage>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <IsPackable>true</IsPackable>
 
@@ -10,15 +9,19 @@
         <CMakeBuildRootDirectory>$(ArtifactsPath)\obj\$(MSBuildProjectName)</CMakeBuildRootDirectory>
     </PropertyGroup>
 
+    <!-- Inputs used to decide whether BuildCMake needs to run -->
     <ItemGroup>
-        <Content Remove="**\CMakeLists.txt"/>
-        <Content Remove="**\*.cpp"/>
-        <Content Remove="**\*.h"/>
-    </ItemGroup>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\CMakeLists.txt"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.c"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.cpp"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.h"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.hpp"/>
 
-    <ItemGroup>
+        <Content Remove="@(_CMakeInputs)"/>
+
         <CMakeDefine Include="CMAKE_VS_GLOBALS" Value="IgnoreWarnIntDirInTempDetected=True" Visible="false"/>
     </ItemGroup>
+
 
     <ItemGroup>
         <PackageReference Include="LLVMSharp.Interop" Version="20.1.2"/>
@@ -28,12 +31,24 @@
         </PackageReference>
     </ItemGroup>
 
+    <PropertyGroup>
+        <!-- Local development: pack both meta and RID packages -->
+        <PackMeta Condition="'$(PackMeta)' == '' and '$(IsLocal)' == 'true'">true</PackMeta>
+        <PackRid Condition="'$(PackRid)'  == '' and '$(IsLocal)' == 'true'">true</PackRid>
+        <!-- Non-local/CI: default to meta package only -->
+        <PackMeta Condition="'$(PackMeta)' == ''">true</PackMeta>
+        <PackRid Condition="'$(PackRid)'  == ''">false</PackRid>
+    </PropertyGroup>
+
 
     <Target Name="ResolveRuntimeNativePath">
         <Error Condition="'$(RuntimeIdentifier)' == ''" Text="RuntimeIdentifier is not set. Please specify a RID (e.g., win-x64, linux-x64) to package native binaries."/>
 
         <PropertyGroup>
             <_RuntimeNativeDir>$(OutputPath)runtimes\$(RuntimeIdentifier)\native</_RuntimeNativeDir>
+
+            <!-- Per-RID/Configuration stamp file to make BuildCMake incremental -->
+            <_CMakeStampFile>$(IntermediateOutputPath)cmake.$(RuntimeIdentifier).$(Configuration).stamp</_CMakeStampFile>
         </PropertyGroup>
     </Target>
 
@@ -45,70 +60,104 @@
 
         <Message Condition="'$(RuntimeIdentifier)' != ''" Importance="high" Text="Removing directory $(_RuntimeNativeDir)"/>
         <RemoveDir Condition="'$(RuntimeIdentifier)' != ''" Directories="$(_RuntimeNativeDir)"/>
+
+        <!-- Remove the stamp file to force rebuild on next build -->
+        <Delete Files="$(_CMakeStampFile)" Condition="Exists('$(_CMakeStampFile)')"/>
     </Target>
 
-    <Target Name="BuildCMake" Condition="!$(IsNativeMetaPackage)" AfterTargets="AfterBuild" DependsOnTargets="ResolveRuntimeNativePath">
+    <Target Name="BuildCMake"
+            DependsOnTargets="ResolveRuntimeNativePath"
+            Inputs="@(_CMakeInputs)"
+            Outputs="$(_RuntimeNativeDir)\**\*.dll;$(_RuntimeNativeDir)\**\*.dylib;$(_RuntimeNativeDir)\**\*.so;$(_RuntimeNativeDir)\**\*.lib">
         <PropertyGroup>
             <CMakeInstallPrefix Condition="'$(CMakeInstallPrefix)' == ''">$(_RuntimeNativeDir)</CMakeInstallPrefix>
         </PropertyGroup>
 
-        <Message Importance="High" Text="[CopyBinariesToRuntimeDir] Building and installing native binaries to '$(CMakeInstallPrefix)' for RID '$(RuntimeIdentifier)'."/>
+        <Message Importance="High" Text="[BuildCMake] Building and installing native binaries to '$(CMakeInstallPrefix)' for RID '$(RuntimeIdentifier)'."/>
 
         <MSBuild Projects="$(MSBuildThisFileFullPath)"
                  Targets="ExecuteTarget"
                  Properties="CMakeTarget=install;CMakeInstallPrefix=$(CMakeInstallPrefix)"/>
 
+        <!-- Create stamp file to track successful completion -->
+        <Message Importance="High" Text="[BuildCMake] About to create stamp file '$(_CMakeStampFile)' in directory '$(IntermediateOutputPath)'."/>
+        <MakeDir Directories="$(IntermediateOutputPath)" Condition="!Exists('$(IntermediateOutputPath)')"/>
+        <Message Importance="High" Text="[BuildCMake] Directory '$(IntermediateOutputPath)' exists: $([System.IO.Directory]::Exists('$(IntermediateOutputPath)'))."/>
+        <Touch Files="$(_CMakeStampFile)" AlwaysCreate="true"/>
+        <Message Importance="High" Text="[BuildCMake] Stamp file '$(_CMakeStampFile)' exists after Touch: $([System.IO.File]::Exists('$(_CMakeStampFile)'))."/>
+        <Message Importance="High" Text="[BuildCMake] Created stamp file '$(_CMakeStampFile)' to track incremental builds."/>
+    </Target>
+
+    <Target Name="PackNativeTarget" DependsOnTargets="BuildCMake;LocalDevelopment_AfterBuild">
         <!-- Gather native binaries produced by CMake -->
         <ItemGroup>
             <_NativeBinaries Include="$(CMakeInstallPrefix)\*.dll;$(CMakeInstallPrefix)\*.so;$(CMakeInstallPrefix)\*.dylib"/>
         </ItemGroup>
 
         <!-- Fail if no binaries were found -->
-        <Error Condition="'@(_NativeBinaries)' == ''" Text="[CopyBinariesToRuntimeDir] No native binaries were found under '$(CMakeBuildDirectory)'. Ensure your CMake build produced .dll/.so/.dylib outputs."/>
+        <Error Condition="'@(_NativeBinaries)' == ''" Text="[BuildCMake] No native binaries were found under install dir '$(CMakeInstallPrefix)'. Ensure your CMake build has an install step and produced .dll/.so/.dylib outputs."/>
 
         <!-- Mark binaries as packable into runtimes/<rid>/native in the NuGet package -->
         <ItemGroup>
             <None Include="@(_NativeBinaries)" Pack="true" PackagePath="runtimes\$(RuntimeIdentifier)\native" Visible="false"/>
         </ItemGroup>
-    </Target>
-
-    <Target Name="PackNativeTarget" Condition="!$(IsNativeMetaPackage)" AfterTargets="Build" BeforeTargets="Pack;LocalDevelopment_AfterBuild" DependsOnTargets="BuildCMake">
-        <!-- If not the meta package, set the package id to match the current RID -->
+        
+        <!-- not the meta package, set the package id to match the current RID -->
         <PropertyGroup>
             <PackageId>$(MSBuildProjectName).$(RuntimeIdentifier)</PackageId>
             <Description>AssetRipper LLVM IR Shims (native) for $(RuntimeIdentifier)</Description>
             <PackageTags>native;runtimes;$(RuntimeIdentifier);llvm;shims</PackageTags>
+
+            <DevelopmentDependency>true</DevelopmentDependency>
+            <IncludeBuildOutput>false</IncludeBuildOutput>
         </PropertyGroup>
 
         <Message Importance="High" Text="Preparing to pack native target [id: $(PackageId)]"/>
     </Target>
 
-    <Target Name="PackNativeMeta" Condition="$(IsNativeMetaPackage)" AfterTargets="Build" BeforeTargets="Pack;LocalDevelopment_AfterBuild">
+    <Target Name="PackNativeMeta" DependsOnTargets="LocalDevelopment_AfterBuild">
         <Message Importance="High" Text="Preparing to pack native metapackage [id: $(PackageId)]"/>
 
         <!-- Include runtime json file for meta-package -->
         <ItemGroup>
-            <None Include="runtime.json" Pack="true" PackagePath="/" Visible="false"/>
+            <None Include="runtime.json" Pack="true" PackagePath="\" Visible="false"/>
         </ItemGroup>
 
         <PropertyGroup>
-            <IncludeBuildOutput>false</IncludeBuildOutput>
-            <IncludeContentInPack>false</IncludeContentInPack>
-            <DevelopmentDependency>true</DevelopmentDependency>
-
             <Description>AssetRipper LLVM IR Shims (meta-package). Resolves to platform-specific native packages via runtime.json.</Description>
             <PackageTags>meta;runtimes;native;llvm;shims</PackageTags>
         </PropertyGroup>
     </Target>
 
+    <!-- Orchestrate pack(s): prepare for packing based on PackMeta/PackRid -->
+    <Target Name="PackOrchestrator"
+            Condition="'$(SkipPackOrchestrator)' != 'true'"
+            AfterTargets="AfterBuild"
+            BeforeTargets="Pack;LocalDevelopment_AfterBuild"
+            DependsOnTargets="FixUpNuJetPackagePath">
+        <Message Importance="High" Text="[PackOrchestrator] IsLocal=$(IsLocal); PackMeta=$(PackMeta); PackRid=$(PackRid); RuntimeIdentifier=$(RuntimeIdentifier); Output=$(PackageOutputPath)"/>
+        <Error Condition="'$(PackMeta)' != 'true' and '$(PackRid)' != 'true'"
+               Text="[PackOrchestrator] Both PackMeta and PackRid are false. At least one must be true."/>
+        <Error Condition="'$(PackRid)' == 'true' and '$(RuntimeIdentifier)' == ''"
+               Text="[PackOrchestrator] PackRid=true requires RuntimeIdentifier. Pass -p:RuntimeIdentifier=&lt;rid&gt;."/>
+
+        <!-- We use a fake property here thats different on both invocations to avoid cache skipping -->
+        <MSBuild Projects="$(MSBuildThisFileFullPath)" Targets="PackNativeMeta;Pack" Condition="'$(PackMeta)' == 'true'" UnloadProjectsOnCompletion="true" BuildInParallel="false" RunEachTargetSeparately="false" Properties="SkipPackOrchestrator=true;FakeProperty=one"/>
+        <MSBuild Projects="$(MSBuildThisFileFullPath)" Targets="PackNativeTarget;Pack" Condition="'$(PackRid)' == 'true'" UnloadProjectsOnCompletion="true" BuildInParallel="false" RunEachTargetSeparately="false" Properties="SkipPackOrchestrator=true;FakeProperty=two"/>
+
+        <PropertyGroup>
+            <IsPackable>false</IsPackable>
+        </PropertyGroup>
+    </Target>
+
     <!-- Unfortunately NuJet assumes the package path to always be above the out dir, for local dev changing this breaks the build -->
     <!-- This means using the default packaging path under the artifacts directory is impossible. This changes it under the bin/ child directory -->
-    <Target Name="FixUpNuJetPackagePath" AfterTargets="Build">
+    <Target Name="FixUpNuJetPackagePath" BeforeTargets="PackNativeTarget;PackNativeMeta">
         <PropertyGroup>
             <!-- Normalize OutDir to an absolute path and then go one level up -->
             <_ResolvedOutDir>$([System.IO.Path]::GetFullPath('$(OutDir)'))</_ResolvedOutDir>
             <PackageOutputPath>$([System.IO.Path]::GetFullPath('$(_ResolvedOutDir)..'))</PackageOutputPath>
         </PropertyGroup>
-        <Message Importance="High" Text="[FixUpNuJetPackagePath] PackageOutputPath = '$(PackageOutputPath)'" />
+        <Message Importance="High" Text="[FixUpNuJetPackagePath] PackageOutputPath = '$(PackageOutputPath)'"/>
     </Target>
 </Project>
