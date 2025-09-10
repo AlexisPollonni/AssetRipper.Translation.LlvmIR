@@ -73,6 +73,19 @@
                  Targets="ExecuteTarget"
                  Properties="CMakeTarget=install;CMakeInstallPrefix=$(CMakeInstallPrefix)"/>
     </Target>
+
+    
+    <Target Name="GenerateRuntimeJson" DependsOnTargets="LocalDevelopment_AfterBuild">
+        <PropertyGroup>
+            <_RuntimeJsonInput>runtime.json</_RuntimeJsonInput>
+            <_RuntimeJsonOutput>$(IntermediateOutputPath)\runtime.json</_RuntimeJsonOutput>
+        </PropertyGroup>
+        
+        <WriteLinesToFile
+                File="$(_RuntimeJsonOutput)"
+                Lines="$([System.IO.File]::ReadAllText($(_RuntimeJsonInput)).Replace('$version$',$(PackageVersion)))"
+                Overwrite="true" />
+    </Target>
     
     <Target Name="PackNativeTarget" DependsOnTargets="BuildCMake;LocalDevelopment_AfterBuild">
         <!-- Gather native binaries produced by CMake -->
@@ -93,20 +106,19 @@
             <PackageId>$(MSBuildProjectName).$(RuntimeIdentifier)</PackageId>
             <Description>AssetRipper LLVM IR Shims (native) for $(RuntimeIdentifier)</Description>
             <PackageTags>native;runtimes;$(RuntimeIdentifier);llvm;shims</PackageTags>
-
-            <DevelopmentDependency>true</DevelopmentDependency>
+            
             <IncludeBuildOutput>false</IncludeBuildOutput>
         </PropertyGroup>
 
         <Message Importance="High" Text="Preparing to pack native target [id: $(PackageId)]"/>
     </Target>
 
-    <Target Name="PackNativeMeta" DependsOnTargets="LocalDevelopment_AfterBuild">
+    <Target Name="PackNativeMeta" DependsOnTargets="GenerateRuntimeJson">
         <Message Importance="High" Text="Preparing to pack native metapackage [id: $(PackageId)]"/>
-
-        <!-- Include runtime json file for meta-package -->
+        
+        <!-- Include runtime.json in the package and ensure it appears in the .nuspec -->
         <ItemGroup>
-            <None Include="runtime.json" Pack="true" PackagePath="\" Visible="false"/>
+            <Content Include="$(_RuntimeJsonOutput)" Pack="true" PackagePath="\runtime.json" />
         </ItemGroup>
 
         <PropertyGroup>

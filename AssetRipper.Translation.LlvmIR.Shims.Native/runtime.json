@@ -2,54 +2,54 @@
   "runtimes": {
     "win-x64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.win-x64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.win-x64" : "$version$"
       }
     },
     "win-arm64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.win-arm64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.win-arm64" : "$version$"
       }
     },
     "win-x86": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.win-x86"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.win-x86" : "$version$"
       }
     },
 
     "linux-x64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.linux-x64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.linux-x64" : "$version$"
       }
     },
     "linux-arm64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.linux-arm64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.linux-arm64" : "$version$"
       }
     },
     "linux-arm": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.linux-arm"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.linux-arm" : "$version$"
       }
     },
     "linux-musl-x64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.linux-musl-x64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.linux-musl-x64" : "$version$"
       }
     },
     "linux-musl-arm64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.linux-musl-arm64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.linux-musl-arm64" : "$version$"
       }
     },
 
     "osx-x64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.osx-x64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.osx-x64" : "$version$"
       }
     },
     "osx-arm64": {
       "AssetRipper.Translation.LlvmIR.Shims.Native": {
-        "runtime": "AssetRipper.Translation.LlvmIR.Shims.Native.$version$.osx-arm64"
+        "AssetRipper.Translation.LlvmIR.Shims.Native.osx-arm64" : "$version$"
       }
     }
   }
