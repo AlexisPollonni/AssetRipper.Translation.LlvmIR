@@ -22,7 +22,6 @@
         <CMakeDefine Include="CMAKE_VS_GLOBALS" Value="IgnoreWarnIntDirInTempDetected=True" Visible="false"/>
     </ItemGroup>
 
-
     <ItemGroup>
         <PackageReference Include="LLVMSharp.Interop" Version="20.1.2"/>
         <PackageReference Include="NuJet" Version="0.0.1">
@@ -60,15 +59,10 @@
 
         <Message Condition="'$(RuntimeIdentifier)' != ''" Importance="high" Text="Removing directory $(_RuntimeNativeDir)"/>
         <RemoveDir Condition="'$(RuntimeIdentifier)' != ''" Directories="$(_RuntimeNativeDir)"/>
-
-        <!-- Remove the stamp file to force rebuild on next build -->
-        <Delete Files="$(_CMakeStampFile)" Condition="Exists('$(_CMakeStampFile)')"/>
     </Target>
 
     <Target Name="BuildCMake"
-            DependsOnTargets="ResolveRuntimeNativePath"
-            Inputs="@(_CMakeInputs)"
-            Outputs="$(_RuntimeNativeDir)\**\*.dll;$(_RuntimeNativeDir)\**\*.dylib;$(_RuntimeNativeDir)\**\*.so;$(_RuntimeNativeDir)\**\*.lib">
+            DependsOnTargets="ResolveRuntimeNativePath">
         <PropertyGroup>
             <CMakeInstallPrefix Condition="'$(CMakeInstallPrefix)' == ''">$(_RuntimeNativeDir)</CMakeInstallPrefix>
         </PropertyGroup>
@@ -78,16 +72,8 @@
         <MSBuild Projects="$(MSBuildThisFileFullPath)"
                  Targets="ExecuteTarget"
                  Properties="CMakeTarget=install;CMakeInstallPrefix=$(CMakeInstallPrefix)"/>
-
-        <!-- Create stamp file to track successful completion -->
-        <Message Importance="High" Text="[BuildCMake] About to create stamp file '$(_CMakeStampFile)' in directory '$(IntermediateOutputPath)'."/>
-        <MakeDir Directories="$(IntermediateOutputPath)" Condition="!Exists('$(IntermediateOutputPath)')"/>
-        <Message Importance="High" Text="[BuildCMake] Directory '$(IntermediateOutputPath)' exists: $([System.IO.Directory]::Exists('$(IntermediateOutputPath)'))."/>
-        <Touch Files="$(_CMakeStampFile)" AlwaysCreate="true"/>
-        <Message Importance="High" Text="[BuildCMake] Stamp file '$(_CMakeStampFile)' exists after Touch: $([System.IO.File]::Exists('$(_CMakeStampFile)'))."/>
-        <Message Importance="High" Text="[BuildCMake] Created stamp file '$(_CMakeStampFile)' to track incremental builds."/>
     </Target>
-
+    
     <Target Name="PackNativeTarget" DependsOnTargets="BuildCMake;LocalDevelopment_AfterBuild">
         <!-- Gather native binaries produced by CMake -->
         <ItemGroup>
@@ -101,7 +87,7 @@
         <ItemGroup>
             <None Include="@(_NativeBinaries)" Pack="true" PackagePath="runtimes\$(RuntimeIdentifier)\native" Visible="false"/>
         </ItemGroup>
-        
+
         <!-- not the meta package, set the package id to match the current RID -->
         <PropertyGroup>
             <PackageId>$(MSBuildProjectName).$(RuntimeIdentifier)</PackageId>
