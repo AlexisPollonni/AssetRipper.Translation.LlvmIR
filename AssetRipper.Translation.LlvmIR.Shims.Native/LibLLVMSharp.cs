@@ -3,9 +3,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace AssetRipper.Translation.LlvmIR;
+namespace AssetRipper.Translation.LlvmIR.Shims.Native;
 
-internal static unsafe partial class LLVMShims
+public static unsafe partial class LLVMShims
 {
 	[LibraryImport("LLVMShims", EntryPoint = "FunctionGetReturnType")]
 	[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

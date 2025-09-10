@@ -2,6 +2,7 @@
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Shims.Native;
 using LLVMSharp.Interop;
 using System.Diagnostics;
 

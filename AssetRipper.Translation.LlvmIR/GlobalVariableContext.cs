@@ -6,6 +6,7 @@ using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
+using AssetRipper.Translation.LlvmIR.Shims.Native;
 using AssetRipper.Translation.LlvmIR.Variables;
 using LLVMSharp.Interop;
 using System.Diagnostics;
