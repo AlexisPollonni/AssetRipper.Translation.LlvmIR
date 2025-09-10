@@ -127,9 +127,9 @@
         <Error Condition="'$(PackRid)' == 'true' and '$(RuntimeIdentifier)' == ''"
                Text="[PackOrchestrator] PackRid=true requires RuntimeIdentifier. Pass -p:RuntimeIdentifier=&lt;rid&gt;."/>
 
-        <!-- We use a fake property here thats different on both invocations to avoid cache skipping -->
-        <MSBuild Projects="$(MSBuildThisFileFullPath)" Targets="PackNativeMeta;Pack" Condition="'$(PackMeta)' == 'true'" UnloadProjectsOnCompletion="true" BuildInParallel="false" RunEachTargetSeparately="false" Properties="SkipPackOrchestrator=true;FakeProperty=one"/>
-        <MSBuild Projects="$(MSBuildThisFileFullPath)" Targets="PackNativeTarget;Pack" Condition="'$(PackRid)' == 'true'" UnloadProjectsOnCompletion="true" BuildInParallel="false" RunEachTargetSeparately="false" Properties="SkipPackOrchestrator=true;FakeProperty=two"/>
+        <!-- Careful here, if properties are not different on both invocations the later one will be skipped -->
+        <MSBuild Projects="$(MSBuildThisFileFullPath)" Targets="PackNativeMeta;Pack" Condition="'$(PackMeta)' == 'true'" UnloadProjectsOnCompletion="true" BuildInParallel="false" RunEachTargetSeparately="false" Properties="SkipPackOrchestrator=true"/>
+        <MSBuild Projects="$(MSBuildThisFileFullPath)" Targets="PackNativeTarget;Pack" Condition="'$(PackRid)' == 'true'" UnloadProjectsOnCompletion="true" BuildInParallel="false" RunEachTargetSeparately="false" Properties="SkipPackOrchestrator=true;SuppressDependenciesWhenPacking=true"/>
 
         <PropertyGroup>
             <IsPackable>false</IsPackable>
