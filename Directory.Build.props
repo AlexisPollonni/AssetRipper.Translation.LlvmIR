@@ -1,20 +1,24 @@
 <Project>
-	<PropertyGroup>
-		<Nullable>enable</Nullable>
-		<LangVersion>Latest</LangVersion>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <LangVersion>Latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 
-		<Version>1.0.0</Version>
-		<Copyright>Copyright © ds5678</Copyright>
-		<Authors>ds5678</Authors>
+        <Version>1.0.0</Version>
+        <Copyright>Copyright © ds5678</Copyright>
+        <Authors>ds5678</Authors>
 
         <UseArtifactsOutput>true</UseArtifactsOutput>
-        
+
         <TargetFramework>net10.0</TargetFramework>
 
         <UseCurrentRuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">true</UseCurrentRuntimeIdentifier>
+
         <!-- Ensure every project, including tests, has a RID unless explicitly set -->
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == '' AND '$(PackAsTool)' != 'true'">$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
-	</PropertyGroup>
+
+        <LocalPackageOutputPath>$(ArtifactsPath)\.localpackages\$(Configuration)</LocalPackageOutputPath>
+        <RestoreAdditionalProjectSources>$(LocalPackageOutputPath); $(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
+    </PropertyGroup>
 </Project>
