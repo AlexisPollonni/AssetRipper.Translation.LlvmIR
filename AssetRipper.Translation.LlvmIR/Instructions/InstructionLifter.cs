@@ -1354,39 +1354,44 @@ internal unsafe readonly struct InstructionLifter
 						throw new Exception("Array element count mismatch");
 					}
 
+					if (elements.Length == 0)
+					{
+						// Shouldn't be possible, but no elements, so just load the default value
+						LoadVariable(basicBlock, new DefaultVariable(underlyingType));
+						return;
+					}
+
 					Debug.Assert(elementType is not PointerTypeSignature, "Pointers cannot be used as generic type arguments");
 
-					TypeSignature spanType = module.Definition.DefaultImporter
-						.ImportType(typeof(Span<>))
-						.MakeGenericInstanceType(elementType);
+					GenericInstanceTypeSignature builderType = module.InjectedTypes[typeof(InlineArrayBuilder<,>)].MakeGenericInstanceType(underlyingType, elementType);
 
-					IMethodDescriptor inlineArrayAsSpan = module.InlineArrayHelperType.Methods
-						.Single(m => m.Name == nameof(InlineArrayHelper.AsSpan))
-						.MakeGenericInstanceMethod(underlyingType, elementType);
+					MethodSignature addSignature = MethodSignature.CreateInstance(module.Definition.CorLibTypeFactory.Void, new GenericParameterSignature(GenericParameterType.Type, 1));
+					IMethodDescriptor add = new MemberReference(builderType.ToTypeDefOrRef(), nameof(InlineArrayBuilder<,>.Add), addSignature);
 
-					MethodSignature getItemSignature = MethodSignature.CreateInstance(new GenericParameterSignature(GenericParameterType.Type, 0).MakeByReferenceType(), module.Definition.CorLibTypeFactory.Int32);
-					IMethodDescriptor getItem = new MemberReference(spanType.ToTypeDefOrRef(), "get_Item", getItemSignature);
+					MethodSignature conversionSignature = MethodSignature.CreateStatic(
+						new GenericParameterSignature(GenericParameterType.Type, 0),
+						module.InjectedTypes[typeof(InlineArrayBuilder<,>)].MakeGenericInstanceType(new GenericParameterSignature(GenericParameterType.Type, 0), new GenericParameterSignature(GenericParameterType.Type, 1)));
+					IMethodDescriptor conversion = new MemberReference(builderType.ToTypeDefOrRef(), "op_Implicit", conversionSignature);
 
-					LocalVariable bufferLocal = new(underlyingType);
-					LocalVariable spanLocal = new(spanType);
+					LocalVariable builderLocal = new(builderType);
 
-					basicBlock.Add(new InitializeInstruction(spanLocal));
-
-					basicBlock.Add(new AddressOfInstruction(bufferLocal));
-					basicBlock.Add(new CallInstruction(inlineArrayAsSpan));
-					basicBlock.Add(new StoreVariableInstruction(spanLocal));
+					basicBlock.Add(new AddressOfInstruction(builderLocal));
+					basicBlock.Add(DuplicateInstruction.Instance);
+					basicBlock.Add(new InitializeObjectInstruction(builderType));
 
 					for (int i = 0; i < elements.Length; i++)
 					{
-						LLVMValueRef element = elements[i];
-						basicBlock.Add(new AddressOfInstruction(spanLocal));
-						LoadVariable(basicBlock, new ConstantI4(i, module.Definition));
-						Call(basicBlock, getItem);
-						LoadValue(basicBlock, element);
-						basicBlock.Add(new StoreIndirectInstruction(elementType));
+						if (i != elements.Length - 1)
+						{
+							// Duplicate the address for the next Add, except for the last Add where we can just use the existing address
+							basicBlock.Add(DuplicateInstruction.Instance);
+						}
+						LoadValue(basicBlock, elements[i]);
+						Call(basicBlock, add);
 					}
 
-					basicBlock.Add(new LoadVariableInstruction(bufferLocal));
+					LoadVariable(basicBlock, builderLocal);
+					Call(basicBlock, conversion);
 				}
 				break;
 			case LLVMValueKind.LLVMConstantStructValueKind:
@@ -1421,16 +1426,29 @@ internal unsafe readonly struct InstructionLifter
 						throw new Exception("Struct field count mismatch");
 					}
 
+					if (fields.Length == 0)
+					{
+						// Shouldn't be possible, but no fields, so just load the default value
+						LoadVariable(basicBlock, new DefaultVariable(typeSignature));
+						return;
+					}
+
 					LocalVariable resultLocal = new(typeSignature);
 
-					basicBlock.Add(new InitializeInstruction(resultLocal));
+					basicBlock.Add(new AddressOfInstruction(resultLocal));
+					basicBlock.Add(DuplicateInstruction.Instance);
+					basicBlock.Add(new InitializeObjectInstruction(typeSignature));
 
 					for (int i = 0; i < fields.Length; i++)
 					{
 						LLVMValueRef field = fields[i];
 						FieldDefinition fieldDefinition = typeDefinition.Fields[i];
 
-						basicBlock.Add(new AddressOfInstruction(resultLocal));
+						if (i != fields.Length - 1)
+						{
+							// Duplicate the address for the next field, except for the last field where we can just use the existing address
+							basicBlock.Add(DuplicateInstruction.Instance);
+						}
 						basicBlock.Add(new LoadFieldAddressInstruction(fieldDefinition));
 						LoadValue(basicBlock, field);
 						basicBlock.Add(new StoreIndirectInstruction(fieldDefinition.Signature!.FieldType));
