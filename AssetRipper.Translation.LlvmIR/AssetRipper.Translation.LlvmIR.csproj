@@ -7,9 +7,9 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-	</PropertyGroup>
+    </PropertyGroup>
 
-	<ItemGroup>
+    <ItemGroup>
 		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
 		<PackageReference Include="AssetRipper.CIL" Version="1.1.6" />
 		<PackageReference Include="AssetRipper.ICSharpCode.Decompiler" Version="9.1.0.8018" />
@@ -17,36 +17,10 @@
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
 		<PackageReference Include="System.IO.Hashing" Version="9.0.6" />
 		<PackageReference Include="System.Numerics.Tensors" Version="10.0.0-preview.5.25277.114" />
+        <PackageReference Include="AssetRipper.Translation.LlvmIR.Shims.Native" Version="$(Version)-*" IncludeAssets="all" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
-
-    <PropertyGroup>
-        <TargetsForTfmSpecificBuildOutput>
-            $(TargetsForTfmSpecificBuildOutput);_CopyNativeBinariesToRuntime
-        </TargetsForTfmSpecificBuildOutput>
-    </PropertyGroup>
-
-    <Target Name="_CopyNativeBinariesToRuntime">
-        <Error Condition="'$(RuntimeIdentifier)' == ''" Text="You must provide a Runtime Identifier (RID) to build this project"/>
-        <Message Importance="High" Text="RID=$(RuntimeIdentifier) OutDir=$(OutDir) ArtifactsPath=$(ArtifactsPath)" />
-        
-        <Exec WorkingDirectory="$(SolutionDir)"
-              Command='dotnet run --project ".\CakeBuild\CakeBuild.csproj" -c $(Configuration) --target=CopyNativeBinariesToProject --targetRid=$(RuntimeIdentifier) --currentProject=$(MSBuildProjectName)' />
-
-        <ItemGroup>
-            <_NativeFilesToExport Include="$(OutDir)runtimes\$(RuntimeIdentifier)\native\**\*.*" />
-        </ItemGroup>
-        
-        <Message Importance="High" Text="Exporting native: @(_NativeFilesToExport)" />
-        <ItemGroup>
-            <TfmSpecificBuildOutput Include="@(_NativeFilesToExport)">
-                <!-- Preserve runtimes/... structure in consumer’s bin -->
-                <TargetPath>%(RecursiveDir)%(Filename)%(Extension)</TargetPath>
-                <CopyToOutput>true</CopyToOutput>
-            </TfmSpecificBuildOutput>
-        </ItemGroup>
-    </Target>
 </Project>
