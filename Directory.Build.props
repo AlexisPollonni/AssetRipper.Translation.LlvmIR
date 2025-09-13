@@ -17,8 +17,5 @@
 
         <!-- Ensure every project, including tests, has a RID unless explicitly set -->
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == '' AND '$(PackAsTool)' != 'true'">$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
-
-        <LocalPackageOutputPath>$(ArtifactsPath)\.localpackages\$(Configuration)</LocalPackageOutputPath>
-        <RestoreAdditionalProjectSources>$(LocalPackageOutputPath); $(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
     </PropertyGroup>
 </Project>

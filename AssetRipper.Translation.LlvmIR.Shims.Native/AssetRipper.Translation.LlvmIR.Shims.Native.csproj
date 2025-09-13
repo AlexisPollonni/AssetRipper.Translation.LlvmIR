@@ -98,7 +98,10 @@
 
         <!-- Mark binaries as packable into runtimes/<rid>/native in the NuGet package -->
         <ItemGroup>
-            <None Include="@(_NativeBinaries)" Pack="true" PackagePath="runtimes\$(RuntimeIdentifier)\native" Visible="false"/>
+            <Content Include="@(_NativeBinaries)" Pack="true" PackagePath="runtimes\$(RuntimeIdentifier)\native" Visible="false">
+                <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+                <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            </Content>
         </ItemGroup>
 
         <!-- not the meta package, set the package id to match the current RID -->
