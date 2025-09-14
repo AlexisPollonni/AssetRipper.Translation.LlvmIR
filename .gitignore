@@ -13,3 +13,4 @@ launchSettings.json
 .antlr/
 /LLVMShims/cmake-build-debug/*
 /LLVMShims/cmake-build-release/*
+/artifacts/*
