@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-	</PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Ookii.CommandLine" Version="5.0.0" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Ookii.CommandLine" Version="5.0.0"/>
+    </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj" IncludeAssets="all"/>
+    </ItemGroup>
 
 </Project>

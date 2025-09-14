@@ -1,26 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<LangVersion>preview</LangVersion>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <PropertyGroup>
+        <LangVersion>preview</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     </PropertyGroup>
 
     <ItemGroup>
-		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
-		<PackageReference Include="AssetRipper.CIL" Version="1.1.6" />
-		<PackageReference Include="AssetRipper.ICSharpCode.Decompiler" Version="9.1.0.8018" />
-		<PackageReference Include="LLVMSharp" Version="20.1.2" />
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
-		<PackageReference Include="System.IO.Hashing" Version="9.0.6" />
-		<PackageReference Include="System.Numerics.Tensors" Version="10.0.0-preview.5.25277.114" />
-        <PackageReference Include="AssetRipper.Translation.LlvmIR.Shims.Native" Version="$(Version)-*" IncludeAssets="all" />
-	</ItemGroup>
+        <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1"/>
+        <PackageReference Include="AssetRipper.CIL" Version="1.1.6"/>
+        <PackageReference Include="AssetRipper.ICSharpCode.Decompiler" Version="9.1.0.8018"/>
+        <PackageReference Include="LLVMSharp" Version="20.1.2"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0"/>
+        <PackageReference Include="System.IO.Hashing" Version="9.0.6"/>
+        <PackageReference Include="System.Numerics.Tensors" Version="10.0.0-preview.5.25277.114"/>
+    </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-	</ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\AssetRipper.Translation.LlvmIR.Shims.Native\AssetRipper.Translation.LlvmIR.Shims.Native.csproj" IncludeAssets="all"/>
+        <ProjectReference Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+    </ItemGroup>
 </Project>
