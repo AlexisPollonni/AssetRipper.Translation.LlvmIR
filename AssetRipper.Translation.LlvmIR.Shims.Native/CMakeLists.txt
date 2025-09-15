@@ -8,18 +8,11 @@ if(NOT CMAKE_GENERATOR STREQUAL "Ninja")
     message(STATUS "Ninja is available. For faster, incremental builds consider: cmake --preset default (Ninja) or -G Ninja")
   endif()
 endif()
-# Usage:
-#   - Configure this file's directory as your CMake source (or rename to CMakeLists.txt)
-#   - Example (Visual Studio):
-#       cmake -S . -B <build> -G "Visual Studio 17 2022" -A <arch> -DCMAKE_BUILD_TYPE=Debug
-#       cmake --build <build> --config Debug --target LLVMShims
-#   - Example (Ninja):
-#       cmake -S . -B <build> -G Ninja -DCMAKE_BUILD_TYPE=Release
-#       cmake --build <build> --target LLVMShims --parallel
 
-# Prefer NEW behavior for archive timestamp extraction (avoids CMP0135 warnings)
-if(POLICY CMP0135)
-  cmake_policy(SET CMP0135 NEW)
+# On Windows, increase the max path length for object files to avoid issues with long paths in dependencies
+if(WIN32)
+    cmake_policy(SET CMP0135 NEW)
+    set(CMAKE_OBJECT_PATH_MAX 500)
 endif()
 
 project(LLVMShims CXX)
@@ -97,12 +90,9 @@ if(_host_backend)
   set(LLVM_TARGETS_TO_BUILD "${_host_backend}" CACHE STRING "LLVM targets to build")
 endif()
 
-message(STATUS ">> Declaring LLVM FetchContent (this may take a while on first run)...")
 FetchContent_Declare(
   llvm
-  URL https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-20.1.8.tar.gz
-  # URL_HASH SHA256=<put_known_hash_here_if_desired>
-  UPDATE_DISCONNECTED TRUE
+  SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/llvm-project"
   SOURCE_SUBDIR llvm
 )
 
