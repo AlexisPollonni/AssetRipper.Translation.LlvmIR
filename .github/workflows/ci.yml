@@ -1,0 +1,110 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: aminya/setup-cpp@v1
+        with:
+          compiler: llvm
+          cmake: true
+          ninja: true
+      - name: Test
+        run: dotnet test /p:CollectCoverage=true /p:ContinuousIntegrationBuild=true
+
+  pack-managed:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Pack Solution managed
+        run: dotnet pack --no-build /p:ContinuousIntegrationBuild=true
+      - name: Collect Packages
+        run: |
+          mkdir packages
+          find . -name '*.nupkg' -exec cp {} packages/ \;
+      - uses: actions/upload-artifact@v4
+        with:
+          name: managed-packages
+          path: packages/*.nupkg
+
+  pack-native:
+    name: Pack Native for ${{ matrix.rid }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            rid: linux-x64
+          - os: windows-latest
+            rid: win-x64
+          - os: macos-latest
+            rid: osx-arm64
+    runs-on: ${{ matrix.os }}
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: aminya/setup-cpp@v1
+        with:
+          compiler: llvm
+          cmake: true
+          ninja: true
+      - name: Pack RID
+        run: dotnet pack AssetRipper.Translation.LlvmIR.Shims.Native.csproj /p:RuntimeIdentifier=${{ matrix.rid }} /p:PackRid=true /p:PackMeta=false
+      - name: Collect Package
+        run: |
+          mkdir packages
+          find . -name '*.nupkg' -exec cp {} packages/ \;
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-${{ matrix.rid }}-package
+          path: packages/*.nupkg
+
+  publish:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    needs: [ pack-managed, pack-native ]
+    steps:
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download managed packages
+        uses: actions/download-artifact@v4
+        with:
+          name: managed-packages
+          path: packages
+      - name: Download native linux-x64
+        uses: actions/download-artifact@v4
+        with:
+          name: native-linux-x64-package
+          path: packages
+      - name: Download native win-x64
+        uses: actions/download-artifact@v4
+        with:
+          name: native-win-x64-package
+          path: packages
+      - name: Download native osx-arm64
+        uses: actions/download-artifact@v4
+        with:
+          name: native-osx-arm64-package
+          path: packages
+      - name: Publish packages
+        run: dotnet nuget push "packages/**/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
