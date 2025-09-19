@@ -1,6 +1,5 @@
-﻿cmake_minimum_required(VERSION 3.20)
+﻿cmake_minimum_required(VERSION 3.28)
 
-# Standalone FetchContent-based CMake for LLVMShims
 # Prefer Ninja generator: if Ninja is available and not selected, suggest using preset or -G Ninja.
 if(NOT CMAKE_GENERATOR STREQUAL "Ninja")
   find_program(_NINJA_EXE NAMES ninja ninja.exe)
@@ -15,123 +14,122 @@ if(WIN32)
     set(CMAKE_OBJECT_PATH_MAX 500)
 endif()
 
-project(LLVMShims CXX)
-
-# Standards
-set(CMAKE_C_STANDARD 17)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+project(libLLVMSharp CXX)
 
 include(FetchContent)
+include(GenerateExportHeader)
 
-# FetchContent settings
-set(FETCHCONTENT_BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.deps" CACHE PATH "FetchContent base directory")
-set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "" )
-set(FETCHCONTENT_QUIET OFF CACHE BOOL "")
 
-# LLVM configuration options (set BEFORE populating)
-# Keep LLVM lean (set BEFORE FetchContent_Populate/add_subdirectory)
-set(LLVM_ENABLE_PROJECTS "" CACHE STRING "")
-set(LLVM_ENABLE_RUNTIMES "" CACHE STRING "")
+set(CMAKE_CXX_VISIBILITY_PRESET "hidden")
+set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 
-# Don’t build samples/benchmarks/docs/tests/utils/tools
-set(LLVM_INCLUDE_TESTS OFF CACHE BOOL "")
-set(LLVM_BUILD_TESTS OFF CACHE BOOL "")
-set(LLVM_INCLUDE_EXAMPLES OFF CACHE BOOL "")
-set(LLVM_BUILD_EXAMPLES OFF CACHE BOOL "")
+set(FETCHCONTENT_QUIET FALSE)
+
+set(SOURCES
+  LLVMSharp.cpp
+  LLVMSharp.h
+)
+
+set(LLVM_SEARCH_PATHS
+  ${PATH_TO_LLVM}
+  ${PATH_TO_LLVM}/lib/cmake
+  ${PATH_TO_LLVM}/lib/cmake/llvm
+  ${PATH_TO_LLVM}/lib/cmake/clang
+  ${PATH_TO_LLVM}/share/clang/cmake/
+  ${PATH_TO_LLVM}/share/llvm/cmake/
+)
+
+# Minimal LLVM options to reduce build time/size (set as CACHE to apply to subproject)
 set(LLVM_INCLUDE_BENCHMARKS OFF CACHE BOOL "")
-set(LLVM_BUILD_BENCHMARKS OFF CACHE BOOL "")
 set(LLVM_INCLUDE_DOCS OFF CACHE BOOL "")
-set(LLVM_BUILD_DOCS OFF CACHE BOOL "")
-set(LLVM_BUILD_UTILS OFF CACHE BOOL "")
-set(LLVM_BUILD_TOOLS OFF CACHE BOOL "")
-
-# Disable bindings
-set(LLVM_ENABLE_BINDINGS OFF CACHE BOOL "")
-set(LLVM_ENABLE_OCAML OFF CACHE BOOL "")
-set(LLVM_ENABLE_OCAMLDOC OFF CACHE BOOL "")
-set(LLVM_ENABLE_GO OFF CACHE BOOL "")
+set(LLVM_INCLUDE_EXAMPLES OFF CACHE BOOL "")
+set(LLVM_INCLUDE_TESTS OFF CACHE BOOL "")
+set(LLVM_INCLUDE_TOOLS OFF CACHE BOOL "")
+set(LLVM_INCLUDE_UTILS OFF CACHE BOOL "")
 set(LLVM_INCLUDE_GO_TESTS OFF CACHE BOOL "")
 
-# Turn off optional third-party feature probes
+set(LLVM_ENABLE_PROJECTS "clang" CACHE STRING "Enabled LLVM projects")
+set(LLVM_ENABLE_RUNTIMES "" CACHE STRING "")
+
+set(LLVM_ENABLE_BINDINGS OFF CACHE BOOL "")
+set(LLVM_ENABLE_OCAML OFF CACHE BOOL "")
 set(LLVM_ENABLE_ZLIB OFF CACHE BOOL "")
 set(LLVM_ENABLE_ZSTD OFF CACHE BOOL "")
-set(LLVM_ENABLE_LIBXML2 OFF CACHE BOOL "")
 set(LLVM_ENABLE_TERMINFO OFF CACHE BOOL "")
-set(LLVM_ENABLE_LIBEDIT OFF CACHE BOOL "")
-set(LLVM_ENABLE_CURSES OFF CACHE BOOL "")
+set(LLVM_ENABLE_LIBXML2 OFF CACHE BOOL "")
 set(LLVM_ENABLE_CURL OFF CACHE BOOL "")
-set(LLVM_ENABLE_Z3_SOLVER OFF CACHE BOOL "")
-set(LLVM_ENABLE_BACKTRACES OFF CACHE BOOL "")
-set(LLVM_ENABLE_CRASH_OVERRIDES OFF CACHE BOOL "")
-set(LLVM_ENABLE_PLUGINS OFF CACHE BOOL "")
+set(LLVM_ENABLE_HTTPLIB OFF CACHE BOOL "")
+set(LLVM_ENABLE_UNWIND_TABLES OFF CACHE BOOL "")
+set(LLVM_ENABLE_GO OFF CACHE BOOL "")
 
-# Build/ABI shape
+
+
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "")
-set(LLVM_BUILD_LLVM_C_DYLIB OFF CACHE BOOL "")
-set(LLVM_ENABLE_ASSERTIONS OFF CACHE BOOL "")
-# If your shims don’t rely on exceptions/RTTI inside LLVM, consider disabling:
-# set(LLVM_ENABLE_EH OFF CACHE BOOL "")
-# set(LLVM_ENABLE_RTTI OFF CACHE BOOL "")
 
+set(LLVM_BUILD_LLVM_DYLIB OFF CACHE BOOL "")
+set(LLVM_BUILD_RUNTIME OFF CACHE BOOL "")
+set(LLVM_BUILD_EXAMPLES OFF CACHE BOOL "")
+set(LLVM_BUILD_TESTS OFF CACHE BOOL "")
+set(LLVM_BUILD_BENCHMARKS OFF CACHE BOOL "")
+set(LLVM_BUILD_UTILS OFF CACHE BOOL "")
 
-# Detect host backend name for LLVM
-set(_host_backend "")
-string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" _proc)
-if(_proc MATCHES "^(x86_64|amd64|i[3-6]86)$")
-  set(_host_backend X86)
-elseif(_proc MATCHES "^(aarch64|arm64)$")
-  set(_host_backend AArch64)
-elseif(_proc MATCHES "^arm")
-  set(_host_backend ARM) # 32-bit ARM
-endif()
-if(_host_backend)
-  set(LLVM_TARGETS_TO_BUILD "${_host_backend}" CACHE STRING "LLVM targets to build")
-endif()
+set(LLVM_TARGETS_TO_BUILD "host" CACHE STRING "")
+
 
 FetchContent_Declare(
   llvm
-  SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/llvm-project"
+  GIT_REPOSITORY https://github.com/llvm/llvm-project.git
+  GIT_TAG llvmorg-21.1.1
+  GIT_PROGRESS TRUE
+  GIT_SHALLOW TRUE
   SOURCE_SUBDIR llvm
+  EXCLUDE_FROM_ALL TRUE
+)
+  
+FetchContent_MakeAvailable(llvm)
+  
+# Set Clang source dir, if not present Clang will not be built
+set(LLVM_EXTERNAL_CLANG_SOURCE_DIR "${llvm_SOURCE_DIR}/clang" CACHE PATH "")
+
+add_library(LLVMSharp SHARED ${SOURCES})
+
+target_link_libraries(LLVMSharp PRIVATE LLVM-C)
+target_link_libraries(LLVMSharp PRIVATE LLVMDemangle)
+target_link_libraries(LLVMSharp PRIVATE LLVMAggressiveInstCombine)
+target_link_libraries(LLVMSharp PRIVATE LLVMCFGuard)
+target_link_libraries(LLVMSharp PRIVATE LLVMInstCombine)
+target_link_libraries(LLVMSharp PRIVATE LLVMInstrumentation)
+target_link_libraries(LLVMSharp PRIVATE LLVMipo)
+target_link_libraries(LLVMSharp PRIVATE LLVMObjCARCOpts)
+target_link_libraries(LLVMSharp PRIVATE LLVMScalarOpts)
+target_link_libraries(LLVMSharp PRIVATE LLVMTransformUtils)
+target_link_libraries(LLVMSharp PRIVATE LLVMVectorize)
+
+llvm_map_components_to_libnames(llvm_libs core support irreader)
+target_link_libraries(LLVMSharp PRIVATE ${llvm_libs})
+
+target_include_directories(LLVMSharp PRIVATE ${LLVM_INCLUDE_DIRS} ${CLANG_INCLUDE_DIRS})
+
+set_target_properties(LLVMSharp PROPERTIES
+    PREFIX lib
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION}
 )
 
-FetchContent_GetProperties(llvm)
-if(NOT llvm_POPULATED)
-  FetchContent_Populate(llvm)
-  # Add LLVM as a subdirectory but keep it out of the default ALL target
-  add_subdirectory(${llvm_SOURCE_DIR}/llvm ${llvm_BINARY_DIR}/llvm EXCLUDE_FROM_ALL)
-endif()
-
-# Include directories: LLVM sources and generated headers from the build tree
-set(LLVM_INCLUDE_DIRS
-  ${llvm_SOURCE_DIR}/llvm/include
-  ${llvm_BINARY_DIR}/llvm/include
+generate_export_header(LLVMSharp
+    EXPORT_MACRO_NAME "LLVMSHARP_LINKAGE"
+    EXPORT_FILE_NAME LLVMSharp_export.h
 )
 
-# Create your shims library
-add_library(LLVMShims SHARED library.cpp)
-set_target_properties(LLVMShims PROPERTIES LINKER_LANGUAGE CXX)
+set_property(TARGET LLVMSharp APPEND PROPERTY
+    PUBLIC_HEADER LLVMSharp.h "${CMAKE_CURRENT_BINARY_DIR}/LLVMSharp_export.h"
+)
 
-target_include_directories(LLVMShims PRIVATE ${LLVM_INCLUDE_DIRS})
+include(GNUInstallDirs)
 
-# Prefer component mapping helper when available; fallback to imported targets
-if(COMMAND llvm_map_components_to_libnames)
-  # Minimal set of components often needed; adjust as required by your code
-  llvm_map_components_to_libnames(llvm_libs support core irreader demangle)
-  target_link_libraries(LLVMShims PRIVATE ${llvm_libs})
-else()
-  # Fallback to imported targets if the helper is not available in this context
-  target_link_libraries(LLVMShims PRIVATE LLVM::Core LLVM::Support LLVM::IRReader)
-endif()
-
-# Notes:
-# - To add more LLVM components, include them in llvm_map_components_to_libnames, e.g., "analysis;bitreader".
-# - With EXCLUDE_FROM_ALL, building the target LLVMShims will trigger only the needed LLVM libs as dependencies.
-
-install(
-  TARGETS LLVMShims
-  RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}  # .dll/.exe on Windows
-  LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}  # .so/.dylib on Linux/macOS
-  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}  # .lib/.a import/static libs
+install(TARGETS LLVMSharp
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT runtime
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT development
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT runtime
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} COMPONENT development
 )

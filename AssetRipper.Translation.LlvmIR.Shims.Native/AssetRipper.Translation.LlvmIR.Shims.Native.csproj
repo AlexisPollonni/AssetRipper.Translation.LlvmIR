@@ -21,24 +21,25 @@
         <Content Remove="@(_CMakeInputs)"/>
 
         <CMakeDefine Include="CMAKE_LINKER" Value="lld-link" Visible="false"/>
-        <CMakeDefine Include="CMAKE_C_COMPILER" Value="clang" Visible="false"/>
-        <CMakeDefine Include="CMAKE_CXX_COMPILER" Value="clang++" Visible="false"/>
-        <CMakeDefine Include="LLVM_ENABLE_PEDANTIC" Value="OFF" Visible="false"/>
     </ItemGroup>
 
     <ItemGroup Condition="'$(OS)' != 'Windows_NT'">
+        <CMakeDefine Include="CMAKE_C_COMPILER" Value="clang" Visible="false"/>
+        <CMakeDefine Include="CMAKE_CXX_COMPILER" Value="clang++" Visible="false"/>
+        <CMakeDefine Include="CMAKE_ASM_COMPILER" Value="clang" Visible="false"/>
+        
         <CMakeDefine Include="CMAKE_C_FLAGS" Value="-fPIC" Visible="false"/>
         <CMakeDefine Include="CMAKE_CXX_FLAGS" Value="-fPIC" Visible="false"/>
     </ItemGroup>
     <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+        <CMakeDefine Include="CMAKE_C_COMPILER" Value="clang-cl" Visible="false"/>
+        <CMakeDefine Include="CMAKE_CXX_COMPILER" Value="clang-cl" Visible="false"/>
+        <CMakeDefine Include="CMAKE_ASM_COMPILER" Value="clang-cl" Visible="false"/>
+        
         <CMakeDefine Include="CMAKE_C_FLAGS" Value="-m64" Visible="false"/>
         <CMakeDefine Include="CMAKE_CXX_FLAGS" Value="-m64" Visible="false"/>
         <CMakeDefine Include="CMAKE_SHARED_LINKER_FLAGS" Value="-fuse-ld=lld" Visible="false"/>
         <CMakeDefine Include="CMAKE_EXE_LINKER_FLAGS" Value="-fuse-ld=lld" Visible="false"/>
-        
-        <CMakeDefine Include="LLVM_ENABLE_WARNINGS" Value="OFF" Visible="false"/>
-        <CMakeDefine Include="LLVM_USE_CRT_RELEASE" Value="MT" Visible="false"/>
-        <CMakeDefine Include="LLVM_USE_CRT_DEBUG" Value="MTd" Visible="false"/>
     </ItemGroup>
 
     <ItemGroup>

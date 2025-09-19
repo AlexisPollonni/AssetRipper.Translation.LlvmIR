@@ -1,3 +1,0 @@
-[submodule "AssetRipper.Translation.LlvmIR.Shims.Native/llvm-project"]
-	path = AssetRipper.Translation.LlvmIR.Shims.Native/llvm-project
-	url = https://github.com/llvm/llvm-project.git
