@@ -51,6 +51,14 @@ set(LLVM_INCLUDE_GO_TESTS OFF CACHE BOOL "")
 set(LLVM_ENABLE_PROJECTS "clang" CACHE STRING "Enabled LLVM projects")
 set(LLVM_ENABLE_RUNTIMES "" CACHE STRING "")
 
+# Additional settings to minimize Clang build
+set(CLANG_BUILD_TOOLS OFF CACHE BOOL "")
+set(CLANG_INCLUDE_TESTS OFF CACHE BOOL "")
+set(CLANG_INCLUDE_DOCS OFF CACHE BOOL "")
+set(CLANG_BUILD_EXAMPLES OFF CACHE BOOL "")
+set(CLANG_ENABLE_STATIC_ANALYZER OFF CACHE BOOL "")
+set(CLANG_ENABLE_OBJC_REWRITER OFF CACHE BOOL "")
+
 set(LLVM_ENABLE_BINDINGS OFF CACHE BOOL "")
 set(LLVM_ENABLE_OCAML OFF CACHE BOOL "")
 set(LLVM_ENABLE_ZLIB OFF CACHE BOOL "")
@@ -85,11 +93,8 @@ FetchContent_Declare(
   SOURCE_SUBDIR llvm
   EXCLUDE_FROM_ALL TRUE
 )
-  
+
 FetchContent_MakeAvailable(llvm)
-  
-# Set Clang source dir, if not present Clang will not be built
-set(LLVM_EXTERNAL_CLANG_SOURCE_DIR "${llvm_SOURCE_DIR}/clang" CACHE PATH "")
 
 add_library(LLVMSharp SHARED ${SOURCES})
 
@@ -108,7 +113,13 @@ target_link_libraries(LLVMSharp PRIVATE LLVMVectorize)
 llvm_map_components_to_libnames(llvm_libs core support irreader)
 target_link_libraries(LLVMSharp PRIVATE ${llvm_libs})
 
-target_include_directories(LLVMSharp PRIVATE ${LLVM_INCLUDE_DIRS} ${CLANG_INCLUDE_DIRS})
+target_include_directories(LLVMSharp PRIVATE 
+    ${CMAKE_CURRENT_BINARY_DIR}             # For generated LLVMSharp_export.h
+    ${LLVM_INCLUDE_DIRS} 
+    ${llvm_SOURCE_DIR}/llvm/include         # LLVM source headers
+    ${llvm_BINARY_DIR}/include              # Generated LLVM headers (like Config/*.h)
+    ${llvm_SOURCE_DIR}/clang/include        # Source Clang headers
+)
 
 set_target_properties(LLVMSharp PROPERTIES
     PREFIX lib
@@ -130,6 +141,6 @@ include(GNUInstallDirs)
 install(TARGETS LLVMSharp
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT runtime
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT development
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT runtime
+    RUNTIME DESTINATION . COMPONENT runtime
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} COMPONENT development
 )
