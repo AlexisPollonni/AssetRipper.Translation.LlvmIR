@@ -5,14 +5,26 @@ using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using System.Collections;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using AsmResolverElementType = AsmResolver.PE.DotNet.Metadata.Tables.ElementType;
 
 namespace AssetRipper.Translation.LlvmIR;
 
-internal sealed class InlineArrayContext
+internal sealed class InlineArrayContext : IHasName
 {
+	string IHasName.MangledName => CleanName;
+	string? IHasName.DemangledName => null;
+	/// <inheritdoc/>
+	public string CleanName => $"InlineArray{Length}_{GetName(ElementType, Module)}";
+	/// <inheritdoc/>
+	public string Name
+	{
+		get => Type.Name ?? "";
+		set => Type.Name = value;
+	}
+	string? IHasName.NativeType => null;
 	public ModuleContext Module { get; }
 	public TypeDefinition Type { get; }
 	public TypeSignature ElementType { get; }
@@ -62,10 +74,11 @@ internal sealed class InlineArrayContext
 
 	public static InlineArrayContext CreateInlineArray(TypeSignature type, int size, ModuleContext module)
 	{
-		string name = $"InlineArray_{size}";
-		string uniqueName = NameGenerator.GenerateName(name, type.FullName);
-
-		TypeDefinition arrayType = new(module.Options.GetNamespace("InlineArrays"), uniqueName, TypeAttributes.Public | TypeAttributes.SequentialLayout | TypeAttributes.Sealed, module.Definition.DefaultImporter.ImportType(typeof(ValueType)));
+		TypeDefinition arrayType = new(
+			module.Options.GetNamespace("InlineArrays"),
+			$"InlineArray{size}_{Guid.NewGuid()}",
+			TypeAttributes.Public | TypeAttributes.SequentialLayout | TypeAttributes.Sealed,
+			module.Definition.DefaultImporter.ImportType(typeof(ValueType)));
 		module.Definition.TopLevelTypes.Add(arrayType);
 
 		//Add InlineArrayAttribute to arrayType
@@ -87,7 +100,7 @@ internal sealed class InlineArrayContext
 		MethodDefinition equalityOperator;
 		{
 			equalityOperator = new("op_Equality", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName | MethodAttributes.Static, MethodSignature.CreateStatic(module.Definition.CorLibTypeFactory.Boolean, arrayType.ToTypeSignature(), arrayType.ToTypeSignature()));
-			equalityOperator.CilMethodBody = new(equalityOperator);
+			equalityOperator.CilMethodBody = new();
 			CilInstructionCollection instructions = equalityOperator.CilMethodBody.Instructions;
 			MethodDefinition helperMethod = module.InlineArrayHelperType.GetMethodByName(nameof(InlineArrayHelper.Equals));
 			instructions.Add(CilOpCodes.Ldarg_0);
@@ -104,7 +117,7 @@ internal sealed class InlineArrayContext
 		MethodDefinition inequalityOperator;
 		{
 			inequalityOperator = new("op_Inequality", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName | MethodAttributes.Static, MethodSignature.CreateStatic(module.Definition.CorLibTypeFactory.Boolean, arrayType.ToTypeSignature(), arrayType.ToTypeSignature()));
-			inequalityOperator.CilMethodBody = new(inequalityOperator);
+			inequalityOperator.CilMethodBody = new();
 			CilInstructionCollection instructions = inequalityOperator.CilMethodBody.Instructions;
 			instructions.Add(CilOpCodes.Ldarg_0);
 			instructions.Add(CilOpCodes.Ldarg_1);
@@ -121,7 +134,7 @@ internal sealed class InlineArrayContext
 		MethodDefinition equalsMethod;
 		{
 			equalsMethod = new("Equals", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.Virtual | MethodAttributes.Final | MethodAttributes.NewSlot, MethodSignature.CreateInstance(module.Definition.CorLibTypeFactory.Boolean, arrayType.ToTypeSignature()));
-			equalsMethod.CilMethodBody = new(equalsMethod);
+			equalsMethod.CilMethodBody = new();
 			CilInstructionCollection instructions = equalsMethod.CilMethodBody.Instructions;
 			instructions.Add(CilOpCodes.Ldarg_0);
 			instructions.Add(CilOpCodes.Ldobj, arrayType);
@@ -137,7 +150,7 @@ internal sealed class InlineArrayContext
 		{
 			// return other is InlineArray array && Equals(array);
 			MethodDefinition method = new("Equals", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.Virtual, MethodSignature.CreateInstance(module.Definition.CorLibTypeFactory.Boolean, module.Definition.CorLibTypeFactory.Object));
-			method.CilMethodBody = new(method);
+			method.CilMethodBody = new();
 			CilInstructionCollection instructions = method.CilMethodBody.Instructions;
 			CilInstructionLabel falseLabel = new();
 			instructions.Add(CilOpCodes.Ldarg_1);
@@ -158,7 +171,7 @@ internal sealed class InlineArrayContext
 		//GetHashCode
 		{
 			MethodDefinition method = new("GetHashCode", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.Virtual, MethodSignature.CreateInstance(module.Definition.CorLibTypeFactory.Int32));
-			method.CilMethodBody = new(method);
+			method.CilMethodBody = new();
 			CilInstructionCollection instructions = method.CilMethodBody.Instructions;
 			MethodDefinition helperMethod = module.InlineArrayHelperType.GetMethodByName(nameof(InlineArrayHelper.GetHashCode));
 			instructions.Add(CilOpCodes.Ldarg_0);
@@ -193,6 +206,29 @@ internal sealed class InlineArrayContext
 				MemberReference interfaceMethod = new(genericInstance, "op_Inequality", methodSignature);
 				arrayType.MethodImplementations.Add(new MethodImplementation(interfaceMethod, inequalityOperator));
 			}
+		}
+
+		//IEnumerable.GetEnumerator
+		{
+			ITypeDefOrRef iEnumerable = module.Definition.DefaultImporter.ImportType(typeof(IEnumerable));
+			TypeSignature iEnumerator = module.Definition.DefaultImporter.ImportTypeSignature(typeof(IEnumerator));
+			MemberReference iEnumerable_GetEnumerator = new(iEnumerable, nameof(IEnumerable.GetEnumerator), MethodSignature.CreateInstance(iEnumerator));
+
+			ITypeDefOrRef iEnumerableGenericInstance = module.Definition.DefaultImporter.ImportType(typeof(IEnumerable<>)).MakeGenericInstanceType(type).ToTypeDefOrRef();
+			TypeSignature iEnumeratorGenericInstance = module.Definition.DefaultImporter.ImportType(typeof(IEnumerator<>)).MakeGenericInstanceType(type);
+			MemberReference iEnumerableGenericInstance_GetEnumerator = new(iEnumerableGenericInstance, nameof(IEnumerable<>.GetEnumerator), MethodSignature.CreateInstance(iEnumeratorGenericInstance));
+
+			arrayType.Interfaces.Add(new InterfaceImplementation(iEnumerable));
+			MethodDefinition method = new("System.Collections.IEnumerable.GetEnumerator", MethodAttributes.Private | MethodAttributes.HideBySig | MethodAttributes.Virtual, MethodSignature.CreateInstance(iEnumerator));
+			method.CilMethodBody = new();
+			CilInstructionCollection instructions = method.CilMethodBody.Instructions;
+			instructions.Add(CilOpCodes.Ldarg_0);
+			instructions.Add(CilOpCodes.Ldobj, arrayType);
+			instructions.Add(CilOpCodes.Box, arrayType);
+			instructions.Add(CilOpCodes.Callvirt, iEnumerableGenericInstance_GetEnumerator);
+			instructions.Add(CilOpCodes.Ret);
+			arrayType.Methods.Add(method);
+			arrayType.MethodImplementations.Add(new MethodImplementation(iEnumerable_GetEnumerator, method));
 		}
 
 		InlineArrayContext result = new(module, arrayType, type, size);
@@ -261,7 +297,7 @@ internal sealed class InlineArrayContext
 			}
 
 			MethodDefinition method = new(prefix + methodName, attributes, methodSignature);
-			method.CilMethodBody = new(method);
+			method.CilMethodBody = new();
 
 			CilInstructionCollection instructions = method.CilMethodBody.Instructions;
 			instructions.Add(CilOpCodes.Ldc_I4, length);
@@ -275,5 +311,21 @@ internal sealed class InlineArrayContext
 			property.GetMethod = method;
 			Type.Properties.Add(property);
 		}
+	}
+
+	private static string GetName(TypeSignature type, ModuleContext module)
+	{
+		if (type is TypeDefOrRefSignature { Type: TypeDefinition typeDef })
+		{
+			if (module.InlineArrayTypes.TryGetValue(typeDef, out InlineArrayContext? inlineArray))
+			{
+				return inlineArray.CleanName;
+			}
+			if (module.Structs.TryGetValue(typeDef, out StructContext? structContext))
+			{
+				return structContext.Name;
+			}
+		}
+		return type.Name ?? throw new NullReferenceException();
 	}
 }

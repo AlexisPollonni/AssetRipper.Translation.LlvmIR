@@ -70,22 +70,28 @@ public static unsafe class Translator
 
 		moduleContext.AssignMemberNames();
 
+		Console.WriteLine("Identifying functions that might throw exceptions...");
 		moduleContext.IdentifyFunctionsThatMightThrow();
 
+		Console.WriteLine("Creating properties for global variables...");
 		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
 		{
 			globalVariableContext.CreateProperties();
 		}
 
+		Console.WriteLine("Initializing data for global variables");
 		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
 		{
 			globalVariableContext.InitializeData();
 			globalVariableContext.AddPublicImplementation();
 		}
 
+		Console.WriteLine("Implementing functions...");
+		int functionIndex = 1;
 		foreach (FunctionContext functionContext in moduleContext.Methods.Values)
 		{
 			functionContext.AddNameAttributes(functionContext.DeclaringType);
+			functionContext.AddTypeAttribute(functionContext.Definition);
 			functionContext.AddPublicImplementation();
 
 			if (IntrinsicFunctionImplementer.TryHandleIntrinsicFunction(functionContext))
@@ -93,21 +99,15 @@ public static unsafe class Translator
 				continue;
 			}
 
+			if (functionIndex % 100 == 0)
+			{
+				Console.WriteLine($"Implementing function {functionIndex}/{moduleContext.Methods.Count}");
+			}
+
 			CilInstructionCollection instructions = functionContext.Definition.CilMethodBody!.Instructions;
 
 			IReadOnlyList<BasicBlock> basicBlocks = InstructionLifter.Lift(functionContext);
 			InstructionOptimizer.Optimize(basicBlocks);
-
-			if (functionContext.NeedsStackFrame)
-			{
-				Debug.Assert(functionContext.LocalVariablesType is not null);
-				Debug.Assert(functionContext.StackFrameVariable is not null);
-				TypeDefinition stackFrameListType = moduleContext.InjectedTypes[typeof(StackFrameList)];
-
-				instructions.Add(CilOpCodes.Ldsflda, stackFrameListType.GetFieldByName(nameof(StackFrameList.Current)));
-				instructions.Add(CilOpCodes.Call, stackFrameListType.GetMethodByName(nameof(StackFrameList.New)).MakeGenericInstanceMethod(functionContext.LocalVariablesType.ToTypeSignature()));
-				instructions.Add(CilOpCodes.Stloc, functionContext.StackFrameVariable);
-			}
 
 			foreach (BasicBlock basicBlock in basicBlocks)
 			{
@@ -115,8 +115,11 @@ public static unsafe class Translator
 			}
 
 			instructions.OptimizeMacros();
+
+			functionIndex++;
 		}
 
+		Console.WriteLine("Cleaning up...");
 		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
 		{
 			globalVariableContext.RemovePointerFieldIfNotUsed();
@@ -133,8 +136,9 @@ public static unsafe class Translator
 			moduleDefinition.TopLevelTypes.Remove(moduleContext.InjectedTypes[typeof(InlineAssemblyAttribute)]);
 		}
 
-		// Structs are discovered dynamically, so we need to assign names after all methods are created.
+		// Structs and inline arrays are discovered dynamically, so we need to assign names after all methods are created.
 		moduleContext.AssignStructNames();
+		moduleContext.AssignInlineArrayNames();
 
 		return moduleDefinition;
 	}

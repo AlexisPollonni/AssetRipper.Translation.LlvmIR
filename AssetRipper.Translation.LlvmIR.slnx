@@ -25,12 +25,6 @@
     <File Path="README.md" />
     <File Path=".github\workflows\ci.yml" />
   </Folder>
-  <Project Path="AssetRipper.Translation.LlvmIR.Clang\AssetRipper.Translation.LlvmIR.Clang.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
   <Project Path="AssetRipper.Translation.LlvmIR.ConsoleApp\AssetRipper.Translation.LlvmIR.ConsoleApp.csproj">
     <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
     <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />

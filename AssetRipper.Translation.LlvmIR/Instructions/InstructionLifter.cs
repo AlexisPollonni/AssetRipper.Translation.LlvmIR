@@ -52,6 +52,13 @@ internal unsafe readonly struct InstructionLifter
 			lifter.basicBlockList.Add(basicBlock);
 		}
 
+		if (function.NeedsStackFrame)
+		{
+			BasicBlock entryBlock = lifter.basicBlockList[0];
+			Debug.Assert(entryBlock.Instructions.Count == 0);
+			entryBlock.Add(new InitializeStackFrameInstruction(function));
+		}
+
 		foreach (LLVMValueRef instruction in function.Function.GetInstructions())
 		{
 			if (instruction.InstructionOpcode is LLVMOpcode.LLVMAlloca)
@@ -556,7 +563,7 @@ internal unsafe readonly struct InstructionLifter
 							MethodDefinition method = new($"M{declaringType.Methods.Count}", MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig, methodSignature);
 							declaringType.Methods.Add(method);
 
-							method.CilMethodBody = new(method);
+							method.CilMethodBody = new();
 							method.CilMethodBody.Instructions.Add(CilOpCodes.Ldnull);
 							method.CilMethodBody.Instructions.Add(CilOpCodes.Throw);
 
@@ -1522,11 +1529,13 @@ internal unsafe readonly struct InstructionLifter
 		{
 			elementType = module.Definition.CorLibTypeFactory.Char;
 
-			IMethodDescriptor toCharacterSpan = module.SpanHelperType.Methods
-				.Single(m => m.Name == nameof(SpanHelper.ToCharacterSpan));
+			MemberReference conversionToCharacterReadOnlySpan = new(
+				module.Definition.CorLibTypeFactory.String.ToTypeDefOrRef(),
+				"op_Implicit",
+				MethodSignature.CreateStatic(module.Definition.DefaultImporter.ImportTypeSignature(typeof(ReadOnlySpan<char>)), module.Definition.CorLibTypeFactory.String));
 
 			LoadVariable(basicBlock, new ConstantString(@string, module.Definition));
-			Call(basicBlock, toCharacterSpan);
+			Call(basicBlock, conversionToCharacterReadOnlySpan);
 		}
 		else if (elementType is CorLibTypeSignature { ElementType: ElementType.I1 or ElementType.U1 })
 		{

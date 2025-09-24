@@ -42,6 +42,7 @@ public class ParsingTests
 		"void __cdecl crnd::utils::zero_object<unsigned int[17]>(unsigned int (&)[17])",
 		"unsigned int __cdecl crnd::crnd_crn_format_to_fourcc(enum crn_format)",
 		"public: unsigned int __cdecl crnd::crn_packed_uint<2>::operator unsigned int(void) const",
+		"public: struct crnd::crn_packed_uint<2> & __cdecl crnd::crn_packed_uint<2>::operator=(unsigned int)",
 	];
 
 	[TestCaseSource(nameof(demangledStrings))]
@@ -75,6 +76,18 @@ public class ParsingTests
 			Assert.That(functionName, Is.EqualTo("operator[]")); // Maybe want operator[] instead?
 			Assert.That(templateParameters, Is.Empty);
 			Assert.That(normalParameters, Is.EqualTo(new[] { "unsigned __int64" }));
+		}
+	}
+
+	[TestCase(6, "bool __cdecl fpng::fpng_encode_image_to_memory(void const *, unsigned int, unsigned int, unsigned int, class std::vector<unsigned char, class std::allocator<unsigned char>> &, unsigned int)")]
+	public void ExtractionHasCorrectParameterCount(int expectedCount, string input)
+	{
+		bool success = DemangledNamesParser.ParseFunction(input, out _, out _, out _, out _, out _, out _, out string[]? normalParameters);
+
+		Assert.That(success, Is.True);
+		using (Assert.EnterMultipleScope())
+		{
+			Assert.That(normalParameters, Has.Length.EqualTo(expectedCount));
 		}
 	}
 
