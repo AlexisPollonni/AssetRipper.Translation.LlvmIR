@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace AssetRipper.Translation.LlvmIR.Shims.Native;
 
-public static unsafe partial class Llvmsharp
+internal static unsafe class LibLlvmSharp
 {
 	[AttributeUsage(AttributeTargets.ReturnValue | AttributeTargets.Parameter)]
 	private class NativeTypeName(string name) : Attribute;
