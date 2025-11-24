@@ -8,7 +8,6 @@
     <File Path="Scripts\CMake.Config.cs" />
     <File Path="Scripts/LargeProjectCompiler.cs" />
     <File Path="Scripts/LlvmBinaryTextConverter.cs" />
-    <File Path="Scripts/MainFunctionDetector.cs" />
     <File Path="Scripts/SizeOptimizer.cs" />
     <File Path="Scripts\CMake.Build.cs" />
     <File Path="Scripts\CMake.Clean.cs" />

@@ -150,6 +150,12 @@ static int Compile([Argument] string compileCommandsJson, [Argument] string outp
     }
 }
 
+//TODO: Use in compile to find main modules
+unsafe static bool ContainsMainFunction(LLVMModuleRef module)
+{
+    return module.GetNamedFunction("main") != default;
+}
+
 static List<string> RewriteCommand(IEnumerable<string> commandParts, FilePath inputPath, FilePath outputPath, FilePath originalOutputPath)
 {
     // Detect driver from compiler name
