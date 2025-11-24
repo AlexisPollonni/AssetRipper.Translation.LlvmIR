@@ -5,16 +5,15 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/Scripts/">
-    <Project Path="Scripts\Tooling\Build.Scripts.Tooling.csproj" Type="Classic C#">
-      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-    </Project>
     <File Path="Scripts\CMake.Config.cs" />
+    <File Path="Scripts/LargeProjectCompiler.cs" />
+    <File Path="Scripts/LlvmBinaryTextConverter.cs" />
+    <File Path="Scripts/MainFunctionDetector.cs" />
+    <File Path="Scripts/SizeOptimizer.cs" />
     <File Path="Scripts\CMake.Build.cs" />
     <File Path="Scripts\CMake.Clean.cs" />
     <File Path="Scripts\Directory.Build.Props" />
+    <Project Path="Scripts\Tooling\Build.Scripts.Tooling.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
@@ -25,70 +24,11 @@
     <File Path="README.md" />
     <File Path=".github\workflows\ci.yml" />
   </Folder>
-  <Project Path="AssetRipper.Translation.LlvmIR.ConsoleApp\AssetRipper.Translation.LlvmIR.ConsoleApp.csproj">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="AssetRipper.Translation.LlvmIR.SampleGenerator\AssetRipper.Translation.LlvmIR.SampleGenerator.csproj">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="AssetRipper.Translation.LlvmIR.Shims.Native\AssetRipper.Translation.LlvmIR.Shims.Native.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="AssetRipper.Translation.LlvmIR.Tests.SourceGenerator\AssetRipper.Translation.LlvmIR.Tests.SourceGenerator.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="AssetRipper.Translation.LlvmIR.Tests\AssetRipper.Translation.LlvmIR.Tests.csproj">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="LargeProjectCompiler\LargeProjectCompiler.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="LlvmBinaryTextConverter\LlvmBinaryTextConverter.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="MainFunctionDetector\MainFunctionDetector.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="SizeOptimizer\SizeOptimizer.csproj" Type="Classic C#">
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
+  <Project Path="AssetRipper.Translation.LlvmIR.ConsoleApp\AssetRipper.Translation.LlvmIR.ConsoleApp.csproj" />
+  <Project Path="AssetRipper.Translation.LlvmIR.SampleGenerator\AssetRipper.Translation.LlvmIR.SampleGenerator.csproj" />
+  <Project Path="AssetRipper.Translation.LlvmIR.Shims.Native\AssetRipper.Translation.LlvmIR.Shims.Native.csproj" />
+  <Project Path="AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" />
+  <Project Path="AssetRipper.Translation.LlvmIR.Tests.SourceGenerator\AssetRipper.Translation.LlvmIR.Tests.SourceGenerator.csproj" />
+  <Project Path="AssetRipper.Translation.LlvmIR.Tests\AssetRipper.Translation.LlvmIR.Tests.csproj" />
+  <Project Path="AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj" />
 </Solution>
