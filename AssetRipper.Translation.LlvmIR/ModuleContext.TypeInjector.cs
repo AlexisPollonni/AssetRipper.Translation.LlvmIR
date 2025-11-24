@@ -1,8 +1,8 @@
-﻿using AsmResolver.DotNet;
-using AsmResolver.DotNet.Cloning;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using AsmResolver.DotNet;
+using AsmResolver.DotNet.Cloning;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -15,6 +15,7 @@ internal sealed partial class ModuleContext
 			TargetModule = targetModule;
 			TargetNamespace = targetNamespace;
 		}
+
 		private ModuleDefinition TargetModule { get; }
 		private string? TargetNamespace { get; }
 		private Dictionary<string, ModuleDefinition> SourceModules { get; } = new();
@@ -28,13 +29,19 @@ internal sealed partial class ModuleContext
 			foreach (Type type in types)
 			{
 				ModuleDefinition sourceModule = GetOrLoadSourceModule(type);
-				cloner.Include(sourceModule.TopLevelTypes.First(t => t.Namespace == type.Namespace && t.Name == type.Name));
+				cloner.Include(
+					sourceModule.TopLevelTypes.First(t =>
+						t.Namespace == type.Namespace && t.Name == type.Name
+					)
+				);
 			}
 			ICollection<TypeDefinition> clonedTypes = cloner.Clone().ClonedTopLevelTypes;
 			Debug.Assert(clonedTypes.Count == types.Length);
 			foreach (Type type in types)
 			{
-				TypeDefinition clonedType = clonedTypes.First(t => t.Namespace == type.Namespace && t.Name == type.Name);
+				TypeDefinition clonedType = clonedTypes.First(t =>
+					t.Namespace == type.Namespace && t.Name == type.Name
+				);
 				clonedType.Namespace = TargetNamespace;
 				InjectedTypes.Add(type, clonedType);
 				TargetModule.TopLevelTypes.Add(clonedType);
@@ -57,7 +64,8 @@ internal sealed partial class ModuleContext
 		#region IReadOnlyDictionary
 		IEnumerable<Type> IReadOnlyDictionary<Type, TypeDefinition>.Keys => InjectedTypes.Keys;
 
-		IEnumerable<TypeDefinition> IReadOnlyDictionary<Type, TypeDefinition>.Values => InjectedTypes.Values;
+		IEnumerable<TypeDefinition> IReadOnlyDictionary<Type, TypeDefinition>.Values =>
+			InjectedTypes.Values;
 
 		int IReadOnlyCollection<KeyValuePair<Type, TypeDefinition>>.Count => InjectedTypes.Count;
 
@@ -66,12 +74,17 @@ internal sealed partial class ModuleContext
 			return InjectedTypes.ContainsKey(key);
 		}
 
-		bool IReadOnlyDictionary<Type, TypeDefinition>.TryGetValue(Type key, [MaybeNullWhen(false)] out TypeDefinition value)
+		bool IReadOnlyDictionary<Type, TypeDefinition>.TryGetValue(
+			Type key,
+			[MaybeNullWhen(false)] out TypeDefinition value
+		)
 		{
 			return InjectedTypes.TryGetValue(key, out value);
 		}
 
-		IEnumerator<KeyValuePair<Type, TypeDefinition>> IEnumerable<KeyValuePair<Type, TypeDefinition>>.GetEnumerator()
+		IEnumerator<KeyValuePair<Type, TypeDefinition>> IEnumerable<
+			KeyValuePair<Type, TypeDefinition>
+		>.GetEnumerator()
 		{
 			return InjectedTypes.GetEnumerator();
 		}

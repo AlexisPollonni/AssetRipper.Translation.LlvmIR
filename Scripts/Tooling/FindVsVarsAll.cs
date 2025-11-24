@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Cake.Common.IO;
 using Cake.Core;
 using Cake.Core.Annotations;
@@ -5,7 +6,6 @@ using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using NuGet.Configuration;
 using Shouldly;
-using System.Runtime.InteropServices;
 
 namespace AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling;
 
@@ -14,7 +14,10 @@ public static class FindVsVarsAll
 	[CakeMethodAlias]
 	[CakeAliasCategory("VsVarsAll")]
 	[CakeNamespaceImport("AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling")]
-	public static IDictionary<string, string> GetVsVarsAll(this ICakeContext ctx, FilePath? pathToVsWhere = null)
+	public static IDictionary<string, string> GetVsVarsAll(
+		this ICakeContext ctx,
+		FilePath? pathToVsWhere = null
+	)
 	{
 		var logger = ctx.Log;
 		OperatingSystem.IsWindows().ShouldBeTrue("This command only works on Windows");
@@ -27,7 +30,6 @@ public static class FindVsVarsAll
 		var vsVarsAllPath = GetVsVarsAllPath(vsInstallPath);
 
 		return GetVsEnvironmentVariables(vsVarsAllPath);
-
 
 		FilePath ResolveVsWhereTool(FilePath? providedPathToVsWhere = null)
 		{
@@ -54,9 +56,12 @@ public static class FindVsVarsAll
 				return resolvedVsWhere;
 			}
 
-			var nugetSettings
-				= Settings.LoadDefaultSettings(ctx.Environment.WorkingDirectory.MakeAbsolute(ctx.Environment).FullPath);
-			var globalPkgDir = ctx.Directory(SettingsUtility.GetGlobalPackagesFolder(nugetSettings));
+			var nugetSettings = Settings.LoadDefaultSettings(
+				ctx.Environment.WorkingDirectory.MakeAbsolute(ctx.Environment).FullPath
+			);
+			var globalPkgDir = ctx.Directory(
+				SettingsUtility.GetGlobalPackagesFolder(nugetSettings)
+			);
 
 			ctx.DirectoryExists(globalPkgDir).ShouldBeTrue();
 
@@ -75,11 +80,14 @@ public static class FindVsVarsAll
 			var vsWhereTool = ctx.Tools.Resolve(["vswhere", "vswhere.exe"]);
 			vsWhereTool.ShouldNotBeNull();
 
-			var output = ctx.StartProcessAndReadOutput(vsWhereTool,
-			                                           args => args.Append("-prerelease")
-			                                                       .Append("-latest")
-			                                                       .Append("-property installationPath"))
-			                .Single();
+			var output = ctx.StartProcessAndReadOutput(
+					vsWhereTool,
+					args =>
+						args.Append("-prerelease")
+							.Append("-latest")
+							.Append("-property installationPath")
+				)
+				.Single();
 
 			var vsInstallPathRes = ctx.Directory(output);
 
@@ -101,26 +109,30 @@ public static class FindVsVarsAll
 				Architecture.X86 => "x86",
 				Architecture.Arm64 => "arm64",
 				Architecture.Arm => "arm",
-				_ => throw new NotSupportedException($"Unsupported architecture {RuntimeInformation.ProcessArchitecture}")
+				_ => throw new NotSupportedException(
+					$"Unsupported architecture {RuntimeInformation.ProcessArchitecture}"
+				),
 			};
 
-
-			var output = ctx.StartProcessAndReadOutput(vsVarsAll,
-			                                           args => args.Append(arch).Append("&& set"),
-			                                           additionalEnvironmentVariables: new Dictionary<string, string>
-			                                           {
-				                                           ["VSCMD_SKIP_SENDTELEMETRY"] = "1" // Suppress telemetry
-			                                           })
-			                .ToArray();
+			var output = ctx.StartProcessAndReadOutput(
+					vsVarsAll,
+					args => args.Append(arch).Append("&& set"),
+					additionalEnvironmentVariables: new Dictionary<string, string>
+					{
+						["VSCMD_SKIP_SENDTELEMETRY"] = "1", // Suppress telemetry
+					}
+				)
+				.ToArray();
 
 			output.ShouldNotBeEmpty();
 
-			return output.Select(line => line.Trim())
-			             .Where(trimmed => !string.IsNullOrEmpty(trimmed))
-			             .Select(trimmed => trimmed.Split('=', 2))
-			             .Where(parts => parts.Length == 2)
-			             .Select(parts => (parts[0], parts[1]))
-			             .ToDictionary();
+			return output
+				.Select(line => line.Trim())
+				.Where(trimmed => !string.IsNullOrEmpty(trimmed))
+				.Select(trimmed => trimmed.Split('=', 2))
+				.Where(parts => parts.Length == 2)
+				.Select(parts => (parts[0], parts[1]))
+				.ToDictionary();
 		}
 	}
 }

@@ -7,10 +7,12 @@ public sealed record class AddressOfInstruction(IVariable Variable) : Instructio
 {
 	public override int PopCount => 0;
 	public override int PushCount => 1;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		Variable.AddLoadAddress(instructions);
 	}
+
 	protected override string ToStringImplementation()
 	{
 		return $"AddressOf {{ {Variable} }}";

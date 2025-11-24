@@ -1,11 +1,11 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Collections;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AssetRipper.Translation.LlvmIR.Attributes;
-using System.Diagnostics.CodeAnalysis;
-using System.Text.RegularExpressions;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -20,12 +20,21 @@ internal static partial class IntrinsicFunctionImplementer
 
 		CilInstructionCollection instructions = context.Definition.CilMethodBody!.Instructions;
 
-		if (TryGetInjectedIntrinsic(context.Module, context.MangledName, out MethodDefinition? implementation) && implementation.Parameters.Count == context.Definition.Parameters.Count)
+		if (
+			TryGetInjectedIntrinsic(
+				context.Module,
+				context.MangledName,
+				out MethodDefinition? implementation
+			)
+			&& implementation.Parameters.Count == context.Definition.Parameters.Count
+		)
 		{
 			// Set parameter names to match the implementation.
 			for (int i = 0; i < context.Definition.Parameters.Count; i++)
 			{
-				context.Definition.Parameters[i].GetOrCreateDefinition().Name = implementation.Parameters[i].Name;
+				context.Definition.Parameters[i].GetOrCreateDefinition().Name = implementation
+					.Parameters[i]
+					.Name;
 			}
 
 			MoveToImplementedType(context);
@@ -58,15 +67,23 @@ internal static partial class IntrinsicFunctionImplementer
 
 	private static void MoveToImplementedType(FunctionContext context)
 	{
-		context.DeclaringType.Namespace = context.Module.Options.GetNamespace("Intrinsics.Implemented");
+		context.DeclaringType.Namespace = context.Module.Options.GetNamespace(
+			"Intrinsics.Implemented"
+		);
 	}
 
 	private static void MoveToUnimplementedType(FunctionContext context)
 	{
-		context.DeclaringType.Namespace = context.Module.Options.GetNamespace("Intrinsics.Unimplemented");
+		context.DeclaringType.Namespace = context.Module.Options.GetNamespace(
+			"Intrinsics.Unimplemented"
+		);
 	}
 
-	private static bool TryGetInjectedIntrinsic(ModuleContext context, string mangledName, [NotNullWhen(true)] out MethodDefinition? result)
+	private static bool TryGetInjectedIntrinsic(
+		ModuleContext context,
+		string mangledName,
+		[NotNullWhen(true)] out MethodDefinition? result
+	)
 	{
 		result = context.IntrinsicsType.Methods.FirstOrDefault(m =>
 		{
@@ -95,19 +112,30 @@ internal static partial class IntrinsicFunctionImplementer
 		}
 
 		TypeSignature returnTypeSignature = context.Definition.Signature!.ReturnType;
-		TypeDefinition returnTypeDefinition = returnTypeSignature.Resolve() ?? throw new NullReferenceException(nameof(returnTypeDefinition));
+		TypeDefinition returnTypeDefinition =
+			returnTypeSignature.Resolve()
+			?? throw new NullReferenceException(nameof(returnTypeDefinition));
 
 		MethodSpecification? implementation;
-		if (context.Module.InlineArrayTypes.TryGetValue(returnTypeDefinition, out InlineArrayContext? arrayType))
+		if (
+			context.Module.InlineArrayTypes.TryGetValue(
+				returnTypeDefinition,
+				out InlineArrayContext? arrayType
+			)
+		)
 		{
-			implementation = context.Module.InlineArrayNumericHelperType.Methods
-				.FirstOrDefault(m => StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic)
+			implementation = context
+				.Module.InlineArrayNumericHelperType.Methods.FirstOrDefault(m =>
+					StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic
+				)
 				?.MakeGenericInstanceMethod(returnTypeSignature, arrayType.UltimateElementType);
 		}
 		else
 		{
-			implementation = context.Module.NumericHelperType.Methods
-				.FirstOrDefault(m => StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic)
+			implementation = context
+				.Module.NumericHelperType.Methods.FirstOrDefault(m =>
+					StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic
+				)
 				?.MakeGenericInstanceMethod(returnTypeSignature);
 		}
 		if (implementation is null)
@@ -128,7 +156,10 @@ internal static partial class IntrinsicFunctionImplementer
 		return true;
 	}
 
-	private static bool TryGetOperationName(string name, [NotNullWhen(true)] out string? operationName)
+	private static bool TryGetOperationName(
+		string name,
+		[NotNullWhen(true)] out string? operationName
+	)
 	{
 		if (SimpleOperationRegex.TryMatch(name, out Match? match))
 		{

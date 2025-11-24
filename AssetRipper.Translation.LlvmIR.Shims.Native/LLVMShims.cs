@@ -1,5 +1,5 @@
-﻿using LLVMSharp.Interop;
-using System.Text;
+﻿using System.Text;
+using LLVMSharp.Interop;
 using static AssetRipper.Translation.LlvmIR.Shims.Native.LibLlvmSharp;
 
 namespace AssetRipper.Translation.LlvmIR.Shims.Native;

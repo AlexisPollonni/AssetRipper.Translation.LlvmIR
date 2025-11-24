@@ -1,8 +1,8 @@
-﻿using Cake.Common;
+﻿using System.Diagnostics.CodeAnalysis;
+using Cake.Common;
 using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.IO;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling
 {
@@ -13,13 +13,14 @@ namespace AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling
 		[CakeMethodAlias]
 		[CakeAliasCategory("ProcessReadOutput")]
 		[CakeNamespaceImport("AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling")]
-		public static IEnumerable<string> StartProcessAndReadOutput(this ICakeContext ctx,
-		                                                            FilePath path,
-		                                                            ArgumentHandler args,
-		                                                            DirectoryPath? workingDirectory = null,
-		                                                            IDictionary<string, string>?
-			                                                            additionalEnvironmentVariables = null,
-		                                                            TimeSpan? timeout = null)
+		public static IEnumerable<string> StartProcessAndReadOutput(
+			this ICakeContext ctx,
+			FilePath path,
+			ArgumentHandler args,
+			DirectoryPath? workingDirectory = null,
+			IDictionary<string, string>? additionalEnvironmentVariables = null,
+			TimeSpan? timeout = null
+		)
 		{
 			var settings = new ProcessSettings
 			{
@@ -27,14 +28,15 @@ namespace AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling
 				RedirectStandardOutput = true,
 				WorkingDirectory = workingDirectory ?? ctx.Environment.WorkingDirectory,
 				Timeout = (int?)timeout?.TotalMilliseconds,
-				EnvironmentVariables = additionalEnvironmentVariables
+				EnvironmentVariables = additionalEnvironmentVariables,
 			};
 
 			var result = ctx.StartProcess(path, settings, out var redirectedStandardOutput);
 
 			return 0 != result
 				? throw new(
-					$"Failed to execute tool {path.GetFilename()} ({result}) with args: {settings.Arguments.RenderSafe()}")
+					$"Failed to execute tool {path.GetFilename()} ({result}) with args: {settings.Arguments.RenderSafe()}"
+				)
 				: redirectedStandardOutput;
 		}
 

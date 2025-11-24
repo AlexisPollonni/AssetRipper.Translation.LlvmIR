@@ -26,7 +26,8 @@ public sealed class DotNetFileRunner(
 	IFileSystem fileSystem,
 	ICakeEnvironment environment,
 	IProcessRunner processRunner,
-	IToolLocator tools) : DotNetTool<DotNetFileRunSettings>(fileSystem, environment, processRunner, tools)
+	IToolLocator tools
+) : DotNetTool<DotNetFileRunSettings>(fileSystem, environment, processRunner, tools)
 {
 	/// <summary>
 	/// Runs the project using the specified path with arguments and settings.
@@ -34,16 +35,22 @@ public sealed class DotNetFileRunner(
 	/// <param name="scriptFile">The target project  path.</param>
 	/// <param name="arguments">The arguments.</param>
 	/// <param name="settings">The settings.</param>
-	public void Run(FilePath scriptFile, ProcessArgumentBuilder arguments, DotNetFileRunSettings settings)
+	public void Run(
+		FilePath scriptFile,
+		ProcessArgumentBuilder arguments,
+		DotNetFileRunSettings settings
+	)
 	{
 		ArgumentNullException.ThrowIfNull(settings);
 
 		RunCommand(settings, GetArguments(scriptFile, arguments, settings));
 	}
 
-	private ProcessArgumentBuilder GetArguments(FilePath scriptFile,
-	                                            ProcessArgumentBuilder arguments,
-	                                            DotNetFileRunSettings settings)
+	private ProcessArgumentBuilder GetArguments(
+		FilePath scriptFile,
+		ProcessArgumentBuilder arguments,
+		DotNetFileRunSettings settings
+	)
 	{
 		var builder = CreateArgumentBuilder(settings);
 
@@ -53,7 +60,6 @@ public sealed class DotNetFileRunner(
 		fileSystem.Exist(scriptFile).ShouldBeTrue($"Script file '{scriptFile}' does not exist.");
 
 		builder.AppendQuoted(scriptFile.MakeAbsolute(environment).FullPath);
-
 
 		// Framework
 		if (!string.IsNullOrEmpty(settings.Framework))
@@ -95,7 +101,6 @@ public sealed class DotNetFileRunner(
 			builder.Append("--source");
 			builder.AppendQuoted(source);
 		}
-
 
 		// Roll Forward Policy
 		if (!(settings.RollForward is null))

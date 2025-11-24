@@ -1,7 +1,7 @@
-﻿using AssetRipper.Text.SourceGeneration;
-using SGF;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using System.Diagnostics.CodeAnalysis;
+using AssetRipper.Text.SourceGeneration;
+using SGF;
 
 namespace AssetRipper.Translation.LlvmIR.SourceGenerator;
 
@@ -18,72 +18,93 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 	}
 
 	private static IEnumerable<(string Signed, string Unsigned)> IntegerTypePairs =>
-	[
-		("sbyte", "byte"),
-		("short", "ushort"),
-		("int", "uint"),
-		("long", "ulong"),
-		("Int128", "UInt128"),
-	];
+		[
+			("sbyte", "byte"),
+			("short", "ushort"),
+			("int", "uint"),
+			("long", "ulong"),
+			("Int128", "UInt128"),
+		];
 
-	private static IEnumerable<string> IntegerTypes => IntegerTypePairs.SelectMany(pair => (IEnumerable<string>)[pair.Signed, pair.Unsigned]);
+	private static IEnumerable<string> IntegerTypes =>
+		IntegerTypePairs.SelectMany(pair => (IEnumerable<string>)[pair.Signed, pair.Unsigned]);
 
-	private static IEnumerable<string> FloatingPointTypes => [ "Half", "float", "double" ];
+	private static IEnumerable<string> FloatingPointTypes => ["Half", "float", "double"];
 
 	private static IEnumerable<string> NumericTypes => IntegerTypes.Concat(FloatingPointTypes);
 
-	private static IEnumerable<string> GetTypes(OperandSupport support) => support switch
-	{
-		OperandSupport.Integer => IntegerTypes,
-		OperandSupport.FloatingPoint => FloatingPointTypes,
-		OperandSupport.All => NumericTypes,
-		_ => [],
-	};
+	private static IEnumerable<string> GetTypes(OperandSupport support) =>
+		support switch
+		{
+			OperandSupport.Integer => IntegerTypes,
+			OperandSupport.FloatingPoint => FloatingPointTypes,
+			OperandSupport.All => NumericTypes,
+			_ => [],
+		};
 
-	private static IEnumerable<(string Operation, char Symbol, string RequiredInterfaces)> SimpleOperations =>
-	[
-		("Add", '+', "IAdditionOperators<T, T, T>, IAdditiveIdentity<T, T>"),
-		("Subtract", '-', "ISubtractionOperators<T, T, T>"),
-		("Multiply", '*', "IMultiplyOperators<T, T, T>, IMultiplicativeIdentity<T, T>"),
-		("Divide", '/', "IDivisionOperators<T, T, T>"),
-		("Remainder", '%', "IModulusOperators<T, T, T>"),
-	];
+	private static IEnumerable<(
+		string Operation,
+		char Symbol,
+		string RequiredInterfaces
+	)> SimpleOperations =>
+		[
+			("Add", '+', "IAdditionOperators<T, T, T>, IAdditiveIdentity<T, T>"),
+			("Subtract", '-', "ISubtractionOperators<T, T, T>"),
+			("Multiply", '*', "IMultiplyOperators<T, T, T>, IMultiplicativeIdentity<T, T>"),
+			("Divide", '/', "IDivisionOperators<T, T, T>"),
+			("Remainder", '%', "IModulusOperators<T, T, T>"),
+		];
 
-	private static IEnumerable<(string Name, string? ImplementationType, string? ImplementationName, OperandSupport)> UnaryOperations =>
-	[
-		("BSwap", "System.Buffers.Binary.BinaryPrimitives", "ReverseEndianness", OperandSupport.Integer),
-	];
+	private static IEnumerable<(
+		string Name,
+		string? ImplementationType,
+		string? ImplementationName,
+		OperandSupport
+	)> UnaryOperations =>
+		[
+			(
+				"BSwap",
+				"System.Buffers.Binary.BinaryPrimitives",
+				"ReverseEndianness",
+				OperandSupport.Integer
+			),
+		];
 
-	private static IEnumerable<(string LlvmName, string? DotNetName, string? RequiredInterfaces)> UnaryInterfaceOperations =>
-	[
-		("Abs", null, "INumberBase<T>"),
-		("FAbs", "Abs", "INumberBase<T>"),
-		("Sin", null, "ITrigonometricFunctions<T>"),
-		("Cos", null, "ITrigonometricFunctions<T>"),
-		("Tan", null, "ITrigonometricFunctions<T>"),
-		("Asin", null, "ITrigonometricFunctions<T>"),
-		("Acos", null, "ITrigonometricFunctions<T>"),
-		("Atan", null, "ITrigonometricFunctions<T>"),
-		("Sinh", null, "IHyperbolicFunctions<T>"),
-		("Cosh", null, "IHyperbolicFunctions<T>"),
-		("Tanh", null, "IHyperbolicFunctions<T>"),
-		("Exp", null, "IExponentialFunctions<T>"),
-		("Exp2", null, "IExponentialFunctions<T>"),
-		("Exp10", null, "IExponentialFunctions<T>"),
-		("Log", null, "ILogarithmicFunctions<T>"),
-		("Log2", null, "ILogarithmicFunctions<T>"),
-		("Log10", null, "ILogarithmicFunctions<T>"),
-		("Sqrt", null, "IRootFunctions<T>"),
-		("Ceil", "Ceiling", "IFloatingPoint<T>"),
-		("Floor", null, "IFloatingPoint<T>"),
-		("Round", null, "IFloatingPoint<T>"),
-		("CtLz", "LeadingZeroCount", "IBinaryInteger<T>"),
-	];
+	private static IEnumerable<(
+		string LlvmName,
+		string? DotNetName,
+		string? RequiredInterfaces
+	)> UnaryInterfaceOperations =>
+		[
+			("Abs", null, "INumberBase<T>"),
+			("FAbs", "Abs", "INumberBase<T>"),
+			("Sin", null, "ITrigonometricFunctions<T>"),
+			("Cos", null, "ITrigonometricFunctions<T>"),
+			("Tan", null, "ITrigonometricFunctions<T>"),
+			("Asin", null, "ITrigonometricFunctions<T>"),
+			("Acos", null, "ITrigonometricFunctions<T>"),
+			("Atan", null, "ITrigonometricFunctions<T>"),
+			("Sinh", null, "IHyperbolicFunctions<T>"),
+			("Cosh", null, "IHyperbolicFunctions<T>"),
+			("Tanh", null, "IHyperbolicFunctions<T>"),
+			("Exp", null, "IExponentialFunctions<T>"),
+			("Exp2", null, "IExponentialFunctions<T>"),
+			("Exp10", null, "IExponentialFunctions<T>"),
+			("Log", null, "ILogarithmicFunctions<T>"),
+			("Log2", null, "ILogarithmicFunctions<T>"),
+			("Log10", null, "ILogarithmicFunctions<T>"),
+			("Sqrt", null, "IRootFunctions<T>"),
+			("Ceil", "Ceiling", "IFloatingPoint<T>"),
+			("Floor", null, "IFloatingPoint<T>"),
+			("Round", null, "IFloatingPoint<T>"),
+			("CtLz", "LeadingZeroCount", "IBinaryInteger<T>"),
+		];
 
-	private static IEnumerable<(string LlvmName, string? DotNetName, string? RequiredInterfaces)> BinaryInterfaceOperations =>
-	[
-		("Pow", null, "IPowerFunctions<T>"),
-	];
+	private static IEnumerable<(
+		string LlvmName,
+		string? DotNetName,
+		string? RequiredInterfaces
+	)> BinaryInterfaceOperations => [("Pow", null, "IPowerFunctions<T>")];
 
 	public override void OnInitialize(SgfInitializationContext context)
 	{
@@ -147,7 +168,9 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 			{
 				writer.WriteLineNoTabs();
 				writer.WriteLine("[MethodImpl(MethodImplOptions.AggressiveInlining)]");
-				writer.WriteLine($"public static T {operation}<T>(T x, T y) where T : {requiredInterfaces}");
+				writer.WriteLine(
+					$"public static T {operation}<T>(T x, T y) where T : {requiredInterfaces}"
+				);
 				using (new CurlyBrackets(writer))
 				{
 					writer.WriteLine($"return unchecked(x {symbol} y);");
@@ -156,8 +179,12 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 				{
 					writer.WriteLineNoTabs();
 					writer.WriteLine("[MethodImpl(MethodImplOptions.AggressiveInlining)]");
-					string methodName = emittingSignedMethod ? $"{operation}Signed" : $"{operation}Unsigned";
-					writer.WriteLine($"public static T {methodName}<T>(T x, T y) where T : {requiredInterfaces}");
+					string methodName = emittingSignedMethod
+						? $"{operation}Signed"
+						: $"{operation}Unsigned";
+					writer.WriteLine(
+						$"public static T {methodName}<T>(T x, T y) where T : {requiredInterfaces}"
+					);
 					using (new CurlyBrackets(writer))
 					{
 						using (new Checked(writer))
@@ -170,10 +197,18 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 								writer.WriteLine($"if (typeof(T) == typeof({parameterType}))");
 								using (new CurlyBrackets(writer))
 								{
-									writer.WriteLine($"{parameterType} x1 = ({parameterType})(object)x;");
-									writer.WriteLine($"{parameterType} y1 = ({parameterType})(object)y;");
-									writer.WriteLine($"{operationType} result1 = ({operationType})(unchecked(({operationType})x1) {symbol} unchecked(({operationType})y1));");
-									writer.WriteLine($"{parameterType} result2 = unchecked(({parameterType})result1);");
+									writer.WriteLine(
+										$"{parameterType} x1 = ({parameterType})(object)x;"
+									);
+									writer.WriteLine(
+										$"{parameterType} y1 = ({parameterType})(object)y;"
+									);
+									writer.WriteLine(
+										$"{operationType} result1 = ({operationType})(unchecked(({operationType})x1) {symbol} unchecked(({operationType})y1));"
+									);
+									writer.WriteLine(
+										$"{parameterType} result2 = unchecked(({parameterType})result1);"
+									);
 									writer.WriteLine("return (T)(object)result2;");
 								}
 							}
@@ -185,7 +220,14 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 					}
 				}
 			}
-			foreach ((string name, string? implementationType, string? implementationName, OperandSupport support) in UnaryOperations)
+			foreach (
+				(
+					string name,
+					string? implementationType,
+					string? implementationName,
+					OperandSupport support
+				) in UnaryOperations
+			)
 			{
 				writer.WriteLineNoTabs();
 				writer.WriteLine("[MethodImpl(MethodImplOptions.AggressiveInlining)]");
@@ -197,9 +239,19 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 						writer.WriteLine($"if (typeof(T) == typeof({type}))");
 						using (new CurlyBrackets(writer))
 						{
-							string actualImplementationType = string.IsNullOrEmpty(implementationType) ? type : $"global::{implementationType}";
-							string actualImplementationName = string.IsNullOrEmpty(implementationName) ? name : implementationName!;
-							writer.WriteLine($"return (T)(object)({type}){actualImplementationType}.{actualImplementationName}(({type})(object)x);");
+							string actualImplementationType = string.IsNullOrEmpty(
+								implementationType
+							)
+								? type
+								: $"global::{implementationType}";
+							string actualImplementationName = string.IsNullOrEmpty(
+								implementationName
+							)
+								? name
+								: implementationName!;
+							writer.WriteLine(
+								$"return (T)(object)({type}){actualImplementationType}.{actualImplementationName}(({type})(object)x);"
+							);
 						}
 					}
 					using (new Else(writer))
@@ -208,7 +260,13 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 					}
 				}
 			}
-			foreach ((string llvmName, string? dotNetName, string? requiredInterfaces) in UnaryInterfaceOperations)
+			foreach (
+				(
+					string llvmName,
+					string? dotNetName,
+					string? requiredInterfaces
+				) in UnaryInterfaceOperations
+			)
 			{
 				writer.WriteLineNoTabs();
 				writer.WriteLine("[MethodImpl(MethodImplOptions.AggressiveInlining)]");
@@ -223,7 +281,13 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 					writer.WriteLine($"return T.{methodName}(x);");
 				}
 			}
-			foreach ((string llvmName, string? dotNetName, string? requiredInterfaces) in BinaryInterfaceOperations)
+			foreach (
+				(
+					string llvmName,
+					string? dotNetName,
+					string? requiredInterfaces
+				) in BinaryInterfaceOperations
+			)
 			{
 				writer.WriteLineNoTabs();
 				writer.WriteLine("[MethodImpl(MethodImplOptions.AggressiveInlining)]");
@@ -259,43 +323,124 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 		writer.WriteLine("static partial class InlineArrayNumericHelper");
 		using (new CurlyBrackets(writer))
 		{
-			foreach ((string operation, char symbol, string? requiredInterfaces) in SimpleOperations)
+			foreach (
+				(string operation, char symbol, string? requiredInterfaces) in SimpleOperations
+			)
 			{
-				WriteBinaryTensorPrimitivesMethod(writer, operation, null, ReplaceTypeParameterName(requiredInterfaces));
-				WriteBinaryNumericHelperMethod(writer, $"{operation}Signed", ReplaceTypeParameterName(requiredInterfaces));
-				WriteBinaryNumericHelperMethod(writer, $"{operation}Unsigned", ReplaceTypeParameterName(requiredInterfaces));
+				WriteBinaryTensorPrimitivesMethod(
+					writer,
+					operation,
+					null,
+					ReplaceTypeParameterName(requiredInterfaces)
+				);
+				WriteBinaryNumericHelperMethod(
+					writer,
+					$"{operation}Signed",
+					ReplaceTypeParameterName(requiredInterfaces)
+				);
+				WriteBinaryNumericHelperMethod(
+					writer,
+					$"{operation}Unsigned",
+					ReplaceTypeParameterName(requiredInterfaces)
+				);
 			}
 
-			WriteBinaryNumericHelperMethod(writer, "ShiftLeft", "IShiftOperators<TElement, int, TElement>");
-			WriteBinaryNumericHelperMethod(writer, "ShiftRightLogical", "IShiftOperators<TElement, int, TElement>");
-			WriteBinaryNumericHelperMethod(writer, "ShiftRightArithmetic", "IShiftOperators<TElement, int, TElement>");
+			WriteBinaryNumericHelperMethod(
+				writer,
+				"ShiftLeft",
+				"IShiftOperators<TElement, int, TElement>"
+			);
+			WriteBinaryNumericHelperMethod(
+				writer,
+				"ShiftRightLogical",
+				"IShiftOperators<TElement, int, TElement>"
+			);
+			WriteBinaryNumericHelperMethod(
+				writer,
+				"ShiftRightArithmetic",
+				"IShiftOperators<TElement, int, TElement>"
+			);
 			WriteUnaryNumericHelperMethod(writer, "CtPop", "unmanaged");
 
 			// These are excluded from the list above because they require custom implementations in NumericHelper.
-			WriteUnaryTensorPrimitivesMethod(writer, "Negate", null, "IUnaryNegationOperators<TElement, TElement>");
-			WriteBinaryTensorPrimitivesMethod(writer, "BitwiseAnd", null, "IBitwiseOperators<TElement, TElement, TElement>");
-			WriteBinaryTensorPrimitivesMethod(writer, "BitwiseOr", null, "IBitwiseOperators<TElement, TElement, TElement>");
-			WriteBinaryTensorPrimitivesMethod(writer, "BitwiseXor", "Xor", "IBitwiseOperators<TElement, TElement, TElement>");
+			WriteUnaryTensorPrimitivesMethod(
+				writer,
+				"Negate",
+				null,
+				"IUnaryNegationOperators<TElement, TElement>"
+			);
+			WriteBinaryTensorPrimitivesMethod(
+				writer,
+				"BitwiseAnd",
+				null,
+				"IBitwiseOperators<TElement, TElement, TElement>"
+			);
+			WriteBinaryTensorPrimitivesMethod(
+				writer,
+				"BitwiseOr",
+				null,
+				"IBitwiseOperators<TElement, TElement, TElement>"
+			);
+			WriteBinaryTensorPrimitivesMethod(
+				writer,
+				"BitwiseXor",
+				"Xor",
+				"IBitwiseOperators<TElement, TElement, TElement>"
+			);
 
-			foreach ((string name, string? implementationType, string? implementationName, OperandSupport support) in UnaryOperations)
+			foreach (
+				(
+					string name,
+					string? implementationType,
+					string? implementationName,
+					OperandSupport support
+				) in UnaryOperations
+			)
 			{
 				WriteUnaryNumericHelperMethod(writer, name, null);
 			}
 
-			foreach ((string llvmName, string? dotNetName, string? requiredInterfaces) in UnaryInterfaceOperations)
+			foreach (
+				(
+					string llvmName,
+					string? dotNetName,
+					string? requiredInterfaces
+				) in UnaryInterfaceOperations
+			)
 			{
-				WriteUnaryTensorPrimitivesMethod(writer, llvmName, dotNetName, ReplaceTypeParameterName(requiredInterfaces));
+				WriteUnaryTensorPrimitivesMethod(
+					writer,
+					llvmName,
+					dotNetName,
+					ReplaceTypeParameterName(requiredInterfaces)
+				);
 			}
 
-			foreach ((string llvmName, string? dotNetName, string? requiredInterfaces) in BinaryInterfaceOperations)
+			foreach (
+				(
+					string llvmName,
+					string? dotNetName,
+					string? requiredInterfaces
+				) in BinaryInterfaceOperations
+			)
 			{
-				WriteBinaryTensorPrimitivesMethod(writer, llvmName, dotNetName, ReplaceTypeParameterName(requiredInterfaces));
+				WriteBinaryTensorPrimitivesMethod(
+					writer,
+					llvmName,
+					dotNetName,
+					ReplaceTypeParameterName(requiredInterfaces)
+				);
 			}
 		}
 
 		return stringWriter.ToString();
 
-		static void WriteUnaryTensorPrimitivesMethod(IndentedTextWriter writer, string llvmName, string? dotNetName, string? requiredInterfaces)
+		static void WriteUnaryTensorPrimitivesMethod(
+			IndentedTextWriter writer,
+			string llvmName,
+			string? dotNetName,
+			string? requiredInterfaces
+		)
 		{
 			writer.WriteLineNoTabs();
 			writer.WriteLine($"public static TBuffer {llvmName}<TBuffer, TElement>(TBuffer x)");
@@ -310,15 +455,23 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 			using (new CurlyBrackets(writer))
 			{
 				writer.WriteLine("TBuffer result = default;");
-				writer.WriteLine($"TensorPrimitives.{(string.IsNullOrEmpty(dotNetName) ? llvmName : dotNetName)}(x.AsReadOnlySpan<TBuffer, TElement>(), result.AsSpan<TBuffer, TElement>());");
+				writer.WriteLine(
+					$"TensorPrimitives.{(string.IsNullOrEmpty(dotNetName) ? llvmName : dotNetName)}(x.AsReadOnlySpan<TBuffer, TElement>(), result.AsSpan<TBuffer, TElement>());"
+				);
 				writer.WriteLine("return result;");
 			}
 		}
 
-		static void WriteUnaryNumericHelperMethod(IndentedTextWriter writer, string methodName, string? requiredInterfaces)
+		static void WriteUnaryNumericHelperMethod(
+			IndentedTextWriter writer,
+			string methodName,
+			string? requiredInterfaces
+		)
 		{
 			writer.WriteLineNoTabs();
-			writer.WriteLine($"public static TBuffer {methodName}<TBuffer, TElement>(TBuffer x, TBuffer y)");
+			writer.WriteLine(
+				$"public static TBuffer {methodName}<TBuffer, TElement>(TBuffer x, TBuffer y)"
+			);
 			using (new Indented(writer))
 			{
 				writer.WriteLine("where TBuffer : struct, IInlineArray<TElement>");
@@ -332,16 +485,25 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 				writer.WriteLine("TBuffer result = default;");
 				using (new For(writer, "int i = 0", "i < TBuffer.Length", "i++"))
 				{
-					writer.WriteLine($"result.SetElement(i, NumericHelper.{methodName}<TElement>(x.GetElement<TBuffer, TElement>(i)));");
+					writer.WriteLine(
+						$"result.SetElement(i, NumericHelper.{methodName}<TElement>(x.GetElement<TBuffer, TElement>(i)));"
+					);
 				}
 				writer.WriteLine("return result;");
 			}
 		}
 
-		static void WriteBinaryTensorPrimitivesMethod(IndentedTextWriter writer, string llvmName, string? dotNetName, string? requiredInterfaces)
+		static void WriteBinaryTensorPrimitivesMethod(
+			IndentedTextWriter writer,
+			string llvmName,
+			string? dotNetName,
+			string? requiredInterfaces
+		)
 		{
 			writer.WriteLineNoTabs();
-			writer.WriteLine($"public static TBuffer {llvmName}<TBuffer, TElement>(TBuffer x, TBuffer y)");
+			writer.WriteLine(
+				$"public static TBuffer {llvmName}<TBuffer, TElement>(TBuffer x, TBuffer y)"
+			);
 			using (new Indented(writer))
 			{
 				writer.WriteLine("where TBuffer : struct, IInlineArray<TElement>");
@@ -353,15 +515,23 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 			using (new CurlyBrackets(writer))
 			{
 				writer.WriteLine("TBuffer result = default;");
-				writer.WriteLine($"TensorPrimitives.{(string.IsNullOrEmpty(dotNetName) ? llvmName : dotNetName)}(x.AsReadOnlySpan<TBuffer, TElement>(), y.AsReadOnlySpan<TBuffer, TElement>(), result.AsSpan<TBuffer, TElement>());");
+				writer.WriteLine(
+					$"TensorPrimitives.{(string.IsNullOrEmpty(dotNetName) ? llvmName : dotNetName)}(x.AsReadOnlySpan<TBuffer, TElement>(), y.AsReadOnlySpan<TBuffer, TElement>(), result.AsSpan<TBuffer, TElement>());"
+				);
 				writer.WriteLine("return result;");
 			}
 		}
 
-		static void WriteBinaryNumericHelperMethod(IndentedTextWriter writer, string methodName, string? requiredInterfaces)
+		static void WriteBinaryNumericHelperMethod(
+			IndentedTextWriter writer,
+			string methodName,
+			string? requiredInterfaces
+		)
 		{
 			writer.WriteLineNoTabs();
-			writer.WriteLine($"public static TBuffer {methodName}<TBuffer, TElement>(TBuffer x, TBuffer y)");
+			writer.WriteLine(
+				$"public static TBuffer {methodName}<TBuffer, TElement>(TBuffer x, TBuffer y)"
+			);
 			using (new Indented(writer))
 			{
 				writer.WriteLine("where TBuffer : struct, IInlineArray<TElement>");
@@ -375,7 +545,9 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 				writer.WriteLine("TBuffer result = default;");
 				using (new For(writer, "int i = 0", "i < TBuffer.Length", "i++"))
 				{
-					writer.WriteLine($"result.SetElement(i, NumericHelper.{methodName}<TElement>(x.GetElement<TBuffer, TElement>(i), y.GetElement<TBuffer, TElement>(i)));");
+					writer.WriteLine(
+						$"result.SetElement(i, NumericHelper.{methodName}<TElement>(x.GetElement<TBuffer, TElement>(i), y.GetElement<TBuffer, TElement>(i)));"
+					);
 				}
 				writer.WriteLine("return result;");
 			}
@@ -384,8 +556,8 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 		[return: NotNullIfNotNull(nameof(requiredInterfaces))]
 		static string? ReplaceTypeParameterName(string? requiredInterfaces)
 		{
-			return requiredInterfaces?
-				.Replace("<T>", "<TElement>")
+			return requiredInterfaces
+				?.Replace("<T>", "<TElement>")
 				.Replace("<T, T>", "<TElement, TElement>")
 				.Replace("<T, T, T>", "<TElement, TElement, TElement>");
 		}

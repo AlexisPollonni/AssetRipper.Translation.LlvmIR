@@ -11,18 +11,22 @@ internal interface IHasName
 	/// The name from LLVM.
 	/// </summary>
 	string MangledName { get; }
+
 	/// <summary>
 	/// The demangled name.
 	/// </summary>
 	string? DemangledName { get; }
+
 	/// <summary>
 	/// A clean name that might not be unique.
 	/// </summary>
 	string CleanName { get; }
+
 	/// <summary>
 	/// The unique name used for output.
 	/// </summary>
 	string Name { get; set; }
+
 	/// <summary>
 	/// The native type, if it can be determined.
 	/// </summary>
@@ -32,6 +36,7 @@ internal interface IHasName
 	string? NativeType { get; }
 	ModuleContext Module { get; }
 }
+
 internal static class IHasNameExtensions
 {
 	public static void AddNameAttributes(this IHasName hasName, IHasCustomAttribute definition)
@@ -43,19 +48,25 @@ internal static class IHasNameExtensions
 
 		if (!string.IsNullOrEmpty(hasName.MangledName) && hasName.MangledName != hasName.Name)
 		{
-			MethodDefinition constructor = hasName.Module.InjectedTypes[typeof(MangledNameAttribute)].GetMethodByName(".ctor");
+			MethodDefinition constructor = hasName
+				.Module.InjectedTypes[typeof(MangledNameAttribute)]
+				.GetMethodByName(".ctor");
 			AddAttribute(hasName, definition, constructor, hasName.MangledName);
 		}
 
 		if (!string.IsNullOrEmpty(hasName.DemangledName) && hasName.DemangledName != hasName.Name)
 		{
-			MethodDefinition constructor = hasName.Module.InjectedTypes[typeof(DemangledNameAttribute)].GetMethodByName(".ctor");
+			MethodDefinition constructor = hasName
+				.Module.InjectedTypes[typeof(DemangledNameAttribute)]
+				.GetMethodByName(".ctor");
 			AddAttribute(hasName, definition, constructor, hasName.DemangledName);
 		}
 
 		if (hasName.CleanName != hasName.Name)
 		{
-			MethodDefinition constructor = hasName.Module.InjectedTypes[typeof(CleanNameAttribute)].GetMethodByName(".ctor");
+			MethodDefinition constructor = hasName
+				.Module.InjectedTypes[typeof(CleanNameAttribute)]
+				.GetMethodByName(".ctor");
 			AddAttribute(hasName, definition, constructor, hasName.CleanName);
 		}
 	}
@@ -69,12 +80,18 @@ internal static class IHasNameExtensions
 
 		if (!string.IsNullOrEmpty(hasName.NativeType))
 		{
-			MethodDefinition constructor = hasName.Module.InjectedTypes[typeof(NativeTypeAttribute)].GetMethodByName(".ctor");
+			MethodDefinition constructor = hasName
+				.Module.InjectedTypes[typeof(NativeTypeAttribute)]
+				.GetMethodByName(".ctor");
 			if (definition is MethodDefinition method)
 			{
-				ParameterDefinition returnParameterDefinition = method.Parameters.ReturnParameter.GetOrCreateDefinition();
+				ParameterDefinition returnParameterDefinition =
+					method.Parameters.ReturnParameter.GetOrCreateDefinition();
 				AddAttribute(hasName, returnParameterDefinition, constructor, hasName.NativeType);
-				if (method.ParameterDefinitions.Count > 1 && method.ParameterDefinitions[^1] == returnParameterDefinition)
+				if (
+					method.ParameterDefinitions.Count > 1
+					&& method.ParameterDefinitions[^1] == returnParameterDefinition
+				)
 				{
 					// Move it to the beginning
 					method.ParameterDefinitions.RemoveAt(method.ParameterDefinitions.Count - 1);
@@ -88,13 +105,21 @@ internal static class IHasNameExtensions
 		}
 	}
 
-	public static void AddNameAndTypeAttributes(this IHasName hasName, IHasCustomAttribute definition)
+	public static void AddNameAndTypeAttributes(
+		this IHasName hasName,
+		IHasCustomAttribute definition
+	)
 	{
 		hasName.AddNameAttributes(definition);
 		hasName.AddTypeAttribute(definition);
 	}
 
-	private static void AddAttribute(IHasName hasName, IHasCustomAttribute definition, MethodDefinition constructor, string name)
+	private static void AddAttribute(
+		IHasName hasName,
+		IHasCustomAttribute definition,
+		MethodDefinition constructor,
+		string name
+	)
 	{
 		CustomAttributeSignature signature = new();
 		signature.FixedArguments.Add(new(hasName.Module.Definition.CorLibTypeFactory.String, name));
@@ -102,7 +127,8 @@ internal static class IHasNameExtensions
 		definition.CustomAttributes.Add(attribute);
 	}
 
-	public static void AssignNames<T>(this IEnumerable<T> items) where T : IHasName
+	public static void AssignNames<T>(this IEnumerable<T> items)
+		where T : IHasName
 	{
 		Dictionary<string, List<T>> demangledNames = new();
 		foreach (T item in items)

@@ -1,11 +1,11 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Collections.Concurrent;
+using System.Numerics.Tensors;
+using System.Text;
+using AsmResolver.DotNet;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
 using NUnit.Framework;
-using System.Collections.Concurrent;
-using System.Numerics.Tensors;
-using System.Text;
 
 namespace AssetRipper.Translation.LlvmIR.Tests;
 
@@ -30,7 +30,10 @@ internal static class AssertionHelpers
 
 			using (Assert.EnterMultipleScope())
 			{
-				Assert.That(Directory.GetFiles(directory, "*.cs", SearchOption.AllDirectories), Has.Length.GreaterThan(0));
+				Assert.That(
+					Directory.GetFiles(directory, "*.cs", SearchOption.AllDirectories),
+					Has.Length.GreaterThan(0)
+				);
 				Assert.That(SuccessfullyCompiles(directory));
 			}
 		}
@@ -81,10 +84,17 @@ internal static class AssertionHelpers
 			syntaxTrees.Add(syntaxTree);
 		}
 
-		static CSharpCompilation CreateCompilation(IEnumerable<SyntaxTree> syntaxTrees, IEnumerable<MetadataReference> references)
+		static CSharpCompilation CreateCompilation(
+			IEnumerable<SyntaxTree> syntaxTrees,
+			IEnumerable<MetadataReference> references
+		)
 		{
 			// Define compilation options
-			CSharpCompilationOptions compilationOptions = new(OutputKind.DynamicallyLinkedLibrary, checkOverflow: true, allowUnsafe: true);
+			CSharpCompilationOptions compilationOptions = new(
+				OutputKind.DynamicallyLinkedLibrary,
+				checkOverflow: true,
+				allowUnsafe: true
+			);
 
 			// Create the compilation
 			CSharpCompilation compilation = CSharpCompilation.Create(
@@ -99,7 +109,11 @@ internal static class AssertionHelpers
 		static string GetAssemblyPath(string fileName)
 		{
 			string coreLibPath = typeof(object).Assembly.Location;
-			string directory = Path.GetDirectoryName(coreLibPath) ?? throw new InvalidOperationException("Could not determine directory of core library.");
+			string directory =
+				Path.GetDirectoryName(coreLibPath)
+				?? throw new InvalidOperationException(
+					"Could not determine directory of core library."
+				);
 			return Path.Combine(directory, fileName);
 		}
 	}

@@ -16,7 +16,14 @@
     <PackageReference Include="NUnit3TestAdapter" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AssetRipper.Translation.LlvmIR.Tests.SourceGenerator\AssetRipper.Translation.LlvmIR.Tests.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj" IncludeAssets="all" />
+    <ProjectReference
+      Include="..\AssetRipper.Translation.LlvmIR.Tests.SourceGenerator\AssetRipper.Translation.LlvmIR.Tests.SourceGenerator.csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+    />
+    <ProjectReference
+      Include="..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj"
+      IncludeAssets="all"
+    />
   </ItemGroup>
 </Project>

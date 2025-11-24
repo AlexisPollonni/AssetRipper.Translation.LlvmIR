@@ -1,4 +1,8 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
@@ -7,17 +11,14 @@ using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Shims.Native;
 using AssetRipper.Translation.LlvmIR.Variables;
 using LLVMSharp.Interop;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 namespace AssetRipper.Translation.LlvmIR.Instructions;
 
-internal unsafe readonly struct InstructionLifter
+internal readonly unsafe struct InstructionLifter
 {
 	private readonly Dictionary<LLVMBasicBlockRef, BasicBlock> basicBlocks = new();
 	private readonly Dictionary<BasicBlock, LLVMBasicBlockRef> basicBlockRefs = new();
+
 	/// <summary>
 	/// This can include generated blocks that are not part of the original IL.
 	/// </summary>
@@ -63,14 +64,22 @@ internal unsafe readonly struct InstructionLifter
 		{
 			if (instruction.InstructionOpcode is LLVMOpcode.LLVMAlloca)
 			{
-				TypeSignature allocatedType = lifter.GetTypeSignature(LLVM.GetAllocatedType(instruction));
+				TypeSignature allocatedType = lifter.GetTypeSignature(
+					LLVM.GetAllocatedType(instruction)
+				);
 				LLVMValueRef sizeOperand = instruction.GetOperand(0);
 				long fixedSize = sizeOperand.ConstIntSExt;
-				TypeSignature dataType = fixedSize != 1
-					? lifter.module.GetOrCreateInlineArray(allocatedType, (int)fixedSize).Type.ToTypeSignature()
-					: allocatedType;
+				TypeSignature dataType =
+					fixedSize != 1
+						? lifter
+							.module.GetOrCreateInlineArray(allocatedType, (int)fixedSize)
+							.Type.ToTypeSignature()
+						: allocatedType;
 
-				IVariable dataLocal = function is not null && function.MightThrowAnException ? new FunctionFieldVariable(dataType, function) : new LocalVariable(dataType);
+				IVariable dataLocal =
+					function is not null && function.MightThrowAnException
+						? new FunctionFieldVariable(dataType, function)
+						: new LocalVariable(dataType);
 
 				lifter.allocaData.Add(instruction, dataLocal);
 
@@ -110,9 +119,18 @@ internal unsafe readonly struct InstructionLifter
 
 	private void AddInstruction(BasicBlock basicBlock, LLVMValueRef instruction)
 	{
-		if (TryMatchImageOffset(instruction, module, out FunctionContext? function2, out GlobalVariableContext? variable2))
+		if (
+			TryMatchImageOffset(
+				instruction,
+				module,
+				out FunctionContext? function2,
+				out GlobalVariableContext? variable2
+			)
+		)
 		{
-			MethodDefinition getIndexMethod = module.InjectedTypes[typeof(PointerIndices)].GetMethodByName(nameof(PointerIndices.GetIndex));
+			MethodDefinition getIndexMethod = module
+				.InjectedTypes[typeof(PointerIndices)]
+				.GetMethodByName(nameof(PointerIndices.GetIndex));
 
 			if (function2 is not null)
 			{
@@ -142,7 +160,10 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMLoad:
 				{
-					Debug.Assert(operands.Length == 1, "Load instruction should have exactly one operand");
+					Debug.Assert(
+						operands.Length == 1,
+						"Load instruction should have exactly one operand"
+					);
 
 					LLVMValueRef sourceOperand = operands[0];
 					LoadValue(basicBlock, sourceOperand);
@@ -155,7 +176,10 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMStore:
 				{
-					Debug.Assert(operands.Length == 2, "Store instruction should have exactly two operands");
+					Debug.Assert(
+						operands.Length == 2,
+						"Store instruction should have exactly two operands"
+					);
 
 					LLVMValueRef valueOperand = operands[0];
 					LLVMValueRef pointerOperand = operands[1];
@@ -169,7 +193,10 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMRet:
 				{
-					Debug.Assert(operands.Length <= 1, "Return instruction should have at most one operand");
+					Debug.Assert(
+						operands.Length <= 1,
+						"Return instruction should have at most one operand"
+					);
 					if (operands.Length is 1)
 					{
 						LoadValue(basicBlock, operands[0]);
@@ -178,7 +205,9 @@ internal unsafe readonly struct InstructionLifter
 					{
 						basicBlock.Add(new ClearStackFrameInstruction(function));
 					}
-					basicBlock.Add(operands.Length == 0 ? ReturnInstruction.Void : ReturnInstruction.Value);
+					basicBlock.Add(
+						operands.Length == 0 ? ReturnInstruction.Void : ReturnInstruction.Value
+					);
 				}
 				break;
 			case LLVMOpcode.LLVMBr:
@@ -208,7 +237,9 @@ internal unsafe readonly struct InstructionLifter
 					}
 					else
 					{
-						throw new NotSupportedException($"Unsupported branch instruction with {operands.Length} operands");
+						throw new NotSupportedException(
+							$"Unsupported branch instruction with {operands.Length} operands"
+						);
 					}
 				}
 				break;
@@ -219,11 +250,16 @@ internal unsafe readonly struct InstructionLifter
 
 					LLVMValueRef indexOperand = operands[0];
 					LLVMBasicBlockRef defaultBlockRef = operands[1].AsBasicBlock();
-					ReadOnlySpan<(LLVMValueRef Case, LLVMValueRef Target)> cases = MemoryMarshal.Cast<LLVMValueRef, (LLVMValueRef Case, LLVMValueRef Target)>(operands.AsSpan(2));
+					ReadOnlySpan<(LLVMValueRef Case, LLVMValueRef Target)> cases =
+						MemoryMarshal.Cast<LLVMValueRef, (LLVMValueRef Case, LLVMValueRef Target)>(
+							operands.AsSpan(2)
+						);
 
 					LoadValue(basicBlock, indexOperand);
 
-					(long value, BasicBlock target)[] caseTargets = new (long, BasicBlock)[cases.Length];
+					(long value, BasicBlock target)[] caseTargets = new (long, BasicBlock)[
+						cases.Length
+					];
 					for (int i = 0; i < cases.Length; i++)
 					{
 						LLVMValueRef caseValue = cases[i].Case;
@@ -258,15 +294,23 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMSelect:
 				{
-					Debug.Assert(operands.Length == 3, "Select instruction should have exactly three operands");
+					Debug.Assert(
+						operands.Length == 3,
+						"Select instruction should have exactly three operands"
+					);
 
 					LLVMValueRef condition = operands[0];
 					LLVMValueRef trueValue = operands[1];
 					LLVMValueRef falseValue = operands[2];
 
-					if (module.GetTypeSignature(condition) is not CorLibTypeSignature { ElementType: ElementType.Boolean })
+					if (
+						module.GetTypeSignature(condition)
+						is not CorLibTypeSignature { ElementType: ElementType.Boolean }
+					)
 					{
-						throw new NotImplementedException("Non-boolean condition for select instructions");
+						throw new NotImplementedException(
+							"Non-boolean condition for select instructions"
+						);
 					}
 
 					LoadValue(basicBlock, condition);
@@ -275,21 +319,32 @@ internal unsafe readonly struct InstructionLifter
 
 					LoadValue(basicBlock, falseValue);
 
-					if (module.GetTypeSignature(condition) is CorLibTypeSignature { ElementType: ElementType.Boolean })
+					if (
+						module.GetTypeSignature(condition) is CorLibTypeSignature
+						{
+							ElementType: ElementType.Boolean
+						}
+					)
 					{
 						TypeSignature valueTypeSignature = module.GetTypeSignature(trueValue);
 
 						if (valueTypeSignature is PointerTypeSignature)
 						{
-							IMethodDescriptor helperMethod = module.InstructionHelperType.Methods
-								.Single(m => m.Name == nameof(InstructionHelper.Select) && m.GenericParameters.Count is 0);
+							IMethodDescriptor helperMethod =
+								module.InstructionHelperType.Methods.Single(m =>
+									m.Name == nameof(InstructionHelper.Select)
+									&& m.GenericParameters.Count is 0
+								);
 
 							Call(basicBlock, helperMethod);
 						}
 						else
 						{
-							IMethodDescriptor helperMethod = module.InstructionHelperType.Methods
-								.Single(m => m.Name == nameof(InstructionHelper.Select) && m.GenericParameters.Count is 1)
+							IMethodDescriptor helperMethod = module
+								.InstructionHelperType.Methods.Single(m =>
+									m.Name == nameof(InstructionHelper.Select)
+									&& m.GenericParameters.Count is 1
+								)
 								.MakeGenericInstanceMethod(valueTypeSignature);
 
 							Call(basicBlock, helperMethod);
@@ -297,7 +352,9 @@ internal unsafe readonly struct InstructionLifter
 					}
 					else
 					{
-						throw new NotImplementedException("Non-boolean condition for select instructions");
+						throw new NotImplementedException(
+							"Non-boolean condition for select instructions"
+						);
 					}
 
 					StoreResult(basicBlock, instruction);
@@ -305,7 +362,10 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMPHI:
 				{
-					Debug.Assert(operands.Length > 0, "Phi instruction should have at least one operand");
+					Debug.Assert(
+						operands.Length > 0,
+						"Phi instruction should have at least one operand"
+					);
 
 					basicBlock.Add(PhiPushInstruction.Instance);
 
@@ -338,14 +398,19 @@ internal unsafe readonly struct InstructionLifter
 					LoadValue(basicBlock, operands[1]);
 
 					TypeSignature type = module.GetTypeSignature(operands[0]);
-					basicBlock.Add(NumericalComparison.Create(type, instruction.FCmpPredicate, module));
+					basicBlock.Add(
+						NumericalComparison.Create(type, instruction.FCmpPredicate, module)
+					);
 
 					StoreResult(basicBlock, instruction);
 				}
 				break;
 			case LLVMOpcode.LLVMFNeg:
 				{
-					Debug.Assert(operands.Length == 1, "Unary negation instruction should have exactly one operand");
+					Debug.Assert(
+						operands.Length == 1,
+						"Unary negation instruction should have exactly one operand"
+					);
 
 					LoadValue(basicBlock, operands[0]);
 
@@ -357,13 +422,18 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMBitCast:
 				{
-					Debug.Assert(operands.Length == 1, "BitCast instruction should have exactly one operand");
+					Debug.Assert(
+						operands.Length == 1,
+						"BitCast instruction should have exactly one operand"
+					);
 
 					TypeSignature sourceType = module.GetTypeSignature(operands[0]);
 					TypeSignature resultType = module.GetTypeSignature(instruction);
 
-					IMethodDescriptor method = module.InstructionHelperType.Methods
-						.First(m => m.Name == nameof(InstructionHelper.BitCast))
+					IMethodDescriptor method = module
+						.InstructionHelperType.Methods.First(m =>
+							m.Name == nameof(InstructionHelper.BitCast)
+						)
 						.MakeGenericInstanceMethod(sourceType, resultType);
 
 					LoadValue(basicBlock, operands[0]);
@@ -378,7 +448,12 @@ internal unsafe readonly struct InstructionLifter
 
 					LoadValue(basicBlock, operands[0]);
 
-					Call(basicBlock, module.InstructionHelperType.Methods.First(m => m.Name == nameof(InstructionHelper.VAArg)));
+					Call(
+						basicBlock,
+						module.InstructionHelperType.Methods.First(m =>
+							m.Name == nameof(InstructionHelper.VAArg)
+						)
+					);
 
 					TypeSignature resultType = module.GetTypeSignature(instruction);
 					basicBlock.Add(new LoadIndirectInstruction(resultType));
@@ -388,20 +463,33 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMCatchSwitch:
 				{
-					Debug.Assert(operands.Length >= 1, "Catch switch instruction should have at least one operand");
+					Debug.Assert(
+						operands.Length >= 1,
+						"Catch switch instruction should have at least one operand"
+					);
 
 					Debug.Assert(function is not null);
 					Debug.Assert(function.PersonalityFunction is not null);
-					Debug.Assert(function.PersonalityFunction.IsIntrinsic, "Personality function should be intrinsic and not have instructions");
-					Debug.Assert(function.PersonalityFunction.ReturnTypeSignature is CorLibTypeSignature { ElementType: ElementType.I4 });
+					Debug.Assert(
+						function.PersonalityFunction.IsIntrinsic,
+						"Personality function should be intrinsic and not have instructions"
+					);
+					Debug.Assert(
+						function.PersonalityFunction.ReturnTypeSignature
+							is CorLibTypeSignature { ElementType: ElementType.I4 }
+					);
 					Debug.Assert(function.PersonalityFunction.NormalParameters.Length == 0);
 					Debug.Assert(function.PersonalityFunction.IsVariadic);
 
 					// The first operand is the parent catch switch
 
-					bool hasDefaultUnwind = operands.Length >= 2
+					bool hasDefaultUnwind =
+						operands.Length >= 2
 						&& operands[1].IsBasicBlock
-						&& operands[1].AsBasicBlock().GetInstructions().FirstOrDefault(static i => i.IsACleanupPadInst != default) != default;
+						&& operands[1]
+							.AsBasicBlock()
+							.GetInstructions()
+							.FirstOrDefault(static i => i.IsACleanupPadInst != default) != default;
 
 					LLVMBasicBlockRef defaultUnwindTargetRef = hasDefaultUnwind
 						? operands[1].AsBasicBlock()
@@ -413,18 +501,29 @@ internal unsafe readonly struct InstructionLifter
 					for (int i = 0; i < handlerBlocks.Length; i++)
 					{
 						LLVMBasicBlockRef handlerBlock = handlerBlocks[i].AsBasicBlock();
-						catchPads[i] = handlerBlock.GetInstructions().First(static i => i.IsACatchPadInst != default);
+						catchPads[i] = handlerBlock
+							.GetInstructions()
+							.First(static i => i.IsACatchPadInst != default);
 					}
-					Debug.Assert(catchPads.Length > 0, "Catch switch instruction should have at least one catch pad");
+					Debug.Assert(
+						catchPads.Length > 0,
+						"Catch switch instruction should have at least one catch pad"
+					);
 
 					// Catch pads
 					for (int i = 0; i < catchPads.Length; i++)
 					{
 						LLVMValueRef catchPad = catchPads[i];
-						ReadOnlySpan<LLVMValueRef> catchPadArguments = catchPad.GetOperands().AsSpan()[..^1]; // The last operand is the catch switch
+						ReadOnlySpan<LLVMValueRef> catchPadArguments = catchPad
+							.GetOperands()
+							.AsSpan()[..^1]; // The last operand is the catch switch
 						LLVMBasicBlockRef catchPadBasicBlockRef = catchPad.InstructionParent;
 
-						IVariable argumentsInReadOnlySpan = LoadVariadicArguments(basicBlock, catchPadArguments, module);
+						IVariable argumentsInReadOnlySpan = LoadVariadicArguments(
+							basicBlock,
+							catchPadArguments,
+							module
+						);
 
 						// Call personality function
 						basicBlock.Add(new LoadVariableInstruction(argumentsInReadOnlySpan));
@@ -436,7 +535,11 @@ internal unsafe readonly struct InstructionLifter
 							BasicBlock helperBasicBlock = new();
 							basicBlockList.Add(helperBasicBlock);
 
-							Branch(helperBasicBlock, basicBlockRefs[basicBlock], catchPadBasicBlockRef);
+							Branch(
+								helperBasicBlock,
+								basicBlockRefs[basicBlock],
+								catchPadBasicBlockRef
+							);
 
 							targetBlock = helperBasicBlock;
 						}
@@ -455,36 +558,59 @@ internal unsafe readonly struct InstructionLifter
 					else
 					{
 						// Unwind to caller
-						basicBlock.Add(new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType));
+						basicBlock.Add(
+							new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType)
+						);
 					}
 				}
 				break;
 			case LLVMOpcode.LLVMCatchPad:
 			case LLVMOpcode.LLVMCleanupPad:
 				{
-					FieldDefinition exceptionInfoField = module.InjectedTypes[typeof(ExceptionInfo)].GetFieldByName(nameof(ExceptionInfo.Current));
+					FieldDefinition exceptionInfoField = module
+						.InjectedTypes[typeof(ExceptionInfo)]
+						.GetFieldByName(nameof(ExceptionInfo.Current));
 
 					// Store the current exception info in a local variable
 					basicBlock.Add(new LoadFieldInstruction(exceptionInfoField));
 					StoreResult(basicBlock, instruction);
 
 					// Set the current exception info to null
-					LoadVariable(basicBlock, new DefaultVariable(exceptionInfoField.Signature!.FieldType));
+					LoadVariable(
+						basicBlock,
+						new DefaultVariable(exceptionInfoField.Signature!.FieldType)
+					);
 					basicBlock.Add(new StoreFieldInstruction(exceptionInfoField));
 				}
 				break;
 			case LLVMOpcode.LLVMCatchRet:
 				{
-					Debug.Assert(operands.Length == 2, "Catch return instruction should have exactly two operands");
-					Debug.Assert(operands[0].IsACatchPadInst != default, "First operand of catch return instruction should be a catch pad");
-					Debug.Assert(operands[1].IsBasicBlock, "Second operand of catch return instruction should be a basic block");
+					Debug.Assert(
+						operands.Length == 2,
+						"Catch return instruction should have exactly two operands"
+					);
+					Debug.Assert(
+						operands[0].IsACatchPadInst != default,
+						"First operand of catch return instruction should be a catch pad"
+					);
+					Debug.Assert(
+						operands[1].IsBasicBlock,
+						"Second operand of catch return instruction should be a basic block"
+					);
 
 					LLVMValueRef catchPad = operands[0];
 					LLVMBasicBlockRef targetBlockRef = operands[1].AsBasicBlock();
 
 					LoadValue(basicBlock, catchPad);
 
-					Call(basicBlock, module.InjectedTypes[typeof(ExceptionInfo)].Methods.Single(m => m.Name == nameof(ExceptionInfo.Dispose) && m.IsPublic));
+					Call(
+						basicBlock,
+						module
+							.InjectedTypes[typeof(ExceptionInfo)]
+							.Methods.Single(m =>
+								m.Name == nameof(ExceptionInfo.Dispose) && m.IsPublic
+							)
+					);
 
 					Branch(basicBlock, targetBlockRef);
 				}
@@ -492,12 +618,17 @@ internal unsafe readonly struct InstructionLifter
 			case LLVMOpcode.LLVMCleanupRet:
 				{
 					Debug.Assert(function is not null);
-					Debug.Assert(operands.Length is 1 or 2, "Cleanup return instruction should have one or two operands");
+					Debug.Assert(
+						operands.Length is 1 or 2,
+						"Cleanup return instruction should have one or two operands"
+					);
 
 					LLVMValueRef cleanupPad = operands[0];
 					bool unwindsToCaller = operands.Length == 1;
 
-					FieldDefinition exceptionInfoField = module.InjectedTypes[typeof(ExceptionInfo)].GetFieldByName(nameof(ExceptionInfo.Current));
+					FieldDefinition exceptionInfoField = module
+						.InjectedTypes[typeof(ExceptionInfo)]
+						.GetFieldByName(nameof(ExceptionInfo.Current));
 
 					// Restore the current exception info from the cleanup pad
 					LoadValue(basicBlock, cleanupPad);
@@ -505,7 +636,9 @@ internal unsafe readonly struct InstructionLifter
 
 					if (unwindsToCaller)
 					{
-						basicBlock.Add(new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType));
+						basicBlock.Add(
+							new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType)
+						);
 					}
 					else
 					{
@@ -540,29 +673,54 @@ internal unsafe readonly struct InstructionLifter
 							parameterTypes[i] = module.GetTypeSignature(operand);
 						}
 						TypeSignature resultTypeSignature = module.GetTypeSignature(instruction);
-						MethodSignature methodSignature = MethodSignature.CreateStatic(resultTypeSignature, parameterTypes);
+						MethodSignature methodSignature = MethodSignature.CreateStatic(
+							resultTypeSignature,
+							parameterTypes
+						);
 
 						if (functionOperand.Kind is LLVMValueKind.LLVMInlineAsmValueKind)
 						{
-							LLVMInlineAsmDialect dialect = LLVM.GetInlineAsmDialect(functionOperand);
-							LLVMTypeRef inlineAssemblyFunctionType = LLVM.GetInlineAsmFunctionType(functionOperand);
+							LLVMInlineAsmDialect dialect = LLVM.GetInlineAsmDialect(
+								functionOperand
+							);
+							LLVMTypeRef inlineAssemblyFunctionType = LLVM.GetInlineAsmFunctionType(
+								functionOperand
+							);
 							Debug.Assert(calledFunctionType == inlineAssemblyFunctionType);
 							int canUnwind = LLVM.GetInlineAsmCanUnwind(functionOperand);
 							string assemblyString;
 							{
 								nuint length = 0;
-								sbyte* assemblyStringPtr = LLVM.GetInlineAsmAsmString(functionOperand, &length);
-								assemblyString = Marshal.PtrToStringAnsi((nint)assemblyStringPtr, (int)length) ?? string.Empty;
+								sbyte* assemblyStringPtr = LLVM.GetInlineAsmAsmString(
+									functionOperand,
+									&length
+								);
+								assemblyString =
+									Marshal.PtrToStringAnsi((nint)assemblyStringPtr, (int)length)
+									?? string.Empty;
 							}
 							string constraintString;
 							{
 								nuint length = 0;
-								sbyte* constraintStringPtr = LLVM.GetInlineAsmConstraintString(functionOperand, &length);
-								constraintString = Marshal.PtrToStringAnsi((nint)constraintStringPtr, (int)length) ?? string.Empty;
+								sbyte* constraintStringPtr = LLVM.GetInlineAsmConstraintString(
+									functionOperand,
+									&length
+								);
+								constraintString =
+									Marshal.PtrToStringAnsi((nint)constraintStringPtr, (int)length)
+									?? string.Empty;
 							}
 
-							TypeDefinition declaringType = module.InjectedTypes[typeof(AssemblyFunctions)];
-							MethodDefinition method = new($"M{declaringType.Methods.Count}", MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig, methodSignature);
+							TypeDefinition declaringType = module.InjectedTypes[
+								typeof(AssemblyFunctions)
+							];
+							MethodDefinition method = new(
+								$"M{declaringType.Methods.Count}",
+								MethodAttributes.Public
+									| MethodAttributes.Static
+									| MethodAttributes.HideBySig,
+								methodSignature
+							);
 							declaringType.Methods.Add(method);
 
 							method.CilMethodBody = new();
@@ -571,10 +729,19 @@ internal unsafe readonly struct InstructionLifter
 
 							// Attribute
 							{
-								MethodDefinition constructor = module.InjectedTypes[typeof(InlineAssemblyAttribute)].GetMethodByName(".ctor");
+								MethodDefinition constructor = module
+									.InjectedTypes[typeof(InlineAssemblyAttribute)]
+									.GetMethodByName(".ctor");
 								CustomAttributeSignature signature = new();
-								signature.FixedArguments.Add(new(module.Definition.CorLibTypeFactory.String, assemblyString));
-								signature.FixedArguments.Add(new(module.Definition.CorLibTypeFactory.String, constraintString));
+								signature.FixedArguments.Add(
+									new(module.Definition.CorLibTypeFactory.String, assemblyString)
+								);
+								signature.FixedArguments.Add(
+									new(
+										module.Definition.CorLibTypeFactory.String,
+										constraintString
+									)
+								);
 								CustomAttribute attribute = new(constructor, signature);
 								method.CustomAttributes.Add(attribute);
 							}
@@ -590,28 +757,48 @@ internal unsafe readonly struct InstructionLifter
 					}
 					else if (IsInvisibleFunction(functionCalled))
 					{
-						Debug.Assert(functionCalled.IsVoidReturn, "Invisible function should have a void return type");
+						Debug.Assert(
+							functionCalled.IsVoidReturn,
+							"Invisible function should have a void return type"
+						);
 					}
 					else if (functionCalled.MangledName is "llvm.va_start.p0")
 					{
 						Debug.Assert(function is not null);
 						Debug.Assert(function.VariadicParameter is not null);
-						Debug.Assert(functionCalled.IsVoidReturn && functionCalled.NormalParameters.Length is 1 && functionCalled.VariadicParameter is null, "VA start function should have one parameter and a void return type");
-						Debug.Assert(argumentOperands.Length == 1, "VA start function should have one argument");
+						Debug.Assert(
+							functionCalled.IsVoidReturn
+								&& functionCalled.NormalParameters.Length is 1
+								&& functionCalled.VariadicParameter is null,
+							"VA start function should have one parameter and a void return type"
+						);
+						Debug.Assert(
+							argumentOperands.Length == 1,
+							"VA start function should have one argument"
+						);
 
 						LoadValue(basicBlock, argumentOperands[0]);
 
 						basicBlock.Add(new LoadVariableInstruction(function.VariadicParameter));
 
-						Call(basicBlock, module.InstructionHelperType.GetMethodByName(nameof(InstructionHelper.VAStart)));
+						Call(
+							basicBlock,
+							module.InstructionHelperType.GetMethodByName(
+								nameof(InstructionHelper.VAStart)
+							)
+						);
 					}
 					else
 					{
-						int variadicParameterCount = argumentOperands.Length - functionCalled.NormalParameters.Length;
+						int variadicParameterCount =
+							argumentOperands.Length - functionCalled.NormalParameters.Length;
 
 						if (!functionCalled.IsVariadic)
 						{
-							Debug.Assert(variadicParameterCount == 0, "Function should not have variadic parameters");
+							Debug.Assert(
+								variadicParameterCount == 0,
+								"Function should not have variadic parameters"
+							);
 
 							foreach (LLVMValueRef argumentOperand in argumentOperands)
 							{
@@ -624,12 +811,21 @@ internal unsafe readonly struct InstructionLifter
 							{
 								LoadValue(basicBlock, argumentOperands[i]);
 							}
-							TypeSignature variadicArrayType = functionCalled.Definition.Signature!.ParameterTypes[^1];
-							basicBlock.Add(new LoadVariableInstruction(new DefaultVariable(variadicArrayType)));
+							TypeSignature variadicArrayType = functionCalled
+								.Definition
+								.Signature!
+								.ParameterTypes[^1];
+							basicBlock.Add(
+								new LoadVariableInstruction(new DefaultVariable(variadicArrayType))
+							);
 						}
 						else
 						{
-							IVariable intPtrReadOnlySpanLocal = LoadVariadicArguments(basicBlock, argumentOperands[functionCalled.NormalParameters.Length..], module);
+							IVariable intPtrReadOnlySpanLocal = LoadVariadicArguments(
+								basicBlock,
+								argumentOperands[functionCalled.NormalParameters.Length..],
+								module
+							);
 
 							// Push the arguments onto the stack
 							for (int i = 0; i < functionCalled.NormalParameters.Length; i++)
@@ -646,9 +842,17 @@ internal unsafe readonly struct InstructionLifter
 
 					if (opcode is LLVMOpcode.LLVMCall)
 					{
-						if (functionCalled is null or { MightThrowAnException: true } && function.MightThrowAnException)
+						if (
+							functionCalled is null or { MightThrowAnException: true }
+							&& function.MightThrowAnException
+						)
 						{
-							basicBlock.Add(ReturnIfExceptionInfoNotNullInstruction.Create(function.Definition.Signature!.ReturnType, module));
+							basicBlock.Add(
+								ReturnIfExceptionInfoNotNullInstruction.Create(
+									function.Definition.Signature!.ReturnType,
+									module
+								)
+							);
 						}
 					}
 					else if (opcode is LLVMOpcode.LLVMInvoke)
@@ -656,7 +860,13 @@ internal unsafe readonly struct InstructionLifter
 						LLVMBasicBlockRef catchBlockRef = operands[^2].AsBasicBlock();
 						LLVMBasicBlockRef defaultBlockRef = operands[^3].AsBasicBlock();
 
-						basicBlock.Add(new LoadFieldInstruction(module.InjectedTypes[typeof(ExceptionInfo)].GetFieldByName(nameof(ExceptionInfo.Current))));
+						basicBlock.Add(
+							new LoadFieldInstruction(
+								module
+									.InjectedTypes[typeof(ExceptionInfo)]
+									.GetFieldByName(nameof(ExceptionInfo.Current))
+							)
+						);
 						ConditionalBranch(basicBlock, catchBlockRef, defaultBlockRef);
 					}
 
@@ -668,14 +878,19 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMGetElementPtr:
 				{
-					Debug.Assert(operands.Length >= 2, "GetElementPtr instruction should have at least two operands");
+					Debug.Assert(
+						operands.Length >= 2,
+						"GetElementPtr instruction should have at least two operands"
+					);
 
 					LLVMValueRef source = operands[0];
 					LLVMValueRef initialIndex = operands[1];
 					ReadOnlySpan<LLVMValueRef> otherIndices = operands.AsSpan(2);
 
 					LLVMTypeRef sourceElementType = LLVM.GetGEPSourceElementType(instruction);
-					TypeSignature sourceElementTypeSignature = module.GetTypeSignature(sourceElementType);
+					TypeSignature sourceElementTypeSignature = module.GetTypeSignature(
+						sourceElementType
+					);
 
 					LoadValue(basicBlock, source);
 					LoadArrayOffset(basicBlock, initialIndex, sourceElementTypeSignature);
@@ -687,10 +902,17 @@ internal unsafe readonly struct InstructionLifter
 
 						operandType.ThrowIfNotCoreLibInteger();
 
-						TypeDefOrRefSignature structTypeSignature = (TypeDefOrRefSignature)currentType;
-						TypeDefinition structType = (TypeDefinition)structTypeSignature.ToTypeDefOrRef();
+						TypeDefOrRefSignature structTypeSignature =
+							(TypeDefOrRefSignature)currentType;
+						TypeDefinition structType = (TypeDefinition)
+							structTypeSignature.ToTypeDefOrRef();
 
-						if (module.InlineArrayTypes.TryGetValue(structType, out InlineArrayContext? inlineArray))
+						if (
+							module.InlineArrayTypes.TryGetValue(
+								structType,
+								out InlineArrayContext? inlineArray
+							)
+						)
 						{
 							LoadArrayOffset(basicBlock, operand, inlineArray.ElementType);
 							currentType = inlineArray.ElementType;
@@ -713,8 +935,11 @@ internal unsafe readonly struct InstructionLifter
 				{
 					Debug.Assert(operands.Length is 1);
 					LLVMValueRef source = operands[0];
-					
-					ReadOnlySpan<uint> indices = new(LLVM.GetIndices(instruction), (int)LLVM.GetNumIndices(instruction));
+
+					ReadOnlySpan<uint> indices = new(
+						LLVM.GetIndices(instruction),
+						(int)LLVM.GetNumIndices(instruction)
+					);
 
 					LoadValue(basicBlock, source);
 
@@ -726,10 +951,17 @@ internal unsafe readonly struct InstructionLifter
 					TypeSignature currentType = sourceType;
 					foreach (uint index in indices)
 					{
-						TypeDefOrRefSignature structTypeSignature = (TypeDefOrRefSignature)currentType;
-						TypeDefinition structType = (TypeDefinition)structTypeSignature.ToTypeDefOrRef();
+						TypeDefOrRefSignature structTypeSignature =
+							(TypeDefOrRefSignature)currentType;
+						TypeDefinition structType = (TypeDefinition)
+							structTypeSignature.ToTypeDefOrRef();
 
-						if (module.InlineArrayTypes.TryGetValue(structType, out InlineArrayContext? inlineArray))
+						if (
+							module.InlineArrayTypes.TryGetValue(
+								structType,
+								out InlineArrayContext? inlineArray
+							)
+						)
 						{
 							LoadArrayOffset(basicBlock, (int)index, inlineArray.ElementType);
 							currentType = inlineArray.ElementType;
@@ -752,7 +984,10 @@ internal unsafe readonly struct InstructionLifter
 					LLVMValueRef source = operands[0];
 					LLVMValueRef value = operands[1];
 
-					ReadOnlySpan<uint> indices = new(LLVM.GetIndices(instruction), (int)LLVM.GetNumIndices(instruction));
+					ReadOnlySpan<uint> indices = new(
+						LLVM.GetIndices(instruction),
+						(int)LLVM.GetNumIndices(instruction)
+					);
 
 					LoadValue(basicBlock, source);
 
@@ -764,10 +999,17 @@ internal unsafe readonly struct InstructionLifter
 					TypeSignature currentType = sourceType;
 					foreach (uint index in indices)
 					{
-						TypeDefOrRefSignature structTypeSignature = (TypeDefOrRefSignature)currentType;
-						TypeDefinition structType = (TypeDefinition)structTypeSignature.ToTypeDefOrRef();
+						TypeDefOrRefSignature structTypeSignature =
+							(TypeDefOrRefSignature)currentType;
+						TypeDefinition structType = (TypeDefinition)
+							structTypeSignature.ToTypeDefOrRef();
 
-						if (module.InlineArrayTypes.TryGetValue(structType, out InlineArrayContext? inlineArray))
+						if (
+							module.InlineArrayTypes.TryGetValue(
+								structType,
+								out InlineArrayContext? inlineArray
+							)
+						)
 						{
 							LoadArrayOffset(basicBlock, (int)index, inlineArray.ElementType);
 							currentType = inlineArray.ElementType;
@@ -790,11 +1032,16 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMExtractElement:
 				{
-					Debug.Assert(operands.Length == 2, "ExtractElement instruction should have exactly two operands");
+					Debug.Assert(
+						operands.Length == 2,
+						"ExtractElement instruction should have exactly two operands"
+					);
 					LLVMValueRef vectorOperand = operands[0];
 					LLVMValueRef indexOperand = operands[1];
 					TypeSignature arrayType = module.GetTypeSignature(vectorOperand);
-					TypeSignature elementType = module.InlineArrayTypes[(TypeDefinition)arrayType.ToTypeDefOrRef()].ElementType;
+					TypeSignature elementType = module
+						.InlineArrayTypes[(TypeDefinition)arrayType.ToTypeDefOrRef()]
+						.ElementType;
 					TypeSignature indexType = module.GetTypeSignature(indexOperand);
 
 					LoadValue(basicBlock, vectorOperand);
@@ -808,8 +1055,10 @@ internal unsafe readonly struct InstructionLifter
 						basicBlock.Add(Instruction.FromOpCode(CilOpCodes.Conv_I4));
 					}
 
-					IMethodDescriptor method = module.InstructionHelperType.Methods
-						.First(m => m.Name == nameof(InstructionHelper.ExtractElement))
+					IMethodDescriptor method = module
+						.InstructionHelperType.Methods.First(m =>
+							m.Name == nameof(InstructionHelper.ExtractElement)
+						)
 						.MakeGenericInstanceMethod(arrayType, elementType);
 					Call(basicBlock, method);
 
@@ -824,9 +1073,17 @@ internal unsafe readonly struct InstructionLifter
 					LLVMValueRef indexOperand = operands[2];
 
 					TypeSignature arrayType = module.GetTypeSignature(vectorOperand);
-					TypeSignature elementType = module.InlineArrayTypes[(TypeDefinition)arrayType.ToTypeDefOrRef()].ElementType;
+					TypeSignature elementType = module
+						.InlineArrayTypes[(TypeDefinition)arrayType.ToTypeDefOrRef()]
+						.ElementType;
 					TypeSignature indexType = module.GetTypeSignature(indexOperand);
-					Debug.Assert(SignatureComparer.Default.Equals(elementType, module.GetTypeSignature(valueOperand)), "Value operand should have the same type as the array element type");
+					Debug.Assert(
+						SignatureComparer.Default.Equals(
+							elementType,
+							module.GetTypeSignature(valueOperand)
+						),
+						"Value operand should have the same type as the array element type"
+					);
 
 					LoadValue(basicBlock, vectorOperand);
 					LoadValue(basicBlock, valueOperand);
@@ -840,8 +1097,10 @@ internal unsafe readonly struct InstructionLifter
 						basicBlock.Add(Instruction.FromOpCode(CilOpCodes.Conv_I4));
 					}
 
-					IMethodDescriptor method = module.InstructionHelperType.Methods
-						.First(m => m.Name == nameof(InstructionHelper.InsertElement))
+					IMethodDescriptor method = module
+						.InstructionHelperType.Methods.First(m =>
+							m.Name == nameof(InstructionHelper.InsertElement)
+						)
 						.MakeGenericInstanceMethod(arrayType, elementType);
 					Call(basicBlock, method);
 
@@ -856,20 +1115,39 @@ internal unsafe readonly struct InstructionLifter
 					LLVMValueRef maskOperand = operands[2];
 
 					TypeSignature vectorArrayType = module.GetTypeSignature(vector1Operand);
-					TypeSignature vectorElementType = module.GetContextForInlineArray(vectorArrayType).ElementType;
-					Debug.Assert(SignatureComparer.Default.Equals(vectorArrayType, module.GetTypeSignature(vector2Operand)), "Both vector operands should have the same type");
+					TypeSignature vectorElementType = module
+						.GetContextForInlineArray(vectorArrayType)
+						.ElementType;
+					Debug.Assert(
+						SignatureComparer.Default.Equals(
+							vectorArrayType,
+							module.GetTypeSignature(vector2Operand)
+						),
+						"Both vector operands should have the same type"
+					);
 
 					TypeSignature maskArrayType = module.GetTypeSignature(maskOperand);
-					Debug.Assert(module.GetContextForInlineArray(maskArrayType).ElementType is CorLibTypeSignature { ElementType: ElementType.I4 });
+					Debug.Assert(
+						module.GetContextForInlineArray(maskArrayType).ElementType
+							is CorLibTypeSignature { ElementType: ElementType.I4 }
+					);
 
 					TypeSignature resultArrayType = module.GetTypeSignature(instruction);
-					Debug.Assert(SignatureComparer.Default.Equals(vectorElementType, module.GetContextForInlineArray(resultArrayType).ElementType), "Result array should have the same element type as the vector operands");
+					Debug.Assert(
+						SignatureComparer.Default.Equals(
+							vectorElementType,
+							module.GetContextForInlineArray(resultArrayType).ElementType
+						),
+						"Result array should have the same element type as the vector operands"
+					);
 
 					LoadValue(basicBlock, vector1Operand);
 					LoadValue(basicBlock, vector2Operand);
 					LoadValue(basicBlock, maskOperand);
-					IMethodDescriptor method = module.InstructionHelperType.Methods
-						.First(m => m.Name == nameof(InstructionHelper.ShuffleVector))
+					IMethodDescriptor method = module
+						.InstructionHelperType.Methods.First(m =>
+							m.Name == nameof(InstructionHelper.ShuffleVector)
+						)
 						.MakeGenericInstanceMethod(vectorArrayType, vectorElementType);
 					Call(basicBlock, method);
 					StoreResult(basicBlock, instruction);
@@ -878,8 +1156,14 @@ internal unsafe readonly struct InstructionLifter
 			case LLVMOpcode.LLVMFreeze:
 				{
 					// At runtime, poison and undefined values don't exist, so freeze is a no-op.
-					Debug.Assert(operands.Length == 1, "Freeze instruction should have exactly one operand");
-					Debug.Assert(instruction.TypeOf == operands[0].TypeOf, "Freeze instruction should have the same type as its operand");
+					Debug.Assert(
+						operands.Length == 1,
+						"Freeze instruction should have exactly one operand"
+					);
+					Debug.Assert(
+						instruction.TypeOf == operands[0].TypeOf,
+						"Freeze instruction should have the same type as its operand"
+					);
 					LoadValue(basicBlock, operands[0]);
 					StoreResult(basicBlock, instruction);
 				}
@@ -893,7 +1177,9 @@ internal unsafe readonly struct InstructionLifter
 					// https://learn.microsoft.com/en-us/dotnet/api/system.reflection.emit.opcodes.volatile
 					// https://llvm.org/docs/LangRef.html#fence-instruction
 					// However, we currently don't do anything except warn.
-					Console.WriteLine($"Warning: LLVM fence instruction is not currently supported; it is being ignored inside {function?.Name}.");
+					Console.WriteLine(
+						$"Warning: LLVM fence instruction is not currently supported; it is being ignored inside {function?.Name}."
+					);
 				}
 				break;
 			case LLVMOpcode.LLVMAtomicRMW:
@@ -903,7 +1189,9 @@ internal unsafe readonly struct InstructionLifter
 					TypeSignature type = module.GetTypeSignature(instruction);
 					LoadVariable(basicBlock, new DefaultVariable(type));
 					StoreResult(basicBlock, instruction);
-					Console.WriteLine($"Warning: LLVM AtomicRMW instruction is not currently supported; it is being ignored inside {function?.Name}.");
+					Console.WriteLine(
+						$"Warning: LLVM AtomicRMW instruction is not currently supported; it is being ignored inside {function?.Name}."
+					);
 				}
 				break;
 			case LLVMOpcode.LLVMAtomicCmpXchg:
@@ -913,13 +1201,18 @@ internal unsafe readonly struct InstructionLifter
 					TypeSignature type = module.GetTypeSignature(instruction);
 					LoadVariable(basicBlock, new DefaultVariable(type));
 					StoreResult(basicBlock, instruction);
-					Console.WriteLine($"Warning: LLVM CmpXchg instruction is not currently supported; it is being ignored inside {function?.Name}.");
+					Console.WriteLine(
+						$"Warning: LLVM CmpXchg instruction is not currently supported; it is being ignored inside {function?.Name}."
+					);
 				}
 				break;
 			default:
 				if (BinaryMathInstruction.Supported(opcode))
 				{
-					Debug.Assert(operands.Length == 2, "Binary math instruction should have exactly two operands");
+					Debug.Assert(
+						operands.Length == 2,
+						"Binary math instruction should have exactly two operands"
+					);
 
 					// Potential optimization: map "xor v1 0" to "not v1"
 					// LLVM doesn't have a not instruction, so it uses xor with zero instead.
@@ -933,7 +1226,10 @@ internal unsafe readonly struct InstructionLifter
 				}
 				else if (NumericalConversionInstruction.Supported(opcode))
 				{
-					Debug.Assert(operands.Length == 1, "Numerical conversion instruction should have exactly one operand");
+					Debug.Assert(
+						operands.Length == 1,
+						"Numerical conversion instruction should have exactly one operand"
+					);
 
 					LoadValue(basicBlock, operands[0]);
 
@@ -958,14 +1254,17 @@ internal unsafe readonly struct InstructionLifter
 		/// Exception handled; resume execution where it occurred
 		/// </summary>
 		ContinueExecution,
+
 		/// <summary>
 		/// Not handled; search next handler
 		/// </summary>
 		ContinueSearch,
+
 		/// <summary>
 		/// New exception occurred during existing exception handling (unwinding)
 		/// </summary>
 		NestedException,
+
 		/// <summary>
 		/// Unwinding interrupted by another unwind; adjust strategy
 		/// </summary>
@@ -975,7 +1274,11 @@ internal unsafe readonly struct InstructionLifter
 		CollidedUnwind,
 	}
 
-	private void LoadArrayOffset(BasicBlock basicBlock, LLVMValueRef index, TypeSignature elementTypeSignature)
+	private void LoadArrayOffset(
+		BasicBlock basicBlock,
+		LLVMValueRef index,
+		TypeSignature elementTypeSignature
+	)
 	{
 		bool isConstant = index.IsAConstantInt != default;
 		long constantValue = index.ConstIntSExt;
@@ -1023,7 +1326,11 @@ internal unsafe readonly struct InstructionLifter
 		}
 	}
 
-	private void LoadArrayOffset(BasicBlock basicBlock, int index, TypeSignature elementTypeSignature)
+	private void LoadArrayOffset(
+		BasicBlock basicBlock,
+		int index,
+		TypeSignature elementTypeSignature
+	)
 	{
 		if (index == 0)
 		{
@@ -1053,27 +1360,44 @@ internal unsafe readonly struct InstructionLifter
 		}
 	}
 
-	private IVariable LoadVariadicArguments(BasicBlock basicBlock, ReadOnlySpan<LLVMValueRef> variadicArguments, ModuleContext module)
+	private IVariable LoadVariadicArguments(
+		BasicBlock basicBlock,
+		ReadOnlySpan<LLVMValueRef> variadicArguments,
+		ModuleContext module
+	)
 	{
 		CorLibTypeSignature intPtr = module.Definition.CorLibTypeFactory.IntPtr;
 
-		TypeDefinition intPtrBuffer = module.GetOrCreateInlineArray(intPtr, variadicArguments.Length).Type;
+		TypeDefinition intPtrBuffer = module
+			.GetOrCreateInlineArray(intPtr, variadicArguments.Length)
+			.Type;
 
-		TypeSignature intPtrSpan = module.Definition.DefaultImporter
-			.ImportType(typeof(Span<>))
+		TypeSignature intPtrSpan = module
+			.Definition.DefaultImporter.ImportType(typeof(Span<>))
 			.MakeGenericInstanceType(intPtr);
 
-		TypeSignature intPtrReadOnlySpan = module.Definition.DefaultImporter
-			.ImportType(typeof(ReadOnlySpan<>))
+		TypeSignature intPtrReadOnlySpan = module
+			.Definition.DefaultImporter.ImportType(typeof(ReadOnlySpan<>))
 			.MakeGenericInstanceType(intPtr);
 
-		MethodSignature getItemSignature = MethodSignature.CreateInstance(new GenericParameterSignature(GenericParameterType.Type, 0).MakeByReferenceType(), module.Definition.CorLibTypeFactory.Int32);
+		MethodSignature getItemSignature = MethodSignature.CreateInstance(
+			new GenericParameterSignature(GenericParameterType.Type, 0).MakeByReferenceType(),
+			module.Definition.CorLibTypeFactory.Int32
+		);
 
-		IMethodDescriptor intPtrSpanGetItem = new MemberReference(intPtrSpan.ToTypeDefOrRef(), "get_Item", getItemSignature);
+		IMethodDescriptor intPtrSpanGetItem = new MemberReference(
+			intPtrSpan.ToTypeDefOrRef(),
+			"get_Item",
+			getItemSignature
+		);
 
-		MethodDefinition inlineArrayAsSpan = module.InlineArrayHelperType.Methods.Single(m => m.Name == nameof(InlineArrayHelper.AsSpan));
+		MethodDefinition inlineArrayAsSpan = module.InlineArrayHelperType.Methods.Single(m =>
+			m.Name == nameof(InlineArrayHelper.AsSpan)
+		);
 
-		MethodDefinition spanToReadOnly = module.SpanHelperType.Methods.Single(m => m.Name == nameof(SpanHelper.ToReadOnly));
+		MethodDefinition spanToReadOnly = module.SpanHelperType.Methods.Single(m =>
+			m.Name == nameof(SpanHelper.ToReadOnly)
+		);
 
 		LocalVariable intPtrBufferLocal = new LocalVariable(intPtrBuffer.ToTypeSignature());
 		basicBlock.Add(new InitializeInstruction(intPtrBufferLocal));
@@ -1090,7 +1414,10 @@ internal unsafe readonly struct InstructionLifter
 
 		LocalVariable intPtrSpanLocal = new LocalVariable(intPtrSpan);
 		basicBlock.Add(new AddressOfInstruction(intPtrBufferLocal));
-		Call(basicBlock, inlineArrayAsSpan.MakeGenericInstanceMethod(intPtrBuffer.ToTypeSignature(), intPtr));
+		Call(
+			basicBlock,
+			inlineArrayAsSpan.MakeGenericInstanceMethod(intPtrBuffer.ToTypeSignature(), intPtr)
+		);
 		basicBlock.Add(new StoreVariableInstruction(intPtrSpanLocal));
 
 		for (int i = 0; i < variadicLocals.Length; i++)
@@ -1184,7 +1511,10 @@ internal unsafe readonly struct InstructionLifter
 					writer.Flush();
 					long arrayEndPosition = writer.BaseStream.Position;
 
-					Debug.Assert(arrayEndPosition - arrayStartPosition == size, "Array size should match the expected size");
+					Debug.Assert(
+						arrayEndPosition - arrayStartPosition == size,
+						"Array size should match the expected size"
+					);
 				}
 				break;
 			case LLVMValueKind.LLVMConstantStructValueKind:
@@ -1274,7 +1604,10 @@ internal unsafe readonly struct InstructionLifter
 					long integer = value.ConstIntSExt;
 					LLVMTypeRef operandType = value.TypeOf;
 					TypeSignature typeSignature = module.GetTypeSignature(operandType);
-					if (integer is <= int.MaxValue and >= int.MinValue && operandType is { IntWidth: <= sizeof(int) * BitsPerByte })
+					if (
+						integer is <= int.MaxValue and >= int.MinValue
+						&& operandType is { IntWidth: <= sizeof(int) * BitsPerByte }
+					)
 					{
 						LoadVariable(basicBlock, new ConstantI4((int)integer, module.Definition));
 					}
@@ -1285,15 +1618,25 @@ internal unsafe readonly struct InstructionLifter
 					else if (operandType is { IntWidth: 2 * sizeof(long) * BitsPerByte })
 					{
 						LoadVariable(basicBlock, new ConstantI8(integer, module.Definition));
-						MethodDefinition conversionMethod = typeSignature.Resolve()!.Methods.First(m =>
-						{
-							return m.Name == "op_Implicit" && m.Parameters.Count == 1 && m.Parameters[0].ParameterType is CorLibTypeSignature { ElementType: ElementType.I8 };
-						});
-						Call(basicBlock, module.Definition.DefaultImporter.ImportMethod(conversionMethod));
+						MethodDefinition conversionMethod = typeSignature
+							.Resolve()!
+							.Methods.First(m =>
+							{
+								return m.Name == "op_Implicit"
+									&& m.Parameters.Count == 1
+									&& m.Parameters[0].ParameterType
+										is CorLibTypeSignature { ElementType: ElementType.I8 };
+							});
+						Call(
+							basicBlock,
+							module.Definition.DefaultImporter.ImportMethod(conversionMethod)
+						);
 					}
 					else
 					{
-						throw new NotSupportedException($"Unsupported integer type: {typeSignature}");
+						throw new NotSupportedException(
+							$"Unsupported integer type: {typeSignature}"
+						);
 					}
 				}
 				break;
@@ -1323,10 +1666,16 @@ internal unsafe readonly struct InstructionLifter
 					switch (typeSignature)
 					{
 						case CorLibTypeSignature { ElementType: ElementType.R4 }:
-							LoadVariable(basicBlock, new ConstantR4((float)floatingPoint, module.Definition));
+							LoadVariable(
+								basicBlock,
+								new ConstantR4((float)floatingPoint, module.Definition)
+							);
 							break;
 						case CorLibTypeSignature { ElementType: ElementType.R8 }:
-							LoadVariable(basicBlock, new ConstantR8(floatingPoint, module.Definition));
+							LoadVariable(
+								basicBlock,
+								new ConstantR8(floatingPoint, module.Definition)
+							);
 							break;
 						default:
 							throw new NotSupportedException();
@@ -1339,7 +1688,12 @@ internal unsafe readonly struct InstructionLifter
 
 					TypeSignature arrayType = GetTypeSignature(value.TypeOf);
 
-					module.InlineArrayTypes[(TypeDefinition)arrayType.ToTypeDefOrRef()].GetUltimateElementType(out TypeSignature elementType, out int elementCount);
+					module
+						.InlineArrayTypes[(TypeDefinition)arrayType.ToTypeDefOrRef()]
+						.GetUltimateElementType(
+							out TypeSignature elementType,
+							out int elementCount
+						);
 
 					LoadArrayFromByteSpan(basicBlock, arrayType, elementType, data);
 				}
@@ -1348,9 +1702,14 @@ internal unsafe readonly struct InstructionLifter
 				{
 					TypeSignature underlyingType = GetTypeSignature(value.TypeOf);
 
-					module.InlineArrayTypes[(TypeDefinition)underlyingType.ToTypeDefOrRef()].GetElementType(out TypeSignature elementType, out int elementCount);
+					module
+						.InlineArrayTypes[(TypeDefinition)underlyingType.ToTypeDefOrRef()]
+						.GetElementType(out TypeSignature elementType, out int elementCount);
 
-					if (module.Options.PrecomputeInitializers && TryWriteConstant(value, out byte[]? data))
+					if (
+						module.Options.PrecomputeInitializers
+						&& TryWriteConstant(value, out byte[]? data)
+					)
 					{
 						LoadArrayFromByteSpan(basicBlock, underlyingType, elementType, data);
 						return;
@@ -1370,17 +1729,39 @@ internal unsafe readonly struct InstructionLifter
 						return;
 					}
 
-					Debug.Assert(elementType is not PointerTypeSignature, "Pointers cannot be used as generic type arguments");
+					Debug.Assert(
+						elementType is not PointerTypeSignature,
+						"Pointers cannot be used as generic type arguments"
+					);
 
-					GenericInstanceTypeSignature builderType = module.InjectedTypes[typeof(InlineArrayBuilder<,>)].MakeGenericInstanceType(underlyingType, elementType);
+					GenericInstanceTypeSignature builderType = module
+						.InjectedTypes[typeof(InlineArrayBuilder<,>)]
+						.MakeGenericInstanceType(underlyingType, elementType);
 
-					MethodSignature addSignature = MethodSignature.CreateInstance(module.Definition.CorLibTypeFactory.Void, new GenericParameterSignature(GenericParameterType.Type, 1));
-					IMethodDescriptor add = new MemberReference(builderType.ToTypeDefOrRef(), nameof(InlineArrayBuilder<,>.Add), addSignature);
+					MethodSignature addSignature = MethodSignature.CreateInstance(
+						module.Definition.CorLibTypeFactory.Void,
+						new GenericParameterSignature(GenericParameterType.Type, 1)
+					);
+					IMethodDescriptor add = new MemberReference(
+						builderType.ToTypeDefOrRef(),
+						nameof(InlineArrayBuilder<,>.Add),
+						addSignature
+					);
 
 					MethodSignature conversionSignature = MethodSignature.CreateStatic(
 						new GenericParameterSignature(GenericParameterType.Type, 0),
-						module.InjectedTypes[typeof(InlineArrayBuilder<,>)].MakeGenericInstanceType(new GenericParameterSignature(GenericParameterType.Type, 0), new GenericParameterSignature(GenericParameterType.Type, 1)));
-					IMethodDescriptor conversion = new MemberReference(builderType.ToTypeDefOrRef(), "op_Implicit", conversionSignature);
+						module
+							.InjectedTypes[typeof(InlineArrayBuilder<,>)]
+							.MakeGenericInstanceType(
+								new GenericParameterSignature(GenericParameterType.Type, 0),
+								new GenericParameterSignature(GenericParameterType.Type, 1)
+							)
+					);
+					IMethodDescriptor conversion = new MemberReference(
+						builderType.ToTypeDefOrRef(),
+						"op_Implicit",
+						conversionSignature
+					);
 
 					LocalVariable builderLocal = new(builderType);
 
@@ -1407,20 +1788,36 @@ internal unsafe readonly struct InstructionLifter
 				{
 					TypeSignature typeSignature = GetTypeSignature(value.TypeOf);
 
-					if (module.Options.PrecomputeInitializers && TryWriteConstant(value, out byte[]? data))
+					if (
+						module.Options.PrecomputeInitializers
+						&& TryWriteConstant(value, out byte[]? data)
+					)
 					{
-						IMethodDefOrRef spanConstructor = (IMethodDefOrRef)module.Definition.DefaultImporter
-							.ImportMethod(typeof(ReadOnlySpan<byte>).GetConstructor([typeof(void*), typeof(int)])!);
+						IMethodDefOrRef spanConstructor = (IMethodDefOrRef)
+							module.Definition.DefaultImporter.ImportMethod(
+								typeof(ReadOnlySpan<byte>).GetConstructor([
+									typeof(void*),
+									typeof(int),
+								])!
+							);
 
 						FieldDefinition field = module.AddStoredDataField(data);
 
 						basicBlock.Add(new LoadFieldAddressInstruction(field));
-						basicBlock.Add(new LoadVariableInstruction(new ConstantI4(data.Length, module.Definition)));
+						basicBlock.Add(
+							new LoadVariableInstruction(
+								new ConstantI4(data.Length, module.Definition)
+							)
+						);
 						basicBlock.Add(new NewObjectInstruction(spanConstructor));
 
-						IMethodDefOrRef read = (IMethodDefOrRef)module.Definition.DefaultImporter
-							.ImportMethod(typeof(MemoryMarshal).GetMethod(nameof(MemoryMarshal.Read))!);
-						IMethodDescriptor readInstance = read.MakeGenericInstanceMethod(typeSignature);
+						IMethodDefOrRef read = (IMethodDefOrRef)
+							module.Definition.DefaultImporter.ImportMethod(
+								typeof(MemoryMarshal).GetMethod(nameof(MemoryMarshal.Read))!
+							);
+						IMethodDescriptor readInstance = read.MakeGenericInstanceMethod(
+							typeSignature
+						);
 
 						Call(basicBlock, readInstance);
 
@@ -1460,7 +1857,9 @@ internal unsafe readonly struct InstructionLifter
 						}
 						basicBlock.Add(new LoadFieldAddressInstruction(fieldDefinition));
 						LoadValue(basicBlock, field);
-						basicBlock.Add(new StoreIndirectInstruction(fieldDefinition.Signature!.FieldType));
+						basicBlock.Add(
+							new StoreIndirectInstruction(fieldDefinition.Signature!.FieldType)
+						);
 					}
 
 					LoadVariable(basicBlock, resultLocal);
@@ -1492,7 +1891,9 @@ internal unsafe readonly struct InstructionLifter
 					}
 					else
 					{
-						throw new InvalidOperationException("Constant expressions should not be void.");
+						throw new InvalidOperationException(
+							"Constant expressions should not be void."
+						);
 					}
 				}
 				break;
@@ -1510,7 +1911,10 @@ internal unsafe readonly struct InstructionLifter
 				break;
 			case LLVMValueKind.LLVMArgumentValueKind:
 				{
-					LoadVariable(basicBlock, module.Methods[value.ParamParent].ParameterLookup[value]);
+					LoadVariable(
+						basicBlock,
+						module.Methods[value.ParamParent].ParameterLookup[value]
+					);
 				}
 				break;
 			case LLVMValueKind.LLVMMetadataAsValueValueKind:
@@ -1525,38 +1929,62 @@ internal unsafe readonly struct InstructionLifter
 		}
 	}
 
-	private void LoadArrayFromByteSpan(BasicBlock basicBlock, TypeSignature arrayType, TypeSignature elementType, ReadOnlySpan<byte> data)
+	private void LoadArrayFromByteSpan(
+		BasicBlock basicBlock,
+		TypeSignature arrayType,
+		TypeSignature elementType,
+		ReadOnlySpan<byte> data
+	)
 	{
-		if (elementType is CorLibTypeSignature { ElementType: ElementType.I2 } && data.TryParseCharacterArray(out string? @string))
+		if (
+			elementType is CorLibTypeSignature { ElementType: ElementType.I2 }
+			&& data.TryParseCharacterArray(out string? @string)
+		)
 		{
 			elementType = module.Definition.CorLibTypeFactory.Char;
 
 			MemberReference conversionToCharacterReadOnlySpan = new(
 				module.Definition.CorLibTypeFactory.String.ToTypeDefOrRef(),
 				"op_Implicit",
-				MethodSignature.CreateStatic(module.Definition.DefaultImporter.ImportTypeSignature(typeof(ReadOnlySpan<char>)), module.Definition.CorLibTypeFactory.String));
+				MethodSignature.CreateStatic(
+					module.Definition.DefaultImporter.ImportTypeSignature(
+						typeof(ReadOnlySpan<char>)
+					),
+					module.Definition.CorLibTypeFactory.String
+				)
+			);
 
 			LoadVariable(basicBlock, new ConstantString(@string, module.Definition));
 			Call(basicBlock, conversionToCharacterReadOnlySpan);
 		}
-		else if (elementType is CorLibTypeSignature { ElementType: ElementType.I1 or ElementType.U1 })
+		else if (
+			elementType is CorLibTypeSignature { ElementType: ElementType.I1 or ElementType.U1 }
+		)
 		{
 			elementType = module.Definition.CorLibTypeFactory.Byte;
 
-			IMethodDefOrRef spanConstructor = (IMethodDefOrRef)module.Definition.DefaultImporter
-				.ImportMethod(typeof(ReadOnlySpan<byte>).GetConstructor([typeof(void*), typeof(int)])!);
+			IMethodDefOrRef spanConstructor = (IMethodDefOrRef)
+				module.Definition.DefaultImporter.ImportMethod(
+					typeof(ReadOnlySpan<byte>).GetConstructor([typeof(void*), typeof(int)])!
+				);
 
 			FieldDefinition field = module.AddStoredDataField(data);
 
 			basicBlock.Add(new LoadFieldAddressInstruction(field));
-			basicBlock.Add(new LoadVariableInstruction(new ConstantI4(data.Length, module.Definition)));
+			basicBlock.Add(
+				new LoadVariableInstruction(new ConstantI4(data.Length, module.Definition))
+			);
 			basicBlock.Add(new NewObjectInstruction(spanConstructor));
 		}
 		else if (elementType is CorLibTypeSignature)
 		{
-			IMethodDefOrRef createSpan = (IMethodDefOrRef)module.Definition.DefaultImporter
-				.ImportMethod(typeof(RuntimeHelpers).GetMethod(nameof(RuntimeHelpers.CreateSpan))!);
-			IMethodDescriptor createSpanInstance = createSpan.MakeGenericInstanceMethod(elementType);
+			IMethodDefOrRef createSpan = (IMethodDefOrRef)
+				module.Definition.DefaultImporter.ImportMethod(
+					typeof(RuntimeHelpers).GetMethod(nameof(RuntimeHelpers.CreateSpan))!
+				);
+			IMethodDescriptor createSpanInstance = createSpan.MakeGenericInstanceMethod(
+				elementType
+			);
 
 			FieldDefinition field = module.AddStoredDataField(data);
 
@@ -1565,26 +1993,33 @@ internal unsafe readonly struct InstructionLifter
 		}
 		else
 		{
-			IMethodDefOrRef spanConstructor = (IMethodDefOrRef)module.Definition.DefaultImporter
-				.ImportMethod(typeof(ReadOnlySpan<byte>).GetConstructor([typeof(void*), typeof(int)])!);
+			IMethodDefOrRef spanConstructor = (IMethodDefOrRef)
+				module.Definition.DefaultImporter.ImportMethod(
+					typeof(ReadOnlySpan<byte>).GetConstructor([typeof(void*), typeof(int)])!
+				);
 
 			FieldDefinition field = module.AddStoredDataField(data);
 
 			basicBlock.Add(new LoadFieldAddressInstruction(field));
-			basicBlock.Add(new LoadVariableInstruction(new ConstantI4(data.Length, module.Definition)));
+			basicBlock.Add(
+				new LoadVariableInstruction(new ConstantI4(data.Length, module.Definition))
+			);
 			basicBlock.Add(new NewObjectInstruction(spanConstructor));
 
-			IMethodDescriptor castMethod = module.SpanHelperType.Methods
-				.Single(m => m.Name == nameof(SpanHelper.Cast))
+			IMethodDescriptor castMethod = module
+				.SpanHelperType.Methods.Single(m => m.Name == nameof(SpanHelper.Cast))
 				.MakeGenericInstanceMethod(module.Definition.CorLibTypeFactory.Byte, elementType);
 
 			Call(basicBlock, castMethod);
 		}
 
-		Debug.Assert(elementType is not PointerTypeSignature, "Pointers cannot be used as generic type arguments");
+		Debug.Assert(
+			elementType is not PointerTypeSignature,
+			"Pointers cannot be used as generic type arguments"
+		);
 
-		IMethodDescriptor createInlineArray = module.InlineArrayHelperType.Methods
-			.Single(m => m.Name == nameof(InlineArrayHelper.Create))
+		IMethodDescriptor createInlineArray = module
+			.InlineArrayHelperType.Methods.Single(m => m.Name == nameof(InlineArrayHelper.Create))
 			.MakeGenericInstanceMethod(arrayType, elementType);
 
 		Call(basicBlock, createInlineArray);
@@ -1643,7 +2078,11 @@ internal unsafe readonly struct InstructionLifter
 	/// <summary>
 	/// Includes handling for phi instructions in the target blocks.
 	/// </summary>
-	private void ConditionalBranch(BasicBlock basicBlock, LLVMBasicBlockRef trueBlock, LLVMBasicBlockRef falseBlock)
+	private void ConditionalBranch(
+		BasicBlock basicBlock,
+		LLVMBasicBlockRef trueBlock,
+		LLVMBasicBlockRef falseBlock
+	)
 	{
 		if (!trueBlock.StartsWithPhi())
 		{
@@ -1678,7 +2117,12 @@ internal unsafe readonly struct InstructionLifter
 		}
 	}
 
-	private static bool TryMatchImageOffset(LLVMValueRef instruction, ModuleContext module, out FunctionContext? function, out GlobalVariableContext? variable)
+	private static bool TryMatchImageOffset(
+		LLVMValueRef instruction,
+		ModuleContext module,
+		out FunctionContext? function,
+		out GlobalVariableContext? variable
+	)
 	{
 		if (instruction.Kind is not LLVMValueKind.LLVMConstantExprValueKind)
 		{
@@ -1686,26 +2130,38 @@ internal unsafe readonly struct InstructionLifter
 		}
 
 		LLVMValueRef trunc = instruction;
-		if (trunc.ConstOpcode is not LLVMOpcode.LLVMTrunc || trunc.TypeOf is not { Kind: LLVMTypeKind.LLVMIntegerTypeKind, IntWidth: 32 })
+		if (
+			trunc.ConstOpcode is not LLVMOpcode.LLVMTrunc
+			|| trunc.TypeOf is not { Kind: LLVMTypeKind.LLVMIntegerTypeKind, IntWidth: 32 }
+		)
 		{
 			return False(out function, out variable);
 		}
 
 		LLVMValueRef sub = trunc.GetOperand(0);
-		if (sub.ConstOpcode is not LLVMOpcode.LLVMSub || sub.TypeOf is not { Kind: LLVMTypeKind.LLVMIntegerTypeKind, IntWidth: 64 })
+		if (
+			sub.ConstOpcode is not LLVMOpcode.LLVMSub
+			|| sub.TypeOf is not { Kind: LLVMTypeKind.LLVMIntegerTypeKind, IntWidth: 64 }
+		)
 		{
 			return False(out function, out variable);
 		}
 
 		LLVMValueRef ptrToInt_Left = sub.GetOperand(0);
 		LLVMValueRef ptrToInt_Right = sub.GetOperand(1);
-		if (ptrToInt_Left.ConstOpcode is not LLVMOpcode.LLVMPtrToInt || ptrToInt_Right.ConstOpcode is not LLVMOpcode.LLVMPtrToInt)
+		if (
+			ptrToInt_Left.ConstOpcode is not LLVMOpcode.LLVMPtrToInt
+			|| ptrToInt_Right.ConstOpcode is not LLVMOpcode.LLVMPtrToInt
+		)
 		{
 			return False(out function, out variable);
 		}
 
 		LLVMValueRef imageBase = ptrToInt_Right.GetOperand(0);
-		if (imageBase.Kind is not LLVMValueKind.LLVMGlobalVariableValueKind || imageBase.Name is not "__ImageBase")
+		if (
+			imageBase.Kind is not LLVMValueKind.LLVMGlobalVariableValueKind
+			|| imageBase.Name is not "__ImageBase"
+		)
 		{
 			return False(out function, out variable);
 		}

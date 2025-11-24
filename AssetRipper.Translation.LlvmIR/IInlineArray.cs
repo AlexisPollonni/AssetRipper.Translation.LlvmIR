@@ -4,7 +4,10 @@ internal interface IInlineArray<out T>
 {
 	static abstract int Length { get; }
 }
-internal interface IInlineArray<TSelf, out TElement> : IInlineArray<TElement>, IReadOnlyList<TElement>
+
+internal interface IInlineArray<TSelf, out TElement>
+	: IInlineArray<TElement>,
+		IReadOnlyList<TElement>
 	where TSelf : struct, IInlineArray<TElement>
 {
 	TElement IReadOnlyList<TElement>.this[int index]

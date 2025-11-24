@@ -1,30 +1,43 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
 using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
 using LLVMSharp.Interop;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace AssetRipper.Translation.LlvmIR;
 
 public static unsafe class Translator
 {
-	public static ModuleDefinition Translate(string name, string content, TranslatorOptions? options = null)
+	public static ModuleDefinition Translate(
+		string name,
+		string content,
+		TranslatorOptions? options = null
+	)
 	{
 		return Translate(name, Encoding.UTF8.GetBytes(content), options);
 	}
 
-	public static ModuleDefinition Translate(string name, ReadOnlySpan<byte> content, TranslatorOptions? options = null)
+	public static ModuleDefinition Translate(
+		string name,
+		ReadOnlySpan<byte> content,
+		TranslatorOptions? options = null
+	)
 	{
 		fixed (byte* ptr = content)
 		{
 			using LLVMContextRef context = LLVMContextRef.Create();
 			nint namePtr = Marshal.StringToHGlobalAnsi(name);
-			LLVMMemoryBufferRef buffer = LLVM.CreateMemoryBufferWithMemoryRange((sbyte*)ptr, (nuint)content.Length, (sbyte*)namePtr, 0);
+			LLVMMemoryBufferRef buffer = LLVM.CreateMemoryBufferWithMemoryRange(
+				(sbyte*)ptr,
+				(nuint)content.Length,
+				(sbyte*)namePtr,
+				0
+			);
 			try
 			{
 				using LLVMModuleRef module = context.ParseIR(buffer);
@@ -47,7 +60,9 @@ public static unsafe class Translator
 
 	private static ModuleDefinition Translate(LLVMModuleRef module, TranslatorOptions options)
 	{
-		CustomModuleDefinition moduleDefinition = new(string.IsNullOrEmpty(options.ModuleName) ? "ConvertedCpp" : options.ModuleName);
+		CustomModuleDefinition moduleDefinition = new(
+			string.IsNullOrEmpty(options.ModuleName) ? "ConvertedCpp" : options.ModuleName
+		);
 
 		moduleDefinition.AddTargetFrameworkAttributeForDotNet9();
 
@@ -67,13 +82,17 @@ public static unsafe class Translator
 		moduleContext.IdentifyFunctionsThatMightThrow();
 
 		Console.WriteLine("Creating properties for global variables...");
-		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+		foreach (
+			GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+		)
 		{
 			globalVariableContext.CreateProperties();
 		}
 
 		Console.WriteLine("Initializing data for global variables");
-		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+		foreach (
+			GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+		)
 		{
 			globalVariableContext.InitializeData();
 			globalVariableContext.AddPublicImplementation();
@@ -94,10 +113,15 @@ public static unsafe class Translator
 
 			if (functionIndex % 100 == 0)
 			{
-				Console.WriteLine($"Implementing function {functionIndex}/{moduleContext.Methods.Count}");
+				Console.WriteLine(
+					$"Implementing function {functionIndex}/{moduleContext.Methods.Count}"
+				);
 			}
 
-			CilInstructionCollection instructions = functionContext.Definition.CilMethodBody!.Instructions;
+			CilInstructionCollection instructions = functionContext
+				.Definition
+				.CilMethodBody!
+				.Instructions;
 
 			IReadOnlyList<BasicBlock> basicBlocks = InstructionLifter.Lift(functionContext);
 			InstructionOptimizer.Optimize(basicBlocks);
@@ -113,7 +137,9 @@ public static unsafe class Translator
 		}
 
 		Console.WriteLine("Cleaning up...");
-		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+		foreach (
+			GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+		)
 		{
 			globalVariableContext.RemovePointerFieldIfNotUsed();
 		}
@@ -125,8 +151,12 @@ public static unsafe class Translator
 
 		if (moduleContext.InjectedTypes[typeof(AssemblyFunctions)].Methods.Count == 0)
 		{
-			moduleDefinition.TopLevelTypes.Remove(moduleContext.InjectedTypes[typeof(AssemblyFunctions)]);
-			moduleDefinition.TopLevelTypes.Remove(moduleContext.InjectedTypes[typeof(InlineAssemblyAttribute)]);
+			moduleDefinition.TopLevelTypes.Remove(
+				moduleContext.InjectedTypes[typeof(AssemblyFunctions)]
+			);
+			moduleDefinition.TopLevelTypes.Remove(
+				moduleContext.InjectedTypes[typeof(InlineAssemblyAttribute)]
+			);
 		}
 
 		{
@@ -136,18 +166,29 @@ public static unsafe class Translator
 
 			List<(LLVMTypeRef, LLVMMetadataRef)> globalVariableTypes = [];
 
-			foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+			foreach (
+				GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+			)
 			{
-				LLVMMetadataRef metadata = LibLLVMSharp.GlobalVariableGetGlobalVariableExpression(globalVariableContext.GlobalVariable);
+				LLVMMetadataRef metadata = LibLLVMSharp.GlobalVariableGetGlobalVariableExpression(
+					globalVariableContext.GlobalVariable
+				);
 				LLVMMetadataRef type = metadata.Variable.Type;
-				if (type.Handle == IntPtr.Zero)
-				{
-				}
-				else if (type.IsArray && globalVariableContext.Type.Kind is LLVMTypeKind.LLVMArrayTypeKind or LLVMTypeKind.LLVMScalableVectorTypeKind or LLVMTypeKind.LLVMVectorTypeKind)
+				if (type.Handle == IntPtr.Zero) { }
+				else if (
+					type.IsArray
+					&& globalVariableContext.Type.Kind
+						is LLVMTypeKind.LLVMArrayTypeKind
+							or LLVMTypeKind.LLVMScalableVectorTypeKind
+							or LLVMTypeKind.LLVMVectorTypeKind
+				)
 				{
 					globalVariableTypes.Add((globalVariableContext.Type, type));
 				}
-				else if ((type.IsStruct || type.IsClass || type.IsUnion) && globalVariableContext.Type.Kind is LLVMTypeKind.LLVMStructTypeKind)
+				else if (
+					(type.IsStruct || type.IsClass || type.IsUnion)
+					&& globalVariableContext.Type.Kind is LLVMTypeKind.LLVMStructTypeKind
+				)
 				{
 					globalVariableTypes.Add((globalVariableContext.Type, type));
 				}
@@ -155,17 +196,25 @@ public static unsafe class Translator
 
 			AddChildTypes(globalVariableTypes);
 
-			List<LLVMMetadataRef> typesWithIdentifiers = types.Where(m => m.IsStruct || m.IsClass || m.IsUnion).ToList();
-			List<string> identifiers = typesWithIdentifiers.Select(m =>
-			{
-				string identifier = m.IdentifierClean;
-				return string.IsNullOrEmpty(identifier) ? m.Name : identifier;
-			}).ToList();
+			List<LLVMMetadataRef> typesWithIdentifiers = types
+				.Where(m => m.IsStruct || m.IsClass || m.IsUnion)
+				.ToList();
+			List<string> identifiers = typesWithIdentifiers
+				.Select(m =>
+				{
+					string identifier = m.IdentifierClean;
+					return string.IsNullOrEmpty(identifier) ? m.Name : identifier;
+				})
+				.ToList();
 
-			Dictionary<LLVMTypeRef, StructContext> contextLookUp = moduleContext.Structs.Values.ToDictionary(s => s.Type);
+			Dictionary<LLVMTypeRef, StructContext> contextLookUp =
+				moduleContext.Structs.Values.ToDictionary(s => s.Type);
 
 			Dictionary<StructContext, List<LLVMMetadataRef>> validMetadata = globalVariableTypes
-				.Where(p => p.Item1.Kind is LLVMTypeKind.LLVMStructTypeKind && p.Item2.Kind is LLVMMetadataKind.LLVMDICompositeTypeMetadataKind)
+				.Where(p =>
+					p.Item1.Kind is LLVMTypeKind.LLVMStructTypeKind
+					&& p.Item2.Kind is LLVMMetadataKind.LLVMDICompositeTypeMetadataKind
+				)
 				.Distinct()
 				.ToDictionary(p => contextLookUp[p.Item1], p => (List<LLVMMetadataRef>)[p.Item2]);
 			foreach (StructContext structContext in moduleContext.Structs.Values)
@@ -205,7 +254,14 @@ public static unsafe class Translator
 				for (int i = 0; i < identifiers.Count; i++)
 				{
 					string identifier = identifiers[i];
-					if (identifier.Length <= structContext.DemangledName.Length || !identifier.StartsWith(structContext.DemangledName, StringComparison.Ordinal) || identifier[structContext.DemangledName.Length] != '<')
+					if (
+						identifier.Length <= structContext.DemangledName.Length
+						|| !identifier.StartsWith(
+							structContext.DemangledName,
+							StringComparison.Ordinal
+						)
+						|| identifier[structContext.DemangledName.Length] != '<'
+					)
 					{
 						continue;
 					}
@@ -243,7 +299,10 @@ public static unsafe class Translator
 				}
 			}
 
-			List<(LLVMTypeRef, LLVMMetadataRef)> types2 = validMetadata.Where(p => p.Value.Count > 0).Select(p => (p.Key.Type, p.Value[0])).ToList();
+			List<(LLVMTypeRef, LLVMMetadataRef)> types2 = validMetadata
+				.Where(p => p.Value.Count > 0)
+				.Select(p => (p.Key.Type, p.Value[0]))
+				.ToList();
 			AddChildTypes(types2);
 
 			foreach ((LLVMTypeRef type, LLVMMetadataRef metadata) in types2)
@@ -278,7 +337,9 @@ public static unsafe class Translator
 
 				LLVMMetadataRef[] members = list[0].Members.ToArray();
 				string[] memberNames = members.Select(m => m.Name).ToArray();
-				FieldDefinition[] fields = structContext.Definition.Fields.Where(f => !f.IsStatic).ToArray();
+				FieldDefinition[] fields = structContext
+					.Definition.Fields.Where(f => !f.IsStatic)
+					.ToArray();
 				Debug.Assert(members.Length == fields.Length);
 
 				bool allMatch = true;
@@ -296,7 +357,9 @@ public static unsafe class Translator
 					continue;
 				}
 
-				FieldDefinitionHasName[] fieldDefinitions = new FieldDefinitionHasName[fields.Length];
+				FieldDefinitionHasName[] fieldDefinitions = new FieldDefinitionHasName[
+					fields.Length
+				];
 				for (int i = 0; i < fields.Length; i++)
 				{
 					fieldDefinitions[i] = new(fields[i], memberNames[i], i, moduleContext);
@@ -327,7 +390,13 @@ public static unsafe class Translator
 				continue;
 			}
 
-			if (metadata.IsArray && type.Kind is LLVMTypeKind.LLVMArrayTypeKind or LLVMTypeKind.LLVMScalableVectorTypeKind or LLVMTypeKind.LLVMVectorTypeKind)
+			if (
+				metadata.IsArray
+				&& type.Kind
+					is LLVMTypeKind.LLVMArrayTypeKind
+						or LLVMTypeKind.LLVMScalableVectorTypeKind
+						or LLVMTypeKind.LLVMVectorTypeKind
+			)
 			{
 				uint arrayLength;
 				LLVMTypeRef elementType;
@@ -348,7 +417,10 @@ public static unsafe class Translator
 					list.Add((elementType, metadata.BaseType));
 				}
 			}
-			else if ((metadata.IsStruct || metadata.IsClass || metadata.IsUnion) && type.Kind is LLVMTypeKind.LLVMStructTypeKind)
+			else if (
+				(metadata.IsStruct || metadata.IsClass || metadata.IsUnion)
+				&& type.Kind is LLVMTypeKind.LLVMStructTypeKind
+			)
 			{
 				if (!AreCompatible(type, metadata))
 				{
@@ -369,9 +441,13 @@ public static unsafe class Translator
 
 	private static void CreateEnumerations(ModuleContext moduleContext, List<LLVMMetadataRef> types)
 	{
-		List<LLVMMetadataRef> enumTypes = types.Where(m => m.IsEnum && m.Elements.Length > 0).ToList();
+		List<LLVMMetadataRef> enumTypes = types
+			.Where(m => m.IsEnum && m.Elements.Length > 0)
+			.ToList();
 
-		List<EnumContext> enumContexts = enumTypes.Select(m => EnumContext.Create(moduleContext, m)).ToList();
+		List<EnumContext> enumContexts = enumTypes
+			.Select(m => EnumContext.Create(moduleContext, m))
+			.ToList();
 		enumContexts.AssignNames();
 		enumContexts.ForEach(e => e.AddNameAttributes(e.Definition));
 	}
@@ -381,17 +457,27 @@ public static unsafe class Translator
 		return metadata.Members.Count() == type.SubtypesCount;
 	}
 
-	private sealed class FieldDefinitionHasName(FieldDefinition field, string debugName, int index, ModuleContext module) : IHasName
+	private sealed class FieldDefinitionHasName(
+		FieldDefinition field,
+		string debugName,
+		int index,
+		ModuleContext module
+	) : IHasName
 	{
 		public string MangledName => $"{debugName}_{index}";
 		string? IHasName.DemangledName => null;
 		public string CleanName { get; } = NameGenerator.CleanName(debugName, "field");
-		public string Name { get => @field.Name ?? ""; set => @field.Name = value; }
+		public string Name
+		{
+			get => @field.Name ?? "";
+			set => @field.Name = value;
+		}
 		string? IHasName.NativeType => null;
 		ModuleContext IHasName.Module => module;
 	}
 
-	private sealed class CustomModuleDefinition(string name) : ModuleDefinition(name, KnownCorLibs.SystemRuntime_v9_0_0_0)
+	private sealed class CustomModuleDefinition(string name)
+		: ModuleDefinition(name, KnownCorLibs.SystemRuntime_v9_0_0_0)
 	{
 		protected override ReferenceImporter GetDefaultImporter()
 		{
@@ -399,7 +485,8 @@ public static unsafe class Translator
 		}
 	}
 
-	private sealed class CustomReferenceImporter(CustomModuleDefinition module) : ReferenceImporter(module)
+	private sealed class CustomReferenceImporter(CustomModuleDefinition module)
+		: ReferenceImporter(module)
 	{
 		protected override AssemblyReference ImportAssembly(AssemblyDescriptor assembly)
 		{
@@ -408,7 +495,12 @@ public static unsafe class Translator
 			// However, at compile time, it is not part of System.Runtime, but rather System.Runtime.InteropServices.
 			// If we ever try to import it, the reference will be invalid.
 			// This is one of the primary reasons for NativeMemoryHelper, which allows us to avoid referencing Marshal directly.
-			if (SignatureComparer.Default.Equals(assembly, KnownCorLibs.SystemPrivateCoreLib_v9_0_0_0))
+			if (
+				SignatureComparer.Default.Equals(
+					assembly,
+					KnownCorLibs.SystemPrivateCoreLib_v9_0_0_0
+				)
+			)
 			{
 				return base.ImportAssembly(KnownCorLibs.SystemRuntime_v9_0_0_0);
 			}

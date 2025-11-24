@@ -18,7 +18,10 @@ internal static unsafe class PointerIndices
 
 		return ptr;
 
-		static void ThrowIfNull(void* value, [CallerArgumentExpression(nameof(value))] string? paramName = null)
+		static void ThrowIfNull(
+			void* value,
+			[CallerArgumentExpression(nameof(value))] string? paramName = null
+		)
 		{
 			if (value is null)
 			{

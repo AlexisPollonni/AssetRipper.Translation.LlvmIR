@@ -9,6 +9,7 @@ public sealed record class LoadTokenInstruction(IMetadataMember Member) : Instru
 {
 	public override int PopCount => 0;
 	public override int PushCount => 1;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.Add(CilOpCodes.Ldtoken, Member);
@@ -22,19 +23,32 @@ public sealed record class LoadTokenInstruction(IMetadataMember Member) : Instru
 		}
 		return Member switch
 		{
-			IFieldDescriptor { Signature: not null } field => SignatureComparer.Default.Equals(field, other.Member as IFieldDescriptor),
-			ITypeDescriptor type => SignatureComparer.Default.Equals(type, other.Member as ITypeDescriptor),
-			IMethodDescriptor { Signature: not null } method => SignatureComparer.Default.Equals(method, other.Member as IMethodDescriptor),
+			IFieldDescriptor { Signature: not null } field => SignatureComparer.Default.Equals(
+				field,
+				other.Member as IFieldDescriptor
+			),
+			ITypeDescriptor type => SignatureComparer.Default.Equals(
+				type,
+				other.Member as ITypeDescriptor
+			),
+			IMethodDescriptor { Signature: not null } method => SignatureComparer.Default.Equals(
+				method,
+				other.Member as IMethodDescriptor
+			),
 			_ => false,
 		};
 	}
+
 	public override int GetHashCode()
 	{
 		return Member switch
 		{
-			IFieldDescriptor { Signature: not null } field => SignatureComparer.Default.GetHashCode(field),
+			IFieldDescriptor { Signature: not null } field => SignatureComparer.Default.GetHashCode(
+				field
+			),
 			ITypeDescriptor type => SignatureComparer.Default.GetHashCode(type),
-			IMethodDescriptor { Signature: not null } method => SignatureComparer.Default.GetHashCode(method),
+			IMethodDescriptor { Signature: not null } method =>
+				SignatureComparer.Default.GetHashCode(method),
 			_ => 0,
 		};
 	}

@@ -24,7 +24,10 @@ internal static partial class NameGenerator
 	public static string CleanName(string input, [ConstantExpected] string defaultName)
 	{
 		string onlyWordCharacters = NonWordRegex.Replace(input, "_");
-		string uniformSpacing = string.Join('_', onlyWordCharacters.Split('_', StringSplitOptions.RemoveEmptyEntries));
+		string uniformSpacing = string.Join(
+			'_',
+			onlyWordCharacters.Split('_', StringSplitOptions.RemoveEmptyEntries)
+		);
 		if (uniformSpacing.Length == 0)
 		{
 			return defaultName;

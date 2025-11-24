@@ -7,7 +7,8 @@ internal struct StackFrameList
 
 	private List<StackFrame>? Frames;
 
-	public StackFrame New<T>() where T : unmanaged
+	public StackFrame New<T>()
+		where T : unmanaged
 	{
 		Frames ??= new();
 		StackFrame frame = StackFrame.Create<T>(Frames.Count);

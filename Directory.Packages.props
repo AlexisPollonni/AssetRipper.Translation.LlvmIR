@@ -5,6 +5,9 @@
     <NoWarn>$(NoWarn);NU1507</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <GlobalPackageReference Include="CSharpier.MSBuild" Version="1.2.1" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageVersion Include="Antlr4.Runtime.Standard" Version="4.13.1" />
     <PackageVersion Include="AssetRipper.CIL" Version="1.2.1" />
     <PackageVersion Include="AssetRipper.ICSharpCode.Decompiler" Version="10.0.0.8172-preview2" />

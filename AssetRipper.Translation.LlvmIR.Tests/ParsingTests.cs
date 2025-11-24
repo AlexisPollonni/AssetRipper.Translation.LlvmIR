@@ -69,7 +69,8 @@ public class ParsingTests
 	[Test]
 	public void ExtractionSucceeds()
 	{
-		string input = "public: unsigned char & __cdecl std::vector<unsigned char, class std::allocator<unsigned char>>::operator[](unsigned __int64)";
+		string input =
+			"public: unsigned char & __cdecl std::vector<unsigned char, class std::allocator<unsigned char>>::operator[](unsigned __int64)";
 		bool success = DemangledNamesParser.ParseFunction(
 			input,
 			out string? returnType,
@@ -78,14 +79,18 @@ public class ParsingTests
 			out string? functionIdentifier,
 			out string? functionName,
 			out string[]? templateParameters,
-			out string[]? normalParameters);
+			out string[]? normalParameters
+		);
 
 		Assert.That(success, Is.True);
 		using (Assert.EnterMultipleScope())
 		{
 			Assert.That(returnType, Is.EqualTo("unsigned char &"));
 			Assert.That(@namespace, Is.EqualTo("std"));
-			Assert.That(typeName, Is.EqualTo("vector<unsigned char, class std::allocator<unsigned char>>"));
+			Assert.That(
+				typeName,
+				Is.EqualTo("vector<unsigned char, class std::allocator<unsigned char>>")
+			);
 			Assert.That(functionIdentifier, Is.EqualTo("operator[]"));
 			Assert.That(functionName, Is.EqualTo("operator[]")); // Maybe want operator[] instead?
 			Assert.That(templateParameters, Is.Empty);
@@ -93,10 +98,22 @@ public class ParsingTests
 		}
 	}
 
-	[TestCase(6, "bool __cdecl fpng::fpng_encode_image_to_memory(void const *, unsigned int, unsigned int, unsigned int, class std::vector<unsigned char, class std::allocator<unsigned char>> &, unsigned int)")]
+	[TestCase(
+		6,
+		"bool __cdecl fpng::fpng_encode_image_to_memory(void const *, unsigned int, unsigned int, unsigned int, class std::vector<unsigned char, class std::allocator<unsigned char>> &, unsigned int)"
+	)]
 	public void ExtractionHasCorrectParameterCount(int expectedCount, string input)
 	{
-		bool success = DemangledNamesParser.ParseFunction(input, out _, out _, out _, out _, out _, out _, out string[]? normalParameters);
+		bool success = DemangledNamesParser.ParseFunction(
+			input,
+			out _,
+			out _,
+			out _,
+			out _,
+			out _,
+			out _,
+			out string[]? normalParameters
+		);
 
 		Assert.That(success, Is.True);
 		using (Assert.EnterMultipleScope())
@@ -113,21 +130,15 @@ public class ParsingTests
 			ParseTreeWalker.Default.Walk(listener, tree);
 		}
 
-		void IParseTreeListener.EnterEveryRule(ParserRuleContext ctx)
-		{
-		}
+		void IParseTreeListener.EnterEveryRule(ParserRuleContext ctx) { }
 
-		void IParseTreeListener.ExitEveryRule(ParserRuleContext ctx)
-		{
-		}
+		void IParseTreeListener.ExitEveryRule(ParserRuleContext ctx) { }
 
 		void IParseTreeListener.VisitErrorNode(IErrorNode node)
 		{
 			Assert.Fail($"Parsing error: {node}");
 		}
 
-		void IParseTreeListener.VisitTerminal(ITerminalNode node)
-		{
-		}
+		void IParseTreeListener.VisitTerminal(ITerminalNode node) { }
 	}
 }

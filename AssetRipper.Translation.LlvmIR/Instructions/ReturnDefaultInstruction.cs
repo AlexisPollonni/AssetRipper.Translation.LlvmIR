@@ -11,6 +11,7 @@ internal sealed record class ReturnDefaultInstruction(TypeSignature Type) : Inst
 	public override bool StackHeightDependent => true;
 	public override int PopCount => 0;
 	public override int PushCount => 0;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.AddDefaultValue(Type); // Does nothing if the return type is void

@@ -1,7 +1,9 @@
 ﻿namespace AssetRipper.Translation.LlvmIR;
 
-internal sealed record class PairEqualityComparer<T1, T2>(IEqualityComparer<T1> Comparer1, IEqualityComparer<T2> Comparer2)
-	: IEqualityComparer<(T1, T2)>
+internal sealed record class PairEqualityComparer<T1, T2>(
+	IEqualityComparer<T1> Comparer1,
+	IEqualityComparer<T2> Comparer2
+) : IEqualityComparer<(T1, T2)>
 	where T1 : notnull
 	where T2 : notnull
 {
@@ -15,4 +17,3 @@ internal sealed record class PairEqualityComparer<T1, T2>(IEqualityComparer<T1> 
 		return HashCode.Combine(Comparer1.GetHashCode(obj.Item1), Comparer2.GetHashCode(obj.Item2));
 	}
 }
-

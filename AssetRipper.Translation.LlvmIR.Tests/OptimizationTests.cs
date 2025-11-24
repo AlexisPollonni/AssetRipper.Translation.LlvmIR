@@ -31,10 +31,7 @@ internal class OptimizationTests
 			new LoadIndirectInstruction(Int32),
 		];
 
-		BasicBlock optimizedInstructions =
-		[
-			new LoadVariableInstruction(data),
-		];
+		BasicBlock optimizedInstructions = [new LoadVariableInstruction(data)];
 
 		Optimize(instructions);
 
@@ -170,9 +167,7 @@ internal class OptimizationTests
 			new StoreVariableInstruction(data),
 		];
 
-		BasicBlock optimizedInstructions =
-		[
-		];
+		BasicBlock optimizedInstructions = [];
 
 		Optimize(instructions);
 
@@ -184,14 +179,9 @@ internal class OptimizationTests
 	{
 		LocalVariable data = new(Int32);
 
-		BasicBlock instructions =
-		[
-			new InitializeInstruction(data),
-		];
+		BasicBlock instructions = [new InitializeInstruction(data)];
 
-		BasicBlock optimizedInstructions =
-		[
-		];
+		BasicBlock optimizedInstructions = [];
 
 		Optimize(instructions);
 
@@ -260,9 +250,7 @@ internal class OptimizationTests
 			new InitializeInstruction(data2),
 		];
 
-		BasicBlock optimizedInstructions =
-		[
-		];
+		BasicBlock optimizedInstructions = [];
 
 		Optimize(instructions);
 
@@ -386,21 +374,11 @@ internal class OptimizationTests
 	{
 		LocalVariable temp = new(Int32);
 
-		BasicBlock instructions1 =
-		[
-			new InitializeInstruction(temp),
-		];
+		BasicBlock instructions1 = [new InitializeInstruction(temp)];
 
-		BasicBlock instructions2 =
-		[
-			new LoadVariableInstruction(temp),
-			ReturnInstruction.Value,
-		];
+		BasicBlock instructions2 = [new LoadVariableInstruction(temp), ReturnInstruction.Value];
 
-		BasicBlock optimizedInstructions1 =
-		[
-			new InitializeInstruction(temp),
-		];
+		BasicBlock optimizedInstructions1 = [new InitializeInstruction(temp)];
 
 		BasicBlock optimizedInstructions2 =
 		[
@@ -605,12 +583,17 @@ internal class OptimizationTests
 
 		Optimize(instructions);
 
-		Assert.That(instructions, Is.EqualTo(optimizedInstructions_1).Or.EqualTo(optimizedInstructions_2));
+		Assert.That(
+			instructions,
+			Is.EqualTo(optimizedInstructions_1).Or.EqualTo(optimizedInstructions_2)
+		);
 	}
 
-	private static void Optimize(BasicBlock instructions) => InstructionOptimizer.Optimize([instructions]);
+	private static void Optimize(BasicBlock instructions) =>
+		InstructionOptimizer.Optimize([instructions]);
 
-	private static void Optimize(params IReadOnlyList<BasicBlock> basicBlocks) => InstructionOptimizer.Optimize(basicBlocks);
+	private static void Optimize(params IReadOnlyList<BasicBlock> basicBlocks) =>
+		InstructionOptimizer.Optimize(basicBlocks);
 
 	private sealed class ImportantVariable(TypeSignature type) : LocalVariable(type), IVariable
 	{

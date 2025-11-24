@@ -7,7 +7,10 @@ using AssetRipper.Translation.LlvmIR.Extensions;
 
 namespace AssetRipper.Translation.LlvmIR.Instructions;
 
-public sealed record class SwitchInstruction(TypeSignature IndexType, (long Value, BasicBlock Target)[] Cases) : Instruction
+public sealed record class SwitchInstruction(
+	TypeSignature IndexType,
+	(long Value, BasicBlock Target)[] Cases
+) : Instruction
 {
 	public override bool StackHeightDependent => true;
 	public override int PopCount => 1; // Value
@@ -34,7 +37,8 @@ public sealed record class SwitchInstruction(TypeSignature IndexType, (long Valu
 
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
-		bool isInt64 = IndexType is CorLibTypeSignature { ElementType: ElementType.I8 or ElementType.U8 };
+		bool isInt64 =
+			IndexType is CorLibTypeSignature { ElementType: ElementType.I8 or ElementType.U8 };
 		if (IsSequentialAndZeroBased && !isInt64)
 		{
 			CilInstructionLabel[] caseLabels = new CilInstructionLabel[Cases.Length];
@@ -82,13 +86,19 @@ public sealed record class SwitchInstruction(TypeSignature IndexType, (long Valu
 		{
 			return true;
 		}
-		if (!SignatureComparer.Default.Equals(IndexType, other.IndexType) || Cases.Length != other.Cases.Length)
+		if (
+			!SignatureComparer.Default.Equals(IndexType, other.IndexType)
+			|| Cases.Length != other.Cases.Length
+		)
 		{
 			return false;
 		}
 		for (int i = 0; i < Cases.Length; i++)
 		{
-			if (Cases[i].Value != other.Cases[i].Value || !Cases[i].Target.Equals(other.Cases[i].Target))
+			if (
+				Cases[i].Value != other.Cases[i].Value
+				|| !Cases[i].Target.Equals(other.Cases[i].Target)
+			)
 			{
 				return false;
 			}

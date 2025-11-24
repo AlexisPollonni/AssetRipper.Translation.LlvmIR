@@ -10,9 +10,7 @@ internal class ExceptionInfo : IDisposable
 		return null;
 	}
 
-	protected virtual void Dispose(bool disposing)
-	{
-	}
+	protected virtual void Dispose(bool disposing) { }
 
 	~ExceptionInfo()
 	{

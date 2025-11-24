@@ -102,7 +102,9 @@ internal static class LLVMModuleRefExtensions
 			metadataToVisit.Enqueue(LLVM.GetSubprogram(function));
 			foreach (LLVMValueRef instruction in function.GetInstructions())
 			{
-				foreach (LLVMMetadataRef instructionMetadata in instruction.GetAllMetadataOtherThanDebugLoc())
+				foreach (
+					LLVMMetadataRef instructionMetadata in instruction.GetAllMetadataOtherThanDebugLoc()
+				)
 				{
 					metadataToVisit.Enqueue(instructionMetadata);
 				}

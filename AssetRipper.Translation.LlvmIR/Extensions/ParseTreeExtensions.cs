@@ -1,6 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AssetRipper.Translation.LlvmIR.Extensions;
 
@@ -11,11 +11,17 @@ internal static class ParseTreeExtensions
 	{
 		if (tree is ParserRuleContext { ChildCount: > 0 } ruleContext)
 		{
-			return input.Substring(ruleContext.Start.StartIndex, ruleContext.Stop.StopIndex - ruleContext.Start.StartIndex + 1);
+			return input.Substring(
+				ruleContext.Start.StartIndex,
+				ruleContext.Stop.StopIndex - ruleContext.Start.StartIndex + 1
+			);
 		}
 		else if (tree is ITerminalNode terminalNode)
 		{
-			return input.Substring(terminalNode.Symbol.StartIndex, terminalNode.Symbol.StopIndex - terminalNode.Symbol.StartIndex + 1);
+			return input.Substring(
+				terminalNode.Symbol.StartIndex,
+				terminalNode.Symbol.StopIndex - terminalNode.Symbol.StartIndex + 1
+			);
 		}
 		else if (tree is null)
 		{

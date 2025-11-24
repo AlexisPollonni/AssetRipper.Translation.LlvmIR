@@ -12,18 +12,31 @@ namespace AssetRipper.Translation.LlvmIR.Instructions;
 
 public static class NumericalComparison
 {
-	public static new NumericalComparisonInstruction Equals { get; } = new EqualsComparisonInstruction();
-	public static NumericalComparisonInstruction NotEquals { get; } = new NotEqualsComparisonInstruction();
-	public static NumericalComparisonInstruction GreaterThan { get; } = new GreaterThanComparisonInstruction();
-	public static NumericalComparisonInstruction GreaterThanOrEquals { get; } = new GreaterThanOrEqualsComparisonInstruction();
-	public static NumericalComparisonInstruction LessThan { get; } = new LessThanComparisonInstruction();
-	public static NumericalComparisonInstruction LessThanOrEquals { get; } = new LessThanOrEqualsComparisonInstruction();
-	public static NumericalComparisonInstruction UnsignedGreaterThan { get; } = new UnsignedGreaterThanComparisonInstruction();
-	public static NumericalComparisonInstruction UnsignedGreaterThanOrEquals { get; } = new UnsignedGreaterThanOrEqualsComparisonInstruction();
-	public static NumericalComparisonInstruction UnsignedLessThan { get; } = new UnsignedLessThanComparisonInstruction();
-	public static NumericalComparisonInstruction UnsignedLessThanOrEquals { get; } = new UnsignedLessThanOrEqualsComparisonInstruction();
+	public static new NumericalComparisonInstruction Equals { get; } =
+		new EqualsComparisonInstruction();
+	public static NumericalComparisonInstruction NotEquals { get; } =
+		new NotEqualsComparisonInstruction();
+	public static NumericalComparisonInstruction GreaterThan { get; } =
+		new GreaterThanComparisonInstruction();
+	public static NumericalComparisonInstruction GreaterThanOrEquals { get; } =
+		new GreaterThanOrEqualsComparisonInstruction();
+	public static NumericalComparisonInstruction LessThan { get; } =
+		new LessThanComparisonInstruction();
+	public static NumericalComparisonInstruction LessThanOrEquals { get; } =
+		new LessThanOrEqualsComparisonInstruction();
+	public static NumericalComparisonInstruction UnsignedGreaterThan { get; } =
+		new UnsignedGreaterThanComparisonInstruction();
+	public static NumericalComparisonInstruction UnsignedGreaterThanOrEquals { get; } =
+		new UnsignedGreaterThanOrEqualsComparisonInstruction();
+	public static NumericalComparisonInstruction UnsignedLessThan { get; } =
+		new UnsignedLessThanComparisonInstruction();
+	public static NumericalComparisonInstruction UnsignedLessThanOrEquals { get; } =
+		new UnsignedLessThanOrEqualsComparisonInstruction();
 
-	public static NumericalComparisonInstruction Create(TypeSignature type, LLVMIntPredicate comparisonKind)
+	public static NumericalComparisonInstruction Create(
+		TypeSignature type,
+		LLVMIntPredicate comparisonKind
+	)
 	{
 		if (type is not CorLibTypeSignature and not PointerTypeSignature)
 		{
@@ -41,11 +54,17 @@ public static class NumericalComparison
 			LLVMIntPredicate.LLVMIntSGE => GreaterThanOrEquals,
 			LLVMIntPredicate.LLVMIntSLT => LessThan,
 			LLVMIntPredicate.LLVMIntSLE => LessThanOrEquals,
-			_ => throw new InvalidOperationException($"Unknown comparison predicate: {comparisonKind}"),
+			_ => throw new InvalidOperationException(
+				$"Unknown comparison predicate: {comparisonKind}"
+			),
 		};
 	}
 
-	internal static Instruction Create(TypeSignature type, LLVMRealPredicate comparisonKind, ModuleContext module)
+	internal static Instruction Create(
+		TypeSignature type,
+		LLVMRealPredicate comparisonKind,
+		ModuleContext module
+	)
 	{
 		if (type is not CorLibTypeSignature { ElementType: ElementType.R4 or ElementType.R8 })
 		{
@@ -64,22 +83,56 @@ public static class NumericalComparison
 			LLVMRealPredicate.LLVMRealORD => Call(nameof(NumericHelper.IsOrdered), type, module),
 			LLVMRealPredicate.LLVMRealUNO => Call(nameof(NumericHelper.IsUnordered), type, module),
 
-			LLVMRealPredicate.LLVMRealUEQ => Call(nameof(NumericHelper.IsUnorderedOrEquals), type, module),
-			LLVMRealPredicate.LLVMRealUNE => Call(nameof(NumericHelper.IsUnorderedOrNotEquals), type, module),
-			LLVMRealPredicate.LLVMRealUGT => Call(nameof(NumericHelper.IsUnorderedOrGreaterThan), type, module),
-			LLVMRealPredicate.LLVMRealUGE => Call(nameof(NumericHelper.IsUnorderedOrGreaterThanOrEquals), type, module),
-			LLVMRealPredicate.LLVMRealULT => Call(nameof(NumericHelper.IsUnorderedOrLessThan), type, module),
-			LLVMRealPredicate.LLVMRealULE => Call(nameof(NumericHelper.IsUnorderedOrLessThanOrEquals), type, module),
+			LLVMRealPredicate.LLVMRealUEQ => Call(
+				nameof(NumericHelper.IsUnorderedOrEquals),
+				type,
+				module
+			),
+			LLVMRealPredicate.LLVMRealUNE => Call(
+				nameof(NumericHelper.IsUnorderedOrNotEquals),
+				type,
+				module
+			),
+			LLVMRealPredicate.LLVMRealUGT => Call(
+				nameof(NumericHelper.IsUnorderedOrGreaterThan),
+				type,
+				module
+			),
+			LLVMRealPredicate.LLVMRealUGE => Call(
+				nameof(NumericHelper.IsUnorderedOrGreaterThanOrEquals),
+				type,
+				module
+			),
+			LLVMRealPredicate.LLVMRealULT => Call(
+				nameof(NumericHelper.IsUnorderedOrLessThan),
+				type,
+				module
+			),
+			LLVMRealPredicate.LLVMRealULE => Call(
+				nameof(NumericHelper.IsUnorderedOrLessThanOrEquals),
+				type,
+				module
+			),
 
-			LLVMRealPredicate.LLVMRealPredicateTrue => new LoadVariableInstruction(new ConstantI4(1, module.Definition)),
-			LLVMRealPredicate.LLVMRealPredicateFalse => new LoadVariableInstruction(new ConstantI4(0, module.Definition)),
+			LLVMRealPredicate.LLVMRealPredicateTrue => new LoadVariableInstruction(
+				new ConstantI4(1, module.Definition)
+			),
+			LLVMRealPredicate.LLVMRealPredicateFalse => new LoadVariableInstruction(
+				new ConstantI4(0, module.Definition)
+			),
 
-			_ => throw new InvalidOperationException($"Unknown comparison predicate: {comparisonKind}"),
+			_ => throw new InvalidOperationException(
+				$"Unknown comparison predicate: {comparisonKind}"
+			),
 		};
 
 		static Instruction Call(string methodName, TypeSignature type, ModuleContext module)
 		{
-			return new CallInstruction(module.NumericHelperType.Methods.First(m => m.Name == methodName).MakeGenericInstanceMethod(type));
+			return new CallInstruction(
+				module
+					.NumericHelperType.Methods.First(m => m.Name == methodName)
+					.MakeGenericInstanceMethod(type)
+			);
 		}
 	}
 
@@ -109,7 +162,8 @@ public static class NumericalComparison
 		}
 	}
 
-	private sealed record class GreaterThanOrEqualsComparisonInstruction : NumericalComparisonInstruction
+	private sealed record class GreaterThanOrEqualsComparisonInstruction
+		: NumericalComparisonInstruction
 	{
 		public override void AddInstructions(CilInstructionCollection instructions)
 		{
@@ -126,7 +180,8 @@ public static class NumericalComparison
 		}
 	}
 
-	private sealed record class LessThanOrEqualsComparisonInstruction : NumericalComparisonInstruction
+	private sealed record class LessThanOrEqualsComparisonInstruction
+		: NumericalComparisonInstruction
 	{
 		public override void AddInstructions(CilInstructionCollection instructions)
 		{
@@ -135,7 +190,8 @@ public static class NumericalComparison
 		}
 	}
 
-	private sealed record class UnsignedGreaterThanComparisonInstruction : NumericalComparisonInstruction
+	private sealed record class UnsignedGreaterThanComparisonInstruction
+		: NumericalComparisonInstruction
 	{
 		public override void AddInstructions(CilInstructionCollection instructions)
 		{
@@ -143,7 +199,8 @@ public static class NumericalComparison
 		}
 	}
 
-	private sealed record class UnsignedGreaterThanOrEqualsComparisonInstruction : NumericalComparisonInstruction
+	private sealed record class UnsignedGreaterThanOrEqualsComparisonInstruction
+		: NumericalComparisonInstruction
 	{
 		public override void AddInstructions(CilInstructionCollection instructions)
 		{
@@ -152,7 +209,8 @@ public static class NumericalComparison
 		}
 	}
 
-	private sealed record class UnsignedLessThanComparisonInstruction : NumericalComparisonInstruction
+	private sealed record class UnsignedLessThanComparisonInstruction
+		: NumericalComparisonInstruction
 	{
 		public override void AddInstructions(CilInstructionCollection instructions)
 		{
@@ -160,7 +218,8 @@ public static class NumericalComparison
 		}
 	}
 
-	private sealed record class UnsignedLessThanOrEqualsComparisonInstruction : NumericalComparisonInstruction
+	private sealed record class UnsignedLessThanOrEqualsComparisonInstruction
+		: NumericalComparisonInstruction
 	{
 		public override void AddInstructions(CilInstructionCollection instructions)
 		{

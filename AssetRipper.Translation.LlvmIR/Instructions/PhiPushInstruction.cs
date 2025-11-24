@@ -10,7 +10,6 @@ internal sealed record class PhiPushInstruction : Instruction
 	public static PhiPushInstruction Instance { get; } = new();
 	public override int PopCount => 0;
 	public override int PushCount => 1;
-	public override void AddInstructions(CilInstructionCollection instructions)
-	{
-	}
+
+	public override void AddInstructions(CilInstructionCollection instructions) { }
 }

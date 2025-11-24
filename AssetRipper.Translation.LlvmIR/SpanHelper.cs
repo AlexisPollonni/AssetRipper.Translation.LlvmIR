@@ -10,7 +10,8 @@ internal static class SpanHelper
 		return span;
 	}
 
-	public static unsafe T* ToPointer<T>(this ReadOnlySpan<T> span) where T : unmanaged
+	public static unsafe T* ToPointer<T>(this ReadOnlySpan<T> span)
+		where T : unmanaged
 	{
 		return (T*)Unsafe.AsPointer(ref MemoryMarshal.GetReference(span));
 	}

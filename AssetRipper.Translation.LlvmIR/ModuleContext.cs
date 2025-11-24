@@ -1,4 +1,7 @@
-﻿using AsmResolver;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using AsmResolver;
 using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Metadata.Tables;
@@ -6,19 +9,19 @@ using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using LLVMSharp.Interop;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
 
 namespace AssetRipper.Translation.LlvmIR;
 
 internal sealed partial class ModuleContext
 {
-	public ModuleContext(LLVMModuleRef module, ModuleDefinition definition, TranslatorOptions options)
+	public ModuleContext(
+		LLVMModuleRef module,
+		ModuleDefinition definition,
+		TranslatorOptions options
+	)
 	{
 		HelpersNamespace = options.GetNamespace("Helpers");
-		InjectedTypes = new TypeInjector(definition, HelpersNamespace).Inject(
-		[
+		InjectedTypes = new TypeInjector(definition, HelpersNamespace).Inject([
 			typeof(IntrinsicFunctions),
 			typeof(InlineArrayHelper),
 			typeof(InlineArrayBuilder<,>),
@@ -47,11 +50,25 @@ internal sealed partial class ModuleContext
 		Module = module;
 		Definition = definition;
 		Options = options;
-		GlobalMembersType = CreateStaticType(string.IsNullOrEmpty(options.ClassName) ? "GlobalMembers" : options.ClassName, true);
+		GlobalMembersType = CreateStaticType(
+			string.IsNullOrEmpty(options.ClassName) ? "GlobalMembers" : options.ClassName,
+			true
+		);
 
-		CompilerGeneratedAttributeConstructor = (IMethodDefOrRef)definition.DefaultImporter.ImportMethod(typeof(CompilerGeneratedAttribute).GetConstructors()[0]);
+		CompilerGeneratedAttributeConstructor = (IMethodDefOrRef)
+			definition.DefaultImporter.ImportMethod(
+				typeof(CompilerGeneratedAttribute).GetConstructors()[0]
+			);
 
-		PrivateImplementationDetails = new TypeDefinition(null, "<PrivateImplementationDetails>", TypeAttributes.NotPublic | TypeAttributes.AutoLayout | TypeAttributes.AnsiClass | TypeAttributes.Sealed, Definition.CorLibTypeFactory.Object.ToTypeDefOrRef());
+		PrivateImplementationDetails = new TypeDefinition(
+			null,
+			"<PrivateImplementationDetails>",
+			TypeAttributes.NotPublic
+				| TypeAttributes.AutoLayout
+				| TypeAttributes.AnsiClass
+				| TypeAttributes.Sealed,
+			Definition.CorLibTypeFactory.Object.ToTypeDefOrRef()
+		);
 		AddCompilerGeneratedAttribute(PrivateImplementationDetails);
 		Definition.TopLevelTypes.Add(PrivateImplementationDetails);
 	}
@@ -63,7 +80,8 @@ internal sealed partial class ModuleContext
 	public TypeDefinition SpanHelperType => InjectedTypes[typeof(SpanHelper)];
 	public TypeDefinition InstructionHelperType => InjectedTypes[typeof(InstructionHelper)];
 	public TypeDefinition NumericHelperType => InjectedTypes[typeof(NumericHelper)];
-	public TypeDefinition InlineArrayNumericHelperType => InjectedTypes[typeof(InlineArrayNumericHelper)];
+	public TypeDefinition InlineArrayNumericHelperType =>
+		InjectedTypes[typeof(InlineArrayNumericHelper)];
 
 	public LLVMModuleRef Module { get; }
 	public ModuleDefinition Definition { get; }
@@ -74,12 +92,17 @@ internal sealed partial class ModuleContext
 	private IMethodDefOrRef CompilerGeneratedAttributeConstructor { get; }
 	public Dictionary<LLVMValueRef, FunctionContext> Methods { get; } = new();
 	private readonly Dictionary<LLVMTypeRef, StructContext> structsCache = new();
-	public Dictionary<TypeDefinition, StructContext> Structs { get; } = new(SignatureComparer.Default);
+	public Dictionary<TypeDefinition, StructContext> Structs { get; } =
+		new(SignatureComparer.Default);
 	public Dictionary<LLVMValueRef, GlobalVariableContext> GlobalVariables { get; } = new();
-	private readonly Dictionary<(TypeSignature, int), InlineArrayContext> inlineArrayCache = new(TypeSignatureIntPairComparer);
-	public Dictionary<TypeDefinition, InlineArrayContext> InlineArrayTypes { get; } = new(SignatureComparer.Default);
+	private readonly Dictionary<(TypeSignature, int), InlineArrayContext> inlineArrayCache = new(
+		TypeSignatureIntPairComparer
+	);
+	public Dictionary<TypeDefinition, InlineArrayContext> InlineArrayTypes { get; } =
+		new(SignatureComparer.Default);
 
-	private static PairEqualityComparer<TypeSignature, int> TypeSignatureIntPairComparer { get; } = new(SignatureComparer.Default, EqualityComparer<int>.Default);
+	private static PairEqualityComparer<TypeSignature, int> TypeSignatureIntPairComparer { get; } =
+		new(SignatureComparer.Default, EqualityComparer<int>.Default);
 
 	public InlineArrayContext GetOrCreateInlineArray(TypeSignature type, int size)
 	{
@@ -152,7 +175,12 @@ internal sealed partial class ModuleContext
 				continue;
 			}
 
-			foreach (CustomAttribute attribute in method.FindCustomAttributes(HelpersNamespace, nameof(MangledNameAttribute)))
+			foreach (
+				CustomAttribute attribute in method.FindCustomAttributes(
+					HelpersNamespace,
+					nameof(MangledNameAttribute)
+				)
+			)
 			{
 				string? mangledName = attribute.Signature?.FixedArguments[0].Element?.ToString();
 				if (mangledName is not null)
@@ -165,14 +193,22 @@ internal sealed partial class ModuleContext
 		bool anyIntrinsicsUsedThatMightThrow = false;
 		foreach (FunctionContext function in Methods.Values)
 		{
-			if (function.IsIntrinsic && intrinsicMethodsThatMightThrow.Contains(function.MangledName))
+			if (
+				function.IsIntrinsic
+				&& intrinsicMethodsThatMightThrow.Contains(function.MangledName)
+			)
 			{
 				function.MightThrowAnException = true;
 				anyIntrinsicsUsedThatMightThrow = true;
 			}
 		}
 
-		if (!anyIntrinsicsUsedThatMightThrow && !Methods.Values.SelectMany(f => f.Function.GetInstructions()).Any(i => i.InstructionOpcode == LLVMOpcode.LLVMInvoke))
+		if (
+			!anyIntrinsicsUsedThatMightThrow
+			&& !Methods
+				.Values.SelectMany(f => f.Function.GetInstructions())
+				.Any(i => i.InstructionOpcode == LLVMOpcode.LLVMInvoke)
+		)
 		{
 			// If no intrinsic methods that might throw are used, and no invoke instructions are present,
 			// so we can assume that no function pointer calls might throw exceptions.
@@ -193,12 +229,18 @@ internal sealed partial class ModuleContext
 
 				foreach (LLVMValueRef instruction in function.Function.GetInstructions())
 				{
-					if (instruction.InstructionOpcode is not LLVMOpcode.LLVMInvoke and not LLVMOpcode.LLVMCall)
+					if (
+						instruction.InstructionOpcode
+						is not LLVMOpcode.LLVMInvoke
+							and not LLVMOpcode.LLVMCall
+					)
 					{
 						continue;
 					}
 
-					LLVMValueRef calledFunction = instruction.GetOperand((uint)(instruction.OperandCount - 1));
+					LLVMValueRef calledFunction = instruction.GetOperand(
+						(uint)(instruction.OperandCount - 1)
+					);
 					if (calledFunction.IsAFunction != default)
 					{
 						if (Methods[calledFunction].MightThrowAnException)
@@ -214,7 +256,6 @@ internal sealed partial class ModuleContext
 					}
 				}
 			}
-
 		} while (changed);
 
 		foreach (FunctionContext function in Methods.Values)
@@ -224,7 +265,9 @@ internal sealed partial class ModuleContext
 				continue;
 			}
 
-			function.NeedsStackFrame = function.Function.GetInstructions().Any(i => i.InstructionOpcode is LLVMOpcode.LLVMAlloca);
+			function.NeedsStackFrame = function
+				.Function.GetInstructions()
+				.Any(i => i.InstructionOpcode is LLVMOpcode.LLVMAlloca);
 		}
 	}
 
@@ -277,23 +320,23 @@ internal sealed partial class ModuleContext
 				return Definition.CorLibTypeFactory.Void.MakePointerType();
 
 			case LLVMTypeKind.LLVMStructTypeKind:
+			{
+				if (!structsCache.TryGetValue(type, out StructContext? structContext))
 				{
-					if (!structsCache.TryGetValue(type, out StructContext? structContext))
-					{
-						structContext = StructContext.Create(this, type);
-						structsCache.Add(type, structContext);
-						Structs.Add(structContext.Definition, structContext);
-					}
-					return structContext.Definition.ToTypeSignature();
+					structContext = StructContext.Create(this, type);
+					structsCache.Add(type, structContext);
+					Structs.Add(structContext.Definition, structContext);
 				}
+				return structContext.Definition.ToTypeSignature();
+			}
 
 			case LLVMTypeKind.LLVMArrayTypeKind:
-				{
-					TypeSignature elementType = GetTypeSignature(type.ElementType);
-					int count = (int)type.ArrayLength;
-					TypeDefinition arrayType = GetOrCreateInlineArray(elementType, count).Type;
-					return arrayType.ToTypeSignature();
-				}
+			{
+				TypeSignature elementType = GetTypeSignature(type.ElementType);
+				int count = (int)type.ArrayLength;
+				TypeDefinition arrayType = GetOrCreateInlineArray(elementType, count).Type;
+				return arrayType.ToTypeSignature();
+			}
 
 			case LLVMTypeKind.LLVMPointerTypeKind:
 				//All pointers are opaque in IR
@@ -341,16 +384,24 @@ internal sealed partial class ModuleContext
 	{
 		return value.Kind switch
 		{
-			LLVMValueKind.LLVMInstructionValueKind or LLVMValueKind.LLVMConstantExprValueKind => value.GetOpcode() switch
-			{
-				LLVMOpcode.LLVMAlloca => GetTypeSignature(LLVM.GetAllocatedType(value)).MakePointerType(),
-				LLVMOpcode.LLVMCatchPad or LLVMOpcode.LLVMCleanupPad => InjectedTypes[typeof(ExceptionInfo)].ToTypeSignature(),
-				LLVMOpcode.LLVMGetElementPtr => GetGEPFinalType(value).MakePointerType(),
-				LLVMOpcode.LLVMRet => Definition.CorLibTypeFactory.Void,
-				LLVMOpcode.LLVMStore => Definition.CorLibTypeFactory.Void,
-				_ => GetTypeSignature(value.TypeOf),
-			},
-			LLVMValueKind.LLVMArgumentValueKind => Methods[value.ParamParent].ParameterLookup[value].Definition.ParameterType,
+			LLVMValueKind.LLVMInstructionValueKind or LLVMValueKind.LLVMConstantExprValueKind =>
+				value.GetOpcode() switch
+				{
+					LLVMOpcode.LLVMAlloca => GetTypeSignature(LLVM.GetAllocatedType(value))
+						.MakePointerType(),
+					LLVMOpcode.LLVMCatchPad or LLVMOpcode.LLVMCleanupPad => InjectedTypes[
+						typeof(ExceptionInfo)
+					]
+						.ToTypeSignature(),
+					LLVMOpcode.LLVMGetElementPtr => GetGEPFinalType(value).MakePointerType(),
+					LLVMOpcode.LLVMRet => Definition.CorLibTypeFactory.Void,
+					LLVMOpcode.LLVMStore => Definition.CorLibTypeFactory.Void,
+					_ => GetTypeSignature(value.TypeOf),
+				},
+			LLVMValueKind.LLVMArgumentValueKind => Methods[value.ParamParent]
+				.ParameterLookup[value]
+				.Definition
+				.ParameterType,
 			LLVMValueKind.LLVMGlobalVariableValueKind => GlobalVariables[value].PointerType,
 			_ => GetTypeSignature(value.TypeOf),
 		};
@@ -394,7 +445,14 @@ internal sealed partial class ModuleContext
 
 	private TypeDefinition CreateStaticType(string name, bool @public)
 	{
-		TypeDefinition typeDefinition = new(Options.GetNamespace(@public ? null : "Implementations"), name, (@public ? TypeAttributes.Public : TypeAttributes.NotPublic) | TypeAttributes.Abstract | TypeAttributes.Sealed, Definition.CorLibTypeFactory.Object.ToTypeDefOrRef());
+		TypeDefinition typeDefinition = new(
+			Options.GetNamespace(@public ? null : "Implementations"),
+			name,
+			(@public ? TypeAttributes.Public : TypeAttributes.NotPublic)
+				| TypeAttributes.Abstract
+				| TypeAttributes.Sealed,
+			Definition.CorLibTypeFactory.Object.ToTypeDefOrRef()
+		);
 		Definition.TopLevelTypes.Add(typeDefinition);
 		return typeDefinition;
 	}
@@ -402,7 +460,10 @@ internal sealed partial class ModuleContext
 	private void AddCompilerGeneratedAttribute(IHasCustomAttribute hasCustomAttribute)
 	{
 		CustomAttributeSignature attributeSignature = new();
-		CustomAttribute attribute = new((ICustomAttributeType)CompilerGeneratedAttributeConstructor, attributeSignature);
+		CustomAttribute attribute = new(
+			(ICustomAttributeType)CompilerGeneratedAttributeConstructor,
+			attributeSignature
+		);
 		hasCustomAttribute.CustomAttributes.Add(attribute);
 	}
 
@@ -419,13 +480,27 @@ internal sealed partial class ModuleContext
 		string fieldName = HashDataToBase64(data);
 		TypeSignature fieldType = nestedType.ToTypeSignature();
 
-		if (storedDataFieldCache.TryGetValue(fieldName, out FieldDefinition? privateImplementationField))
+		if (
+			storedDataFieldCache.TryGetValue(
+				fieldName,
+				out FieldDefinition? privateImplementationField
+			)
+		)
 		{
-			Debug.Assert(SignatureComparer.Default.Equals(privateImplementationField.Signature?.FieldType, fieldType));
+			Debug.Assert(
+				SignatureComparer.Default.Equals(
+					privateImplementationField.Signature?.FieldType,
+					fieldType
+				)
+			);
 		}
 		else
 		{
-			privateImplementationField = new FieldDefinition(fieldName, FieldAttributes.Assembly | FieldAttributes.Static, fieldType);
+			privateImplementationField = new FieldDefinition(
+				fieldName,
+				FieldAttributes.Assembly | FieldAttributes.Static,
+				fieldType
+			);
 			privateImplementationField.IsInitOnly = true;
 			privateImplementationField.FieldRva = new DataSegment(data.ToArray());
 			privateImplementationField.HasFieldRva = true;
@@ -458,11 +533,14 @@ internal sealed partial class ModuleContext
 			}
 		}
 
-		TypeDefinition result = new TypeDefinition(null, name,
-			TypeAttributes.NestedPrivate |
-			TypeAttributes.ExplicitLayout |
-			TypeAttributes.AnsiClass |
-			TypeAttributes.Sealed);
+		TypeDefinition result = new TypeDefinition(
+			null,
+			name,
+			TypeAttributes.NestedPrivate
+				| TypeAttributes.ExplicitLayout
+				| TypeAttributes.AnsiClass
+				| TypeAttributes.Sealed
+		);
 		PrivateImplementationDetails.NestedTypes.Add(result);
 
 		result.BaseType = Definition.DefaultImporter.ImportType(typeof(ValueType));

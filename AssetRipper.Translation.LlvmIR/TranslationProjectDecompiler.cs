@@ -10,7 +10,8 @@ namespace AssetRipper.Translation.LlvmIR;
 
 public class TranslationProjectDecompiler : WholeProjectDecompiler
 {
-	public TranslationProjectDecompiler() : base(CreateAssemblyResolver())
+	public TranslationProjectDecompiler()
+		: base(CreateAssemblyResolver())
 	{
 		Settings.SetLanguageVersion(LanguageVersion.Latest);
 		Settings.CheckForOverflowUnderflow = true;
@@ -40,7 +41,11 @@ public class TranslationProjectDecompiler : WholeProjectDecompiler
 		return assemblyResolver;
 	}
 
-	public void DecompileProject(ModuleDefinition module, string outputDirectory, TextWriter? projectFileWriter = null)
+	public void DecompileProject(
+		ModuleDefinition module,
+		string outputDirectory,
+		TextWriter? projectFileWriter = null
+	)
 	{
 		string file = Path.GetTempFileName();
 		try
@@ -86,7 +91,9 @@ public class TranslationProjectDecompiler : WholeProjectDecompiler
 
 		public void Run(AstNode rootNode, TransformContext context)
 		{
-			foreach (TypeDeclaration typeNode in rootNode.DescendantsAndSelf.OfType<TypeDeclaration>())
+			foreach (
+				TypeDeclaration typeNode in rootNode.DescendantsAndSelf.OfType<TypeDeclaration>()
+			)
 			{
 				if (typeNode.ClassType is not ClassType.Enum)
 				{

@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System.Reflection;
+﻿using System.Reflection;
+using NUnit.Framework;
 
 namespace AssetRipper.Translation.LlvmIR.Tests;
 
@@ -20,11 +20,17 @@ public partial class SimpleTests
 	[Test]
 	public void Noop_ExecutesCorrectly()
 	{
-		ExecutionHelpers.RunTest(Noop.TranslateToCIL(), assembly =>
-		{
-			Func<int, int> method = ExecutionHelpers.GetMethod<Func<int, int>>(assembly, "do_nothing");
-			Assert.That(method.Invoke(42), Is.EqualTo(42));
-		});
+		ExecutionHelpers.RunTest(
+			Noop.TranslateToCIL(),
+			assembly =>
+			{
+				Func<int, int> method = ExecutionHelpers.GetMethod<Func<int, int>>(
+					assembly,
+					"do_nothing"
+				);
+				Assert.That(method.Invoke(42), Is.EqualTo(42));
+			}
+		);
 	}
 
 	[SavesSuccessfully]
@@ -127,27 +133,27 @@ public partial class SimpleTests
 		  %2 = zext i1 %0 to i8
 		  ret i8 %2
 		}
-		
+
 		define dso_local i16 @i1_to_i16(i1 noundef %0) {
 		  %2 = sext i1 %0 to i16
 		  ret i16 %2
 		}
-		
+
 		define dso_local i16 @u1_to_u16(i1 noundef %0) {
 		  %2 = zext i1 %0 to i16
 		  ret i16 %2
 		}
-		
+
 		define dso_local i32 @i1_to_i32(i1 noundef %0) {
 		  %2 = sext i1 %0 to i32
 		  ret i32 %2
 		}
-		
+
 		define dso_local i32 @u1_to_u32(i1 noundef %0) {
 		  %2 = zext i1 %0 to i32
 		  ret i32 %2
 		}
-		
+
 		define dso_local i64 @i1_to_i64(i1 noundef %0) {
 		  %2 = sext i1 %0 to i64
 		  ret i64 %2
@@ -162,17 +168,17 @@ public partial class SimpleTests
 		  %2 = trunc i8 %0 to i1
 		  ret i1 %2
 		}
-		
+
 		define dso_local i1 @i16_to_i1(i16 noundef %0) {
 		  %2 = trunc i16 %0 to i1
 		  ret i1 %2
 		}
-		
+
 		define dso_local i1 @i32_to_i1(i32 noundef %0) {
 		  %2 = trunc i32 %0 to i1
 		  ret i1 %2
 		}
-		
+
 		define dso_local i1 @i64_to_i1(i64 noundef %0) {
 		  %2 = trunc i64 %0 to i1
 		  ret i1 %2
@@ -211,13 +217,20 @@ public partial class SimpleTests
 	[TestCase(["i64_to_i1", 1L, true])]
 	[TestCase(["i64_to_i1", 2L, false])]
 	[TestCase(["i64_to_i1", 3L, true])]
-	public void BooleanCasts_ExecutesCorrectly(string methodName, object input, object expectedOutput)
+	public void BooleanCasts_ExecutesCorrectly(
+		string methodName,
+		object input,
+		object expectedOutput
+	)
 	{
-		ExecutionHelpers.RunTest(BooleanCasts.TranslateToCIL(), assembly =>
-		{
-			MethodInfo method = ExecutionHelpers.GetMethod(assembly, methodName);
-			Assert.That(method.Invoke(null, [input]), Is.EqualTo(expectedOutput));
-		});
+		ExecutionHelpers.RunTest(
+			BooleanCasts.TranslateToCIL(),
+			assembly =>
+			{
+				MethodInfo method = ExecutionHelpers.GetMethod(assembly, methodName);
+				Assert.That(method.Invoke(null, [input]), Is.EqualTo(expectedOutput));
+			}
+		);
 	}
 
 	[SavesSuccessfully]
@@ -371,10 +384,13 @@ public partial class SimpleTests
 	[Test]
 	public void StaticIntVariable_ExecutesCorrectly()
 	{
-		ExecutionHelpers.RunTest(StaticIntVariable.TranslateToCIL(), assembly =>
-		{
-			Func<int> method = ExecutionHelpers.GetMethod<Func<int>>(assembly, "get");
-			Assert.That(method.Invoke(), Is.EqualTo(1));
-		});
+		ExecutionHelpers.RunTest(
+			StaticIntVariable.TranslateToCIL(),
+			assembly =>
+			{
+				Func<int> method = ExecutionHelpers.GetMethod<Func<int>>(assembly, "get");
+				Assert.That(method.Invoke(), Is.EqualTo(1));
+			}
+		);
 	}
 }

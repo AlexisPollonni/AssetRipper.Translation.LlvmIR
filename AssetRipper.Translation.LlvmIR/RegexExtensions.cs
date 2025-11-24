@@ -5,13 +5,21 @@ namespace AssetRipper.Translation.LlvmIR;
 
 internal static class RegexExtensions
 {
-	public static bool TryMatch(this Regex regex, string input, [NotNullWhen(true)] out Match? match)
+	public static bool TryMatch(
+		this Regex regex,
+		string input,
+		[NotNullWhen(true)] out Match? match
+	)
 	{
 		match = regex.Match(input);
 		return match.Success;
 	}
 
-	public static bool TryMatchAndGetFirstGroup(this Regex regex, string input, [NotNullWhen(true)] out string? groupValue)
+	public static bool TryMatchAndGetFirstGroup(
+		this Regex regex,
+		string input,
+		[NotNullWhen(true)] out string? groupValue
+	)
 	{
 		if (regex.TryMatch(input, out Match? match) && match.Groups.Count > 1)
 		{

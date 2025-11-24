@@ -1,4 +1,5 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
@@ -6,11 +7,11 @@ using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using LLVMSharp.Interop;
-using System.Diagnostics;
 
 namespace AssetRipper.Translation.LlvmIR.Variables;
 
-internal class FunctionFieldVariable(TypeSignature variableType, FunctionContext function) : IVariable
+internal class FunctionFieldVariable(TypeSignature variableType, FunctionContext function)
+	: IVariable
 {
 	public bool IsTemporary => true;
 	public TypeSignature VariableType { get; } = variableType;
@@ -26,7 +27,11 @@ internal class FunctionFieldVariable(TypeSignature variableType, FunctionContext
 
 		Debug.Assert(Function.NeedsStackFrame);
 		Debug.Assert(Function.LocalVariablesType is not null);
-		DataField = new FieldDefinition($"field_{Function.LocalVariablesType.Fields.Count}", FieldAttributes.Public, VariableType);
+		DataField = new FieldDefinition(
+			$"field_{Function.LocalVariablesType.Fields.Count}",
+			FieldAttributes.Public,
+			VariableType
+		);
 		Function.LocalVariablesType.Fields.Add(DataField);
 		return DataField;
 	}
@@ -55,7 +60,11 @@ internal class FunctionFieldVariable(TypeSignature variableType, FunctionContext
 
 	public void AddStoreDefault(CilInstructionCollection instructions)
 	{
-		if (VariableType is not CorLibTypeSignature and ({ IsValueType: true } or GenericParameterSignature))
+		if (
+			VariableType
+			is not CorLibTypeSignature
+				and ({ IsValueType: true } or GenericParameterSignature)
+		)
 		{
 			Function.AddLocalVariablesPointer(instructions);
 			instructions.Add(CilOpCodes.Ldflda, GetOrCreateField());
@@ -69,7 +78,10 @@ internal class FunctionFieldVariable(TypeSignature variableType, FunctionContext
 		}
 	}
 
-	public static LocalVariable CreateFromInstruction(LLVMValueRef instruction, ModuleContext module)
+	public static LocalVariable CreateFromInstruction(
+		LLVMValueRef instruction,
+		ModuleContext module
+	)
 	{
 		return new(module.GetTypeSignature(instruction));
 	}

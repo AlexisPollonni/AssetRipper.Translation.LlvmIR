@@ -1,8 +1,8 @@
-﻿using AsmResolver.DotNet;
-using NUnit.Framework;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Loader;
+using AsmResolver.DotNet;
+using NUnit.Framework;
 
 namespace AssetRipper.Translation.LlvmIR.Tests;
 
@@ -24,7 +24,7 @@ internal static class ExecutionHelpers
 	public static unsafe void RunTest(ModuleDefinition module, Action<Assembly> testAction)
 	{
 		AssemblyLoadContext context = CreateLoadContext();
-		
+
 		try
 		{
 			Assembly assembly = LoadAssembly(context, module);
@@ -37,9 +37,14 @@ internal static class ExecutionHelpers
 			{
 				// Free unmanaged resources
 
-				foreach (Type type in assembly.GetTypes().Where(t => t.Namespace == "GlobalVariables"))
+				foreach (
+					Type type in assembly.GetTypes().Where(t => t.Namespace == "GlobalVariables")
+				)
 				{
-					FieldInfo? field = type.GetField("__pointer", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+					FieldInfo? field = type.GetField(
+						"__pointer",
+						BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static
+					);
 					if (field is null)
 					{
 						// Some global variables don't have a pointer field because the pointer is never used.
@@ -72,7 +77,8 @@ internal static class ExecutionHelpers
 		return method;
 	}
 
-	public static T GetMethod<T>(Assembly assembly, string name) where T : Delegate
+	public static T GetMethod<T>(Assembly assembly, string name)
+		where T : Delegate
 	{
 		MethodInfo method = GetMethod(assembly, name);
 		return method.CreateDelegate<T>();

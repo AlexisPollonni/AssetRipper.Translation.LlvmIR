@@ -10,6 +10,7 @@ public sealed record class LoadFieldInstruction(FieldDefinition Field) : Instruc
 	public override int PopCount => Field.IsStatic ? 0 : 1;
 	public override int PushCount => 1;
 	public CilOpCode OpCode => Field.IsStatic ? CilOpCodes.Ldsfld : CilOpCodes.Ldfld;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.Add(OpCode, Field);

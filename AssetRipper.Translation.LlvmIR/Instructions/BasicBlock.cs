@@ -1,7 +1,7 @@
-﻿using AsmResolver.DotNet.Code.Cil;
-using AsmResolver.PE.DotNet.Cil;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics;
+using AsmResolver.DotNet.Code.Cil;
+using AsmResolver.PE.DotNet.Cil;
 
 namespace AssetRipper.Translation.LlvmIR.Instructions;
 
@@ -29,7 +29,10 @@ public sealed class BasicBlock : IReadOnlyList<Instruction>, IList<Instruction>
 		int stackHeight = 0;
 		foreach (Instruction instruction in Instructions)
 		{
-			Debug.Assert(stackHeight >= instruction.PopCount, "Stack underflow when adding instructions");
+			Debug.Assert(
+				stackHeight >= instruction.PopCount,
+				"Stack underflow when adding instructions"
+			);
 			instruction.AddInstructions(instructions);
 			stackHeight += instruction.StackEffect;
 		}

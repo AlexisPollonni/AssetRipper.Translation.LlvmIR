@@ -8,7 +8,11 @@ internal static class InstructionHelper
 		where TFrom : struct
 		where TTo : struct
 	{
-		ArgumentOutOfRangeException.ThrowIfLessThan(Unsafe.SizeOf<TFrom>(), Unsafe.SizeOf<TTo>(), nameof(TFrom));
+		ArgumentOutOfRangeException.ThrowIfLessThan(
+			Unsafe.SizeOf<TFrom>(),
+			Unsafe.SizeOf<TTo>(),
+			nameof(TFrom)
+		);
 		return Unsafe.As<TFrom, TTo>(ref value);
 	}
 
@@ -40,19 +44,31 @@ internal static class InstructionHelper
 		return condition ? trueValue : falseValue;
 	}
 
-	public static TValue Select<TCondition, TValue, TValueElement>(TCondition condition, TValue trueValue, TValue falseValue)
+	public static TValue Select<TCondition, TValue, TValueElement>(
+		TCondition condition,
+		TValue trueValue,
+		TValue falseValue
+	)
 		where TCondition : unmanaged, IInlineArray<bool>
 		where TValue : unmanaged, IInlineArray<TValueElement>
 		where TValueElement : unmanaged
 	{
 		if (TCondition.Length != TValue.Length)
 		{
-			throw new ArgumentException($"Condition length ({TCondition.Length}) must match value length ({TValue.Length}).");
+			throw new ArgumentException(
+				$"Condition length ({TCondition.Length}) must match value length ({TValue.Length})."
+			);
 		}
 
 		ReadOnlySpan<bool> conditionSpan = condition.AsReadOnlySpan<TCondition, bool>();
-		ReadOnlySpan<TValueElement> trueValueSpan = trueValue.AsReadOnlySpan<TValue, TValueElement>();
-		ReadOnlySpan<TValueElement> falseValueSpan = falseValue.AsReadOnlySpan<TValue, TValueElement>();
+		ReadOnlySpan<TValueElement> trueValueSpan = trueValue.AsReadOnlySpan<
+			TValue,
+			TValueElement
+		>();
+		ReadOnlySpan<TValueElement> falseValueSpan = falseValue.AsReadOnlySpan<
+			TValue,
+			TValueElement
+		>();
 
 		TValue result = default;
 		Span<TValueElement> resultSpan = result.AsSpan<TValue, TValueElement>();
@@ -71,14 +87,22 @@ internal static class InstructionHelper
 		return buffer.AsReadOnlySpan<TBuffer, TElement>()[index];
 	}
 
-	public static TBuffer InsertElement<TBuffer, TElement>(this TBuffer buffer, TElement value, int index)
+	public static TBuffer InsertElement<TBuffer, TElement>(
+		this TBuffer buffer,
+		TElement value,
+		int index
+	)
 		where TBuffer : struct, IInlineArray<TElement>
 	{
 		buffer.AsSpan<TBuffer, TElement>()[index] = value;
 		return buffer;
 	}
 
-	public static TResult ShuffleVector<TVector, TIndex, TResult, TElement>(TVector vector1, TVector vector2, TIndex indices)
+	public static TResult ShuffleVector<TVector, TIndex, TResult, TElement>(
+		TVector vector1,
+		TVector vector2,
+		TIndex indices
+	)
 		where TVector : struct, IInlineArray<TElement>
 		where TIndex : struct, IInlineArray<int>
 		where TResult : struct, IInlineArray<TElement>
@@ -99,7 +123,8 @@ internal static class InstructionHelper
 			ArgumentOutOfRangeException.ThrowIfNegative(index);
 			ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, TVector.Length * 2);
 
-			resultSpan[i] = index < TVector.Length ? vector1Span[index] : vector2Span[index - TVector.Length];
+			resultSpan[i] =
+				index < TVector.Length ? vector1Span[index] : vector2Span[index - TVector.Length];
 		}
 
 		return result;

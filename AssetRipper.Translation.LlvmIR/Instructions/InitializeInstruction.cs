@@ -7,6 +7,7 @@ public sealed record class InitializeInstruction(IVariable Variable) : Instructi
 {
 	public override int PopCount => 0;
 	public override int PushCount => 0;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		Variable.AddStoreDefault(instructions);

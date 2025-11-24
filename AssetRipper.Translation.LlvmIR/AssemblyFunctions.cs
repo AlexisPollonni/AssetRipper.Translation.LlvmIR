@@ -1,5 +1,3 @@
 ﻿namespace AssetRipper.Translation.LlvmIR;
 
-internal static class AssemblyFunctions
-{
-}
+internal static class AssemblyFunctions { }

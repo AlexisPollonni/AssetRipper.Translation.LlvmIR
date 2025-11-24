@@ -10,9 +10,9 @@ public abstract record class ReturnInstruction : Instruction
 
 	public sealed override bool StackHeightDependent => true;
 	public sealed override int PushCount => 0;
-	private ReturnInstruction()
-	{
-	}
+
+	private ReturnInstruction() { }
+
 	public sealed override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.Add(CilOpCodes.Ret);
@@ -22,6 +22,7 @@ public abstract record class ReturnInstruction : Instruction
 	{
 		public override int PopCount => 0;
 	}
+
 	private sealed record class ValueReturnInstruction : ReturnInstruction
 	{
 		public override int PopCount => 1;

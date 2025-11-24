@@ -8,6 +8,9 @@
     <PackageReference Include="Ookii.CommandLine" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj" IncludeAssets="all" />
+    <ProjectReference
+      Include="..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj"
+      IncludeAssets="all"
+    />
   </ItemGroup>
 </Project>

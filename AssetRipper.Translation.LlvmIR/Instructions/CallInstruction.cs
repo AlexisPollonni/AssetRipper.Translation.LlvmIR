@@ -12,6 +12,7 @@ public sealed record class CallInstruction(IMethodDescriptor Method) : Instructi
 	public bool ReturnsValue => Method.Signature!.ReturnsValue;
 	public override int PopCount => ParameterCount + (IsStatic ? 0 : 1);
 	public override int PushCount => ReturnsValue ? 1 : 0;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.Add(IsStatic ? CilOpCodes.Call : CilOpCodes.Callvirt, Method);

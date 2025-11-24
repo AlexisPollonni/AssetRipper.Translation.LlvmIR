@@ -57,7 +57,8 @@ internal static partial class NumericHelper
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static T CtPop<T>(T x) where T : unmanaged
+	public static T CtPop<T>(T x)
+		where T : unmanaged
 	{
 		long count = TensorPrimitives.PopCount(MemoryMarshal.AsBytes(new ReadOnlySpan<T>(ref x)));
 		return ConvertFromInt32<T>((int)count);

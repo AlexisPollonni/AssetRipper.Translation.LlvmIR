@@ -1,5 +1,5 @@
-﻿using LLVMSharp.Interop;
-using System.Text;
+﻿using System.Text;
+using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -7,15 +7,20 @@ public unsafe partial struct LLVMNamedMDNodeRef(IntPtr handle) : IEquatable<LLVM
 {
 	public IntPtr Handle = handle;
 
-	public static implicit operator LLVMNamedMDNodeRef(LLVMOpaqueNamedMDNode* value) => new LLVMNamedMDNodeRef((IntPtr)value);
+	public static implicit operator LLVMNamedMDNodeRef(LLVMOpaqueNamedMDNode* value) =>
+		new LLVMNamedMDNodeRef((IntPtr)value);
 
-	public static implicit operator LLVMOpaqueNamedMDNode*(LLVMNamedMDNodeRef value) => (LLVMOpaqueNamedMDNode*)value.Handle;
+	public static implicit operator LLVMOpaqueNamedMDNode*(LLVMNamedMDNodeRef value) =>
+		(LLVMOpaqueNamedMDNode*)value.Handle;
 
-	public static bool operator ==(LLVMNamedMDNodeRef left, LLVMNamedMDNodeRef right) => left.Handle == right.Handle;
+	public static bool operator ==(LLVMNamedMDNodeRef left, LLVMNamedMDNodeRef right) =>
+		left.Handle == right.Handle;
 
-	public static bool operator !=(LLVMNamedMDNodeRef left, LLVMNamedMDNodeRef right) => !(left == right);
+	public static bool operator !=(LLVMNamedMDNodeRef left, LLVMNamedMDNodeRef right) =>
+		!(left == right);
 
-	public override readonly bool Equals(object? obj) => (obj is LLVMNamedMDNodeRef other) && Equals(other);
+	public override readonly bool Equals(object? obj) =>
+		(obj is LLVMNamedMDNodeRef other) && Equals(other);
 
 	public readonly bool Equals(LLVMNamedMDNodeRef other) => this == other;
 

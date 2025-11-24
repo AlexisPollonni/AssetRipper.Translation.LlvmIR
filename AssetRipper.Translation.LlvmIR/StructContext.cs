@@ -1,10 +1,10 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using LLVMSharp.Interop;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -50,7 +50,8 @@ internal sealed partial class StructContext : IHasName
 			module.Options.GetNamespace("Structures"),
 			$"{type.StructName}_{Guid.NewGuid()}",
 			TypeAttributes.Public | TypeAttributes.ExplicitLayout,
-			module.Definition.DefaultImporter.ImportType(typeof(ValueType)));
+			module.Definition.DefaultImporter.ImportType(typeof(ValueType))
+		);
 		module.Definition.TopLevelTypes.Add(typeDefinition);
 		StructContext structContext = new(module, typeDefinition, type);
 
@@ -77,13 +78,20 @@ internal sealed partial class StructContext : IHasName
 
 	public void AddNameAttributes() => this.AddNameAttributes(Definition);
 
-	private static string ExtractCleanName(string mangledName, string demangledName, Dictionary<string, string> renamedSymbols)
+	private static string ExtractCleanName(
+		string mangledName,
+		string demangledName,
+		Dictionary<string, string> renamedSymbols
+	)
 	{
 		if (renamedSymbols.TryGetValue(mangledName, out string? result))
 		{
 			if (!NameGenerator.IsValidCSharpName(result))
 			{
-				throw new ArgumentException($"Renamed symbol '{mangledName}' has an invalid name '{result}'.", nameof(renamedSymbols));
+				throw new ArgumentException(
+					$"Renamed symbol '{mangledName}' has an invalid name '{result}'.",
+					nameof(renamedSymbols)
+				);
 			}
 			return result;
 		}

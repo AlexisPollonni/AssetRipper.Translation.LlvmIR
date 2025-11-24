@@ -1,9 +1,9 @@
-﻿using AsmResolver.DotNet.Code.Cil;
+﻿using System.Diagnostics.CodeAnalysis;
+using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AssetRipper.Translation.LlvmIR.Variables;
 

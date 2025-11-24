@@ -1,7 +1,7 @@
-﻿using AsmResolver.DotNet.Signatures;
+﻿using System.Diagnostics;
+using AsmResolver.DotNet.Signatures;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Variables;
-using System.Diagnostics;
 
 namespace AssetRipper.Translation.LlvmIR.Instructions;
 
@@ -16,7 +16,8 @@ public static class InstructionOptimizer
 
 		TryOptimizeBasicBlocksIndividually(basicBlocks);
 
-		HashSet<IVariable> temporaryVariablesWithoutAddressOrLoad = GetTemporaryVariablesWithoutAddressOrLoad(basicBlocks);
+		HashSet<IVariable> temporaryVariablesWithoutAddressOrLoad =
+			GetTemporaryVariablesWithoutAddressOrLoad(basicBlocks);
 		if (temporaryVariablesWithoutAddressOrLoad.Count > 0)
 		{
 			foreach (BasicBlock basicBlock in basicBlocks)
@@ -32,7 +33,9 @@ public static class InstructionOptimizer
 							}
 							break;
 						case InitializeInstruction initialize:
-							if (temporaryVariablesWithoutAddressOrLoad.Contains(initialize.Variable))
+							if (
+								temporaryVariablesWithoutAddressOrLoad.Contains(initialize.Variable)
+							)
 							{
 								basicBlock.RemoveAt(i);
 							}
@@ -54,7 +57,11 @@ public static class InstructionOptimizer
 				// Order matters here, remove from the end to avoid messing up indices.
 				for (int i = basicBlock.Count - 1; i >= 0; i--)
 				{
-					if (basicBlock[i] is ClearStackFrameInstruction or InitializeStackFrameInstruction)
+					if (
+						basicBlock[i]
+						is ClearStackFrameInstruction
+							or InitializeStackFrameInstruction
+					)
 					{
 						basicBlock.RemoveAt(i);
 					}
@@ -67,7 +74,10 @@ public static class InstructionOptimizer
 			// Order matters here, remove from the end to avoid messing up indices.
 			for (int i = basicBlock.Count - 1; i > 0; i--)
 			{
-				if (basicBlock[i] == ReturnInstruction.Void && basicBlock[i - 1] is ReturnIfExceptionInfoNotNullInstruction)
+				if (
+					basicBlock[i] == ReturnInstruction.Void
+					&& basicBlock[i - 1] is ReturnIfExceptionInfoNotNullInstruction
+				)
 				{
 					basicBlock.RemoveAt(i - 1);
 				}
@@ -75,9 +85,13 @@ public static class InstructionOptimizer
 		}
 	}
 
-	private static void TryReplaceFunctionFieldVariablesWithLocalVariables(IReadOnlyList<BasicBlock> basicBlocks)
+	private static void TryReplaceFunctionFieldVariablesWithLocalVariables(
+		IReadOnlyList<BasicBlock> basicBlocks
+	)
 	{
-		HashSet<IVariable> temporaryVariablesWithoutAddress = GetTemporaryVariablesWithoutAddress(basicBlocks);
+		HashSet<IVariable> temporaryVariablesWithoutAddress = GetTemporaryVariablesWithoutAddress(
+			basicBlocks
+		);
 
 		if (temporaryVariablesWithoutAddress.Count == 0)
 		{
@@ -87,7 +101,11 @@ public static class InstructionOptimizer
 		// Remove unnessary initializations from alloca instructions.
 		foreach (BasicBlock basicBlock in basicBlocks)
 		{
-			RunPass_EliminateUnnessaryInitialization(basicBlock, temporaryVariablesWithoutAddress, true);
+			RunPass_EliminateUnnessaryInitialization(
+				basicBlock,
+				temporaryVariablesWithoutAddress,
+				true
+			);
 		}
 
 		// Replace FunctionFieldVariables with LocalVariables where possible.
@@ -99,9 +117,17 @@ public static class InstructionOptimizer
 				switch (basicBlock[i])
 				{
 					case LoadVariableInstruction load:
-						if (load.Variable is FunctionFieldVariable functionFieldVariable1 && temporaryVariablesWithoutAddress.Contains(functionFieldVariable1))
+						if (
+							load.Variable is FunctionFieldVariable functionFieldVariable1
+							&& temporaryVariablesWithoutAddress.Contains(functionFieldVariable1)
+						)
 						{
-							if (!functionFieldReplacementMap.TryGetValue(functionFieldVariable1, out LocalVariable? replacement))
+							if (
+								!functionFieldReplacementMap.TryGetValue(
+									functionFieldVariable1,
+									out LocalVariable? replacement
+								)
+							)
 							{
 								replacement = new(functionFieldVariable1.VariableType);
 								functionFieldReplacementMap[functionFieldVariable1] = replacement;
@@ -110,9 +136,17 @@ public static class InstructionOptimizer
 						}
 						break;
 					case StoreVariableInstruction store:
-						if (store.Variable is FunctionFieldVariable functionFieldVariable2 && temporaryVariablesWithoutAddress.Contains(functionFieldVariable2))
+						if (
+							store.Variable is FunctionFieldVariable functionFieldVariable2
+							&& temporaryVariablesWithoutAddress.Contains(functionFieldVariable2)
+						)
 						{
-							if (!functionFieldReplacementMap.TryGetValue(functionFieldVariable2, out LocalVariable? replacement))
+							if (
+								!functionFieldReplacementMap.TryGetValue(
+									functionFieldVariable2,
+									out LocalVariable? replacement
+								)
+							)
 							{
 								replacement = new(functionFieldVariable2.VariableType);
 								functionFieldReplacementMap[functionFieldVariable2] = replacement;
@@ -121,9 +155,17 @@ public static class InstructionOptimizer
 						}
 						break;
 					case AddressOfInstruction addressOf:
-						if (addressOf.Variable is FunctionFieldVariable functionFieldVariable3 && temporaryVariablesWithoutAddress.Contains(functionFieldVariable3))
+						if (
+							addressOf.Variable is FunctionFieldVariable functionFieldVariable3
+							&& temporaryVariablesWithoutAddress.Contains(functionFieldVariable3)
+						)
 						{
-							if (!functionFieldReplacementMap.TryGetValue(functionFieldVariable3, out LocalVariable? replacement))
+							if (
+								!functionFieldReplacementMap.TryGetValue(
+									functionFieldVariable3,
+									out LocalVariable? replacement
+								)
+							)
 							{
 								replacement = new(functionFieldVariable3.VariableType);
 								functionFieldReplacementMap[functionFieldVariable3] = replacement;
@@ -132,9 +174,17 @@ public static class InstructionOptimizer
 						}
 						break;
 					case InitializeInstruction initialize:
-						if (initialize.Variable is FunctionFieldVariable functionFieldVariable4 && temporaryVariablesWithoutAddress.Contains(functionFieldVariable4))
+						if (
+							initialize.Variable is FunctionFieldVariable functionFieldVariable4
+							&& temporaryVariablesWithoutAddress.Contains(functionFieldVariable4)
+						)
 						{
-							if (!functionFieldReplacementMap.TryGetValue(functionFieldVariable4, out LocalVariable? replacement))
+							if (
+								!functionFieldReplacementMap.TryGetValue(
+									functionFieldVariable4,
+									out LocalVariable? replacement
+								)
+							)
 							{
 								replacement = new(functionFieldVariable4.VariableType);
 								functionFieldReplacementMap[functionFieldVariable4] = replacement;
@@ -149,7 +199,8 @@ public static class InstructionOptimizer
 
 	private static void TryOptimizeBasicBlocksIndividually(IReadOnlyList<BasicBlock> basicBlocks)
 	{
-		HashSet<IVariable> temporaryVariables = GetTemporaryVariablesEligibleForRemoval(basicBlocks).ToHashSet();
+		HashSet<IVariable> temporaryVariables = GetTemporaryVariablesEligibleForRemoval(basicBlocks)
+			.ToHashSet();
 		foreach (BasicBlock basicBlock in basicBlocks)
 		{
 			while (TryOptimize(basicBlock, temporaryVariables))
@@ -181,7 +232,13 @@ public static class InstructionOptimizer
 						switch (basicBlock[i - 1])
 						{
 							case AddressOfInstruction addressOf:
-								if (addressOf.Variable.SupportsLoad && AreCompatible(addressOf.Variable.VariableType, loadIndirect.Type))
+								if (
+									addressOf.Variable.SupportsLoad
+									&& AreCompatible(
+										addressOf.Variable.VariableType,
+										loadIndirect.Type
+									)
+								)
 								{
 									LoadVariableInstruction replacement = new(addressOf.Variable);
 									basicBlock[i - 1] = replacement;
@@ -191,7 +248,12 @@ public static class InstructionOptimizer
 								}
 								break;
 							case LoadFieldAddressInstruction loadFieldAddress:
-								if (AreCompatible(loadFieldAddress.Field.Signature?.FieldType, loadIndirect.Type))
+								if (
+									AreCompatible(
+										loadFieldAddress.Field.Signature?.FieldType,
+										loadIndirect.Type
+									)
+								)
 								{
 									LoadFieldInstruction replacement = new(loadFieldAddress.Field);
 									basicBlock[i - 1] = replacement;
@@ -223,9 +285,17 @@ public static class InstructionOptimizer
 								switch (current)
 								{
 									case AddressOfInstruction addressOf:
-										if (addressOf.Variable.SupportsLoad && AreCompatible(addressOf.Variable.VariableType, storeIndirect.Type))
+										if (
+											addressOf.Variable.SupportsLoad
+											&& AreCompatible(
+												addressOf.Variable.VariableType,
+												storeIndirect.Type
+											)
+										)
 										{
-											StoreVariableInstruction replacement = new(addressOf.Variable);
+											StoreVariableInstruction replacement = new(
+												addressOf.Variable
+											);
 											basicBlock[i] = replacement;
 											basicBlock.RemoveAt(index);
 											changed = true;
@@ -233,9 +303,16 @@ public static class InstructionOptimizer
 										}
 										break;
 									case LoadFieldAddressInstruction loadFieldAddress:
-										if (AreCompatible(loadFieldAddress.Field.Signature?.FieldType, storeIndirect.Type))
+										if (
+											AreCompatible(
+												loadFieldAddress.Field.Signature?.FieldType,
+												storeIndirect.Type
+											)
+										)
 										{
-											StoreFieldInstruction replacement = new(loadFieldAddress.Field);
+											StoreFieldInstruction replacement = new(
+												loadFieldAddress.Field
+											);
 											basicBlock[i] = replacement;
 											basicBlock.RemoveAt(index);
 											changed = true;
@@ -292,7 +369,11 @@ public static class InstructionOptimizer
 		return changed;
 	}
 
-	private static bool RunPass_EliminateUnnessaryInitialization(BasicBlock basicBlock, HashSet<IVariable> temporaryVariables, bool requireDoubleStore)
+	private static bool RunPass_EliminateUnnessaryInitialization(
+		BasicBlock basicBlock,
+		HashSet<IVariable> temporaryVariables,
+		bool requireDoubleStore
+	)
 	{
 		if (temporaryVariables.Count == 0)
 		{
@@ -413,15 +494,35 @@ public static class InstructionOptimizer
 		}
 	}
 
-	private readonly record struct VariableUsage(int LoadCount, int StoreCount, int LoadIndex, int StoreIndex)
+	private readonly record struct VariableUsage(
+		int LoadCount,
+		int StoreCount,
+		int LoadIndex,
+		int StoreIndex
+	)
 	{
 		public static VariableUsage Default => new(0, 0, -1, -1);
 		public bool CanBeRemoved => LoadCount == 1 && StoreCount == 1 && LoadIndex > StoreIndex;
-		public VariableUsage WithLoad(int index) => this with { LoadCount = LoadCount + 1, LoadIndex = index };
-		public VariableUsage WithStore(int index) => this with { StoreCount = StoreCount + 1, StoreIndex = index };
+
+		public VariableUsage WithLoad(int index) =>
+			this with
+			{
+				LoadCount = LoadCount + 1,
+				LoadIndex = index,
+			};
+
+		public VariableUsage WithStore(int index) =>
+			this with
+			{
+				StoreCount = StoreCount + 1,
+				StoreIndex = index,
+			};
 	}
 
-	private static bool RunPass_RemoveUnnecessaryTemporaryVariables(BasicBlock basicBlock, HashSet<IVariable> temporaryVariables)
+	private static bool RunPass_RemoveUnnecessaryTemporaryVariables(
+		BasicBlock basicBlock,
+		HashSet<IVariable> temporaryVariables
+	)
 	{
 		if (temporaryVariables.Count == 0)
 		{
@@ -459,7 +560,10 @@ public static class InstructionOptimizer
 			switch (instruction)
 			{
 				case LoadVariableInstruction load:
-					if (temporaryVariables.Contains(load.Variable) && !variablesWithAddressOrInitialization.Contains(load.Variable))
+					if (
+						temporaryVariables.Contains(load.Variable)
+						&& !variablesWithAddressOrInitialization.Contains(load.Variable)
+					)
 					{
 						if (!variableUsages.TryGetValue(load.Variable, out VariableUsage usage))
 						{
@@ -469,7 +573,10 @@ public static class InstructionOptimizer
 					}
 					break;
 				case StoreVariableInstruction store:
-					if (temporaryVariables.Contains(store.Variable) && !variablesWithAddressOrInitialization.Contains(store.Variable))
+					if (
+						temporaryVariables.Contains(store.Variable)
+						&& !variablesWithAddressOrInitialization.Contains(store.Variable)
+					)
 					{
 						if (!variableUsages.TryGetValue(store.Variable, out VariableUsage usage))
 						{
@@ -523,7 +630,10 @@ public static class InstructionOptimizer
 			}
 
 			// Check 4
-			if (intraInstructionStackHeight[usage.LoadIndex] != intraInstructionStackHeight[usage.StoreIndex])
+			if (
+				intraInstructionStackHeight[usage.LoadIndex]
+				!= intraInstructionStackHeight[usage.StoreIndex]
+			)
 			{
 				continue;
 			}
@@ -592,7 +702,9 @@ public static class InstructionOptimizer
 		return changed;
 	}
 
-	private static IEnumerable<IVariable> GetTemporaryVariablesEligibleForRemoval(IReadOnlyList<BasicBlock> basicBlocks)
+	private static IEnumerable<IVariable> GetTemporaryVariablesEligibleForRemoval(
+		IReadOnlyList<BasicBlock> basicBlocks
+	)
 	{
 		HashSet<IVariable> variablesInMultipleBlocks = new();
 		Dictionary<IVariable, BasicBlock> variableBlockMap = new();
@@ -609,9 +721,10 @@ public static class InstructionOptimizer
 					_ => null,
 				};
 
-				if (variable is null or { IsTemporary: false } || variablesInMultipleBlocks.Contains(variable))
-				{
-				}
+				if (
+					variable is null or { IsTemporary: false }
+					|| variablesInMultipleBlocks.Contains(variable)
+				) { }
 				else if (variableBlockMap.TryGetValue(variable, out BasicBlock? containingBlock))
 				{
 					if (containingBlock != basicBlock)
@@ -629,7 +742,9 @@ public static class InstructionOptimizer
 		return variableBlockMap.Keys;
 	}
 
-	private static HashSet<IVariable> GetTemporaryVariablesWithoutAddress(IReadOnlyList<BasicBlock> basicBlocks)
+	private static HashSet<IVariable> GetTemporaryVariablesWithoutAddress(
+		IReadOnlyList<BasicBlock> basicBlocks
+	)
 	{
 		HashSet<IVariable> variablesWithAddress = new();
 		HashSet<IVariable> variablesWithoutAddress = new();
@@ -646,9 +761,10 @@ public static class InstructionOptimizer
 					_ => null,
 				};
 
-				if (variable is null or { IsTemporary: false } || variablesWithAddress.Contains(variable))
-				{
-				}
+				if (
+					variable is null or { IsTemporary: false }
+					|| variablesWithAddress.Contains(variable)
+				) { }
 				else if (instruction is AddressOfInstruction)
 				{
 					variablesWithAddress.Add(variable);
@@ -663,7 +779,9 @@ public static class InstructionOptimizer
 		return variablesWithoutAddress;
 	}
 
-	private static HashSet<IVariable> GetTemporaryVariablesWithoutAddressOrLoad(IReadOnlyList<BasicBlock> basicBlocks)
+	private static HashSet<IVariable> GetTemporaryVariablesWithoutAddressOrLoad(
+		IReadOnlyList<BasicBlock> basicBlocks
+	)
 	{
 		HashSet<IVariable> variablesWithAddressOrLoad = new();
 		HashSet<IVariable> variablesWithoutAddressOrLoad = new();
@@ -680,9 +798,10 @@ public static class InstructionOptimizer
 					_ => null,
 				};
 
-				if (variable is null or { IsTemporary: false } || variablesWithAddressOrLoad.Contains(variable))
-				{
-				}
+				if (
+					variable is null or { IsTemporary: false }
+					|| variablesWithAddressOrLoad.Contains(variable)
+				) { }
 				else if (instruction is AddressOfInstruction or LoadVariableInstruction)
 				{
 					variablesWithAddressOrLoad.Add(variable);

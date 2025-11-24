@@ -1,5 +1,5 @@
-﻿using LLVMSharp.Interop;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
+using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR.Extensions;
 

@@ -9,6 +9,7 @@ public sealed record class LoadIndirectInstruction(TypeSignature Type) : Instruc
 {
 	public override int PopCount => 1; // Pointer
 	public override int PushCount => 1; // Value
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.AddLoadIndirect(Type);

@@ -8,6 +8,7 @@ public sealed record class InitializeObjectInstruction(TypeSignature Type) : Ins
 {
 	public override int PopCount => 1;
 	public override int PushCount => 0;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.Add(CilOpCodes.Initobj, Type.ToTypeDefOrRef());

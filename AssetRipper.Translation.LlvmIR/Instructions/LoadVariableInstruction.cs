@@ -7,10 +7,12 @@ public sealed record class LoadVariableInstruction(IVariable Variable) : Instruc
 {
 	public override int PopCount => 0;
 	public override int PushCount => 1;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		Variable.AddLoad(instructions);
 	}
+
 	protected override string ToStringImplementation()
 	{
 		return $"LoadVariable {{ {Variable} }}";

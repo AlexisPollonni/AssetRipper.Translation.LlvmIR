@@ -11,10 +11,13 @@ internal abstract class BaseParameterContext : IHasName, IVariable
 	/// <inheritdoc/>
 	public abstract string MangledName { get; }
 	string? IHasName.DemangledName => null;
+
 	/// <inheritdoc/>
 	public abstract string CleanName { get; }
+
 	/// <inheritdoc/>
 	public string Name { get; set; } = "";
+
 	/// <inheritdoc/>
 	public string? NativeType { get; set; }
 	public abstract AttributeWrapper[] Attributes { get; }

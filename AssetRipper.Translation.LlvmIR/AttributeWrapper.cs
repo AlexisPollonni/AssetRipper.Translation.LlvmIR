@@ -12,7 +12,8 @@ public readonly struct AttributeWrapper
 		m_attribute = attribute;
 	}
 
-	public static Lazy<uint> StructReturnAttributeKind { get; } = new(() => LLVM.GetEnumAttributeKindForName("sret"u8));
+	public static Lazy<uint> StructReturnAttributeKind { get; } =
+		new(() => LLVM.GetEnumAttributeKindForName("sret"u8));
 
 	public bool IsTypeAttribute => m_attribute.IsTypeAttribute();
 	public bool IsStringAttribute => m_attribute.IsStringAttribute();

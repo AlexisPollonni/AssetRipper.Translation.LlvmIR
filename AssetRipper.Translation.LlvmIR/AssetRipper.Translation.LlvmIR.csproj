@@ -17,7 +17,14 @@
     <PackageReference Include="System.Numerics.Tensors" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AssetRipper.Translation.LlvmIR.Shims.Native\AssetRipper.Translation.LlvmIR.Shims.Native.csproj" IncludeAssets="all" />
-    <ProjectReference Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference
+      Include="..\AssetRipper.Translation.LlvmIR.Shims.Native\AssetRipper.Translation.LlvmIR.Shims.Native.csproj"
+      IncludeAssets="all"
+    />
+    <ProjectReference
+      Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+    />
   </ItemGroup>
 </Project>

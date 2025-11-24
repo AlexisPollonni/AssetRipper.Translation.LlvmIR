@@ -8,11 +8,14 @@ namespace AssetRipper.Translation.LlvmIR;
 
 internal sealed class ParameterContext : BaseParameterContext
 {
-	public ParameterContext(LLVMValueRef parameter, Parameter definition, FunctionContext function) : base(definition, function)
+	public ParameterContext(LLVMValueRef parameter, Parameter definition, FunctionContext function)
+		: base(definition, function)
 	{
 		Parameter = parameter;
 		MangledName = parameter.Name ?? "";
-		Attributes = AttributeWrapper.FromArray(function.Function.GetAttributesAtIndex((LLVMAttributeIndex)(Index + 1)));
+		Attributes = AttributeWrapper.FromArray(
+			function.Function.GetAttributesAtIndex((LLVMAttributeIndex)(Index + 1))
+		);
 		if (Index == 0 && function.Function.TryGetStructReturnType(out LLVMTypeRef type))
 		{
 			CleanName = NameGenerator.CleanName(MangledName, "result");
@@ -32,6 +35,7 @@ internal sealed class ParameterContext : BaseParameterContext
 
 	/// <inheritdoc/>
 	public override string MangledName { get; }
+
 	/// <inheritdoc/>
 	public override string CleanName { get; }
 	public override AttributeWrapper[] Attributes { get; }

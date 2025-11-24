@@ -1,9 +1,9 @@
-﻿using AssetRipper.Translation.LlvmIR.Attributes;
-using System.Buffers;
+﻿using System.Buffers;
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AssetRipper.Translation.LlvmIR.Attributes;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -29,7 +29,9 @@ internal static unsafe partial class IntrinsicFunctions
 	[MightThrow]
 	public static void Assert(char* message, char* file, uint line)
 	{
-		ExceptionInfo.Current = new AssertExceptionInfo($"Assertion failed: {Marshal.PtrToStringUni((IntPtr)message)} at {Marshal.PtrToStringUni((IntPtr)file)}:{line}");
+		ExceptionInfo.Current = new AssertExceptionInfo(
+			$"Assertion failed: {Marshal.PtrToStringUni((IntPtr)message)} at {Marshal.PtrToStringUni((IntPtr)file)}:{line}"
+		);
 	}
 
 	/// <summary>
@@ -49,9 +51,17 @@ internal static unsafe partial class IntrinsicFunctions
 	/// </exception>
 	[DoesNotReturn]
 	[MangledName("_invoke_watson")]
-	public static void InvokeWatson(char* expression, char* function, char* file, int line, long reserved)
+	public static void InvokeWatson(
+		char* expression,
+		char* function,
+		char* file,
+		int line,
+		long reserved
+	)
 	{
-		throw new FatalException($"Fatal assertion failed: {Marshal.PtrToStringUni((IntPtr)expression)} in {Marshal.PtrToStringUni((IntPtr)function)} at {Marshal.PtrToStringUni((IntPtr)file)}:{line}");
+		throw new FatalException(
+			$"Fatal assertion failed: {Marshal.PtrToStringUni((IntPtr)expression)} in {Marshal.PtrToStringUni((IntPtr)function)} at {Marshal.PtrToStringUni((IntPtr)file)}:{line}"
+		);
 	}
 
 	[DoesNotReturn]
@@ -65,8 +75,9 @@ internal static unsafe partial class IntrinsicFunctions
 
 	// Stack to hold atexit functions because they need to be called in LIFO order.
 	private readonly static ConcurrentStack<nint> atexitFunctions = new();
+
 	[MangledName("atexit")]
-	public static int AtExit(delegate*<void> func)
+	public static int AtExit(delegate* <void> func)
 	{
 		// https://cplusplus.com/reference/cstdlib/atexit/
 
@@ -80,7 +91,7 @@ internal static unsafe partial class IntrinsicFunctions
 					{
 						while (atexitFunctions.TryPop(out nint function))
 						{
-							((delegate*<void>)function)();
+							((delegate* <void>)function)();
 						}
 					};
 				}
@@ -431,19 +442,34 @@ internal static unsafe partial class IntrinsicFunctions
 	}
 
 	[MangledName("llvm.memcpy.p0.p0.i32")]
-	public static void llvm_memcpy_p0_p0_i32(void* destination, void* source, int length, bool isVolatile)
+	public static void llvm_memcpy_p0_p0_i32(
+		void* destination,
+		void* source,
+		int length,
+		bool isVolatile
+	)
 	{
 		Unsafe.CopyBlock(destination, source, (uint)length);
 	}
 
 	[MangledName("llvm.memcpy.p0.p0.i64")]
-	public static void llvm_memcpy_p0_p0_i64(void* destination, void* source, long length, bool isVolatile)
+	public static void llvm_memcpy_p0_p0_i64(
+		void* destination,
+		void* source,
+		long length,
+		bool isVolatile
+	)
 	{
 		Unsafe.CopyBlock(destination, source, (uint)length);
 	}
 
 	[MangledName("llvm.memmove.p0.p0.i32")]
-	public static void llvm_memmove_p0_p0_i32(void* destination, void* source, int length, bool isVolatile)
+	public static void llvm_memmove_p0_p0_i32(
+		void* destination,
+		void* source,
+		int length,
+		bool isVolatile
+	)
 	{
 		// Same as memcpy, except that the source and destination are allowed to overlap.
 		byte[] buffer = ArrayPool<byte>.Shared.Rent(length);
@@ -454,19 +480,34 @@ internal static unsafe partial class IntrinsicFunctions
 	}
 
 	[MangledName("llvm.memmove.p0.p0.i64")]
-	public static void llvm_memmove_p0_p0_i64(void* destination, void* source, long length, bool isVolatile)
+	public static void llvm_memmove_p0_p0_i64(
+		void* destination,
+		void* source,
+		long length,
+		bool isVolatile
+	)
 	{
 		llvm_memmove_p0_p0_i32(destination, source, (int)length, isVolatile);
 	}
 
 	[MangledName("llvm.memset.p0.i32")]
-	public static void llvm_memset_p0_i32(void* destination, sbyte value, int length, bool isVolatile)
+	public static void llvm_memset_p0_i32(
+		void* destination,
+		sbyte value,
+		int length,
+		bool isVolatile
+	)
 	{
 		new Span<byte>(destination, length).Fill(unchecked((byte)value));
 	}
 
 	[MangledName("llvm.memset.p0.i64")]
-	public static void llvm_memset_p0_i64(void* destination, sbyte value, long length, bool isVolatile)
+	public static void llvm_memset_p0_i64(
+		void* destination,
+		sbyte value,
+		long length,
+		bool isVolatile
+	)
 	{
 		llvm_memset_p0_i32(destination, value, (int)length, isVolatile);
 	}
@@ -586,7 +627,9 @@ internal static unsafe partial class IntrinsicFunctions
 		{
 			if (rttiTypeDescriptor != null || outException != null)
 			{
-				throw new NotSupportedException($"Current exception is not a {nameof(NativeExceptionInfo)}.");
+				throw new NotSupportedException(
+					$"Current exception is not a {nameof(NativeExceptionInfo)}."
+				);
 			}
 			return 0; // Handled because throwInfo is null
 		}
@@ -623,7 +666,7 @@ internal static unsafe partial class IntrinsicFunctions
 		{
 			if (ExceptionPointer != null && ThrowInfo != null)
 			{
-				delegate*<void*, void> destructor = ThrowInfo->Destructor;
+				delegate* <void*, void> destructor = ThrowInfo->Destructor;
 				if (destructor != null)
 				{
 					destructor(ExceptionPointer);
@@ -640,12 +683,14 @@ internal static unsafe partial class IntrinsicFunctions
 		public int DestructorIndex;
 		public int CatchableTypeArrayIndex;
 
-		public readonly delegate*<void*, void> Destructor => (delegate*<void*, void>)PointerIndices.GetPointer(DestructorIndex);
+		public readonly delegate* <void*, void> Destructor =>
+			(delegate* <void*, void>)PointerIndices.GetPointer(DestructorIndex);
 		public readonly ReadOnlySpan<CatchableType> CatchableTypeArray
 		{
 			get
 			{
-				CatchableTypeArray* array = (CatchableTypeArray*)PointerIndices.GetPointer(CatchableTypeArrayIndex);
+				CatchableTypeArray* array = (CatchableTypeArray*)
+					PointerIndices.GetPointer(CatchableTypeArrayIndex);
 				if (array == null || array->Count <= 0)
 				{
 					return [];
@@ -671,23 +716,25 @@ internal static unsafe partial class IntrinsicFunctions
 		public int field_5;
 		public int ConstructorIndex;
 
-		public readonly RttiTypeDescriptor* RttiTypeDescriptor => (RttiTypeDescriptor*)PointerIndices.GetPointer(RttiTypeDescriptorIndex);
+		public readonly RttiTypeDescriptor* RttiTypeDescriptor =>
+			(RttiTypeDescriptor*)PointerIndices.GetPointer(RttiTypeDescriptorIndex);
 
 		// Not sure if the signature is always this
-		public readonly delegate*<void*, void*, void*> Constructor => (delegate*<void*, void*, void*>)PointerIndices.GetPointer(ConstructorIndex);
+		public readonly delegate* <void*, void*, void*> Constructor =>
+			(delegate* <void*, void*, void*>)PointerIndices.GetPointer(ConstructorIndex);
 	}
 
-	private struct RttiTypeDescriptor
-	{
-	}
+	private struct RttiTypeDescriptor { }
 
 	private sealed class AssertExceptionInfo : ExceptionInfo
 	{
 		public string Message { get; }
+
 		public AssertExceptionInfo(string message)
 		{
 			Message = message;
 		}
+
 		public override string? GetMessage() => Message;
 	}
 }

@@ -17,7 +17,10 @@ internal static class Program
 		{
 			string json = File.ReadAllText(PathToHashes);
 			HashFile? hashFile = JsonSerializer.Deserialize<HashFile>(json);
-			if (hashFile is null or { Hashes: null } || hashFile.ClangVersion != ClangProcess.VersionString)
+			if (
+				hashFile is null or { Hashes: null }
+				|| hashFile.ClangVersion != ClangProcess.VersionString
+			)
 			{
 				hashes = [];
 			}
@@ -39,17 +42,29 @@ internal static class Program
 		}
 
 		const string PathToSamples = "../../../../Samples";
-		foreach (string file in Directory.EnumerateFiles(PathToSamples, "*", SearchOption.TopDirectoryOnly))
+		foreach (
+			string file in Directory.EnumerateFiles(
+				PathToSamples,
+				"*",
+				SearchOption.TopDirectoryOnly
+			)
+		)
 		{
-			if (!file.EndsWith(".cpp", StringComparison.Ordinal)
-				&& !file.EndsWith(".c", StringComparison.Ordinal))
+			if (
+				!file.EndsWith(".cpp", StringComparison.Ordinal)
+				&& !file.EndsWith(".c", StringComparison.Ordinal)
+			)
 			{
 				continue;
 			}
 
 			uint hash = ComputeHash(file);
 			string ir_path = Path.ChangeExtension(file, ".ll");
-			if (!hashes.TryGetValue(file, out uint old_hash) || old_hash != hash || !File.Exists(ir_path))
+			if (
+				!hashes.TryGetValue(file, out uint old_hash)
+				|| old_hash != hash
+				|| !File.Exists(ir_path)
+			)
 			{
 				Console.WriteLine($"Processing {file}");
 
@@ -59,7 +74,10 @@ internal static class Program
 			}
 		}
 
-		File.WriteAllText(PathToHashes, JsonSerializer.Serialize(new HashFile(ClangProcess.VersionString, hashes)));
+		File.WriteAllText(
+			PathToHashes,
+			JsonSerializer.Serialize(new HashFile(ClangProcess.VersionString, hashes))
+		);
 
 		Console.WriteLine("Done!");
 	}
@@ -72,7 +90,8 @@ internal static class Program
 	private static void GenerateIR(string inputFile, string outputFile)
 	{
 		// Prepare the Clang command to generate IR
-		string clangCommand = $"clang -g -fno-discard-value-names -fstandalone-debug -w -S -emit-llvm -o {outputFile} {inputFile}";
+		string clangCommand =
+			$"clang -g -fno-discard-value-names -fstandalone-debug -w -S -emit-llvm -o {outputFile} {inputFile}";
 
 		// Execute the Clang command
 		ProcessStartInfo processInfo = new("cmd.exe", $"/c {clangCommand}")
@@ -111,15 +130,18 @@ internal static class Program
 		else
 		{
 			string[] lines = File.ReadAllLines(outputFile);
-			if (lines.Length > 4
+			if (
+				lines.Length > 4
 				&& lines[0].StartsWith("; ModuleID = ", StringComparison.Ordinal)
 				&& lines[1].StartsWith("source_filename = ", StringComparison.Ordinal)
 				&& lines[2].StartsWith("target datalayout = ", StringComparison.Ordinal)
-				&& lines[3].StartsWith("target triple = ", StringComparison.Ordinal))
+				&& lines[3].StartsWith("target triple = ", StringComparison.Ordinal)
+			)
 			{
 				// Remove the target lines
 				string sourceFilenameLine = $"source_filename = \"{Path.GetFileName(inputFile)}\"";
-				string contents = string.Join('\n', lines.Skip(4).Prepend(sourceFilenameLine)) + '\n';
+				string contents =
+					string.Join('\n', lines.Skip(4).Prepend(sourceFilenameLine)) + '\n';
 				File.WriteAllText(outputFile, contents);
 			}
 		}

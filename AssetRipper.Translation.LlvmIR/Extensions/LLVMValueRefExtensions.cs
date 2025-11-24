@@ -1,5 +1,5 @@
-﻿using LLVMSharp.Interop;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR.Extensions;
 
@@ -11,7 +11,7 @@ internal static class LLVMValueRefExtensions
 		{
 			return GetFunctionInstructions(value);
 		}
-		else if(value.IsABasicBlock != default)
+		else if (value.IsABasicBlock != default)
 		{
 			return value.AsBasicBlock().GetInstructions();
 		}
@@ -125,7 +125,10 @@ internal static class LLVMValueRefExtensions
 		}
 
 		nuint metadataCount = 0;
-		LLVMValueMetadataEntry* ptr = LLVM.InstructionGetAllMetadataOtherThanDebugLoc(value, &metadataCount);
+		LLVMValueMetadataEntry* ptr = LLVM.InstructionGetAllMetadataOtherThanDebugLoc(
+			value,
+			&metadataCount
+		);
 
 		LLVMMetadataRef[] metadataArray;
 		if (metadataCount == 0)
@@ -146,20 +149,35 @@ internal static class LLVMValueRefExtensions
 		return metadataArray;
 	}
 
-	public static bool IsStructReturn(this LLVMValueRef function) => TryGetStructReturnType(function, out _);
+	public static bool IsStructReturn(this LLVMValueRef function) =>
+		TryGetStructReturnType(function, out _);
 
-	public static bool TryGetStructReturnType(this LLVMValueRef function, out LLVMTypeRef returnType)
+	public static bool TryGetStructReturnType(
+		this LLVMValueRef function,
+		out LLVMTypeRef returnType
+	)
 	{
 		const int Index = 0;
-		if (LibLLVMSharp.FunctionGetReturnType(function).Kind != LLVMTypeKind.LLVMVoidTypeKind || function.ParamsCount == 0 || function.GetParam(Index).TypeOf.Kind != LLVMTypeKind.LLVMPointerTypeKind)
+		if (
+			LibLLVMSharp.FunctionGetReturnType(function).Kind != LLVMTypeKind.LLVMVoidTypeKind
+			|| function.ParamsCount == 0
+			|| function.GetParam(Index).TypeOf.Kind != LLVMTypeKind.LLVMPointerTypeKind
+		)
 		{
 			returnType = default;
 			return false;
 		}
 
-		foreach (AttributeWrapper attribute in AttributeWrapper.FromArray(function.GetAttributesAtIndex((LLVMAttributeIndex)(Index + 1))))
+		foreach (
+			AttributeWrapper attribute in AttributeWrapper.FromArray(
+				function.GetAttributesAtIndex((LLVMAttributeIndex)(Index + 1))
+			)
+		)
 		{
-			if (attribute.IsTypeAttribute && attribute.EnumKind == AttributeWrapper.StructReturnAttributeKind.Value)
+			if (
+				attribute.IsTypeAttribute
+				&& attribute.EnumKind == AttributeWrapper.StructReturnAttributeKind.Value
+			)
 			{
 				returnType = attribute.TypeValue;
 				return true;

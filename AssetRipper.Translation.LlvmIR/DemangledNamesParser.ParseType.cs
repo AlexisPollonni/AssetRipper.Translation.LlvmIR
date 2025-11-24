@@ -1,7 +1,7 @@
+using System.Diagnostics.CodeAnalysis;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using AssetRipper.Translation.LlvmIR.Extensions;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -16,13 +16,15 @@ public partial class DemangledNamesParser
 		return parser.type();
 	}
 
-	public static bool ParseType(
-		string input,
-		[NotNullWhen(true)] out string? cleanType)
+	public static bool ParseType(string input, [NotNullWhen(true)] out string? cleanType)
 	{
 		IParseTree tree = ParseType(input);
 
-		if (ErrorListener.HasErrors(tree) || tree.ChildCount == 0 || tree is ParserRuleContext { exception: not null })
+		if (
+			ErrorListener.HasErrors(tree)
+			|| tree.ChildCount == 0
+			|| tree is ParserRuleContext { exception: not null }
+		)
 		{
 			Console.Error.WriteLine("Could not parse:\n" + input);
 			cleanType = null;
@@ -40,7 +42,11 @@ public partial class DemangledNamesParser
 			return false;
 		}
 
-		static bool TryFormatType(TypeContext context, string input, [NotNullWhen(true)] out string? cleanType)
+		static bool TryFormatType(
+			TypeContext context,
+			string input,
+			[NotNullWhen(true)] out string? cleanType
+		)
 		{
 			if (context.ChildCount == 0)
 			{
@@ -51,7 +57,13 @@ public partial class DemangledNamesParser
 			IParseTree firstChild = context.GetChild(0);
 			if (firstChild is QualifiedTypeIdentifierContext qualifiedTypeIdentifierContext)
 			{
-				if (!TryFormatQualifiedTypeIdentifier(qualifiedTypeIdentifierContext, input, out string? qualifiedString))
+				if (
+					!TryFormatQualifiedTypeIdentifier(
+						qualifiedTypeIdentifierContext,
+						input,
+						out string? qualifiedString
+					)
+				)
 				{
 					cleanType = null;
 					return false;
@@ -97,7 +109,8 @@ public partial class DemangledNamesParser
 			}
 			else if (context.ChildCount > 1)
 			{
-				QualifiedTypeIdentifierContext secondChild = (QualifiedTypeIdentifierContext)context.GetChild(1);
+				QualifiedTypeIdentifierContext secondChild = (QualifiedTypeIdentifierContext)
+					context.GetChild(1);
 
 				if (!TryFormatQualifiedTypeIdentifier(secondChild, input, out string? childString))
 				{
@@ -128,7 +141,11 @@ public partial class DemangledNamesParser
 			}
 		}
 
-		static bool TryFormatQualifiedTypeIdentifier(QualifiedTypeIdentifierContext context, string input, [NotNullWhen(true)] out string? cleanType)
+		static bool TryFormatQualifiedTypeIdentifier(
+			QualifiedTypeIdentifierContext context,
+			string input,
+			[NotNullWhen(true)] out string? cleanType
+		)
 		{
 			if (context.ChildCount == 0)
 			{
@@ -149,14 +166,23 @@ public partial class DemangledNamesParser
 					return false;
 				}
 
-				if (!TryFormatQualifiedTypeIdentifier(childContext, input, out string? declaringScope))
+				if (
+					!TryFormatQualifiedTypeIdentifier(
+						childContext,
+						input,
+						out string? declaringScope
+					)
+				)
 				{
 					cleanType = null;
 					return false;
 				}
 
 				IParseTree lastChild = context.GetChild(3);
-				if (lastChild is not TypeIdentifierContext identifierContext || !TryFormatTypeIdentifier(identifierContext, input, out string? identifier))
+				if (
+					lastChild is not TypeIdentifierContext identifierContext
+					|| !TryFormatTypeIdentifier(identifierContext, input, out string? identifier)
+				)
 				{
 					cleanType = null;
 					return false;
@@ -171,7 +197,11 @@ public partial class DemangledNamesParser
 				return false;
 			}
 		}
-		static bool TryFormatTypeIdentifier(TypeIdentifierContext context, string input, [NotNullWhen(true)] out string? cleanType)
+		static bool TryFormatTypeIdentifier(
+			TypeIdentifierContext context,
+			string input,
+			[NotNullWhen(true)] out string? cleanType
+		)
 		{
 			if (context.ChildCount == 0)
 			{
@@ -213,7 +243,11 @@ public partial class DemangledNamesParser
 				return true;
 			}
 		}
-		static bool TryFormatTemplate(TemplateContext context, string input, [NotNullWhen(true)] out string? cleanType)
+		static bool TryFormatTemplate(
+			TemplateContext context,
+			string input,
+			[NotNullWhen(true)] out string? cleanType
+		)
 		{
 			if (context.ChildCount == 0)
 			{
@@ -226,7 +260,13 @@ public partial class DemangledNamesParser
 			string[] parameterStrings = new string[parameterContexts.Length];
 			for (int i = 0; i < parameterContexts.Length; i++)
 			{
-				if (!TryFormatTemplateParameter(parameterContexts[i], input, out string? parameterString))
+				if (
+					!TryFormatTemplateParameter(
+						parameterContexts[i],
+						input,
+						out string? parameterString
+					)
+				)
 				{
 					cleanType = null;
 					return false;
@@ -237,7 +277,11 @@ public partial class DemangledNamesParser
 			cleanType = $"<{string.Join(", ", parameterStrings)}>";
 			return true;
 		}
-		static bool TryFormatTemplateParameter(TemplateParameterContext context, string input, [NotNullWhen(true)] out string? cleanType)
+		static bool TryFormatTemplateParameter(
+			TemplateParameterContext context,
+			string input,
+			[NotNullWhen(true)] out string? cleanType
+		)
 		{
 			if (context.ChildCount > 0 && context.GetChild(0) is TypeContext childContext)
 			{
@@ -271,7 +315,10 @@ public partial class DemangledNamesParser
 		}
 		static bool IsValidStartStop(int startIndex, int stopIndex, string input)
 		{
-			return startIndex >= 0 && stopIndex >= 0 && stopIndex >= startIndex && stopIndex < input.Length;
+			return startIndex >= 0
+				&& stopIndex >= 0
+				&& stopIndex >= startIndex
+				&& stopIndex < input.Length;
 		}
 	}
 }

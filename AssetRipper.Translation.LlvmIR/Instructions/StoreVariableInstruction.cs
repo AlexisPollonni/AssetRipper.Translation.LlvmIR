@@ -7,10 +7,12 @@ public sealed record class StoreVariableInstruction(IVariable Variable) : Instru
 {
 	public override int PopCount => 1;
 	public override int PushCount => 0;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		Variable.AddStore(instructions);
 	}
+
 	protected override string ToStringImplementation()
 	{
 		return $"StoreVariable {{ {Variable} }}";

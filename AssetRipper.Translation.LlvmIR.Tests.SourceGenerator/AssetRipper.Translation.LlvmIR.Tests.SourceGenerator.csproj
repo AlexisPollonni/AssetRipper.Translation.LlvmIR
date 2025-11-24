@@ -18,6 +18,10 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Generator dependencies -->
-    <PackageReference Include="AssetRipper.Text.SourceGeneration" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference
+      Include="AssetRipper.Text.SourceGeneration"
+      PrivateAssets="all"
+      GeneratePathProperty="true"
+    />
   </ItemGroup>
 </Project>

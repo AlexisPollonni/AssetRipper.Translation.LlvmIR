@@ -32,7 +32,9 @@ public interface IVariable
 		}
 		else
 		{
-			throw new NotSupportedException("Store default is not supported for this variable type.");
+			throw new NotSupportedException(
+				"Store default is not supported for this variable type."
+			);
 		}
 	}
 	void AddLoadAddress(CilInstructionCollection instructions)

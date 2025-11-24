@@ -8,16 +8,25 @@ internal static class InlineArrayHelper
 	public static Span<TElement> AsSpan<TBuffer, TElement>(this ref TBuffer buffer)
 		where TBuffer : struct, IInlineArray<TElement>
 	{
-		return MemoryMarshal.CreateSpan(ref Unsafe.As<TBuffer, TElement>(ref buffer), TBuffer.Length);
+		return MemoryMarshal.CreateSpan(
+			ref Unsafe.As<TBuffer, TElement>(ref buffer),
+			TBuffer.Length
+		);
 	}
 
 	public static ReadOnlySpan<TElement> AsReadOnlySpan<TBuffer, TElement>(this ref TBuffer buffer)
 		where TBuffer : struct, IInlineArray<TElement>
 	{
-		return MemoryMarshal.CreateReadOnlySpan(ref Unsafe.As<TBuffer, TElement>(ref buffer), TBuffer.Length);
+		return MemoryMarshal.CreateReadOnlySpan(
+			ref Unsafe.As<TBuffer, TElement>(ref buffer),
+			TBuffer.Length
+		);
 	}
 
-	public static void Initialize<TBuffer, TElement>(this ref TBuffer buffer, ReadOnlySpan<TElement> span)
+	public static void Initialize<TBuffer, TElement>(
+		this ref TBuffer buffer,
+		ReadOnlySpan<TElement> span
+	)
 		where TBuffer : struct, IInlineArray<TElement>
 	{
 		span.CopyTo(buffer.AsSpan<TBuffer, TElement>());
@@ -37,7 +46,11 @@ internal static class InlineArrayHelper
 		return buffer.AsReadOnlySpan<TBuffer, TElement>()[index];
 	}
 
-	public static void SetElement<TBuffer, TElement>(this ref TBuffer buffer, int index, TElement value)
+	public static void SetElement<TBuffer, TElement>(
+		this ref TBuffer buffer,
+		int index,
+		TElement value
+	)
 		where TBuffer : struct, IInlineArray<TElement>
 	{
 		buffer.AsSpan<TBuffer, TElement>()[index] = value;
@@ -46,7 +59,8 @@ internal static class InlineArrayHelper
 	public static bool Equals<TBuffer, TElement>(TBuffer x, TBuffer y)
 		where TBuffer : struct, IInlineArray<TElement>
 	{
-		return x.AsReadOnlySpan<TBuffer, TElement>().SequenceEqual(y.AsReadOnlySpan<TBuffer, TElement>());
+		return x.AsReadOnlySpan<TBuffer, TElement>()
+			.SequenceEqual(y.AsReadOnlySpan<TBuffer, TElement>());
 	}
 
 	public static int GetHashCode<TBuffer, TElement>(this ref TBuffer buffer)

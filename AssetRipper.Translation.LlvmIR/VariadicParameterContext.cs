@@ -1,16 +1,17 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Collections;
-using System.Diagnostics;
 
 namespace AssetRipper.Translation.LlvmIR;
 
 internal sealed class VariadicParameterContext : BaseParameterContext
 {
-	public VariadicParameterContext(Parameter definition, FunctionContext function) : base(definition, function)
+	public VariadicParameterContext(Parameter definition, FunctionContext function)
+		: base(definition, function)
 	{
 		Debug.Assert(function.IsVariadic);
-		TypeSignature = function.Module.Definition.DefaultImporter
-			.ImportType(typeof(ReadOnlySpan<>))
+		TypeSignature = function
+			.Module.Definition.DefaultImporter.ImportType(typeof(ReadOnlySpan<>))
 			.MakeGenericInstanceType(function.Module.Definition.CorLibTypeFactory.IntPtr);
 	}
 

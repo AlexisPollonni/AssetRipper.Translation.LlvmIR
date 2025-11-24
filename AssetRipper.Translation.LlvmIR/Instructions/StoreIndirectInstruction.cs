@@ -9,6 +9,7 @@ public sealed record class StoreIndirectInstruction(TypeSignature Type) : Instru
 {
 	public override int PopCount => 2; // Pointer, Value
 	public override int PushCount => 0;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.AddStoreIndirect(Type);

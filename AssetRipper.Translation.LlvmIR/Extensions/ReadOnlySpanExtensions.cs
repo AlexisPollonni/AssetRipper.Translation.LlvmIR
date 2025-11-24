@@ -5,7 +5,10 @@ namespace AssetRipper.Translation.LlvmIR.Extensions;
 
 internal static class ReadOnlySpanExtensions
 {
-	public static bool TryParseCharacterArray(this ReadOnlySpan<byte> data, [NotNullWhen(true)] out string? value)
+	public static bool TryParseCharacterArray(
+		this ReadOnlySpan<byte> data,
+		[NotNullWhen(true)] out string? value
+	)
 	{
 		if (data.Length % sizeof(char) != 0)
 		{

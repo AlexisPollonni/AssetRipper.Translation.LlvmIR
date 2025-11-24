@@ -12,7 +12,9 @@ internal struct InlineArrayBuilder<TBuffer, TElement> : IEnumerable<TElement>
 	{
 		if (_index >= TBuffer.Length)
 		{
-			throw new InvalidOperationException($"Cannot add more than {TBuffer.Length} elements to the inline array.");
+			throw new InvalidOperationException(
+				$"Cannot add more than {TBuffer.Length} elements to the inline array."
+			);
 		}
 		_buffer.SetElement(_index, element);
 		_index++;

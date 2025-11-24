@@ -8,6 +8,7 @@ public sealed record class SizeOfInstruction(TypeSignature Type) : Instruction
 {
 	public override int PopCount => 0;
 	public override int PushCount => 1;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		instructions.Add(CilOpCodes.Sizeof, Type.ToTypeDefOrRef());

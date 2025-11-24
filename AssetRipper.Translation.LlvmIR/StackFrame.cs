@@ -13,9 +13,7 @@ internal unsafe struct StackFrame
 	private StackFrame(int index, int size)
 	{
 		Index = index;
-		Locals = size > 0
-			? NativeMemoryHelper.Allocate(size)
-			: null;
+		Locals = size > 0 ? NativeMemoryHelper.Allocate(size) : null;
 	}
 
 	internal void FreeLocals()
@@ -27,12 +25,14 @@ internal unsafe struct StackFrame
 		}
 	}
 
-	public readonly T* GetLocalsPointer<T>() where T : unmanaged
+	public readonly T* GetLocalsPointer<T>()
+		where T : unmanaged
 	{
 		return (T*)Locals;
 	}
 
-	internal static StackFrame Create<T>(int index) where T : unmanaged
+	internal static StackFrame Create<T>(int index)
+		where T : unmanaged
 	{
 		return new StackFrame(index, sizeof(T));
 	}
