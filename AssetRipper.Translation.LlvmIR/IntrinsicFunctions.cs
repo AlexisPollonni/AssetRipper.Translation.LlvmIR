@@ -1,5 +1,6 @@
 ﻿using AssetRipper.Translation.LlvmIR.Attributes;
 using System.Buffers;
+using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -55,10 +56,40 @@ internal static unsafe partial class IntrinsicFunctions
 
 	[DoesNotReturn]
 	[MangledName("__std_terminate")]
+	[MangledName("terminate")]
 	[MangledName("llvm.trap")]
 	public static void Terminate()
 	{
 		throw new FatalException(nameof(Terminate));
+	}
+
+	// Stack to hold atexit functions because they need to be called in LIFO order.
+	private readonly static ConcurrentStack<nint> atexitFunctions = new();
+	[MangledName("atexit")]
+	public static int AtExit(delegate*<void> func)
+	{
+		// https://cplusplus.com/reference/cstdlib/atexit/
+
+		if (atexitFunctions.IsEmpty)
+		{
+			lock (atexitFunctions)
+			{
+				if (atexitFunctions.IsEmpty)
+				{
+					AppDomain.CurrentDomain.ProcessExit += static (_, _) =>
+					{
+						while (atexitFunctions.TryPop(out nint function))
+						{
+							((delegate*<void>)function)();
+						}
+					};
+				}
+			}
+		}
+
+		atexitFunctions.Push((nint)func);
+
+		return 0; // Success
 	}
 
 	[MangledName("llvm.va_start.p0")]
@@ -83,12 +114,32 @@ internal static unsafe partial class IntrinsicFunctions
 	[MangledName("strcmp")]
 	public static int strcmp(byte* p1, byte* p2)
 	{
+		// https://cplusplus.com/reference/cstring/strcmp/
 		while (*p1 == *p2 && *p1 != '\0') // keep going while bytes match
 		{
 			++p1;
 			++p2;
 		}
 		return *p1 - *p2; // positive, negative, or zero
+	}
+
+	[MangledName("memchr")]
+	public static byte* memchr(byte* data, int c, long length)
+	{
+		// https://cplusplus.com/reference/cstring/memchr/
+		if (data == null)
+		{
+			return null; // Return null for null data
+		}
+		byte b = unchecked((byte)c);
+		for (long i = 0; i < length; i++)
+		{
+			if (data[i] == b) // check if current byte matches the character
+			{
+				return data + i; // return pointer to the first occurrence
+			}
+		}
+		return null; // return null if character not found
 	}
 
 	[MangledName("strchr")]
@@ -99,15 +150,16 @@ internal static unsafe partial class IntrinsicFunctions
 		{
 			return null; // Return null for null strings
 		}
+		byte b = unchecked((byte)c);
 		while (*str != '\0') // iterate until null terminator
 		{
-			if (*str == c) // check if current byte matches the character
+			if (*str == b) // check if current byte matches the character
 			{
 				return str; // return pointer to the first occurrence
 			}
 			str++;
 		}
-		return null; // return null if character not found
+		return b == 0 ? str : null; // return pointer to null terminator if c is '\0', else null
 	}
 
 	[MangledName("strstr")]
@@ -152,6 +204,7 @@ internal static unsafe partial class IntrinsicFunctions
 	[MangledName("strrstr")]
 	public static byte* strrstr(byte* haystack, byte* needle)
 	{
+		// https://cplusplus.com/reference/cstring/strstr/
 		if (haystack == null || needle == null)
 		{
 			return null; // Return null for null strings
@@ -173,6 +226,24 @@ internal static unsafe partial class IntrinsicFunctions
 	[MangledName("strlen")]
 	public static long strlen(byte* str)
 	{
+		// https://cplusplus.com/reference/cstring/strlen/
+		if (str == null)
+		{
+			return 0; // Return 0 for null strings
+		}
+		long length = 0;
+		while (*str != '\0') // count until null terminator
+		{
+			length++;
+			str++;
+		}
+		return length; // return the length of the string
+	}
+
+	[MangledName("wcslen")]
+	public static long wcslen(char* str)
+	{
+		// https://cplusplus.com/reference/cwchar/wcslen/
 		if (str == null)
 		{
 			return 0; // Return 0 for null strings
@@ -222,6 +293,13 @@ internal static unsafe partial class IntrinsicFunctions
 		}
 		destination[insertionPoint + sourceLength] = 0; // Null-terminate the destination string
 		return destination; // Return pointer to the destination string
+	}
+
+	[MangledName("strcat")]
+	public static byte* strcat(byte* destination, byte* source)
+	{
+		// https://cplusplus.com/reference/cstring/strcat/
+		return strncat(destination, source, int.MaxValue);
 	}
 
 	private static long StringLengthWithMaximum(byte* str, long maxLength)

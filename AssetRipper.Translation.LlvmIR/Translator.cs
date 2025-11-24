@@ -1,7 +1,6 @@
 ﻿using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
-using AsmResolver.PE.DotNet.Cil;
 using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
@@ -23,31 +22,25 @@ public static unsafe class Translator
 	{
 		fixed (byte* ptr = content)
 		{
+			using LLVMContextRef context = LLVMContextRef.Create();
 			nint namePtr = Marshal.StringToHGlobalAnsi(name);
-			LLVMMemoryBufferRef buffer = LLVM.CreateMemoryBufferWithMemoryRange((sbyte*)ptr, (nuint)content.Length, (sbyte*)namePtr, 1);
+			LLVMMemoryBufferRef buffer = LLVM.CreateMemoryBufferWithMemoryRange((sbyte*)ptr, (nuint)content.Length, (sbyte*)namePtr, 0);
 			try
 			{
-				LLVMContextRef context = LLVMContextRef.Create();
-				try
-				{
-					LLVMModuleRef module = context.ParseIR(buffer);
-					return Translate(module, options ?? new());
-				}
-				finally
-				{
-					// https://github.com/dotnet/LLVMSharp/issues/234
-					//context.Dispose();
-				}
+				using LLVMModuleRef module = context.ParseIR(buffer);
+				return Translate(module, options ?? new());
 			}
 			finally
 			{
 				// This fails randomly with no real explanation.
-				// I'm fairly certain that the IR text data is only referenced (not copied),
-				// so the memory leak of not disposing the buffer is probably not a big deal.
-				// https://github.com/dotnet/LLVMSharp/issues/234
+				// The IR text data is only referenced (not copied),
+				// so the memory leak of not disposing the buffer is negligible.
 				//LLVM.DisposeMemoryBuffer(buffer);
 
 				Marshal.FreeHGlobal(namePtr);
+
+				// Collect any memory that got allocated.
+				GC.Collect();
 			}
 		}
 	}
@@ -136,11 +129,266 @@ public static unsafe class Translator
 			moduleDefinition.TopLevelTypes.Remove(moduleContext.InjectedTypes[typeof(InlineAssemblyAttribute)]);
 		}
 
+		{
+			List<LLVMMetadataRef> types = module.GetAllMetadata().Where(m => m.IsType).ToList();
+
+			CreateEnumerations(moduleContext, types);
+
+			List<(LLVMTypeRef, LLVMMetadataRef)> globalVariableTypes = [];
+
+			foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+			{
+				LLVMMetadataRef metadata = LibLLVMSharp.GlobalVariableGetGlobalVariableExpression(globalVariableContext.GlobalVariable);
+				LLVMMetadataRef type = metadata.Variable.Type;
+				if (type.Handle == IntPtr.Zero)
+				{
+				}
+				else if (type.IsArray && globalVariableContext.Type.Kind is LLVMTypeKind.LLVMArrayTypeKind or LLVMTypeKind.LLVMScalableVectorTypeKind or LLVMTypeKind.LLVMVectorTypeKind)
+				{
+					globalVariableTypes.Add((globalVariableContext.Type, type));
+				}
+				else if ((type.IsStruct || type.IsClass || type.IsUnion) && globalVariableContext.Type.Kind is LLVMTypeKind.LLVMStructTypeKind)
+				{
+					globalVariableTypes.Add((globalVariableContext.Type, type));
+				}
+			}
+
+			AddChildTypes(globalVariableTypes);
+
+			List<LLVMMetadataRef> typesWithIdentifiers = types.Where(m => m.IsStruct || m.IsClass || m.IsUnion).ToList();
+			List<string> identifiers = typesWithIdentifiers.Select(m =>
+			{
+				string identifier = m.IdentifierClean;
+				return string.IsNullOrEmpty(identifier) ? m.Name : identifier;
+			}).ToList();
+
+			Dictionary<LLVMTypeRef, StructContext> contextLookUp = moduleContext.Structs.Values.ToDictionary(s => s.Type);
+
+			Dictionary<StructContext, List<LLVMMetadataRef>> validMetadata = globalVariableTypes
+				.Where(p => p.Item1.Kind is LLVMTypeKind.LLVMStructTypeKind && p.Item2.Kind is LLVMMetadataKind.LLVMDICompositeTypeMetadataKind)
+				.Distinct()
+				.ToDictionary(p => contextLookUp[p.Item1], p => (List<LLVMMetadataRef>)[p.Item2]);
+			foreach (StructContext structContext in moduleContext.Structs.Values)
+			{
+				if (validMetadata.ContainsKey(structContext))
+				{
+					continue;
+				}
+
+				List<LLVMMetadataRef> list = [];
+				validMetadata[structContext] = list;
+
+				if (string.IsNullOrEmpty(structContext.DemangledName))
+				{
+					continue;
+				}
+
+				for (int i = 0; i < identifiers.Count; i++)
+				{
+					if (structContext.DemangledName != identifiers[i])
+					{
+						continue;
+					}
+					LLVMMetadataRef metadata = typesWithIdentifiers[i];
+					if (!AreCompatible(structContext.Type, metadata))
+					{
+						continue;
+					}
+					list.Add(metadata);
+				}
+
+				if (list.Count > 0)
+				{
+					continue;
+				}
+
+				for (int i = 0; i < identifiers.Count; i++)
+				{
+					string identifier = identifiers[i];
+					if (identifier.Length <= structContext.DemangledName.Length || !identifier.StartsWith(structContext.DemangledName, StringComparison.Ordinal) || identifier[structContext.DemangledName.Length] != '<')
+					{
+						continue;
+					}
+
+					bool restIsTemplate = true;
+					int angleBracketDepth = 0;
+					for (int j = structContext.DemangledName.Length + 1; j < identifier.Length; j++)
+					{
+						char c = identifier[j];
+						if (c == '<')
+						{
+							angleBracketDepth++;
+						}
+						else if (c == '>')
+						{
+							angleBracketDepth--;
+							if (angleBracketDepth < 0)
+							{
+								restIsTemplate = j == identifier.Length - 1;
+								break;
+							}
+						}
+					}
+
+					if (!restIsTemplate)
+					{
+						continue;
+					}
+					LLVMMetadataRef metadata = typesWithIdentifiers[i];
+					if (!AreCompatible(structContext.Type, metadata))
+					{
+						continue;
+					}
+					list.Add(metadata);
+				}
+			}
+
+			List<(LLVMTypeRef, LLVMMetadataRef)> types2 = validMetadata.Where(p => p.Value.Count > 0).Select(p => (p.Key.Type, p.Value[0])).ToList();
+			AddChildTypes(types2);
+
+			foreach ((LLVMTypeRef type, LLVMMetadataRef metadata) in types2)
+			{
+				if (metadata.Handle == IntPtr.Zero)
+				{
+					continue;
+				}
+				if (!(metadata.IsStruct || metadata.IsClass || metadata.IsUnion))
+				{
+					continue;
+				}
+				if (type.Kind is not LLVMTypeKind.LLVMStructTypeKind)
+				{
+					continue;
+				}
+				if (!contextLookUp.TryGetValue(type, out StructContext? structContext))
+				{
+					continue;
+				}
+				List<LLVMMetadataRef> list = validMetadata[structContext];
+				list.Clear();
+				list.Add(metadata);
+			}
+
+			foreach ((StructContext structContext, List<LLVMMetadataRef> list) in validMetadata)
+			{
+				if (list.Count is 0)
+				{
+					continue;
+				}
+
+				LLVMMetadataRef[] members = list[0].Members.ToArray();
+				string[] memberNames = members.Select(m => m.Name).ToArray();
+				FieldDefinition[] fields = structContext.Definition.Fields.Where(f => !f.IsStatic).ToArray();
+				Debug.Assert(members.Length == fields.Length);
+
+				bool allMatch = true;
+				for (int index = 1; index < list.Count; index++)
+				{
+					string[] otherMemberNames = list[index].Members.Select(m => m.Name).ToArray();
+					allMatch &= memberNames.AsSpan().SequenceEqual(otherMemberNames);
+					if (!allMatch)
+					{
+						break;
+					}
+				}
+				if (!allMatch)
+				{
+					continue;
+				}
+
+				FieldDefinitionHasName[] fieldDefinitions = new FieldDefinitionHasName[fields.Length];
+				for (int i = 0; i < fields.Length; i++)
+				{
+					fieldDefinitions[i] = new(fields[i], memberNames[i], i, moduleContext);
+				}
+
+				fieldDefinitions.AssignNames();
+			}
+		}
+
 		// Structs and inline arrays are discovered dynamically, so we need to assign names after all methods are created.
 		moduleContext.AssignStructNames();
 		moduleContext.AssignInlineArrayNames();
 
 		return moduleDefinition;
+	}
+
+	private static void AddChildTypes(List<(LLVMTypeRef, LLVMMetadataRef)> list)
+	{
+		for (int i = 0; i < list.Count; i++)
+		{
+			(LLVMTypeRef type, LLVMMetadataRef metadata) = list[i];
+			metadata = metadata.PassThroughToBaseTypeIfNecessary();
+			list[i] = (type, metadata);
+			if (metadata.Handle == IntPtr.Zero)
+			{
+				list.RemoveAt(i);
+				i--;
+				continue;
+			}
+
+			if (metadata.IsArray && type.Kind is LLVMTypeKind.LLVMArrayTypeKind or LLVMTypeKind.LLVMScalableVectorTypeKind or LLVMTypeKind.LLVMVectorTypeKind)
+			{
+				uint arrayLength;
+				LLVMTypeRef elementType;
+				if (type.Kind == LLVMTypeKind.LLVMArrayTypeKind)
+				{
+					arrayLength = type.ArrayLength;
+					elementType = type.ElementType;
+				}
+				else
+				{
+					// https://github.com/dotnet/LLVMSharp/pull/235
+					arrayLength = LLVM.GetVectorSize(type);
+					elementType = LLVM.GetElementType(type);
+				}
+
+				if (arrayLength == metadata.ArrayLength)
+				{
+					list.Add((elementType, metadata.BaseType));
+				}
+			}
+			else if ((metadata.IsStruct || metadata.IsClass || metadata.IsUnion) && type.Kind is LLVMTypeKind.LLVMStructTypeKind)
+			{
+				if (!AreCompatible(type, metadata))
+				{
+					list.RemoveAt(i);
+					i--;
+					continue;
+				}
+
+				int index = 0;
+				LLVMTypeRef[] fieldTypes = type.GetSubtypes();
+				foreach (LLVMMetadataRef member in metadata.Members)
+				{
+					list.Add((fieldTypes[index], member.BaseType));
+				}
+			}
+		}
+	}
+
+	private static void CreateEnumerations(ModuleContext moduleContext, List<LLVMMetadataRef> types)
+	{
+		List<LLVMMetadataRef> enumTypes = types.Where(m => m.IsEnum && m.Elements.Length > 0).ToList();
+
+		List<EnumContext> enumContexts = enumTypes.Select(m => EnumContext.Create(moduleContext, m)).ToList();
+		enumContexts.AssignNames();
+		enumContexts.ForEach(e => e.AddNameAttributes(e.Definition));
+	}
+
+	private static bool AreCompatible(LLVMTypeRef type, LLVMMetadataRef metadata)
+	{
+		return metadata.Members.Count() == type.SubtypesCount;
+	}
+
+	private sealed class FieldDefinitionHasName(FieldDefinition field, string debugName, int index, ModuleContext module) : IHasName
+	{
+		public string MangledName => $"{debugName}_{index}";
+		string? IHasName.DemangledName => null;
+		public string CleanName { get; } = NameGenerator.CleanName(debugName, "field");
+		public string Name { get => @field.Name ?? ""; set => @field.Name = value; }
+		string? IHasName.NativeType => null;
+		ModuleContext IHasName.Module => module;
 	}
 
 	private sealed class CustomModuleDefinition(string name) : ModuleDefinition(name, KnownCorLibs.SystemRuntime_v9_0_0_0)
