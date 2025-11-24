@@ -1,4 +1,4 @@
-#:package LLVMSharp@*
+#:package LLVMSharp
 
 #:property AllowUnsafeBlocks=true
 

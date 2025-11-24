@@ -1,6 +1,6 @@
-#:sdk Cake.Sdk@5.0.25257.82-beta
+#:sdk Cake.Sdk
 
-#:package Cake.CMake@*
+#:package Cake.CMake
 
 var binaryPath = Argument<DirectoryPath>("binaryPath");
 var configuration = Argument<string>("configuration");

@@ -1,8 +1,8 @@
-#:sdk Cake.Sdk@5.0.25257.82-beta
+#:sdk Cake.Sdk
 
 #:project Tooling/Build.Scripts.Tooling.csproj
 
-#:package Cake.CMake@*
+#:package Cake.CMake
 
 
 //Required parameters

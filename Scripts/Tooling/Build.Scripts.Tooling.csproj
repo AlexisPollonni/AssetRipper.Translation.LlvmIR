@@ -1,20 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<OutputType>Library</OutputType>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<PublishAot>true</PublishAot>
-		<InvariantGlobalization>true</InvariantGlobalization>
-        <RootNamespace>AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling</RootNamespace>
-	</PropertyGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="Cake.Common" Version="5.0.0" />
-	  <PackageReference Include="Cake.Core" Version="5.0.0" />
-	  <PackageReference Include="NuGet.Configuration" Version="6.14.0" />
-	  <PackageReference Include="Shouldly" Version="4.3.0" />
-	</ItemGroup>
-
-
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <RootNamespace>AssetRipper.Translation.LlvmIR.Build.Scripts.Tooling</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Common" />
+    <PackageReference Include="Cake.Core" />
+    <PackageReference Include="NuGet.Configuration" />
+    <PackageReference Include="Shouldly" />
+  </ItemGroup>
 </Project>

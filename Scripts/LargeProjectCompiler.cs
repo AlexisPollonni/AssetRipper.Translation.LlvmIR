@@ -1,8 +1,8 @@
-#:sdk Cake.Sdk@5.0.25257.82-beta
+#:sdk Cake.Sdk
 
-#:package Cake.FileHelpers@*
-#:package ConsoleAppFramework@*
-#:package System.CommandLine@2.0.0-*
+#:package Cake.FileHelpers
+#:package ConsoleAppFramework
+#:package System.CommandLine
 
 #:project Tooling/Build.Scripts.Tooling.csproj
 #:project ../AssetRipper.Translation.LlvmIR/AssetRipper.Translation.LlvmIR.csproj
