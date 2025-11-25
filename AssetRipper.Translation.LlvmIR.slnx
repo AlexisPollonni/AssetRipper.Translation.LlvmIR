@@ -6,6 +6,7 @@
   </Configurations>
   <Folder Name="/Scripts/">
     <File Path="Scripts\CMake.Config.cs" />
+    <File Path="Scripts/ByteCodeTranspiler.cs" />
     <File Path="Scripts/LargeProjectCompiler.cs" />
     <File Path="Scripts/LlvmBinaryTextConverter.cs" />
     <File Path="Scripts/SizeOptimizer.cs" />
@@ -25,7 +26,6 @@
     <File Path="README.md" />
     <File Path=".github\workflows\ci.yml" />
   </Folder>
-  <Project Path="AssetRipper.Translation.LlvmIR.ConsoleApp\AssetRipper.Translation.LlvmIR.ConsoleApp.csproj" />
   <Project Path="AssetRipper.Translation.LlvmIR.SampleGenerator\AssetRipper.Translation.LlvmIR.SampleGenerator.csproj" />
   <Project Path="AssetRipper.Translation.LlvmIR.Shims.Native\AssetRipper.Translation.LlvmIR.Shims.Native.csproj" />
   <Project Path="AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" />

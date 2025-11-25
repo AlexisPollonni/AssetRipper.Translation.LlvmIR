@@ -18,12 +18,6 @@ using LLVMSharp.Interop;
 using NuGet.Packaging;
 using Shouldly;
 
-args =
-[
-	@"K:\source\repos\AssetRipper.Translation.LlvmIR\artifacts\obj\AssetRipper.Translation.LlvmIR.Shims.Native\Debug\cmake\compile_commands.json",
-	@"K:\source\repos\AssetRipper.Translation.LlvmIR\artifacts\obj\AssetRipper.Translation.LlvmIR.Shims.Native\Debug\bytecode",
-];
-
 ConsoleApp.Run(args, Compile);
 
 /// <summary>
