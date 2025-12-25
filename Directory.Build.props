@@ -1,20 +1,21 @@
 <Project>
-    <PropertyGroup>
-        <Nullable>enable</Nullable>
-        <LangVersion>Latest</LangVersion>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>Latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 
-        <Version>1.0.0</Version>
-        <Copyright>Copyright © ds5678</Copyright>
-        <Authors>ds5678</Authors>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<Copyright>Copyright © ds5678</Copyright>
+		<Authors>ds5678</Authors>
 
         <UseArtifactsOutput>true</UseArtifactsOutput>
-        
+
         <!-- Ensures project references copy native binaries after build. Not necessary after MSBuild 17.0 but kept for backwards compatibility
-        https://github.com/dotnet/msbuild/issues/1054#issuecomment-847959047 
-        NOTE: Make sure to use IncludeAssets="all" or at least IncludeAssets="native"; With project refs, native assets are not included by default
-        -->
+https://github.com/dotnet/msbuild/issues/1054#issuecomment-847959047 
+NOTE: Make sure to use IncludeAssets="all" or at least IncludeAssets="native"; With project refs, native assets are not included by default
+-->
         <MSBuildCopyContentTransitively>true</MSBuildCopyContentTransitively>
 
         <TargetFramework>net10.0</TargetFramework>
@@ -23,5 +24,5 @@
 
         <!-- Ensure every project, including tests, has a RID unless explicitly set -->
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == '' AND '$(PackAsTool)' != 'true'">$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
-    </PropertyGroup>
+	</PropertyGroup>
 </Project>

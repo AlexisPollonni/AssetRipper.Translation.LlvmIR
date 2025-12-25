@@ -8,7 +8,6 @@ using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR;
 
-[DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
 internal sealed partial class StructContext : IHasName
 {
 	/// <inheritdoc/>
@@ -116,7 +115,7 @@ internal sealed partial class StructContext : IHasName
 		}
 	}
 
-	private string GetDebuggerDisplay()
+	public override string ToString()
 	{
 		return CleanName;
 	}

@@ -64,8 +64,6 @@ public static unsafe class Translator
 			string.IsNullOrEmpty(options.ModuleName) ? "ConvertedCpp" : options.ModuleName
 		);
 
-		moduleDefinition.AddTargetFrameworkAttributeForDotNet9();
-
 		ModuleContext moduleContext = new(module, moduleDefinition, options);
 
 		foreach (LLVMValueRef global in module.GetGlobals())
@@ -179,8 +177,8 @@ public static unsafe class Translator
 					type.IsArray
 					&& globalVariableContext.Type.Kind
 						is LLVMTypeKind.LLVMArrayTypeKind
-							or LLVMTypeKind.LLVMScalableVectorTypeKind
-							or LLVMTypeKind.LLVMVectorTypeKind
+						or LLVMTypeKind.LLVMScalableVectorTypeKind
+						or LLVMTypeKind.LLVMVectorTypeKind
 				)
 				{
 					globalVariableTypes.Add((globalVariableContext.Type, type));
@@ -210,13 +208,23 @@ public static unsafe class Translator
 			Dictionary<LLVMTypeRef, StructContext> contextLookUp =
 				moduleContext.Structs.Values.ToDictionary(s => s.Type);
 
-			Dictionary<StructContext, List<LLVMMetadataRef>> validMetadata = globalVariableTypes
-				.Where(p =>
-					p.Item1.Kind is LLVMTypeKind.LLVMStructTypeKind
-					&& p.Item2.Kind is LLVMMetadataKind.LLVMDICompositeTypeMetadataKind
-				)
-				.Distinct()
-				.ToDictionary(p => contextLookUp[p.Item1], p => (List<LLVMMetadataRef>)[p.Item2]);
+			Dictionary<StructContext, List<LLVMMetadataRef>> validMetadata = [];
+			foreach ((LLVMTypeRef type, LLVMMetadataRef metadata) in globalVariableTypes.Where(p =>
+				         p.Item1.Kind is LLVMTypeKind.LLVMStructTypeKind
+				         && p.Item2.Kind is LLVMMetadataKind.LLVMDICompositeTypeMetadataKind
+			         ).Distinct())
+			{
+				StructContext structContext = contextLookUp[type];
+				if (validMetadata.TryGetValue(structContext, out List<LLVMMetadataRef>? list))
+				{
+					list.Add(metadata);
+				}
+				else
+				{
+					validMetadata[structContext] = [metadata];
+				}
+			}
+
 			foreach (StructContext structContext in moduleContext.Structs.Values)
 			{
 				if (validMetadata.ContainsKey(structContext))
@@ -238,11 +246,13 @@ public static unsafe class Translator
 					{
 						continue;
 					}
+
 					LLVMMetadataRef metadata = typesWithIdentifiers[i];
 					if (!AreCompatible(structContext.Type, metadata))
 					{
 						continue;
 					}
+
 					list.Add(metadata);
 				}
 
@@ -290,11 +300,13 @@ public static unsafe class Translator
 					{
 						continue;
 					}
+
 					LLVMMetadataRef metadata = typesWithIdentifiers[i];
 					if (!AreCompatible(structContext.Type, metadata))
 					{
 						continue;
 					}
+
 					list.Add(metadata);
 				}
 			}
@@ -311,18 +323,22 @@ public static unsafe class Translator
 				{
 					continue;
 				}
+
 				if (!(metadata.IsStruct || metadata.IsClass || metadata.IsUnion))
 				{
 					continue;
 				}
+
 				if (type.Kind is not LLVMTypeKind.LLVMStructTypeKind)
 				{
 					continue;
 				}
+
 				if (!contextLookUp.TryGetValue(type, out StructContext? structContext))
 				{
 					continue;
 				}
+
 				List<LLVMMetadataRef> list = validMetadata[structContext];
 				list.Clear();
 				list.Add(metadata);
@@ -352,6 +368,7 @@ public static unsafe class Translator
 						break;
 					}
 				}
+
 				if (!allMatch)
 				{
 					continue;
@@ -394,8 +411,8 @@ public static unsafe class Translator
 				metadata.IsArray
 				&& type.Kind
 					is LLVMTypeKind.LLVMArrayTypeKind
-						or LLVMTypeKind.LLVMScalableVectorTypeKind
-						or LLVMTypeKind.LLVMVectorTypeKind
+					or LLVMTypeKind.LLVMScalableVectorTypeKind
+					or LLVMTypeKind.LLVMVectorTypeKind
 			)
 			{
 				uint arrayLength;
@@ -467,46 +484,57 @@ public static unsafe class Translator
 		public string MangledName => $"{debugName}_{index}";
 		string? IHasName.DemangledName => null;
 		public string CleanName { get; } = NameGenerator.CleanName(debugName, "field");
+
 		public string Name
 		{
 			get => @field.Name ?? "";
 			set => @field.Name = value;
 		}
+
 		string? IHasName.NativeType => null;
 		ModuleContext IHasName.Module => module;
 	}
 
-	private sealed class CustomModuleDefinition(string name)
-		: ModuleDefinition(name, KnownCorLibs.SystemRuntime_v9_0_0_0)
+	private sealed class CustomModuleDefinition
+		: ModuleDefinition
 	{
+		public CustomModuleDefinition(string name) : base(name, KnownCorLibs.SystemRuntime_v10_0_0_0)
+		{
+			if (Assembly is null)
+			{
+				AssemblyDefinition assembly = new(Name, new Version(1, 0, 0, 0));
+				assembly.Modules.Add(this);
+			}
+		}
+
 		protected override ReferenceImporter GetDefaultImporter()
 		{
 			return new CustomReferenceImporter(this);
 		}
-	}
 
-	private sealed class CustomReferenceImporter(CustomModuleDefinition module)
-		: ReferenceImporter(module)
-	{
-		protected override AssemblyReference ImportAssembly(AssemblyDescriptor assembly)
+		private sealed class CustomReferenceImporter(CustomModuleDefinition module)
+			: ReferenceImporter(module)
 		{
-			// This importer will fail if System.Runtime.InteropServices.Marshal is ever imported.
-			// At runtime, Marshal is part of System.Private.CoreLib.
-			// However, at compile time, it is not part of System.Runtime, but rather System.Runtime.InteropServices.
-			// If we ever try to import it, the reference will be invalid.
-			// This is one of the primary reasons for NativeMemoryHelper, which allows us to avoid referencing Marshal directly.
-			if (
-				SignatureComparer.Default.Equals(
-					assembly,
-					KnownCorLibs.SystemPrivateCoreLib_v9_0_0_0
+			protected override AssemblyReference ImportAssembly(AssemblyDescriptor assembly)
+			{
+				// This importer will fail if System.Runtime.InteropServices.Marshal is ever imported.
+				// At runtime, Marshal is part of System.Private.CoreLib.
+				// However, at compile time, it is not part of System.Runtime, but rather System.Runtime.InteropServices.
+				// If we ever try to import it, the reference will be invalid.
+				// This is one of the primary reasons for NativeMemoryHelper, which allows us to avoid referencing Marshal directly.
+				if (
+					SignatureComparer.Default.Equals(
+						assembly,
+						KnownCorLibs.SystemPrivateCoreLib_v10_0_0_0
+					)
 				)
-			)
-			{
-				return base.ImportAssembly(KnownCorLibs.SystemRuntime_v9_0_0_0);
-			}
-			else
-			{
-				return base.ImportAssembly(assembly);
+				{
+					return base.ImportAssembly(KnownCorLibs.SystemRuntime_v10_0_0_0);
+				}
+				else
+				{
+					return base.ImportAssembly(assembly);
+				}
 			}
 		}
 	}
