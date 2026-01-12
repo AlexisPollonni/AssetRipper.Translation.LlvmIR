@@ -1,0 +1,28 @@
+﻿<Project Sdk="Cake.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj" />
+    <ProjectReference Include="..\..\Scripts\Tooling\Build.Scripts.Tooling.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.CMake" />
+    <PackageReference Include="Cake.Compression" />
+    <PackageReference Include="Cake.FileSet" />
+    <PackageReference Include="ConsoleAppFramework">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FluentBuilder">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Octokit" />
+    <PackageReference Include="SharpCompress" />
+  </ItemGroup>
+</Project>

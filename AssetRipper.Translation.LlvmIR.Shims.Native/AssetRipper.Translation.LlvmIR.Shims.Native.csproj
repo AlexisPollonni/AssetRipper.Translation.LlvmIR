@@ -1,161 +1,161 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <IsPackable>true</IsPackable>
-    <BeforePack>PackOrchestrator</BeforePack>
-    <CMakeGenerator>Ninja</CMakeGenerator>
-    <CMakePlatform>any</CMakePlatform>
-    <ScriptsDir>$(MSBuildProjectDirectory)\..\Scripts</ScriptsDir>
-  </PropertyGroup>
-  <ItemGroup>
-    <_CMakeInputs Include="$(MSBuildProjectDirectory)\CMakeLists.txt" />
-    <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.c" />
-    <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.cpp" />
-    <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.h" />
-    <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.hpp" />
-    <Content Remove="@(_CMakeInputs)" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="LLVMSharp.Interop" />
-  </ItemGroup>
-  <PropertyGroup>
-    <!-- Local development: pack both meta and RID packages -->
-    <PackMeta Condition="'$(PackMeta)' == ''">true</PackMeta>
-    <PackRid Condition="'$(PackRid)'  == ''">true</PackRid>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(ContinuousIntegrationBuild)' == 'true'">
-    <!-- Non-local/CI: default to meta package only -->
-    <PackMeta Condition="'$(PackMeta)' == ''">true</PackMeta>
-    <PackRid Condition="'$(PackRid)'  == ''">false</PackRid>
-  </PropertyGroup>
-  <Target Name="ResolveRuntimeNativePath">
-    <Error
-      Condition="'$(RuntimeIdentifier)' == ''"
-      Text="RuntimeIdentifier is not set. Please specify a RID (e.g., win-x64, linux-x64) to package native binaries."
-    />
-    <Error
-      Condition="'$(IntermediateOutputPath)' == ''"
-      Text="IntermediateOutputPath is not set. Please specify an output path for intermediate files."
-    />
     <PropertyGroup>
-      <_RuntimeNativeDir>$(OutputPath)runtimes\$(RuntimeIdentifier)\native</_RuntimeNativeDir>
-      <_CMakeBuildDir>$(IntermediateOutputPath)cmake</_CMakeBuildDir>
+        <OutputType>Library</OutputType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <IsPackable>true</IsPackable>
+        <BeforePack>PackOrchestrator</BeforePack>
+        <CMakeGenerator>Ninja</CMakeGenerator>
+        <CMakePlatform>any</CMakePlatform>
+        <ScriptsDir>$(MSBuildProjectDirectory)\..\Scripts</ScriptsDir>
     </PropertyGroup>
-  </Target>
-  <Target Name="CleanCMake" AfterTargets="Clean" DependsOnTargets="ResolveRuntimeNativePath">
-    <Exec
-      Command="dotnet &quot;$(ScriptsDir)\CMake.Clean.cs&quot; -- --binaryPath=$(_CMakeBuildDir) --configuration=$(Configuration)"
-      ContinueOnError="WarnAndContinue"
-    />
-    <Message
-      Condition="'$(RuntimeIdentifier)' != ''"
-      Importance="high"
-      Text="Removing directory $(_RuntimeNativeDir)"
-    />
-    <RemoveDir Condition="'$(RuntimeIdentifier)' != ''" Directories="$(_RuntimeNativeDir)" />
-  </Target>
-  <Target
-    Name="BuildCMake"
-    Condition="$(SkipPackOrchestrator) != 'true'"
-    DependsOnTargets="ResolveRuntimeNativePath"
-  >
-    <Message
-      Importance="High"
-      Text="[BuildCMake] Building and installing native binaries to '$(_RuntimeNativeDir)' for RID '$(RuntimeIdentifier)'."
-    />
-    <Exec Command="dotnet &quot;$(ScriptsDir)\CMake.Config.cs&quot; -- --sourcePath=&quot;$(MSBuildProjectDirectory)&quot; --binaryPath=&quot;$(_CMakeBuildDir)&quot; --installPrefix=&quot;$(_RuntimeNativeDir)&quot;" />
-    <Exec Command="dotnet &quot;$(ScriptsDir)\CMake.Build.cs&quot; -- --binaryPath=&quot;$(_CMakeBuildDir)&quot; --configuration=$(Configuration) --target=install" />
-  </Target>
-  <Target Name="GenerateRuntimeJson">
-    <PropertyGroup>
-      <_RuntimeJsonInput>runtime.json</_RuntimeJsonInput>
-      <_RuntimeJsonOutput>$(IntermediateOutputPath)\runtime.json</_RuntimeJsonOutput>
-    </PropertyGroup>
-    <WriteLinesToFile
-      File="$(_RuntimeJsonOutput)"
-      Lines="$([System.IO.File]::ReadAllText($(_RuntimeJsonInput)).Replace('$version$',$(PackageVersion)))"
-      Overwrite="true"
-    />
-  </Target>
-  <Target
-    Name="GatherNativeBinaries"
-    DependsOnTargets="ResolveRuntimeNativePath;BuildCMake"
-    BeforeTargets="BeforeBuild"
-  >
-    <!-- Gather native binaries produced by CMake -->
     <ItemGroup>
-      <_NativeBinaries Include="$(_RuntimeNativeDir)\*.dll;$(_RuntimeNativeDir)\*.so;$(_RuntimeNativeDir)\*.dylib" />
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\CMakeLists.txt"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.c"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.cpp"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.h"/>
+        <_CMakeInputs Include="$(MSBuildProjectDirectory)\**\*.hpp"/>
+        <Content Remove="@(_CMakeInputs)"/>
     </ItemGroup>
-    <!-- Fail if no binaries were found -->
-    <Error
-      Condition="'@(_NativeBinaries)' == ''"
-      Text="[BuildCMake] No native binaries were found under install dir '$(CMakeInstallPrefix)'. Ensure your CMake build has an install step and produced .dll/.so/.dylib outputs."
-    />
-    <ItemGroup Label="_NativeBinariesContentToPack">
-      <Content Include="@(_NativeBinaries)" Pack="true" Visible="false">
-        <PackagePath>runtimes\$(RuntimeIdentifier)\native</PackagePath>
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-      </Content>
-    </ItemGroup>
-  </Target>
-  <Target Name="PackNativeTarget" DependsOnTargets="GatherNativeBinaries">
-    <!-- not the meta package, set the package id to match the current RID -->
-    <PropertyGroup>
-      <PackageId>$(MSBuildProjectName).$(RuntimeIdentifier)</PackageId>
-      <Description>AssetRipper LLVM IR Shims (native) for $(RuntimeIdentifier)</Description>
-      <PackageTags>native;runtimes;$(RuntimeIdentifier);llvm;shims</PackageTags>
-      <IncludeBuildOutput>false</IncludeBuildOutput>
-    </PropertyGroup>
-    <Message Importance="High" Text="Preparing to pack native target [id: $(PackageId)]" />
-  </Target>
-  <Target Name="PackNativeMeta" DependsOnTargets="GenerateRuntimeJson">
-    <Message Importance="High" Text="Preparing to pack native metapackage [id: $(PackageId)]" />
-    <!-- Include runtime.json in the package and ensure it appears in the .nuspec -->
     <ItemGroup>
-      <Content Include="$(_RuntimeJsonOutput)" Pack="true" PackagePath="\runtime.json" />
+        <PackageReference Include="LLVMSharp.Interop"/>
     </ItemGroup>
     <PropertyGroup>
-      <Description>AssetRipper LLVM IR Shims (meta-package). Resolves to platform-specific native packages via runtime.json.</Description>
-      <PackageTags>meta;runtimes;native;llvm;shims</PackageTags>
+        <!-- Local development: pack both meta and RID packages -->
+        <PackMeta Condition="'$(PackMeta)' == ''">true</PackMeta>
+        <PackRid Condition="'$(PackRid)'  == ''">true</PackRid>
     </PropertyGroup>
-  </Target>
-  <!-- Orchestrate pack(s): prepare for packing based on PackMeta/PackRid -->
-  <Target Name="PackOrchestrator" Condition="'$(SkipPackOrchestrator)' != 'true'">
-    <Message
-      Importance="High"
-      Text="[PackOrchestrator] IsLocal=$(IsLocal); PackMeta=$(PackMeta); PackRid=$(PackRid); RuntimeIdentifier=$(RuntimeIdentifier); Output=$(PackageOutputPath)"
-    />
-    <Error
-      Condition="'$(PackMeta)' != 'true' and '$(PackRid)' != 'true'"
-      Text="[PackOrchestrator] Both PackMeta and PackRid are false. At least one must be true."
-    />
-    <Error
-      Condition="'$(PackRid)' == 'true' and '$(RuntimeIdentifier)' == ''"
-      Text="[PackOrchestrator] PackRid=true requires RuntimeIdentifier. Pass -p:RuntimeIdentifier=&lt;rid&gt;."
-    />
-    <!-- Careful here, if properties are not different on both invocations the later one will be skipped -->
-    <MSBuild
-      Projects="$(MSBuildThisFileFullPath)"
-      Targets="PackNativeMeta;Pack"
-      Condition="'$(PackMeta)' == 'true'"
-      UnloadProjectsOnCompletion="true"
-      BuildInParallel="false"
-      RunEachTargetSeparately="false"
-      Properties="SkipPackOrchestrator=true"
-    />
-    <MSBuild
-      Projects="$(MSBuildThisFileFullPath)"
-      Targets="PackNativeTarget;Pack"
-      Condition="'$(PackRid)' == 'true'"
-      UnloadProjectsOnCompletion="true"
-      BuildInParallel="false"
-      RunEachTargetSeparately="false"
-      Properties="SkipPackOrchestrator=true;SuppressDependenciesWhenPacking=true"
-    />
-    <PropertyGroup>
-      <IsPackable>false</IsPackable>
+    <PropertyGroup Condition="'$(ContinuousIntegrationBuild)' == 'true'">
+        <!-- Non-local/CI: default to meta package only -->
+        <PackMeta Condition="'$(PackMeta)' == ''">true</PackMeta>
+        <PackRid Condition="'$(PackRid)'  == ''">false</PackRid>
     </PropertyGroup>
-  </Target>
+    <Target Name="ResolveRuntimeNativePath">
+        <Error
+                Condition="'$(RuntimeIdentifier)' == ''"
+                Text="RuntimeIdentifier is not set. Please specify a RID (e.g., win-x64, linux-x64) to package native binaries."
+        />
+        <Error
+                Condition="'$(IntermediateOutputPath)' == ''"
+                Text="IntermediateOutputPath is not set. Please specify an output path for intermediate files."
+        />
+        <PropertyGroup>
+            <_RuntimeNativeDir>$(OutputPath)runtimes\$(RuntimeIdentifier)\native</_RuntimeNativeDir>
+            <_CMakeBuildDir>$(IntermediateOutputPath)cmake</_CMakeBuildDir>
+        </PropertyGroup>
+    </Target>
+    <Target Name="CleanCMake" AfterTargets="Clean" DependsOnTargets="ResolveRuntimeNativePath">
+        <Exec
+                Command="dotnet run &quot;$(ScriptsDir)\CMake.Clean.cs&quot; -- --binaryPath=$(_CMakeBuildDir) --configuration=$(Configuration)"
+                ContinueOnError="WarnAndContinue"
+        />
+        <Message
+                Condition="'$(RuntimeIdentifier)' != ''"
+                Importance="high"
+                Text="Removing directory $(_RuntimeNativeDir)"
+        />
+        <RemoveDir Condition="'$(RuntimeIdentifier)' != ''" Directories="$(_RuntimeNativeDir)"/>
+    </Target>
+    <Target
+            Name="BuildCMake"
+            Condition="$(SkipPackOrchestrator) != 'true'"
+            DependsOnTargets="ResolveRuntimeNativePath"
+    >
+        <Message
+                Importance="High"
+                Text="[BuildCMake] Building and installing native binaries to '$(_RuntimeNativeDir)' for RID '$(RuntimeIdentifier)'."
+        />
+        <Exec Command="dotnet run &quot;$(ScriptsDir)\CMake.Config.cs&quot; -- --sourcePath=&quot;$(MSBuildProjectDirectory)&quot; --binaryPath=&quot;$(_CMakeBuildDir)&quot; --installPrefix=&quot;$(_RuntimeNativeDir)&quot;"/>
+        <Exec Command="dotnet run &quot;$(ScriptsDir)\CMake.Build.cs&quot; -- --binaryPath=&quot;$(_CMakeBuildDir)&quot; --configuration=$(Configuration) --target=install"/>
+    </Target>
+    <Target Name="GenerateRuntimeJson">
+        <PropertyGroup>
+            <_RuntimeJsonInput>runtime.json</_RuntimeJsonInput>
+            <_RuntimeJsonOutput>$(IntermediateOutputPath)\runtime.json</_RuntimeJsonOutput>
+        </PropertyGroup>
+        <WriteLinesToFile
+                File="$(_RuntimeJsonOutput)"
+                Lines="$([System.IO.File]::ReadAllText($(_RuntimeJsonInput)).Replace('$version$',$(PackageVersion)))"
+                Overwrite="true"
+        />
+    </Target>
+    <Target
+            Name="GatherNativeBinaries"
+            DependsOnTargets="ResolveRuntimeNativePath;BuildCMake"
+            BeforeTargets="BeforeBuild"
+    >
+        <!-- Gather native binaries produced by CMake -->
+        <ItemGroup>
+            <_NativeBinaries Include="$(_RuntimeNativeDir)\*.dll;$(_RuntimeNativeDir)\*.so;$(_RuntimeNativeDir)\*.dylib"/>
+        </ItemGroup>
+        <!-- Fail if no binaries were found -->
+        <Error
+                Condition="'@(_NativeBinaries)' == ''"
+                Text="[BuildCMake] No native binaries were found under install dir '$(CMakeInstallPrefix)'. Ensure your CMake build has an install step and produced .dll/.so/.dylib outputs."
+        />
+        <ItemGroup Label="_NativeBinariesContentToPack">
+            <Content Include="@(_NativeBinaries)" Pack="true" Visible="false">
+                <PackagePath>runtimes\$(RuntimeIdentifier)\native</PackagePath>
+                <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+                <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+            </Content>
+        </ItemGroup>
+    </Target>
+    <Target Name="PackNativeTarget" DependsOnTargets="GatherNativeBinaries">
+        <!-- not the meta package, set the package id to match the current RID -->
+        <PropertyGroup>
+            <PackageId>$(MSBuildProjectName).$(RuntimeIdentifier)</PackageId>
+            <Description>AssetRipper LLVM IR Shims (native) for $(RuntimeIdentifier)</Description>
+            <PackageTags>native;runtimes;$(RuntimeIdentifier);llvm;shims</PackageTags>
+            <IncludeBuildOutput>false</IncludeBuildOutput>
+        </PropertyGroup>
+        <Message Importance="High" Text="Preparing to pack native target [id: $(PackageId)]"/>
+    </Target>
+    <Target Name="PackNativeMeta" DependsOnTargets="GenerateRuntimeJson">
+        <Message Importance="High" Text="Preparing to pack native metapackage [id: $(PackageId)]"/>
+        <!-- Include runtime.json in the package and ensure it appears in the .nuspec -->
+        <ItemGroup>
+            <Content Include="$(_RuntimeJsonOutput)" Pack="true" PackagePath="\runtime.json"/>
+        </ItemGroup>
+        <PropertyGroup>
+            <Description>AssetRipper LLVM IR Shims (meta-package). Resolves to platform-specific native packages via runtime.json.</Description>
+            <PackageTags>meta;runtimes;native;llvm;shims</PackageTags>
+        </PropertyGroup>
+    </Target>
+    <!-- Orchestrate pack(s): prepare for packing based on PackMeta/PackRid -->
+    <Target Name="PackOrchestrator" Condition="'$(SkipPackOrchestrator)' != 'true'">
+        <Message
+                Importance="High"
+                Text="[PackOrchestrator] IsLocal=$(IsLocal); PackMeta=$(PackMeta); PackRid=$(PackRid); RuntimeIdentifier=$(RuntimeIdentifier); Output=$(PackageOutputPath)"
+        />
+        <Error
+                Condition="'$(PackMeta)' != 'true' and '$(PackRid)' != 'true'"
+                Text="[PackOrchestrator] Both PackMeta and PackRid are false. At least one must be true."
+        />
+        <Error
+                Condition="'$(PackRid)' == 'true' and '$(RuntimeIdentifier)' == ''"
+                Text="[PackOrchestrator] PackRid=true requires RuntimeIdentifier. Pass -p:RuntimeIdentifier=&lt;rid&gt;."
+        />
+        <!-- Careful here, if properties are not different on both invocations the later one will be skipped -->
+        <MSBuild
+                Projects="$(MSBuildThisFileFullPath)"
+                Targets="PackNativeMeta;Pack"
+                Condition="'$(PackMeta)' == 'true'"
+                UnloadProjectsOnCompletion="true"
+                BuildInParallel="false"
+                RunEachTargetSeparately="false"
+                Properties="SkipPackOrchestrator=true"
+        />
+        <MSBuild
+                Projects="$(MSBuildThisFileFullPath)"
+                Targets="PackNativeTarget;Pack"
+                Condition="'$(PackRid)' == 'true'"
+                UnloadProjectsOnCompletion="true"
+                BuildInParallel="false"
+                RunEachTargetSeparately="false"
+                Properties="SkipPackOrchestrator=true;SuppressDependenciesWhenPacking=true"
+        />
+        <PropertyGroup>
+            <IsPackable>false</IsPackable>
+        </PropertyGroup>
+    </Target>
 </Project>

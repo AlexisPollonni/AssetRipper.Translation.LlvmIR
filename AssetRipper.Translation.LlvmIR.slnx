@@ -4,6 +4,9 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/Samples/">
+    <Project Path="Samples/CompileLibCxx/CompileLibCxx.csproj" />
+  </Folder>
   <Folder Name="/Scripts/">
     <File Path="Scripts\CMake.Config.cs" />
     <File Path="Scripts/ByteCodeTranspiler.cs" />
