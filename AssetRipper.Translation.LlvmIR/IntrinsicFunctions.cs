@@ -1,19 +1,96 @@
-﻿using AssetRipper.Translation.LlvmIR.Attributes;
-using System.Buffers;
+﻿using System.Buffers;
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AssetRipper.Translation.LlvmIR.Attributes;
 
 namespace AssetRipper.Translation.LlvmIR;
 
 #pragma warning disable IDE0060 // Remove unused parameter
 internal static unsafe partial class IntrinsicFunctions
 {
+	// ── LLVM meta-intrinsics ─────────────────────────────────────────────────
+
 	[MangledName("llvm.experimental.noalias.scope.decl")]
-	public static void DoNothing(object parameter)
+	[MangledName("llvm.lifetime.start.p0")]
+	[MangledName("llvm.lifetime.end.p0")]
+	[MangledName("llvm.assume")]
+	public static void DoNothing(object parameter) { }
+
+	[MangledName("llvm.dbg.value")]
+	[MangledName("llvm.dbg.declare")]
+	[MangledName("llvm.dbg.label")]
+	public static void DoNothingDebug(object p1, object p2, object p3) { }
+
+	// ── Standard-stream sentinels (shared by both platform files) ────────────
+
+	internal static void* StandardInput => (void*)1;
+	internal static void* StandardOutput => (void*)2;
+	internal static void* StandardError => (void*)3;
+
+	// ── Termination ──────────────────────────────────────────────────────────
+	// __std_terminate is Windows-only and lives in IntrinsicFunctions.Windows.cs
+
+	[DoesNotReturn]
+	[MangledName("terminate")]
+	[MangledName("llvm.trap")]
+	[MangledName("llvm.debugtrap")]
+	public static void Terminate()
 	{
+		throw new FatalException(nameof(Terminate));
 	}
+
+	[DoesNotReturn]
+	[MangledName("exit")]
+	public static void Exit(int exitCode) => Environment.Exit(exitCode);
+
+	// ── atexit ───────────────────────────────────────────────────────────────
+
+	// Stack to hold atexit functions because they need to be called in LIFO order.
+	private static readonly ConcurrentStack<nint> atexitFunctions = new();
+
+	[MangledName("atexit")]
+	public static int AtExit(delegate* <void> func)
+	{
+		// https://cplusplus.com/reference/cstdlib/atexit/
+		if (atexitFunctions.IsEmpty)
+		{
+			lock (atexitFunctions)
+			{
+				if (atexitFunctions.IsEmpty)
+				{
+					AppDomain.CurrentDomain.ProcessExit += static (_, _) =>
+					{
+						while (atexitFunctions.TryPop(out nint function))
+							((delegate* <void>)function)();
+					};
+				}
+			}
+		}
+		atexitFunctions.Push((nint)func);
+		return 0; // Success
+	}
+
+	// ── va_list helpers ───────────────────────────────────────────────────────
+
+	[MangledName("llvm.va_start.p0")]
+	public static void llvm_va_start(void** va_list)
+	{
+		// Handled elsewhere in the instruction lifter.
+		throw new NotSupportedException();
+	}
+
+	[MangledName("llvm.va_copy.p0")]
+	public static void llvm_va_copy(void** destination, void** source) => *destination = *source;
+
+	[MangledName("llvm.va_end.p0")]
+	public static void llvm_va_end(
+		void** va_list
+	) { /* freed automatically */
+	}
+
+	// ── Console I/O ──────────────────────────────────────────────────────────
 
 	[MangledName("puts")]
 	public static int PutString(sbyte* str)
@@ -21,7 +98,7 @@ internal static unsafe partial class IntrinsicFunctions
 		// https://cplusplus.com/reference/cstdio/puts/
 		try
 		{
-			string? s = Marshal.PtrToStringAnsi((IntPtr)str); // Maybe UTF-8?
+			string? s = Marshal.PtrToStringAnsi((IntPtr)str);
 			Console.WriteLine(s);
 			return s?.Length ?? 0;
 		}
@@ -37,20 +114,13 @@ internal static unsafe partial class IntrinsicFunctions
 		// https://cplusplus.com/reference/cstdio/fputs/
 		try
 		{
-			string? s = Marshal.PtrToStringAnsi((IntPtr)str); // Maybe UTF-8?
+			string? s = Marshal.PtrToStringAnsi((IntPtr)str);
 			if (file == StandardOutput)
-			{
 				Console.Write(s);
-			}
 			else if (file == StandardError)
-			{
 				Console.Error.Write(s);
-			}
 			else
-			{
-				// Unsupported stream
 				return -1;
-			}
 			return s?.Length ?? 0;
 		}
 		catch
@@ -59,141 +129,419 @@ internal static unsafe partial class IntrinsicFunctions
 		}
 	}
 
-	[MangledName("__stdio_common_vfprintf")]
-	public static int __stdio_common_vfprintf(long options, void* stream, void* format, void* locale, void* argList)
+	[MangledName("fflush")]
+	public static int FFlush(void* file)
 	{
-		// https://learn.microsoft.com/en-us/cpp/c-runtime-library/internal-crt-globals-and-functions?view=msvc-170
-		throw new NotSupportedException("C++ string formatting is not supported.");
+		if (file == StandardOutput || file == null)
+			Console.Out.Flush();
+		if (file == StandardError || file == null)
+			Console.Error.Flush();
+		return 0;
 	}
 
-	[MangledName("__stdio_common_vsprintf_s")]
-	public static int __stdio_common_vsprintf_s(long options, void* buffer, long bufferLength, void* format, void* locale, void* argList)
+	[MangledName("putchar")]
+	[MangledName("putchar_unlocked")]
+	public static int Putchar(int c)
 	{
-		// https://learn.microsoft.com/en-us/cpp/c-runtime-library/internal-crt-globals-and-functions?view=msvc-170
-		throw new NotSupportedException("C++ string formatting is not supported.");
+		Console.Write((char)(byte)c);
+		return c;
 	}
 
-	private static void* StandardInput => (void*)1;
-	private static void* StandardOutput => (void*)2;
-	private static void* StandardError => (void*)3;
+	[MangledName("getchar")]
+	[MangledName("getchar_unlocked")]
+	public static int Getchar() => Console.Read();
 
-	[MangledName("__acrt_iob_func")]
-	public static void* GetSystemStream(int identifier)
+	[MangledName("fputc")]
+	[MangledName("putc")]
+	public static int FPutc(int c, void* file)
 	{
-		// https://learn.microsoft.com/en-us/cpp/c-runtime-library/internal-crt-globals-and-functions?view=msvc-170
-		// identifier: 0 = stdin, 1 = stdout, 2 = stderr
-		return identifier switch
+		char ch = (char)(byte)c;
+		if (file == StandardOutput)
+			Console.Write(ch);
+		else if (file == StandardError)
+			Console.Error.Write(ch);
+		else
+			return -1;
+		return c;
+	}
+
+	[MangledName("fgetc")]
+	[MangledName("getc")]
+	public static int FGetc(void* file) => file == StandardInput ? Console.Read() : -1;
+
+	[MangledName("perror")]
+	public static void Perror(byte* s)
+	{
+		string? prefix = s != null ? Marshal.PtrToStringUTF8((IntPtr)s) : null;
+		Console.Error.WriteLine(prefix is { Length: > 0 } ? $"{prefix}: error" : "error");
+	}
+
+	// ── Printf shared helper ──────────────────────────────────────────────────
+	// Used by both Windows (__stdio_common_vfprintf) and Linux (printf / fprintf / etc.)
+
+	internal static string? FormatPrintf(byte* format, ReadOnlySpan<nint> args)
+	{
+		if (format is null)
+			return null;
+		string fmt = Marshal.PtrToStringUTF8((IntPtr)format) ?? "";
+		var sb = new System.Text.StringBuilder();
+		int argIndex = 0;
+		int i = 0;
+
+		while (i < fmt.Length)
 		{
-			0 => StandardInput,
-			1 => StandardOutput,
-			2 => StandardError,
-			_ => null,
-		};
-	}
-
-	[MangledName("_wassert")]
-	[MightThrow]
-	public static void Assert(char* message, char* file, uint line)
-	{
-		ExceptionInfo.Current = new AssertExceptionInfo($"Assertion failed: {Marshal.PtrToStringUni((IntPtr)message)} at {Marshal.PtrToStringUni((IntPtr)file)}:{line}");
-	}
-
-	/// <summary>
-	/// Triggers a fatal exception, indicating a critical assertion failure in the application.
-	/// </summary>
-	/// <remarks>
-	/// This aligns with the C++ behavior, which causes the application to crash and triggers the Windows Error Reporting (WER) system (aka "Watson").
-	/// </remarks>
-	/// <param name="expression">A pointer to the string representation of the failed assertion expression.</param>
-	/// <param name="function">A pointer to the string representation of the function name where the assertion failed.</param>
-	/// <param name="file">A pointer to the string representation of the file name where the assertion failed.</param>
-	/// <param name="line">The line number in the file where the assertion failed.</param>
-	/// <param name="reserved">Reserved for future use. Currently unused. C++ type is uintptr_t.</param>
-	/// <exception cref="FatalException">
-	/// Always thrown to indicate a fatal assertion failure. The exception message includes details about the failed
-	/// assertion, such as the expression, function, file, and line number.
-	/// </exception>
-	[DoesNotReturn]
-	[MangledName("_invoke_watson")]
-	public static void InvokeWatson(char* expression, char* function, char* file, int line, long reserved)
-	{
-		throw new FatalException($"Fatal assertion failed: {Marshal.PtrToStringUni((IntPtr)expression)} in {Marshal.PtrToStringUni((IntPtr)function)} at {Marshal.PtrToStringUni((IntPtr)file)}:{line}");
-	}
-
-	[DoesNotReturn]
-	[MangledName("__std_terminate")]
-	[MangledName("terminate")]
-	[MangledName("llvm.trap")]
-	public static void Terminate()
-	{
-		throw new FatalException(nameof(Terminate));
-	}
-
-	[DoesNotReturn]
-	[MangledName("exit")]
-	public static void Exit(int exitCode)
-	{
-		Environment.Exit(exitCode);
-	}
-
-	// Stack to hold atexit functions because they need to be called in LIFO order.
-	private readonly static ConcurrentStack<nint> atexitFunctions = new();
-	[MangledName("atexit")]
-	public static int AtExit(delegate*<void> func)
-	{
-		// https://cplusplus.com/reference/cstdlib/atexit/
-
-		if (atexitFunctions.IsEmpty)
-		{
-			lock (atexitFunctions)
+			if (fmt[i] != '%')
 			{
-				if (atexitFunctions.IsEmpty)
+				sb.Append(fmt[i++]);
+				continue;
+			}
+			i++;
+			if (i >= fmt.Length)
+				break;
+			if (fmt[i] == '%')
+			{
+				sb.Append('%');
+				i++;
+				continue;
+			}
+
+			// flags
+			bool minus = false,
+				plus = false,
+				space = false,
+				zero = false,
+				hash = false;
+			while (i < fmt.Length)
+			{
+				char fi = fmt[i];
+				if (fi == '-')
 				{
-					AppDomain.CurrentDomain.ProcessExit += static (_, _) =>
-					{
-						while (atexitFunctions.TryPop(out nint function))
-						{
-							((delegate*<void>)function)();
-						}
-					};
+					minus = true;
+					i++;
+				}
+				else if (fi == '+')
+				{
+					plus = true;
+					i++;
+				}
+				else if (fi == ' ')
+				{
+					space = true;
+					i++;
+				}
+				else if (fi == '0')
+				{
+					zero = true;
+					i++;
+				}
+				else if (fi == '#')
+				{
+					hash = true;
+					i++;
+				}
+				else
+					break;
+			}
+
+			// width
+			int width = 0;
+			if (i < fmt.Length && fmt[i] == '*')
+			{
+				width = (int)(argIndex < args.Length ? args[argIndex++] : 0);
+				if (width < 0)
+				{
+					minus = true;
+					width = -width;
+				}
+				i++;
+			}
+			else
+				while (i < fmt.Length && char.IsAsciiDigit(fmt[i]))
+					width = width * 10 + (fmt[i++] - '0');
+
+			// precision
+			int prec = -1;
+			if (i < fmt.Length && fmt[i] == '.')
+			{
+				i++;
+				if (i < fmt.Length && fmt[i] == '*')
+				{
+					prec = (int)(argIndex < args.Length ? args[argIndex++] : 0);
+					if (prec < 0)
+						prec = -1;
+					i++;
+				}
+				else
+				{
+					prec = 0;
+					while (i < fmt.Length && char.IsAsciiDigit(fmt[i]))
+						prec = prec * 10 + (fmt[i++] - '0');
 				}
 			}
+
+			// length modifier: 0=int, -1=hh(char), 1=h(short), 2=l(long), 3=ll/j, 4=z, 5=t, 6=L
+			int len = 0;
+			if (i < fmt.Length)
+				switch (fmt[i])
+				{
+					case 'h':
+						i++;
+						if (i < fmt.Length && fmt[i] == 'h')
+						{
+							i++;
+							len = -1;
+						}
+						else
+							len = 1;
+						break;
+					case 'l':
+						i++;
+						if (i < fmt.Length && fmt[i] == 'l')
+						{
+							i++;
+							len = 3;
+						}
+						else
+							len = 2;
+						break;
+					case 'j':
+						i++;
+						len = 3;
+						break;
+					case 'z':
+						i++;
+						len = 4;
+						break;
+					case 't':
+						i++;
+						len = 5;
+						break;
+					case 'L':
+						i++;
+						len = 6;
+						break;
+					case 'I': // MSVC I64/I32
+						if (i + 2 < fmt.Length && fmt[i + 1] == '6' && fmt[i + 2] == '4')
+						{
+							i += 3;
+							len = 3;
+						}
+						else if (i + 2 < fmt.Length && fmt[i + 1] == '3' && fmt[i + 2] == '2')
+						{
+							i += 3;
+							len = 2;
+						}
+						else
+							i++;
+						break;
+				}
+			if (i >= fmt.Length)
+				break;
+			char spec = fmt[i++];
+
+			string value;
+			switch (spec)
+			{
+				case 'd':
+				case 'i':
+				{
+					long v = len >= 2 ? (argIndex < args.Length ? args[argIndex++] : 0) : (int)(argIndex < args.Length ? args[argIndex++] : 0);
+					value = FmtSignedInt(v, width, prec, minus, plus, space, zero);
+					break;
+				}
+				case 'u':
+				{
+					ulong v = len >= 2 ? (ulong)(argIndex < args.Length ? args[argIndex++] : 0) : (uint)(argIndex < args.Length ? args[argIndex++] : 0);
+					string d = v.ToString();
+					if (prec >= 0 && d.Length < prec)
+						d = d.PadLeft(prec, '0');
+					value = minus
+						? d.PadRight(width)
+						: (zero && prec < 0 ? d.PadLeft(width, '0') : d.PadLeft(width));
+					break;
+				}
+				case 'x':
+				case 'X':
+				{
+					ulong v = len >= 2 ? (ulong)(argIndex < args.Length ? args[argIndex++] : 0) : (uint)(argIndex < args.Length ? args[argIndex++] : 0);
+					string d = spec == 'x' ? v.ToString("x") : v.ToString("X");
+					if (prec >= 0 && d.Length < prec)
+						d = d.PadLeft(prec, '0');
+					if (hash && v != 0)
+						d = (spec == 'x' ? "0x" : "0X") + d;
+					value = minus
+						? d.PadRight(width)
+						: (zero && prec < 0 ? d.PadLeft(width, '0') : d.PadLeft(width));
+					break;
+				}
+				case 'o':
+				{
+					ulong v = len >= 2 ? (ulong)(argIndex < args.Length ? args[argIndex++] : 0) : (uint)(argIndex < args.Length ? args[argIndex++] : 0);
+					string d = Convert.ToString((long)v, 8);
+					if (hash && !d.StartsWith('0'))
+						d = "0" + d;
+					if (prec >= 0 && d.Length < prec)
+						d = d.PadLeft(prec, '0');
+					value = minus ? d.PadRight(width) : d.PadLeft(width);
+					break;
+				}
+				case 'f':
+				case 'F':
+				{
+					nint raw = (argIndex < args.Length ? args[argIndex++] : 0);
+					double dv = *(double*)&raw;
+					int p2 = prec >= 0 ? prec : 6;
+					string sign =
+						dv < 0 ? "-"
+						: plus ? "+"
+						: space ? " "
+						: "";
+					string d = Math.Abs(dv)
+						.ToString("F" + p2, System.Globalization.CultureInfo.InvariantCulture);
+					string comb = sign + d;
+					value = minus ? comb.PadRight(width) : comb.PadLeft(width);
+					break;
+				}
+				case 'e':
+				case 'E':
+				{
+					nint raw = (argIndex < args.Length ? args[argIndex++] : 0);
+					double dv = *(double*)&raw;
+					int p2 = prec >= 0 ? prec : 6;
+					string d = dv.ToString(
+						(spec == 'e' ? "e" : "E") + p2,
+						System.Globalization.CultureInfo.InvariantCulture
+					);
+					value = minus ? NormSciExp(d).PadRight(width) : NormSciExp(d).PadLeft(width);
+					break;
+				}
+				case 'g':
+				case 'G':
+				{
+					nint raw = (argIndex < args.Length ? args[argIndex++] : 0);
+					double dv = *(double*)&raw;
+					int p2 = prec >= 0 ? (prec == 0 ? 1 : prec) : 6;
+					string d = dv.ToString(
+						"G" + p2,
+						System.Globalization.CultureInfo.InvariantCulture
+					);
+					if (spec == 'g')
+						d = d.Replace("E+", "e+").Replace("E-", "e-");
+					d = NormSciExp(d);
+					if (!hash && d.Contains('.') && !d.Contains('e') && !d.Contains('E'))
+						d = d.TrimEnd('0').TrimEnd('.');
+					value = minus ? d.PadRight(width) : d.PadLeft(width);
+					break;
+				}
+				case 'c':
+				{
+					nint cv = (argIndex < args.Length ? args[argIndex++] : 0);
+					string ch =
+						len >= 2 ? ((char)(int)cv).ToString() : ((char)(byte)(int)cv).ToString();
+					value = minus ? ch.PadRight(width) : ch.PadLeft(width);
+					break;
+				}
+				case 's':
+				{
+					nint ptr = (argIndex < args.Length ? args[argIndex++] : 0);
+					string sv =
+						ptr == 0 ? "(null)"
+						: len >= 2 ? (Marshal.PtrToStringUni(ptr) ?? "")
+						: (Marshal.PtrToStringUTF8(ptr) ?? "");
+					if (prec >= 0 && sv.Length > prec)
+						sv = sv[..prec];
+					value = minus ? sv.PadRight(width) : sv.PadLeft(width);
+					break;
+				}
+				case 'p':
+				{
+					nint ptr = (argIndex < args.Length ? args[argIndex++] : 0);
+					string d = "0x" + ((ulong)(nuint)ptr).ToString("x");
+					value = minus ? d.PadRight(width) : d.PadLeft(width);
+					break;
+				}
+				case 'n':
+					value = "";
+					break; // write-back skipped for safety
+				default:
+					value = "%" + spec;
+					break;
+			}
+			sb.Append(value);
 		}
-
-		atexitFunctions.Push((nint)func);
-
-		return 0; // Success
+		return sb.ToString();
 	}
 
-	[MangledName("llvm.va_start.p0")]
-	public static void llvm_va_start(void** va_list)
+	private static string FmtSignedInt(
+		long v,
+		int width,
+		int prec,
+		bool minus,
+		bool plus,
+		bool space,
+		bool zero
+	)
 	{
-		// Handled elsewhere.
-		throw new NotSupportedException();
+		string sign =
+			v < 0 ? "-"
+			: plus ? "+"
+			: space ? " "
+			: "";
+		ulong abs = v < 0 ? unchecked((ulong)(-v)) : (ulong)v;
+		string d = abs.ToString();
+		if (prec >= 0 && d.Length < prec)
+			d = d.PadLeft(prec, '0');
+		string comb = sign + d;
+		if (minus)
+			return comb.PadRight(width);
+		if (zero && prec < 0)
+			return sign + d.PadLeft(width - sign.Length, '0');
+		return comb.PadLeft(width);
 	}
 
-	[MangledName("llvm.va_copy.p0")]
-	public static void llvm_va_copy(void** destination, void** source)
+	private static string NormSciExp(string s)
 	{
-		*destination = *source;
+		// Normalize exponent to at least 2 digits (C standard).
+		int ei = s.IndexOfAny(['e', 'E']);
+		if (ei < 0)
+			return s;
+		string mantissa = s[..ei];
+		char ec = s[ei];
+		string ep = s[(ei + 1)..];
+		char esign = ep[0];
+		string edigits = ep[1..].TrimStart('0');
+		if (edigits.Length == 0)
+			edigits = "0";
+		if (edigits.Length < 2)
+			edigits = edigits.PadLeft(2, '0');
+		return mantissa + ec + esign + edigits;
 	}
 
-	[MangledName("llvm.va_end.p0")]
-	public static void llvm_va_end(void** va_list)
-	{
-		// Do nothing because it's freed automatically.
-	}
+	// ── String functions ──────────────────────────────────────────────────────
 
 	[MangledName("strcmp")]
 	public static int strcmp(byte* p1, byte* p2)
 	{
 		// https://cplusplus.com/reference/cstring/strcmp/
-		while (*p1 == *p2 && *p1 != '\0') // keep going while bytes match
+		while (*p1 == *p2 && *p1 != '\0')
 		{
 			++p1;
 			++p2;
 		}
-		return *p1 - *p2; // positive, negative, or zero
+		return *p1 - *p2;
+	}
+
+	[MangledName("strncmp")]
+	public static int strncmp(byte* p1, byte* p2, long count)
+	{
+		for (long i = 0; i < count; i++)
+		{
+			if (p1[i] != p2[i])
+				return p1[i] - p2[i];
+			if (p1[i] == 0)
+				return 0;
+		}
+		return 0;
 	}
 
 	[MangledName("memchr")]
@@ -201,18 +549,12 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cstring/memchr/
 		if (data == null)
-		{
-			return null; // Return null for null data
-		}
+			return null;
 		byte b = unchecked((byte)c);
 		for (long i = 0; i < length; i++)
-		{
-			if (data[i] == b) // check if current byte matches the character
-			{
-				return data + i; // return pointer to the first occurrence
-			}
-		}
-		return null; // return null if character not found
+			if (data[i] == b)
+				return data + i;
+		return null;
 	}
 
 	[MangledName("strchr")]
@@ -220,19 +562,15 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cstring/strchr/
 		if (str == null)
-		{
-			return null; // Return null for null strings
-		}
+			return null;
 		byte b = unchecked((byte)c);
-		while (*str != '\0') // iterate until null terminator
+		while (*str != '\0')
 		{
-			if (*str == b) // check if current byte matches the character
-			{
-				return str; // return pointer to the first occurrence
-			}
+			if (*str == b)
+				return str;
 			str++;
 		}
-		return b == 0 ? str : null; // return pointer to null terminator if c is '\0', else null
+		return b == 0 ? str : null;
 	}
 
 	[MangledName("strstr")]
@@ -240,21 +578,13 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cstring/strstr/
 		if (haystack == null || needle == null)
-		{
-			return null; // Return null for null strings
-		}
-
-		long haystackLength = strlen(haystack);
-		long needleLength = strlen(needle);
-
-		ReadOnlySpan<byte> haystackSpan = new(haystack, (int)haystackLength);
-		ReadOnlySpan<byte> needleSpan = new(needle, (int)needleLength);
-
-		int index = haystackSpan.IndexOf(needleSpan);
-
-		return index >= 0
-			? haystack + index // Return pointer to the first occurrence of needle in haystack
-			: null; // Return null if needle not found in haystack
+			return null;
+		long hl = strlen(haystack),
+			nl = strlen(needle);
+		int idx = new ReadOnlySpan<byte>(haystack, (int)hl).IndexOf(
+			new ReadOnlySpan<byte>(needle, (int)nl)
+		);
+		return idx >= 0 ? haystack + idx : null;
 	}
 
 	[MangledName("strrchr")]
@@ -262,38 +592,23 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cstring/strrchr/
 		if (str == null)
-		{
-			return null; // Return null for null strings
-		}
-
+			return null;
 		long length = strlen(str);
-		ReadOnlySpan<byte> span = new(str, (int)length);
-		int lastIndex = span.LastIndexOf((byte)c);
-		return lastIndex >= 0
-			? str + lastIndex // Return pointer to the last occurrence of character c in str
-			: null; // Return null if character not found
+		int last = new ReadOnlySpan<byte>(str, (int)length).LastIndexOf((byte)c);
+		return last >= 0 ? str + last : null;
 	}
 
 	[MangledName("strrstr")]
 	public static byte* strrstr(byte* haystack, byte* needle)
 	{
-		// https://cplusplus.com/reference/cstring/strstr/
 		if (haystack == null || needle == null)
-		{
-			return null; // Return null for null strings
-		}
-
-		long haystackLength = strlen(haystack);
-		long needleLength = strlen(needle);
-
-		ReadOnlySpan<byte> haystackSpan = new(haystack, (int)haystackLength);
-		ReadOnlySpan<byte> needleSpan = new(needle, (int)needleLength);
-
-		int index = haystackSpan.LastIndexOf(needleSpan);
-
-		return index >= 0
-			? haystack + index // Return pointer to the first occurrence of needle in haystack
-			: null; // Return null if needle not found in haystack
+			return null;
+		long hl = strlen(haystack),
+			nl = strlen(needle);
+		int idx = new ReadOnlySpan<byte>(haystack, (int)hl).LastIndexOf(
+			new ReadOnlySpan<byte>(needle, (int)nl)
+		);
+		return idx >= 0 ? haystack + idx : null;
 	}
 
 	[MangledName("strlen")]
@@ -301,16 +616,28 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cstring/strlen/
 		if (str == null)
-		{
-			return 0; // Return 0 for null strings
-		}
+			return 0;
 		long length = 0;
-		while (*str != '\0') // count until null terminator
+		while (*str != '\0')
 		{
 			length++;
 			str++;
 		}
-		return length; // return the length of the string
+		return length;
+	}
+
+	[MangledName("strnlen")]
+	public static long strnlen(byte* str, long maxLen)
+	{
+		if (str == null)
+			return 0;
+		long n = 0;
+		while (n < maxLen && *str != '\0')
+		{
+			n++;
+			str++;
+		}
+		return n;
 	}
 
 	[MangledName("wcslen")]
@@ -318,16 +645,24 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cwchar/wcslen/
 		if (str == null)
-		{
-			return 0; // Return 0 for null strings
-		}
+			return 0;
 		long length = 0;
-		while (*str != '\0') // count until null terminator
+		while (*str != '\0')
 		{
 			length++;
 			str++;
 		}
-		return length; // return the length of the string
+		return length;
+	}
+
+	[MangledName("strcpy")]
+	public static byte* strcpy(byte* dst, byte* src)
+	{
+		if (dst == null || src == null)
+			return dst;
+		long len = strlen(src);
+		Buffer.MemoryCopy(src, dst, len + 1, len + 1);
+		return dst;
 	}
 
 	[MangledName("strncpy")]
@@ -335,19 +670,13 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cstring/strncpy/
 		if (destination == null || source == null)
-		{
-			return null; // Return null for null strings
-		}
+			return null;
 		long sourceLength = StringLengthWithMaximum(source, count);
 		if (sourceLength > 0)
-		{
-			Buffer.MemoryCopy(source, destination, count, sourceLength); // Copy up to count bytes from source to destination
-		}
+			Buffer.MemoryCopy(source, destination, count, sourceLength);
 		if (sourceLength < count)
-		{
-			new Span<byte>(destination + sourceLength, (int)(count - sourceLength)).Clear(); // Null-terminate if source is shorter than count
-		}
-		return destination; // Return pointer to the destination string
+			new Span<byte>(destination + sourceLength, (int)(count - sourceLength)).Clear();
+		return destination;
 	}
 
 	[MangledName("strncat")]
@@ -355,17 +684,13 @@ internal static unsafe partial class IntrinsicFunctions
 	{
 		// https://cplusplus.com/reference/cstring/strncat/
 		if (destination == null || source == null)
-		{
-			return null; // Return null for null strings
-		}
-		long insertionPoint = strlen(destination); // Find the end of the destination string
+			return null;
+		long insertionPoint = strlen(destination);
 		long sourceLength = StringLengthWithMaximum(source, (int)count);
 		if (sourceLength > 0)
-		{
-			Buffer.MemoryCopy(source, destination + insertionPoint, count, sourceLength); // Copy up to count bytes from source to the end of destination
-		}
-		destination[insertionPoint + sourceLength] = 0; // Null-terminate the destination string
-		return destination; // Return pointer to the destination string
+			Buffer.MemoryCopy(source, destination + insertionPoint, count, sourceLength);
+		destination[insertionPoint + sourceLength] = 0;
+		return destination;
 	}
 
 	[MangledName("strcat")]
@@ -375,20 +700,44 @@ internal static unsafe partial class IntrinsicFunctions
 		return strncat(destination, source, int.MaxValue);
 	}
 
+	[MangledName("strdup")]
+	public static byte* strdup(byte* str)
+	{
+		if (str == null)
+			return null;
+		long len = strlen(str);
+		byte* copy = (byte*)NativeMemoryHelper.Allocate(len + 1);
+		Buffer.MemoryCopy(str, copy, len + 1, len + 1);
+		return copy;
+	}
+
+	[MangledName("strndup")]
+	public static byte* strndup(byte* str, long n)
+	{
+		if (str == null)
+			return null;
+		long len = strnlen(str, n);
+		byte* copy = (byte*)NativeMemoryHelper.Allocate(len + 1);
+		if (len > 0)
+			Buffer.MemoryCopy(str, copy, len, len);
+		copy[len] = 0;
+		return copy;
+	}
+
 	private static long StringLengthWithMaximum(byte* str, long maxLength)
 	{
 		if (str == null)
-		{
-			return 0; // Return 0 for null strings
-		}
+			return 0;
 		long length = 0;
-		while (length < maxLength && *str != '\0') // count until null terminator or maximum length
+		while (length < maxLength && *str != '\0')
 		{
 			length++;
 			str++;
 		}
-		return length; // return the length of the string
+		return length;
 	}
+
+	// ── Character classification ──────────────────────────────────────────────
 
 	[MangledName("tolower")]
 	public static int ToLower(int character)
@@ -397,143 +746,483 @@ internal static unsafe partial class IntrinsicFunctions
 		{
 			uint u = (uint)character;
 			if (u >= ushort.MaxValue)
-			{
-				return character; // Return the original value if it's not a valid unicode character
-			}
-			char c = char.ToLower((char)u);
-			return (int)(uint)c; // Convert back to int
+				return character;
+			return (int)(uint)char.ToLowerInvariant((char)u);
+		}
+	}
+
+	[MangledName("toupper")]
+	public static int ToUpper(int character)
+	{
+		unchecked
+		{
+			uint u = (uint)character;
+			if (u >= ushort.MaxValue)
+				return character;
+			return (int)(uint)char.ToUpperInvariant((char)u);
 		}
 	}
 
 	[MangledName("isalpha")]
-	public static int IsAlpha(int character)
-	{
-		unchecked
-		{
-			uint u = (uint)character;
-			if (u >= ushort.MaxValue)
-			{
-				return 0; // False
-			}
-			char c = (char)u;
-			return char.IsLetter(c) ? 1 : 0;
-		}
-	}
+	public static int IsAlpha(int c) => IsCClass(c, char.IsLetter);
 
 	[MangledName("isdigit")]
-	public static int IsDigit(int character)
+	public static int IsDigit(int c) => IsCClass(c, char.IsAsciiDigit);
+
+	[MangledName("isalnum")]
+	public static int IsAlNum(int c) => IsCClass(c, char.IsLetterOrDigit);
+
+	[MangledName("isspace")]
+	public static int IsSpace(int c) => IsCClass(c, char.IsWhiteSpace);
+
+	[MangledName("isupper")]
+	public static int IsUpper(int c) => IsCClass(c, char.IsUpper);
+
+	[MangledName("islower")]
+	public static int IsLower(int c) => IsCClass(c, char.IsLower);
+
+	[MangledName("isprint")]
+	public static int IsPrint(int c) => IsCClass(c, static ch => !char.IsControl(ch));
+
+	[MangledName("isgraph")]
+	public static int IsGraph(int c) => IsCClass(c, static ch => !char.IsControl(ch) && ch != ' ');
+
+	[MangledName("ispunct")]
+	public static int IsPunct(int c) => IsCClass(c, char.IsPunctuation);
+
+	[MangledName("iscntrl")]
+	public static int IsCntrl(int c) => IsCClass(c, char.IsControl);
+
+	[MangledName("isblank")]
+	public static int IsBlank(int c) => c == ' ' || c == '\t' ? 1 : 0;
+
+	[MangledName("isxdigit")]
+	public static int IsXDigit(int c) => IsCClass(c, char.IsAsciiHexDigit);
+
+	private static int IsCClass(int character, Func<char, bool> predicate)
 	{
 		unchecked
 		{
 			uint u = (uint)character;
-			if (u >= ushort.MaxValue)
-			{
-				return 0; // False
-			}
-			char c = (char)u;
-			return char.IsDigit(c) ? 1 : 0;
+			return u <= ushort.MaxValue && predicate((char)u) ? 1 : 0;
 		}
 	}
+
+	// ── Number parsing ────────────────────────────────────────────────────────
 
 	[MangledName("atoi")]
-	public static int AsciiToInteger(byte* str)
+	public static int AsciiToInteger(byte* str) => (int)strtol(str, null, 10);
+
+	[MangledName("atol")]
+	public static long atol(byte* str) => strtol(str, null, 10);
+
+	[MangledName("atoll")]
+	public static long atoll(byte* str) => strtol(str, null, 10);
+
+	[MangledName("atof")]
+	public static double atof(byte* str) => strtod(str, null);
+
+	[MangledName("strtol")]
+	[MangledName("strtoll")]
+	public static long strtol(byte* str, byte** endptr, int numBase)
 	{
-		// https://cplusplus.com/reference/cstdlib/atoi/
 		if (str == null)
 		{
-			return 0; // Return 0 for null strings
+			if (endptr != null)
+				*endptr = str;
+			return 0;
 		}
-
-		// Skip leading whitespace
-		while (char.IsWhiteSpace((char)*str))
+		string s = Marshal.PtrToStringUTF8((IntPtr)str) ?? "";
+		int i = 0;
+		while (i < s.Length && char.IsWhiteSpace(s[i]))
+			i++;
+		long sign = 1;
+		if (i < s.Length && s[i] == '-')
 		{
-			str++;
+			sign = -1;
+			i++;
 		}
-
-		byte* start;
-		switch (*str)
+		else if (i < s.Length && s[i] == '+')
+			i++;
+		if (numBase == 0)
 		{
-			case (byte)'-':
-				start = str;
-				str++;
+			if (i + 1 < s.Length && s[i] == '0' && s[i + 1] is 'x' or 'X')
+				numBase = 16;
+			else if (i < s.Length && s[i] == '0')
+				numBase = 8;
+			else
+				numBase = 10;
+		}
+		if (numBase == 16 && i + 1 < s.Length && s[i] == '0' && s[i + 1] is 'x' or 'X')
+			i += 2;
+		int start = i;
+		long result = 0;
+		while (i < s.Length)
+		{
+			int d = ParseDigit(s[i], numBase);
+			if (d < 0)
 				break;
-			case (byte)'+':
-				str++;
-				start = str;
-				break;
-			default:
-				start = str;
-				break;
+			result = result * numBase + d;
+			i++;
 		}
+		if (endptr != null)
+			*endptr = str + i;
+		return i == start ? 0 : sign * result;
 
-		byte* end;
-		while (true)
+		static int ParseDigit(char c, int b)
 		{
-			if (!char.IsDigit((char)*str))
-			{
-				end = str;
-				break; // Stop on non-digit character
-			}
-			str++;
+			int d =
+				c is >= '0' and <= '9' ? c - '0'
+				: c is >= 'a' and <= 'z' ? c - 'a' + 10
+				: c is >= 'A' and <= 'Z' ? c - 'A' + 10
+				: -1;
+			return d >= 0 && d < b ? d : -1;
 		}
-
-		long length = end - start;
-		if (length == 0)
-		{
-			return 0; // Return 0 if no digits were found
-		}
-		ReadOnlySpan<byte> span = new(start, (int)length);
-		if (length == 1 && span[0] is (byte)'-')
-		{
-			return 0; // Return 0 if only a negative sign was found
-		}
-		return int.Parse(span, System.Globalization.CultureInfo.InvariantCulture);
 	}
+
+	[MangledName("strtoul")]
+	[MangledName("strtoull")]
+	public static ulong strtoul(byte* str, byte** endptr, int numBase) =>
+		(ulong)strtol(str, endptr, numBase);
+
+	[MangledName("strtod")]
+	public static double strtod(byte* str, byte** endptr)
+	{
+		if (str == null)
+		{
+			if (endptr != null)
+				*endptr = str;
+			return 0.0;
+		}
+		string s = Marshal.PtrToStringUTF8((IntPtr)str) ?? "";
+		int i = 0;
+		while (i < s.Length && char.IsWhiteSpace(s[i]))
+			i++;
+		int start = i;
+		if (i < s.Length && s[i] is '+' or '-')
+			i++;
+		while (
+			i < s.Length
+			&& (
+				char.IsAsciiDigit(s[i])
+				|| s[i] == '.'
+				|| s[i] == 'e'
+				|| s[i] == 'E'
+				|| s[i] == '+'
+				|| s[i] == '-'
+			)
+		)
+			i++;
+		if (endptr != null)
+			*endptr = str + i;
+		return double.TryParse(
+			s[start..i],
+			System.Globalization.NumberStyles.Float,
+			System.Globalization.CultureInfo.InvariantCulture,
+			out double d
+		)
+			? d
+			: 0.0;
+	}
+
+	[MangledName("strtof")]
+	public static float strtof(byte* str, byte** endptr) => (float)strtod(str, endptr);
+
+	[MangledName("strtold")]
+	public static double strtold(byte* str, byte** endptr) => strtod(str, endptr);
+
+	// ── Math ──────────────────────────────────────────────────────────────────
 
 	[MangledName("sqrt")]
-	public static double Sqrt(double d)
+	public static double Sqrt(double d) => double.Sqrt(d);
+
+	[MangledName("sqrtf")]
+	public static float Sqrtf(float f) => float.Sqrt(f);
+
+	[MangledName("fabs")]
+	public static double Fabs(double x) => Math.Abs(x);
+
+	[MangledName("fabsf")]
+	public static float Fabsf(float x) => Math.Abs(x);
+
+	[MangledName("abs")]
+	[MangledName("labs")]
+	[MangledName("llabs")]
+	public static long AbsL(long x) => Math.Abs(x);
+
+	[MangledName("ceil")]
+	public static double Ceil(double x) => Math.Ceiling(x);
+
+	[MangledName("ceilf")]
+	public static float Ceilf(float x) => MathF.Ceiling(x);
+
+	[MangledName("floor")]
+	public static double Floor(double x) => Math.Floor(x);
+
+	[MangledName("floorf")]
+	public static float Floorf(float x) => MathF.Floor(x);
+
+	[MangledName("round")]
+	public static double Round(double x) => Math.Round(x, MidpointRounding.AwayFromZero);
+
+	[MangledName("roundf")]
+	public static float Roundf(float x) => MathF.Round(x, MidpointRounding.AwayFromZero);
+
+	[MangledName("trunc")]
+	public static double Trunc(double x) => Math.Truncate(x);
+
+	[MangledName("truncf")]
+	public static float Truncf(float x) => MathF.Truncate(x);
+
+	[MangledName("fmod")]
+	public static double Fmod(double x, double y) => x % y;
+
+	[MangledName("fmodf")]
+	public static float Fmodf(float x, float y) => x % y;
+
+	[MangledName("pow")]
+	public static double Pow(double x, double y) => Math.Pow(x, y);
+
+	[MangledName("powf")]
+	public static float Powf(float x, float y) => MathF.Pow(x, y);
+
+	[MangledName("exp")]
+	public static double Exp(double x) => Math.Exp(x);
+
+	[MangledName("expf")]
+	public static float Expf(float x) => MathF.Exp(x);
+
+	[MangledName("exp2")]
+	public static double Exp2(double x) => Math.Pow(2.0, x);
+
+	[MangledName("exp2f")]
+	public static float Exp2f(float x) => MathF.Pow(2.0f, x);
+
+	[MangledName("log")]
+	public static double Log(double x) => Math.Log(x);
+
+	[MangledName("logf")]
+	public static float Logf(float x) => MathF.Log(x);
+
+	[MangledName("log2")]
+	public static double Log2(double x) => Math.Log2(x);
+
+	[MangledName("log2f")]
+	public static float Log2f(float x) => MathF.Log2(x);
+
+	[MangledName("log10")]
+	public static double Log10(double x) => Math.Log10(x);
+
+	[MangledName("log10f")]
+	public static float Log10f(float x) => MathF.Log10(x);
+
+	[MangledName("sin")]
+	public static double Sin(double x) => Math.Sin(x);
+
+	[MangledName("sinf")]
+	public static float Sinf(float x) => MathF.Sin(x);
+
+	[MangledName("cos")]
+	public static double Cos(double x) => Math.Cos(x);
+
+	[MangledName("cosf")]
+	public static float Cosf(float x) => MathF.Cos(x);
+
+	[MangledName("tan")]
+	public static double Tan(double x) => Math.Tan(x);
+
+	[MangledName("tanf")]
+	public static float Tanf(float x) => MathF.Tan(x);
+
+	[MangledName("asin")]
+	public static double Asin(double x) => Math.Asin(x);
+
+	[MangledName("asinf")]
+	public static float Asinf(float x) => MathF.Asin(x);
+
+	[MangledName("acos")]
+	public static double Acos(double x) => Math.Acos(x);
+
+	[MangledName("acosf")]
+	public static float Acosf(float x) => MathF.Acos(x);
+
+	[MangledName("atan")]
+	public static double Atan(double x) => Math.Atan(x);
+
+	[MangledName("atanf")]
+	public static float Atanf(float x) => MathF.Atan(x);
+
+	[MangledName("atan2")]
+	public static double Atan2(double y, double x) => Math.Atan2(y, x);
+
+	[MangledName("atan2f")]
+	public static float Atan2f(float y, float x) => MathF.Atan2(y, x);
+
+	[MangledName("hypot")]
+	public static double Hypot(double x, double y) => Math.Sqrt(x * x + y * y);
+
+	[MangledName("hypotf")]
+	public static float Hypotf(float x, float y) => MathF.Sqrt(x * x + y * y);
+
+	[MangledName("cbrt")]
+	public static double Cbrt(double x) => Math.Cbrt(x);
+
+	[MangledName("cbrtf")]
+	public static float Cbrtf(float x) => MathF.Cbrt(x);
+
+	[MangledName("fmin")]
+	public static double Fmin(double x, double y) => Math.Min(x, y);
+
+	[MangledName("fminf")]
+	public static float Fminf(float x, float y) => Math.Min(x, y);
+
+	[MangledName("fmax")]
+	public static double Fmax(double x, double y) => Math.Max(x, y);
+
+	[MangledName("fmaxf")]
+	public static float Fmaxf(float x, float y) => Math.Max(x, y);
+
+	[MangledName("sinh")]
+	public static double Sinh(double x) => Math.Sinh(x);
+
+	[MangledName("cosh")]
+	public static double Cosh(double x) => Math.Cosh(x);
+
+	[MangledName("tanh")]
+	public static double Tanh(double x) => Math.Tanh(x);
+
+	[MangledName("sinhf")]
+	public static float Sinhf(float x) => MathF.Sinh(x);
+
+	[MangledName("coshf")]
+	public static float Coshf(float x) => MathF.Cosh(x);
+
+	[MangledName("tanhf")]
+	public static float Tanhf(float x) => MathF.Tanh(x);
+
+	[MangledName("ldexp")]
+	public static double Ldexp(double x, int exp) => x * Math.Pow(2.0, exp);
+
+	[MangledName("ldexpf")]
+	public static float Ldexpf(float x, int exp) => x * MathF.Pow(2.0f, exp);
+
+	[MangledName("frexp")]
+	public static double Frexp(double x, int* exp)
 	{
-		return double.Sqrt(d);
+		if (x == 0.0)
+		{
+			if (exp != null)
+				*exp = 0;
+			return 0.0;
+		}
+		long bits = BitConverter.DoubleToInt64Bits(x);
+		int exponent = (int)((bits >> 52) & 0x7FF) - 1022;
+		double mantissa = BitConverter.Int64BitsToDouble(
+			(bits & unchecked((long)0x800FFFFFFFFFFFFF)) | 0x3FE0000000000000
+		);
+		if (exp != null)
+			*exp = exponent;
+		return mantissa;
 	}
 
+	[MangledName("modf")]
+	public static double Modf(double x, double* intpart)
+	{
+		double t = Math.Truncate(x);
+		if (intpart != null)
+			*intpart = t;
+		return x - t;
+	}
+
+	// ── Random ────────────────────────────────────────────────────────────────
+
+	private static System.Random? _randomField;
+	private static System.Random _random => _randomField ??= new System.Random();
+
+	[MangledName("rand")]
+	public static int Rand() => _random.Next(0, 32768);
+
+	[MangledName("srand")]
+	public static void Srand(uint s) => _randomField = new System.Random((int)s);
+
+	// ── Clock ─────────────────────────────────────────────────────────────────
+
 	private static readonly long StartTicks = Environment.TickCount64;
+
 	[MangledName("clock")]
-	public static int Clock()
+	public static long Clock()
 	{
 		// https://cplusplus.com/reference/ctime/clock/
-		// Note: this assumes that CLOCKS_PER_SEC is 1000, which is true on Windows, but not necessarily on other platforms.
-		// If C++ code is compiled on a platform where CLOCKS_PER_SEC is different, this implementation will not be accurate.
-		long elapsedTicks = Environment.TickCount64 - StartTicks;
-		return unchecked((int)elapsedTicks);
+		// Linux: CLOCKS_PER_SEC = 1000000 (microseconds).
+		// Note: this assumes that CLOCKS_PER_SEC is 1000000, which is true on Linux.
+		// If C++ code is compiled on Windows where CLOCKS_PER_SEC is 1000, this will be off.
+		return (Environment.TickCount64 - StartTicks) * 1000;
 	}
+
+	// ── Memory operations ─────────────────────────────────────────────────────
 
 	[MangledName("memcmp")]
 	public static int memcmp(byte* p1, byte* p2, long count)
 	{
 		for (long i = 0; i < count; i++)
-		{
 			if (p1[i] != p2[i])
-			{
-				return p1[i] - p2[i]; // Return the difference of the first non-matching bytes
-			}
-		}
-		return 0; // All bytes match
+				return p1[i] - p2[i];
+		return 0;
+	}
+
+	[MangledName("memcpy")]
+	public static void* memcpy(void* dst, void* src, long n)
+	{
+		Unsafe.CopyBlock(dst, src, (uint)n);
+		return dst;
+	}
+
+	[MangledName("memmove")]
+	public static void* memmove(void* dst, void* src, long n)
+	{
+		byte[] buf = ArrayPool<byte>.Shared.Rent((int)n);
+		new ReadOnlySpan<byte>(src, (int)n).CopyTo(new Span<byte>(buf, 0, (int)n));
+		new Span<byte>(buf, 0, (int)n).CopyTo(new Span<byte>(dst, (int)n));
+		ArrayPool<byte>.Shared.Return(buf);
+		return dst;
+	}
+
+	[MangledName("memset")]
+	public static void* memset(void* dst, int val, long n)
+	{
+		new Span<byte>(dst, (int)n).Fill(unchecked((byte)val));
+		return dst;
 	}
 
 	[MangledName("llvm.memcpy.p0.p0.i32")]
-	public static void llvm_memcpy_p0_p0_i32(void* destination, void* source, int length, bool isVolatile)
+	public static void llvm_memcpy_p0_p0_i32(
+		void* destination,
+		void* source,
+		int length,
+		bool isVolatile
+	)
 	{
 		Unsafe.CopyBlock(destination, source, (uint)length);
 	}
 
 	[MangledName("llvm.memcpy.p0.p0.i64")]
-	public static void llvm_memcpy_p0_p0_i64(void* destination, void* source, long length, bool isVolatile)
+	public static void llvm_memcpy_p0_p0_i64(
+		void* destination,
+		void* source,
+		long length,
+		bool isVolatile
+	)
 	{
 		Unsafe.CopyBlock(destination, source, (uint)length);
 	}
 
 	[MangledName("llvm.memmove.p0.p0.i32")]
-	public static void llvm_memmove_p0_p0_i32(void* destination, void* source, int length, bool isVolatile)
+	public static void llvm_memmove_p0_p0_i32(
+		void* destination,
+		void* source,
+		int length,
+		bool isVolatile
+	)
 	{
 		// Same as memcpy, except that the source and destination are allowed to overlap.
 		byte[] buffer = ArrayPool<byte>.Shared.Rent(length);
@@ -544,240 +1233,76 @@ internal static unsafe partial class IntrinsicFunctions
 	}
 
 	[MangledName("llvm.memmove.p0.p0.i64")]
-	public static void llvm_memmove_p0_p0_i64(void* destination, void* source, long length, bool isVolatile)
+	public static void llvm_memmove_p0_p0_i64(
+		void* destination,
+		void* source,
+		long length,
+		bool isVolatile
+	)
 	{
 		llvm_memmove_p0_p0_i32(destination, source, (int)length, isVolatile);
 	}
 
 	[MangledName("llvm.memset.p0.i32")]
-	public static void llvm_memset_p0_i32(void* destination, sbyte value, int length, bool isVolatile)
+	public static void llvm_memset_p0_i32(
+		void* destination,
+		sbyte value,
+		int length,
+		bool isVolatile
+	)
 	{
 		new Span<byte>(destination, length).Fill(unchecked((byte)value));
 	}
 
 	[MangledName("llvm.memset.p0.i64")]
-	public static void llvm_memset_p0_i64(void* destination, sbyte value, long length, bool isVolatile)
+	public static void llvm_memset_p0_i64(
+		void* destination,
+		sbyte value,
+		long length,
+		bool isVolatile
+	)
 	{
 		llvm_memset_p0_i32(destination, value, (int)length, isVolatile);
 	}
+
+	// ── Heap allocation ───────────────────────────────────────────────────────
 
 	[MangledName("calloc")]
 	public static void* CAlloc(long elementCount, long elementSize)
 	{
 		// https://en.cppreference.com/w/c/memory/calloc
-
 		if (elementCount <= 0 || elementSize <= 0)
-		{
-			return null; // Return null for zero or negative allocation
-		}
-
+			return null;
 		if (elementCount > int.MaxValue || elementSize > int.MaxValue)
-		{
-			return null; // Return null for allocations that exceed int.MaxValue
-		}
-
+			return null;
 		long totalSize = elementCount * elementSize;
-
 		if (totalSize > int.MaxValue)
-		{
-			return null; // Return null for allocations that exceed int.MaxValue
-		}
-
+			return null;
 		void* result = Alloc(totalSize);
-
-		// Zero the allocated memory
 		new Span<byte>(result, (int)totalSize).Clear();
-
 		return result;
 	}
 
 	[MangledName("malloc")]
-	[MangledName("??2@YAPEAX_K@Z")] // new
-	public static void* Alloc(long size)
-	{
-		return NativeMemoryHelper.Allocate(size);
-	}
+	public static void* Alloc(long size) => NativeMemoryHelper.Allocate(size);
 
 	[MangledName("realloc")]
-	public static void* ReAlloc(void* ptr, long size)
-	{
-		return NativeMemoryHelper.Reallocate(ptr, size);
-	}
+	public static void* ReAlloc(void* ptr, long size) => NativeMemoryHelper.Reallocate(ptr, size);
 
 	[MangledName("free")]
-	public static void Free(void* ptr)
-	{
-		NativeMemoryHelper.Free(ptr);
-	}
+	public static void Free(void* ptr) => NativeMemoryHelper.Free(ptr);
 
-	[MangledName("_msize")]
-	public static long Size(void* ptr)
-	{
-		return NativeMemoryHelper.Size(ptr);
-	}
-
-	[MangledName("??3@YAXPEAX_K@Z")]
-	public static void Delete(void* ptr, long size)
-	{
-		NativeMemoryHelper.Free(ptr);
-	}
-
-	[MangledName("expand")]
-	public static void* Expand(void* ptr, long size)
-	{
-		// _expand is a non-standard function available in some C++ implementations, particularly in Microsoft C Runtime Library (CRT).
-		// It is used to resize a previously allocated memory block without moving it, meaning it tries to expand or shrink the allocated memory in place.
-		// _expand is mainly useful for optimizing performance in memory management when using Microsoft CRT.
-		// If the block cannot be resized in place, _expand returns NULL, but the original block remains valid.
-
-		// We take advantage of the fact that it's just an optimization and return null, signaling that we can't expand the memory in place.
-		return null;
-	}
-
-	[MangledName("_CxxThrowException")]
-	[MightThrow]
-	public static void CxxThrowException(void* exceptionPointer, void* throwInfo)
-	{
-		ExceptionInfo.Current = new NativeExceptionInfo(exceptionPointer, (ThrowInfo*)throwInfo);
-	}
-
-	[MangledName("__CxxFrameHandler3")]
-	public static int CxxFrameHandler3(ReadOnlySpan<nint> args)
-	{
-		if (args.Length != 3)
-		{
-			throw new ArgumentException("Expected 3 arguments", nameof(args));
-		}
-
-		if (args[0] == 0 || args[1] == 0 || args[2] == 0)
-		{
-			throw new ArgumentNullException(nameof(args), "Arguments cannot be null");
-		}
-
-		RttiTypeDescriptor* rttiTypeDescriptor = *(RttiTypeDescriptor**)args[0];
-		int unknown = *(int*)args[1];
-		void** outException = (void**)args[2];
-
-		if (ExceptionInfo.Current is NativeExceptionInfo nativeException)
-		{
-			if (rttiTypeDescriptor is not null && !nativeException.Contains(rttiTypeDescriptor))
-			{
-				return 1; // Continue search
-			}
-
-			if (outException != null)
-			{
-				*outException = nativeException.ExceptionPointer;
-			}
-
-			return 0; // Handled
-		}
-		else
-		{
-			if (rttiTypeDescriptor != null || outException != null)
-			{
-				throw new NotSupportedException($"Current exception is not a {nameof(NativeExceptionInfo)}.");
-			}
-			return 0; // Handled because throwInfo is null
-		}
-	}
-
-	private sealed class NativeExceptionInfo : ExceptionInfo
-	{
-		public void* ExceptionPointer { get; private set; }
-		public ThrowInfo* ThrowInfo { get; private set; }
-
-		public NativeExceptionInfo(void* exceptionPointer, ThrowInfo* throwInfo)
-		{
-			ExceptionPointer = exceptionPointer;
-			ThrowInfo = throwInfo;
-		}
-
-		public bool Contains(RttiTypeDescriptor* rttiTypeDescriptor)
-		{
-			if (ThrowInfo == null)
-			{
-				return false;
-			}
-			foreach (CatchableType catchableType in ThrowInfo->CatchableTypeArray)
-			{
-				if (catchableType.RttiTypeDescriptor == rttiTypeDescriptor)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-			if (ExceptionPointer != null && ThrowInfo != null)
-			{
-				delegate*<void*, void> destructor = ThrowInfo->Destructor;
-				if (destructor != null)
-				{
-					destructor(ExceptionPointer);
-				}
-			}
-			ExceptionPointer = null;
-			ThrowInfo = null;
-		}
-	}
-
-	private struct ThrowInfo
-	{
-		public int field_0;
-		public int DestructorIndex;
-		public int CatchableTypeArrayIndex;
-
-		public readonly delegate*<void*, void> Destructor => (delegate*<void*, void>)PointerIndices.GetPointer(DestructorIndex);
-		public readonly ReadOnlySpan<CatchableType> CatchableTypeArray
-		{
-			get
-			{
-				CatchableTypeArray* array = (CatchableTypeArray*)PointerIndices.GetPointer(CatchableTypeArrayIndex);
-				if (array == null || array->Count <= 0)
-				{
-					return [];
-				}
-				return new ReadOnlySpan<CatchableType>((byte*)array + sizeof(int), array->Count);
-			}
-		}
-	}
-
-	private struct CatchableTypeArray
-	{
-		public int Count;
-		// Inline array starts here
-	}
-
-	private struct CatchableType
-	{
-		public int field_0;
-		public int RttiTypeDescriptorIndex;
-		public int field_2;
-		public int field_3;
-		public int field_4;
-		public int field_5;
-		public int ConstructorIndex;
-
-		public readonly RttiTypeDescriptor* RttiTypeDescriptor => (RttiTypeDescriptor*)PointerIndices.GetPointer(RttiTypeDescriptorIndex);
-
-		// Not sure if the signature is always this
-		public readonly delegate*<void*, void*, void*> Constructor => (delegate*<void*, void*, void*>)PointerIndices.GetPointer(ConstructorIndex);
-	}
-
-	private struct RttiTypeDescriptor
-	{
-	}
+	// ── Shared AssertExceptionInfo (used by _wassert on Windows and __assert_fail on Linux) ──
 
 	private sealed class AssertExceptionInfo : ExceptionInfo
 	{
 		public string Message { get; }
+
 		public AssertExceptionInfo(string message)
 		{
 			Message = message;
 		}
+
 		public override string? GetMessage() => Message;
 	}
 }
