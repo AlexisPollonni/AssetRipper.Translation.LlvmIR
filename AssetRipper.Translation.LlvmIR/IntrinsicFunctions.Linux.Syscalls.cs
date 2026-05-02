@@ -79,6 +79,7 @@ internal static unsafe partial class IntrinsicFunctions
 		Getgid = 104,
 		Getppid = 110,
 		Ioctl = 16,
+		Prctl = 157,
 		ArchPrctl = 158,
 		Gettid = 186,
 		Futex = 202,
@@ -719,9 +720,10 @@ internal static unsafe partial class IntrinsicFunctions
 				(Rlimit64Struct*)a4
 			),
 
-			// ── signals ──────────────────────────────────────────────────────
+			// ── signals / process control ─────────────────────────────────────────
 			SyscallNumber.RtSigaction => 0, // stub
 			SyscallNumber.RtSigprocmask => 0, // stub
+			SyscallNumber.Prctl => 0, // thread names etc. — cosmetic
 			SyscallNumber.Select => 0,
 			SyscallNumber.Poll => 0,
 			SyscallNumber.Pselect6 => 0,
@@ -768,8 +770,8 @@ internal static unsafe partial class IntrinsicFunctions
 		int* parentTid,
 		int* childTid,
 		void* tls,
-		delegate* <void*, long> fn,
-		void* arg
+		delegate* <void*, void> fn, // start_thread_with_args(void*)
+		void* arg // StartArgs*
 	)
 	{
 		if (fn == null)
@@ -801,7 +803,7 @@ internal static unsafe partial class IntrinsicFunctions
 				Volatile.Write(ref *childTid, myTid);
 			if (_tidAddress != null)
 				Volatile.Write(ref *_tidAddress, myTid);
-			((delegate* <void*, long>)fnPtr)((void*)argPtr);
+			((delegate* <void*, void>)fnPtr)((void*)argPtr);
 		})
 		{
 			IsBackground = true,
