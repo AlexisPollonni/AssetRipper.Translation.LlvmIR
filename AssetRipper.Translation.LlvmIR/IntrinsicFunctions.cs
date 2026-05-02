@@ -23,6 +23,31 @@ internal static unsafe partial class IntrinsicFunctions
 	[MangledName("llvm.dbg.label")]
 	public static void DoNothingDebug(object p1, object p2, object p3) { }
 
+	// ── x86-specific LLVM intrinsics ─────────────────────────────────────────
+	// These have 3-part names (llvm.x86.xxx.yyy) so the regex-based
+	// TryImplementNumericOperation path doesn't reach them; they need explicit
+	// [MangledName] entries here.
+
+	// llvm.x86.sse2.pause — emitted by __builtin_ia32_pause() in sleep.h
+	[MangledName("llvm.x86.sse2.pause")]
+	public static void Sse2Pause() => System.Threading.Thread.SpinWait(1);
+
+	// llvm.x86.sse.stmxcsr — emitted by _mm_getcsr() in fenv_mxcsr_utils.h
+	// Stores the MXCSR register value to memory; we return the SSE2 power-on
+	// default (all exceptions masked, round-to-nearest) since .NET has no
+	// mechanism to query or set the FP environment register.
+	[MangledName("llvm.x86.sse.stmxcsr")]
+	public static unsafe void SseStoreMxcsr(uint* mem)
+	{
+		if (mem != null)
+			*mem = 0x1F80u; // default MXCSR
+	}
+
+	// llvm.x86.sse.ldmxcsr — emitted by _mm_setcsr() in fenv_mxcsr_utils.h
+	// Loads a value into the MXCSR register; no-op in managed code.
+	[MangledName("llvm.x86.sse.ldmxcsr")]
+	public static unsafe void SseLoadMxcsr(uint* mem) { }
+
 	// ── Standard-stream sentinels (shared by both platform files) ────────────
 
 	internal static void* StandardInput => (void*)1;
@@ -345,13 +370,19 @@ internal static unsafe partial class IntrinsicFunctions
 				case 'd':
 				case 'i':
 				{
-					long v = len >= 2 ? (argIndex < args.Length ? args[argIndex++] : 0) : (int)(argIndex < args.Length ? args[argIndex++] : 0);
+					long v =
+						len >= 2
+							? (argIndex < args.Length ? args[argIndex++] : 0)
+							: (int)(argIndex < args.Length ? args[argIndex++] : 0);
 					value = FmtSignedInt(v, width, prec, minus, plus, space, zero);
 					break;
 				}
 				case 'u':
 				{
-					ulong v = len >= 2 ? (ulong)(argIndex < args.Length ? args[argIndex++] : 0) : (uint)(argIndex < args.Length ? args[argIndex++] : 0);
+					ulong v =
+						len >= 2
+							? (ulong)(argIndex < args.Length ? args[argIndex++] : 0)
+							: (uint)(argIndex < args.Length ? args[argIndex++] : 0);
 					string d = v.ToString();
 					if (prec >= 0 && d.Length < prec)
 						d = d.PadLeft(prec, '0');
@@ -363,7 +394,10 @@ internal static unsafe partial class IntrinsicFunctions
 				case 'x':
 				case 'X':
 				{
-					ulong v = len >= 2 ? (ulong)(argIndex < args.Length ? args[argIndex++] : 0) : (uint)(argIndex < args.Length ? args[argIndex++] : 0);
+					ulong v =
+						len >= 2
+							? (ulong)(argIndex < args.Length ? args[argIndex++] : 0)
+							: (uint)(argIndex < args.Length ? args[argIndex++] : 0);
 					string d = spec == 'x' ? v.ToString("x") : v.ToString("X");
 					if (prec >= 0 && d.Length < prec)
 						d = d.PadLeft(prec, '0');
@@ -376,7 +410,10 @@ internal static unsafe partial class IntrinsicFunctions
 				}
 				case 'o':
 				{
-					ulong v = len >= 2 ? (ulong)(argIndex < args.Length ? args[argIndex++] : 0) : (uint)(argIndex < args.Length ? args[argIndex++] : 0);
+					ulong v =
+						len >= 2
+							? (ulong)(argIndex < args.Length ? args[argIndex++] : 0)
+							: (uint)(argIndex < args.Length ? args[argIndex++] : 0);
 					string d = Convert.ToString((long)v, 8);
 					if (hash && !d.StartsWith('0'))
 						d = "0" + d;
