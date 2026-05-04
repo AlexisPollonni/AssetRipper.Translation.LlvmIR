@@ -1,12 +1,12 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Collections;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AssetRipper.Translation.LlvmIR.Attributes;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Text.RegularExpressions;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -21,12 +21,21 @@ internal static partial class IntrinsicFunctionImplementer
 
 		CilInstructionCollection instructions = context.Definition.CilMethodBody!.Instructions;
 
-		if (TryGetInjectedIntrinsic(context.Module, context.MangledName, out MethodDefinition? implementation) && implementation.Parameters.Count == context.Definition.Parameters.Count)
+		if (
+			TryGetInjectedIntrinsic(
+				context.Module,
+				context.MangledName,
+				out MethodDefinition? implementation
+			)
+			&& implementation.Parameters.Count == context.Definition.Parameters.Count
+		)
 		{
 			// Set parameter names to match the implementation.
 			for (int i = 0; i < context.Definition.Parameters.Count; i++)
 			{
-				context.Definition.Parameters[i].GetOrCreateDefinition().Name = implementation.Parameters[i].Name;
+				context.Definition.Parameters[i].GetOrCreateDefinition().Name = implementation
+					.Parameters[i]
+					.Name;
 			}
 
 			MoveToImplementedType(context);
@@ -41,6 +50,14 @@ internal static partial class IntrinsicFunctionImplementer
 			instructions.Add(CilOpCodes.Ret);
 		}
 		else if (TryImplementNumericOperation(context))
+		{
+			MoveToImplementedType(context);
+		}
+		else if (TryImplementNoOpIntrinsic(context))
+		{
+			MoveToImplementedType(context);
+		}
+		else if (TryImplementPassthroughIntrinsic(context))
 		{
 			MoveToImplementedType(context);
 		}
@@ -59,15 +76,23 @@ internal static partial class IntrinsicFunctionImplementer
 
 	private static void MoveToImplementedType(FunctionContext context)
 	{
-		context.DeclaringType.Namespace = context.Module.Options.GetNamespace("Intrinsics.Implemented");
+		context.DeclaringType.Namespace = context.Module.Options.GetNamespace(
+			"Intrinsics.Implemented"
+		);
 	}
 
 	private static void MoveToUnimplementedType(FunctionContext context)
 	{
-		context.DeclaringType.Namespace = context.Module.Options.GetNamespace("Intrinsics.Unimplemented");
+		context.DeclaringType.Namespace = context.Module.Options.GetNamespace(
+			"Intrinsics.Unimplemented"
+		);
 	}
 
-	private static bool TryGetInjectedIntrinsic(ModuleContext context, string mangledName, [NotNullWhen(true)] out MethodDefinition? result)
+	private static bool TryGetInjectedIntrinsic(
+		ModuleContext context,
+		string mangledName,
+		[NotNullWhen(true)] out MethodDefinition? result
+	)
 	{
 		result = context.IntrinsicsType.Methods.FirstOrDefault(m =>
 		{
@@ -96,19 +121,30 @@ internal static partial class IntrinsicFunctionImplementer
 		}
 
 		TypeSignature returnTypeSignature = context.Definition.Signature!.ReturnType;
-		TypeDefinition returnTypeDefinition = returnTypeSignature.Resolve() ?? throw new NullReferenceException(nameof(returnTypeDefinition));
+		TypeDefinition returnTypeDefinition =
+			returnTypeSignature.Resolve()
+			?? throw new NullReferenceException(nameof(returnTypeDefinition));
 
 		MethodSpecification? implementation;
-		if (context.Module.InlineArrayTypes.TryGetValue(returnTypeDefinition, out InlineArrayContext? arrayType))
+		if (
+			context.Module.InlineArrayTypes.TryGetValue(
+				returnTypeDefinition,
+				out InlineArrayContext? arrayType
+			)
+		)
 		{
-			implementation = context.Module.InlineArrayNumericHelperType.Methods
-				.FirstOrDefault(m => StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic)
+			implementation = context
+				.Module.InlineArrayNumericHelperType.Methods.FirstOrDefault(m =>
+					StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic
+				)
 				?.MakeGenericInstanceMethod(returnTypeSignature, arrayType.UltimateElementType);
 		}
 		else
 		{
-			implementation = context.Module.NumericHelperType.Methods
-				.FirstOrDefault(m => StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic)
+			implementation = context
+				.Module.NumericHelperType.Methods.FirstOrDefault(m =>
+					StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic
+				)
 				?.MakeGenericInstanceMethod(returnTypeSignature);
 		}
 		if (implementation is null)
@@ -135,7 +171,10 @@ internal static partial class IntrinsicFunctionImplementer
 		return true;
 	}
 
-	private static bool TryGetOperationName(string name, [NotNullWhen(true)] out string? operationName)
+	private static bool TryGetOperationName(
+		string name,
+		[NotNullWhen(true)] out string? operationName
+	)
 	{
 		if (SimpleOperationRegex.TryMatch(name, out Match? match))
 		{
@@ -146,6 +185,66 @@ internal static partial class IntrinsicFunctionImplementer
 		return false;
 	}
 
+	private static bool TryImplementNoOpIntrinsic(FunctionContext context)
+	{
+		// These intrinsics are semantic hints to the LLVM optimizer and have no
+		// runtime effect. Emit them as void no-ops so callers are not disrupted.
+		if (!context.IsVoidReturn)
+		{
+			return false;
+		}
+
+		if (!NoOpIntrinsicRegex.IsMatch(context.MangledName))
+		{
+			return false;
+		}
+
+		context.Definition.CilMethodBody!.Instructions.Add(CilOpCodes.Ret);
+		return true;
+	}
+
+	/// <summary>
+	/// Handles intrinsics that simply return their first argument unchanged
+	/// (e.g. <c>llvm.expect.*</c> which is a branch-probability hint).
+	/// </summary>
+	private static bool TryImplementPassthroughIntrinsic(FunctionContext context)
+	{
+		if (context.IsVoidReturn || context.NormalParameters.Length == 0)
+		{
+			return false;
+		}
+
+		if (!PassthroughIntrinsicRegex.IsMatch(context.MangledName))
+		{
+			return false;
+		}
+
+		CilInstructionCollection instructions = context.Definition.CilMethodBody!.Instructions;
+		instructions.Add(CilOpCodes.Ldarg_0);
+		instructions.Add(CilOpCodes.Ret);
+		return true;
+	}
+
 	[GeneratedRegex(@"^llvm\.([a-z0-9_]+)\.([a-z0-9_]+)$")]
 	private static partial Regex SimpleOperationRegex { get; }
+
+	/// <summary>
+	/// Intrinsics that are pure no-ops at the .NET level:
+	/// <list type="bullet">
+	///   <item><c>llvm.lifetime.start.*</c> — variable-lifetime start hint</item>
+	///   <item><c>llvm.lifetime.end.*</c> — variable-lifetime end hint</item>
+	///   <item><c>llvm.assume</c> — optimizer assumption hint (already handled by InjectedIntrinsic, but kept here as fallback)</item>
+	/// </list>
+	/// </summary>
+	[GeneratedRegex(
+		@"^llvm\.(lifetime\.(start|end)|dbg\.(value|declare|assign)|invariant\.start|invariant\.end|pseudoprobe)(\.[a-z0-9_]+)*$"
+	)]
+	private static partial Regex NoOpIntrinsicRegex { get; }
+
+	/// <summary>
+	/// Intrinsics that return their first argument unchanged.
+	/// Currently: <c>llvm.expect.*</c> (branch-probability hint).
+	/// </summary>
+	[GeneratedRegex(@"^llvm\.expect(\.[a-z0-9_]+)*$")]
+	private static partial Regex PassthroughIntrinsicRegex { get; }
 }
