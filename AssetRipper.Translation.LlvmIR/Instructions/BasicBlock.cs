@@ -1,7 +1,7 @@
-﻿using AsmResolver.DotNet.Code.Cil;
-using AsmResolver.PE.DotNet.Cil;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics;
+using AsmResolver.DotNet.Code.Cil;
+using AsmResolver.PE.DotNet.Cil;
 
 namespace AssetRipper.Translation.LlvmIR.Instructions;
 
@@ -29,11 +29,17 @@ public sealed class BasicBlock : IReadOnlyList<Instruction>, IList<Instruction>
 		int stackHeight = 0;
 		foreach (Instruction instruction in Instructions)
 		{
-			Debug.Assert(stackHeight >= instruction.PopCount, "Stack underflow when adding instructions");
+			if (stackHeight < instruction.PopCount)
+				throw new InvalidOperationException(
+					$"Stack underflow when adding instructions (height={stackHeight}, popCount={instruction.PopCount}, instruction={instruction.GetType().Name})"
+				);
 			instruction.AddInstructions(instructions);
 			stackHeight += instruction.StackEffect;
 		}
-		Debug.Assert(stackHeight == 0, "Stack should be empty after adding instructions");
+		if (stackHeight != 0)
+			throw new InvalidOperationException(
+				$"Stack should be empty after adding instructions (height={stackHeight}, instructions=[{string.Join(", ", Instructions.Select(i => $"{i.GetType().Name}(pop={i.PopCount},push={i.PushCount})"))}])"
+			);
 
 		if (instructions.Count > labelIndex)
 		{
