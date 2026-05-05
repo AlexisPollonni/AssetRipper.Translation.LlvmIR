@@ -1,4 +1,6 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Collections;
 using AsmResolver.DotNet.Signatures;
@@ -7,15 +9,17 @@ using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using LLVMSharp.Interop;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AssetRipper.Translation.LlvmIR;
 
 [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
 internal sealed class FunctionContext : IHasName
 {
-	private FunctionContext(LLVMValueRef function, MethodDefinition definition, ModuleContext module)
+	private FunctionContext(
+		LLVMValueRef function,
+		MethodDefinition definition,
+		ModuleContext module
+	)
 	{
 		Function = function;
 		Definition = definition;
@@ -32,17 +36,38 @@ internal sealed class FunctionContext : IHasName
 		for (int i = 0; i < normalParameterRefs.Length; i++)
 		{
 			LLVMValueRef parameter = normalParameterRefs[i];
-			ParameterContext parameterContext = new(parameter, definition.AddParameter(module.Definition.CorLibTypeFactory.Object), this);
+			ParameterContext parameterContext = new(
+				parameter,
+				definition.AddParameter(module.Definition.CorLibTypeFactory.Object),
+				this
+			);
 			NormalParameters[i] = parameterContext;
 			ParameterLookup[parameter] = parameterContext;
 		}
 
 		if (IsVariadic)
 		{
-			VariadicParameter = new(definition.AddParameter(module.Definition.CorLibTypeFactory.Object), this);
+			VariadicParameter = new(
+				definition.AddParameter(module.Definition.CorLibTypeFactory.Object),
+				this
+			);
 		}
 
-		if (module.Options.ParseDemangledSymbols && !string.IsNullOrEmpty(DemangledName) && DemangledName != MangledName && DemangledNamesParser.ParseFunction(DemangledName, out string? returnType, out _, out string? typeName, out string? functionIdentifier, out string? functionName, out _, out string[]? parameterTypes))
+		if (
+			module.Options.ParseDemangledSymbols
+			&& !string.IsNullOrEmpty(DemangledName)
+			&& DemangledName != MangledName
+			&& DemangledNamesParser.ParseFunction(
+				DemangledName,
+				out string? returnType,
+				out _,
+				out string? typeName,
+				out string? functionIdentifier,
+				out string? functionName,
+				out _,
+				out string[]? parameterTypes
+			)
+		)
 		{
 			NativeType = returnType;
 
@@ -85,14 +110,34 @@ internal sealed class FunctionContext : IHasName
 		{
 			if (!NameGenerator.IsValidCSharpName(result))
 			{
-				throw new ArgumentException($"Renamed symbol '{MangledName}' has an invalid name '{result}'.", nameof(module));
+				throw new ArgumentException(
+					$"Renamed symbol '{MangledName}' has an invalid name '{result}'.",
+					nameof(module)
+				);
 			}
 		}
 		else if (string.IsNullOrEmpty(functionIdentifier))
 		{
-			result = NameGenerator.CleanName(TryGetSimpleName(MangledName), "Function");
+			// When the demangled name is available but the parser didn't recognize it as a
+			// standard function signature (e.g. anonymous-namespace symbols, template statics,
+			// or local-function suffixes like "(.1311)"), derive the class name from the
+			// demangled name instead of from the raw mangled name.  NameGenerator.CleanName
+			// replaces every non-word character (::, <>, (), spaces, dots…) with '_' and
+			// collapses runs, so the result is always a valid C# identifier.
+			if (!string.IsNullOrEmpty(DemangledName) && DemangledName != MangledName)
+			{
+				result = NameGenerator.CleanName(DemangledName, "Function");
+			}
+			else
+			{
+				result = NameGenerator.CleanName(TryGetSimpleName(MangledName), "Function");
+			}
 		}
-		else if (string.IsNullOrEmpty(returnType) && !string.IsNullOrEmpty(typeName) && functionName == typeName)
+		else if (
+			string.IsNullOrEmpty(returnType)
+			&& !string.IsNullOrEmpty(typeName)
+			&& functionName == typeName
+		)
 		{
 			result = NameGenerator.CleanName(typeName, "Type") + "_Constructor";
 		}
@@ -161,16 +206,29 @@ internal sealed class FunctionContext : IHasName
 			result = NameGenerator.CleanName(functionIdentifier, "Function");
 		}
 
-		CleanName = result.CapitalizeGetOrSet();
+		CleanName = module.Options.StripNamePrefix(result).CapitalizeGetOrSet();
 	}
 
 	public static FunctionContext Create(LLVMValueRef function, ModuleContext module)
 	{
-		TypeDefinition declaringType = new(module.Options.GetNamespace("GlobalFunctions"), null, TypeAttributes.NotPublic | TypeAttributes.Class | TypeAttributes.Abstract | TypeAttributes.Sealed | TypeAttributes.BeforeFieldInit, module.Definition.CorLibTypeFactory.Object.ToTypeDefOrRef());
+		TypeDefinition declaringType = new(
+			module.Options.GetNamespace("GlobalFunctions"),
+			null,
+			TypeAttributes.NotPublic
+				| TypeAttributes.Class
+				| TypeAttributes.Abstract
+				| TypeAttributes.Sealed
+				| TypeAttributes.BeforeFieldInit,
+			module.Definition.CorLibTypeFactory.Object.ToTypeDefOrRef()
+		);
 		module.Definition.TopLevelTypes.Add(declaringType);
 
 		MethodSignature signature = MethodSignature.CreateStatic(null!);
-		MethodDefinition definition = new("Invoke", MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig, signature);
+		MethodDefinition definition = new(
+			"Invoke",
+			MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig,
+			signature
+		);
 		definition.CilMethodBody = new();
 		declaringType.Methods.Add(definition);
 
@@ -179,9 +237,14 @@ internal sealed class FunctionContext : IHasName
 
 		// Pointer
 		{
-			TypeSignature voidPointerType = module.Definition.CorLibTypeFactory.Void.MakePointerType();
+			TypeSignature voidPointerType =
+				module.Definition.CorLibTypeFactory.Void.MakePointerType();
 
-			FieldDefinition pointerField = new("__pointer", FieldAttributes.Public | FieldAttributes.Static | FieldAttributes.InitOnly, voidPointerType);
+			FieldDefinition pointerField = new(
+				"__pointer",
+				FieldAttributes.Public | FieldAttributes.Static | FieldAttributes.InitOnly,
+				voidPointerType
+			);
 			declaringType.Fields.Add(pointerField);
 
 			context.PointerField = pointerField;
@@ -192,14 +255,18 @@ internal sealed class FunctionContext : IHasName
 
 	/// <inheritdoc/>
 	public string MangledName { get; }
+
 	/// <summary>
 	/// The demangled name of the function, which might have signature information.
 	/// </summary>
 	public string? DemangledName { get; }
+
 	/// <inheritdoc/>
 	public string CleanName { get; }
+
 	/// <inheritdoc/>
 	public string Name { get; set; } = "";
+
 	/// <inheritdoc/>
 	public string? NativeType { get; set; }
 	public bool MightThrowAnException { get; set; }
@@ -209,18 +276,24 @@ internal sealed class FunctionContext : IHasName
 	public LLVMTypeRef ReturnType => Function.ReturnType;
 	public TypeSignature ReturnTypeSignature => Module.GetTypeSignature(ReturnType);
 	public bool IsVoidReturn => ReturnType.Kind == LLVMTypeKind.LLVMVoidTypeKind;
-	public FunctionContext? PersonalityFunction => Function.HasPersonalityFn
-		? Module.Methods.TryGetValue(Function.PersonalityFn)
-		: null;
+	public FunctionContext? PersonalityFunction =>
+		Function.HasPersonalityFn ? Module.Methods.TryGetValue(Function.PersonalityFn) : null;
 	public bool IsIntrinsic => Function.BasicBlocksCount == 0;
 	public ParameterContext[] NormalParameters { get; private set; } = [];
 	public VariadicParameterContext? VariadicParameter { get; private set; }
-	public IEnumerable<BaseParameterContext> AllParameters => VariadicParameter is null
-		? NormalParameters
-		: NormalParameters.Append<BaseParameterContext>(VariadicParameter);
+	public IEnumerable<BaseParameterContext> AllParameters =>
+		VariadicParameter is null
+			? NormalParameters
+			: NormalParameters.Append<BaseParameterContext>(VariadicParameter);
 	public int ParameterCount => NormalParameters.Length + (VariadicParameter is not null ? 1 : 0);
-	public AttributeWrapper[] Attributes => AttributeWrapper.FromArray(Function.GetAttributesAtIndex(LLVMAttributeIndex.LLVMAttributeFunctionIndex));
-	public AttributeWrapper[] ReturnAttributes => AttributeWrapper.FromArray(Function.GetAttributesAtIndex(LLVMAttributeIndex.LLVMAttributeReturnIndex));
+	public AttributeWrapper[] Attributes =>
+		AttributeWrapper.FromArray(
+			Function.GetAttributesAtIndex(LLVMAttributeIndex.LLVMAttributeFunctionIndex)
+		);
+	public AttributeWrapper[] ReturnAttributes =>
+		AttributeWrapper.FromArray(
+			Function.GetAttributesAtIndex(LLVMAttributeIndex.LLVMAttributeReturnIndex)
+		);
 	public MethodDefinition Definition { get; }
 	public TypeDefinition DeclaringType => Definition.DeclaringType!;
 	public ModuleContext Module { get; }
@@ -275,7 +348,12 @@ internal sealed class FunctionContext : IHasName
 			instructions.Clear();
 
 			instructions.Add(CilOpCodes.Ldftn, Definition);
-			instructions.Add(CilOpCodes.Call, Module.InjectedTypes[typeof(PointerIndices)].GetMethodByName(nameof(PointerIndices.Register)));
+			instructions.Add(
+				CilOpCodes.Call,
+				Module
+					.InjectedTypes[typeof(PointerIndices)]
+					.GetMethodByName(nameof(PointerIndices.Register))
+			);
 			instructions.Add(CilOpCodes.Stsfld, PointerField);
 			instructions.Add(CilOpCodes.Ret);
 		}
@@ -291,7 +369,14 @@ internal sealed class FunctionContext : IHasName
 		CilLocalVariable? returnLocal;
 		if (TryGetStructReturnType(out TypeSignature? returnTypeSignature))
 		{
-			newMethod = new(Name, method.Attributes, MethodSignature.CreateStatic(returnTypeSignature, method.Signature.ParameterTypes.Skip(1)));
+			newMethod = new(
+				Name,
+				method.Attributes,
+				MethodSignature.CreateStatic(
+					returnTypeSignature,
+					method.Signature.ParameterTypes.Skip(1)
+				)
+			);
 			Module.GlobalMembersType.Methods.Add(newMethod);
 			newMethod.CilMethodBody = new();
 
@@ -318,7 +403,14 @@ internal sealed class FunctionContext : IHasName
 		}
 		else
 		{
-			newMethod = new(Name, method.Attributes, MethodSignature.CreateStatic(method.Signature.ReturnType, method.Signature.ParameterTypes));
+			newMethod = new(
+				Name,
+				method.Attributes,
+				MethodSignature.CreateStatic(
+					method.Signature.ReturnType,
+					method.Signature.ParameterTypes
+				)
+			);
 			Module.GlobalMembersType.Methods.Add(newMethod);
 			newMethod.CilMethodBody = new();
 
@@ -354,7 +446,9 @@ internal sealed class FunctionContext : IHasName
 
 		if (MightThrowAnException)
 		{
-			MethodDefinition exitToUserCode = Module.InjectedTypes[typeof(StackFrameList)].GetMethodByName(nameof(StackFrameList.ExitToUserCode));
+			MethodDefinition exitToUserCode = Module
+				.InjectedTypes[typeof(StackFrameList)]
+				.GetMethodByName(nameof(StackFrameList.ExitToUserCode));
 
 			CilInstructionLabel returnLabel = new();
 

@@ -1,4 +1,7 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
@@ -8,9 +11,6 @@ using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
 using AssetRipper.Translation.LlvmIR.Variables;
 using LLVMSharp.Interop;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -22,15 +22,18 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 		GlobalVariable = globalVariable;
 		Module = module;
 		DemangledName = globalVariable.DemangledName;
-		CleanName = ExtractCleanName(MangledName, DemangledName, module.Options.RenamedSymbols);
+		CleanName = ExtractCleanName(MangledName, DemangledName, module.Options);
 	}
 
 	/// <inheritdoc/>
 	public string MangledName => GlobalVariable.Name;
+
 	/// <inheritdoc/>
 	public string? DemangledName { get; }
+
 	/// <inheritdoc/>
 	public string CleanName { get; }
+
 	/// <inheritdoc/>
 	public string Name { get; set; } = "";
 	string? IHasName.NativeType => null;
@@ -40,7 +43,8 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 	public LLVMValueRef Operand => !HasSingleOperand ? default : GlobalVariable.GetOperand(0);
 	public unsafe LLVMTypeRef Type => LLVM.GlobalGetValueType(GlobalVariable);
 	public TypeSignature DataType => DataGetMethod.Signature!.ReturnType;
-	public TypeSignature PointerType => PointerMethod?.Signature?.ReturnType ?? DataType.MakePointerType();
+	public TypeSignature PointerType =>
+		PointerMethod?.Signature?.ReturnType ?? DataType.MakePointerType();
 	TypeSignature IVariable.VariableType => DataType;
 	bool IVariable.SupportsLoadAddress => true;
 	public TypeDefinition DeclaringType { get; set; } = null!;
@@ -53,26 +57,59 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 	{
 		TypeSignature underlyingType = Module.GetTypeSignature(Type);
 
-		DeclaringType = new TypeDefinition(Module.Options.GetNamespace("GlobalVariables"), Name, TypeAttributes.NotPublic | TypeAttributes.Class | TypeAttributes.Abstract | TypeAttributes.Sealed, Module.Definition.CorLibTypeFactory.Object.ToTypeDefOrRef());
+		DeclaringType = new TypeDefinition(
+			Module.Options.GetNamespace("GlobalVariables"),
+			Name,
+			TypeAttributes.NotPublic
+				| TypeAttributes.Class
+				| TypeAttributes.Abstract
+				| TypeAttributes.Sealed,
+			Module.Definition.CorLibTypeFactory.Object.ToTypeDefOrRef()
+		);
 		Module.Definition.TopLevelTypes.Add(DeclaringType);
 		this.AddNameAttributes(DeclaringType);
 
 		// Data field
 		{
 			// Note: the field type might be changed later if it needs a fixed address.
-			DataField = new("__value", FieldAttributes.Private | FieldAttributes.Static, underlyingType);
+			DataField = new(
+				"__value",
+				FieldAttributes.Private | FieldAttributes.Static,
+				underlyingType
+			);
 			DeclaringType.Fields.Add(DataField);
 		}
 
 		// Data property
 		{
-			PropertyDefinition property = new("Value", PropertyAttributes.None, PropertySignature.CreateStatic(underlyingType));
+			PropertyDefinition property = new(
+				"Value",
+				PropertyAttributes.None,
+				PropertySignature.CreateStatic(underlyingType)
+			);
 			DeclaringType.Properties.Add(property);
 
-			DataGetMethod = new MethodDefinition("get_Value", MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig | MethodAttributes.SpecialName, MethodSignature.CreateStatic(underlyingType));
+			DataGetMethod = new MethodDefinition(
+				"get_Value",
+				MethodAttributes.Public
+					| MethodAttributes.Static
+					| MethodAttributes.HideBySig
+					| MethodAttributes.SpecialName,
+				MethodSignature.CreateStatic(underlyingType)
+			);
 			DeclaringType.Methods.Add(DataGetMethod);
 
-			DataSetMethod = new MethodDefinition("set_Value", MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig | MethodAttributes.SpecialName, MethodSignature.CreateStatic(Module.Definition.CorLibTypeFactory.Void, underlyingType));
+			DataSetMethod = new MethodDefinition(
+				"set_Value",
+				MethodAttributes.Public
+					| MethodAttributes.Static
+					| MethodAttributes.HideBySig
+					| MethodAttributes.SpecialName,
+				MethodSignature.CreateStatic(
+					Module.Definition.CorLibTypeFactory.Void,
+					underlyingType
+				)
+			);
 			DataSetMethod.Parameters[0].GetOrCreateDefinition().Name = "value";
 			DeclaringType.Methods.Add(DataSetMethod);
 
@@ -87,12 +124,17 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 			return;
 		}
 
-		CilInstructionCollection instructions = DeclaringType.GetOrCreateStaticConstructor().CilMethodBody!.Instructions;
+		CilInstructionCollection instructions = DeclaringType
+			.GetOrCreateStaticConstructor()
+			.CilMethodBody!.Instructions;
 		instructions.Clear();
 
 		BasicBlock basicBlock = InstructionLifter.Initialize(this);
 		InstructionOptimizer.Optimize([basicBlock]);
-		if (basicBlock.Instructions.Count is not 1 || basicBlock.Instructions[0] is not InitializeInstruction)
+		if (
+			basicBlock.Instructions.Count is not 1
+			|| basicBlock.Instructions[0] is not InitializeInstruction
+		)
 		{
 			basicBlock.AddInstructions(instructions);
 		}
@@ -106,10 +148,21 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 	{
 		TypeSignature underlyingType = DataGetMethod.Signature!.ReturnType;
 
-		PropertyDefinition property = new(Name, PropertyAttributes.None, PropertySignature.CreateStatic(underlyingType));
+		PropertyDefinition property = new(
+			Name,
+			PropertyAttributes.None,
+			PropertySignature.CreateStatic(underlyingType)
+		);
 		Module.GlobalMembersType.Properties.Add(property);
 
-		MethodDefinition getMethod = new("get_" + Name, MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig | MethodAttributes.SpecialName, MethodSignature.CreateStatic(underlyingType));
+		MethodDefinition getMethod = new(
+			"get_" + Name,
+			MethodAttributes.Public
+				| MethodAttributes.Static
+				| MethodAttributes.HideBySig
+				| MethodAttributes.SpecialName,
+			MethodSignature.CreateStatic(underlyingType)
+		);
 		Module.GlobalMembersType.Methods.Add(getMethod);
 
 		getMethod.CilMethodBody = new();
@@ -119,7 +172,14 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 			instructions.Add(CilOpCodes.Ret);
 		}
 
-		MethodDefinition setMethod = new("set_" + Name, MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig | MethodAttributes.SpecialName, MethodSignature.CreateStatic(Module.Definition.CorLibTypeFactory.Void, underlyingType));
+		MethodDefinition setMethod = new(
+			"set_" + Name,
+			MethodAttributes.Public
+				| MethodAttributes.Static
+				| MethodAttributes.HideBySig
+				| MethodAttributes.SpecialName,
+			MethodSignature.CreateStatic(Module.Definition.CorLibTypeFactory.Void, underlyingType)
+		);
 		setMethod.Parameters[0].GetOrCreateDefinition().Name = "value";
 		Module.GlobalMembersType.Methods.Add(setMethod);
 
@@ -151,9 +211,20 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 		if (PointerMethod is null)
 		{
 			TypeSignature returnType = PointerType;
-			PropertyDefinition property = new("Pointer", PropertyAttributes.None, PropertySignature.CreateStatic(returnType));
+			PropertyDefinition property = new(
+				"Pointer",
+				PropertyAttributes.None,
+				PropertySignature.CreateStatic(returnType)
+			);
 			DeclaringType.Properties.Insert(0, property); // Prefer to have Pointer property first
-			PointerMethod = new MethodDefinition("get_Pointer", MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig | MethodAttributes.SpecialName, MethodSignature.CreateStatic(returnType));
+			PointerMethod = new MethodDefinition(
+				"get_Pointer",
+				MethodAttributes.Public
+					| MethodAttributes.Static
+					| MethodAttributes.HideBySig
+					| MethodAttributes.SpecialName,
+				MethodSignature.CreateStatic(returnType)
+			);
 			DeclaringType.Methods.Add(PointerMethod);
 			PointerMethod.CilMethodBody = new();
 			{
@@ -183,20 +254,34 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 				// This behavior is supposedly an implementation detail and should not be relied upon, so we add the attribute to enforce a fixed address,
 				// in case a future version of .NET changes the default behavior for fields without the attribute.
 
-				System.Reflection.ConstructorInfo constructorInfo = typeof(FixedAddressValueTypeAttribute).GetConstructors().Single();
-				IMethodDescriptor inlineArrayAttributeConstructor = Module.Definition.DefaultImporter.ImportMethod(constructorInfo);
-				DataField.CustomAttributes.Add(new CustomAttribute((ICustomAttributeType)inlineArrayAttributeConstructor, new CustomAttributeSignature()));
+				System.Reflection.ConstructorInfo constructorInfo =
+					typeof(FixedAddressValueTypeAttribute).GetConstructors().Single();
+				IMethodDescriptor inlineArrayAttributeConstructor =
+					Module.Definition.DefaultImporter.ImportMethod(constructorInfo);
+				DataField.CustomAttributes.Add(
+					new CustomAttribute(
+						(ICustomAttributeType)inlineArrayAttributeConstructor,
+						new CustomAttributeSignature()
+					)
+				);
 			}
 
 			// Register pointer in static constructor
 			{
-				CilInstructionCollection instructions = DeclaringType.GetOrCreateStaticConstructor().CilMethodBody!.Instructions;
+				CilInstructionCollection instructions = DeclaringType
+					.GetOrCreateStaticConstructor()
+					.CilMethodBody!.Instructions;
 
 				// Pop return instruction
 				instructions.Pop();
 
 				instructions.Add(CilOpCodes.Call, PointerMethod);
-				instructions.Add(CilOpCodes.Call, Module.InjectedTypes[typeof(PointerIndices)].GetMethodByName(nameof(PointerIndices.Register)));
+				instructions.Add(
+					CilOpCodes.Call,
+					Module
+						.InjectedTypes[typeof(PointerIndices)]
+						.GetMethodByName(nameof(PointerIndices.Register))
+				);
 				instructions.Add(CilOpCodes.Pop);
 
 				instructions.Add(CilOpCodes.Ret);
@@ -210,8 +295,12 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 			TypeDefinition wrapperType = new(
 				null,
 				"__WrapperType",
-				TypeAttributes.NestedPrivate | TypeAttributes.Sealed | TypeAttributes.SequentialLayout | TypeAttributes.AnsiClass,
-				Module.Definition.DefaultImporter.ImportType(typeof(ValueType)));
+				TypeAttributes.NestedPrivate
+					| TypeAttributes.Sealed
+					| TypeAttributes.SequentialLayout
+					| TypeAttributes.AnsiClass,
+				Module.Definition.DefaultImporter.ImportType(typeof(ValueType))
+			);
 			DeclaringType.NestedTypes.Add(wrapperType);
 
 			FieldDefinition pointerField = new("__value", FieldAttributes.Public, DataType);
@@ -252,19 +341,30 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 			}
 		}
 
-		if (DeclaringType.GetStaticConstructor() is { CilMethodBody: { Instructions.Count: 1 } body } staticConstructor && body.Instructions[0].OpCode == CilOpCodes.Ret)
+		if (
+			DeclaringType.GetStaticConstructor()
+				is { CilMethodBody: { Instructions.Count: 1 } body } staticConstructor
+			&& body.Instructions[0].OpCode == CilOpCodes.Ret
+		)
 		{
 			DeclaringType.Methods.Remove(staticConstructor);
 		}
 	}
 
-	private static string ExtractCleanName(string mangledName, string? demangledName, Dictionary<string, string> renamedSymbols)
+	private static string ExtractCleanName(
+		string mangledName,
+		string? demangledName,
+		TranslatorOptions options
+	)
 	{
-		if (renamedSymbols.TryGetValue(mangledName, out string? result))
+		if (options.RenamedSymbols.TryGetValue(mangledName, out string? result))
 		{
 			if (!NameGenerator.IsValidCSharpName(result))
 			{
-				throw new ArgumentException($"Renamed symbol '{mangledName}' has an invalid name '{result}'.", nameof(renamedSymbols));
+				throw new ArgumentException(
+					$"Renamed symbol '{mangledName}' has an invalid name '{result}'.",
+					nameof(options)
+				);
 			}
 			return result;
 		}
@@ -274,20 +374,21 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 			return "String"; // Not certain this is just strings
 		}
 
-		if (TryGetNameFromBeginning(mangledName, out result))
-		{
-		}
-		else if (TryGetNameFromEnd(mangledName, out result))
-		{
-		}
+		if (TryGetNameFromBeginning(mangledName, out result)) { }
+		else if (TryGetNameFromEnd(mangledName, out result)) { }
 		else
 		{
 			result = demangledName ?? "";
 		}
 
-		return NameGenerator.CleanName(result, "Variable").CapitalizeGetOrSet();
+		return options
+			.StripNamePrefix(NameGenerator.CleanName(result, "Variable"))
+			.CapitalizeGetOrSet();
 
-		static bool TryGetNameFromBeginning(string mangledName, [NotNullWhen(true)] out string? result)
+		static bool TryGetNameFromBeginning(
+			string mangledName,
+			[NotNullWhen(true)] out string? result
+		)
 		{
 			int questionMarkIndex = mangledName.IndexOf('?');
 			int atIndex = mangledName.IndexOf('@');

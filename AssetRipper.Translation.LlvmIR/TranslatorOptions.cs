@@ -20,6 +20,50 @@ public sealed record class TranslatorOptions
 	public Dictionary<string, string> RenamedSymbols { get; init; } = new();
 
 	/// <summary>
+	/// A list of clean-name prefixes to strip from the beginning of generated identifiers.
+	/// Prefixes are matched against the already-sanitized name (word characters and underscores only).
+	/// For example, to strip the versioned llvm-libc namespace prefix, add <c>"llvm_libc_22_1_4_"</c>.
+	/// </summary>
+	public string[] StripNamePrefixes { get; init; } = [];
+
+	/// <summary>
+	/// Strips the first matching prefix in <see cref="StripNamePrefixes"/> from <paramref name="name"/>,
+	/// returning the original string if no prefix matches or if stripping would leave an empty string.
+	/// Also removes all mid-name occurrences of the form <c>_prefix</c> (underscore-separated fragments).
+	/// </summary>
+	public string StripNamePrefix(string name)
+	{
+		foreach (string prefix in StripNamePrefixes)
+		{
+			// Strip leading occurrence: "prefix_foo" → "foo"
+			if (name.Length > prefix.Length && name.StartsWith(prefix, StringComparison.Ordinal))
+			{
+				name = name[prefix.Length..];
+			}
+
+			// Strip mid-name occurrences: "Type_prefix_foo" → "Type_foo"
+			// The separator underscore before the prefix is preserved (collapsed into the following word).
+			string midToken = "_" + prefix;
+			if (name.Contains(midToken, StringComparison.Ordinal))
+			{
+				name = name.Replace(midToken, "_", StringComparison.Ordinal);
+				// Collapse any double underscores that may have been created
+				while (name.Contains("__", StringComparison.Ordinal))
+				{
+					name = name.Replace("__", "_", StringComparison.Ordinal);
+				}
+				// Trim any leading/trailing underscores that remain
+				name = name.Trim('_');
+				if (name.Length == 0)
+				{
+					name = "Stripped";
+				}
+			}
+		}
+		return name;
+	}
+
+	/// <summary>
 	/// If true, demangled names will be parsed in order to extract additional information.
 	/// </summary>
 	public bool ParseDemangledSymbols { get; set; }

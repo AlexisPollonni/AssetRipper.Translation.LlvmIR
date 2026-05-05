@@ -1,5 +1,5 @@
-﻿using Ookii.CommandLine;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using Ookii.CommandLine;
 
 namespace AssetRipper.Translation.LlvmIR.ConsoleApp;
 
@@ -32,15 +32,21 @@ sealed partial class Arguments
 	public string[]? NewNames { get; set; }
 
 	[CommandLineArgument]
-	[Description("The path to the output directory for C# decompilation. If provided, a dll will not be saved.")]
+	[Description(
+		"The path to the output directory for C# decompilation. If provided, a dll will not be saved."
+	)]
 	public string? DecompileDirectory { get; set; }
 
 	[CommandLineArgument]
-	[Description("If true, the contents of the decompile directory will be deleted before decompilation starts.")]
+	[Description(
+		"If true, the contents of the decompile directory will be deleted before decompilation starts."
+	)]
 	public bool ClearDecompileDirectory { get; set; }
 
 	[CommandLineArgument(DefaultValue = true)]
-	[Description("If true, demangled names will be parsed in order to extract additional information.")]
+	[Description(
+		"If true, demangled names will be parsed in order to extract additional information."
+	)]
 	public bool ParseDemangledSymbols { get; set; }
 
 	[CommandLineArgument(DefaultValue = true)]
@@ -48,6 +54,14 @@ sealed partial class Arguments
 	public bool EmitNameAttributes { get; set; }
 
 	[CommandLineArgument]
-	[Description("If true, constant structs and arrays will be initialized from precomputed binary data.")]
+	[Description(
+		"If true, constant structs and arrays will be initialized from precomputed binary data."
+	)]
 	public bool PrecomputeInitializers { get; set; }
+
+	[CommandLineArgument("strip-prefix")]
+	[Description(
+		"One or more clean-name prefixes to strip from the start of generated identifiers (e.g. 'llvm_libc_22_1_4_'). Applied after name sanitization."
+	)]
+	public string[]? StripPrefixes { get; set; }
 }
