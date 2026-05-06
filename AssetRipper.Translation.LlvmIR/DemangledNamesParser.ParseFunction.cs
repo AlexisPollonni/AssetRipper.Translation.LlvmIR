@@ -1,8 +1,8 @@
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using AssetRipper.Translation.LlvmIR.Extensions;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -25,11 +25,16 @@ public partial class DemangledNamesParser
 		[NotNullWhen(true)] out string? functionIdentifier,
 		[NotNullWhen(true)] out string? functionName,
 		[NotNullWhen(true)] out string[]? templateParameters,
-		[NotNullWhen(true)] out string[]? normalParameters)
+		[NotNullWhen(true)] out string[]? normalParameters
+	)
 	{
 		IParseTree tree = ParseFunction(input);
 
-		if (ErrorListener.HasErrors(tree) || tree.ChildCount == 0 || (tree as ParserRuleContext)?.exception is not null)
+		if (
+			ErrorListener.HasErrors(tree)
+			|| tree.ChildCount == 0
+			|| (tree as ParserRuleContext)?.exception is not null
+		)
 		{
 			Console.Error.WriteLine("Could not parse:\n" + input);
 			returnType = null;
@@ -61,9 +66,21 @@ public partial class DemangledNamesParser
 				@namespace = null;
 				typeName = declaringScope.GetChild(0).GetText(input);
 			}
-			functionIdentifier = tree.GetChild(4).GetChild(0).GetText(input);
-			functionName = tree.GetChild(4).GetChild(0).GetText(input) + tree.GetChild(4).GetChild(1).GetText(input);
-			templateParameters = tree.GetChild(4).GetChild(1).GetText(input).Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries); // This is flawed
+			IParseTree functionNameNode = tree.GetChild(4);
+			string rawFunctionIdentifier = functionNameNode.GetChild(0).GetText(input);
+			string rawTemplate = functionNameNode.GetChild(1).GetText(input);
+			// If functionName matched the "functionIdentifier template [ ]" alternative (4 children),
+			// the "[]" suffix belongs to the functionIdentifier (e.g. operator[]).
+			if (functionNameNode.ChildCount == 4)
+			{
+				rawFunctionIdentifier += "[]";
+			}
+			functionIdentifier = rawFunctionIdentifier;
+			functionName = rawFunctionIdentifier + rawTemplate;
+			templateParameters = rawTemplate.Split(
+				',',
+				StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries
+			); // This is flawed
 			normalParameters = ParseParameterList(tree.GetChild(6), input);
 			if (normalParameters.Length == 1 && normalParameters[0] == "void")
 			{

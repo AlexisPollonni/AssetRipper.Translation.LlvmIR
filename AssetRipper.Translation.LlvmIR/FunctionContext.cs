@@ -98,6 +98,12 @@ internal sealed class FunctionContext : IHasName
 			functionName = null;
 		}
 
+		// Apply parameter names from DISubprogram retained nodes when the LLVM IR
+		// parameter names have been stripped by optimisation (e.g. -O2 / LTO builds).
+		// Clang emits parameters in argument order first inside retainedNodes, so the
+		// i-th DILocalVariable maps to the i-th user-visible parameter.
+		ApplyDebugParameterNames();
+
 		AllParameters.AssignNames();
 		foreach (BaseParameterContext parameter in AllParameters)
 		{
@@ -498,6 +504,87 @@ internal sealed class FunctionContext : IHasName
 	private string GetDebuggerDisplay()
 	{
 		return Name;
+	}
+
+	/// <summary>
+	/// Walks the <see cref="LLVMMetadataRef"/> operands of the function's DISubprogram to find the
+	/// <c>retainedNodes</c> MDTuple and applies the DILocalVariable names to the corresponding
+	/// <see cref="NormalParameters"/> entries before <see cref="IHasNameExtensions.AssignNames{T}"/>
+	/// is called.
+	/// </summary>
+	/// <remarks>
+	/// Clang always emits formal parameters first inside <c>retainedNodes</c>, in ascending argument
+	/// order, followed by local variables.  Because the <c>DILocalVariable::getArg()</c> accessor is
+	/// not exposed by the current binding, we use position as a proxy: the first <em>N</em>
+	/// DILocalVariable nodes (where <em>N</em> is the number of user-visible parameters) are
+	/// treated as parameters.
+	/// </remarks>
+	private void ApplyDebugParameterNames()
+	{
+		LLVMMetadataRef subprogram = Function.Subprogram;
+		if (subprogram.Handle == IntPtr.Zero || subprogram.IsADISubprogram == default)
+		{
+			return;
+		}
+
+		// Find the MDTuple operand of the subprogram that contains DILocalVariable entries.
+		// That operand is the retainedNodes field.
+		LLVMMetadataRef retainedNodes = default;
+		foreach (LLVMMetadataRef operand in subprogram.GetOperands())
+		{
+			if (operand.Handle == IntPtr.Zero || operand.IsAMDTuple == default)
+			{
+				continue;
+			}
+			foreach (LLVMMetadataRef inner in operand.GetOperands())
+			{
+				if (inner.Handle != IntPtr.Zero && inner.IsADILocalVariable != default)
+				{
+					retainedNodes = operand;
+					break;
+				}
+			}
+			if (retainedNodes.Handle != IntPtr.Zero)
+			{
+				break;
+			}
+		}
+
+		if (retainedNodes.Handle == IntPtr.Zero)
+		{
+			return;
+		}
+
+		// Index 0 of NormalParameters is the hidden sret pointer when the function returns a
+		// struct by value.  Debug info only tracks user-visible parameters, so offset by 1.
+		bool hasSret =
+			NormalParameters.Length > 0
+			&& NormalParameters[0].StructReturnTypeSignature is not null;
+		int paramOffset = hasSret ? 1 : 0;
+		int userParamCount = NormalParameters.Length - paramOffset;
+		int debugParamIndex = 0;
+
+		foreach (LLVMMetadataRef node in retainedNodes.GetOperands())
+		{
+			if (debugParamIndex >= userParamCount)
+			{
+				break;
+			}
+			if (node.Handle == IntPtr.Zero || node.IsADILocalVariable == default)
+			{
+				continue;
+			}
+			string varName = node.Name;
+			if (!string.IsNullOrEmpty(varName))
+			{
+				string clean = NameGenerator.CleanName(varName, "");
+				if (clean.Length > 0)
+				{
+					NormalParameters[debugParamIndex + paramOffset].SetDebugName(clean);
+				}
+			}
+			debugParamIndex++;
+		}
 	}
 
 	private static string TryGetSimpleName(string name)

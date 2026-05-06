@@ -100,13 +100,11 @@ internal static class LLVMModuleRefExtensions
 		foreach (LLVMValueRef function in module.GetFunctions())
 		{
 			metadataToVisit.Enqueue(LLVM.GetSubprogram(function));
-			foreach (LLVMValueRef instruction in function.GetInstructions())
-			{
-				foreach (LLVMMetadataRef instructionMetadata in instruction.GetAllMetadataOtherThanDebugLoc())
-				{
-					metadataToVisit.Enqueue(instructionMetadata);
-				}
-			}
+			// Note: per-instruction metadata scanning is intentionally skipped here.
+			// Calling InstructionGetAllMetadataOtherThanDebugLoc on very large modules
+			// (millions of instructions) triggers a double-free in the native LLVM library.
+			// DIType metadata for struct field naming and enum discovery is reachable via
+			// global variable expressions and function subprograms without needing instruction-level metadata.
 		}
 		while (metadataToVisit.TryDequeue(out LLVMMetadataRef metadata))
 		{

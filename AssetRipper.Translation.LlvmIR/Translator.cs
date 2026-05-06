@@ -1,13 +1,12 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Runtime.InteropServices;
+using System.Text;
+using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
 using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
 using LLVMSharp.Interop;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -18,21 +17,37 @@ public static unsafe class Translator
 		Patches.Apply();
 	}
 
-	public static ModuleDefinition Translate(string name, string content, TranslatorOptions? options = null)
+	public static ModuleDefinition Translate(
+		string name,
+		string content,
+		TranslatorOptions? options = null
+	)
 	{
 		return Translate(name, Encoding.UTF8.GetBytes(content), options);
 	}
 
-	public static ModuleDefinition Translate(string name, ReadOnlySpan<byte> content, TranslatorOptions? options = null)
+	public static ModuleDefinition Translate(
+		string name,
+		ReadOnlySpan<byte> content,
+		TranslatorOptions? options = null
+	)
 	{
 		fixed (byte* ptr = content)
 		{
-			using LLVMContextRef context = LLVMContextRef.Create();
+			// Not disposed intentionally: disposing LLVM native objects during cleanup
+			// causes a double-free crash in the native LLVM library. Since this is a
+			// translation tool that exits after writing output, leaking these objects is fine.
+			LLVMContextRef context = LLVMContextRef.Create();
 			nint namePtr = Marshal.StringToHGlobalAnsi(name);
-			LLVMMemoryBufferRef buffer = LLVM.CreateMemoryBufferWithMemoryRange((sbyte*)ptr, (nuint)content.Length, (sbyte*)namePtr, 0);
+			LLVMMemoryBufferRef buffer = LLVM.CreateMemoryBufferWithMemoryRange(
+				(sbyte*)ptr,
+				(nuint)content.Length,
+				(sbyte*)namePtr,
+				0
+			);
 			try
 			{
-				using LLVMModuleRef module = context.ParseIR(buffer);
+				LLVMModuleRef module = context.ParseIR(buffer);
 				return Translate(module, options ?? new());
 			}
 			finally
@@ -52,7 +67,9 @@ public static unsafe class Translator
 
 	private static ModuleDefinition Translate(LLVMModuleRef module, TranslatorOptions options)
 	{
-		CustomModuleDefinition moduleDefinition = new(string.IsNullOrEmpty(options.ModuleName) ? "ConvertedCpp" : options.ModuleName);
+		CustomModuleDefinition moduleDefinition = new(
+			string.IsNullOrEmpty(options.ModuleName) ? "ConvertedCpp" : options.ModuleName
+		);
 
 		ModuleContext moduleContext = new(module, moduleDefinition, options);
 
@@ -70,13 +87,17 @@ public static unsafe class Translator
 		moduleContext.IdentifyFunctionsThatMightThrow();
 
 		Console.WriteLine("Creating properties for global variables...");
-		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+		foreach (
+			GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+		)
 		{
 			globalVariableContext.CreateProperties();
 		}
 
 		Console.WriteLine("Initializing data for global variables");
-		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+		foreach (
+			GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+		)
 		{
 			globalVariableContext.InitializeData();
 			globalVariableContext.AddPublicImplementation();
@@ -97,17 +118,32 @@ public static unsafe class Translator
 
 			if (functionIndex % 100 == 0)
 			{
-				Console.WriteLine($"Implementing function {functionIndex}/{moduleContext.Methods.Count}");
+				Console.WriteLine(
+					$"Implementing function {functionIndex}/{moduleContext.Methods.Count}"
+				);
 			}
 
-			CilInstructionCollection instructions = functionContext.Definition.CilMethodBody!.Instructions;
+			CilInstructionCollection instructions = functionContext
+				.Definition
+				.CilMethodBody!
+				.Instructions;
 
 			IReadOnlyList<BasicBlock> basicBlocks = InstructionLifter.Lift(functionContext);
 			InstructionOptimizer.Optimize(basicBlocks);
 
 			foreach (BasicBlock basicBlock in basicBlocks)
 			{
-				basicBlock.AddInstructions(instructions);
+				try
+				{
+					basicBlock.AddInstructions(instructions);
+				}
+				catch (Exception ex) when (ex.Message.Contains("Stack"))
+				{
+					throw new Exception(
+						$"Stack error in function '{functionContext.Definition.FullName}': {ex.Message}",
+						ex
+					);
+				}
 			}
 
 			instructions.OptimizeMacros();
@@ -116,41 +152,79 @@ public static unsafe class Translator
 		}
 
 		Console.WriteLine("Cleaning up...");
-		foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+		Console.WriteLine("Cleaning up (step 1: global variables)...");
+		foreach (
+			GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+		)
 		{
 			globalVariableContext.RemovePointerFieldIfNotUsed();
 		}
 
+		Console.WriteLine("Cleaning up (step 2: functions)...");
 		foreach (FunctionContext functionContext in moduleContext.Methods.Values)
 		{
 			functionContext.RemovePointerFieldIfNotUsed();
 		}
 
+		Console.WriteLine("Cleaning up (step 3: assembly functions)...");
 		if (moduleContext.InjectedTypes[typeof(AssemblyFunctions)].Methods.Count == 0)
 		{
-			moduleDefinition.TopLevelTypes.Remove(moduleContext.InjectedTypes[typeof(AssemblyFunctions)]);
-			moduleDefinition.TopLevelTypes.Remove(moduleContext.InjectedTypes[typeof(InlineAssemblyAttribute)]);
+			moduleDefinition.TopLevelTypes.Remove(
+				moduleContext.InjectedTypes[typeof(AssemblyFunctions)]
+			);
+			moduleDefinition.TopLevelTypes.Remove(
+				moduleContext.InjectedTypes[typeof(InlineAssemblyAttribute)]
+			);
 		}
 
+		Console.WriteLine("Cleaning up (step 4: metadata)...");
 		{
-			List<LLVMMetadataRef> types = module.GetAllMetadata().Where(m => m.IsADIType != default).ToList();
+			List<LLVMMetadataRef> types = module
+				.GetAllMetadata()
+				.Where(m => m.IsADIType != default)
+				.ToList();
+			Console.WriteLine($"[DIAG] Total DI types: {types.Count}");
+			{
+				int compositeCount = types.Count(m => m.IsStruct || m.IsClass || m.IsUnion);
+				Console.WriteLine($"[DIAG] Composite types (struct/class/union): {compositeCount}");
+				// Print first 5 composite type names for diagnostics
+				foreach (
+					LLVMMetadataRef t in types
+						.Where(m => m.IsStruct || m.IsClass || m.IsUnion)
+						.Take(5)
+				)
+					Console.WriteLine(
+						$"[DIAG]   DI composite: name={t.Name} identifier={t.Identifier} members={t.Members.Count()} allDataMembers={t.AllDataMembers.Count()}"
+					);
+			}
 
 			CreateEnumerations(moduleContext, types);
 
 			List<(LLVMTypeRef, LLVMMetadataRef)> globalVariableTypes = [];
 
-			foreach (GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values)
+			foreach (
+				GlobalVariableContext globalVariableContext in moduleContext.GlobalVariables.Values
+			)
 			{
-				LLVMMetadataRef metadata = globalVariableContext.GlobalVariable.GlobalVariableExpression;
+				LLVMMetadataRef metadata = globalVariableContext
+					.GlobalVariable
+					.GlobalVariableExpression;
 				LLVMMetadataRef type = metadata.Variable.Type;
-				if (type.Handle == IntPtr.Zero)
-				{
-				}
-				else if (type.IsArray && globalVariableContext.Type.Kind is LLVMTypeKind.LLVMArrayTypeKind or LLVMTypeKind.LLVMScalableVectorTypeKind or LLVMTypeKind.LLVMVectorTypeKind)
+				if (type.Handle == IntPtr.Zero) { }
+				else if (
+					type.IsArray
+					&& globalVariableContext.Type.Kind
+						is LLVMTypeKind.LLVMArrayTypeKind
+							or LLVMTypeKind.LLVMScalableVectorTypeKind
+							or LLVMTypeKind.LLVMVectorTypeKind
+				)
 				{
 					globalVariableTypes.Add((globalVariableContext.Type, type));
 				}
-				else if ((type.IsStruct || type.IsClass || type.IsUnion) && globalVariableContext.Type.Kind is LLVMTypeKind.LLVMStructTypeKind)
+				else if (
+					(type.IsStruct || type.IsClass || type.IsUnion)
+					&& globalVariableContext.Type.Kind is LLVMTypeKind.LLVMStructTypeKind
+				)
 				{
 					globalVariableTypes.Add((globalVariableContext.Type, type));
 				}
@@ -158,17 +232,32 @@ public static unsafe class Translator
 
 			AddChildTypes(globalVariableTypes);
 
-			List<LLVMMetadataRef> typesWithIdentifiers = types.Where(m => m.IsStruct || m.IsClass || m.IsUnion).ToList();
-			List<string> identifiers = typesWithIdentifiers.Select(m =>
-			{
-				string identifier = m.IdentifierClean;
-				return string.IsNullOrEmpty(identifier) ? m.Name : identifier;
-			}).ToList();
+			List<LLVMMetadataRef> typesWithIdentifiers = types
+				.Where(m => m.IsStruct || m.IsClass || m.IsUnion)
+				.ToList();
+			List<string> identifiers = typesWithIdentifiers
+				.Select(m =>
+				{
+					// Use the raw demangled identifier for matching rather than IdentifierClean,
+					// because ParseType() can silently truncate complex templates (e.g. BigInt<128UL, ...>
+					// falls back to just the outer namespace). IdentifierDemangled is always complete.
+					string identifier = m.IdentifierDemangled;
+					return string.IsNullOrEmpty(identifier) ? m.Name : identifier;
+				})
+				.ToList();
 
-			Dictionary<LLVMTypeRef, StructContext> contextLookUp = moduleContext.Structs.Values.ToDictionary(s => s.Type);
+			Dictionary<LLVMTypeRef, StructContext> contextLookUp =
+				moduleContext.Structs.Values.ToDictionary(s => s.Type);
 
 			Dictionary<StructContext, List<LLVMMetadataRef>> validMetadata = [];
-			foreach ((LLVMTypeRef type, LLVMMetadataRef metadata) in globalVariableTypes.Where(p => p.Item1.Kind is LLVMTypeKind.LLVMStructTypeKind && p.Item2.Kind is LLVMMetadataKind.LLVMDICompositeTypeMetadataKind).Distinct())
+			foreach (
+				(LLVMTypeRef type, LLVMMetadataRef metadata) in globalVariableTypes
+					.Where(p =>
+						p.Item1.Kind is LLVMTypeKind.LLVMStructTypeKind
+						&& p.Item2.Kind is LLVMMetadataKind.LLVMDICompositeTypeMetadataKind
+					)
+					.Distinct()
+			)
 			{
 				StructContext structContext = contextLookUp[type];
 				if (validMetadata.TryGetValue(structContext, out List<LLVMMetadataRef>? list))
@@ -196,6 +285,8 @@ public static unsafe class Translator
 					continue;
 				}
 
+				uint? strukturSize = structContext.Definition.ClassLayout?.ClassSize;
+
 				for (int i = 0; i < identifiers.Count; i++)
 				{
 					if (structContext.DemangledName != identifiers[i])
@@ -203,7 +294,7 @@ public static unsafe class Translator
 						continue;
 					}
 					LLVMMetadataRef metadata = typesWithIdentifiers[i];
-					if (!AreCompatible(structContext.Type, metadata))
+					if (!AreCompatible(structContext.Type, metadata, strukturSize))
 					{
 						continue;
 					}
@@ -215,10 +306,57 @@ public static unsafe class Translator
 					continue;
 				}
 
+				// Fallback: match by the simple unqualified name for scoped types.
+				// Handles e.g. '(anonymous namespace)::statx_buf' matching DI name 'statx_buf'
+				// (anonymous-namespace types have no mangle identifier, only a bare Name).
+				{
+					int lastSep = structContext.DemangledName.LastIndexOf(
+						"::",
+						StringComparison.Ordinal
+					);
+					if (lastSep >= 0)
+					{
+						string simpleName = structContext.DemangledName[(lastSep + 2)..];
+						if (!string.IsNullOrEmpty(simpleName))
+						{
+							for (int i = 0; i < typesWithIdentifiers.Count; i++)
+							{
+								LLVMMetadataRef candidate = typesWithIdentifiers[i];
+								// Only consider DI types without a mangled identifier (unscoped / anon-NS types)
+								if (!string.IsNullOrEmpty(candidate.IdentifierClean))
+								{
+									continue;
+								}
+								if (candidate.Name != simpleName)
+								{
+									continue;
+								}
+								if (!AreCompatible(structContext.Type, candidate, strukturSize))
+								{
+									continue;
+								}
+								list.Add(candidate);
+							}
+						}
+					}
+				}
+
+				if (list.Count > 0)
+				{
+					continue;
+				}
+
 				for (int i = 0; i < identifiers.Count; i++)
 				{
 					string identifier = identifiers[i];
-					if (identifier.Length <= structContext.DemangledName.Length || !identifier.StartsWith(structContext.DemangledName, StringComparison.Ordinal) || identifier[structContext.DemangledName.Length] != '<')
+					if (
+						identifier.Length <= structContext.DemangledName.Length
+						|| !identifier.StartsWith(
+							structContext.DemangledName,
+							StringComparison.Ordinal
+						)
+						|| identifier[structContext.DemangledName.Length] != '<'
+					)
 					{
 						continue;
 					}
@@ -248,7 +386,7 @@ public static unsafe class Translator
 						continue;
 					}
 					LLVMMetadataRef metadata = typesWithIdentifiers[i];
-					if (!AreCompatible(structContext.Type, metadata))
+					if (!AreCompatible(structContext.Type, metadata, strukturSize))
 					{
 						continue;
 					}
@@ -256,7 +394,10 @@ public static unsafe class Translator
 				}
 			}
 
-			List<(LLVMTypeRef, LLVMMetadataRef)> types2 = validMetadata.Where(p => p.Value.Count > 0).Select(p => (p.Key.Type, p.Value[0])).ToList();
+			List<(LLVMTypeRef, LLVMMetadataRef)> types2 = validMetadata
+				.Where(p => p.Value.Count > 0)
+				.Select(p => (p.Key.Type, p.Value[0]))
+				.ToList();
 			AddChildTypes(types2);
 
 			foreach ((LLVMTypeRef type, LLVMMetadataRef metadata) in types2)
@@ -282,23 +423,45 @@ public static unsafe class Translator
 				list.Add(metadata);
 			}
 
+			// Diagnostic: count structs with metadata
+			int structsWithMeta = validMetadata.Count(p => p.Value.Count > 0);
+			int totalStructs = validMetadata.Count;
+			Console.WriteLine(
+				$"[DIAG] Structs with DWARF metadata: {structsWithMeta}/{totalStructs}"
+			);
+
+			int skippedNoMeta = 0,
+				skippedNoMatch = 0;
+			int fieldNamingCount = 0;
 			foreach ((StructContext structContext, List<LLVMMetadataRef> list) in validMetadata)
 			{
 				if (list.Count is 0)
 				{
+					skippedNoMeta++;
 					continue;
 				}
 
-				LLVMMetadataRef[] members = list[0].Members.ToArray();
-				string[] memberNames = members.Select(m => m.Name).ToArray();
-				FieldDefinition[] fields = structContext.Definition.Fields.Where(f => !f.IsStatic).ToArray();
-				Debug.Assert(members.Length == fields.Length);
+				// Build an offset (bytes) → DWARF member name map for the first matching entry.
+				// Using offsets rather than sequential index handles both trailing and internal
+				// padding (e.g. alignment [N x i8] arrays that have no DWARF counterpart).
+				// When multiple DWARF members share an offset (union / anonymous union fields),
+				// take the first — overlapping members map to a single LLVM field anyway.
+				Dictionary<int, string> offsetToName = list[0]
+					.AllDataMembers.GroupBy(m => (int)(m.OffsetInBits / 8))
+					.ToDictionary(g => g.Key, g => g.First().LayoutMemberName);
 
+				// Verify all DWARF entries for this struct agree on member names at each offset.
 				bool allMatch = true;
 				for (int index = 1; index < list.Count; index++)
 				{
-					string[] otherMemberNames = list[index].Members.Select(m => m.Name).ToArray();
-					allMatch &= memberNames.AsSpan().SequenceEqual(otherMemberNames);
+					Dictionary<int, string> otherMap = list[index]
+						.AllDataMembers.GroupBy(m => (int)(m.OffsetInBits / 8))
+						.ToDictionary(g => g.Key, g => g.First().LayoutMemberName);
+					allMatch =
+						offsetToName.Count == otherMap.Count
+						&& offsetToName.All(kv =>
+							otherMap.TryGetValue(kv.Key, out string? v) && v == kv.Value
+						);
 					if (!allMatch)
 					{
 						break;
@@ -306,17 +469,44 @@ public static unsafe class Translator
 				}
 				if (!allMatch)
 				{
+					skippedNoMatch++;
 					continue;
 				}
 
-				FieldDefinitionHasName[] fieldDefinitions = new FieldDefinitionHasName[fields.Length];
-				for (int i = 0; i < fields.Length; i++)
+				// Assign names to LLVM fields that have a DWARF counterpart by byte offset.
+				// Fields with no DWARF counterpart (padding arrays, alignment holes) are left
+				// with their generic field_N names.
+				List<FieldDefinitionHasName> fieldDefinitions = [];
+				int namedIdx = 0;
+				foreach (
+					FieldDefinition field in structContext.Definition.Fields.Where(f => !f.IsStatic)
+				)
 				{
-					fieldDefinitions[i] = new(fields[i], memberNames[i], i, moduleContext);
+					if (offsetToName.TryGetValue(field.FieldOffset ?? 0, out string? memberName))
+					{
+						fieldDefinitions.Add(
+							new FieldDefinitionHasName(field, memberName, namedIdx++, moduleContext)
+						);
+					}
 				}
 
-				fieldDefinitions.AssignNames();
+				if (fieldDefinitions.Count == 0 && offsetToName.Count > 0)
+				{
+					// DIAG: DWARF members exist but none matched an LLVM field by offset
+					Console.WriteLine(
+						$"[DIAG] Offset mismatch for {structContext.MangledName}: DWARF offsets=[{string.Join(",", offsetToName.Keys)}] LLVM offsets=[{string.Join(",", structContext.Definition.Fields.Where(f => !f.IsStatic).Select(f => f.FieldOffset))}]"
+					);
+				}
+
+				if (fieldDefinitions.Count > 0)
+				{
+					fieldDefinitions.ToArray().AssignNames();
+					fieldNamingCount++;
+				}
 			}
+			Console.WriteLine(
+				$"[DIAG] Field naming - applied:{fieldNamingCount} noMeta:{skippedNoMeta} mismatch:{skippedNoMatch}"
+			);
 		}
 
 		// Structs and inline arrays are discovered dynamically, so we need to assign names after all methods are created.
@@ -340,7 +530,13 @@ public static unsafe class Translator
 				continue;
 			}
 
-			if (metadata.IsArray && type.Kind is LLVMTypeKind.LLVMArrayTypeKind or LLVMTypeKind.LLVMScalableVectorTypeKind or LLVMTypeKind.LLVMVectorTypeKind)
+			if (
+				metadata.IsArray
+				&& type.Kind
+					is LLVMTypeKind.LLVMArrayTypeKind
+						or LLVMTypeKind.LLVMScalableVectorTypeKind
+						or LLVMTypeKind.LLVMVectorTypeKind
+			)
 			{
 				uint arrayLength;
 				LLVMTypeRef elementType;
@@ -361,7 +557,10 @@ public static unsafe class Translator
 					list.Add((elementType, metadata.BaseType));
 				}
 			}
-			else if ((metadata.IsStruct || metadata.IsClass || metadata.IsUnion) && type.Kind is LLVMTypeKind.LLVMStructTypeKind)
+			else if (
+				(metadata.IsStruct || metadata.IsClass || metadata.IsUnion)
+				&& type.Kind is LLVMTypeKind.LLVMStructTypeKind
+			)
 			{
 				if (!AreCompatible(type, metadata))
 				{
@@ -382,31 +581,77 @@ public static unsafe class Translator
 
 	private static void CreateEnumerations(ModuleContext moduleContext, List<LLVMMetadataRef> types)
 	{
-		List<LLVMMetadataRef> enumTypes = types.Where(m => m.IsEnum && m.Elements.Length > 0).ToList();
+		List<LLVMMetadataRef> enumTypes = types
+			.Where(m => m.IsEnum && m.Elements.Length > 0)
+			.ToList();
 
-		List<EnumContext> enumContexts = enumTypes.Select(m => EnumContext.Create(moduleContext, m)).ToList();
+		List<EnumContext> enumContexts = enumTypes
+			.Select(m => EnumContext.Create(moduleContext, m))
+			.ToList();
 		enumContexts.AssignNames();
 		enumContexts.ForEach(e => e.AddNameAttributes(e.Definition));
 	}
 
-	private static bool AreCompatible(LLVMTypeRef type, LLVMMetadataRef metadata)
+	private static bool AreCompatible(
+		LLVMTypeRef type,
+		LLVMMetadataRef metadata,
+		uint? llvmStructSizeBytes = null
+	)
 	{
-		return metadata.Members.Count() == type.SubtypesCount;
+		// Count both DW_TAG_member and DW_TAG_inheritance entries — inheritance base-class
+		// sub-objects map directly to LLVM struct fields, just like regular data members.
+		int dwarfMemberCount = metadata.AllDataMembers.Count();
+		int llvmFieldCount = (int)type.SubtypesCount;
+
+		// Reject if DWARF says the type has MORE data fields than the LLVM struct.
+		if (dwarfMemberCount > llvmFieldCount)
+		{
+			return false;
+		}
+
+		// If both sizes are known, they must agree exactly.
+		// This prevents incorrectly matching different template specializations that have
+		// the same member count but different overall sizes (e.g. FPStorage<float16> vs
+		// FPStorage<float64>).
+		ulong dwarfSizeBytes = metadata.SizeInBits / 8;
+		if (
+			llvmStructSizeBytes is uint llvmSize
+			&& dwarfSizeBytes > 0
+			&& dwarfSizeBytes != llvmSize
+		)
+		{
+			return false;
+		}
+
+		// LLVM may insert anonymous padding fields (trailing alignment bytes, internal holes)
+		// that the compiler does not expose as named DWARF members. The field naming pass
+		// uses offset-based matching to handle both trailing and internal padding correctly.
+		return true;
 	}
 
-	private sealed class FieldDefinitionHasName(FieldDefinition field, string debugName, int index, ModuleContext module) : IHasName
+	private sealed class FieldDefinitionHasName(
+		FieldDefinition field,
+		string debugName,
+		int index,
+		ModuleContext module
+	) : IHasName
 	{
 		public string MangledName => $"{debugName}_{index}";
 		string? IHasName.DemangledName => null;
 		public string CleanName { get; } = NameGenerator.CleanName(debugName, "field");
-		public string Name { get => @field.Name ?? ""; set => @field.Name = value; }
+		public string Name
+		{
+			get => @field.Name ?? "";
+			set => @field.Name = value;
+		}
 		string? IHasName.NativeType => null;
 		ModuleContext IHasName.Module => module;
 	}
 
 	private sealed class CustomModuleDefinition : ModuleDefinition
 	{
-		public CustomModuleDefinition(string name) : base(name, KnownCorLibs.SystemRuntime_v10_0_0_0)
+		public CustomModuleDefinition(string name)
+			: base(name, KnownCorLibs.SystemRuntime_v10_0_0_0)
 		{
 			if (Assembly is null)
 			{
@@ -420,7 +665,8 @@ public static unsafe class Translator
 			return new CustomReferenceImporter(this);
 		}
 
-		private sealed class CustomReferenceImporter(CustomModuleDefinition module) : ReferenceImporter(module)
+		private sealed class CustomReferenceImporter(CustomModuleDefinition module)
+			: ReferenceImporter(module)
 		{
 			protected override AssemblyReference ImportAssembly(AssemblyDescriptor assembly)
 			{
@@ -429,7 +675,12 @@ public static unsafe class Translator
 				// However, at compile time, it is not part of System.Runtime, but rather System.Runtime.InteropServices.
 				// If we ever try to import it, the reference will be invalid.
 				// This is one of the primary reasons for NativeMemoryHelper, which allows us to avoid referencing Marshal directly.
-				if (SignatureComparer.Default.Equals(assembly, KnownCorLibs.SystemPrivateCoreLib_v10_0_0_0))
+				if (
+					SignatureComparer.Default.Equals(
+						assembly,
+						KnownCorLibs.SystemPrivateCoreLib_v10_0_0_0
+					)
+				)
 				{
 					return base.ImportAssembly(KnownCorLibs.SystemRuntime_v10_0_0_0);
 				}

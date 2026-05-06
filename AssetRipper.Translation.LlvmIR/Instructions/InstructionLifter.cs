@@ -1208,6 +1208,33 @@ internal readonly unsafe struct InstructionLifter
 					);
 				}
 				break;
+			case LLVMOpcode.LLVMLandingPad:
+				{
+					// Itanium C++ ABI landing pad — not supported in the .NET EH model.
+					// Emit a default value for the result struct so the function can continue.
+					// https://llvm.org/docs/LangRef.html#landingpad-instruction
+					TypeSignature type = module.GetTypeSignature(instruction);
+					LoadVariable(basicBlock, ConstantVariable.CreateDefault(type));
+					StoreResult(basicBlock, instruction);
+					Console.WriteLine(
+						$"Warning: LLVM LandingPad instruction is not currently supported; it is being ignored inside {function?.Name}."
+					);
+				}
+				break;
+			case LLVMOpcode.LLVMResume:
+				{
+					// Itanium C++ ABI resume (rethrow) — not supported in the .NET EH model.
+					// Emit a return-default to terminate the block gracefully.
+					// https://llvm.org/docs/LangRef.html#resume-instruction
+					Debug.Assert(function is not null);
+					basicBlock.Add(
+						new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType)
+					);
+					Console.WriteLine(
+						$"Warning: LLVM Resume instruction is not currently supported; it is being ignored inside {function?.Name}."
+					);
+				}
+				break;
 			default:
 				if (BinaryMathInstruction.Supported(opcode))
 				{

@@ -1,10 +1,11 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Collections.Concurrent;
+using System.IO.Pipelines;
+using System.Numerics.Tensors;
+using System.Text;
+using AsmResolver.DotNet;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
-using System.Collections.Concurrent;
-using System.Numerics.Tensors;
-using System.Text;
 
 namespace AssetRipper.Translation.LlvmIR.Tests;
 
@@ -27,7 +28,10 @@ internal static class AssertionHelpers
 
 			using (Assert.Multiple())
 			{
-				await Assert.That(Directory.GetFiles(directory, "*.cs", SearchOption.AllDirectories)).Count().IsGreaterThan(0);
+				await Assert
+					.That(Directory.GetFiles(directory, "*.cs", SearchOption.AllDirectories))
+					.Count()
+					.IsGreaterThan(0);
 				await Assert.That(SuccessfullyCompiles(directory)).IsTrue();
 			}
 		}
@@ -53,6 +57,12 @@ internal static class AssertionHelpers
 			MetadataReference.CreateFromFile(typeof(ConcurrentDictionary<,>).Assembly.Location),
 			MetadataReference.CreateFromFile(GetAssemblyPath("System.Runtime.dll")),
 			MetadataReference.CreateFromFile(typeof(TensorPrimitives).Assembly.Location),
+			MetadataReference.CreateFromFile(GetAssemblyPath("System.IO.Pipes.dll")),
+			MetadataReference.CreateFromFile(GetAssemblyPath("System.Security.Cryptography.dll")),
+			MetadataReference.CreateFromFile(GetAssemblyPath("System.Threading.dll")),
+			MetadataReference.CreateFromFile(
+				GetAssemblyPath("System.Text.Encoding.Extensions.dll")
+			),
 		];
 
 		using MemoryStream polyfillOutputStream = new();
@@ -60,6 +70,17 @@ internal static class AssertionHelpers
 		// Emit compiled assembly into MemoryStream
 		CSharpCompilation compilation = CreateCompilation(syntaxTrees, references);
 		EmitResult result = compilation.Emit(polyfillOutputStream);
+		if (!result.Success)
+		{
+			foreach (
+				Microsoft.CodeAnalysis.Diagnostic diag in result.Diagnostics.Where(d =>
+					d.Severity == Microsoft.CodeAnalysis.DiagnosticSeverity.Error
+				)
+			)
+			{
+				Console.WriteLine($"  COMPILE ERROR: {diag}");
+			}
+		}
 		return result.Success;
 
 		static void AddCode(List<SyntaxTree> syntaxTrees, string code)
@@ -68,10 +89,17 @@ internal static class AssertionHelpers
 			syntaxTrees.Add(syntaxTree);
 		}
 
-		static CSharpCompilation CreateCompilation(IEnumerable<SyntaxTree> syntaxTrees, IEnumerable<MetadataReference> references)
+		static CSharpCompilation CreateCompilation(
+			IEnumerable<SyntaxTree> syntaxTrees,
+			IEnumerable<MetadataReference> references
+		)
 		{
 			// Define compilation options
-			CSharpCompilationOptions compilationOptions = new(OutputKind.DynamicallyLinkedLibrary, checkOverflow: true, allowUnsafe: true);
+			CSharpCompilationOptions compilationOptions = new(
+				OutputKind.DynamicallyLinkedLibrary,
+				checkOverflow: true,
+				allowUnsafe: true
+			);
 
 			// Create the compilation
 			CSharpCompilation compilation = CSharpCompilation.Create(
@@ -86,7 +114,11 @@ internal static class AssertionHelpers
 		static string GetAssemblyPath(string fileName)
 		{
 			string coreLibPath = typeof(object).Assembly.Location;
-			string directory = Path.GetDirectoryName(coreLibPath) ?? throw new InvalidOperationException("Could not determine directory of core library.");
+			string directory =
+				Path.GetDirectoryName(coreLibPath)
+				?? throw new InvalidOperationException(
+					"Could not determine directory of core library."
+				);
 			return Path.Combine(directory, fileName);
 		}
 	}

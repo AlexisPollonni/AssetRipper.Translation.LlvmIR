@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Metadata.Tables;
@@ -104,15 +103,26 @@ internal sealed partial class StructContext : IHasName
 	{
 		name = name.RemovePrefix("class.").RemovePrefix("struct.").RemovePrefix("union.");
 
-		Match match = NumericalSuffix.Match(name);
-		if (match.Success)
+		// Strip all trailing .N suffixes (LLVM type disambiguation tags like .5127, .16, etc.).
+		// Some names carry two layers (e.g. BigInt.16.467 → BigInt.16 → BigInt), so we loop.
+		while (true)
 		{
-			return match.Groups[1].Value;
+			Match match = NumericalSuffix.Match(name);
+			if (match.Success)
+			{
+				name = match.Groups[1].Value;
+			}
+			else
+			{
+				break;
+			}
 		}
-		else
-		{
-			return name;
-		}
+
+		// Strip the ".base" suffix that LLVM adds to the primary base-dispatch object of
+		// C++ classes with virtual tables (e.g. "WriteBuffer.base" → "WriteBuffer").
+		name = name.RemoveSuffix(".base");
+
+		return name;
 	}
 
 	public override string ToString()
