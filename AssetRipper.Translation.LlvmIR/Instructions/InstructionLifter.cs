@@ -895,6 +895,38 @@ internal readonly unsafe struct InstructionLifter
 					);
 
 					LoadValue(basicBlock, source);
+
+					// Detect the ABI coerce pattern: the source is an alloca whose allocated type
+					// does not match the GEP source element type (e.g. alloca i128 accessed as
+					// { i64, i64 }, or alloca %string_view accessed as { ptr, i64 }).
+					// In this case the managed reference on the stack would cause the optimizer to
+					// collapse ldflda+stind into stfld on the wrong declaring type, producing code
+					// like `Int128.field_0 = x` which does not compile.
+					// Fix: convert the managed ref to a native pointer and use byte-offset
+					// arithmetic for struct field sub-indices so the pattern stays as stind.
+					bool useByteOffsets = false;
+					if (
+						source.Kind == LLVMValueKind.LLVMInstructionValueKind
+						&& source.InstructionOpcode is LLVMOpcode.LLVMAlloca
+					)
+					{
+						TypeSignature allocaType = module.GetTypeSignature(
+							LLVM.GetAllocatedType(source)
+						);
+						if (
+							!SignatureComparer.Default.Equals(
+								allocaType,
+								sourceElementTypeSignature
+							)
+						)
+						{
+							// Convert managed ref → native pointer so subsequent accesses
+							// remain pointer-based and will not be turned into stfld.
+							basicBlock.Add(Instruction.FromOpCode(CilOpCodes.Conv_U));
+							useByteOffsets = true;
+						}
+					}
+
 					LoadArrayOffset(basicBlock, initialIndex, sourceElementTypeSignature);
 
 					TypeSignature currentType = sourceElementTypeSignature;
@@ -925,7 +957,25 @@ internal readonly unsafe struct InstructionLifter
 
 							int index = (int)operand.ConstIntSExt;
 							FieldDefinition field = structType.GetInstanceField(index);
-							basicBlock.Add(new LoadFieldAddressInstruction(field));
+							if (useByteOffsets)
+							{
+								// Use raw byte arithmetic instead of ldflda to keep the
+								// result as a native pointer rather than a typed managed ref.
+								int fieldOffset = field.FieldOffset ?? 0;
+								if (fieldOffset != 0)
+								{
+									LoadVariable(
+										basicBlock,
+										new ConstantI4(fieldOffset, module.Definition)
+									);
+									basicBlock.Add(Instruction.FromOpCode(CilOpCodes.Conv_U));
+									basicBlock.Add(Instruction.FromOpCode(CilOpCodes.Add));
+								}
+							}
+							else
+							{
+								basicBlock.Add(new LoadFieldAddressInstruction(field));
+							}
 							currentType = field.Signature!.FieldType;
 						}
 					}
