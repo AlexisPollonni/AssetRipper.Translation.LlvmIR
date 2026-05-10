@@ -17,21 +17,25 @@ internal static class ProjectFileStage
 {
 	private const string CsprojName = "Llvm.LibC.csproj";
 
-	private const string CsprojContent =
-		"""
-		<Project Sdk="Microsoft.NET.Sdk">
+	private const string CsprojContent = """
+			<Project Sdk="Microsoft.NET.Sdk">
 
-		  <PropertyGroup>
-		    <TargetFramework>net10.0</TargetFramework>
-		    <Nullable>enable</Nullable>
-		    <ImplicitUsings>enable</ImplicitUsings>
-		    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		    <!-- Generated LLVM IR code uses intentional arithmetic overflow -->
-		    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-		    <!-- Suppress DirectoryBuildProps from the solution that would re-enable overflow checks -->
-		    <DirectoryBuildPropsPath />
-		    <DirectoryBuildTargetsPath />
-		  </PropertyGroup>
+			  <PropertyGroup>
+			    <TargetFramework>net10.0</TargetFramework>
+			    <Nullable>enable</Nullable>
+			    <ImplicitUsings>enable</ImplicitUsings>
+			    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+			    <!-- Generated LLVM IR code uses intentional arithmetic overflow -->
+			    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+			    <!-- Suppress DirectoryBuildProps from the solution that would re-enable overflow checks -->
+			    <DirectoryBuildPropsPath />
+			    <DirectoryBuildTargetsPath />
+			  </PropertyGroup>
+
+		  <ItemGroup>
+		    <!-- Required by the injected NumericHelper and InlineArrayNumericHelper types -->
+		    <PackageReference Include="System.Numerics.Tensors" Version="10.0.0" />
+		  </ItemGroup>
 
 		</Project>
 		""";
@@ -40,15 +44,8 @@ internal static class ProjectFileStage
 	{
 		string csprojPath = Path.Combine(outputDir, CsprojName);
 
-		if (!File.Exists(csprojPath))
-		{
-			Console.WriteLine("[ProjectFile] Writing Llvm.LibC.csproj...");
-			File.WriteAllText(csprojPath, CsprojContent);
-		}
-		else
-		{
-			Console.WriteLine("[ProjectFile] Llvm.LibC.csproj already exists, leaving as-is.");
-		}
+		Console.WriteLine("[ProjectFile] Writing Llvm.LibC.csproj...");
+		File.WriteAllText(csprojPath, CsprojContent);
 
 		if (verifyBuild)
 		{
@@ -68,8 +65,8 @@ internal static class ProjectFileStage
 			Arguments = $"build \"{csprojPath}\" --nologo -v minimal",
 			UseShellExecute = false,
 		};
-		using Process proc = Process.Start(psi)
-			?? throw new InvalidOperationException("Failed to start 'dotnet'.");
+		using Process proc =
+			Process.Start(psi) ?? throw new InvalidOperationException("Failed to start 'dotnet'.");
 		proc.WaitForExit();
 
 		if (proc.ExitCode == 0)
@@ -84,4 +81,3 @@ internal static class ProjectFileStage
 		}
 	}
 }
-
