@@ -1,0 +1,20 @@
+using System.Runtime.InteropServices;
+using LlvmLibC.Helpers;
+using LlvmLibC.InlineArrays;
+
+namespace LlvmLibC.Structures;
+
+[StructLayout(LayoutKind.Explicit, Size = 24)]
+[MangledName("class.__llvm_libc_20_1_2_::internal::AbsTimeout")]
+[DemangledName("__llvm_libc_20_1_2_::internal::AbsTimeout")]
+public partial struct internal_AbsTimeout
+{
+	[FieldOffset(0)]
+	public AuxEntry timeout;
+
+	[FieldOffset(16)]
+	public sbyte realtime_flag;
+
+	[FieldOffset(17)]
+	public InlineArray7_SByte field_2;
+}

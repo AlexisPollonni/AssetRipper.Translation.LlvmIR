@@ -1,0 +1,53 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
+using System.Runtime.CompilerServices;
+using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.InlineArrays;
+
+[InlineArray(3)]
+public partial struct InlineArray3_InlineArray2_NumberPair : IEquatable<InlineArray3_InlineArray2_NumberPair>, IEqualityOperators<InlineArray3_InlineArray2_NumberPair, InlineArray3_InlineArray2_NumberPair, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray3_InlineArray2_NumberPair, InlineArray2_NumberPair>, IInlineArray<InlineArray3_InlineArray2_NumberPair, NumberPair>
+{
+	private InlineArray2_NumberPair __element0;
+
+	public static int Length => 3;
+
+	static int IInlineArray<NumberPair>.Length => 6;
+
+	public static bool operator ==(InlineArray3_InlineArray2_NumberPair x, InlineArray3_InlineArray2_NumberPair y)
+	{
+		return InlineArrayHelper.Equals<InlineArray3_InlineArray2_NumberPair, InlineArray2_NumberPair>(x, y);
+	}
+
+	public static bool operator !=(InlineArray3_InlineArray2_NumberPair x, InlineArray3_InlineArray2_NumberPair y)
+	{
+		return !(x == y);
+	}
+
+	public bool Equals(InlineArray3_InlineArray2_NumberPair other)
+	{
+		return this == other;
+	}
+
+	public override bool Equals(object other)
+	{
+		if (other is InlineArray3_InlineArray2_NumberPair)
+		{
+			return Equals((InlineArray3_InlineArray2_NumberPair)other);
+		}
+		return false;
+	}
+
+	public override int GetHashCode()
+	{
+		return this.GetHashCode<InlineArray3_InlineArray2_NumberPair, InlineArray2_NumberPair>();
+	}
+
+	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	{
+		return ((IEnumerable<InlineArray2_NumberPair>)this).GetEnumerator();
+	}
+}

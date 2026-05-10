@@ -1,0 +1,18 @@
+using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS0_5arrayIcLm265EEEE15OptionalStorageIS3_Lb0EEC2Ev")]
+[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>::OptionalStorage<__llvm_libc_20_1_2_::cpp::array<char, 265ul>, false>::OptionalStorage()")]
+internal static partial class cpp_optional_cpp_array_char_265ul_OptionalStorage_cpp_array_char_265ul_false_OptionalStorage
+{
+	public unsafe static void Invoke(void* @this)
+	{
+		unchecked
+		{
+			*(sbyte*)(&((cpp_optional_cpp_array_char_265_OptionalStorage*)@this)->field) = 0;
+			((cpp_optional_cpp_array_char_265_OptionalStorage*)@this)->in_use = 0;
+		}
+	}
+}

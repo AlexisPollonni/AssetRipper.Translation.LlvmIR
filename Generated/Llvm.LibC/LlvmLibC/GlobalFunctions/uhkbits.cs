@@ -1,0 +1,10 @@
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class uhkbits
+{
+	public unsafe static short Invoke(short x)
+	{
+		short num = x;
+		return cpp_enable_if_sizeof_unsigned_short_Accum_sizeof_unsigned_short_cpp_is_trivially_constructible_unsigned_short_Accum_value_cpp_is_trivially_copyable_unsigned_short_Accum_value_cpp_is_trivially_copyable_unsigned_short_value_unsigned_short_Accum_type_cpp_bit_cast_unsigned_short_Accum_unsigned_short_unsigned_short_const.Invoke(&num);
+	}
+}

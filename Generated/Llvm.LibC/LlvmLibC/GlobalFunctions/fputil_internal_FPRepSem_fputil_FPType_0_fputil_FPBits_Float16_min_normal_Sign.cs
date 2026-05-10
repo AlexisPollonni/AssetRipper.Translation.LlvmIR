@@ -1,0 +1,29 @@
+using LlvmLibC.Helpers;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE0ENS0_6FPBitsIDF16_EEE10min_normalENS_4SignE")]
+[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)0, __llvm_libc_20_1_2_::fputil::FPBits<_Float16>>::min_normal(__llvm_libc_20_1_2_::Sign)")]
+internal static partial class fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_min_normal_Sign
+{
+	public unsafe static short Invoke([MangledName("sign.coerce")] sbyte sign)
+	{
+		fputil_FPBits_2fahva fputil_FPBits_2fahva2 = default(fputil_FPBits_2fahva);
+		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
+		anon_izyfb7 anon_izyfb9 = default(anon_izyfb7);
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		fputil_internal_FPRepSem_i7nz4h fputil_internal_FPRepSem_i7nz4h2 = default(fputil_internal_FPRepSem_i7nz4h);
+		anon_izyfb8.val = sign;
+		llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, &anon_izyfb8, 1L, isVolatile: false);
+		int field_ = fputil_internal_FPStorage_fputil_FPType_0_Exponent_min.Invoke();
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0 = field_;
+		fputil_internal_FPStorage_fputil_FPType_0_BiasedExponent_BiasedExponent_fputil_internal_FPStorage_fputil_FPType_0_Exponent.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0);
+		short field_2 = fputil_internal_FPStorage_fputil_FPType_0_Significand_zero.Invoke();
+		fputil_internal_FPRepSem_i7nz4h2.FPStorage.field_0 = field_2;
+		fputil_FPBits_Float16_FPBits_unsigned_short_unsigned_short.Invoke(&fputil_FPBits_2fahva2, fputil_internal_FPStorage_fputil_FPType_0_encode_Sign_fputil_internal_FPStorage_fputil_FPType_0_BiasedExponent_fputil_internal_FPStorage_fputil_FPType_0_Significand.Invoke(anon_izyfb9.val, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0, fputil_internal_FPRepSem_i7nz4h2.FPStorage.field_0));
+		return fputil_FPBits_2fahva2.FPRepImpl.FPRepSem.FPStorage.field_0;
+	}
+}

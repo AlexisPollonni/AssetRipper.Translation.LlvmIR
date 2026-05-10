@@ -1,0 +1,20 @@
+using System.Runtime.InteropServices;
+using LlvmLibC.Helpers;
+using LlvmLibC.InlineArrays;
+
+namespace LlvmLibC.Structures;
+
+[StructLayout(LayoutKind.Explicit, Size = 16)]
+[MangledName("struct.__llvm_libc_20_1_2_::FileIOResult")]
+[DemangledName("__llvm_libc_20_1_2_::FileIOResult")]
+public partial struct FileIOResult
+{
+	[FieldOffset(0)]
+	public long value;
+
+	[FieldOffset(8)]
+	public int error;
+
+	[FieldOffset(12)]
+	public InlineArray4_SByte field_2;
+}

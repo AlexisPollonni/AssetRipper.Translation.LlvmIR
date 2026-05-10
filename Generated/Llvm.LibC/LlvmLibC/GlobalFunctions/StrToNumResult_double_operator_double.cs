@@ -1,0 +1,14 @@
+using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIdEcvdEv")]
+[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double>::operator double()")]
+internal static partial class StrToNumResult_double_operator_double
+{
+	public unsafe static double Invoke(void* @this)
+	{
+		return unchecked((StrToNumResult_r53a3q*)@this)->value;
+	}
+}

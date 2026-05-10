@@ -1,0 +1,13 @@
+using LlvmLibC.Helpers;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_3cpp4moveIRNS0_11string_viewEEEONS0_16remove_referenceIT_E4typeEOS5_")]
+[DemangledName("__llvm_libc_20_1_2_::cpp::remove_reference<__llvm_libc_20_1_2_::cpp::string_view&>::type&& __llvm_libc_20_1_2_::cpp::move<__llvm_libc_20_1_2_::cpp::string_view&>(__llvm_libc_20_1_2_::cpp::string_view&)")]
+internal static partial class cpp_remove_reference_cpp_string_view_type_cpp_move_cpp_string_view_cpp_string_view
+{
+	public unsafe static void* Invoke(void* t)
+	{
+		return t;
+	}
+}

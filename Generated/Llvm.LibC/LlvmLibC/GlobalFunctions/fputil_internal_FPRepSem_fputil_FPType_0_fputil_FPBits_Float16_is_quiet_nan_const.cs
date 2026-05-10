@@ -1,0 +1,26 @@
+using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE0ENS0_6FPBitsIDF16_EEE12is_quiet_nanEv")]
+[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)0, __llvm_libc_20_1_2_::fputil::FPBits<_Float16>>::is_quiet_nan() const")]
+internal static partial class fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_quiet_nan_const
+{
+	public unsafe static bool Invoke(void* @this)
+	{
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		fputil_internal_FPRepSem_i7nz4h fputil_internal_FPRepSem_i7nz4h2 = default(fputil_internal_FPRepSem_i7nz4h);
+		unchecked
+		{
+			ushort num = (ushort)fputil_internal_FPStorage_fputil_FPType_0_exp_sig_bits_const.Invoke(@this);
+			int field_ = fputil_internal_FPStorage_fputil_FPType_0_Exponent_inf.Invoke();
+			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0 = field_;
+			fputil_internal_FPStorage_fputil_FPType_0_BiasedExponent_BiasedExponent_fputil_internal_FPStorage_fputil_FPType_0_Exponent.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0);
+			short field_2 = fputil_internal_FPStorage_fputil_FPType_0_Significand_msb.Invoke();
+			fputil_internal_FPRepSem_i7nz4h2.FPStorage.field_0 = field_2;
+			return num >= (ushort)fputil_internal_FPStorage_fputil_FPType_0_encode_fputil_internal_FPStorage_fputil_FPType_0_BiasedExponent_fputil_internal_FPStorage_fputil_FPType_0_Significand.Invoke(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0, fputil_internal_FPRepSem_i7nz4h2.FPStorage.field_0);
+		}
+	}
+}

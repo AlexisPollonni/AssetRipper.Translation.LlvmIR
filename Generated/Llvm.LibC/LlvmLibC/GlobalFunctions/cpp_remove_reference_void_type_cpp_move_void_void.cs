@@ -1,0 +1,13 @@
+using LlvmLibC.Helpers;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_3cpp4moveIRPvEEONS0_16remove_referenceIT_E4typeEOS5_")]
+[DemangledName("__llvm_libc_20_1_2_::cpp::remove_reference<void*&>::type&& __llvm_libc_20_1_2_::cpp::move<void*&>(void*&)")]
+internal static partial class cpp_remove_reference_void_type_cpp_move_void_void
+{
+	public unsafe static void* Invoke(void* t)
+	{
+		return t;
+	}
+}

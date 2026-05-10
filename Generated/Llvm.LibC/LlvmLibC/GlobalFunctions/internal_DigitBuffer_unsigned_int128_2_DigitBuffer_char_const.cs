@@ -1,0 +1,38 @@
+using System;
+using LlvmLibC.Helpers;
+using LlvmLibC.InlineArrays;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_8internal11DigitBufferIoLi2EEC2EPKc")]
+[DemangledName("__llvm_libc_20_1_2_::internal::DigitBuffer<unsigned __int128, 2>::DigitBuffer(char const*)")]
+internal static partial class internal_DigitBuffer_unsigned_int128_2_DigitBuffer_char_const
+{
+	public unsafe static void Invoke(void* @this, void* str)
+	{
+		void* ptr = str;
+		unchecked
+		{
+			InlineArray128_SByte* digits = &((internal_DigitBuffer_wtdk7c*)@this)->digits;
+			sbyte* ptr2 = (sbyte*)digits + 128;
+			IntPtr intPtr = (nint)digits;
+			while (true)
+			{
+				void* ptr3 = (void*)intPtr;
+				*(sbyte*)ptr3 = 0;
+				sbyte* ptr4 = (sbyte*)ptr3 + 1;
+				if (ptr4 == ptr2)
+				{
+					break;
+				}
+				intPtr = (nint)ptr4;
+			}
+			((internal_DigitBuffer_wtdk7c*)@this)->size = 0L;
+			for (; *(sbyte*)ptr != 0; ptr = (byte*)ptr + 1)
+			{
+				internal_DigitBuffer_unsigned_int128_2_push_char.Invoke(@this, *(sbyte*)ptr);
+			}
+		}
+	}
+}

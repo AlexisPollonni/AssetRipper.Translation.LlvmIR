@@ -1,0 +1,10 @@
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class ulkbits
+{
+	public unsafe static long Invoke(long x)
+	{
+		long num = x;
+		return cpp_enable_if_sizeof_unsigned_long_Accum_sizeof_unsigned_long_long_cpp_is_trivially_constructible_unsigned_long_Accum_value_cpp_is_trivially_copyable_unsigned_long_Accum_value_cpp_is_trivially_copyable_unsigned_long_long_value_unsigned_long_Accum_type_cpp_bit_cast_unsigned_long_Accum_unsigned_long_long_unsigned_long_long_const.Invoke(&num);
+	}
+}

@@ -1,0 +1,13 @@
+using LlvmLibC.Helpers;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_9multiword15sub_with_borrowIjLm1ELm1EEET_RNS_3cpp5arrayIS2_XT0_EEERKNS4_IS2_XT1_EEE")]
+[DemangledName("unsigned int __llvm_libc_20_1_2_::multiword::sub_with_borrow<unsigned int, 1ul, 1ul>(__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
+internal static partial class unsigned_int_multiword_sub_with_borrow_unsigned_int_1ul_1ul_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const
+{
+	public unsafe static int Invoke(void* dst, void* rhs)
+	{
+		return unsigned_int_multiword_inplace_binop_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_1ul_1ul_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const.Invoke(cpp_enable_if_cpp_is_unsigned_v_unsigned_int_unsigned_int_type_sub_with_borrow_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int.__pointer, dst, rhs);
+	}
+}

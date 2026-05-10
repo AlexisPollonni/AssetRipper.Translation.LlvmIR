@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+using LlvmLibC.Helpers;
+using LlvmLibC.InlineArrays;
+
+namespace LlvmLibC.Structures;
+
+[StructLayout(LayoutKind.Explicit, Size = 24)]
+[MangledName("struct.__llvm_libc_20_1_2_::internal::FloatConvertReturn")]
+[DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn")]
+[CleanName("internal_FloatConvertReturn")]
+public partial struct internal_FloatConvertReturn_g92bm8
+{
+	[FieldOffset(0)]
+	public internal_ExpandedFloat_k68bhv num;
+
+	[FieldOffset(16)]
+	public int error;
+
+	[FieldOffset(20)]
+	public InlineArray4_SByte field_2;
+}

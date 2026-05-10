@@ -1,0 +1,48 @@
+using System;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class vsprintf
+{
+	public unsafe static int Invoke(void* buffer, void* format, void* vlist)
+	{
+		internal_ArgList internal_ArgList2 = default(internal_ArgList);
+		printf_core_WriteBuffer printf_core_WriteBuffer2 = default(printf_core_WriteBuffer);
+		printf_core_Writer printf_core_Writer2 = default(printf_core_Writer);
+		int num = 0;
+		llvm_lifetime_start_p0.Invoke(24L, &internal_ArgList2);
+		unchecked
+		{
+			va_list_tag* ptr = (va_list_tag*)(&internal_ArgList2);
+			*(int*)ptr = -1431655766;
+			((int*)ptr)[1] = -1431655766;
+			*(IntPtr*)((byte*)ptr + 8) = unchecked((nint)(-6148914691236517206L));
+			*(IntPtr*)((byte*)ptr + 16) = unchecked((nint)(-6148914691236517206L));
+			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, vlist);
+			llvm_lifetime_start_p0.Invoke(56L, &printf_core_WriteBuffer2);
+			llvm_memset_p0_i64.Invoke(&printf_core_WriteBuffer2, -86, 56L, isVolatile: false);
+			printf_core_WriteBuffer_WriteBuffer_char_unsigned_long.Invoke(&printf_core_WriteBuffer2, buffer, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
+			llvm_lifetime_start_p0.Invoke(16L, &printf_core_Writer2);
+			*(IntPtr*)(&printf_core_Writer2) = unchecked((nint)(-6148914691236517206L));
+			((int*)(&printf_core_Writer2))[2] = -1431655766;
+			sbyte* ptr2 = (sbyte*)(&printf_core_Writer2) + 12;
+			*ptr2 = -86;
+			ptr2[1] = -86;
+			ptr2[2] = -86;
+			ptr2[3] = -86;
+			printf_core_Writer_Writer_printf_core_WriteBuffer.Invoke(&printf_core_Writer2, &printf_core_WriteBuffer2);
+			llvm_lifetime_start_p0.Invoke(4L, &num);
+			num = printf_core_printf_main_printf_core_Writer_char_const_internal_ArgList.Invoke(&printf_core_Writer2, format, &internal_ArgList2);
+			((sbyte*)printf_core_WriteBuffer2.buff)[printf_core_WriteBuffer2.buff_cur] = 0;
+			int result = num;
+			llvm_lifetime_end_p0.Invoke(4L, &num);
+			llvm_lifetime_end_p0.Invoke(16L, &printf_core_Writer2);
+			llvm_lifetime_end_p0.Invoke(56L, &printf_core_WriteBuffer2);
+			internal_ArgList_ArgList.Invoke(&internal_ArgList2);
+			llvm_lifetime_end_p0.Invoke(24L, &internal_ArgList2);
+			return result;
+		}
+	}
+}

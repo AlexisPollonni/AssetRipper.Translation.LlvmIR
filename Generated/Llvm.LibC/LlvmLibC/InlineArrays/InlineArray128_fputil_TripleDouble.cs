@@ -1,0 +1,51 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
+using System.Runtime.CompilerServices;
+using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.InlineArrays;
+
+[InlineArray(128)]
+public partial struct InlineArray128_fputil_TripleDouble : IEquatable<InlineArray128_fputil_TripleDouble>, IEqualityOperators<InlineArray128_fputil_TripleDouble, InlineArray128_fputil_TripleDouble, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray128_fputil_TripleDouble, fputil_TripleDouble>
+{
+	private fputil_TripleDouble __element0;
+
+	public static int Length => 128;
+
+	public static bool operator ==(InlineArray128_fputil_TripleDouble x, InlineArray128_fputil_TripleDouble y)
+	{
+		return InlineArrayHelper.Equals<InlineArray128_fputil_TripleDouble, fputil_TripleDouble>(x, y);
+	}
+
+	public static bool operator !=(InlineArray128_fputil_TripleDouble x, InlineArray128_fputil_TripleDouble y)
+	{
+		return !(x == y);
+	}
+
+	public bool Equals(InlineArray128_fputil_TripleDouble other)
+	{
+		return this == other;
+	}
+
+	public override bool Equals(object other)
+	{
+		if (other is InlineArray128_fputil_TripleDouble)
+		{
+			return Equals((InlineArray128_fputil_TripleDouble)other);
+		}
+		return false;
+	}
+
+	public override int GetHashCode()
+	{
+		return this.GetHashCode<InlineArray128_fputil_TripleDouble, fputil_TripleDouble>();
+	}
+
+	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	{
+		return ((IEnumerable<fputil_TripleDouble>)this).GetEnumerator();
+	}
+}

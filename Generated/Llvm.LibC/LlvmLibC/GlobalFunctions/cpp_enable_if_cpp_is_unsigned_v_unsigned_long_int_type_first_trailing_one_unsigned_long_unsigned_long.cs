@@ -1,0 +1,13 @@
+using LlvmLibC.Helpers;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_18first_trailing_oneImEENS_3cpp9enable_ifIXsr3cppE13is_unsigned_vIT_EEiE4typeES3_")]
+[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_unsigned_v<unsigned long>, int>::type __llvm_libc_20_1_2_::first_trailing_one<unsigned long>(unsigned long)")]
+internal static partial class cpp_enable_if_cpp_is_unsigned_v_unsigned_long_int_type_first_trailing_one_unsigned_long_unsigned_long
+{
+	public static int Invoke(long value)
+	{
+		return (value != cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke()) ? (cpp_enable_if_cpp_is_unsigned_v_unsigned_long_int_type_cpp_countr_zero_unsigned_long_unsigned_long.Invoke(value) + 1) : 0;
+	}
+}

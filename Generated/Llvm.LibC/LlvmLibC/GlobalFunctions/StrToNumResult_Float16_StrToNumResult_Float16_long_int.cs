@@ -1,0 +1,20 @@
+using System;
+using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIDF16_EC2EDF16_li")]
+[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<_Float16>::StrToNumResult(_Float16, long, int)")]
+internal static partial class StrToNumResult_Float16_StrToNumResult_Float16_long_int
+{
+	public unsafe static void Invoke(void* @this, Half value, long parsed_len, int error)
+	{
+		unchecked
+		{
+			((StrToNumResult_stcih6*)@this)->value = value;
+			((StrToNumResult_stcih6*)@this)->error = error;
+			((StrToNumResult_stcih6*)@this)->parsed_len = parsed_len;
+		}
+	}
+}

@@ -1,0 +1,13 @@
+using LlvmLibC.Helpers;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_9multiword14add_with_carryImLm1ELm1EEET_RNS_3cpp5arrayIS2_XT0_EEERKNS4_IS2_XT1_EEE")]
+[DemangledName("unsigned long __llvm_libc_20_1_2_::multiword::add_with_carry<unsigned long, 1ul, 1ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 1ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned long, 1ul> const&)")]
+internal static partial class unsigned_long_multiword_add_with_carry_unsigned_long_1ul_1ul_cpp_array_unsigned_long_1ul_cpp_array_unsigned_long_1ul_const
+{
+	public unsafe static long Invoke(void* dst, void* rhs)
+	{
+		return unsigned_long_multiword_inplace_binop_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long_1ul_1ul_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long_cpp_array_unsigned_long_1ul_cpp_array_unsigned_long_1ul_const.Invoke(cpp_enable_if_cpp_is_unsigned_v_unsigned_long_unsigned_long_type_add_with_carry_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long.__pointer, dst, rhs);
+	}
+}

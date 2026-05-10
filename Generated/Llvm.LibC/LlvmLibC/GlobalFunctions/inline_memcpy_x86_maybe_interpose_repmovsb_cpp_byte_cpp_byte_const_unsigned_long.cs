@@ -1,0 +1,13 @@
+using LlvmLibC.Helpers;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_42inline_memcpy_x86_maybe_interpose_repmovsbEPNS_3cpp4byteEPKS1_m")]
+[DemangledName("__llvm_libc_20_1_2_::inline_memcpy_x86_maybe_interpose_repmovsb(__llvm_libc_20_1_2_::cpp::byte*, __llvm_libc_20_1_2_::cpp::byte const*, unsigned long)")]
+internal static partial class inline_memcpy_x86_maybe_interpose_repmovsb_cpp_byte_cpp_byte_const_unsigned_long
+{
+	public unsafe static void Invoke(void* dst, void* src, long count)
+	{
+		inline_memcpy_x86_cpp_byte_cpp_byte_const_unsigned_long.Invoke(dst, src, count);
+	}
+}

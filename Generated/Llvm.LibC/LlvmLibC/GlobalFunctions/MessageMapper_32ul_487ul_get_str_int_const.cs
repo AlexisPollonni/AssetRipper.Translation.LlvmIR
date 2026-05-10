@@ -1,0 +1,30 @@
+using LlvmLibC.Helpers;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZNK19__llvm_libc_20_1_2_13MessageMapperILm32ELm487EE7get_strEi")]
+[DemangledName("__llvm_libc_20_1_2_::MessageMapper<32ul, 487ul>::get_str(int) const")]
+internal static partial class MessageMapper_32ul_487ul_get_str_int_const
+{
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q73pcj* agg_result, void* @this, int num)
+	{
+		cpp_string_view cpp_string_view2 = default(cpp_string_view);
+		unchecked
+		{
+			if (num >= 0 && (ulong)num < 32uL && ((int*)(&((MessageMapper_f6bdqy*)@this)->msg_offsets))[num] != -1)
+			{
+				llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view2);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, (byte*)(&((MessageMapper_f6bdqy*)@this)->string_array) + ((int*)(&((MessageMapper_f6bdqy*)@this)->msg_offsets))[num]);
+				cpp_optional_cpp_string_view_optional_cpp_string_view.Invoke(agg_result, &cpp_string_view2);
+				llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);
+			}
+			else
+			{
+				llvm_memset_p0_i64.Invoke(agg_result, 0, 24L, isVolatile: false);
+				cpp_optional_cpp_string_view_optional.Invoke(agg_result);
+			}
+		}
+	}
+}

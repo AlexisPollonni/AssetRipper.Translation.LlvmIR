@@ -1,0 +1,29 @@
+using LlvmLibC.Helpers;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_6fputil7fromfpxILb1EdEENS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT0_EES4_E4typeES4_ij")]
+[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<double>, double>::type __llvm_libc_20_1_2_::fputil::fromfpx<true, double>(double, int, unsigned int)")]
+internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_double_type_fputil_fromfpx_true_double_double_int_unsigned_int
+{
+	public unsafe static double Invoke(double x, int rnd, int width)
+	{
+		double num = 0.0;
+		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
+		llvm_lifetime_start_p0.Invoke(8L, &num);
+		num = cpp_enable_if_cpp_is_floating_point_v_double_double_type_fputil_fromfp_true_double_double_int_unsigned_int.Invoke(x, rnd, width);
+		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
+		*unchecked((long*)(&fputil_FPBits_wjhbrm2)) = -6148914691236517206L;
+		fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, num);
+		if (!fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_nan_const.Invoke(&fputil_FPBits_wjhbrm2) && NumericHelper.IsUnorderedOrNotEquals(num, x))
+		{
+			fputil_raise_except_if_required_int.Invoke(32);
+		}
+		double result = num;
+		llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
+		llvm_lifetime_end_p0.Invoke(8L, &num);
+		return result;
+	}
+}

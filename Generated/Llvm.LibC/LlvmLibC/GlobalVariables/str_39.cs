@@ -1,0 +1,33 @@
+using System.Runtime.CompilerServices;
+using LlvmLibC.Helpers;
+using LlvmLibC.InlineArrays;
+
+namespace LlvmLibC.GlobalVariables;
+
+[MangledName(".str.39")]
+[DemangledName(".str.39")]
+internal static partial class str_39
+{
+	[FixedAddressValueType]
+	private static InlineArray27_SByte __value;
+
+	public unsafe static InlineArray27_SByte* Pointer => unchecked((InlineArray27_SByte*)Unsafe.AsPointer(ref __value));
+
+	public static InlineArray27_SByte Value
+	{
+		get
+		{
+			return __value;
+		}
+		set
+		{
+			__value = value;
+		}
+	}
+
+	unsafe static str_39()
+	{
+		Value = InlineArrayHelper.Create<InlineArray27_SByte, byte>("72759576141834259033203125\0"u8);
+		PointerIndices.Register(Pointer);
+	}
+}
