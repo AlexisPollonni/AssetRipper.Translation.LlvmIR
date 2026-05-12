@@ -1,23 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+  </PropertyGroup>
 
-	<PropertyGroup>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-	</PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
+    <PackageReference Include="AssetRipper.Bindings.LLVM" Version="1.0.1" />
+    <PackageReference Include="AssetRipper.CIL" Version="1.2.2" />
+    <PackageReference Include="AssetRipper.ICSharpCode.Decompiler" Version="10.0.0.8231-preview2" />
+    <PackageReference Include="HarmonyX" Version="2.16.0" />
+    <PackageReference Include="LibObjectFile" Version="2.1.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
+    <PackageReference Include="System.IO.Hashing" Version="10.0.0" />
+    <PackageReference Include="System.Numerics.Tensors" Version="10.0.0" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
-		<PackageReference Include="AssetRipper.Bindings.LLVM" Version="1.0.1" />
-		<PackageReference Include="AssetRipper.CIL" Version="1.2.2" />
-		<PackageReference Include="AssetRipper.ICSharpCode.Decompiler" Version="10.0.0.8231-preview2" />
-		<PackageReference Include="HarmonyX" Version="2.16.0" />
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
-		<PackageReference Include="System.IO.Hashing" Version="10.0.0" />
-		<PackageReference Include="System.Numerics.Tensors" Version="10.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-	</ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference
+      Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+    />
+  </ItemGroup>
 </Project>

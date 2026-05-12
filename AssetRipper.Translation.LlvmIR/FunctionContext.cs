@@ -311,6 +311,14 @@ internal sealed class FunctionContext : IHasName
 	private FieldDefinition PointerField { get; set; } = null!;
 	private bool IsPointerFieldUsed { get; set; } = false;
 
+	/// <summary>
+	/// The public wrapper method emitted into <c>GlobalMembers</c> by
+	/// <see cref="AddPublicImplementation"/>. Set after that method has been called.
+	/// Used by <see cref="ApplyDwarfParameterTypes"/> to keep the public signature
+	/// in sync when DWARF types are applied after the wrapper has been generated.
+	/// </summary>
+	public MethodDefinition? PublicMethod { get; private set; }
+
 	public BaseParameterContext GetParameter(int index)
 	{
 		ArgumentOutOfRangeException.ThrowIfNegative(index);
@@ -384,6 +392,7 @@ internal sealed class FunctionContext : IHasName
 				)
 			);
 			Module.GlobalMembersType.Methods.Add(newMethod);
+			PublicMethod = newMethod;
 			newMethod.CilMethodBody = new();
 
 			instructions = newMethod.CilMethodBody.Instructions;
@@ -418,6 +427,7 @@ internal sealed class FunctionContext : IHasName
 				)
 			);
 			Module.GlobalMembersType.Methods.Add(newMethod);
+			PublicMethod = newMethod;
 			newMethod.CilMethodBody = new();
 
 			instructions = newMethod.CilMethodBody.Instructions;
@@ -527,29 +537,7 @@ internal sealed class FunctionContext : IHasName
 			return;
 		}
 
-		// Find the MDTuple operand of the subprogram that contains DILocalVariable entries.
-		// That operand is the retainedNodes field.
-		LLVMMetadataRef retainedNodes = default;
-		foreach (LLVMMetadataRef operand in subprogram.GetOperands())
-		{
-			if (operand.Handle == IntPtr.Zero || operand.IsAMDTuple == default)
-			{
-				continue;
-			}
-			foreach (LLVMMetadataRef inner in operand.GetOperands())
-			{
-				if (inner.Handle != IntPtr.Zero && inner.IsADILocalVariable != default)
-				{
-					retainedNodes = operand;
-					break;
-				}
-			}
-			if (retainedNodes.Handle != IntPtr.Zero)
-			{
-				break;
-			}
-		}
-
+		LLVMMetadataRef retainedNodes = FindRetainedNodes(subprogram);
 		if (retainedNodes.Handle == IntPtr.Zero)
 		{
 			return;
@@ -585,6 +573,122 @@ internal sealed class FunctionContext : IHasName
 			}
 			debugParamIndex++;
 		}
+	}
+
+	/// <summary>
+	/// Uses the DWARF debug types attached to each <c>DILocalVariable</c> parameter node to
+	/// replace generic <c>void*</c> or integer parameter types with their true struct-pointer
+	/// or enum types. Must be called after all struct and enum contexts have been created and
+	/// the <paramref name="lookup"/> has been populated.
+	/// Also updates <see cref="PublicMethod"/> parameter types and return type to match.
+	/// </summary>
+	public void ApplyDwarfParameterTypes(IReadOnlyDictionary<string, TypeSignature> lookup)
+	{
+		LLVMMetadataRef subprogram = Function.Subprogram;
+		if (subprogram.Handle == IntPtr.Zero || subprogram.IsADISubprogram == default)
+			return;
+
+		// --- Return type ---
+		// Skip sret functions — the real return type is already encoded in the sret pointer.
+		bool hasSret =
+			NormalParameters.Length > 0
+			&& NormalParameters[0].StructReturnTypeSignature is not null;
+
+		if (!hasSret && Definition.Signature is not null)
+		{
+			LLVMMetadataRef subroutineType = subprogram.Type;
+			if (
+				subroutineType.Handle != IntPtr.Zero
+				&& subroutineType.IsADISubroutineType != default
+			)
+			{
+				LLVMMetadataRef[] typeArray = subroutineType.GetTypeArray();
+				if (typeArray.Length > 0 && typeArray[0].Handle != IntPtr.Zero)
+				{
+					TypeSignature? resolved = DwarfTypeResolver.TryResolve(typeArray[0], lookup);
+					if (
+						resolved is not null
+						&& DwarfTypeResolver.IsSafeReplacement(
+							Definition.Signature.ReturnType,
+							resolved
+						)
+					)
+					{
+						Definition.Signature.ReturnType = resolved;
+						if (PublicMethod?.Signature is not null)
+							PublicMethod.Signature.ReturnType = resolved;
+					}
+				}
+			}
+		}
+
+		// --- Parameters ---
+		LLVMMetadataRef retainedNodes = FindRetainedNodes(subprogram);
+		if (retainedNodes.Handle == IntPtr.Zero)
+			return;
+
+		int paramOffset = hasSret ? 1 : 0;
+		int userParamCount = NormalParameters.Length - paramOffset;
+		int debugParamIndex = 0;
+
+		foreach (LLVMMetadataRef node in retainedNodes.GetOperands())
+		{
+			if (debugParamIndex >= userParamCount)
+				break;
+			if (node.Handle == IntPtr.Zero || node.IsADILocalVariable == default)
+				continue;
+
+			int implIdx = debugParamIndex + paramOffset;
+			LLVMMetadataRef dwarfType = node.Type;
+			if (dwarfType.Handle != IntPtr.Zero)
+			{
+				TypeSignature? resolved = DwarfTypeResolver.TryResolve(dwarfType, lookup);
+				if (
+					resolved is not null
+					&& DwarfTypeResolver.IsSafeReplacement(
+						NormalParameters[implIdx].TypeSignature,
+						resolved
+					)
+				)
+				{
+					// Update the implementation method parameter.
+					NormalParameters[implIdx].TypeSignature = resolved;
+
+					// Update the corresponding public wrapper parameter (already created).
+					if (PublicMethod?.Signature is not null)
+					{
+						// sret: public params start at implIdx-1 (the sret param is not exposed)
+						int pubIdx = hasSret ? implIdx - 1 : implIdx;
+						if (pubIdx >= 0 && pubIdx < PublicMethod.Signature.ParameterTypes.Count)
+						{
+							PublicMethod.Signature.ParameterTypes[pubIdx] = resolved;
+						}
+					}
+				}
+			}
+
+			debugParamIndex++;
+		}
+	}
+
+	/// <summary>
+	/// Finds the <c>retainedNodes</c> MDTuple operand of a DISubprogram — the tuple that
+	/// contains DILocalVariable entries for the function's parameters and locals.
+	/// </summary>
+	private static LLVMMetadataRef FindRetainedNodes(LLVMMetadataRef subprogram)
+	{
+		foreach (LLVMMetadataRef operand in subprogram.GetOperands())
+		{
+			if (operand.Handle == IntPtr.Zero || operand.IsAMDTuple == default)
+				continue;
+
+			foreach (LLVMMetadataRef inner in operand.GetOperands())
+			{
+				if (inner.Handle != IntPtr.Zero && inner.IsADILocalVariable != default)
+					return operand;
+			}
+		}
+		return default;
 	}
 
 	private static string TryGetSimpleName(string name)

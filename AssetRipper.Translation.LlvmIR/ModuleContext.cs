@@ -94,6 +94,12 @@ internal sealed partial class ModuleContext
 	private readonly Dictionary<LLVMTypeRef, StructContext> structsCache = new();
 	public Dictionary<TypeDefinition, StructContext> Structs { get; } =
 		new(SignatureComparer.Default);
+
+	/// <summary>
+	/// All enumeration types discovered from DWARF debug metadata, keyed by their DWARF mangled
+	/// identifier (e.g. <c>_ZTSN…E</c>). Populated by the metadata processing step.
+	/// </summary>
+	public Dictionary<string, EnumContext> Enums { get; } = new();
 	public Dictionary<LLVMValueRef, GlobalVariableContext> GlobalVariables { get; } = new();
 	private readonly Dictionary<(TypeSignature, int), InlineArrayContext> inlineArrayCache = new(
 		TypeSignatureIntPairComparer

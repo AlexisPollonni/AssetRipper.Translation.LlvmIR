@@ -507,6 +507,70 @@ public static unsafe class Translator
 			Console.WriteLine(
 				$"[DIAG] Field naming - applied:{fieldNamingCount} noMeta:{skippedNoMeta} mismatch:{skippedNoMatch}"
 			);
+
+			// -----------------------------------------------------------------------
+			// DWARF type refinement:
+			// Build an identifier → TypeSignature lookup that covers all known enums
+			// and all structs that were matched to DWARF metadata above.  Then use it
+			// to replace generic void*/integer field and parameter types with the real
+			// struct-pointer or enum types that DWARF recorded.
+			// -----------------------------------------------------------------------
+			Dictionary<string, TypeSignature> dwarfTypeLookup = BuildDwarfTypeLookup(
+				moduleContext,
+				validMetadata
+			);
+
+			// Apply DWARF types to struct fields (uses same offset matching as field naming).
+			int fieldTypeCount = 0;
+			foreach ((StructContext structContext, List<LLVMMetadataRef> list) in validMetadata)
+			{
+				if (list.Count == 0)
+					continue;
+
+				// Build offset → DWARF member node map (same logic as naming, but store the node).
+				Dictionary<int, LLVMMetadataRef> offsetToMember = list[0]
+					.AllDataMembers.GroupBy(m => (int)(m.OffsetInBits / 8))
+					.ToDictionary(g => g.Key, g => g.First());
+
+				foreach (
+					FieldDefinition field in structContext.Definition.Fields.Where(f => !f.IsStatic)
+				)
+				{
+					int offset = field.FieldOffset ?? 0;
+					if (
+						!offsetToMember.TryGetValue(offset, out LLVMMetadataRef member)
+						|| member.Handle == IntPtr.Zero
+						|| field.Signature is null
+					)
+					{
+						continue;
+					}
+
+					LLVMMetadataRef dwType = member.BaseType;
+					TypeSignature? resolved = DwarfTypeResolver.TryResolve(dwType, dwarfTypeLookup);
+					if (
+						resolved is not null
+						&& field.Signature is not null
+						&& DwarfTypeResolver.IsSafeReplacement(field.Signature.FieldType, resolved)
+					)
+					{
+						field.Signature.FieldType = resolved;
+						fieldTypeCount++;
+					}
+				}
+			}
+			Console.WriteLine($"[DIAG] DWARF field typing - applied:{fieldTypeCount}");
+
+			// Apply DWARF types to function parameters (also updates public wrapper signatures).
+			int paramTypeCount = 0;
+			foreach (FunctionContext func in moduleContext.Methods.Values)
+			{
+				int before = paramTypeCount;
+				func.ApplyDwarfParameterTypes(dwarfTypeLookup);
+				// Count is approximate — track via a diagnostic callback if needed.
+				_ = before; // suppress warning; counted outside for now
+			}
+			Console.WriteLine("[DIAG] DWARF parameter typing - complete");
 		}
 
 		// Structs and inline arrays are discovered dynamically, so we need to assign names after all methods are created.
@@ -579,6 +643,43 @@ public static unsafe class Translator
 		}
 	}
 
+	/// <summary>
+	/// Builds a DWARF mangled-identifier → <see cref="TypeSignature"/> lookup table that covers:
+	/// <list type="bullet">
+	///   <item>All enumeration types registered in <see cref="ModuleContext.Enums"/>.</item>
+	///   <item>All struct/class/union types that were matched to DWARF metadata
+	///         (i.e. have a non-empty <see cref="LLVMMetadataRef.Identifier"/>).</item>
+	/// </list>
+	/// </summary>
+	private static Dictionary<string, TypeSignature> BuildDwarfTypeLookup(
+		ModuleContext moduleContext,
+		Dictionary<StructContext, List<LLVMMetadataRef>> validMetadata
+	)
+	{
+		Dictionary<string, TypeSignature> lookup = new();
+
+		// Enums
+		foreach ((string id, EnumContext enumCtx) in moduleContext.Enums)
+		{
+			lookup[id] = enumCtx.Definition.ToTypeSignature();
+		}
+
+		// Structs (from the already-built struct ↔ DWARF matching table)
+		foreach ((StructContext structCtx, List<LLVMMetadataRef> list) in validMetadata)
+		{
+			if (list.Count == 0)
+				continue;
+
+			string id = list[0].Identifier;
+			if (!string.IsNullOrEmpty(id))
+			{
+				lookup.TryAdd(id, structCtx.Definition.ToTypeSignature());
+			}
+		}
+
+		return lookup;
+	}
+
 	private static void CreateEnumerations(ModuleContext moduleContext, List<LLVMMetadataRef> types)
 	{
 		List<LLVMMetadataRef> enumTypes = types
@@ -589,7 +690,18 @@ public static unsafe class Translator
 			.Select(m => EnumContext.Create(moduleContext, m))
 			.ToList();
 		enumContexts.AssignNames();
-		enumContexts.ForEach(e => e.AddNameAttributes(e.Definition));
+		enumContexts.ForEach(e =>
+		{
+			e.AddNameAttributes(e.Definition);
+			// Register in the Enums lookup so DWARF type refinement can substitute
+			// integer fields/parameters with the correct enum type.
+			string id = e.MangledName;
+			if (!string.IsNullOrEmpty(id))
+				moduleContext.Enums.TryAdd(id, e);
+		});
+		Console.WriteLine(
+			$"[DIAG] Enumerations registered: {moduleContext.Enums.Count}/{enumContexts.Count}"
+		);
 	}
 
 	private static bool AreCompatible(

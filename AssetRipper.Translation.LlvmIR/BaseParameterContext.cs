@@ -11,10 +11,13 @@ internal abstract class BaseParameterContext : IHasName, IVariable
 	/// <inheritdoc/>
 	public abstract string MangledName { get; }
 	string? IHasName.DemangledName => null;
+
 	/// <inheritdoc/>
 	public abstract string CleanName { get; }
+
 	/// <inheritdoc/>
 	public string Name { get; set; } = "";
+
 	/// <inheritdoc/>
 	public string? NativeType { get; set; }
 	public abstract AttributeWrapper[] Attributes { get; }
@@ -24,7 +27,7 @@ internal abstract class BaseParameterContext : IHasName, IVariable
 	public TypeSignature TypeSignature
 	{
 		get => Definition.ParameterType;
-		protected set => Definition.ParameterType = value;
+		internal set => Definition.ParameterType = value;
 	}
 
 	public BaseParameterContext(Parameter definition, FunctionContext function)
