@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -10,7 +11,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>> __llvm_libc_20_1_2_::internal::clinger_fast_path<long double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class cpp_optional_internal_ExpandedFloat_long_double_internal_clinger_fast_path_long_double_internal_ExpandedFloat_long_double_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q5jaj8* agg_result, void* init_num, int round)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q5jaj8* agg_result, void* init_num, RoundDirection_b3pcwy round)
 	{
 		Int128 @int = default(Int128);
 		int num = 0;
@@ -101,7 +102,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_long_double_in
 		IL_02cd:
 		unchecked
 		{
-			if (round != 2)
+			if (round != RoundDirection_b3pcwy.Nearest)
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi7);
 				*(Int128*)(&fputil_FPBits_ubgsi7) = -6148914691236517206L;
@@ -130,7 +131,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_long_double_in
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_ubgsi9, &fputil_FPBits_ubgsi7, 16L, isVolatile: false);
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_ubgsi10, &fputil_FPBits_ubgsi3, 16L, isVolatile: false);
 					}
-					if (round == 0)
+					if (round == RoundDirection_b3pcwy.Up)
 					{
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_ubgsi3, &fputil_FPBits_ubgsi10, 16L, isVolatile: false);
 					}

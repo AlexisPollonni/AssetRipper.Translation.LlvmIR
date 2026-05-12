@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)0, __llvm_libc_20_1_2_::fputil::FPBits<_Float16>>::get_biased_exponent() const")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_biased_exponent_const
 {
-	public unsafe static short Invoke(void* @this)
+	public unsafe static short Invoke(fputil_internal_FPRepImpl_7z3gh9* @this)
 	{
 		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2);

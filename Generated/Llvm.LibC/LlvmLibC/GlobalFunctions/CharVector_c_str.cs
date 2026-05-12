@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::CharVector::c_str()")]
 internal static partial class CharVector_c_str
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static void* Invoke(CharVector* @this)
 	{
-		unchecked
-		{
-			((sbyte*)((CharVector*)@this)->cur_str)[((CharVector*)@this)->index] = 0;
-			return ((CharVector*)@this)->cur_str;
-		}
+		unchecked((sbyte*)@this->cur_str)[@this->index] = 0;
+		return @this->cur_str;
 	}
 }

@@ -31,7 +31,7 @@ internal static partial class Float16_complex_project_Float16_complex_Float16_co
 			*(InlineArray2_Half*)(&complex_ueqjqt) = cpp_enable_if_sizeof_Complex_Float16_sizeof_Float16_complex_cpp_is_trivially_constructible_Complex_Float16_value_cpp_is_trivially_copyable_Complex_Float16_value_cpp_is_trivially_copyable_Float16_complex_value_Complex_Float16_type_cpp_bit_cast_Complex_Float16_Float16_complex_Float16_complex_const.Invoke(&struct_zwcg2);
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, complex_ueqjqt.real);
-			bool num = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke(&fputil_FPBits_2fahva2);
+			bool num = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2));
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 			int num2;
 			if (num)
@@ -41,7 +41,7 @@ internal static partial class Float16_complex_project_Float16_complex_Float16_co
 			else
 			{
 				fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva3, complex_ueqjqt.imag);
-				num2 = (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke(&fputil_FPBits_2fahva3) ? 1 : 0);
+				num2 = (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva3)) ? 1 : 0);
 			}
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva2);

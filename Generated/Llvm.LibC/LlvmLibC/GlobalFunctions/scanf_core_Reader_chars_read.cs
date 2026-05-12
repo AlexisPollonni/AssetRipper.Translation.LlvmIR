@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader::chars_read()")]
 internal static partial class scanf_core_Reader_chars_read
 {
-	public unsafe static long Invoke(void* @this)
+	public unsafe static long Invoke(scanf_core_Reader* @this)
 	{
-		return unchecked((scanf_core_Reader*)@this)->cur_chars_read;
+		return @this->cur_chars_read;
 	}
 }

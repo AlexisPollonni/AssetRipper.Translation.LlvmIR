@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::get_digits()")]
 internal static partial class internal_HighPrecisionDecimal_get_digits
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static void* Invoke(internal_HighPrecisionDecimal* @this)
 	{
-		return &unchecked((internal_HighPrecisionDecimal*)@this)->digits;
+		return &@this->digits;
 	}
 }

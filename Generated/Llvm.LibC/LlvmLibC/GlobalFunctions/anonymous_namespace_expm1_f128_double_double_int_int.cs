@@ -127,7 +127,7 @@ internal static partial class anonymous_namespace_expm1_f128_double_double_int_i
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			*(long*)num3 = struct_fiz2nb3.field_1;
 			Int128 int2 = @int;
-			BigInt_128ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(&bigInt_qdkjbh, *(long*)(&int2), ((long*)(&int2))[1]);
+			BigInt_128ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke((anon_izyfb7*)(&bigInt_qdkjbh), *(long*)(&int2), ((long*)(&int2))[1]);
 			fputil_DyadicFloat_128ul_DyadicFloat_Sign_int_BigInt_128ul_false_unsigned_long.Invoke(&fputil_DyadicFloat_kt2kd21, anon_izyfb8.val, e, *(long*)(&bigInt_qdkjbh), ((long*)(&bigInt_qdkjbh))[1]);
 			llvm_lifetime_start_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd22);
 			*(sbyte*)(&fputil_DyadicFloat_kt2kd22) = -86;

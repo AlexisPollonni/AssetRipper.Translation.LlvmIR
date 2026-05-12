@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -95,14 +96,14 @@ internal static partial class StrToNumResult_long_double_internal_strtofloatingp
 				if (num2 == 16)
 				{
 					llvm_lifetime_start_p0.Invoke(48L, &strToNumResult_ggsbhp2);
-					StrToNumResult_internal_ExpandedFloat_long_double_internal_hexadecimal_string_to_float_long_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_ggsbhp2, (byte*)src + num, 46, num3);
+					StrToNumResult_internal_ExpandedFloat_long_double_internal_hexadecimal_string_to_float_long_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_ggsbhp2, (byte*)src + num, 46, (RoundDirection_b3pcwy)num3);
 					llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_ggsbhp, &strToNumResult_ggsbhp2, 48L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(48L, &strToNumResult_ggsbhp2);
 				}
 				else
 				{
 					llvm_lifetime_start_p0.Invoke(48L, &strToNumResult_ggsbhp3);
-					StrToNumResult_internal_ExpandedFloat_long_double_internal_decimal_string_to_float_long_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_ggsbhp3, (byte*)src + num, 46, num3);
+					StrToNumResult_internal_ExpandedFloat_long_double_internal_decimal_string_to_float_long_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_ggsbhp3, (byte*)src + num, 46, (RoundDirection_b3pcwy)num3);
 					llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_ggsbhp, &strToNumResult_ggsbhp3, 48L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(48L, &strToNumResult_ggsbhp3);
 				}

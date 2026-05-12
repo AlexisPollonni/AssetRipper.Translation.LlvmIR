@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<__float128>::operator __float128() const")]
 internal static partial class fputil_NormalFloat_float128_operator_float128_const
 {
-	public unsafe static double Invoke(void* @this)
+	public unsafe static double Invoke(fputil_NormalFloat_wqb3ie* @this)
 	{
 		int num = 0;
 		int num2 = 0;
@@ -32,7 +32,7 @@ internal static partial class fputil_NormalFloat_float128_operator_float128_cons
 		Int128 int7 = default(Int128);
 		Int128 int8 = default(Int128);
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = unchecked((fputil_NormalFloat_wqb3ie*)@this)->exponent + 16383;
+		num = @this->exponent + 16383;
 		llvm_lifetime_start_p0.Invoke(4L, &num2);
 		num2 = 32766;
 		unchecked
@@ -41,7 +41,7 @@ internal static partial class fputil_NormalFloat_float128_operator_float128_cons
 			if (num > 32766)
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi3);
-				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, &((fputil_NormalFloat_wqb3ie*)@this)->sign, 1L, isVolatile: false);
+				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, &@this->sign, 1L, isVolatile: false);
 				Struct_fiz2nb struct_fiz2nb = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_inf_Sign.Invoke(anon_izyfb8.val);
 				Int128* ptr = &fputil_FPBits_ubgsi3.val.Data.FPStorage.field_0;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
@@ -56,28 +56,25 @@ internal static partial class fputil_NormalFloat_float128_operator_float128_cons
 				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 				*(Int128*)(&fputil_FPBits_ubgsi4) = -6148914691236517206L;
 				fputil_FPBits_float128_FPBits_float128_float128.Invoke(&fputil_FPBits_ubgsi4, 0.0);
-				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, &((fputil_NormalFloat_wqb3ie*)@this)->sign, 1L, isVolatile: false);
+				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, &@this->sign, 1L, isVolatile: false);
 				fputil_internal_FPStorage_fputil_FPType_3_set_sign_Sign.Invoke(&fputil_FPBits_ubgsi4, anon_izyfb9.val);
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
 				num3 = -16382;
-				if (((fputil_NormalFloat_wqb3ie*)@this)->exponent < -16382)
+				if (@this->exponent < -16382)
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num4);
-					checked
-					{
-						num4 = -16382 - unchecked((fputil_NormalFloat_wqb3ie*)@this)->exponent;
-					}
+					num4 = checked(-16382 - @this->exponent);
 					if ((uint)num4 <= 113u)
 					{
 						llvm_lifetime_start_p0.Invoke(16L, &y);
 						y = NumericHelper.Subtract(NumericHelper.ShiftLeft(y: (Int128)(UInt128)(uint)num4, x: 1L), 1L);
 						llvm_lifetime_start_p0.Invoke(16L, &x);
-						x = NumericHelper.BitwiseAnd(((fputil_NormalFloat_wqb3ie*)@this)->mantissa, y);
+						x = NumericHelper.BitwiseAnd(@this->mantissa, y);
 						llvm_lifetime_start_p0.Invoke(16L, &y2);
 						y2 = NumericHelper.ShiftLeft(y: (Int128)(UInt128)(uint)(num4 - 1), x: 1L);
 						@int = 0L;
 						fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_set_biased_exponent_unsigned_int128.Invoke(&fputil_FPBits_ubgsi4, *(long*)(&@int), ((long*)(&@int))[1]);
-						int2 = NumericHelper.ShiftRightLogical(((fputil_NormalFloat_wqb3ie*)@this)->mantissa, (Int128)(UInt128)(uint)num4);
+						int2 = NumericHelper.ShiftRightLogical(@this->mantissa, (Int128)(UInt128)(uint)num4);
 						fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_set_mantissa_unsigned_int128.Invoke(&fputil_FPBits_ubgsi4, *(long*)(&int2), ((long*)(&int2))[1]);
 						llvm_lifetime_start_p0.Invoke(16L, &int3);
 						Struct_fiz2nb struct_fiz2nb4 = fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa_const.Invoke(&fputil_FPBits_ubgsi4);
@@ -127,12 +124,9 @@ internal static partial class fputil_NormalFloat_float128_operator_float128_cons
 				}
 				else
 				{
-					checked
-					{
-						int7 = unchecked((fputil_NormalFloat_wqb3ie*)@this)->exponent + 16383;
-					}
+					int7 = checked(@this->exponent + 16383);
 					fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_set_biased_exponent_unsigned_int128.Invoke(&fputil_FPBits_ubgsi4, *(long*)(&int7), ((long*)(&int7))[1]);
-					int8 = ((fputil_NormalFloat_wqb3ie*)@this)->mantissa;
+					int8 = @this->mantissa;
 					fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_set_mantissa_unsigned_int128.Invoke(&fputil_FPBits_ubgsi4, *(long*)(&int8), ((long*)(&int8))[1]);
 					result = fputil_FPBits_float128_get_val_const.Invoke(&fputil_FPBits_ubgsi4);
 				}

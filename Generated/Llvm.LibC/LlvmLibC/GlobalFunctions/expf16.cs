@@ -38,16 +38,16 @@ internal static partial class expf16
 			*(short*)(&fputil_FPBits_2fahva2) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, x);
 			llvm_lifetime_start_p0.Invoke(2L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2));
 			llvm_lifetime_start_p0.Invoke(2L, &num2);
 			num2 = (short)((ushort)num & 0x7FFF);
 			if (!bool_details_expects_bool_condition_bool_bool_bool.Invoke(((uint)(ushort)num2 > 10240u) ? ((uint)(ushort)num2 >= 18944u) : true, expected: false))
 			{
 				goto IL_05f1;
 			}
-			if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva2))
+			if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
 			{
-				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke(&fputil_FPBits_2fahva2))
+				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
 				{
 					fputil_raise_except_if_required_int.Invoke(1);
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
@@ -62,9 +62,9 @@ internal static partial class expf16
 					result = x;
 				}
 			}
-			else if (fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_pos_const.Invoke(&fputil_FPBits_2fahva2) && (uint)(ushort)num2 >= 18944u)
+			else if (fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_pos_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) && (uint)(ushort)num2 >= 18944u)
 			{
-				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke(&fputil_FPBits_2fahva2))
+				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
 				{
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva4);
 					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, Sign_POS.Pointer, 1L, isVolatile: false);
@@ -100,7 +100,7 @@ internal static partial class expf16
 			}
 			else if ((uint)(ushort)num >= 52352u)
 			{
-				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke(&fputil_FPBits_2fahva2))
+				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
 				{
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva7);
 					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb12, Sign_POS.Pointer, 1L, isVolatile: false);
@@ -135,7 +135,7 @@ internal static partial class expf16
 			}
 			else
 			{
-				if ((uint)(ushort)num2 > 10240u || fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero_const.Invoke(&fputil_FPBits_2fahva2))
+				if ((uint)(ushort)num2 > 10240u || fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
 				{
 					goto IL_05f1;
 				}

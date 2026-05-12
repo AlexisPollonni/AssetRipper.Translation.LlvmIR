@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>::size() const")]
 internal static partial class details_StringBufferWriterImpl_false_size_const
 {
-	public unsafe static long Invoke(void* @this)
+	public unsafe static long Invoke(details_StringBufferWriterImpl* @this)
 	{
-		return unchecked((details_StringBufferWriterImpl*)@this)->index;
+		return @this->index;
 	}
 }

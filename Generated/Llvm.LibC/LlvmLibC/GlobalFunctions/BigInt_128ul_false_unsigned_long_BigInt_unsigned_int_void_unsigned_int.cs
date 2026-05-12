@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>::BigInt<unsigned int, void>(unsigned int)")]
 internal static partial class BigInt_128ul_false_unsigned_long_BigInt_unsigned_int_void_unsigned_int
 {
-	public unsafe static void Invoke(void* @this, int v)
+	public unsafe static void Invoke(anon_izyfb7* @this, int v)
 	{
 		long num = 0L;
 		sbyte b = 0;
@@ -54,7 +55,7 @@ internal static partial class BigInt_128ul_false_unsigned_long_BigInt_unsigned_i
 			case 1:
 				return;
 			}
-			throw null;
+			throw new NotImplementedException("Reached LLVM unreachable instruction.");
 		}
 	}
 }

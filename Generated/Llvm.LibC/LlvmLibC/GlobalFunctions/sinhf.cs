@@ -29,9 +29,9 @@ internal static partial class sinhf
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
-			int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs2);
+			int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			fputil_FPBits_5nkvcs3.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-			int num4 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs3);
+			int num4 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 			num = num4;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(((uint)num < 1119092736u) ? ((uint)num <= 1033895936u) : true, expected: false))
@@ -70,7 +70,7 @@ internal static partial class sinhf
 					{
 						llvm_lifetime_start_p0.Invoke(4L, &num3);
 						num3 = fputil_quick_get_round.Invoke();
-						if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2))
+						if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)))
 						{
 							if (!bool_details_expects_bool_condition_bool_bool_bool.Invoke((num3 != 2048) ? (num3 == 3072) : true, expected: false))
 							{

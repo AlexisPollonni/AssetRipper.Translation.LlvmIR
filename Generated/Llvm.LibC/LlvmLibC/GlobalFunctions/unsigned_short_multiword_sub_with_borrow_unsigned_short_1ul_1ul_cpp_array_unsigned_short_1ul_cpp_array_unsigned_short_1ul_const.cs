@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("unsigned short __llvm_libc_20_1_2_::multiword::sub_with_borrow<unsigned short, 1ul, 1ul>(__llvm_libc_20_1_2_::cpp::array<unsigned short, 1ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned short, 1ul> const&)")]
 internal static partial class unsigned_short_multiword_sub_with_borrow_unsigned_short_1ul_1ul_cpp_array_unsigned_short_1ul_cpp_array_unsigned_short_1ul_const
 {
-	public unsafe static short Invoke(void* dst, void* rhs)
+	public unsafe static short Invoke(cpp_array_knh6hw* dst, cpp_array_knh6hw* rhs)
 	{
 		return unsigned_short_multiword_inplace_binop_unsigned_short_unsigned_short_unsigned_short_unsigned_short_unsigned_short_unsigned_short_1ul_1ul_unsigned_short_unsigned_short_unsigned_short_unsigned_short_unsigned_short_cpp_array_unsigned_short_1ul_cpp_array_unsigned_short_1ul_const.Invoke(cpp_enable_if_cpp_is_unsigned_v_unsigned_short_unsigned_short_type_sub_with_borrow_unsigned_short_unsigned_short_unsigned_short_unsigned_short_unsigned_short.__pointer, dst, rhs);
 	}

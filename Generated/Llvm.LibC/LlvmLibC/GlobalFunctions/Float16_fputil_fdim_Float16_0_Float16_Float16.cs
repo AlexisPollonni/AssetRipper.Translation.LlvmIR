@@ -21,7 +21,7 @@ internal static partial class Float16_fputil_fdim_Float16_0_Float16_Float16
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 			*(short*)(&fputil_FPBits_2fahva3) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva3, y);
-			Half result = ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva2)) ? ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva3)) ? ((!NumericHelper.FcmpOgt(x, y)) ? default(Half) : ((Half)((float)x - (float)y))) : y) : x);
+			Half result = ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2))) ? ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva3))) ? ((!NumericHelper.FcmpOgt(x, y)) ? default(Half) : ((Half)((float)x - (float)y))) : y) : x);
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva2);
 			return result;

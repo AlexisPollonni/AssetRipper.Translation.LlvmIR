@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::convert(__llvm_libc_20_1_2_::scanf_core::Reader*, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
 internal static partial class scanf_core_convert_scanf_core_Reader_scanf_core_FormatSection_const
 {
-	public unsafe static int Invoke(void* reader, void* to_conv)
+	public unsafe static int Invoke(scanf_core_Reader* reader, scanf_core_FormatSection* to_conv)
 	{
 		int num = 0;
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
@@ -23,7 +23,7 @@ internal static partial class scanf_core_convert_scanf_core_Reader_scanf_core_Fo
 		unchecked
 		{
 			int result;
-			switch (((scanf_core_FormatSection*)to_conv)->conv_name)
+			switch (to_conv->conv_name)
 			{
 			case 37:
 				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, str_142.Pointer);
@@ -69,7 +69,7 @@ internal static partial class scanf_core_convert_scanf_core_Reader_scanf_core_Fo
 				result = ((num == 0) ? scanf_core_convert_pointer_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv) : num);
 				break;
 			default:
-				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view7, &((scanf_core_FormatSection*)to_conv)->raw_string, 16L, isVolatile: false);
+				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view7, &to_conv->raw_string, 16L, isVolatile: false);
 				result = scanf_core_raw_match_scanf_core_Reader_cpp_string_view.Invoke(reader, *(void**)(&cpp_string_view7), ((long*)(&cpp_string_view7))[1]);
 				break;
 			}

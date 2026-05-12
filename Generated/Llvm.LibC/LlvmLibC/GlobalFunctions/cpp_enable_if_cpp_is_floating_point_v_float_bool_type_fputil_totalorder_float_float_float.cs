@@ -24,9 +24,9 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float_bool_t
 			*(int*)(&fputil_FPBits_5nkvcs3) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs3, y);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs3);
+			num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
 			llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = ((((num | num2) & int.MinValue) != 0) ? ((sbyte)1) : ((sbyte)0));
 			int result = ((num != num2) ? (((uint)num < (uint)num2 != ((b & 1) == 1)) ? 1 : 0) : (-1));

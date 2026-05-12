@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<float>>::value() &")]
 internal static partial class cpp_optional_internal_ExpandedFloat_float_value
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static internal_ExpandedFloat_i7t5up* Invoke(cpp_optional_6hseum* @this)
 	{
-		return &unchecked((cpp_optional_6hseum*)@this)->storage.field;
+		return unchecked((internal_ExpandedFloat_i7t5up*)(&@this->storage.field));
 	}
 }

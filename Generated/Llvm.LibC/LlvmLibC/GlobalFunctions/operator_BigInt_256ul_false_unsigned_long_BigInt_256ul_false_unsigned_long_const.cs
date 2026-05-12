@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::operator|=(__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>&, __llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long> const&)")]
 internal static partial class operator_BigInt_256ul_false_unsigned_long_BigInt_256ul_false_unsigned_long_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] BigInt_x9dsed* agg_result, void* lhs, void* rhs)
+	public unsafe static void Invoke([MangledName("agg.result")] BigInt_x9dsed* agg_result, BigInt_x9dsed* lhs, BigInt_x9dsed* rhs)
 	{
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);

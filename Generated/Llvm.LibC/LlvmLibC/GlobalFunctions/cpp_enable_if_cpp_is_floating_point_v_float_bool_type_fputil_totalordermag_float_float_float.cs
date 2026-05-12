@@ -17,19 +17,22 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float_bool_t
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 		fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs3, x);
-		int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs3);
-		fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-		int num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2);
-		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
-		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
-		fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs5, y);
-		int field_2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs5);
-		fputil_FPBits_5nkvcs4.FPRepImpl.FPRepSem.field_0.field_0 = field_2;
-		bool result = unchecked((uint)num <= (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs4));
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
-		return result;
+		unchecked
+		{
+			int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
+			fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
+			int num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
+			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
+			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
+			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs5, y);
+			int field_2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs5));
+			fputil_FPBits_5nkvcs4.FPRepImpl.FPRepSem.field_0.field_0 = field_2;
+			bool result = (uint)num <= (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4));
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
+			return result;
+		}
 	}
 }

@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Structures;
 
@@ -7,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned int>::compare_exchange_strong(unsigned int&, unsigned int, __llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryScope)")]
 internal static partial class cpp_Atomic_unsigned_int_compare_exchange_strong_unsigned_int_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope
 {
-	public unsafe static bool Invoke(void* @this, void* expected, int desired, int mem_ord, int mem_scope)
+	public unsafe static bool Invoke(void* @this, void* expected, int desired, MemoryOrder mem_ord, MemoryScope mem_scope)
 	{
 		int num = desired;
 		unchecked

@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<float, 4ul>::lookup(unsigned int) const")]
 internal static partial class fputil_ExceptValues_float_4ul_lookup_unsigned_int_const
 {
-	public unsafe static long Invoke(void* @this, int x_bits)
+	public unsafe static long Invoke(fputil_ExceptValues_wpg668* @this, int x_bits)
 	{
 		cpp_optional_89h55j cpp_optional_89h55j2 = default(cpp_optional_89h55j);
 		long num = 0L;
@@ -27,27 +28,27 @@ internal static partial class fputil_ExceptValues_float_4ul_lookup_unsigned_int_
 					num4 = 2;
 					break;
 				}
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(x_bits == ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_wpg668*)@this)->values))[num].input, expected: false))
+				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(x_bits == ((fputil_ExceptValues_float_6_Mapping*)(&@this->values))[num].input, expected: false))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num2);
-					num2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_wpg668*)@this)->values))[num].rnd_towardzero_result;
+					num2 = ((fputil_ExceptValues_float_6_Mapping*)(&@this->values))[num].rnd_towardzero_result;
 					switch (fputil_quick_get_round.Invoke())
 					{
 					case 2048:
 					{
-						int rnd_upward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_wpg668*)@this)->values))[num].rnd_upward_offset;
+						int rnd_upward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&@this->values))[num].rnd_upward_offset;
 						num2 += rnd_upward_offset;
 						break;
 					}
 					case 1024:
 					{
-						int rnd_downward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_wpg668*)@this)->values))[num].rnd_downward_offset;
+						int rnd_downward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&@this->values))[num].rnd_downward_offset;
 						num2 += rnd_downward_offset;
 						break;
 					}
 					case 0:
 					{
-						int rnd_tonearest_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_wpg668*)@this)->values))[num].rnd_tonearest_offset;
+						int rnd_tonearest_offset = ((fputil_ExceptValues_float_6_Mapping*)(&@this->values))[num].rnd_tonearest_offset;
 						num2 += rnd_tonearest_offset;
 						break;
 					}
@@ -71,7 +72,7 @@ internal static partial class fputil_ExceptValues_float_4ul_lookup_unsigned_int_
 			{
 				if (num5 != 1)
 				{
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 			}
 			else

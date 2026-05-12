@@ -50,7 +50,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			((Struct_fiz2nb*)ptr)->field_1 = struct_fiz2nb3.field_1;
 			llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPRepImpl_jrxud11, &fputil_FPBits_ubgsi4, 16L, isVolatile: false);
-			int num2 = (fputil_internal_operator_fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128.Invoke(*(long*)(&fputil_internal_FPRepImpl_jrxud10), ((long*)(&fputil_internal_FPRepImpl_jrxud10))[1], *(long*)(&fputil_internal_FPRepImpl_jrxud11), ((long*)(&fputil_internal_FPRepImpl_jrxud11))[1]) ? (-1) : ((!fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke(&fputil_FPBits_ubgsi3)) ? (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke(&fputil_FPBits_ubgsi3) ? 1 : 0) : (-1)));
+			int num2 = (fputil_internal_operator_fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128.Invoke(*(long*)(&fputil_internal_FPRepImpl_jrxud10), ((long*)(&fputil_internal_FPRepImpl_jrxud10))[1], *(long*)(&fputil_internal_FPRepImpl_jrxud11), ((long*)(&fputil_internal_FPRepImpl_jrxud11))[1]) ? (-1) : ((!fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3))) ? (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)) ? 1 : 0) : (-1)));
 			llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 			Half result;
 			if (num2 != 0)
@@ -74,51 +74,48 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_
 				Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
 				*(long*)num4 = struct_fiz2nb6.field_1;
 				x2 = int2;
-				checked
+				if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 				{
-					if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal_const.Invoke(&fputil_FPBits_ubgsi3))
+					num = checked(num + 1);
+					void_fputil_internal_normalize_float128_int_fputil_FPBits_float128_StorageType.Invoke(&num, &x2);
+				}
+				else
+				{
+					x2 = NumericHelper.BitwiseOr(x2, 0L);
+				}
+				if ((num & 1) != 0)
+				{
+					num = checked(num + -1);
+					x2 = NumericHelper.ShiftLeft(x2, 1L);
+				}
+				llvm_lifetime_start_p0.Invoke(16L, &int3);
+				int3 = 0L;
+				llvm_lifetime_start_p0.Invoke(16L, &x3);
+				x3 = NumericHelper.Subtract(x2, 0L);
+				llvm_lifetime_start_p0.Invoke(16L, &int4);
+				int4 = 0L;
+				while (NumericHelper.IntCmpNe(int4, 0L))
+				{
+					x3 = NumericHelper.ShiftLeft(x3, 1L);
+					llvm_lifetime_start_p0.Invoke(16L, &y);
+					y = NumericHelper.Add(NumericHelper.ShiftLeft(int3, 1L), int4);
+					if (NumericHelper.IntCmpUge(x3, y))
 					{
-						num++;
-						void_fputil_internal_normalize_float128_int_fputil_FPBits_float128_StorageType.Invoke(&num, &x2);
+						x3 = NumericHelper.Subtract(x3, y);
+						int3 = NumericHelper.Add(int3, int4);
 					}
-					else
-					{
-						x2 = NumericHelper.BitwiseOr(x2, 0L);
-					}
-					if ((num & 1) != 0)
-					{
-						num += -1;
-						x2 = NumericHelper.ShiftLeft(x2, 1L);
-					}
-					llvm_lifetime_start_p0.Invoke(16L, &int3);
-					int3 = 0L;
-					llvm_lifetime_start_p0.Invoke(16L, &x3);
-					x3 = NumericHelper.Subtract(x2, 0L);
-					llvm_lifetime_start_p0.Invoke(16L, &int4);
-					int4 = 0L;
-					while (NumericHelper.IntCmpNe(int4, 0L))
-					{
-						x3 = NumericHelper.ShiftLeft(x3, 1L);
-						llvm_lifetime_start_p0.Invoke(16L, &y);
-						y = NumericHelper.Add(NumericHelper.ShiftLeft(int3, 1L), int4);
-						if (NumericHelper.IntCmpUge(x3, y))
-						{
-							x3 = NumericHelper.Subtract(x3, y);
-							int3 = NumericHelper.Add(int3, int4);
-						}
-						llvm_lifetime_end_p0.Invoke(16L, &y);
-						int4 = NumericHelper.ShiftRightLogical(int4, 1L);
-					}
-					llvm_lifetime_end_p0.Invoke(16L, &int4);
-					x3 = NumericHelper.ShiftLeft(x3, 2L);
-					int3 = NumericHelper.ShiftLeft(int3, 2L);
-					llvm_lifetime_start_p0.Invoke(16L, &y2);
-					y2 = NumericHelper.Add(int3, 1L);
-					if (NumericHelper.IntCmpUge(x3, y2))
-					{
-						x3 = NumericHelper.Subtract(x3, y2);
-						int3 = NumericHelper.BitwiseOr(int3, 2L);
-					}
+					llvm_lifetime_end_p0.Invoke(16L, &y);
+					int4 = NumericHelper.ShiftRightLogical(int4, 1L);
+				}
+				llvm_lifetime_end_p0.Invoke(16L, &int4);
+				x3 = NumericHelper.ShiftLeft(x3, 2L);
+				int3 = NumericHelper.ShiftLeft(int3, 2L);
+				llvm_lifetime_start_p0.Invoke(16L, &y2);
+				y2 = NumericHelper.Add(int3, 1L);
+				if (NumericHelper.IntCmpUge(x3, y2))
+				{
+					x3 = NumericHelper.Subtract(x3, y2);
+					int3 = NumericHelper.BitwiseOr(int3, 2L);
 				}
 				int3 = NumericHelper.BitwiseOr(y: (Int128)(UInt128)(NumericHelper.IntCmpNe(x3, 0L) ? 1u : 0u), x: int3);
 				llvm_lifetime_start_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd5);
@@ -134,7 +131,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, Sign_POS.Pointer, 1L, isVolatile: false);
 				int e = checked((num >> 1) - 2 - 112);
 				int5 = int3;
-				BigInt_128ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(&bigInt_qdkjbh, *(long*)(&int5), ((long*)(&int5))[1]);
+				BigInt_128ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke((anon_izyfb7*)(&bigInt_qdkjbh), *(long*)(&int5), ((long*)(&int5))[1]);
 				fputil_DyadicFloat_128ul_DyadicFloat_Sign_int_BigInt_128ul_false_unsigned_long.Invoke(&fputil_DyadicFloat_kt2kd5, anon_izyfb9.val, e, *(long*)(&bigInt_qdkjbh), ((long*)(&bigInt_qdkjbh))[1]);
 				result = Float16_fputil_DyadicFloat_128ul_as_Float16_true_void_const.Invoke(&fputil_DyadicFloat_kt2kd5);
 				llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd5);

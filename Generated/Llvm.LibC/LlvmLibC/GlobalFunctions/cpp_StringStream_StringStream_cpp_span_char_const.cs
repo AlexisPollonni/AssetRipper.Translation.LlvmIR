@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::StringStream::StringStream(__llvm_libc_20_1_2_::cpp::span<char> const&)")]
 internal static partial class cpp_StringStream_StringStream_cpp_span_char_const
 {
-	public unsafe static void Invoke(void* @this, void* buf)
+	public unsafe static void Invoke(void* @this, cpp_string_view* buf)
 	{
 		unchecked
 		{

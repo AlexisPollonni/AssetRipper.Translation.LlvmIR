@@ -7,11 +7,11 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("short _Accum __llvm_libc_20_1_2_::internal::ArgList::next_var<short _Accum>()")]
 internal static partial class short_Accum_internal_ArgList_next_var_short_Accum
 {
-	public unsafe static short Invoke(void* @this)
+	public unsafe static short Invoke(internal_ArgList* @this)
 	{
 		unchecked
 		{
-			void** overflow_arg_area = &((va_list_tag*)(&((internal_ArgList*)@this)->vlist))->overflow_arg_area;
+			void** overflow_arg_area = &((va_list_tag*)(&@this->vlist))->overflow_arg_area;
 			void* ptr = *overflow_arg_area;
 			*overflow_arg_area = (byte*)ptr + 8;
 			return *(short*)ptr;

@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::File::read_allowed() const")]
 internal static partial class File_read_allowed_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(File_sjnxn4* @this)
 	{
-		return (unchecked((File_sjnxn4*)@this)->mode & 9) != 0;
+		return (@this->mode & 9) != 0;
 	}
 }

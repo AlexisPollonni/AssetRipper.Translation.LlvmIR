@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::optional()")]
 internal static partial class cpp_optional_internal_ExpandedFloat_double_optional
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(cpp_optional_vqqfu4* @this)
 	{
-		cpp_optional_internal_ExpandedFloat_double_OptionalStorage_internal_ExpandedFloat_double_false_OptionalStorage.Invoke(&unchecked((cpp_optional_vqqfu4*)@this)->storage);
+		cpp_optional_internal_ExpandedFloat_double_OptionalStorage_internal_ExpandedFloat_double_false_OptionalStorage.Invoke(&@this->storage);
 	}
 }

@@ -6,7 +6,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class vasprintf
 {
-	public unsafe static int Invoke(void* ret, void* format, void* vlist)
+	public unsafe static int Invoke(void* ret, void* format, va_list_tag* vlist)
 	{
 		internal_ArgList internal_ArgList2 = default(internal_ArgList);
 		internal_ArgList internal_ArgList3 = default(internal_ArgList);

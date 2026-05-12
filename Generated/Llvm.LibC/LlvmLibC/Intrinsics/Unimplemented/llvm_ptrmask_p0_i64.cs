@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using LlvmLibC.Helpers;
 
@@ -10,6 +11,6 @@ internal static partial class llvm_ptrmask_p0_i64
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public unsafe static void* Invoke(void* parameter_0, long parameter_1)
 	{
-		throw null;
+		throw new NotImplementedException("Unimplemented LLVM intrinsic: llvm.ptrmask.p0.i64");
 	}
 }

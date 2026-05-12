@@ -35,9 +35,9 @@ internal static partial class fputil_generic_FMod_double_unsigned_long_fputil_ge
 		fputil_FPBits_wjhbrm4.FPRepImpl.FPRepSem.FPStorage.val = sy;
 		unchecked
 		{
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm3) <= (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm4), expected: true))
+			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)) <= (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm4)), expected: true))
 			{
-				if ((ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm3) < (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm4))
+				if ((ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)) < (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm4)))
 				{
 					llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_wjhbrm2, &fputil_FPBits_wjhbrm3, 8L, isVolatile: false);
 				}
@@ -51,15 +51,15 @@ internal static partial class fputil_generic_FMod_double_unsigned_long_fputil_ge
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke(&fputil_FPBits_wjhbrm3);
+				num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3));
 				llvm_lifetime_start_p0.Invoke(4L, &num2);
-				num2 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke(&fputil_FPBits_wjhbrm4);
+				num2 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm4));
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 > 52 && checked(num - num2) <= 11, expected: true))
 				{
 					llvm_lifetime_start_p0.Invoke(8L, &num3);
-					num3 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke(&fputil_FPBits_wjhbrm3);
+					num3 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm3));
 					llvm_lifetime_start_p0.Invoke(8L, &num4);
-					num4 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke(&fputil_FPBits_wjhbrm4);
+					num4 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm4));
 					llvm_lifetime_start_p0.Invoke(8L, &num5);
 					num5 = ((num != num2) ? ((long)((ulong)(num3 << (int)(uint)checked(num - num2)) % (ulong)num4)) : (num3 - num4));
 					if (num5 == 0L)
@@ -81,33 +81,33 @@ internal static partial class fputil_generic_FMod_double_unsigned_long_fputil_ge
 				{
 					*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
 					fputil_FPBits_double_FPBits.Invoke(&fputil_FPBits_wjhbrm2);
-					fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long.Invoke(&fputil_FPBits_wjhbrm2, (long)((ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm3) % (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm4)));
+					fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2), (long)((ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)) % (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm4))));
 				}
 				else
 				{
 					llvm_lifetime_start_p0.Invoke(8L, &num6);
-					num6 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke(&fputil_FPBits_wjhbrm3);
+					num6 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm3));
+					num = checked(num + -1);
+					llvm_lifetime_start_p0.Invoke(8L, &num7);
+					num7 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm4));
+					llvm_lifetime_start_p0.Invoke(4L, &num8);
+					num8 = 11;
+					llvm_lifetime_start_p0.Invoke(4L, &num9);
+					num9 = 11;
+					if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 > 0, expected: true))
+					{
+						num2 = checked(num2 + -1);
+					}
+					else
+					{
+						num7 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm4));
+						num9 = cpp_enable_if_cpp_is_unsigned_v_unsigned_long_int_type_cpp_countl_zero_unsigned_long_unsigned_long.Invoke(num7);
+					}
+					llvm_lifetime_start_p0.Invoke(4L, &num10);
+					num10 = cpp_enable_if_cpp_is_unsigned_v_unsigned_long_int_type_cpp_countr_zero_unsigned_long_unsigned_long.Invoke(num7);
+					llvm_lifetime_start_p0.Invoke(4L, &sides_zeroes_count);
 					checked
 					{
-						num += -1;
-						llvm_lifetime_start_p0.Invoke(8L, &num7);
-						num7 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke(&fputil_FPBits_wjhbrm4);
-						llvm_lifetime_start_p0.Invoke(4L, &num8);
-						num8 = 11;
-						llvm_lifetime_start_p0.Invoke(4L, &num9);
-						num9 = 11;
-						if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 > 0, expected: true))
-						{
-							num2 += -1;
-						}
-						else
-						{
-							num7 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke(&fputil_FPBits_wjhbrm4);
-							num9 = cpp_enable_if_cpp_is_unsigned_v_unsigned_long_int_type_cpp_countl_zero_unsigned_long_unsigned_long.Invoke(num7);
-						}
-						llvm_lifetime_start_p0.Invoke(4L, &num10);
-						num10 = cpp_enable_if_cpp_is_unsigned_v_unsigned_long_int_type_cpp_countr_zero_unsigned_long_unsigned_long.Invoke(num7);
-						llvm_lifetime_start_p0.Invoke(4L, &sides_zeroes_count);
 						sides_zeroes_count = num9 + num10;
 						llvm_lifetime_start_p0.Invoke(4L, &num11);
 						num11 = num - num2;

@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::is_neg() const")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(fputil_internal_FPRepImpl_vhj4tm* @this)
 	{
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
 		llvm_lifetime_start_p0.Invoke(1L, &anon_izyfb8);

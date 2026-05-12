@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::WriteBuffer::resize_and_write(__llvm_libc_20_1_2_::cpp::string_view)")]
 internal static partial class printf_core_WriteBuffer_resize_and_write_cpp_string_view
 {
-	public unsafe static int Invoke(void* @this, [MangledName("new_str.coerce0")] void* new_str, [MangledName("new_str.coerce1")] long new_str_coerce1)
+	public unsafe static int Invoke(printf_core_WriteBuffer* @this, [MangledName("new_str.coerce0")] void* new_str, [MangledName("new_str.coerce1")] long new_str_coerce1)
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		cpp_string_view cpp_string_view3 = default(cpp_string_view);
@@ -16,9 +16,9 @@ internal static partial class printf_core_WriteBuffer_resize_and_write_cpp_strin
 		{
 			*(void**)(&cpp_string_view2) = new_str;
 			((long*)(&cpp_string_view2))[1] = new_str_coerce1;
-			void* stream_writer = ((printf_core_WriteBuffer*)@this)->stream_writer;
+			void* stream_writer = @this->stream_writer;
 			llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view3, &cpp_string_view2, 16L, isVolatile: false);
-			void* output_target = ((printf_core_WriteBuffer*)@this)->output_target;
+			void* output_target = @this->output_target;
 			return ((delegate*<void*, long, void*, int>)stream_writer)(*(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1], output_target);
 		}
 	}

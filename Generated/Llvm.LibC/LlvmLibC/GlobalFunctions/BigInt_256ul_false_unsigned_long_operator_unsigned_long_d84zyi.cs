@@ -9,18 +9,15 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_256ul_false_unsigned_long_operator_unsigned_long")]
 internal static partial class BigInt_256ul_false_unsigned_long_operator_unsigned_long_d84zyi
 {
-	public unsafe static void* Invoke(void* @this, long s)
+	public unsafe static BigInt_x9dsed* Invoke(BigInt_x9dsed* @this, long s)
 	{
 		cpp_array_jgy3xh cpp_array_jgy3xh2 = default(cpp_array_jgy3xh);
 		cpp_array_jgy3xh cpp_array_jgy3xh3 = default(cpp_array_jgy3xh);
 		llvm_lifetime_start_p0.Invoke(32L, &cpp_array_jgy3xh2);
-		unchecked
-		{
-			llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_jgy3xh3, &((BigInt_x9dsed*)@this)->val, 32L, isVolatile: false);
-			cpp_array_unsigned_long_4ul_multiword_shift_multiword_Direction_0_false_unsigned_long_4ul_cpp_array_unsigned_long_4ul_unsigned_long.Invoke(&cpp_array_jgy3xh2, &cpp_array_jgy3xh3, s);
-			llvm_memcpy_p0_p0_i64.Invoke(&((BigInt_x9dsed*)@this)->val, &cpp_array_jgy3xh2, 32L, isVolatile: false);
-			llvm_lifetime_end_p0.Invoke(32L, &cpp_array_jgy3xh2);
-			return @this;
-		}
+		llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_jgy3xh3, &@this->val, 32L, isVolatile: false);
+		cpp_array_unsigned_long_4ul_multiword_shift_multiword_Direction_0_false_unsigned_long_4ul_cpp_array_unsigned_long_4ul_unsigned_long.Invoke(&cpp_array_jgy3xh2, &cpp_array_jgy3xh3, s);
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->val, &cpp_array_jgy3xh2, 32L, isVolatile: false);
+		llvm_lifetime_end_p0.Invoke(32L, &cpp_array_jgy3xh2);
+		return @this;
 	}
 }

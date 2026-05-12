@@ -15,15 +15,18 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_doubl
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = cpp_enable_if_cpp_is_floating_point_v_double_double_type_fputil_fromfp_false_double_double_int_unsigned_int.Invoke(x, rnd, width);
 		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
-		*unchecked((long*)(&fputil_FPBits_wjhbrm2)) = -6148914691236517206L;
-		fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, num);
-		if (!fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_nan_const.Invoke(&fputil_FPBits_wjhbrm2) && NumericHelper.IsUnorderedOrNotEquals(num, x))
+		unchecked
 		{
-			fputil_raise_except_if_required_int.Invoke(32);
+			*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
+			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, num);
+			if (!fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_nan_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm2)) && NumericHelper.IsUnorderedOrNotEquals(num, x))
+			{
+				fputil_raise_except_if_required_int.Invoke(32);
+			}
+			double result = num;
+			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
+			llvm_lifetime_end_p0.Invoke(8L, &num);
+			return result;
 		}
-		double result = num;
-		llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
-		llvm_lifetime_end_p0.Invoke(8L, &num);
-		return result;
 	}
 }

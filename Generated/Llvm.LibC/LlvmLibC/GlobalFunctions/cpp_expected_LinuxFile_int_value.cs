@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::expected<__llvm_libc_20_1_2_::LinuxFile*, int>::value()")]
 internal static partial class cpp_expected_LinuxFile_int_value
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static LinuxFile** Invoke(void* @this)
 	{
-		return &unchecked((cpp_optional_char_OptionalStorage*)@this)->field;
+		return unchecked((LinuxFile**)(&((cpp_optional_char_OptionalStorage*)@this)->field));
 	}
 }

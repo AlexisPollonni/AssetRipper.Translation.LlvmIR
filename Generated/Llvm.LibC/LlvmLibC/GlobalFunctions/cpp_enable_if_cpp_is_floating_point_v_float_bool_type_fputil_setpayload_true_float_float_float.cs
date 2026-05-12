@@ -22,9 +22,9 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float_bool_t
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, pl);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke(&fputil_FPBits_5nkvcs2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			bool result;
-			if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2) || num < 0 || num >= 22 || ((fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke(&fputil_FPBits_5nkvcs2) << num) & 0x7FFFFF) != 0)
+			if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) || num < 0 || num >= 22 || ((fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) << num) & 0x7FFFFF) != 0)
 			{
 				*(float*)res = 0f;
 				result = true;

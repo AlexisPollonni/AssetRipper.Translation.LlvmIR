@@ -38,7 +38,7 @@ internal static partial class erff
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
 			num2 = num & 0x7FFFFFFF;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 >= 1082130432u, expected: false))
@@ -50,7 +50,7 @@ internal static partial class erff
 				*(float*)(&inlineArray2_Single2) = -2.9802322E-08f;
 				((float*)(&inlineArray2_Single2))[1] = 2.9802322E-08f;
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
-				num3 = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2), 1, 0);
+				num3 = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)), 1, 0);
 				result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 >= 2139095040u, expected: false)) ? (Unsafe.As<InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref inlineArray2_Single, (nint)num3 * (nint)sizeof(float))) + Unsafe.As<InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref inlineArray2_Single2, (nint)num3 * (nint)sizeof(float)))) : (((uint)num2 <= 2139095040u) ? Unsafe.As<InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref inlineArray2_Single, (nint)num3 * (nint)sizeof(float))) : x));
 				llvm_lifetime_end_p0.Invoke(4L, &num3);
 				llvm_lifetime_end_p0.Invoke(8L, &inlineArray2_Single2);

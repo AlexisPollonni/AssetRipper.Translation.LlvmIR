@@ -96,7 +96,7 @@ internal static partial class openfile_char_const_char_const
 						}
 						else
 						{
-							LinuxFile_LinuxFile_int_unsigned_char_unsigned_long_int_bool_unsigned_int.Invoke(ptr2, num4, buffer, 1024L, 0, owned: true, num);
+							LinuxFile_LinuxFile_int_unsigned_char_unsigned_long_int_bool_unsigned_int.Invoke((LinuxFile*)ptr2, num4, buffer, 1024L, 0, owned: true, num);
 							num6 = (nint)ptr2;
 						}
 						ptr = (void*)num6;
@@ -107,7 +107,7 @@ internal static partial class openfile_char_const_char_const
 						}
 						else
 						{
-							cpp_expected_File_int_expected_File.Invoke(&cpp_optional_char_OptionalStorage2, ptr);
+							cpp_expected_File_int_expected_File.Invoke(&cpp_optional_char_OptionalStorage2, (File_sjnxn4*)ptr);
 						}
 						llvm_lifetime_end_p0.Invoke(8L, &ptr);
 						llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb9);

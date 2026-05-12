@@ -8,13 +8,13 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<_Float16>::OptionalStorage<_Float16, false>::OptionalStorage<_Float16>(__llvm_libc_20_1_2_::cpp::in_place_t, _Float16&&)")]
 internal static partial class cpp_optional_Float16_OptionalStorage_Float16_false_OptionalStorage_Float16_cpp_in_place_t_Float16
 {
-	public unsafe static void Invoke(void* @this, void* args)
+	public unsafe static void Invoke(cpp_optional_Float16_OptionalStorage* @this, void* args)
 	{
+		anon_juyca8* field = &@this->field;
 		unchecked
 		{
-			anon_juyca8* field = &((cpp_optional_Float16_OptionalStorage*)@this)->field;
 			*(Half*)field = *(Half*)Float16_cpp_forward_Float16_cpp_remove_reference_Float16_type.Invoke(args);
-			((cpp_optional_Float16_OptionalStorage*)@this)->in_use = 0;
+			@this->in_use = 0;
 		}
 	}
 }

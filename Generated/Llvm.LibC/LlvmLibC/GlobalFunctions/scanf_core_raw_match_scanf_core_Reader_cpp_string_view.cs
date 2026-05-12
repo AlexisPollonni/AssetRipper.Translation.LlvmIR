@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::raw_match(__llvm_libc_20_1_2_::scanf_core::Reader*, __llvm_libc_20_1_2_::cpp::string_view)")]
 internal static partial class scanf_core_raw_match_scanf_core_Reader_cpp_string_view
 {
-	public unsafe static int Invoke(void* reader, [MangledName("raw_string.coerce0")] void* raw_string, [MangledName("raw_string.coerce1")] long cur_char)
+	public unsafe static int Invoke(scanf_core_Reader* reader, [MangledName("raw_string.coerce0")] void* raw_string, [MangledName("raw_string.coerce1")] long cur_char)
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		sbyte b = 0;

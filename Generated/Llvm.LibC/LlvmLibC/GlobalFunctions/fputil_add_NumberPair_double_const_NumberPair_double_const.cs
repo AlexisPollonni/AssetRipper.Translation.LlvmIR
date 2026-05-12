@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::add(__llvm_libc_20_1_2_::NumberPair<double> const&, __llvm_libc_20_1_2_::NumberPair<double> const&)")]
 internal static partial class fputil_add_NumberPair_double_const_NumberPair_double_const
 {
-	public unsafe static Struct_4ydhja Invoke(void* a, void* b)
+	public unsafe static Struct_4ydhja Invoke(NumberPair* a, NumberPair* b)
 	{
 		NumberPair numberPair = default(NumberPair);
 		NumberPair numberPair2 = default(NumberPair);
@@ -18,7 +18,7 @@ internal static partial class fputil_add_NumberPair_double_const_NumberPair_doub
 		{
 			*(double*)(&numberPair2) = double.NaN;
 			((double*)(&numberPair2))[1] = double.NaN;
-			Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_add_true_double_double.Invoke(((NumberPair*)a)->hi, ((NumberPair*)b)->hi);
+			Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_add_true_double_double.Invoke(a->hi, b->hi);
 			NumberPair* num2 = &numberPair2;
 			Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
 			*(double*)num2 = struct_4ydhja2.field_0;
@@ -26,7 +26,7 @@ internal static partial class fputil_add_NumberPair_double_const_NumberPair_doub
 			Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
 			*(double*)num3 = struct_4ydhja3.field_1;
 			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = ((NumberPair*)a)->lo + ((NumberPair*)b)->lo;
+			num = a->lo + b->lo;
 			Struct_4ydhja struct_4ydhja4 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(numberPair2.hi, numberPair2.lo + num);
 			NumberPair* num4 = &numberPair;
 			Struct_4ydhja struct_4ydhja5 = struct_4ydhja4;

@@ -7,19 +7,19 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::args_to_index(unsigned long)")]
 internal static partial class scanf_core_Parser_internal_ArgList_args_to_index_unsigned_long
 {
-	public unsafe static void Invoke(void* @this, long index)
+	public unsafe static void Invoke(scanf_core_Parser* @this, long index)
 	{
 		unchecked
 		{
-			if ((ulong)((scanf_core_Parser*)@this)->args_index > (ulong)index)
+			if ((ulong)@this->args_index > (ulong)index)
 			{
-				((scanf_core_Parser*)@this)->args_index = 1L;
-				internal_ArgList_operator_internal_ArgList.Invoke(rhs: &((scanf_core_Parser*)@this)->args_start, @this: &((scanf_core_Parser*)@this)->args_cur);
+				@this->args_index = 1L;
+				internal_ArgList_operator_internal_ArgList.Invoke(rhs: &@this->args_start, @this: &@this->args_cur);
 			}
-			while ((ulong)((scanf_core_Parser*)@this)->args_index < (ulong)index)
+			while ((ulong)@this->args_index < (ulong)index)
 			{
-				void_internal_ArgList_next_var_void.Invoke(&((scanf_core_Parser*)@this)->args_cur);
-				((scanf_core_Parser*)@this)->args_index++;
+				void_internal_ArgList_next_var_void.Invoke(&@this->args_cur);
+				@this->args_index++;
 			}
 		}
 	}

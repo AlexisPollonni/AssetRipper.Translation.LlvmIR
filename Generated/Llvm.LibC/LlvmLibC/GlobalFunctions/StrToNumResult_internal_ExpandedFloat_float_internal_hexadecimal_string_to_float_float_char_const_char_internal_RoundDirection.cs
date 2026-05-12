@@ -1,3 +1,5 @@
+using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<__llvm_libc_20_1_2_::internal::ExpandedFloat<float>> __llvm_libc_20_1_2_::internal::hexadecimal_string_to_float<float>(char const*, char, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class StrToNumResult_internal_ExpandedFloat_float_internal_hexadecimal_string_to_float_float_char_const_char_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_kkgahp* agg_result, void* src, sbyte DECIMAL_POINT, int round)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_kkgahp* agg_result, void* src, sbyte DECIMAL_POINT, RoundDirection_b3pcwy round)
 	{
 		int num = 0;
 		sbyte b = 0;
@@ -105,7 +107,7 @@ internal static partial class StrToNumResult_internal_ExpandedFloat_float_intern
 					case 3:
 						break;
 					default:
-						throw null;
+						throw new NotImplementedException("Reached LLVM unreachable instruction.");
 					}
 					break;
 				}

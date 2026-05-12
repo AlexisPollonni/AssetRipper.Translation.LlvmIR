@@ -30,7 +30,7 @@ internal static partial class sprintf
 			((int*)ptr2)[1] = -1431655766;
 			*(IntPtr*)((byte*)ptr2 + 8) = unchecked((nint)(-6148914691236517206L));
 			*(IntPtr*)((byte*)ptr2 + 16) = unchecked((nint)(-6148914691236517206L));
-			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, &inlineArray1_va_list_tag);
+			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, (va_list_tag*)(&inlineArray1_va_list_tag));
 			llvm_lifetime_start_p0.Invoke(56L, &printf_core_WriteBuffer2);
 			llvm_memset_p0_i64.Invoke(&printf_core_WriteBuffer2, -86, 56L, isVolatile: false);
 			printf_core_WriteBuffer_WriteBuffer_char_unsigned_long.Invoke(&printf_core_WriteBuffer2, buffer, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());

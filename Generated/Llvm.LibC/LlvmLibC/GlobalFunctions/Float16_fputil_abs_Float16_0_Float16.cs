@@ -16,7 +16,7 @@ internal static partial class Float16_fputil_abs_Float16_0_Float16
 		llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
 		llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 		fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva3, x);
-		short field_ = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_abs_const.Invoke(&fputil_FPBits_2fahva3);
+		short field_ = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_abs_const.Invoke(unchecked((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3)));
 		fputil_FPBits_2fahva2.FPRepImpl.FPRepSem.FPStorage.field_0 = field_;
 		Half result = fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva2);
 		llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva3);

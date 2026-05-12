@@ -29,7 +29,7 @@ internal static partial class asprintf
 			((int*)ptr2)[1] = -1431655766;
 			*(IntPtr*)((byte*)ptr2 + 8) = unchecked((nint)(-6148914691236517206L));
 			*(IntPtr*)((byte*)ptr2 + 16) = unchecked((nint)(-6148914691236517206L));
-			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, &inlineArray1_va_list_tag);
+			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, (va_list_tag*)(&inlineArray1_va_list_tag));
 			llvm_lifetime_start_p0.Invoke(4L, &num);
 			internal_ArgList_ArgList_internal_ArgList.Invoke(&internal_ArgList3, &internal_ArgList2);
 			int num2 = printf_core_vasprintf_internal_char_char_const_internal_ArgList.Invoke(buffer, format, &internal_ArgList3);

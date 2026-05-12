@@ -7,11 +7,11 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("double __llvm_libc_20_1_2_::internal::ArgList::next_var<double>()")]
 internal static partial class double_internal_ArgList_next_var_double
 {
-	public unsafe static double Invoke(void* @this)
+	public unsafe static double Invoke(internal_ArgList* @this)
 	{
 		unchecked
 		{
-			va_list_tag* vlist = (va_list_tag*)(&((internal_ArgList*)@this)->vlist);
+			va_list_tag* vlist = (va_list_tag*)(&@this->vlist);
 			int* fp_offset = &vlist->fp_offset;
 			int num = *fp_offset;
 			nint num2;

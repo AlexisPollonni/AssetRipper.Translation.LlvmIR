@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>> __llvm_libc_20_1_2_::internal::decimal_string_to_float<double>(char const*, char, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class StrToNumResult_internal_ExpandedFloat_double_internal_decimal_string_to_float_double_char_const_char_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_wpp2wp* agg_result, void* src, sbyte DECIMAL_POINT, int round)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_wpp2wp* agg_result, void* src, sbyte DECIMAL_POINT, RoundDirection_b3pcwy round)
 	{
 		int num = 0;
 		sbyte b = 0;
@@ -177,7 +178,7 @@ internal static partial class StrToNumResult_internal_ExpandedFloat_double_inter
 					ptr5[3] = -86;
 					internal_ExpandedFloat_k68bhv4.mantissa = num2;
 					internal_ExpandedFloat_k68bhv4.exponent = num3;
-					internal_FloatConvertReturn_double_internal_decimal_exp_to_float_double_internal_ExpandedFloat_double_bool_internal_RoundDirection_char_const_unsigned_long.Invoke(round: (b2 & 1) == 1, numStart: round, num_len: src, mantissa: cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke(), agg_result: &internal_FloatConvertReturn_g92bm9, init_num: *(long*)(&internal_ExpandedFloat_k68bhv4), truncated: ((int*)(&internal_ExpandedFloat_k68bhv4))[2]);
+					internal_FloatConvertReturn_double_internal_decimal_exp_to_float_double_internal_ExpandedFloat_double_bool_internal_RoundDirection_char_const_unsigned_long.Invoke(round: (b2 & 1) == 1, numStart: (int)round, num_len: src, mantissa: cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke(), agg_result: &internal_FloatConvertReturn_g92bm9, init_num: *(long*)(&internal_ExpandedFloat_k68bhv4), truncated: ((int*)(&internal_ExpandedFloat_k68bhv4))[2]);
 					llvm_memcpy_p0_p0_i64.Invoke(source: &internal_FloatConvertReturn_g92bm9.num, destination: &agg_result->value, length: 16L, isVolatile: false);
 					agg_result->error = internal_FloatConvertReturn_g92bm9.error;
 					llvm_lifetime_end_p0.Invoke(24L, &internal_FloatConvertReturn_g92bm9);

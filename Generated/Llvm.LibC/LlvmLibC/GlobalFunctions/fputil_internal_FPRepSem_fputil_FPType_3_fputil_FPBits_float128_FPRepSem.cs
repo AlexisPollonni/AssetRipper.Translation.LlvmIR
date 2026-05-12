@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::FPRepSem()")]
 internal static partial class fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_FPRepSem
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(fputil_internal_FPRepSem_f94eua* @this)
 	{
 		fputil_internal_FPStorage_fputil_FPType_3_FPStorage.Invoke(@this);
 	}

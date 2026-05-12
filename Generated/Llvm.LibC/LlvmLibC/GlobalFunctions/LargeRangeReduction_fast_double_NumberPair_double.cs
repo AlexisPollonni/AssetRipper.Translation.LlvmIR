@@ -11,7 +11,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::LargeRangeReduction::fast(double, __llvm_libc_20_1_2_::NumberPair<double>&)")]
 internal static partial class LargeRangeReduction_fast_double_NumberPair_double
 {
-	public unsafe static int Invoke(void* @this, double x, void* u)
+	public unsafe static int Invoke(LargeRangeReduction* @this, double x, NumberPair* u)
 	{
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
 		int num = 0;
@@ -29,17 +29,17 @@ internal static partial class LargeRangeReduction_fast_double_NumberPair_double
 		*unchecked((long*)(&fputil_FPBits_wjhbrm2)) = -6148914691236517206L;
 		fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, x);
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke(&fputil_FPBits_wjhbrm2)) - 1085;
-		unchecked((LargeRangeReduction*)@this)->idx = (num >> 4) + 3;
-		fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_biased_exponent_unsigned_long.Invoke(&fputil_FPBits_wjhbrm2, (num & 0xF) + 1023 + 62);
+		num = unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2))) - 1085;
+		@this->idx = (num >> 4) + 3;
+		fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_biased_exponent_unsigned_long.Invoke(unchecked((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)), (num & 0xF) + 1023 + 62);
+		@this->x_reduced = fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2);
+		llvm_lifetime_start_p0.Invoke(16L, &numberPair);
 		unchecked
 		{
-			((LargeRangeReduction*)@this)->x_reduced = fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2);
-			llvm_lifetime_start_p0.Invoke(16L, &numberPair);
 			*(double*)(&numberPair) = double.NaN;
 			((double*)(&numberPair))[1] = double.NaN;
-			double x_reduced = ((LargeRangeReduction*)@this)->x_reduced;
-			long num4 = (uint)((LargeRangeReduction*)@this)->idx;
+			double x_reduced = @this->x_reduced;
+			long num4 = (uint)@this->idx;
 			Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_mult_27ul_double_double.Invoke(x_reduced, *(double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num4 * sizeof(InlineArray4_Double)));
 			NumberPair* num5 = &numberPair;
 			Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
@@ -50,8 +50,8 @@ internal static partial class LargeRangeReduction_fast_double_NumberPair_double
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair2);
 			*(double*)(&numberPair2) = double.NaN;
 			((double*)(&numberPair2))[1] = double.NaN;
-			double x_reduced2 = ((LargeRangeReduction*)@this)->x_reduced;
-			long num7 = (uint)((LargeRangeReduction*)@this)->idx;
+			double x_reduced2 = @this->x_reduced;
+			long num7 = (uint)@this->idx;
 			Struct_4ydhja struct_4ydhja4 = NumberPair_double_fputil_exact_mult_27ul_double_double.Invoke(x_reduced2, ((double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num7 * sizeof(InlineArray4_Double)))[1]);
 			NumberPair* num8 = &numberPair2;
 			Struct_4ydhja struct_4ydhja5 = struct_4ydhja4;
@@ -62,8 +62,8 @@ internal static partial class LargeRangeReduction_fast_double_NumberPair_double
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair3);
 			*(double*)(&numberPair3) = double.NaN;
 			((double*)(&numberPair3))[1] = double.NaN;
-			double x_reduced3 = ((LargeRangeReduction*)@this)->x_reduced;
-			long num10 = (uint)((LargeRangeReduction*)@this)->idx;
+			double x_reduced3 = @this->x_reduced;
+			long num10 = (uint)@this->idx;
 			Struct_4ydhja struct_4ydhja7 = NumberPair_double_fputil_exact_mult_27ul_double_double.Invoke(x_reduced3, ((double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num10 * sizeof(InlineArray4_Double)))[2L]);
 			NumberPair* num11 = &numberPair3;
 			Struct_4ydhja struct_4ydhja8 = struct_4ydhja7;
@@ -75,7 +75,7 @@ internal static partial class LargeRangeReduction_fast_double_NumberPair_double
 			x2 = numberPair.lo + numberPair2.hi;
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = fputil_nearest_integer_double.Invoke(x2);
-			((LargeRangeReduction*)@this)->y_hi = numberPair.lo - num2 + numberPair2.hi;
+			@this->y_hi = numberPair.lo - num2 + numberPair2.hi;
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair4);
 			Struct_4ydhja struct_4ydhja10 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(numberPair2.lo, numberPair3.hi);
 			NumberPair* num13 = &numberPair4;
@@ -84,24 +84,24 @@ internal static partial class LargeRangeReduction_fast_double_NumberPair_double
 			byte* num14 = (byte*)(&numberPair4) + 8u;
 			Struct_4ydhja struct_4ydhja12 = struct_4ydhja10;
 			*(double*)num14 = struct_4ydhja12.field_1;
-			llvm_memcpy_p0_p0_i64.Invoke(&((LargeRangeReduction*)@this)->y_mid, &numberPair4, 16L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&@this->y_mid, &numberPair4, 16L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(16L, &numberPair4);
-			((LargeRangeReduction*)@this)->y_lo = numberPair3.lo;
+			@this->y_lo = numberPair3.lo;
 			llvm_lifetime_start_p0.Invoke(8L, &num3);
-			double x_reduced4 = ((LargeRangeReduction*)@this)->x_reduced;
-			long num15 = (uint)((LargeRangeReduction*)@this)->idx;
-			num3 = fputil_multiply_add_double_double_double.Invoke(x_reduced4, ((double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num15 * sizeof(InlineArray4_Double)))[3L], ((LargeRangeReduction*)@this)->y_lo);
+			double x_reduced4 = @this->x_reduced;
+			long num15 = (uint)@this->idx;
+			num3 = fputil_multiply_add_double_double_double.Invoke(x_reduced4, ((double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num15 * sizeof(InlineArray4_Double)))[3L], @this->y_lo);
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair5);
 			*(double*)(&numberPair5) = double.NaN;
 			((double*)(&numberPair5))[1] = double.NaN;
-			Struct_4ydhja struct_4ydhja13 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(((LargeRangeReduction*)@this)->y_hi, ((LargeRangeReduction*)@this)->y_mid.hi);
+			Struct_4ydhja struct_4ydhja13 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(@this->y_hi, @this->y_mid.hi);
 			NumberPair* num16 = &numberPair5;
 			Struct_4ydhja struct_4ydhja14 = struct_4ydhja13;
 			*(double*)num16 = struct_4ydhja14.field_0;
 			byte* num17 = (byte*)(&numberPair5) + 8u;
 			Struct_4ydhja struct_4ydhja15 = struct_4ydhja13;
 			*(double*)num17 = struct_4ydhja15.field_1;
-			double num18 = ((LargeRangeReduction*)@this)->y_mid.lo + num3;
+			double num18 = @this->y_mid.lo + num3;
 			numberPair5.lo += num18;
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair6);
 			*(double*)(&numberPair6) = 9.567553118338697E-19;

@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul> __llvm_libc_20_1_2_::fputil::quick_mul<64ul>(__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul> const&, __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul> const&)")]
 internal static partial class fputil_DyadicFloat_64ul_fputil_quick_mul_64ul_fputil_DyadicFloat_64ul_const_fputil_DyadicFloat_64ul_const
 {
-	public unsafe static Struct_fiz2nb Invoke(void* a, void* b)
+	public unsafe static Struct_fiz2nb Invoke(fputil_DyadicFloat_374hpp* a, fputil_DyadicFloat_374hpp* b)
 	{
 		fputil_DyadicFloat_374hpp fputil_DyadicFloat_374hpp2 = default(fputil_DyadicFloat_374hpp);
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
@@ -26,17 +26,14 @@ internal static partial class fputil_DyadicFloat_64ul_fputil_quick_mul_64ul_fput
 			((int*)(&fputil_DyadicFloat_374hpp2))[1] = -1431655766;
 			((long*)(&fputil_DyadicFloat_374hpp2))[1] = -6148914691236517206L;
 			fputil_DyadicFloat_64ul_DyadicFloat.Invoke(&fputil_DyadicFloat_374hpp2);
-			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, &((fputil_DyadicFloat_374hpp*)a)->sign, 1L, isVolatile: false);
-			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, &((fputil_DyadicFloat_374hpp*)b)->sign, 1L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, &a->sign, 1L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, &b->sign, 1L, isVolatile: false);
 			llvm_memcpy_p0_p0_i64.Invoke(source: (!operator_Sign_Sign_rpctvi.Invoke(anon_izyfb8.val, anon_izyfb9.val)) ? Sign_POS.Pointer : Sign_NEG.Pointer, destination: &fputil_DyadicFloat_374hpp2.sign, length: 1L, isVolatile: false);
-		}
-		fputil_DyadicFloat_374hpp2.exponent = unchecked((fputil_DyadicFloat_374hpp*)a)->exponent + unchecked((fputil_DyadicFloat_374hpp*)b)->exponent + 64;
-		unchecked
-		{
-			if (!BigInt_64ul_false_unsigned_long_is_zero_const.Invoke(&((fputil_DyadicFloat_374hpp*)a)->mantissa) && !BigInt_64ul_false_unsigned_long_is_zero_const.Invoke(&((fputil_DyadicFloat_374hpp*)b)->mantissa))
+			fputil_DyadicFloat_374hpp2.exponent = checked(a->exponent + b->exponent + 64);
+			if (!BigInt_64ul_false_unsigned_long_is_zero_const.Invoke(&a->mantissa) && !BigInt_64ul_false_unsigned_long_is_zero_const.Invoke(&b->mantissa))
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &bigInt_nx6qdt);
-				long data = BigInt_64ul_false_unsigned_long_quick_mul_hi_BigInt_64ul_false_unsigned_long_const_const.Invoke(&((fputil_DyadicFloat_374hpp*)a)->mantissa, &((fputil_DyadicFloat_374hpp*)b)->mantissa);
+				long data = BigInt_64ul_false_unsigned_long_quick_mul_hi_BigInt_64ul_false_unsigned_long_const_const.Invoke(&a->mantissa, &b->mantissa);
 				*(long*)(&bigInt_nx6qdt.val.Data) = data;
 				llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_374hpp2.mantissa, &bigInt_nx6qdt, 8L, isVolatile: false);
 				llvm_lifetime_end_p0.Invoke(8L, &bigInt_nx6qdt);

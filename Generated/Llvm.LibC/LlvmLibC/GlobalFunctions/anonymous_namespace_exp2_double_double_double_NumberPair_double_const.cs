@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::exp2_double_double(double, __llvm_libc_20_1_2_::NumberPair<double> const&)")]
 internal static partial class anonymous_namespace_exp2_double_double_double_NumberPair_double_const
 {
-	public unsafe static Struct_4ydhja Invoke(double x, void* exp_mid)
+	public unsafe static Struct_4ydhja Invoke(double x, NumberPair* exp_mid)
 	{
 		NumberPair numberPair = default(NumberPair);
 		NumberPair numberPair2 = default(NumberPair);

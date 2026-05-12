@@ -29,7 +29,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float128_boo
 		{
 			*(Int128*)(&fputil_FPBits_ubgsi3) = -6148914691236517206L;
 			fputil_FPBits_float128_FPBits_float128_float128.Invoke(&fputil_FPBits_ubgsi3, pl);
-			if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke(&fputil_FPBits_ubgsi3))
+			if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
@@ -60,7 +60,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float128_boo
 				if (!NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(NumericHelper.ShiftLeft(x, (Int128)(UInt128)(uint)num), -1L), 0L))
 				{
 					llvm_lifetime_start_p0.Invoke(16L, &int2);
-					Struct_fiz2nb struct_fiz2nb7 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke(&fputil_FPBits_ubgsi3);
+					Struct_fiz2nb struct_fiz2nb7 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3));
 					Int128* num4 = &x2;
 					Struct_fiz2nb struct_fiz2nb8 = struct_fiz2nb7;
 					*(long*)num4 = struct_fiz2nb8.field_0;

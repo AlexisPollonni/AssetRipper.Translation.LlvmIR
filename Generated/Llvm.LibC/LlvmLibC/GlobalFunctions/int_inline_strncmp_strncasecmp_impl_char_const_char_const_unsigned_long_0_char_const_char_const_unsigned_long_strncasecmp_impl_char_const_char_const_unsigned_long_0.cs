@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 
@@ -32,7 +33,7 @@ internal static partial class int_inline_strncmp_strncasecmp_impl_char_const_cha
 				case 2:
 					break;
 				default:
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 				break;
 			}

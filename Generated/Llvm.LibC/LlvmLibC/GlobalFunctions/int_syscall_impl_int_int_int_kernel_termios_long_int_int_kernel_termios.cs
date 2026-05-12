@@ -1,5 +1,6 @@
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -7,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("int __llvm_libc_20_1_2_::syscall_impl<int, int, int, __llvm_libc_20_1_2_::kernel_termios*>(long, int, int, __llvm_libc_20_1_2_::kernel_termios*)")]
 internal static partial class int_syscall_impl_int_int_int_kernel_termios_long_int_int_kernel_termios
 {
-	public unsafe static int Invoke([MangledName("__number")] long number, [MangledName("ts")][CleanName("ts")] int ts_3enpke, [MangledName("ts1")][CleanName("ts")] int ts_76xnpk, [MangledName("ts3")][CleanName("ts")] void* ts_w24gdx)
+	public unsafe static int Invoke([MangledName("__number")] long number, [MangledName("ts")][CleanName("ts")] int ts_3enpke, [MangledName("ts1")][CleanName("ts")] int ts_76xnpk, [MangledName("ts3")][CleanName("ts")] kernel_termios* ts_w24gdx)
 	{
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);

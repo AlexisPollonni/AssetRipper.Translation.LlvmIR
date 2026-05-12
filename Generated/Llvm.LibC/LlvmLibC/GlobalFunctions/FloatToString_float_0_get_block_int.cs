@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::get_block(int)")]
 internal static partial class FloatToString_float_0_get_block_int
 {
-	public unsafe static int Invoke(void* @this, int block_index)
+	public unsafe static int Invoke(FloatToString_uyiqeh* @this, int block_index)
 	{
 		if (block_index >= 0)
 		{

@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned int>::load(__llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryScope)")]
 internal static partial class cpp_Atomic_unsigned_int_load_cpp_MemoryOrder_cpp_MemoryScope
 {
-	public unsafe static int Invoke(void* @this, int mem_ord, int mem_scope)
+	public unsafe static int Invoke(void* @this, MemoryOrder mem_ord, MemoryScope mem_scope)
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);

@@ -9,20 +9,20 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::write_int_with_length(unsigned long, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
 internal static partial class scanf_core_write_int_with_length_unsigned_long_scanf_core_FormatSection_const
 {
-	public unsafe static void Invoke(long output_val, void* to_conv)
+	public unsafe static void Invoke(long output_val, scanf_core_FormatSection* to_conv)
 	{
 		void* ptr = null;
 		int num = 0;
 		unchecked
 		{
-			if (((byte)((scanf_core_FormatSection*)to_conv)->flags & 1) != 0)
+			if (((byte)to_conv->flags & 1) != 0)
 			{
 				return;
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &ptr);
-			ptr = ((scanf_core_FormatSection*)to_conv)->output_ptr;
+			ptr = to_conv->output_ptr;
 			int num2;
-			if (((scanf_core_FormatSection*)to_conv)->conv_name == 112)
+			if (to_conv->conv_name == 112)
 			{
 				*(IntPtr*)ptr = (nint)output_val;
 				num2 = 1;
@@ -30,7 +30,7 @@ internal static partial class scanf_core_write_int_with_length_unsigned_long_sca
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = ((scanf_core_FormatSection*)to_conv)->length_modifier;
+				num = (int)to_conv->length_modifier;
 				switch (num)
 				{
 				case 0:
@@ -69,7 +69,7 @@ internal static partial class scanf_core_write_int_with_length_unsigned_long_sca
 			case 1:
 				return;
 			}
-			throw null;
+			throw new NotImplementedException("Reached LLVM unreachable instruction.");
 		}
 	}
 }

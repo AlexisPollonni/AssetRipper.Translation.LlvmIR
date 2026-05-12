@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
 
@@ -28,7 +29,7 @@ public partial struct printf_core_WriteBuffer
 	public unsafe void* output_target;
 
 	[FieldOffset(48)]
-	public int write_mode;
+	public WriteMode write_mode;
 
 	[FieldOffset(52)]
 	public InlineArray4_SByte field_7;

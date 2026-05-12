@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::NumberPair<double>::NumberPair()")]
 internal static partial class NumberPair_double_NumberPair
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(NumberPair* @this)
 	{
-		unchecked
-		{
-			((NumberPair*)@this)->lo = 0.0;
-			((NumberPair*)@this)->hi = 0.0;
-		}
+		@this->lo = 0.0;
+		@this->hi = 0.0;
 	}
 }

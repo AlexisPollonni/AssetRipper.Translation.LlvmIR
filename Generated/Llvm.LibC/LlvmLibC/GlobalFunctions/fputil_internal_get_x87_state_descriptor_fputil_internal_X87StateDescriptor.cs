@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::get_x87_state_descriptor(__llvm_libc_20_1_2_::fputil::internal::X87StateDescriptor&)")]
 internal static partial class fputil_internal_get_x87_state_descriptor_fputil_internal_X87StateDescriptor
 {
-	public unsafe static void Invoke(void* s)
+	public unsafe static void Invoke(fputil_internal_X87StateDescriptor* s)
 	{
 		AssemblyFunctions.M0(s);
 	}

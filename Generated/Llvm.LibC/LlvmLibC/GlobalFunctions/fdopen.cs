@@ -33,7 +33,7 @@ internal static partial class fdopen
 			}
 			else
 			{
-				result = *(void**)cpp_expected_LinuxFile_int_value.Invoke(&cpp_optional_char_OptionalStorage2);
+				result = *cpp_expected_LinuxFile_int_value.Invoke(&cpp_optional_char_OptionalStorage2);
 			}
 			llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_char_OptionalStorage2);
 			return result;

@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
@@ -12,7 +13,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::convert_float_hex_exp(__llvm_libc_20_1_2_::printf_core::Writer*, __llvm_libc_20_1_2_::printf_core::FormatSection const&)")]
 internal static partial class printf_core_convert_float_hex_exp_printf_core_Writer_printf_core_FormatSection_const
 {
-	public unsafe static int Invoke(void* writer, void* to_conv)
+	public unsafe static int Invoke(printf_core_Writer* writer, printf_core_FormatSection* to_conv)
 	{
 		int result = 0;
 		sbyte b = 0;
@@ -92,11 +93,11 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 		num2 = -1431655766;
 		unchecked
 		{
-			if (((printf_core_FormatSection*)to_conv)->length_modifier == 7)
+			if (to_conv->length_modifier == LengthModifier_mnvaa2.L)
 			{
 				num2 = 63;
 				llvm_lifetime_start_p0.Invoke(16L, &@int);
-				@int = ((printf_core_FormatSection*)to_conv)->conv_val_raw;
+				@int = to_conv->conv_val_raw;
 				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi3);
 				*(Int128*)(&fputil_FPBits_ubgsi3) = -6148914691236517206L;
 				int2 = @int;
@@ -119,14 +120,14 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 			{
 				num2 = 52;
 				llvm_lifetime_start_p0.Invoke(8L, &x2);
-				x2 = (long)((printf_core_FormatSection*)to_conv)->conv_val_raw;
+				x2 = (long)to_conv->conv_val_raw;
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 				*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
 				fputil_FPBits_double_FPBits_unsigned_long_unsigned_long.Invoke(&fputil_FPBits_wjhbrm2, x2);
-				b = (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg_const.Invoke(&fputil_FPBits_wjhbrm2) ? ((sbyte)1) : ((sbyte)0));
-				num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_explicit_exponent_const.Invoke(&fputil_FPBits_wjhbrm2);
-				x = (Int128)(UInt128)(ulong)fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke(&fputil_FPBits_wjhbrm2);
-				b2 = (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan_const.Invoke(&fputil_FPBits_wjhbrm2) ? ((sbyte)1) : ((sbyte)0));
+				b = (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)) ? ((sbyte)1) : ((sbyte)0));
+				num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_explicit_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
+				x = (Int128)(UInt128)(ulong)fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm2));
+				b2 = (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)) ? ((sbyte)1) : ((sbyte)0));
 				llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 				llvm_lifetime_end_p0.Invoke(8L, &x2);
 			}
@@ -141,11 +142,11 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 			{
 				b3 = 45;
 			}
-			else if (((byte)((printf_core_FormatSection*)to_conv)->flags & 2) == 2)
+			else if (((byte)to_conv->flags & 2) == 2)
 			{
 				b3 = 43;
 			}
-			else if (((byte)((printf_core_FormatSection*)to_conv)->flags & 4) == 4)
+			else if (((byte)to_conv->flags & 4) == 4)
 			{
 				b3 = 32;
 			}
@@ -176,14 +177,11 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 			((sbyte*)(&inlineArray16_SByte))[15] = -86;
 			llvm_lifetime_start_p0.Invoke(8L, &num5);
 			num5 = (long)((ulong)(uint)num2 / 4uL + 1L);
-		}
-		if (unchecked((printf_core_FormatSection*)to_conv)->precision + 1 < unchecked((int)num5) && unchecked((printf_core_FormatSection*)to_conv)->precision + 1 > 0)
-		{
-			llvm_lifetime_start_p0.Invoke(8L, &num6);
-			num6 = unchecked((printf_core_FormatSection*)to_conv)->precision + 1;
-			llvm_lifetime_start_p0.Invoke(8L, &num7);
-			unchecked
+			if (checked(to_conv->precision + 1) < (int)num5 && checked(to_conv->precision + 1) > 0)
 			{
+				llvm_lifetime_start_p0.Invoke(8L, &num6);
+				num6 = checked(to_conv->precision + 1);
+				llvm_lifetime_start_p0.Invoke(8L, &num7);
 				num7 = (num5 - num6) * 4L;
 				llvm_lifetime_start_p0.Invoke(16L, &x3);
 				x3 = NumericHelper.BitwiseAnd(x, NumericHelper.Subtract(NumericHelper.ShiftLeft(y: (Int128)(UInt128)(ulong)num7, x: 1L), 1L));
@@ -226,20 +224,17 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 				llvm_lifetime_end_p0.Invoke(8L, &num7);
 				llvm_lifetime_end_p0.Invoke(8L, &num6);
 			}
-		}
-		llvm_lifetime_start_p0.Invoke(8L, &num8);
-		num8 = num5;
-		llvm_lifetime_start_p0.Invoke(8L, &num9);
-		num9 = 1L;
-		unchecked
-		{
+			llvm_lifetime_start_p0.Invoke(8L, &num8);
+			num8 = num5;
+			llvm_lifetime_start_p0.Invoke(8L, &num9);
+			num9 = 1L;
 			while ((ulong)num8 > 0uL)
 			{
 				llvm_lifetime_start_p0.Invoke(1L, &b4);
 				b4 = (sbyte)NumericHelper.RemainderUnsigned(x, 16L);
 				llvm_lifetime_start_p0.Invoke(1L, &b5);
 				b5 = (sbyte)internal_int_to_b36_char_int.Invoke(b4);
-				if (internal_isupper_int.Invoke(((printf_core_FormatSection*)to_conv)->conv_name))
+				if (internal_isupper_int.Invoke(to_conv->conv_name))
 				{
 					b5 = (sbyte)internal_toupper_int.Invoke(b5);
 				}
@@ -255,7 +250,7 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &num10);
 			num10 = num9;
-			if (((printf_core_FormatSection*)to_conv)->precision >= 0)
+			if (to_conv->precision >= 0)
 			{
 				num10 = num5;
 			}
@@ -302,30 +297,30 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 			*(sbyte*)(&inlineArray2_SByte) = -86;
 			((sbyte*)(&inlineArray2_SByte))[1] = -86;
 			*(sbyte*)(&inlineArray2_SByte) = 48;
-			Unsafe.As<InlineArray2_SByte, sbyte>(ref Unsafe.AddByteOffset(ref inlineArray2_SByte, 1)) = InstructionHelper.Select(internal_islower_int.Invoke(((printf_core_FormatSection*)to_conv)->conv_name), (sbyte)120, (sbyte)88);
+			Unsafe.As<InlineArray2_SByte, sbyte>(ref Unsafe.AddByteOffset(ref inlineArray2_SByte, 1)) = InstructionHelper.Select(internal_islower_int.Invoke(to_conv->conv_name), (sbyte)120, (sbyte)88);
 			llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view2);
 			*(IntPtr*)(&cpp_string_view2) = unchecked((nint)(-6148914691236517206L));
 			((long*)(&cpp_string_view2))[1] = -6148914691236517206L;
 			cpp_string_view_string_view_char_const_unsigned_long.Invoke(&cpp_string_view2, &inlineArray2_SByte, 2L);
-			if (((printf_core_FormatSection*)to_conv)->precision > (int)(num10 - 1L))
+			if (to_conv->precision > (int)(num10 - 1L))
 			{
-				num13 = ((printf_core_FormatSection*)to_conv)->precision - (num10 - 1L);
+				num13 = to_conv->precision - (num10 - 1L);
 			}
 			llvm_lifetime_start_p0.Invoke(1L, &b7);
-			b7 = (sbyte)(byte)(((ulong)num10 <= 1uL) ? ((((byte)((printf_core_FormatSection*)to_conv)->flags & 8) == 8) ? 1 : 0) : (-1));
+			b7 = (sbyte)(byte)(((ulong)num10 <= 1uL) ? ((((byte)to_conv->flags & 8) == 8) ? 1 : 0) : (-1));
 			llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view3);
 			*(InlineArray2_SByte**)(&cpp_string_view3) = str_4_160.Pointer;
 			((long*)(&cpp_string_view3))[1] = 1L;
 			llvm_lifetime_start_p0.Invoke(1L, &new_char);
-			new_char = InstructionHelper.Select(internal_islower_int.Invoke(((printf_core_FormatSection*)to_conv)->conv_name), (sbyte)112, (sbyte)80);
+			new_char = InstructionHelper.Select(internal_islower_int.Invoke(to_conv->conv_name), (sbyte)112, (sbyte)80);
 			llvm_lifetime_start_p0.Invoke(4L, &num16);
 			num16 = 1;
-			num14 = (int)(checked(unchecked((printf_core_FormatSection*)to_conv)->min_width - InstructionHelper.Select(b3 > 0, 1, 0)) - 2L - num10 - num13 - (((b7 & 1) == 1) ? 1 : 0) - 1L - (6L - num12));
+			num14 = (int)(checked(to_conv->min_width - InstructionHelper.Select(b3 > 0, 1, 0)) - 2L - num10 - num13 - (((b7 & 1) == 1) ? 1 : 0) - 1L - (6L - num12));
 			if (num14 < 0)
 			{
 				num14 = 0;
 			}
-			if (((byte)((printf_core_FormatSection*)to_conv)->flags & 1) == 1)
+			if (((byte)to_conv->flags & 1) == 1)
 			{
 				int num38;
 				if (b3 > 0)
@@ -522,7 +517,7 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 			else
 			{
 				int num38;
-				if (num14 > 0 && ((byte)((printf_core_FormatSection*)to_conv)->flags & 0x10) != 16)
+				if (num14 > 0 && ((byte)to_conv->flags & 0x10) != 16)
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num26);
 					num26 = printf_core_Writer_write_char_unsigned_long.Invoke(writer, 32, num14);
@@ -586,7 +581,7 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 				default:
 					goto IL_148f;
 				}
-				if (num14 > 0 && ((byte)((printf_core_FormatSection*)to_conv)->flags & 0x10) == 16)
+				if (num14 > 0 && ((byte)to_conv->flags & 0x10) == 16)
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num29);
 					num29 = printf_core_Writer_write_char_unsigned_long.Invoke(writer, 48, num14);

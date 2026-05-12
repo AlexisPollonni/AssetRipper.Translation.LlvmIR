@@ -8,13 +8,10 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("CharVector_CharVector")]
 internal static partial class CharVector_CharVector_yauiu7
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(CharVector* @this)
 	{
-		unchecked
-		{
-			((CharVector*)@this)->cur_str = &((CharVector*)@this)->local_buffer;
-			((CharVector*)@this)->cur_buff_size = 64L;
-			((CharVector*)@this)->index = 0L;
-		}
+		@this->cur_str = &@this->local_buffer;
+		@this->cur_buff_size = 64L;
+		@this->index = 0L;
 	}
 }

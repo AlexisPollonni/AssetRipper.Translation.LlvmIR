@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -63,7 +64,7 @@ internal static partial class void_internal_heap_sort_internal_ArrayFixedSize_4u
 					case 5:
 						break;
 					default:
-						throw null;
+						throw new NotImplementedException("Reached LLVM unreachable instruction.");
 					}
 					break;
 				}

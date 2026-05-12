@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::write_middle_block(unsigned int)")]
 internal static partial class printf_core_FloatWriter_write_middle_block_unsigned_int
 {
-	public unsafe static int Invoke(void* @this, int block)
+	public unsafe static int Invoke(printf_core_FloatWriter* @this, int block)
 	{
 		int result = 0;
 		int num = 0;
@@ -20,7 +20,7 @@ internal static partial class printf_core_FloatWriter_write_middle_block_unsigne
 		{
 			if (block == 999999999)
 			{
-				((printf_core_FloatWriter*)@this)->max_block_count++;
+				@this->max_block_count++;
 			}
 			else
 			{
@@ -44,7 +44,7 @@ internal static partial class printf_core_FloatWriter_write_middle_block_unsigne
 				case 1:
 					goto IL_02aa;
 				default:
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 				llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc);
 				sbyte* ptr = (sbyte*)(&integerToString_uuwdyc);
@@ -89,10 +89,10 @@ internal static partial class printf_core_FloatWriter_write_middle_block_unsigne
 				for (num2 = 0L; (ulong)num2 < 9uL; num2++)
 				{
 					sbyte b = *(sbyte*)cpp_string_view_operator_unsigned_long_const.Invoke(&cpp_string_view2, num2 + 1L);
-					((sbyte*)(&((printf_core_FloatWriter*)@this)->block_buffer))[num2] = b;
+					((sbyte*)(&@this->block_buffer))[num2] = b;
 				}
 				llvm_lifetime_end_p0.Invoke(8L, &num2);
-				((printf_core_FloatWriter*)@this)->buffered_digits = 9L;
+				@this->buffered_digits = 9L;
 				llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);
 				llvm_lifetime_end_p0.Invoke(32L, &integerToString_uuwdyc);
 			}

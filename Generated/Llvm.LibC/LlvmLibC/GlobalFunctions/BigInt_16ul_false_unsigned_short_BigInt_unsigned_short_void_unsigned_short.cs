@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,18 +9,18 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<16ul, false, unsigned short>::BigInt<unsigned short, void>(unsigned short)")]
 internal static partial class BigInt_16ul_false_unsigned_short_BigInt_unsigned_short_void_unsigned_short
 {
-	public unsafe static void Invoke(void* @this, short v)
+	public unsafe static void Invoke(BigInt_ys7s55* @this, short v)
 	{
 		long num = 0L;
 		sbyte b = 0;
 		long num2 = 0L;
 		short num3 = v;
+		llvm_memset_p0_i64.Invoke(&@this->val.Data, 0, 2L, isVolatile: false);
+		llvm_lifetime_start_p0.Invoke(8L, &num);
+		num = 16L;
+		llvm_lifetime_start_p0.Invoke(1L, &b);
 		unchecked
 		{
-			llvm_memset_p0_i64.Invoke(&((BigInt_ys7s55*)@this)->val.Data, 0, 2L, isVolatile: false);
-			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = 16L;
-			llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = (((ushort)num3 < 0) ? ((sbyte)1) : ((sbyte)0));
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = 0L;
@@ -37,7 +38,7 @@ internal static partial class BigInt_16ul_false_unsigned_short_BigInt_unsigned_s
 					num4 = 1;
 					break;
 				}
-				*(short*)cpp_array_unsigned_short_1ul_operator_unsigned_long.Invoke(&((BigInt_ys7s55*)@this)->val, num2) = num3;
+				*(short*)cpp_array_unsigned_short_1ul_operator_unsigned_long.Invoke(&@this->val, num2) = num3;
 				num3 = 0;
 				num2++;
 			}
@@ -54,7 +55,7 @@ internal static partial class BigInt_16ul_false_unsigned_short_BigInt_unsigned_s
 			case 1:
 				return;
 			}
-			throw null;
+			throw new NotImplementedException("Reached LLVM unreachable instruction.");
 		}
 	}
 }

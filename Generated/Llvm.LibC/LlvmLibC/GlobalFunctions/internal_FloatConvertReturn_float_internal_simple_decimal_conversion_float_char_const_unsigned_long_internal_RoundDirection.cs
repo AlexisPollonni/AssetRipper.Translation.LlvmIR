@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -9,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn<float> __llvm_libc_20_1_2_::internal::simple_decimal_conversion<float>(char const*, unsigned long, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class internal_FloatConvertReturn_float_internal_simple_decimal_conversion_float_char_const_unsigned_long_internal_RoundDirection
 {
-	public unsafe static Struct_3driym Invoke(void* numStart, long num_len, int round)
+	public unsafe static Struct_3driym Invoke(void* numStart, long num_len, RoundDirection_b3pcwy round)
 	{
 		internal_FloatConvertReturn_a8f9er internal_FloatConvertReturn_a8f9er2 = default(internal_FloatConvertReturn_a8f9er);
 		int i = 0;
@@ -135,7 +136,7 @@ internal static partial class internal_FloatConvertReturn_float_internal_simple_
 			{
 				internal_HighPrecisionDecimal_shift_int.Invoke(&internal_HighPrecisionDecimal2, 23);
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
-				num3 = unsigned_int_internal_HighPrecisionDecimal_round_to_integer_type_unsigned_int_internal_RoundDirection.Invoke(&internal_HighPrecisionDecimal2, 2);
+				num3 = unsigned_int_internal_HighPrecisionDecimal_round_to_integer_type_unsigned_int_internal_RoundDirection.Invoke(&internal_HighPrecisionDecimal2, RoundDirection_b3pcwy.Nearest);
 				if (i <= 0)
 				{
 					for (; i < 0; i++)

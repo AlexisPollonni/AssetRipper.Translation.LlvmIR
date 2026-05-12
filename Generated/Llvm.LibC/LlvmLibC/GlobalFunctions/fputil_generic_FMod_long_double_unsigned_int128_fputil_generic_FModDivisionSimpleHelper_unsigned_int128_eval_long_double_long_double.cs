@@ -77,7 +77,7 @@ internal static partial class fputil_generic_FMod_long_double_unsigned_int128_fp
 			case 1:
 				return result;
 			default:
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 		}
 	}

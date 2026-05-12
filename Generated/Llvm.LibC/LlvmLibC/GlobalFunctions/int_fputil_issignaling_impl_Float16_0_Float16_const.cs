@@ -17,7 +17,7 @@ internal static partial class int_fputil_issignaling_impl_Float16_0_Float16_cons
 		{
 			*(short*)(&fputil_FPBits_2fahva2) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, *(Half*)x);
-			bool result = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke(&fputil_FPBits_2fahva2);
+			bool result = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2));
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva2);
 			return result ? 1 : 0;
 		}

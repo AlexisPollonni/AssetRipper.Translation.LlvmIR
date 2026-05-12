@@ -29,7 +29,7 @@ internal static partial class fma_large_range_reduction_double_int_double
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 				*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
 				fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, x * *(double*)fma_THIRTYTWO_OVER_PI.Pointer);
-				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long.Invoke(&fputil_FPBits_wjhbrm2, fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm2) & InstructionHelper.Select(x_exp < 55, -4096L, -1L));
+				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2), fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)) & InstructionHelper.Select(x_exp < 55, -4096L, -1L));
 				llvm_lifetime_start_p0.Invoke(8L, &num);
 				num = fputil_nearest_integer_double.Invoke(fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
@@ -53,7 +53,7 @@ internal static partial class fma_large_range_reduction_double_int_double
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 				*(long*)(&fputil_FPBits_wjhbrm3) = -6148914691236517206L;
 				fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm3, x * ((double*)fma_THIRTYTWO_OVER_PI.Pointer)[1]);
-				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long.Invoke(&fputil_FPBits_wjhbrm3, fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm3) & InstructionHelper.Select(x_exp < 110, -4096L, -1L));
+				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3), fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)) & InstructionHelper.Select(x_exp < 110, -4096L, -1L));
 				llvm_lifetime_start_p0.Invoke(8L, &num4);
 				num4 = fputil_nearest_integer_double.Invoke(fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm3));
 				llvm_lifetime_start_p0.Invoke(8L, &num5);

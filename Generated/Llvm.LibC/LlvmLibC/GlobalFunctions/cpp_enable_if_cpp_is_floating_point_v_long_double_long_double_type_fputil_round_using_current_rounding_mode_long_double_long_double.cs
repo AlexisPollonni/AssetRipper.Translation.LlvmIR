@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 
@@ -18,7 +19,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_long_double_
 			2048 => cpp_enable_if_cpp_is_floating_point_v_long_double_long_double_type_fputil_round_using_specific_rounding_mode_long_double_long_double_int.Invoke(x, 0), 
 			3072 => cpp_enable_if_cpp_is_floating_point_v_long_double_long_double_type_fputil_round_using_specific_rounding_mode_long_double_long_double_int.Invoke(x, 2), 
 			0 => cpp_enable_if_cpp_is_floating_point_v_long_double_long_double_type_fputil_round_using_specific_rounding_mode_long_double_long_double_int.Invoke(x, 4), 
-			_ => throw null, 
+			_ => throw new NotImplementedException("Reached LLVM unreachable instruction."), 
 		};
 		llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;

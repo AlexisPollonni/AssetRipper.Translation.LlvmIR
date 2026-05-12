@@ -114,7 +114,7 @@ internal static partial class fputil_generic_FMod_float128_unsigned_int128_fputi
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 > 112 && checked(num - num2) <= 15, expected: true))
 				{
 					llvm_lifetime_start_p0.Invoke(16L, &x);
-					Struct_fiz2nb struct_fiz2nb16 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke(&fputil_FPBits_ubgsi4);
+					Struct_fiz2nb struct_fiz2nb16 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi4));
 					Int128* num18 = &int3;
 					Struct_fiz2nb struct_fiz2nb17 = struct_fiz2nb16;
 					*(long*)num18 = struct_fiz2nb17.field_0;
@@ -123,7 +123,7 @@ internal static partial class fputil_generic_FMod_float128_unsigned_int128_fputi
 					*(long*)num19 = struct_fiz2nb18.field_1;
 					x = int3;
 					llvm_lifetime_start_p0.Invoke(16L, &y3);
-					Struct_fiz2nb struct_fiz2nb19 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke(&fputil_FPBits_ubgsi5);
+					Struct_fiz2nb struct_fiz2nb19 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi5));
 					Int128* num20 = &int4;
 					Struct_fiz2nb struct_fiz2nb20 = struct_fiz2nb19;
 					*(long*)num20 = struct_fiz2nb20.field_0;
@@ -184,7 +184,7 @@ internal static partial class fputil_generic_FMod_float128_unsigned_int128_fputi
 				else
 				{
 					llvm_lifetime_start_p0.Invoke(16L, &int9);
-					Struct_fiz2nb struct_fiz2nb34 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke(&fputil_FPBits_ubgsi4);
+					Struct_fiz2nb struct_fiz2nb34 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi4));
 					Int128* num26 = &int10;
 					Struct_fiz2nb struct_fiz2nb35 = struct_fiz2nb34;
 					*(long*)num26 = struct_fiz2nb35.field_0;
@@ -194,7 +194,7 @@ internal static partial class fputil_generic_FMod_float128_unsigned_int128_fputi
 					int9 = int10;
 					num = checked(num + -1);
 					llvm_lifetime_start_p0.Invoke(16L, &int11);
-					Struct_fiz2nb struct_fiz2nb37 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke(&fputil_FPBits_ubgsi5);
+					Struct_fiz2nb struct_fiz2nb37 = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi5));
 					Int128* num28 = &int12;
 					Struct_fiz2nb struct_fiz2nb38 = struct_fiz2nb37;
 					*(long*)num28 = struct_fiz2nb38.field_0;

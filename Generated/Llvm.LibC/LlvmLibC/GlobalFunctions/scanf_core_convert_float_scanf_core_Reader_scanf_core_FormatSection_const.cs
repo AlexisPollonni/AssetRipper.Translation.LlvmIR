@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::convert_float(__llvm_libc_20_1_2_::scanf_core::Reader*, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
 internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const
 {
-	public unsafe static int Invoke(void* reader, void* to_conv)
+	public unsafe static int Invoke(scanf_core_Reader* reader, scanf_core_FormatSection* to_conv)
 	{
 		CharVector charVector = default(CharVector);
 		sbyte b = 0;
@@ -28,34 +28,31 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 		b = 0;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke();
-		int result;
-		unchecked
+		if (to_conv->max_width > 0)
 		{
-			if (((scanf_core_FormatSection*)to_conv)->max_width > 0)
+			num = to_conv->max_width;
+		}
+		llvm_lifetime_start_p0.Invoke(1L, &b2);
+		b2 = scanf_core_Reader_getc.Invoke(reader);
+		if (b2 != 43 && b2 != 45)
+		{
+			goto IL_0111;
+		}
+		int result;
+		if (!CharVector_append_char.Invoke(&charVector, b2))
+		{
+			result = -4;
+		}
+		else
+		{
+			if (CharVector_length.Invoke(&charVector) != num)
 			{
-				num = ((scanf_core_FormatSection*)to_conv)->max_width;
-			}
-			llvm_lifetime_start_p0.Invoke(1L, &b2);
-			b2 = scanf_core_Reader_getc.Invoke(reader);
-			if (b2 != 43 && b2 != 45)
-			{
+				b2 = scanf_core_Reader_getc.Invoke(reader);
 				goto IL_0111;
 			}
-			if (!CharVector_append_char.Invoke(&charVector, b2))
-			{
-				result = -4;
-			}
-			else
-			{
-				if (CharVector_length.Invoke(&charVector) != num)
-				{
-					b2 = scanf_core_Reader_getc.Invoke(reader);
-					goto IL_0111;
-				}
-				result = -3;
-			}
-			goto IL_05cd;
+			result = -3;
 		}
+		goto IL_05cd;
 		IL_05cd:
 		llvm_lifetime_end_p0.Invoke(1L, &b2);
 		llvm_lifetime_end_p0.Invoke(8L, &num);

@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const")]
 internal static partial class BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_d49xx2
 {
-	public unsafe static long Invoke(void* @this, void* other)
+	public unsafe static long Invoke(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
 	{
 		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
 		unchecked

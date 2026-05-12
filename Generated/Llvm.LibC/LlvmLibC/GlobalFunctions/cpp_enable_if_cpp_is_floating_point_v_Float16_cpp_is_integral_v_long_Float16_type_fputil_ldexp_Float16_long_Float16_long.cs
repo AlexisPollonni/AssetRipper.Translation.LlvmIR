@@ -41,7 +41,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_
 		{
 			*(short*)(&fputil_FPBits_2fahva2) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, x);
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((exp == 0L) ? true : ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero_const.Invoke(&fputil_FPBits_2fahva2)) ? fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_inf_or_nan_const.Invoke(&fputil_FPBits_2fahva2) : true), expected: false))
+			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((exp == 0L) ? true : ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2))) ? fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_inf_or_nan_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) : true), expected: false))
 			{
 				result = x;
 				goto IL_05c3;

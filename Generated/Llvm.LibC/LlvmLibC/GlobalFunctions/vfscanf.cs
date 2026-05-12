@@ -6,7 +6,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class vfscanf
 {
-	public unsafe static int Invoke(void* stream, void* format, void* vlist)
+	public unsafe static int Invoke(void* stream, void* format, va_list_tag* vlist)
 	{
 		internal_ArgList internal_ArgList2 = default(internal_ArgList);
 		int num = 0;

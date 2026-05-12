@@ -19,7 +19,7 @@ internal static partial class cbrt_impl_double_0_operator_double_const
 		fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, r);
 		unchecked
 		{
-			long num2 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm2) - 4607182418800017408L;
+			long num2 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)) - 4607182418800017408L;
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 			num = num2;
 			llvm_lifetime_start_p0.Invoke(8L, &x);

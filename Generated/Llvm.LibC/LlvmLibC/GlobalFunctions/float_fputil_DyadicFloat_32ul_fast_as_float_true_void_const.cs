@@ -229,7 +229,7 @@ internal static partial class float_fputil_DyadicFloat_32ul_fast_as_float_true_v
 							llvm_lifetime_start_p0.Invoke(4L, &num16);
 							llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs10);
 							fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs10, num14);
-							int num25 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs10) - num15;
+							int num25 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs10)) - num15;
 							llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs10);
 							num16 = num25;
 							if ((num16 & 0x7F800000) == 0)

@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using LlvmLibC.Helpers;
 
@@ -10,6 +11,6 @@ internal static partial class llvm_threadlocal_address_p0
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public unsafe static void* Invoke(void* parameter_0)
 	{
-		throw null;
+		throw new NotImplementedException("Unimplemented LLVM intrinsic: llvm.threadlocal.address.p0");
 	}
 }

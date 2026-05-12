@@ -11,7 +11,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::vfprintf_internal(_IO_FILE*, char const*, __llvm_libc_20_1_2_::internal::ArgList&)")]
 internal static partial class printf_core_vfprintf_internal_IO_FILE_char_const_internal_ArgList
 {
-	public unsafe static int Invoke(void* stream, void* format, void* args)
+	public unsafe static int Invoke(void* stream, void* format, internal_ArgList* args)
 	{
 		long num = 0L;
 		InlineArray1024_SByte inlineArray1024_SByte = default(InlineArray1024_SByte);

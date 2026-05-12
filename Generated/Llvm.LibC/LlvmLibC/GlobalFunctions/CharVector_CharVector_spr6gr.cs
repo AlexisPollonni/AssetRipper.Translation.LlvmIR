@@ -9,14 +9,11 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("CharVector_CharVector")]
 internal static partial class CharVector_CharVector_spr6gr
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(CharVector* @this)
 	{
-		unchecked
+		if (@this->cur_str != &@this->local_buffer)
 		{
-			if (((CharVector*)@this)->cur_str != &((CharVector*)@this)->local_buffer)
-			{
-				free.Invoke(((CharVector*)@this)->cur_str);
-			}
+			free.Invoke(@this->cur_str);
 		}
 	}
 }

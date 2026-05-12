@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>::BigInt(__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul> const&)")]
 internal static partial class BigInt_128ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_2ul_const
 {
-	public unsafe static void Invoke(void* @this, void* words)
+	public unsafe static void Invoke(anon_izyfb7* @this, cpp_array_i3937k* words)
 	{
 		unchecked
 		{

@@ -13,8 +13,8 @@ internal static partial class FloatToString_double_0_FloatToString_double
 		unchecked
 		{
 			fputil_FPBits_double_FPBits_double_double.Invoke(&((FloatToString_dhsqbm*)@this)->float_bits, init_float);
-			((FloatToString_dhsqbm*)@this)->field_1 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_explicit_exponent_const.Invoke(&((FloatToString_dhsqbm*)@this)->float_bits);
-			((FloatToString_dhsqbm*)@this)->mantissa = (Int128)(UInt128)(ulong)fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke(&((FloatToString_dhsqbm*)@this)->float_bits);
+			((FloatToString_dhsqbm*)@this)->field_1 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_explicit_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&((FloatToString_dhsqbm*)@this)->float_bits));
+			((FloatToString_dhsqbm*)@this)->mantissa = (Int128)(UInt128)(ulong)fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&((FloatToString_dhsqbm*)@this)->float_bits));
 		}
 		unchecked((FloatToString_dhsqbm*)@this)->field_1 -= 52;
 	}

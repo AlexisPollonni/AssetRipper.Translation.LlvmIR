@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::init(unsigned long, unsigned long)")]
 internal static partial class printf_core_FloatWriter_init_unsigned_long_unsigned_long
 {
-	public unsafe static void Invoke(void* @this, long init_total_digits, long init_digits_before_decimal)
+	public unsafe static void Invoke(printf_core_FloatWriter* @this, long init_total_digits, long init_digits_before_decimal)
 	{
-		unchecked
-		{
-			((printf_core_FloatWriter*)@this)->total_digits = init_total_digits;
-			((printf_core_FloatWriter*)@this)->digits_before_decimal = init_digits_before_decimal;
-		}
+		@this->total_digits = init_total_digits;
+		@this->digits_before_decimal = init_digits_before_decimal;
 	}
 }

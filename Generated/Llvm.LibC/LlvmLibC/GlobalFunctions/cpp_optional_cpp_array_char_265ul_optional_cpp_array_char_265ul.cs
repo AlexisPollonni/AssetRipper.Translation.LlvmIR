@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>::optional(__llvm_libc_20_1_2_::cpp::array<char, 265ul>&&)")]
 internal static partial class cpp_optional_cpp_array_char_265ul_optional_cpp_array_char_265ul
 {
-	public unsafe static void Invoke(void* @this, void* t)
+	public unsafe static void Invoke(cpp_optional_pjf72b* @this, cpp_array_55kc72* t)
 	{
-		unchecked
-		{
-			cpp_optional_cpp_array_char_265ul_OptionalStorage_cpp_array_char_265ul_false_OptionalStorage_cpp_array_char_265ul_cpp_in_place_t_cpp_array_char_265ul.Invoke(&((cpp_optional_pjf72b*)@this)->storage, cpp_remove_reference_cpp_array_char_265ul_type_cpp_move_cpp_array_char_265ul_cpp_array_char_265ul.Invoke(t));
-			((cpp_optional_pjf72b*)@this)->storage.in_use = 1;
-		}
+		cpp_optional_cpp_array_char_265ul_OptionalStorage_cpp_array_char_265ul_false_OptionalStorage_cpp_array_char_265ul_cpp_in_place_t_cpp_array_char_265ul.Invoke(&@this->storage, cpp_remove_reference_cpp_array_char_265ul_type_cpp_move_cpp_array_char_265ul_cpp_array_char_265ul.Invoke(t));
+		@this->storage.in_use = 1;
 	}
 }

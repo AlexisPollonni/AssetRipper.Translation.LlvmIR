@@ -19,7 +19,7 @@ internal static partial class float_fputil_frexp_float_0_float_int
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
 			float result;
-			if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_inf_or_nan_const.Invoke(&fputil_FPBits_5nkvcs2))
+			if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_inf_or_nan_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)))
 			{
 				result = x;
 			}

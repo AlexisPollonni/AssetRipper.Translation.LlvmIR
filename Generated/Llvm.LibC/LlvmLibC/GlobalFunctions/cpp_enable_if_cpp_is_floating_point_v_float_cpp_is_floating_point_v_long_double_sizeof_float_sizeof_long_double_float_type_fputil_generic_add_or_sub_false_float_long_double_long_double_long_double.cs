@@ -434,7 +434,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float_cpp_is
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb25, &anon_izyfb21, 1L, isVolatile: false);
 				int e = num7;
 				int8 = int5;
-				BigInt_128ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(&bigInt_qdkjbh, *(long*)(&int8), ((long*)(&int8))[1]);
+				BigInt_128ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke((anon_izyfb7*)(&bigInt_qdkjbh), *(long*)(&int8), ((long*)(&int8))[1]);
 				fputil_DyadicFloat_128ul_DyadicFloat_Sign_int_BigInt_128ul_false_unsigned_long.Invoke(&fputil_DyadicFloat_kt2kd5, anon_izyfb25.val, e, *(long*)(&bigInt_qdkjbh), ((long*)(&bigInt_qdkjbh))[1]);
 				result = float_fputil_DyadicFloat_128ul_as_float_true_void_const.Invoke(&fputil_DyadicFloat_kt2kd5);
 				llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd5);

@@ -8,9 +8,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::linux_file_seek(__llvm_libc_20_1_2_::File*, long, int)")]
 internal static partial class linux_file_seek_File_long_int
 {
-	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<void*, long, int, Struct_8myw6y>)(&Invoke));
+	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<File_sjnxn4*, long, int, Struct_8myw6y>)(&Invoke));
 
-	public unsafe static Struct_8myw6y Invoke(void* f, long offset, int whence)
+	public unsafe static Struct_8myw6y Invoke(File_sjnxn4* f, long offset, int whence)
 	{
 		cpp_expected cpp_expected2 = default(cpp_expected);
 		void* ptr = null;
@@ -30,7 +30,7 @@ internal static partial class linux_file_seek_File_long_int
 			ptr2[4] = -86;
 			ptr2[5] = -86;
 			ptr2[6] = -86;
-			Struct_8myw6y struct_8myw6y = internal_lseekimpl_int_long_int.Invoke(LinuxFile_get_fd_const.Invoke(ptr), offset, whence);
+			Struct_8myw6y struct_8myw6y = internal_lseekimpl_int_long_int.Invoke(LinuxFile_get_fd_const.Invoke((LinuxFile*)ptr), offset, whence);
 			llvm_memcpy_p0_p0_i64.Invoke(&cpp_expected3, &struct_8myw6y, 9L, isVolatile: false);
 			if (!cpp_expected_long_int_has_value_const.Invoke(&cpp_expected3))
 			{

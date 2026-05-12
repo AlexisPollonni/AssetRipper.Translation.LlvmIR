@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 
 namespace LlvmLibC.Structures;
@@ -12,5 +13,5 @@ public partial struct printf_core_TypeDesc
 	public sbyte size;
 
 	[FieldOffset(1)]
-	public sbyte primary_type;
+	public PrimaryType primary_type;
 }

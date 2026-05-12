@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Structures;
 
@@ -7,16 +8,16 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned long>::compare_exchange_strong(unsigned long&, unsigned long, __llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryScope)")]
 internal static partial class cpp_Atomic_unsigned_long_compare_exchange_strong_unsigned_long_unsigned_long_cpp_MemoryOrder_cpp_MemoryOrder_cpp_MemoryScope
 {
-	public unsafe static bool Invoke(void* @this, void* expected, long desired, int success_order, int failure_order, int mem_scope)
+	public unsafe static bool Invoke(fputil_internal_FPStorage_v3nexn* @this, void* expected, long desired, MemoryOrder success_order, MemoryOrder failure_order, MemoryScope mem_scope)
 	{
 		long num = desired;
+		cpp_Atomic_unsigned_long_addressof_unsigned_long.Invoke(&@this->val);
+		int num2 = cpp_Atomic_unsigned_long_order_cpp_MemoryOrder.Invoke(success_order);
+		void* ptr = cpp_Atomic_unsigned_long_addressof_unsigned_long.Invoke(expected);
+		void* ptr2 = cpp_Atomic_unsigned_long_addressof_unsigned_long.Invoke(&num);
+		int num3 = cpp_Atomic_unsigned_long_order_cpp_MemoryOrder.Invoke(failure_order);
 		unchecked
 		{
-			cpp_Atomic_unsigned_long_addressof_unsigned_long.Invoke(&((fputil_internal_FPStorage_v3nexn*)@this)->val);
-			int num2 = cpp_Atomic_unsigned_long_order_cpp_MemoryOrder.Invoke(success_order);
-			void* ptr = cpp_Atomic_unsigned_long_addressof_unsigned_long.Invoke(expected);
-			void* ptr2 = cpp_Atomic_unsigned_long_addressof_unsigned_long.Invoke(&num);
-			int num3 = cpp_Atomic_unsigned_long_order_cpp_MemoryOrder.Invoke(failure_order);
 			sbyte b;
 			switch (num2)
 			{

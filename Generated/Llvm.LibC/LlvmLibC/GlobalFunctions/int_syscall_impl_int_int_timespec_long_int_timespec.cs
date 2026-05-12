@@ -1,5 +1,6 @@
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -7,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("int __llvm_libc_20_1_2_::syscall_impl<int, int, timespec*>(long, int, timespec*)")]
 internal static partial class int_syscall_impl_int_int_timespec_long_int_timespec
 {
-	public unsafe static int Invoke([MangledName("__number")] long number, [MangledName("ts")][CleanName("ts")] int ts_3enpke, [MangledName("ts1")][CleanName("ts")] void* ts_76xnpk)
+	public unsafe static int Invoke([MangledName("__number")] long number, [MangledName("ts")][CleanName("ts")] int ts_3enpke, [MangledName("ts1")][CleanName("ts")] AuxEntry* ts_76xnpk)
 	{
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);

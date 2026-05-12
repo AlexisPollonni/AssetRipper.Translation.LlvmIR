@@ -12,7 +12,7 @@ internal static partial class cpp_optional_BigInt_128ul_false_unsigned_long_Opti
 	{
 		unchecked
 		{
-			llvm_memcpy_p0_p0_i64.Invoke(&((cpp_optional_BigInt_128_false_OptionalStorage*)@this)->field, BigInt_128ul_false_unsigned_long_cpp_forward_BigInt_128ul_false_unsigned_long_cpp_remove_reference_BigInt_128ul_false_unsigned_long_type.Invoke(args), 16L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&((cpp_optional_BigInt_128_false_OptionalStorage*)@this)->field, BigInt_128ul_false_unsigned_long_cpp_forward_BigInt_128ul_false_unsigned_long_cpp_remove_reference_BigInt_128ul_false_unsigned_long_type.Invoke((anon_izyfb7*)args), 16L, isVolatile: false);
 			((cpp_optional_BigInt_128_false_OptionalStorage*)@this)->in_use = 0;
 		}
 	}

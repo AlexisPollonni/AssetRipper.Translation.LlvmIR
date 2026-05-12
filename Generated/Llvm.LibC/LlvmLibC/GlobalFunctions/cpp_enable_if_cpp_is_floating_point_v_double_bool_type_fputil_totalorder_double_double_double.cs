@@ -24,9 +24,9 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_bool_
 			*(long*)(&fputil_FPBits_wjhbrm3) = -6148914691236517206L;
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm3, y);
 			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm3);
+			num2 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3));
 			llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = ((((num | num2) & long.MinValue) != 0L) ? ((sbyte)1) : ((sbyte)0));
 			int result = ((num != num2) ? (((ulong)num < (ulong)num2 != ((b & 1) == 1)) ? 1 : 0) : (-1));

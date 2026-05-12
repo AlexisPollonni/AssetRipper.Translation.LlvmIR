@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 
 namespace LlvmLibC.Structures;
@@ -15,10 +16,10 @@ public partial struct scanf_core_FormatSection
 	public cpp_string_view raw_string;
 
 	[FieldOffset(24)]
-	public sbyte flags;
+	public FormatFlags_96pze4 flags;
 
 	[FieldOffset(28)]
-	public int length_modifier;
+	public LengthModifier_3739tr length_modifier;
 
 	[FieldOffset(32)]
 	public int max_width;

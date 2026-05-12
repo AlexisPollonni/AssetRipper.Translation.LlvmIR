@@ -26,7 +26,7 @@ internal static partial class fputil_DyadicFloat_32ul_DyadicFloat_float_0_float
 			anon_izyfb8.val = fputil_internal_FPStorage_fputil_FPType_1_sign_const.Invoke(&fputil_FPBits_5nkvcs2);
 			llvm_memcpy_p0_p0_i64.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->sign, &anon_izyfb8, 1L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb8);
-			((fputil_DyadicFloat_c8qpxg*)@this)->exponent = checked(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_explicit_exponent_const.Invoke(&fputil_FPBits_5nkvcs2) - 23);
+			((fputil_DyadicFloat_c8qpxg*)@this)->exponent = checked(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_explicit_exponent_const.Invoke(unchecked((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2))) - 23);
 			llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu);
 			BigInt_32ul_false_unsigned_int_BigInt_unsigned_int_void_unsigned_int.Invoke(&bigInt_fzjdu, fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_get_explicit_mantissa_const.Invoke(&fputil_FPBits_5nkvcs2));
 			llvm_memcpy_p0_p0_i64.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa, &bigInt_fzjdu, 4L, isVolatile: false);

@@ -34,7 +34,7 @@ internal static partial class printf_core_vasprintf_internal_char_char_const_int
 			ptr[3] = -86;
 			printf_core_Writer_Writer_printf_core_WriteBuffer.Invoke(&printf_core_Writer2, &printf_core_WriteBuffer2);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = printf_core_printf_main_printf_core_Writer_char_const_internal_ArgList.Invoke(&printf_core_Writer2, format, args);
+			num = printf_core_printf_main_printf_core_Writer_char_const_internal_ArgList.Invoke(&printf_core_Writer2, format, (internal_ArgList*)args);
 			if (num < 0)
 			{
 				*(IntPtr*)ret = (nint)0;

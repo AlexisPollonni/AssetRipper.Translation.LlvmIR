@@ -73,7 +73,7 @@ internal static partial class fputil_generic_FMod_Float16_unsigned_int_fputil_ge
 			case 1:
 				return result;
 			default:
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 		}
 	}

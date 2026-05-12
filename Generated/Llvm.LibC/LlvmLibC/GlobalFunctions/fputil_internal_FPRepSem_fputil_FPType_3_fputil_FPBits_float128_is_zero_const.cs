@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::is_zero() const")]
 internal static partial class fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(fputil_internal_FPRepSem_f94eua* @this)
 	{
 		Int128 x = default(Int128);
 		Struct_fiz2nb struct_fiz2nb = fputil_internal_FPStorage_fputil_FPType_3_exp_sig_bits_const.Invoke(@this);

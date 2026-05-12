@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::extend(unsigned long, bool)")]
 internal static partial class BigInt_32ul_false_unsigned_int_extend_unsigned_long_bool
 {
-	public unsafe static void Invoke(void* @this, long index, bool is_neg)
+	public unsafe static void Invoke(BigInt_fzjdu3* @this, long index, bool is_neg)
 	{
 		int num = 0;
 		long num2 = 0L;
@@ -21,7 +21,7 @@ internal static partial class BigInt_32ul_false_unsigned_int_extend_unsigned_lon
 			for (num2 = index; (ulong)num2 < 1uL; num2++)
 			{
 				int num3 = num;
-				*(int*)cpp_array_unsigned_int_1ul_operator_unsigned_long.Invoke(&((BigInt_fzjdu3*)@this)->val, num2) = num3;
+				*(int*)cpp_array_unsigned_int_1ul_operator_unsigned_long.Invoke(&@this->val, num2) = num3;
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
 			llvm_lifetime_end_p0.Invoke(4L, &num);

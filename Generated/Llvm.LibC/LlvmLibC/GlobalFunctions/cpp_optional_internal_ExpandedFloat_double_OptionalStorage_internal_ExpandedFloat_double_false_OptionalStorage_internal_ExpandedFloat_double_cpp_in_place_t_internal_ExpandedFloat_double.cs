@@ -8,12 +8,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::OptionalStorage<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>, false>::OptionalStorage<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>(__llvm_libc_20_1_2_::cpp::in_place_t, __llvm_libc_20_1_2_::internal::ExpandedFloat<double>&&)")]
 internal static partial class cpp_optional_internal_ExpandedFloat_double_OptionalStorage_internal_ExpandedFloat_double_false_OptionalStorage_internal_ExpandedFloat_double_cpp_in_place_t_internal_ExpandedFloat_double
 {
-	public unsafe static void Invoke(void* @this, void* args)
+	public unsafe static void Invoke(cpp_optional_internal_ExpandedFloat_double_OptionalStorage* @this, void* args)
 	{
-		unchecked
-		{
-			llvm_memcpy_p0_p0_i64.Invoke(&((cpp_optional_internal_ExpandedFloat_double_OptionalStorage*)@this)->field, internal_ExpandedFloat_double_cpp_forward_internal_ExpandedFloat_double_cpp_remove_reference_internal_ExpandedFloat_double_type.Invoke(args), 16L, isVolatile: false);
-			((cpp_optional_internal_ExpandedFloat_double_OptionalStorage*)@this)->in_use = 0;
-		}
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->field, internal_ExpandedFloat_double_cpp_forward_internal_ExpandedFloat_double_cpp_remove_reference_internal_ExpandedFloat_double_type.Invoke(unchecked((internal_ExpandedFloat_k68bhv*)args)), 16L, isVolatile: false);
+		@this->in_use = 0;
 	}
 }

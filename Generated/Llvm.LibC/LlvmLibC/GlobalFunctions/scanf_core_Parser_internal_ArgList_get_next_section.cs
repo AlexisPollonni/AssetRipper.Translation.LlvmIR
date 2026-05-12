@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::get_next_section()")]
 internal static partial class scanf_core_Parser_internal_ArgList_get_next_section
 {
-	public unsafe static void Invoke([MangledName("agg.result")] scanf_core_FormatSection* agg_result, void* @this)
+	public unsafe static void Invoke([MangledName("agg.result")] scanf_core_FormatSection* agg_result, scanf_core_Parser* @this)
 	{
 		long num = 0L;
 		long num2 = 0L;
@@ -28,29 +29,29 @@ internal static partial class scanf_core_Parser_internal_ArgList_get_next_sectio
 		llvm_memset_p0_i64.Invoke(agg_result, -86, 88L, isVolatile: false);
 		scanf_core_FormatSection_FormatSection.Invoke(agg_result);
 		llvm_lifetime_start_p0.Invoke(8L, &num);
+		num = @this->cur_pos;
 		unchecked
 		{
-			num = ((scanf_core_Parser*)@this)->cur_pos;
-			if (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] == 37)
+			if (((sbyte*)@this->str)[@this->cur_pos] == 37)
 			{
 				agg_result->has_conv = 1;
-				((scanf_core_Parser*)@this)->cur_pos++;
+				@this->cur_pos++;
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
 				num2 = 0L;
-				num2 = scanf_core_Parser_internal_ArgList_parse_index_unsigned_long.Invoke(@this, &((scanf_core_Parser*)@this)->cur_pos);
-				if (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] == 42)
+				num2 = scanf_core_Parser_internal_ArgList_parse_index_unsigned_long.Invoke(@this, &@this->cur_pos);
+				if (((sbyte*)@this->str)[@this->cur_pos] == 42)
 				{
-					((scanf_core_Parser*)@this)->cur_pos++;
-					agg_result->flags = 1;
+					@this->cur_pos++;
+					agg_result->flags = FormatFlags_96pze4.NO_WRITE;
 				}
 				agg_result->max_width = -1;
-				if (internal_isdigit_int_137.Invoke(((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos]))
+				if (internal_isdigit_int_137.Invoke(((sbyte*)@this->str)[@this->cur_pos]))
 				{
 					llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_yrtfty);
 					*(int*)(&strToNumResult_yrtfty) = -1431655766;
 					((int*)(&strToNumResult_yrtfty))[1] = -1431655766;
 					((long*)(&strToNumResult_yrtfty))[1] = -6148914691236517206L;
-					Struct_fiz2nb struct_fiz2nb = StrToNumResult_int_internal_strtointeger_int_char_const_int_unsigned_long.Invoke((byte*)((scanf_core_Parser*)@this)->str + ((scanf_core_Parser*)@this)->cur_pos, 10, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
+					Struct_fiz2nb struct_fiz2nb = StrToNumResult_int_internal_strtointeger_int_char_const_int_unsigned_long.Invoke((byte*)@this->str + @this->cur_pos, 10, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
 					StrToNumResult_yrtfty* num5 = &strToNumResult_yrtfty;
 					Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 					*(long*)num5 = struct_fiz2nb2.field_0;
@@ -58,19 +59,19 @@ internal static partial class scanf_core_Parser_internal_ArgList_get_next_sectio
 					Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 					*(long*)num6 = struct_fiz2nb3.field_1;
 					agg_result->max_width = strToNumResult_yrtfty.value;
-					((scanf_core_Parser*)@this)->cur_pos += strToNumResult_yrtfty.parsed_len;
+					@this->cur_pos += strToNumResult_yrtfty.parsed_len;
 					llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_yrtfty);
 				}
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
-				num3 = (agg_result->length_modifier = scanf_core_Parser_internal_ArgList_parse_length_modifier_unsigned_long.Invoke(@this, &((scanf_core_Parser*)@this)->cur_pos));
-				agg_result->conv_name = ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos];
+				num3 = (int)(agg_result->length_modifier = scanf_core_Parser_internal_ArgList_parse_length_modifier_unsigned_long.Invoke(@this, &@this->cur_pos));
+				agg_result->conv_name = ((sbyte*)@this->str)[@this->cur_pos];
 				if (((byte)agg_result->flags & 1) == 0)
 				{
 					agg_result->output_ptr = void_scanf_core_Parser_internal_ArgList_get_arg_value_void_unsigned_long.Invoke(@this, num2);
 				}
-				if (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] != 0)
+				if (((sbyte*)@this->str)[@this->cur_pos] != 0)
 				{
-					((scanf_core_Parser*)@this)->cur_pos++;
+					@this->cur_pos++;
 				}
 				else
 				{
@@ -93,32 +94,32 @@ internal static partial class scanf_core_Parser_internal_ArgList_get_next_sectio
 					cpp_bitset_256ul_bitset.Invoke(&cpp_array_jgy3xh2);
 					llvm_lifetime_start_p0.Invoke(1L, &b4);
 					b4 = 0;
-					if (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] == 94)
+					if (((sbyte*)@this->str)[@this->cur_pos] == 94)
 					{
 						b4 = 1;
-						((scanf_core_Parser*)@this)->cur_pos++;
+						@this->cur_pos++;
 					}
 					llvm_lifetime_start_p0.Invoke(8L, &num4);
-					num4 = ((scanf_core_Parser*)@this)->cur_pos;
-					if (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] == 93)
+					num4 = @this->cur_pos;
+					if (((sbyte*)@this->str)[@this->cur_pos] == 93)
 					{
 						cpp_bitset_256ul_set_unsigned_long.Invoke(&cpp_array_jgy3xh2, 93L);
-						((scanf_core_Parser*)@this)->cur_pos++;
+						@this->cur_pos++;
 					}
-					while (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] != 0 && ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] != 93)
+					while (((sbyte*)@this->str)[@this->cur_pos] != 0 && ((sbyte*)@this->str)[@this->cur_pos] != 93)
 					{
-						if (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] == 45 && ((scanf_core_Parser*)@this)->cur_pos != num4 && ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos + 1L] != 93 && ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos + 1L] != 0)
+						if (((sbyte*)@this->str)[@this->cur_pos] == 45 && @this->cur_pos != num4 && ((sbyte*)@this->str)[@this->cur_pos + 1L] != 93 && ((sbyte*)@this->str)[@this->cur_pos + 1L] != 0)
 						{
 							llvm_lifetime_start_p0.Invoke(1L, &b5);
-							b5 = ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos - 1L];
+							b5 = ((sbyte*)@this->str)[@this->cur_pos - 1L];
 							llvm_lifetime_start_p0.Invoke(1L, &b6);
-							b6 = ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos + 1L];
+							b6 = ((sbyte*)@this->str)[@this->cur_pos + 1L];
 							llvm_lifetime_start_p0.Invoke(1L, &b7);
 							b7 = ((b5 >= b6) ? b6 : b5);
 							llvm_lifetime_start_p0.Invoke(1L, &b8);
 							b8 = ((b5 >= b6) ? b5 : b6);
 							cpp_bitset_256ul_set_range_unsigned_long_unsigned_long.Invoke(&cpp_array_jgy3xh2, b7, b8);
-							((scanf_core_Parser*)@this)->cur_pos += 2L;
+							@this->cur_pos += 2L;
 							llvm_lifetime_end_p0.Invoke(1L, &b8);
 							llvm_lifetime_end_p0.Invoke(1L, &b7);
 							llvm_lifetime_end_p0.Invoke(1L, &b6);
@@ -126,17 +127,17 @@ internal static partial class scanf_core_Parser_internal_ArgList_get_next_sectio
 						}
 						else
 						{
-							cpp_bitset_256ul_set_unsigned_long.Invoke(&cpp_array_jgy3xh2, ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos]);
-							((scanf_core_Parser*)@this)->cur_pos++;
+							cpp_bitset_256ul_set_unsigned_long.Invoke(&cpp_array_jgy3xh2, ((sbyte*)@this->str)[@this->cur_pos]);
+							@this->cur_pos++;
 						}
 					}
 					if ((b4 & 1) == 1)
 					{
 						cpp_bitset_256ul_flip.Invoke(&cpp_array_jgy3xh2);
 					}
-					if (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] == 93)
+					if (((sbyte*)@this->str)[@this->cur_pos] == 93)
 					{
-						((scanf_core_Parser*)@this)->cur_pos++;
+						@this->cur_pos++;
 						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->scan_set, &cpp_array_jgy3xh2, 32L, isVolatile: false);
 					}
 					else
@@ -156,13 +157,13 @@ internal static partial class scanf_core_Parser_internal_ArgList_get_next_sectio
 			else
 			{
 				agg_result->has_conv = 0;
-				while (((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] != 37 && ((sbyte*)((scanf_core_Parser*)@this)->str)[((scanf_core_Parser*)@this)->cur_pos] != 0)
+				while (((sbyte*)@this->str)[@this->cur_pos] != 37 && ((sbyte*)@this->str)[@this->cur_pos] != 0)
 				{
-					((scanf_core_Parser*)@this)->cur_pos++;
+					@this->cur_pos++;
 				}
 			}
 			llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view2);
-			cpp_string_view_string_view_char_const_unsigned_long.Invoke(&cpp_string_view2, (byte*)((scanf_core_Parser*)@this)->str + num, ((scanf_core_Parser*)@this)->cur_pos - num);
+			cpp_string_view_string_view_char_const_unsigned_long.Invoke(&cpp_string_view2, (byte*)@this->str + num, @this->cur_pos - num);
 			llvm_memcpy_p0_p0_i64.Invoke(&agg_result->raw_string, &cpp_string_view2, 16L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);
 			llvm_lifetime_end_p0.Invoke(8L, &num);

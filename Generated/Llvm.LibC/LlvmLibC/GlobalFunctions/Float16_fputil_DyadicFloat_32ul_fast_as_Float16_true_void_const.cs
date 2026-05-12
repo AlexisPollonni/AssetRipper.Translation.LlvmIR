@@ -95,7 +95,7 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 					half3 = (Half)((float)half2 * (float)half);
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva4);
 					fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva4, half3);
-					bool num10 = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke(&fputil_FPBits_2fahva4);
+					bool num10 = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva4));
 					llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva4);
 					if (num10)
 					{
@@ -227,7 +227,7 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 							llvm_lifetime_start_p0.Invoke(2L, &num9);
 							llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva10);
 							fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva10, half7);
-							short num14 = (short)checked(unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva10)) - unchecked((ushort)num8));
+							short num14 = (short)checked(unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva10))) - unchecked((ushort)num8));
 							llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva10);
 							num9 = num14;
 							if (((ushort)num9 & 0x7C00) == 0)

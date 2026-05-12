@@ -103,7 +103,7 @@ internal static partial class void_internal_quick_sort_impl_internal_ArrayGeneri
 				case 1:
 					return;
 				}
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 		}
 	}

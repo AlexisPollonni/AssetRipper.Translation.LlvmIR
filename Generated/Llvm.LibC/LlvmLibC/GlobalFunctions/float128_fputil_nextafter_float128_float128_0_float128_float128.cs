@@ -27,7 +27,7 @@ internal static partial class float128_fputil_nextafter_float128_float128_0_floa
 			*(Int128*)(&fputil_FPBits_ubgsi3) = -6148914691236517206L;
 			fputil_FPBits_float128_FPBits_float128_float128.Invoke(&fputil_FPBits_ubgsi3, from);
 			double result;
-			if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke(&fputil_FPBits_ubgsi3))
+			if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 			{
 				result = from;
 			}
@@ -36,7 +36,7 @@ internal static partial class float128_fputil_nextafter_float128_float128_0_floa
 				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 				*(Int128*)(&fputil_FPBits_ubgsi4) = -6148914691236517206L;
 				fputil_FPBits_float128_FPBits_float128_float128.Invoke(&fputil_FPBits_ubgsi4, to);
-				if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke(&fputil_FPBits_ubgsi4))
+				if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi4)))
 				{
 					result = cpp_enable_if_cpp_is_floating_point_v_float128_cpp_is_floating_point_v_float128_float128_type_fputil_cast_float128_float128_float128.Invoke(to);
 				}
@@ -92,11 +92,11 @@ internal static partial class float128_fputil_nextafter_float128_float128_0_floa
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_ubgsi3, &fputil_FPBits_ubgsi7, 16L, isVolatile: false);
 						llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi7);
 					}
-					if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal_const.Invoke(&fputil_FPBits_ubgsi3))
+					if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 					{
 						fputil_raise_except_if_required_int.Invoke(48);
 					}
-					else if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_inf_const.Invoke(&fputil_FPBits_ubgsi3))
+					else if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_inf_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 					{
 						fputil_raise_except_if_required_int.Invoke(40);
 					}

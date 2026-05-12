@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Structures;
 
@@ -7,16 +8,13 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::FormatSection::FormatSection()")]
 internal static partial class scanf_core_FormatSection_FormatSection
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(scanf_core_FormatSection* @this)
 	{
-		unchecked
-		{
-			cpp_string_view_string_view.Invoke(&((scanf_core_FormatSection*)@this)->raw_string);
-			((scanf_core_FormatSection*)@this)->flags = 0;
-			((scanf_core_FormatSection*)@this)->length_modifier = 8;
-			((scanf_core_FormatSection*)@this)->max_width = -1;
-			((scanf_core_FormatSection*)@this)->output_ptr = null;
-			cpp_bitset_256ul_bitset.Invoke(&((scanf_core_FormatSection*)@this)->scan_set);
-		}
+		cpp_string_view_string_view.Invoke(&@this->raw_string);
+		@this->flags = FormatFlags_96pze4.NONE;
+		@this->length_modifier = LengthModifier_3739tr.NONE;
+		@this->max_width = -1;
+		@this->output_ptr = null;
+		cpp_bitset_256ul_bitset.Invoke(&@this->scan_set);
 	}
 }

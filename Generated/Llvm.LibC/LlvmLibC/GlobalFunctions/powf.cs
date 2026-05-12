@@ -99,21 +99,21 @@ internal static partial class powf
 			*(int*)(&fputil_FPBits_5nkvcs3) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs3, num42);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
-			int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs2);
+			int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			fputil_FPBits_5nkvcs4.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-			int num43 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs4);
+			int num43 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4));
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
 			num2 = num43;
 			llvm_lifetime_start_p0.Invoke(4L, &num3);
-			num3 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs3);
+			num3 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
 			llvm_lifetime_start_p0.Invoke(4L, &num4);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
-			int field_2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs3);
+			int field_2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
 			fputil_FPBits_5nkvcs5.FPRepImpl.FPRepSem.field_0.field_0 = field_2;
-			int num44 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs5);
+			int num44 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs5));
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
 			num4 = num44;
 			if (!bool_details_expects_bool_condition_bool_bool_bool.Invoke((num4 & 0x7FFFF) == 0, expected: false) && (uint)num4 <= 1326907392u)
@@ -243,7 +243,7 @@ internal static partial class powf
 					float num47 = cpp_enable_if_cpp_is_floating_point_v_float_cpp_is_floating_point_v_float_sizeof_float_sizeof_float_float_type_fputil_sqrt_float_float_float.Invoke(num41);
 					llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs8);
 					fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs8, num47);
-					result = ((fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs8) == int.MinValue) ? 0f : num47);
+					result = ((fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs8)) == int.MinValue) ? 0f : num47);
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs8);
 				}
 			}
@@ -256,10 +256,10 @@ internal static partial class powf
 		IL_0ca4:
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs14);
 		fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs14, num41);
-		num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs14);
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs14);
 		unchecked
 		{
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs14));
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs14);
 			num12 += num >>> 23;
 			llvm_lifetime_start_p0.Invoke(8L, &num14);
 			num14 = num12;
@@ -368,7 +368,7 @@ internal static partial class powf
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs15);
 				fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs15, num35);
-				bool num57 = bool_details_expects_bool_condition_bool_bool_bool.Invoke(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke(&fputil_FPBits_5nkvcs15) == 0, expected: false);
+				bool num57 = bool_details_expects_bool_condition_bool_bool_bool.Invoke(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs15)) == 0, expected: false);
 				llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs15);
 				if (num57)
 				{

@@ -34,50 +34,53 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_
 		llvm_lifetime_start_p0.Invoke(2L, &half);
 		half = default(Half);
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
-		*unchecked((int*)(&fputil_FPBits_5nkvcs2)) = -1431655766;
-		fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
-		llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPRepImpl_vhj4tm2, &fputil_FPBits_5nkvcs2, 4L, isVolatile: false);
-		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
-		llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
-		int field_ = fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_inf_Sign.Invoke(anon_izyfb8.val);
-		fputil_FPBits_5nkvcs3.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-		llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPRepImpl_vhj4tm3, &fputil_FPBits_5nkvcs3, 4L, isVolatile: false);
-		int num9 = (fputil_internal_operator_fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float.Invoke(fputil_internal_FPRepImpl_vhj4tm2.FPRepSem.field_0.field_0, fputil_internal_FPRepImpl_vhj4tm3.FPRepSem.field_0.field_0) ? (-1) : ((!fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_zero_const.Invoke(&fputil_FPBits_5nkvcs2)) ? (fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan_const.Invoke(&fputil_FPBits_5nkvcs2) ? 1 : 0) : (-1)));
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
-		Half result;
-		if (num9 != 0)
+		unchecked
 		{
-			result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(x);
-		}
-		else if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2))
-		{
-			result = default(Half);
-		}
-		else
-		{
-			llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke(&fputil_FPBits_5nkvcs2);
-			llvm_lifetime_start_p0.Invoke(4L, &num3);
-			num3 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke(&fputil_FPBits_5nkvcs2);
-			if (fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_subnormal_const.Invoke(&fputil_FPBits_5nkvcs2))
+			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
+			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
+			llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPRepImpl_vhj4tm2, &fputil_FPBits_5nkvcs2, 4L, isVolatile: false);
+			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
+			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
+			int field_ = fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_inf_Sign.Invoke(anon_izyfb8.val);
+			fputil_FPBits_5nkvcs3.FPRepImpl.FPRepSem.field_0.field_0 = field_;
+			llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPRepImpl_vhj4tm3, &fputil_FPBits_5nkvcs3, 4L, isVolatile: false);
+			int num9 = (fputil_internal_operator_fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float.Invoke(fputil_internal_FPRepImpl_vhj4tm2.FPRepSem.field_0.field_0, fputil_internal_FPRepImpl_vhj4tm3.FPRepSem.field_0.field_0) ? (-1) : ((!fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_zero_const.Invoke(&fputil_FPBits_5nkvcs2)) ? (fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan_const.Invoke(&fputil_FPBits_5nkvcs2) ? 1 : 0) : (-1)));
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
+			Half result;
+			if (num9 != 0)
 			{
-				num2++;
-				void_fputil_internal_normalize_float_int_fputil_FPBits_float_StorageType.Invoke(&num2, &num3);
+				result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(x);
+			}
+			else if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)))
+			{
+				result = default(Half);
 			}
 			else
 			{
-				num3 |= 0x800000;
-			}
-			if ((num2 & 1) != 0)
-			{
-				num2 += -1;
-				num3 <<= 1;
-			}
-			llvm_lifetime_start_p0.Invoke(4L, &num4);
-			num4 = 8388608;
-			llvm_lifetime_start_p0.Invoke(4L, &num5);
-			unchecked
-			{
+				llvm_lifetime_start_p0.Invoke(4L, &num2);
+				num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
+				llvm_lifetime_start_p0.Invoke(4L, &num3);
+				num3 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
+				checked
+				{
+					if (fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_subnormal_const.Invoke(&fputil_FPBits_5nkvcs2))
+					{
+						num2++;
+						void_fputil_internal_normalize_float_int_fputil_FPBits_float_StorageType.Invoke(&num2, &num3);
+					}
+					else
+					{
+						num3 |= 0x800000;
+					}
+					if ((num2 & 1) != 0)
+					{
+						num2 += -1;
+						num3 <<= 1;
+					}
+					llvm_lifetime_start_p0.Invoke(4L, &num4);
+					num4 = 8388608;
+					llvm_lifetime_start_p0.Invoke(4L, &num5);
+				}
 				num5 = num3 - 8388608;
 				llvm_lifetime_start_p0.Invoke(4L, &num6);
 				for (num6 = 4194304; num6 != 0; num6 >>>= 1)
@@ -123,10 +126,10 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_
 				llvm_lifetime_end_p0.Invoke(4L, &num3);
 				llvm_lifetime_end_p0.Invoke(4L, &num2);
 			}
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
+			llvm_lifetime_end_p0.Invoke(2L, &half);
+			llvm_lifetime_end_p0.Invoke(4L, &num);
+			return result;
 		}
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
-		llvm_lifetime_end_p0.Invoke(2L, &half);
-		llvm_lifetime_end_p0.Invoke(4L, &num);
-		return result;
 	}
 }

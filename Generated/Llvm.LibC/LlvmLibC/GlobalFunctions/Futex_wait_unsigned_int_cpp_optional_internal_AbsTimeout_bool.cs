@@ -1,5 +1,7 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -15,33 +17,36 @@ internal static partial class Futex_wait_unsigned_int_cpp_optional_internal_AbsT
 		sbyte b = (is_shared ? ((sbyte)1) : ((sbyte)0));
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = InstructionHelper.Select((b & 1) == 1, 9, 137);
-		if (cpp_optional_internal_AbsTimeout_operator_bool_const.Invoke(timeout) && internal_AbsTimeout_is_realtime_const.Invoke(cpp_optional_internal_AbsTimeout_operator.Invoke(timeout)))
+		unchecked
 		{
-			num |= 0x100;
+			if (cpp_optional_internal_AbsTimeout_operator_bool_const.Invoke((cpp_optional_59q3zq*)timeout) && internal_AbsTimeout_is_realtime_const.Invoke(cpp_optional_internal_AbsTimeout_operator.Invoke((cpp_optional_59q3zq*)timeout)))
+			{
+				num |= 0x100;
+			}
+			int num3;
+			do
+			{
+				if (cpp_Atomic_unsigned_int_load_cpp_MemoryOrder_cpp_MemoryScope.Invoke(@this, MemoryOrder.RELAXED, MemoryScope.DEVICE) != expected)
+				{
+					result = 0L;
+					break;
+				}
+				llvm_lifetime_start_p0.Invoke(8L, &num2);
+				num2 = long_syscall_impl_long_Futex_unsigned_int_unsigned_int_timespec_const_std_nullptr_t_unsigned_int_long_Futex_unsigned_int_unsigned_int_timespec_const_std_nullptr_t_unsigned_int.Invoke(202L, @this, num, expected, (!cpp_optional_internal_AbsTimeout_operator_bool_const.Invoke((cpp_optional_59q3zq*)timeout)) ? null : internal_AbsTimeout_get_timespec_const.Invoke(cpp_optional_internal_AbsTimeout_operator.Invoke((cpp_optional_59q3zq*)timeout)), null, -1);
+				if (num2 == -4L)
+				{
+					num3 = 3;
+				}
+				else
+				{
+					result = num2;
+					num3 = 1;
+				}
+				llvm_lifetime_end_p0.Invoke(8L, &num2);
+			}
+			while (num3 == 3);
+			llvm_lifetime_end_p0.Invoke(4L, &num);
+			return result;
 		}
-		int num3;
-		do
-		{
-			if (cpp_Atomic_unsigned_int_load_cpp_MemoryOrder_cpp_MemoryScope.Invoke(@this, 0, 1) != expected)
-			{
-				result = 0L;
-				break;
-			}
-			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = long_syscall_impl_long_Futex_unsigned_int_unsigned_int_timespec_const_std_nullptr_t_unsigned_int_long_Futex_unsigned_int_unsigned_int_timespec_const_std_nullptr_t_unsigned_int.Invoke(202L, @this, num, expected, (!cpp_optional_internal_AbsTimeout_operator_bool_const.Invoke(timeout)) ? null : internal_AbsTimeout_get_timespec_const.Invoke(cpp_optional_internal_AbsTimeout_operator.Invoke(timeout)), null, -1);
-			if (num2 == -4L)
-			{
-				num3 = 3;
-			}
-			else
-			{
-				result = num2;
-				num3 = 1;
-			}
-			llvm_lifetime_end_p0.Invoke(8L, &num2);
-		}
-		while (num3 == 3);
-		llvm_lifetime_end_p0.Invoke(4L, &num);
-		return result;
 	}
 }

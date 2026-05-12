@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using LlvmLibC.Helpers;
 
@@ -10,6 +11,6 @@ internal static partial class libc_current_sigrtmin
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int Invoke()
 	{
-		throw null;
+		throw new NotImplementedException("Unimplemented LLVM intrinsic: __libc_current_sigrtmin");
 	}
 }

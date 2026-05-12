@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::shift(int)")]
 internal static partial class internal_HighPrecisionDecimal_shift_int
 {
-	public unsafe static void Invoke(void* @this, int shift_amount)
+	public unsafe static void Invoke(internal_HighPrecisionDecimal* @this, int shift_amount)
 	{
 		int i = shift_amount;
 		if (i == 0)

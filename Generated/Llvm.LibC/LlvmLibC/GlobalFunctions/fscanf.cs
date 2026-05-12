@@ -28,7 +28,7 @@ internal static partial class fscanf
 			((int*)ptr2)[1] = -1431655766;
 			*(IntPtr*)((byte*)ptr2 + 8) = unchecked((nint)(-6148914691236517206L));
 			*(IntPtr*)((byte*)ptr2 + 16) = unchecked((nint)(-6148914691236517206L));
-			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, &inlineArray1_va_list_tag);
+			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, (va_list_tag*)(&inlineArray1_va_list_tag));
 			llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = scanf_core_vfscanf_internal_IO_FILE_char_const_internal_ArgList.Invoke(stream, format, &internal_ArgList2);
 			int result = ((num != -1) ? num : (-1));

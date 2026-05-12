@@ -78,14 +78,14 @@ internal static partial class float_fputil_nextupdown_true_float_0_float
 					if (operator_Sign_Sign_fy8fvt.Invoke(anon_izyfb11.val, anon_izyfb12.val))
 					{
 						llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
-						fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs5, fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) + 1);
+						fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs5, fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) + 1);
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs2, &fputil_FPBits_5nkvcs5, 4L, isVolatile: false);
 						llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
 					}
 					else
 					{
 						llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs6);
-						fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs6, fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) - 1);
+						fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs6, fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) - 1);
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs2, &fputil_FPBits_5nkvcs6, 4L, isVolatile: false);
 						llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs6);
 					}

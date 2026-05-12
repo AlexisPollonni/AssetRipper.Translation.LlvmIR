@@ -7,9 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::link_max(statfs const&)")]
 internal static partial class link_max_statfs_const
 {
-	public unsafe static long Invoke(void* s)
+	public unsafe static long Invoke(statfs* s)
 	{
-		return unchecked((statfs*)s)->f_type switch
+		return s->f_type switch
 		{
 			61267L => 32000L, 
 			4991L => 250L, 

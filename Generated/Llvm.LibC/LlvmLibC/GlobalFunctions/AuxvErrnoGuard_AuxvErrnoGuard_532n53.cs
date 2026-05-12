@@ -9,12 +9,9 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("AuxvErrnoGuard_AuxvErrnoGuard")]
 internal static partial class AuxvErrnoGuard_AuxvErrnoGuard_532n53
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(AuxvErrnoGuard* @this)
 	{
-		unchecked
-		{
-			((AuxvErrnoGuard*)@this)->saved = Errno_operator_int_exthys.Invoke(libc_errno.Pointer);
-			((AuxvErrnoGuard*)@this)->failure = 0;
-		}
+		@this->saved = Errno_operator_int_exthys.Invoke(libc_errno.Pointer);
+		@this->failure = 0;
 	}
 }

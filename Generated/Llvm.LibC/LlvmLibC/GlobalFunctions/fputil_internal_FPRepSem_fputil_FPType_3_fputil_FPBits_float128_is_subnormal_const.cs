@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::is_subnormal() const")]
 internal static partial class fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(fputil_internal_FPRepSem_f94eua* @this)
 	{
 		Int128 @int = default(Int128);
 		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);

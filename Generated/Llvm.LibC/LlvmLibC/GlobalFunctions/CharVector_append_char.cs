@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::CharVector::append(char)")]
 internal static partial class CharVector_append_char
 {
-	public unsafe static bool Invoke(void* @this, sbyte new_char)
+	public unsafe static bool Invoke(CharVector* @this, sbyte new_char)
 	{
 		bool result = false;
 		void* ptr = null;
@@ -16,14 +17,14 @@ internal static partial class CharVector_append_char
 		sbyte b = new_char;
 		unchecked
 		{
-			if ((ulong)((CharVector*)@this)->index >= (ulong)(((CharVector*)@this)->cur_buff_size - 2L))
+			if ((ulong)@this->index >= (ulong)(@this->cur_buff_size - 2L))
 			{
-				((CharVector*)@this)->cur_buff_size *= 2L;
-				if (((CharVector*)@this)->cur_str == &((CharVector*)@this)->local_buffer)
+				@this->cur_buff_size *= 2L;
+				if (@this->cur_str == &@this->local_buffer)
 				{
 					llvm_lifetime_start_p0.Invoke(8L, &ptr);
 					ptr = (void*)12297829382473034410uL;
-					ptr = malloc.Invoke(((CharVector*)@this)->cur_buff_size);
+					ptr = malloc.Invoke(@this->cur_buff_size);
 					int num2;
 					if (ptr == null)
 					{
@@ -33,13 +34,13 @@ internal static partial class CharVector_append_char
 					else
 					{
 						llvm_lifetime_start_p0.Invoke(8L, &num);
-						for (num = 0L; (ulong)num < (ulong)((CharVector*)@this)->index; num++)
+						for (num = 0L; (ulong)num < (ulong)@this->index; num++)
 						{
-							sbyte b2 = ((sbyte*)((CharVector*)@this)->cur_str)[num];
+							sbyte b2 = ((sbyte*)@this->cur_str)[num];
 							((sbyte*)ptr)[num] = b2;
 						}
 						llvm_lifetime_end_p0.Invoke(8L, &num);
-						((CharVector*)@this)->cur_str = ptr;
+						@this->cur_str = ptr;
 						num2 = 0;
 					}
 					llvm_lifetime_end_p0.Invoke(8L, &ptr);
@@ -50,21 +51,21 @@ internal static partial class CharVector_append_char
 					case 1:
 						goto IL_0198;
 					default:
-						throw null;
+						throw new NotImplementedException("Reached LLVM unreachable instruction.");
 					}
 				}
 				else
 				{
-					((CharVector*)@this)->cur_str = realloc.Invoke(((CharVector*)@this)->cur_str, ((CharVector*)@this)->cur_buff_size);
-					if (((CharVector*)@this)->cur_str == null)
+					@this->cur_str = realloc.Invoke(@this->cur_str, @this->cur_buff_size);
+					if (@this->cur_str == null)
 					{
 						result = false;
 						goto IL_0198;
 					}
 				}
 			}
-			((sbyte*)((CharVector*)@this)->cur_str)[((CharVector*)@this)->index] = b;
-			((CharVector*)@this)->index++;
+			((sbyte*)@this->cur_str)[@this->index] = b;
+			@this->index++;
 			result = true;
 			goto IL_0198;
 		}

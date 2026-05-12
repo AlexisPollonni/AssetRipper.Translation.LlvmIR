@@ -7,19 +7,19 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader::ungetc(char)")]
 internal static partial class scanf_core_Reader_ungetc_char
 {
-	public unsafe static void Invoke(void* @this, sbyte c)
+	public unsafe static void Invoke(scanf_core_Reader* @this, sbyte c)
 	{
 		sbyte b = c;
 		unchecked
 		{
-			((scanf_core_Reader*)@this)->cur_chars_read += -1L;
-			if (((scanf_core_Reader*)@this)->rb != null && (ulong)((scanf_core_ReadBuffer*)((scanf_core_Reader*)@this)->rb)->buff_cur > 0uL)
+			@this->cur_chars_read += -1L;
+			if (@this->rb != null && (ulong)@this->rb->buff_cur > 0uL)
 			{
-				((scanf_core_ReadBuffer*)((scanf_core_Reader*)@this)->rb)->buff_cur += -1L;
+				@this->rb->buff_cur += -1L;
 			}
 			else
 			{
-				((delegate*<int, void*, void>)((scanf_core_Reader*)@this)->stream_ungetc)(b, ((scanf_core_Reader*)@this)->input_stream);
+				((delegate*<int, void*, void>)@this->stream_ungetc)(b, @this->input_stream);
 			}
 		}
 	}

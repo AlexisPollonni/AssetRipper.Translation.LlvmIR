@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::set_mantissa(unsigned int)")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int
 {
-	public unsafe static void Invoke(void* @this, int mantVal)
+	public unsafe static void Invoke(fputil_internal_FPRepImpl_vhj4tm* @this, int mantVal)
 	{
 		unchecked
 		{

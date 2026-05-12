@@ -1,5 +1,6 @@
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -7,16 +8,16 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::linux_file_close(__llvm_libc_20_1_2_::File*)")]
 internal static partial class linux_file_close_File
 {
-	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<void*, int>)(&Invoke));
+	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<File_sjnxn4*, int>)(&Invoke));
 
-	public unsafe static int Invoke(void* f)
+	public unsafe static int Invoke(File_sjnxn4* f)
 	{
 		void* ptr = null;
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(8L, &ptr);
 		ptr = f;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_int_long_int.Invoke(3L, LinuxFile_get_fd_const.Invoke(ptr));
+		num = int_syscall_impl_int_int_long_int.Invoke(3L, LinuxFile_get_fd_const.Invoke(unchecked((LinuxFile*)ptr)));
 		int result;
 		if (num < 0)
 		{

@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -9,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("operator_BigInt_128ul_false_unsigned_long_const_BigInt_128ul_false_unsigned_long_const")]
 internal static partial class operator_BigInt_128ul_false_unsigned_long_const_BigInt_128ul_false_unsigned_long_const_u7vb72
 {
-	public unsafe static bool Invoke(void* lhs, void* rhs)
+	public unsafe static bool Invoke(anon_izyfb7* lhs, anon_izyfb7* rhs)
 	{
 		bool result = false;
 		long num = 0L;
@@ -39,7 +40,7 @@ internal static partial class operator_BigInt_128ul_false_unsigned_long_const_Bi
 			{
 				if (num3 != 1)
 				{
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 			}
 			else

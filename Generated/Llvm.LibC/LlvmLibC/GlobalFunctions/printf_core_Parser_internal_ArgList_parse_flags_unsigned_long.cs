@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::parse_flags(unsigned long*)")]
 internal static partial class printf_core_Parser_internal_ArgList_parse_flags_unsigned_long
 {
-	public unsafe static sbyte Invoke(void* @this, void* local_pos)
+	public unsafe static FormatFlags_hin2uh Invoke(printf_core_Parser* @this, void* local_pos)
 	{
 		sbyte b = 0;
 		sbyte b2 = 0;
@@ -20,7 +21,7 @@ internal static partial class printf_core_Parser_internal_ArgList_parse_flags_un
 		{
 			while ((b & 1) == 1)
 			{
-				switch (((sbyte*)((printf_core_Parser*)@this)->str)[*(long*)local_pos])
+				switch (((sbyte*)@this->str)[*(long*)local_pos])
 				{
 				case 45:
 					b2 = (sbyte)((byte)b2 | 1);
@@ -49,7 +50,7 @@ internal static partial class printf_core_Parser_internal_ArgList_parse_flags_un
 			sbyte result = b2;
 			llvm_lifetime_end_p0.Invoke(1L, &b2);
 			llvm_lifetime_end_p0.Invoke(1L, &b);
-			return result;
+			return (FormatFlags_hin2uh)result;
 		}
 	}
 }

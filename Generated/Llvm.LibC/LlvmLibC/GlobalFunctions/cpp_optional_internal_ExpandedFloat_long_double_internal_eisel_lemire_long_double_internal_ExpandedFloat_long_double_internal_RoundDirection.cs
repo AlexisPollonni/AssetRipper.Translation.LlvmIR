@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
@@ -11,7 +12,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>> __llvm_libc_20_1_2_::internal::eisel_lemire<long double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class cpp_optional_internal_ExpandedFloat_long_double_internal_eisel_lemire_long_double_internal_ExpandedFloat_long_double_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q5jaj8* agg_result, void* init_num, int round)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q5jaj8* agg_result, void* init_num, RoundDirection_b3pcwy round)
 	{
 		Int128 @int = default(Int128);
 		int num = 0;
@@ -77,7 +78,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_long_double_in
 			llvm_lifetime_start_p0.Invoke(16L, &int6);
 			int6 = NumericHelper.ShiftRightLogical(x4, (Int128)(UInt128)(uint)(num4 + 128 - 66));
 			num3 -= 1 ^ num4;
-			if (round == 2)
+			if (round == RoundDirection_b3pcwy.Nearest)
 			{
 				if (NumericHelper.IntCmpEq(x3, 0L) && NumericHelper.IntCmpEq(NumericHelper.BitwiseAnd(x4, 4611686018427387903L), 0L) && NumericHelper.IntCmpEq(NumericHelper.BitwiseAnd(int6, 3L), 1L))
 				{
@@ -86,7 +87,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_long_double_in
 				}
 				int6 = NumericHelper.Add(y: NumericHelper.BitwiseAnd(int6, 1L), x: int6);
 			}
-			else if (round == 0 && (NumericHelper.IntCmpUgt(x3, 0L) || NumericHelper.IntCmpUgt(NumericHelper.BitwiseAnd(x4, 4611686018427387903L), 0L)))
+			else if (round == RoundDirection_b3pcwy.Up && (NumericHelper.IntCmpUgt(x3, 0L) || NumericHelper.IntCmpUgt(NumericHelper.BitwiseAnd(x4, 4611686018427387903L), 0L)))
 			{
 				int6 = NumericHelper.Add(int6, 2L);
 			}

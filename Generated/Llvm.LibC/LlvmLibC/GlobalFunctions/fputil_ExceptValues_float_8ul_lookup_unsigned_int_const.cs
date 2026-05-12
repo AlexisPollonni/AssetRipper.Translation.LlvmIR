@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -71,7 +72,7 @@ internal static partial class fputil_ExceptValues_float_8ul_lookup_unsigned_int_
 			{
 				if (num5 != 1)
 				{
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 			}
 			else

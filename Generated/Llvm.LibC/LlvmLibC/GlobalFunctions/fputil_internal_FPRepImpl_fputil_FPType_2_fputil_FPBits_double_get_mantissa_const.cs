@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::get_mantissa() const")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const
 {
-	public unsafe static long Invoke(void* @this)
+	public unsafe static long Invoke(fputil_internal_FPRepImpl_ucubaq* @this)
 	{
 		return unchecked((fputil_internal_FPStorage_v3nexn*)@this)->val & 0xFFFFFFFFFFFFFL;
 	}

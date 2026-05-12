@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("void __llvm_libc_20_1_2_::internal::set_implicit_bit<float>(__llvm_libc_20_1_2_::fputil::FPBits<float>&)")]
 internal static partial class void_internal_set_implicit_bit_float_fputil_FPBits_float
 {
-	public unsafe static void Invoke(void* parameter_0)
+	public unsafe static void Invoke(fputil_FPBits_5nkvcs* parameter_0)
 	{
 	}
 }

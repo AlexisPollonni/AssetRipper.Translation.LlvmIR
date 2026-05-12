@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -72,7 +73,7 @@ internal static partial class fputil_generic_FMod_double_unsigned_long_fputil_ge
 			case 1:
 				return result;
 			default:
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 		}
 	}

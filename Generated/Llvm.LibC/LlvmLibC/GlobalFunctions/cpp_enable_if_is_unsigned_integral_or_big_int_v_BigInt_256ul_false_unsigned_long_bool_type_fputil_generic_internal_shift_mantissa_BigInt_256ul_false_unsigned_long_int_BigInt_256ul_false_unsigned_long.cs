@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<is_unsigned_integral_or_big_int_v<__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>>, bool>::type __llvm_libc_20_1_2_::fputil::generic::internal::shift_mantissa<__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>>(int, __llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>&)")]
 internal static partial class cpp_enable_if_is_unsigned_integral_or_big_int_v_BigInt_256ul_false_unsigned_long_bool_type_fputil_generic_internal_shift_mantissa_BigInt_256ul_false_unsigned_long_int_BigInt_256ul_false_unsigned_long
 {
-	public unsafe static bool Invoke(int shift_length, void* mant)
+	public unsafe static bool Invoke(int shift_length, BigInt_x9dsed* mant)
 	{
 		BigInt_x9dsed bigInt_x9dsed = default(BigInt_x9dsed);
 		BigInt_x9dsed bigInt_x9dsed2 = default(BigInt_x9dsed);

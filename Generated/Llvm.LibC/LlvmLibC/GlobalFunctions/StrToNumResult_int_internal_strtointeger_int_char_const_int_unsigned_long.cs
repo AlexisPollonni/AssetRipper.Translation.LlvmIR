@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -120,7 +121,7 @@ internal static partial class StrToNumResult_int_internal_strtointeger_int_char_
 					case 3:
 						break;
 					default:
-						throw null;
+						throw new NotImplementedException("Reached LLVM unreachable instruction.");
 					}
 					break;
 				}

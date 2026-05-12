@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::CharVector::length()")]
 internal static partial class CharVector_length
 {
-	public unsafe static long Invoke(void* @this)
+	public unsafe static long Invoke(CharVector* @this)
 	{
-		return unchecked((CharVector*)@this)->index;
+		return @this->index;
 	}
 }

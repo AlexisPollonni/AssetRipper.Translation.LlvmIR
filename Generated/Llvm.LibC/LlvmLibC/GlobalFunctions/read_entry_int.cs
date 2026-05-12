@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -56,7 +57,7 @@ internal static partial class read_entry_int
 				case 3:
 					break;
 				default:
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 				break;
 			}

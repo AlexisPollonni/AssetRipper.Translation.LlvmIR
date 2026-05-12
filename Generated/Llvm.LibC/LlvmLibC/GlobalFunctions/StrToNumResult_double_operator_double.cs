@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double>::operator double()")]
 internal static partial class StrToNumResult_double_operator_double
 {
-	public unsafe static double Invoke(void* @this)
+	public unsafe static double Invoke(StrToNumResult_r53a3q* @this)
 	{
-		return unchecked((StrToNumResult_r53a3q*)@this)->value;
+		return @this->value;
 	}
 }

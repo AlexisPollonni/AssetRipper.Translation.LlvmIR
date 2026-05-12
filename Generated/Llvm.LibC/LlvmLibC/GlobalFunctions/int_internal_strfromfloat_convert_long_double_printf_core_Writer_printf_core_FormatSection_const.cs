@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("int __llvm_libc_20_1_2_::internal::strfromfloat_convert<long double>(__llvm_libc_20_1_2_::printf_core::Writer*, __llvm_libc_20_1_2_::printf_core::FormatSection const&)")]
 internal static partial class int_internal_strfromfloat_convert_long_double_printf_core_Writer_printf_core_FormatSection_const
 {
-	public unsafe static int Invoke(void* writer, void* section)
+	public unsafe static int Invoke(printf_core_Writer* writer, printf_core_FormatSection* section)
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		Int128 @int = default(Int128);
@@ -22,15 +22,15 @@ internal static partial class int_internal_strfromfloat_convert_long_double_prin
 		unchecked
 		{
 			int result;
-			if ((((printf_core_FormatSection*)section)->has_conv & 1) != 1)
+			if ((section->has_conv & 1) != 1)
 			{
-				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view2, &((printf_core_FormatSection*)section)->raw_string, 16L, isVolatile: false);
+				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view2, &section->raw_string, 16L, isVolatile: false);
 				result = printf_core_Writer_write_cpp_string_view.Invoke(writer, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 			}
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &@int);
-				@int = ((printf_core_FormatSection*)section)->conv_val_raw;
+				@int = section->conv_val_raw;
 				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi3);
 				*(Int128*)(&fputil_FPBits_ubgsi3) = -6148914691236517206L;
 				int2 = @int;
@@ -41,7 +41,7 @@ internal static partial class int_internal_strfromfloat_convert_long_double_prin
 				}
 				else
 				{
-					switch (((printf_core_FormatSection*)section)->conv_name)
+					switch (section->conv_name)
 					{
 					case 70:
 					case 102:
@@ -63,7 +63,7 @@ internal static partial class int_internal_strfromfloat_convert_long_double_prin
 						result = int_printf_core_convert_float_dec_auto_typed_long_double_0_printf_core_Writer_printf_core_FormatSection_const_fputil_FPBits_long_double.Invoke(writer, section, *(long*)(&fputil_FPBits_ubgsi6), ((long*)(&fputil_FPBits_ubgsi6))[1]);
 						break;
 					default:
-						llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view3, &((printf_core_FormatSection*)section)->raw_string, 16L, isVolatile: false);
+						llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view3, &section->raw_string, 16L, isVolatile: false);
 						result = printf_core_Writer_write_cpp_string_view.Invoke(writer, *(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1]);
 						break;
 					}

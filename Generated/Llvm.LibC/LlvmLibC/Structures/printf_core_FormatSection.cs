@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
 
@@ -20,13 +21,13 @@ public partial struct printf_core_FormatSection
 	public cpp_string_view raw_string;
 
 	[FieldOffset(24)]
-	public sbyte flags;
+	public FormatFlags_hin2uh flags;
 
 	[FieldOffset(25)]
 	public InlineArray3_SByte field_4;
 
 	[FieldOffset(28)]
-	public int length_modifier;
+	public LengthModifier_mnvaa2 length_modifier;
 
 	[FieldOffset(32)]
 	public long bit_width;

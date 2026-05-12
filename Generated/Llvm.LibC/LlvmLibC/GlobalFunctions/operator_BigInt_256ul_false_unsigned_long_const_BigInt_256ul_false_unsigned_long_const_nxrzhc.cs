@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -9,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("operator_BigInt_256ul_false_unsigned_long_const_BigInt_256ul_false_unsigned_long_const")]
 internal static partial class operator_BigInt_256ul_false_unsigned_long_const_BigInt_256ul_false_unsigned_long_const_nxrzhc
 {
-	public unsafe static bool Invoke(void* lhs, void* rhs)
+	public unsafe static bool Invoke(BigInt_x9dsed* lhs, BigInt_x9dsed* rhs)
 	{
 		bool result = false;
 		long num = 0L;
@@ -25,7 +26,7 @@ internal static partial class operator_BigInt_256ul_false_unsigned_long_const_Bi
 					num2 = 2;
 					break;
 				}
-				if (*(long*)cpp_array_unsigned_long_4ul_operator_unsigned_long_const.Invoke(&((BigInt_x9dsed*)lhs)->val, num) != *(long*)cpp_array_unsigned_long_4ul_operator_unsigned_long_const.Invoke(&((BigInt_x9dsed*)rhs)->val, num))
+				if (*(long*)cpp_array_unsigned_long_4ul_operator_unsigned_long_const.Invoke(&lhs->val, num) != *(long*)cpp_array_unsigned_long_4ul_operator_unsigned_long_const.Invoke(&rhs->val, num))
 				{
 					result = false;
 					num2 = 1;
@@ -39,7 +40,7 @@ internal static partial class operator_BigInt_256ul_false_unsigned_long_const_Bi
 			{
 				if (num3 != 1)
 				{
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 			}
 			else

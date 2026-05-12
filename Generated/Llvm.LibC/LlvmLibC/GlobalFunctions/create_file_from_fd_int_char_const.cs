@@ -95,7 +95,7 @@ internal static partial class create_file_from_fd_int_char_const
 							}
 							else
 							{
-								LinuxFile_LinuxFile_int_unsigned_char_unsigned_long_int_bool_unsigned_int.Invoke(ptr2, fd, buffer, 1024L, 0, owned: true, num);
+								LinuxFile_LinuxFile_int_unsigned_char_unsigned_long_int_bool_unsigned_int.Invoke((LinuxFile*)ptr2, fd, buffer, 1024L, 0, owned: true, num);
 								num4 = (nint)ptr2;
 							}
 							ptr = (void*)num4;
@@ -136,7 +136,7 @@ internal static partial class create_file_from_fd_int_char_const
 										goto IL_03d2;
 									}
 								}
-								cpp_expected_LinuxFile_int_expected_LinuxFile.Invoke(&cpp_optional_char_OptionalStorage2, ptr);
+								cpp_expected_LinuxFile_int_expected_LinuxFile.Invoke(&cpp_optional_char_OptionalStorage2, (LinuxFile*)ptr);
 							}
 							goto IL_03d2;
 						}

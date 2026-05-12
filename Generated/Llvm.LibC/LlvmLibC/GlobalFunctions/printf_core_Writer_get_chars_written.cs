@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::Writer::get_chars_written()")]
 internal static partial class printf_core_Writer_get_chars_written
 {
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke(printf_core_Writer* @this)
 	{
-		return unchecked((printf_core_Writer*)@this)->chars_written;
+		return @this->chars_written;
 	}
 }

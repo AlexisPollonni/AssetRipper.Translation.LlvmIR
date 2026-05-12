@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -8,6 +9,6 @@ internal static partial class fputil_internal_FPRepImpl_fputil_FPType_3_fputil_F
 {
 	public unsafe static bool Invoke(void* @this)
 	{
-		return unchecked((byte)((fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_finite_const.Invoke(@this) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return unchecked((byte)((fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_finite_const.Invoke((fputil_internal_FPRepSem_f94eua*)@this) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
 	}
 }

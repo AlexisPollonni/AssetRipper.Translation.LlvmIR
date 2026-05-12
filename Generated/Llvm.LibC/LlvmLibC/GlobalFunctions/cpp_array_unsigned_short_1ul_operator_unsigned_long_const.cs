@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned short, 1ul>::operator[](unsigned long) const")]
 internal static partial class cpp_array_unsigned_short_1ul_operator_unsigned_long_const
 {
-	public unsafe static void* Invoke(void* @this, long Index)
+	public unsafe static void* Invoke(cpp_array_knh6hw* @this, long Index)
 	{
-		return unchecked((byte*)(&((cpp_array_knh6hw*)@this)->Data) + (nint)Index * 2);
+		return unchecked((byte*)(&@this->Data) + (nint)Index * 2);
 	}
 }

@@ -1,5 +1,6 @@
 using System;
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -15,7 +16,7 @@ internal static partial class fputil_internal_FPRepImpl_fputil_FPType_3_fputil_F
 			*(long*)(&@int) = x;
 			((long*)(&@int))[1] = x_coerce1;
 			Int128 int2 = @int;
-			fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_FPRepSem_unsigned_int128.Invoke(@this, *(long*)(&int2), ((long*)(&int2))[1]);
+			fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_FPRepSem_unsigned_int128.Invoke((fputil_internal_FPRepSem_f94eua*)@this, *(long*)(&int2), ((long*)(&int2))[1]);
 		}
 	}
 }

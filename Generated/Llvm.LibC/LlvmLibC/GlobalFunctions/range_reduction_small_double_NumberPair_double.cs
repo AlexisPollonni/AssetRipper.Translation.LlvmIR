@@ -11,7 +11,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::range_reduction_small(double, __llvm_libc_20_1_2_::NumberPair<double>&)")]
 internal static partial class range_reduction_small_double_NumberPair_double
 {
-	public unsafe static int Invoke(double x, void* u)
+	public unsafe static int Invoke(double x, NumberPair* u)
 	{
 		InlineArray3_Double inlineArray3_Double = default(InlineArray3_Double);
 		double num = 0.0;
@@ -34,12 +34,12 @@ internal static partial class range_reduction_small_double_NumberPair_double
 			num2 = fputil_nearest_integer_double.Invoke(x2);
 			llvm_lifetime_start_p0.Invoke(8L, &num3);
 			num3 = fputil_multiply_add_double_double_double.Invoke(num2, *(double*)(&inlineArray3_Double), x);
-			((NumberPair*)u)->hi = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, sizeof(double))), num3);
+			u->hi = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, sizeof(double))), num3);
 			llvm_lifetime_start_p0.Invoke(8L, &z);
-			z = num3 - ((NumberPair*)u)->hi;
+			z = num3 - u->hi;
 			llvm_lifetime_start_p0.Invoke(8L, &z2);
 			z2 = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, sizeof(double))), z);
-			((NumberPair*)u)->lo = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, (nint)2 * sizeof(double))), z2);
+			u->lo = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, (nint)2 * sizeof(double))), z2);
 			int result = (int)(long)num2;
 			llvm_lifetime_end_p0.Invoke(8L, &z2);
 			llvm_lifetime_end_p0.Invoke(8L, &z);

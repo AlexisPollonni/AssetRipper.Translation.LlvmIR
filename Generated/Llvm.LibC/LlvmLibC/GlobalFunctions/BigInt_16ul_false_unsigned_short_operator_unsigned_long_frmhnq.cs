@@ -8,8 +8,8 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_16ul_false_unsigned_short_operator_unsigned_long")]
 internal static partial class BigInt_16ul_false_unsigned_short_operator_unsigned_long_frmhnq
 {
-	public unsafe static void* Invoke(void* @this, long i)
+	public unsafe static void* Invoke(BigInt_ys7s55* @this, long i)
 	{
-		return cpp_array_unsigned_short_1ul_operator_unsigned_long.Invoke(&unchecked((BigInt_ys7s55*)@this)->val, i);
+		return cpp_array_unsigned_short_1ul_operator_unsigned_long.Invoke(&@this->val, i);
 	}
 }

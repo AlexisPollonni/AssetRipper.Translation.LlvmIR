@@ -41,7 +41,7 @@ internal static partial class exp2
 			*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, x);
 			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 			double result;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(((ulong)num > 13875572859742453760uL) ? true : (((ulong)num > 13589353796997972734uL || (ulong)num < 4652218415073722368uL) ? ((ulong)num <= 4370485359770567421uL) : true), expected: false))
 			{

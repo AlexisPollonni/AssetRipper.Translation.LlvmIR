@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -19,34 +20,37 @@ internal static partial class callonce_impl_callonce_slowpath_Futex_void
 		ptr = flag;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = 0;
-		int result;
-		if (cpp_Atomic_unsigned_int_compare_exchange_strong_unsigned_int_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope.Invoke(ptr, &num, 17, 5, 1))
+		unchecked
 		{
-			unchecked((delegate*<void>)func)();
-			llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = cpp_Atomic_unsigned_int_exchange_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope.Invoke(ptr, 51, 5, 1);
-			if (num2 == 34)
+			int result;
+			if (cpp_Atomic_unsigned_int_compare_exchange_strong_unsigned_int_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope.Invoke(ptr, &num, 17, MemoryOrder.SEQ_CST, MemoryScope.DEVICE))
 			{
-				Futex_notify_all_bool.Invoke(ptr, is_shared: false);
+				((delegate*<void>)func)();
+				llvm_lifetime_start_p0.Invoke(4L, &num2);
+				num2 = cpp_Atomic_unsigned_int_exchange_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope.Invoke(ptr, 51, MemoryOrder.SEQ_CST, MemoryScope.DEVICE);
+				if (num2 == 34)
+				{
+					Futex_notify_all_bool.Invoke(ptr, is_shared: false);
+				}
+				result = 0;
+				llvm_lifetime_end_p0.Invoke(4L, &num2);
 			}
-			result = 0;
-			llvm_lifetime_end_p0.Invoke(4L, &num2);
-		}
-		else
-		{
-			llvm_lifetime_start_p0.Invoke(4L, &num3);
-			num3 = 17;
-			if (cpp_Atomic_unsigned_int_compare_exchange_strong_unsigned_int_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope.Invoke(ptr, &num3, 34, 5, 1) || num3 == 34)
+			else
 			{
-				void* intPtr = ptr;
-				cpp_optional_internal_AbsTimeout_optional_cpp_nullopt_t.Invoke(&cpp_optional_7xva93);
-				Futex_wait_unsigned_int_cpp_optional_internal_AbsTimeout_bool.Invoke(intPtr, 34, &cpp_optional_7xva93, is_shared: false);
+				llvm_lifetime_start_p0.Invoke(4L, &num3);
+				num3 = 17;
+				if (cpp_Atomic_unsigned_int_compare_exchange_strong_unsigned_int_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope.Invoke(ptr, &num3, 34, MemoryOrder.SEQ_CST, MemoryScope.DEVICE) || num3 == 34)
+				{
+					void* intPtr = ptr;
+					cpp_optional_internal_AbsTimeout_optional_cpp_nullopt_t.Invoke((cpp_optional_59q3zq*)(&cpp_optional_7xva93));
+					Futex_wait_unsigned_int_cpp_optional_internal_AbsTimeout_bool.Invoke(intPtr, 34, &cpp_optional_7xva93, is_shared: false);
+				}
+				result = 0;
+				llvm_lifetime_end_p0.Invoke(4L, &num3);
 			}
-			result = 0;
-			llvm_lifetime_end_p0.Invoke(4L, &num3);
+			llvm_lifetime_end_p0.Invoke(4L, &num);
+			llvm_lifetime_end_p0.Invoke(8L, &ptr);
+			return result;
 		}
-		llvm_lifetime_end_p0.Invoke(4L, &num);
-		llvm_lifetime_end_p0.Invoke(8L, &ptr);
-		return result;
 	}
 }

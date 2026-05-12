@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::AuxvErrnoGuard::mark_failure()")]
 internal static partial class AuxvErrnoGuard_mark_failure
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(AuxvErrnoGuard* @this)
 	{
-		unchecked((AuxvErrnoGuard*)@this)->failure = 1;
+		@this->failure = 1;
 	}
 }

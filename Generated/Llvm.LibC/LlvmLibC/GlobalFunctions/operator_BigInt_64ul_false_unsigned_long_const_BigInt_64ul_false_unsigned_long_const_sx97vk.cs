@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -7,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const")]
 internal static partial class operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sx97vk
 {
-	public unsafe static bool Invoke(void* lhs, void* rhs)
+	public unsafe static bool Invoke(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
 	{
 		return unchecked((byte)((operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sbn2kk.Invoke(lhs, rhs) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
 	}

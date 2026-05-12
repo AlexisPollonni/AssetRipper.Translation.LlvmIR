@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("auto __llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>::ful_mul<128ul>(__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long> const&) const")]
 internal static partial class auto_BigInt_128ul_false_unsigned_long_ful_mul_128ul_BigInt_128ul_false_unsigned_long_const_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] BigInt_x9dsed* agg_result, void* @this, void* other)
+	public unsafe static void Invoke([MangledName("agg.result")] BigInt_x9dsed* agg_result, anon_izyfb7* @this, anon_izyfb7* other)
 	{
 		BigInt_x9dsed bigInt_x9dsed = default(BigInt_x9dsed);
 		llvm_lifetime_start_p0.Invoke(32L, &bigInt_x9dsed);

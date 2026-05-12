@@ -31,7 +31,7 @@ internal static partial class internal_mul_shift_mod_1e9_unsigned_int128_BigInt_
 			((long*)ptr)[2] = -6148914691236517206L;
 			((long*)ptr)[3] = -6148914691236517206L;
 			((long*)ptr)[4] = -6148914691236517206L;
-			BigInt_320ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_const.Invoke(&bigInt_76gxx, shift_amount);
+			BigInt_320ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_const.Invoke(&bigInt_76gxx, (BigInt_ghrwnp*)shift_amount);
 			llvm_lifetime_start_p0.Invoke(40L, &bigInt_76gxx2);
 			llvm_lifetime_start_p0.Invoke(40L, &bigInt_76gxx3);
 			llvm_lifetime_start_p0.Invoke(40L, &bigInt_76gxx4);

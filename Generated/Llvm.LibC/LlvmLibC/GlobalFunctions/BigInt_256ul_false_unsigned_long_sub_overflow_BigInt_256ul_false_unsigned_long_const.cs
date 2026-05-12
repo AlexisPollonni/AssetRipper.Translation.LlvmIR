@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>::sub_overflow(__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long> const&)")]
 internal static partial class BigInt_256ul_false_unsigned_long_sub_overflow_BigInt_256ul_false_unsigned_long_const
 {
-	public unsafe static long Invoke(void* @this, void* rhs)
+	public unsafe static long Invoke(BigInt_x9dsed* @this, BigInt_x9dsed* rhs)
 	{
-		return unchecked(unsigned_long_multiword_sub_with_borrow_unsigned_long_4ul_4ul_cpp_array_unsigned_long_4ul_cpp_array_unsigned_long_4ul_const.Invoke(&((BigInt_x9dsed*)@this)->val, &((BigInt_x9dsed*)rhs)->val));
+		return unsigned_long_multiword_sub_with_borrow_unsigned_long_4ul_4ul_cpp_array_unsigned_long_4ul_cpp_array_unsigned_long_4ul_const.Invoke(&@this->val, &rhs->val);
 	}
 }

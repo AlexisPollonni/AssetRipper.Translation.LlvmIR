@@ -10,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::convert_pointer(__llvm_libc_20_1_2_::scanf_core::Reader*, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
 internal static partial class scanf_core_convert_pointer_scanf_core_Reader_scanf_core_FormatSection_const
 {
-	public unsafe static int Invoke(void* reader, void* to_conv)
+	public unsafe static int Invoke(scanf_core_Reader* reader, scanf_core_FormatSection* to_conv)
 	{
 		sbyte b = 0;
 		long num = 0L;
@@ -33,7 +33,7 @@ internal static partial class scanf_core_convert_pointer_scanf_core_Reader_scanf
 			switch (num)
 			{
 			case 9L:
-				*(IntPtr*)((scanf_core_FormatSection*)to_conv)->output_ptr = (nint)0;
+				*(IntPtr*)to_conv->output_ptr = (nint)0;
 				result = 0;
 				break;
 			default:

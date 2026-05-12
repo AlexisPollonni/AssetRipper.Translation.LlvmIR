@@ -7,14 +7,11 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn<double>::FloatConvertReturn()")]
 internal static partial class internal_FloatConvertReturn_double_FloatConvertReturn
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(internal_FloatConvertReturn_g92bm8* @this)
 	{
-		unchecked
-		{
-			internal_ExpandedFloat_k68bhv* num = &((internal_FloatConvertReturn_g92bm8*)@this)->num;
-			num->mantissa = 0L;
-			num->exponent = 0;
-			((internal_FloatConvertReturn_g92bm8*)@this)->error = 0;
-		}
+		internal_ExpandedFloat_k68bhv* num = &@this->num;
+		num->mantissa = 0L;
+		num->exponent = 0;
+		@this->error = 0;
 	}
 }

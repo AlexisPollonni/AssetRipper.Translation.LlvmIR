@@ -101,7 +101,7 @@ internal static partial class initialize_auxv_once
 			goto IL_0225;
 		}
 		IL_02d0:
-		throw null;
+		throw new NotImplementedException("Reached LLVM unreachable instruction.");
 		IL_0225:
 		if ((b & 1) != 1)
 		{

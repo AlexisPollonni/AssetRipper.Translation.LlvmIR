@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::printf_main(__llvm_libc_20_1_2_::printf_core::Writer*, char const*, __llvm_libc_20_1_2_::internal::ArgList&)")]
 internal static partial class printf_core_printf_main_printf_core_Writer_char_const_internal_ArgList
 {
-	public unsafe static int Invoke(void* writer, void* str, void* args)
+	public unsafe static int Invoke(printf_core_Writer* writer, void* str, internal_ArgList* args)
 	{
 		int result = 0;
 		printf_core_Parser printf_core_Parser2 = default(printf_core_Parser);

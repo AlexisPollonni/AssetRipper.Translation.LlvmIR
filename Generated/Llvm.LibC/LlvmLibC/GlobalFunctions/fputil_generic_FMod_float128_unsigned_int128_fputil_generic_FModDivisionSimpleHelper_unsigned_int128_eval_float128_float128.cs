@@ -77,7 +77,7 @@ internal static partial class fputil_generic_FMod_float128_unsigned_int128_fputi
 			case 1:
 				return result;
 			default:
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 		}
 	}

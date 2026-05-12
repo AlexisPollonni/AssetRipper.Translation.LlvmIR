@@ -1,11 +1,12 @@
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class sched_rr_get_interval
 {
-	public unsafe static int Invoke(int tid, void* tp)
+	public unsafe static int Invoke(int tid, AuxEntry* tp)
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);

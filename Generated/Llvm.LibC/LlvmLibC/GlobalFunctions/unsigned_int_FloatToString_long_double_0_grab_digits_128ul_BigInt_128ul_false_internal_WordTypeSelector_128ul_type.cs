@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("unsigned int __llvm_libc_20_1_2_::FloatToString<long double, 0>::grab_digits<128ul>(__llvm_libc_20_1_2_::BigInt<128ul, false, __llvm_libc_20_1_2_::internal::WordTypeSelector<128ul>::type>&)")]
 internal static partial class unsigned_int_FloatToString_long_double_0_grab_digits_128ul_BigInt_128ul_false_internal_WordTypeSelector_128ul_type
 {
-	public unsafe static int Invoke(void* int_num)
+	public unsafe static int Invoke(anon_izyfb7* int_num)
 	{
 		cpp_optional_neprgb cpp_optional_neprgb2 = default(cpp_optional_neprgb);
 		llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_neprgb2);

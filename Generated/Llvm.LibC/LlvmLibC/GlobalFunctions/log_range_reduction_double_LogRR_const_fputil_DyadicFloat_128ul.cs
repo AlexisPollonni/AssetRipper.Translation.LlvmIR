@@ -11,7 +11,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::log_range_reduction(double, __llvm_libc_20_1_2_::LogRR const&, __llvm_libc_20_1_2_::fputil::DyadicFloat<128ul>&)")]
 internal static partial class log_range_reduction_double_LogRR_const_fputil_DyadicFloat_128ul
 {
-	public unsafe static void Invoke([MangledName("agg.result")] fputil_DyadicFloat_kt2kd4* agg_result, double m_x, void* log_table, void* sum)
+	public unsafe static void Invoke([MangledName("agg.result")] fputil_DyadicFloat_kt2kd4* agg_result, double m_x, LogRR* log_table, fputil_DyadicFloat_kt2kd4* sum)
 	{
 		long num = 0L;
 		long num2 = 0L;
@@ -52,7 +52,7 @@ internal static partial class log_range_reduction_double_LogRR_const_fputil_Dyad
 		llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd6, sum, 24L, isVolatile: false);
 		unchecked
 		{
-			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd7, (byte*)(&((LogRR*)log_table)->step_2) + (nint)num2 * sizeof(fputil_DyadicFloat_kt2kd4), 24L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd7, (byte*)(&log_table->step_2) + (nint)num2 * sizeof(fputil_DyadicFloat_kt2kd4), 24L, isVolatile: false);
 			fputil_DyadicFloat_128ul_fputil_quick_add_128ul_fputil_DyadicFloat_128ul_fputil_DyadicFloat_128ul.Invoke(&fputil_DyadicFloat_kt2kd5, &fputil_DyadicFloat_kt2kd6, &fputil_DyadicFloat_kt2kd7);
 			llvm_memcpy_p0_p0_i64.Invoke(sum, &fputil_DyadicFloat_kt2kd5, 24L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd5);
@@ -72,7 +72,7 @@ internal static partial class log_range_reduction_double_LogRR_const_fputil_Dyad
 		llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd9, sum, 24L, isVolatile: false);
 		unchecked
 		{
-			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd10, (byte*)(&((LogRR*)log_table)->step_3) + (nint)num7 * sizeof(fputil_DyadicFloat_kt2kd4), 24L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd10, (byte*)(&log_table->step_3) + (nint)num7 * sizeof(fputil_DyadicFloat_kt2kd4), 24L, isVolatile: false);
 			fputil_DyadicFloat_128ul_fputil_quick_add_128ul_fputil_DyadicFloat_128ul_fputil_DyadicFloat_128ul.Invoke(&fputil_DyadicFloat_kt2kd8, &fputil_DyadicFloat_kt2kd9, &fputil_DyadicFloat_kt2kd10);
 			llvm_memcpy_p0_p0_i64.Invoke(sum, &fputil_DyadicFloat_kt2kd8, 24L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd8);
@@ -92,7 +92,7 @@ internal static partial class log_range_reduction_double_LogRR_const_fputil_Dyad
 		llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd12, sum, 24L, isVolatile: false);
 		unchecked
 		{
-			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd13, (byte*)(&((LogRR*)log_table)->step_4) + (nint)num10 * sizeof(fputil_DyadicFloat_kt2kd4), 24L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd13, (byte*)(&log_table->step_4) + (nint)num10 * sizeof(fputil_DyadicFloat_kt2kd4), 24L, isVolatile: false);
 			fputil_DyadicFloat_128ul_fputil_quick_add_128ul_fputil_DyadicFloat_128ul_fputil_DyadicFloat_128ul.Invoke(&fputil_DyadicFloat_kt2kd11, &fputil_DyadicFloat_kt2kd12, &fputil_DyadicFloat_kt2kd13);
 			llvm_memcpy_p0_p0_i64.Invoke(sum, &fputil_DyadicFloat_kt2kd11, 24L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd11);
@@ -113,7 +113,7 @@ internal static partial class log_range_reduction_double_LogRR_const_fputil_Dyad
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_NEG.Pointer, 1L, isVolatile: false);
 				*(long*)(&inlineArray2_Int) = (long)NumericHelper.SubtractSigned(y: int2, x: 0L);
 				((long*)(&inlineArray2_Int))[1] = (long)NumericHelper.ShiftRightArithmetic(NumericHelper.SubtractSigned(y: int2, x: 0L), 64L);
-				BigInt_128ul_false_unsigned_long_BigInt_2ul_unsigned_long_const_2ul.Invoke(&bigInt_qdkjbh, &inlineArray2_Int);
+				BigInt_128ul_false_unsigned_long_BigInt_2ul_unsigned_long_const_2ul.Invoke((anon_izyfb7*)(&bigInt_qdkjbh), &inlineArray2_Int);
 				fputil_DyadicFloat_128ul_DyadicFloat_Sign_int_BigInt_128ul_false_unsigned_long.Invoke(agg_result, anon_izyfb8.val, -125, *(long*)(&bigInt_qdkjbh), ((long*)(&bigInt_qdkjbh))[1]);
 			}
 			else
@@ -121,7 +121,7 @@ internal static partial class log_range_reduction_double_LogRR_const_fputil_Dyad
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, Sign_POS.Pointer, 1L, isVolatile: false);
 				*(long*)(&inlineArray2_Int2) = (long)int2;
 				((long*)(&inlineArray2_Int2))[1] = (long)NumericHelper.ShiftRightArithmetic(int2, 64L);
-				BigInt_128ul_false_unsigned_long_BigInt_2ul_unsigned_long_const_2ul.Invoke(&bigInt_qdkjbh2, &inlineArray2_Int2);
+				BigInt_128ul_false_unsigned_long_BigInt_2ul_unsigned_long_const_2ul.Invoke((anon_izyfb7*)(&bigInt_qdkjbh2), &inlineArray2_Int2);
 				fputil_DyadicFloat_128ul_DyadicFloat_Sign_int_BigInt_128ul_false_unsigned_long.Invoke(agg_result, anon_izyfb9.val, -125, *(long*)(&bigInt_qdkjbh2), ((long*)(&bigInt_qdkjbh2))[1]);
 			}
 			llvm_lifetime_end_p0.Invoke(16L, &inlineArray2_Int2);

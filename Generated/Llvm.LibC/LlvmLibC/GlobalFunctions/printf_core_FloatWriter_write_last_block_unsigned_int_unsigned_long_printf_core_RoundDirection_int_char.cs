@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
 using LlvmLibC.Intrinsics.Implemented;
@@ -11,7 +12,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::write_last_block(unsigned int, unsigned long, __llvm_libc_20_1_2_::printf_core::RoundDirection, int, char)")]
 internal static partial class printf_core_FloatWriter_write_last_block_unsigned_int_unsigned_long_printf_core_RoundDirection_int_char
 {
-	public unsafe static int Invoke(void* @this, int block, long block_digits, int round, int exponent, sbyte exp_char)
+	public unsafe static int Invoke(printf_core_FloatWriter* @this, int block, long block_digits, RoundDirection_zvveyk round, int exponent, sbyte exp_char)
 	{
 		int result = 0;
 		sbyte b = 0;
@@ -117,18 +118,18 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 			{
 				b2 = Unsafe.As<InlineArray9_SByte, sbyte>(ref Unsafe.AddByteOffset(ref inlineArray9_SByte, (nint)(block_digits - 1L)));
 			}
-			else if ((ulong)((printf_core_FloatWriter*)@this)->max_block_count > 0uL)
+			else if ((ulong)@this->max_block_count > 0uL)
 			{
 				b2 = 57;
 			}
-			else if ((ulong)((printf_core_FloatWriter*)@this)->buffered_digits > 0uL)
+			else if ((ulong)@this->buffered_digits > 0uL)
 			{
-				b2 = ((sbyte*)(&((printf_core_FloatWriter*)@this)->block_buffer))[((printf_core_FloatWriter*)@this)->buffered_digits - 1L];
+				b2 = ((sbyte*)(&@this->block_buffer))[@this->buffered_digits - 1L];
 			}
 			llvm_lifetime_start_p0.Invoke(1L, &b3);
 			b3 = 0;
 			int num25;
-			if (round == 0 || (round == 2 && b2 % 2 != 0))
+			if (round == RoundDirection_zvveyk.Up || (round == RoundDirection_zvveyk.Even && b2 % 2 != 0))
 			{
 				llvm_lifetime_start_p0.Invoke(1L, &b4);
 				b4 = 1;
@@ -157,7 +158,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 					}
 					llvm_lifetime_end_p0.Invoke(4L, &i);
 					llvm_lifetime_start_p0.Invoke(4L, &j);
-					for (j = unchecked((int)((printf_core_FloatWriter*)@this)->buffered_digits) - 1; j >= 0; j += -1)
+					for (j = unchecked((int)@this->buffered_digits) - 1; j >= 0; j += -1)
 					{
 						if ((b4 & 1) != 1)
 						{
@@ -165,12 +166,12 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 						}
 						unchecked
 						{
-							if (((sbyte*)(&((printf_core_FloatWriter*)@this)->block_buffer))[j] == 57)
+							if (((sbyte*)(&@this->block_buffer))[j] == 57)
 							{
-								((sbyte*)(&((printf_core_FloatWriter*)@this)->block_buffer))[j] = 48;
+								((sbyte*)(&@this->block_buffer))[j] = 48;
 								continue;
 							}
-							sbyte* ptr4 = (sbyte*)(&((printf_core_FloatWriter*)@this)->block_buffer) + j;
+							sbyte* ptr4 = (sbyte*)(&@this->block_buffer) + j;
 							*ptr4 = (sbyte)checked(*ptr4 + 1);
 							b4 = 0;
 						}
@@ -224,10 +225,10 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 						llvm_lifetime_start_p0.Invoke(8L, &num2);
 						num2 = cpp_string_view_size_const.Invoke(&cpp_string_view3);
 						llvm_lifetime_start_p0.Invoke(8L, &num3);
-						num3 = ((printf_core_FloatWriter*)@this)->buffered_digits + ((printf_core_FloatWriter*)@this)->max_block_count * 9L + block_digits;
-						((printf_core_FloatWriter*)@this)->total_digits = InstructionHelper.Select((((printf_core_FloatWriter*)@this)->has_decimal_point & 1) == 1, 1, 0) + num3 + 1L + num2;
+						num3 = @this->buffered_digits + @this->max_block_count * 9L + block_digits;
+						@this->total_digits = InstructionHelper.Select((@this->has_decimal_point & 1) == 1, 1, 0) + num3 + 1L + num2;
 						llvm_lifetime_start_p0.Invoke(4L, &num4);
-						num4 = printf_core_PaddingWriter_write_left_padding_printf_core_Writer_unsigned_long.Invoke(&((printf_core_FloatWriter*)@this)->padding_writer, ((printf_core_FloatWriter*)@this)->writer, ((printf_core_FloatWriter*)@this)->total_digits);
+						num4 = printf_core_PaddingWriter_write_left_padding_printf_core_Writer_unsigned_long.Invoke(&@this->padding_writer, @this->writer, @this->total_digits);
 						if (num4 < 0)
 						{
 							result = num4;
@@ -242,7 +243,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 						{
 						case 0:
 							llvm_lifetime_start_p0.Invoke(4L, &num5);
-							num5 = printf_core_Writer_write_char.Invoke(((printf_core_FloatWriter*)@this)->writer, 49);
+							num5 = printf_core_Writer_write_char.Invoke(@this->writer, 49);
 							if (num5 < 0)
 							{
 								result = num5;
@@ -257,10 +258,10 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 							{
 							case 0:
 								{
-									if ((((printf_core_FloatWriter*)@this)->has_decimal_point & 1) == 1)
+									if ((@this->has_decimal_point & 1) == 1)
 									{
 										llvm_lifetime_start_p0.Invoke(4L, &num6);
-										num6 = printf_core_Writer_write_char.Invoke(((printf_core_FloatWriter*)@this)->writer, 46);
+										num6 = printf_core_Writer_write_char.Invoke(@this->writer, 46);
 										if (num6 < 0)
 										{
 											result = num6;
@@ -281,7 +282,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 										if ((ulong)num3 > 1uL)
 										{
 											llvm_lifetime_start_p0.Invoke(4L, &num7);
-											num7 = printf_core_Writer_write_char_unsigned_long.Invoke(((printf_core_FloatWriter*)@this)->writer, 48, num3 - 1L);
+											num7 = printf_core_Writer_write_char_unsigned_long.Invoke(@this->writer, 48, num3 - 1L);
 											if (num7 < 0)
 											{
 												result = num7;
@@ -302,7 +303,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 										}
 									}
 									llvm_lifetime_start_p0.Invoke(4L, &num8);
-									num8 = printf_core_Writer_write_char.Invoke(((printf_core_FloatWriter*)@this)->writer, b5);
+									num8 = printf_core_Writer_write_char.Invoke(@this->writer, b5);
 									if (num8 < 0)
 									{
 										result = num8;
@@ -318,7 +319,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 									case 0:
 									{
 										llvm_lifetime_start_p0.Invoke(4L, &num9);
-										void* writer = ((printf_core_FloatWriter*)@this)->writer;
+										printf_core_Writer* writer = @this->writer;
 										llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view4, &cpp_string_view3, 16L, isVolatile: false);
 										num9 = printf_core_Writer_write_cpp_string_view.Invoke(writer, *(void**)(&cpp_string_view4), ((long*)(&cpp_string_view4))[1]);
 										if (num9 < 0)
@@ -334,7 +335,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 										switch (num25)
 										{
 										case 0:
-											((printf_core_FloatWriter*)@this)->total_digits_written = ((printf_core_FloatWriter*)@this)->total_digits;
+											@this->total_digits_written = @this->total_digits;
 											result = 0;
 											num25 = 1;
 											break;
@@ -356,10 +357,10 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 					}
 					else
 					{
-						((printf_core_FloatWriter*)@this)->total_digits++;
-						((printf_core_FloatWriter*)@this)->digits_before_decimal++;
+						@this->total_digits++;
+						@this->digits_before_decimal++;
 						llvm_lifetime_start_p0.Invoke(4L, &num10);
-						num10 = printf_core_PaddingWriter_write_left_padding_printf_core_Writer_unsigned_long.Invoke(&((printf_core_FloatWriter*)@this)->padding_writer, ((printf_core_FloatWriter*)@this)->writer, ((printf_core_FloatWriter*)@this)->total_digits);
+						num10 = printf_core_PaddingWriter_write_left_padding_printf_core_Writer_unsigned_long.Invoke(&@this->padding_writer, @this->writer, @this->total_digits);
 						if (num10 < 0)
 						{
 							result = num10;
@@ -374,7 +375,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 						{
 						case 0:
 							llvm_lifetime_start_p0.Invoke(4L, &num11);
-							num11 = printf_core_Writer_write_char.Invoke(((printf_core_FloatWriter*)@this)->writer, 49);
+							num11 = printf_core_Writer_write_char.Invoke(@this->writer, 49);
 							if (num11 < 0)
 							{
 								result = num11;
@@ -389,7 +390,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 							{
 							case 0:
 								llvm_lifetime_start_p0.Invoke(4L, &num12);
-								num12 = printf_core_Writer_write_char_unsigned_long.Invoke(((printf_core_FloatWriter*)@this)->writer, 48, ((printf_core_FloatWriter*)@this)->digits_before_decimal - 1L);
+								num12 = printf_core_Writer_write_char_unsigned_long.Invoke(@this->writer, 48, @this->digits_before_decimal - 1L);
 								if (num12 < 0)
 								{
 									result = num12;
@@ -404,10 +405,10 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 								{
 								case 0:
 									{
-										if ((((printf_core_FloatWriter*)@this)->has_decimal_point & 1) == 1)
+										if ((@this->has_decimal_point & 1) == 1)
 										{
 											llvm_lifetime_start_p0.Invoke(4L, &num13);
-											num13 = printf_core_Writer_write_char.Invoke(((printf_core_FloatWriter*)@this)->writer, 46);
+											num13 = printf_core_Writer_write_char.Invoke(@this->writer, 46);
 											if (num13 < 0)
 											{
 												result = num13;
@@ -425,10 +426,10 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 											default:
 												goto end_IL_0b44;
 											}
-											if ((ulong)((printf_core_FloatWriter*)@this)->total_digits > (ulong)(((printf_core_FloatWriter*)@this)->digits_before_decimal + 1L))
+											if ((ulong)@this->total_digits > (ulong)(@this->digits_before_decimal + 1L))
 											{
 												llvm_lifetime_start_p0.Invoke(4L, &num14);
-												num14 = printf_core_Writer_write_char_unsigned_long.Invoke(((printf_core_FloatWriter*)@this)->writer, 48, ((printf_core_FloatWriter*)@this)->total_digits - (((printf_core_FloatWriter*)@this)->digits_before_decimal + 1L));
+												num14 = printf_core_Writer_write_char_unsigned_long.Invoke(@this->writer, 48, @this->total_digits - (@this->digits_before_decimal + 1L));
 												if (num14 < 0)
 												{
 													result = num14;
@@ -448,7 +449,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 												}
 											}
 										}
-										((printf_core_FloatWriter*)@this)->total_digits_written = ((printf_core_FloatWriter*)@this)->total_digits;
+										@this->total_digits_written = @this->total_digits;
 										result = 0;
 										num25 = 1;
 										break;
@@ -494,10 +495,10 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 				for (num16 = 0L; (ulong)num16 < (ulong)block_digits; num16++)
 				{
 					sbyte b7 = Unsafe.As<InlineArray9_SByte, sbyte>(ref Unsafe.AddByteOffset(ref inlineArray9_SByte, (nint)num16));
-					((sbyte*)(&((printf_core_FloatWriter*)@this)->block_buffer))[num16] = b7;
+					((sbyte*)(&@this->block_buffer))[num16] = b7;
 				}
 				llvm_lifetime_end_p0.Invoke(8L, &num16);
-				((printf_core_FloatWriter*)@this)->buffered_digits = block_digits;
+				@this->buffered_digits = block_digits;
 				llvm_lifetime_start_p0.Invoke(4L, &num17);
 				num17 = printf_core_FloatWriter_flush_buffer_bool.Invoke(@this, round_up_max_blocks: false);
 				if (num17 < 0)
@@ -517,7 +518,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 						if ((b & 1) == 1)
 						{
 							llvm_lifetime_start_p0.Invoke(4L, &num18);
-							num18 = printf_core_Writer_write_char.Invoke(((printf_core_FloatWriter*)@this)->writer, b5);
+							num18 = printf_core_Writer_write_char.Invoke(@this->writer, b5);
 							if (num18 < 0)
 							{
 								result = num18;
@@ -565,7 +566,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 							((long*)(&integerToString_uuwdyc3))[3] = -6148914691236517206L;
 							IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_IntegerToString_long.Invoke(&integerToString_uuwdyc3, num20);
 							llvm_lifetime_start_p0.Invoke(4L, &num19);
-							void* writer2 = ((printf_core_FloatWriter*)@this)->writer;
+							printf_core_Writer* writer2 = @this->writer;
 							Struct_kqhe8i struct_kqhe8i7 = IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_view_const.Invoke(&integerToString_uuwdyc3);
 							cpp_string_view* num26 = &cpp_string_view5;
 							Struct_kqhe8i struct_kqhe8i8 = struct_kqhe8i7;
@@ -599,7 +600,7 @@ internal static partial class printf_core_FloatWriter_write_last_block_unsigned_
 								goto end_IL_0d99;
 							}
 						}
-						((printf_core_FloatWriter*)@this)->total_digits_written = ((printf_core_FloatWriter*)@this)->total_digits;
+						@this->total_digits_written = @this->total_digits;
 						result = 0;
 						break;
 					}

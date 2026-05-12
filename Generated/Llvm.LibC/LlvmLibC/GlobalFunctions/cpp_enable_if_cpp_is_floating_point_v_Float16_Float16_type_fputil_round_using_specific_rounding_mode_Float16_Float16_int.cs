@@ -28,16 +28,16 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_Floa
 			*(short*)(&fputil_FPBits_2fahva2) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, x);
 			Half result;
-			if (fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_inf_or_nan_const.Invoke(&fputil_FPBits_2fahva2) || fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero_const.Invoke(&fputil_FPBits_2fahva2))
+			if (fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_inf_or_nan_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) || fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
 			{
 				result = x;
 			}
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(1L, &b);
-				b = (fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_neg_const.Invoke(&fputil_FPBits_2fahva2) ? ((sbyte)1) : ((sbyte)0));
+				b = (fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_neg_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) ? ((sbyte)1) : ((sbyte)0));
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_exponent_const.Invoke(&fputil_FPBits_2fahva2);
+				num = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_exponent_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2));
 				if (num >= 10)
 				{
 					result = x;
@@ -50,7 +50,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_Floa
 						0 => InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)), 
 						2 => InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)), 
 						3 => (num >= -1) ? InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)) : InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)), 
-						_ => (num > -2 && (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke(&fputil_FPBits_2fahva2) != 0) ? InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)) : InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)), 
+						_ => (num > -2 && (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) != 0) ? InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)) : InstructionHelper.Select((b & 1) == 1, default(Half), default(Half)), 
 					};
 				}
 				else
@@ -58,7 +58,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_Floa
 					llvm_lifetime_start_p0.Invoke(4L, &num2);
 					num2 = checked(10 - num);
 					llvm_lifetime_start_p0.Invoke(2L, &num3);
-					num3 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva2);
+					num3 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2));
 					llvm_lifetime_start_p0.Invoke(2L, &num4);
 					num4 = (short)((ushort)num3 >> num2 << num2);
 					if ((ushort)num4 == (ushort)num3)
@@ -73,11 +73,11 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_Floa
 						llvm_lifetime_start_p0.Invoke(2L, &half);
 						half = fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva3);
 						llvm_lifetime_start_p0.Invoke(2L, &num5);
-						num5 = (short)((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke(&fputil_FPBits_2fahva2) & (ushort)(short)checked((1 << num2) - 1));
+						num5 = (short)((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) & (ushort)(short)checked((1 << num2) - 1));
 						llvm_lifetime_start_p0.Invoke(2L, &num6);
 						num6 = (short)(1 << num2 - 1);
 						llvm_lifetime_start_p0.Invoke(2L, &num7);
-						num7 = (short)((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke(&fputil_FPBits_2fahva3) & (1 << num2));
+						num7 = (short)((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3)) & (1 << num2));
 						result = rnd switch
 						{
 							1 => ((b & 1) != 1) ? half : ((Half)((float)half - 1f)), 

@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::write_first_block(unsigned int, bool)")]
 internal static partial class printf_core_FloatWriter_write_first_block_unsigned_int_bool
 {
-	public unsafe static void Invoke(void* @this, int block, bool exp_format)
+	public unsafe static void Invoke(printf_core_FloatWriter* @this, int block, bool exp_format)
 	{
 		IntegerToString_uuwdyc integerToString_uuwdyc = default(IntegerToString_uuwdyc);
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
@@ -63,14 +63,14 @@ internal static partial class printf_core_FloatWriter_write_first_block_unsigned
 			for (num2 = 0L; (ulong)num2 < (ulong)num; num2++)
 			{
 				sbyte b2 = *(sbyte*)cpp_string_view_operator_unsigned_long_const.Invoke(&cpp_string_view2, num2);
-				((sbyte*)(&((printf_core_FloatWriter*)@this)->block_buffer))[num2] = b2;
+				((sbyte*)(&@this->block_buffer))[num2] = b2;
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
-			((printf_core_FloatWriter*)@this)->buffered_digits = num;
+			@this->buffered_digits = num;
 			if ((b & 1) != 1)
 			{
-				((printf_core_FloatWriter*)@this)->total_digits += num;
-				((printf_core_FloatWriter*)@this)->digits_before_decimal += num;
+				@this->total_digits += num;
+				@this->digits_before_decimal += num;
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &num);
 			llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);

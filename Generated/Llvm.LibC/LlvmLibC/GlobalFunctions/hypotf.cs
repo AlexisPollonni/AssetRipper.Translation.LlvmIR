@@ -38,18 +38,18 @@ internal static partial class hypotf
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs3, x);
-			int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs3);
+			int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
 			fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
 			*(int*)(&fputil_FPBits_5nkvcs4) = -1431655766;
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs5, y);
-			int field_2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs5);
+			int field_2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs5));
 			fputil_FPBits_5nkvcs4.FPRepImpl.FPRepSem.field_0.field_0 = field_2;
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
 			llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = (((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) >= (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs4)) ? ((sbyte)1) : ((sbyte)0));
+			b = (((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) >= (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4))) ? ((sbyte)1) : ((sbyte)0));
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs6);
 			*(int*)(&fputil_FPBits_5nkvcs6) = -1431655766;
 			llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs6, Unsafe.AsPointer(ref (b & 1) != 1 ? ref fputil_FPBits_5nkvcs4 : ref fputil_FPBits_5nkvcs2), 4L, isVolatile: false);
@@ -57,9 +57,9 @@ internal static partial class hypotf
 			*(int*)(&fputil_FPBits_5nkvcs7) = -1431655766;
 			llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs7, Unsafe.AsPointer(ref (b & 1) != 1 ? ref fputil_FPBits_5nkvcs2 : ref fputil_FPBits_5nkvcs4), 4L, isVolatile: false);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs6);
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs6));
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs7);
+			num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs7));
 			float result;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num >= 2139095040u, expected: false))
 			{
@@ -105,7 +105,7 @@ internal static partial class hypotf
 				*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
 				fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, cpp_enable_if_cpp_is_floating_point_v_double_cpp_is_floating_point_v_double_sizeof_double_sizeof_double_double_type_fputil_sqrt_double_double_double.Invoke(num6));
 				llvm_lifetime_start_p0.Invoke(8L, &num7);
-				num7 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm2);
+				num7 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(((num7 + 1L) & 0xFFFFFFEL) == 0L, expected: false))
 				{
 					llvm_lifetime_start_p0.Invoke(8L, &num8);

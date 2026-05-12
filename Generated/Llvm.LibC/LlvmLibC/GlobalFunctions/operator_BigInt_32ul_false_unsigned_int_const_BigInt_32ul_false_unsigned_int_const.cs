@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::operator&(__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int> const&, __llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int> const&)")]
 internal static partial class operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const
 {
-	public unsafe static int Invoke(void* lhs, void* rhs)
+	public unsafe static int Invoke(BigInt_fzjdu3* lhs, BigInt_fzjdu3* rhs)
 	{
 		BigInt_fzjdu3 bigInt_fzjdu = default(BigInt_fzjdu3);
 		long num = 0L;

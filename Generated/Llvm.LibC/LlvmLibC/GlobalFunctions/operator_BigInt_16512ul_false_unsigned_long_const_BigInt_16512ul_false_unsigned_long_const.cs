@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::operator>(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&)")]
 internal static partial class operator_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const
 {
-	public unsafe static bool Invoke(void* lhs, void* rhs)
+	public unsafe static bool Invoke(BigInt_k36xhe* lhs, BigInt_k36xhe* rhs)
 	{
 		return cmp_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const.Invoke(lhs, rhs) > 0;
 	}

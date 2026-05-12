@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 
 namespace LlvmLibC.Structures;
@@ -9,7 +10,7 @@ namespace LlvmLibC.Structures;
 public partial struct printf_core_LengthSpec
 {
 	[FieldOffset(0)]
-	public int lm;
+	public LengthModifier_mnvaa2 lm;
 
 	[FieldOffset(8)]
 	public long bit_width;

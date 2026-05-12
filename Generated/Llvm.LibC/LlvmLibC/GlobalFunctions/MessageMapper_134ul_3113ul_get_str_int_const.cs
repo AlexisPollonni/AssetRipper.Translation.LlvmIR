@@ -8,15 +8,15 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::MessageMapper<134ul, 3113ul>::get_str(int) const")]
 internal static partial class MessageMapper_134ul_3113ul_get_str_int_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q73pcj* agg_result, void* @this, int num)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q73pcj* agg_result, MessageMapper_76ei55* @this, int num)
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		unchecked
 		{
-			if (num >= 0 && (ulong)num < 134uL && ((int*)(&((MessageMapper_76ei55*)@this)->msg_offsets))[num] != -1)
+			if (num >= 0 && (ulong)num < 134uL && ((int*)(&@this->msg_offsets))[num] != -1)
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view2);
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, (byte*)(&((MessageMapper_76ei55*)@this)->string_array) + ((int*)(&((MessageMapper_76ei55*)@this)->msg_offsets))[num]);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, (byte*)(&@this->string_array) + ((int*)(&@this->msg_offsets))[num]);
 				cpp_optional_cpp_string_view_optional_cpp_string_view.Invoke(agg_result, &cpp_string_view2);
 				llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);
 			}

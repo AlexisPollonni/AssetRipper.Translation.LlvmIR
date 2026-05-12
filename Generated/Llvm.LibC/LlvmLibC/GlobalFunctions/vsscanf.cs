@@ -6,7 +6,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class vsscanf
 {
-	public unsafe static int Invoke(void* buffer, void* format, void* vlist)
+	public unsafe static int Invoke(void* buffer, void* format, va_list_tag* vlist)
 	{
 		internal_ArgList internal_ArgList2 = default(internal_ArgList);
 		scanf_core_ReadBuffer scanf_core_ReadBuffer2 = default(scanf_core_ReadBuffer);
@@ -30,7 +30,7 @@ internal static partial class vsscanf
 			scanf_core_ReadBuffer2.buff_cur = 0L;
 			llvm_lifetime_start_p0.Invoke(40L, &scanf_core_Reader2);
 			llvm_memset_p0_i64.Invoke(&scanf_core_Reader2, 0, 40L, isVolatile: false);
-			scanf_core_Reader2.rb = (void*)12297829382473034410uL;
+			scanf_core_Reader2.rb = (scanf_core_ReadBuffer*)12297829382473034410uL;
 			scanf_core_Reader2.input_stream = (void*)12297829382473034410uL;
 			scanf_core_Reader2.stream_getc = (void*)12297829382473034410uL;
 			scanf_core_Reader2.stream_ungetc = (void*)12297829382473034410uL;

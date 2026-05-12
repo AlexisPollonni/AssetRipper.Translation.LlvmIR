@@ -27,7 +27,7 @@ internal static partial class float128_complex_project_float128_complex_float128
 			cpp_enable_if_sizeof_Complex_float128_sizeof_float128_complex_cpp_is_trivially_constructible_Complex_float128_value_cpp_is_trivially_copyable_Complex_float128_value_cpp_is_trivially_copyable_float128_complex_value_Complex_float128_type_cpp_bit_cast_Complex_float128_float128_complex_float128_complex_const.Invoke(&complex_22i76p, c);
 			llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi3);
 			fputil_FPBits_float128_FPBits_float128_float128.Invoke(&fputil_FPBits_ubgsi3, complex_22i76p.real);
-			bool num = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_inf_const.Invoke(&fputil_FPBits_ubgsi3);
+			bool num = fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_inf_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3));
 			llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 			int num2;
 			if (num)
@@ -37,7 +37,7 @@ internal static partial class float128_complex_project_float128_complex_float128
 			else
 			{
 				fputil_FPBits_float128_FPBits_float128_float128.Invoke(&fputil_FPBits_ubgsi4, complex_22i76p.imag);
-				num2 = (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_inf_const.Invoke(&fputil_FPBits_ubgsi4) ? 1 : 0);
+				num2 = (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_inf_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi4)) ? 1 : 0);
 			}
 			llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 			llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi3);

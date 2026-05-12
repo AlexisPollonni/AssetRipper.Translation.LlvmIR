@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Structures;
 
@@ -13,7 +14,7 @@ internal static partial class printf_core_TypeDesc_printf_core_type_desc_from_ty
 		printf_core_TypeDesc printf_core_TypeDesc2 = new printf_core_TypeDesc
 		{
 			size = 0,
-			primary_type = 0
+			primary_type = PrimaryType.Unknown
 		};
 		return *unchecked((short*)(&printf_core_TypeDesc2));
 	}

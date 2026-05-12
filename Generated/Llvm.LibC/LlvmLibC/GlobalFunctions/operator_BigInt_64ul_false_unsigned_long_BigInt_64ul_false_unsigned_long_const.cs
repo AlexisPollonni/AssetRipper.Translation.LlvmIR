@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::operator|=(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 internal static partial class operator_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const
 {
-	public unsafe static long Invoke(void* lhs, void* rhs)
+	public unsafe static long Invoke(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
 	{
 		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
 		long num = 0L;

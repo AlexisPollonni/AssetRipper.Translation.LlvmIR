@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::mul(unsigned long)")]
 internal static partial class BigInt_16512ul_false_unsigned_long_mul_unsigned_long
 {
-	public unsafe static long Invoke(void* @this, long x)
+	public unsafe static long Invoke(BigInt_k36xhe* @this, long x)
 	{
-		return unsigned_long_multiword_scalar_multiply_with_carry_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long.Invoke(&unchecked((BigInt_k36xhe*)@this)->val, x);
+		return unsigned_long_multiword_scalar_multiply_with_carry_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long.Invoke(&@this->val, x);
 	}
 }

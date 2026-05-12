@@ -9,12 +9,12 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::DigitBuffer<unsigned __int128, 2>::DigitBuffer(char const*)")]
 internal static partial class internal_DigitBuffer_unsigned_int128_2_DigitBuffer_char_const
 {
-	public unsafe static void Invoke(void* @this, void* str)
+	public unsafe static void Invoke(internal_DigitBuffer_wtdk7c* @this, void* str)
 	{
 		void* ptr = str;
+		InlineArray128_SByte* digits = &@this->digits;
 		unchecked
 		{
-			InlineArray128_SByte* digits = &((internal_DigitBuffer_wtdk7c*)@this)->digits;
 			sbyte* ptr2 = (sbyte*)digits + 128;
 			IntPtr intPtr = (nint)digits;
 			while (true)
@@ -28,7 +28,7 @@ internal static partial class internal_DigitBuffer_unsigned_int128_2_DigitBuffer
 				}
 				intPtr = (nint)ptr4;
 			}
-			((internal_DigitBuffer_wtdk7c*)@this)->size = 0L;
+			@this->size = 0L;
 			for (; *(sbyte*)ptr != 0; ptr = (byte*)ptr + 1)
 			{
 				internal_DigitBuffer_unsigned_int128_2_push_char.Invoke(@this, *(sbyte*)ptr);

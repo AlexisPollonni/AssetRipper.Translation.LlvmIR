@@ -35,9 +35,9 @@ internal static partial class fputil_generic_FMod_Float16_unsigned_int_fputil_ge
 		fputil_FPBits_2fahva4.FPRepImpl.FPRepSem.FPStorage.field_0 = sy;
 		unchecked
 		{
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva3) <= (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva4), expected: true))
+			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3)) <= (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva4)), expected: true))
 			{
-				if ((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva3) < (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva4))
+				if ((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3)) < (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva4)))
 				{
 					llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_2fahva2, &fputil_FPBits_2fahva3, 2L, isVolatile: false);
 				}
@@ -51,15 +51,15 @@ internal static partial class fputil_generic_FMod_Float16_unsigned_int_fputil_ge
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_biased_exponent_const.Invoke(&fputil_FPBits_2fahva3);
+				num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3));
 				llvm_lifetime_start_p0.Invoke(4L, &num2);
-				num2 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_biased_exponent_const.Invoke(&fputil_FPBits_2fahva4);
+				num2 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva4));
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 > 10 && checked(num - num2) <= 5, expected: true))
 				{
 					llvm_lifetime_start_p0.Invoke(2L, &num3);
-					num3 = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke(&fputil_FPBits_2fahva3);
+					num3 = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva3));
 					llvm_lifetime_start_p0.Invoke(2L, &num4);
-					num4 = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke(&fputil_FPBits_2fahva4);
+					num4 = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva4));
 					llvm_lifetime_start_p0.Invoke(2L, &num5);
 					num5 = (short)((num != num2) ? ((ushort)(short)((ushort)num3 << checked(num - num2)) % (ushort)num4) : checked(unchecked((ushort)num3) - unchecked((ushort)num4)));
 					if ((ushort)num5 == 0)
@@ -81,15 +81,15 @@ internal static partial class fputil_generic_FMod_Float16_unsigned_int_fputil_ge
 				{
 					*(short*)(&fputil_FPBits_2fahva2) = -21846;
 					fputil_FPBits_Float16_FPBits.Invoke(&fputil_FPBits_2fahva2);
-					fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_set_mantissa_unsigned_short.Invoke(&fputil_FPBits_2fahva2, (short)((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva3) % (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva4)));
+					fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_set_mantissa_unsigned_short.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2), (short)((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3)) % (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva4))));
 				}
 				else
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num6);
-					num6 = (ushort)fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke(&fputil_FPBits_2fahva3);
+					num6 = (ushort)fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva3));
 					num = checked(num + -1);
 					llvm_lifetime_start_p0.Invoke(4L, &num7);
-					num7 = (ushort)fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke(&fputil_FPBits_2fahva4);
+					num7 = (ushort)fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva4));
 					llvm_lifetime_start_p0.Invoke(4L, &num8);
 					num8 = 21;
 					llvm_lifetime_start_p0.Invoke(4L, &num9);
@@ -100,7 +100,7 @@ internal static partial class fputil_generic_FMod_Float16_unsigned_int_fputil_ge
 					}
 					else
 					{
-						num7 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke(&fputil_FPBits_2fahva4);
+						num7 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva4));
 						num9 = cpp_enable_if_cpp_is_unsigned_v_unsigned_int_int_type_cpp_countl_zero_unsigned_int_unsigned_int.Invoke(num7);
 					}
 					llvm_lifetime_start_p0.Invoke(4L, &num10);

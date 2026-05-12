@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using LlvmLibC.Helpers;
 
@@ -10,6 +11,6 @@ internal static partial class llvm_rint_f64
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static double Invoke(double parameter_0)
 	{
-		throw null;
+		throw new NotImplementedException("Unimplemented LLVM intrinsic: llvm.rint.f64");
 	}
 }

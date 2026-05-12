@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::is_zero() const")]
 internal static partial class BigInt_32ul_false_unsigned_int_is_zero_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(BigInt_fzjdu3* @this)
 	{
 		bool result = false;
 		void* ptr = null;
@@ -19,11 +20,11 @@ internal static partial class BigInt_32ul_false_unsigned_int_is_zero_const
 		unchecked
 		{
 			ptr = (void*)12297829382473034410uL;
-			ptr = &((BigInt_fzjdu3*)@this)->val;
+			ptr = &@this->val;
 			llvm_lifetime_start_p0.Invoke(8L, &ptr2);
-			ptr2 = cpp_array_unsigned_int_1ul_begin_const.Invoke(ptr);
+			ptr2 = cpp_array_unsigned_int_1ul_begin_const.Invoke((cpp_array_aj48id*)ptr);
 			llvm_lifetime_start_p0.Invoke(8L, &ptr3);
-			ptr3 = cpp_array_unsigned_int_1ul_end_const.Invoke(ptr);
+			ptr3 = cpp_array_unsigned_int_1ul_end_const.Invoke((cpp_array_aj48id*)ptr);
 			int num2;
 			while (true)
 			{
@@ -61,7 +62,7 @@ internal static partial class BigInt_32ul_false_unsigned_int_is_zero_const
 			{
 				if (num3 != 1)
 				{
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 			}
 			else

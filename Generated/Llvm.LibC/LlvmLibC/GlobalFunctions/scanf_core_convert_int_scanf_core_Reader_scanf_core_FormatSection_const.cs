@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::convert_int(__llvm_libc_20_1_2_::scanf_core::Reader*, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
 internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_core_FormatSection_const
 {
-	public unsafe static int Invoke(void* reader, void* to_conv)
+	public unsafe static int Invoke(scanf_core_Reader* reader, scanf_core_FormatSection* to_conv)
 	{
 		long num = 0L;
 		long num2 = 0L;
@@ -28,47 +29,47 @@ internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_cor
 		long num10 = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke();
+		if (to_conv->max_width > 0)
+		{
+			num = to_conv->max_width;
+		}
+		llvm_lifetime_start_p0.Invoke(8L, &num2);
+		num2 = 0L;
+		llvm_lifetime_start_p0.Invoke(1L, &b);
+		b = 0;
+		llvm_lifetime_start_p0.Invoke(1L, &b2);
+		b2 = 0;
+		llvm_lifetime_start_p0.Invoke(4L, &num3);
+		num3 = 0;
+		if (to_conv->conv_name == 105)
+		{
+			num3 = 0;
+			b2 = 1;
+		}
+		else if (to_conv->conv_name == 111)
+		{
+			num3 = 8;
+		}
+		else if (internal_tolower_int_130.Invoke(to_conv->conv_name) == 120 || to_conv->conv_name == 112)
+		{
+			num3 = 16;
+		}
+		else if (to_conv->conv_name == 100)
+		{
+			num3 = 10;
+			b2 = 1;
+		}
+		else
+		{
+			num3 = 10;
+		}
+		llvm_lifetime_start_p0.Invoke(1L, &b3);
+		b3 = scanf_core_Reader_getc.Invoke(reader);
+		llvm_lifetime_start_p0.Invoke(1L, &b4);
+		b4 = 43;
 		int result;
 		unchecked
 		{
-			if (((scanf_core_FormatSection*)to_conv)->max_width > 0)
-			{
-				num = ((scanf_core_FormatSection*)to_conv)->max_width;
-			}
-			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = 0L;
-			llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = 0;
-			llvm_lifetime_start_p0.Invoke(1L, &b2);
-			b2 = 0;
-			llvm_lifetime_start_p0.Invoke(4L, &num3);
-			num3 = 0;
-			if (((scanf_core_FormatSection*)to_conv)->conv_name == 105)
-			{
-				num3 = 0;
-				b2 = 1;
-			}
-			else if (((scanf_core_FormatSection*)to_conv)->conv_name == 111)
-			{
-				num3 = 8;
-			}
-			else if (internal_tolower_int_130.Invoke(((scanf_core_FormatSection*)to_conv)->conv_name) == 120 || ((scanf_core_FormatSection*)to_conv)->conv_name == 112)
-			{
-				num3 = 16;
-			}
-			else if (((scanf_core_FormatSection*)to_conv)->conv_name == 100)
-			{
-				num3 = 10;
-				b2 = 1;
-			}
-			else
-			{
-				num3 = 10;
-			}
-			llvm_lifetime_start_p0.Invoke(1L, &b3);
-			b3 = scanf_core_Reader_getc.Invoke(reader);
-			llvm_lifetime_start_p0.Invoke(1L, &b4);
-			b4 = 43;
 			if (b3 == 43 || b3 == 45)
 			{
 				b4 = b3;
@@ -183,7 +184,7 @@ internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_cor
 					b3 = scanf_core_Reader_getc.Invoke(reader);
 					continue;
 				}
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 			scanf_core_Reader_ungetc_char.Invoke(reader, b3);
 			if ((b & 1) != 1)

@@ -6,7 +6,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class vsprintf
 {
-	public unsafe static int Invoke(void* buffer, void* format, void* vlist)
+	public unsafe static int Invoke(void* buffer, void* format, va_list_tag* vlist)
 	{
 		internal_ArgList internal_ArgList2 = default(internal_ArgList);
 		printf_core_WriteBuffer printf_core_WriteBuffer2 = default(printf_core_WriteBuffer);

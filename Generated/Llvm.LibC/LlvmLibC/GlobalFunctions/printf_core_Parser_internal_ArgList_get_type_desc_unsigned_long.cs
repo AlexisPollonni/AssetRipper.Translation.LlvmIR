@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::get_type_desc(unsigned long)")]
 internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_unsigned_long
 {
-	public unsafe static short Invoke(void* @this, long index)
+	public unsafe static short Invoke(printf_core_Parser* @this, long index)
 	{
 		printf_core_TypeDesc printf_core_TypeDesc2 = default(printf_core_TypeDesc);
 		long num = 0L;
@@ -45,9 +46,9 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 			while (true)
 			{
 				int num6;
-				if (((bool*)((printf_core_Parser*)@this)->str)[num])
+				if (((bool*)@this->str)[num])
 				{
-					if (((sbyte*)((printf_core_Parser*)@this)->str)[num] != 37)
+					if (((sbyte*)@this->str)[num] != 37)
 					{
 						goto IL_0b26;
 					}
@@ -55,7 +56,7 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 					llvm_lifetime_start_p0.Invoke(8L, &num2);
 					num2 = printf_core_Parser_internal_ArgList_parse_index_unsigned_long.Invoke(@this, &num);
 					printf_core_Parser_internal_ArgList_parse_flags_unsigned_long.Invoke(@this, &num);
-					if (((sbyte*)((printf_core_Parser*)@this)->str)[num] == 42)
+					if (((sbyte*)@this->str)[num] == 42)
 					{
 						num++;
 						llvm_lifetime_start_p0.Invoke(8L, &num3);
@@ -81,16 +82,16 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 							goto IL_0b01;
 						}
 					}
-					else if (internal_isdigit_int_149.Invoke(((sbyte*)((printf_core_Parser*)@this)->str)[num]))
+					else if (internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]))
 					{
-						for (; internal_isdigit_int_149.Invoke(((sbyte*)((printf_core_Parser*)@this)->str)[num]); num++)
+						for (; internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]); num++)
 						{
 						}
 					}
-					if (((sbyte*)((printf_core_Parser*)@this)->str)[num] == 46)
+					if (((sbyte*)@this->str)[num] == 46)
 					{
 						num++;
-						if (((sbyte*)((printf_core_Parser*)@this)->str)[num] == 42)
+						if (((sbyte*)@this->str)[num] == 42)
 						{
 							num++;
 							llvm_lifetime_start_p0.Invoke(8L, &num4);
@@ -116,9 +117,9 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 								goto IL_0b01;
 							}
 						}
-						else if (internal_isdigit_int_149.Invoke(((sbyte*)((printf_core_Parser*)@this)->str)[num]))
+						else if (internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]))
 						{
-							for (; internal_isdigit_int_149.Invoke(((sbyte*)((printf_core_Parser*)@this)->str)[num]); num++)
+							for (; internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]); num++)
 							{
 							}
 						}
@@ -140,7 +141,7 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 					*(long*)num9 = struct_nfiam3.field_1;
 					if (num2 == 0L)
 					{
-						if (((sbyte*)((printf_core_Parser*)@this)->str)[num] != 0)
+						if (((sbyte*)@this->str)[num] != 0)
 						{
 							num++;
 						}
@@ -149,7 +150,7 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 					else
 					{
 						llvm_memset_p0_i64.Invoke(&printf_core_TypeDesc2, 0, 2L, isVolatile: false);
-						switch (((sbyte*)((printf_core_Parser*)@this)->str)[num])
+						switch (((sbyte*)@this->str)[num])
 						{
 						case 37:
 							llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc5);
@@ -173,47 +174,47 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 						case 120:
 							switch (printf_core_LengthSpec2.lm)
 							{
-							case 0:
-							case 1:
-							case 10:
+							case LengthModifier_mnvaa2.hh:
+							case LengthModifier_mnvaa2.h:
+							case LengthModifier_mnvaa2.none:
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc7);
 								*(short*)(&printf_core_TypeDesc7) = printf_core_TypeDesc_printf_core_type_desc_from_type_int.Invoke();
 								llvm_memcpy_p0_p0_i64.Invoke(&printf_core_TypeDesc2, &printf_core_TypeDesc7, 2L, isVolatile: false);
 								llvm_lifetime_end_p0.Invoke(2L, &printf_core_TypeDesc7);
 								break;
-							case 2:
+							case LengthModifier_mnvaa2.l:
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc8);
 								*(short*)(&printf_core_TypeDesc8) = printf_core_TypeDesc_printf_core_type_desc_from_type_long.Invoke();
 								llvm_memcpy_p0_p0_i64.Invoke(&printf_core_TypeDesc2, &printf_core_TypeDesc8, 2L, isVolatile: false);
 								llvm_lifetime_end_p0.Invoke(2L, &printf_core_TypeDesc8);
 								break;
-							case 3:
-							case 7:
+							case LengthModifier_mnvaa2.ll:
+							case LengthModifier_mnvaa2.L:
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc9);
 								*(short*)(&printf_core_TypeDesc9) = printf_core_TypeDesc_printf_core_type_desc_from_type_long_long.Invoke();
 								llvm_memcpy_p0_p0_i64.Invoke(&printf_core_TypeDesc2, &printf_core_TypeDesc9, 2L, isVolatile: false);
 								llvm_lifetime_end_p0.Invoke(2L, &printf_core_TypeDesc9);
 								break;
-							case 4:
+							case LengthModifier_mnvaa2.j:
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc10);
 								*(short*)(&printf_core_TypeDesc10) = printf_core_TypeDesc_printf_core_type_desc_from_type_long.Invoke();
 								llvm_memcpy_p0_p0_i64.Invoke(&printf_core_TypeDesc2, &printf_core_TypeDesc10, 2L, isVolatile: false);
 								llvm_lifetime_end_p0.Invoke(2L, &printf_core_TypeDesc10);
 								break;
-							case 5:
+							case LengthModifier_mnvaa2.z:
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc11);
 								*(short*)(&printf_core_TypeDesc11) = printf_core_TypeDesc_printf_core_type_desc_from_type_unsigned_long.Invoke();
 								llvm_memcpy_p0_p0_i64.Invoke(&printf_core_TypeDesc2, &printf_core_TypeDesc11, 2L, isVolatile: false);
 								llvm_lifetime_end_p0.Invoke(2L, &printf_core_TypeDesc11);
 								break;
-							case 6:
+							case LengthModifier_mnvaa2.t:
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc12);
 								*(short*)(&printf_core_TypeDesc12) = printf_core_TypeDesc_printf_core_type_desc_from_type_long.Invoke();
 								llvm_memcpy_p0_p0_i64.Invoke(&printf_core_TypeDesc2, &printf_core_TypeDesc12, 2L, isVolatile: false);
 								llvm_lifetime_end_p0.Invoke(2L, &printf_core_TypeDesc12);
 								break;
-							case 8:
-							case 9:
+							case LengthModifier_mnvaa2.w:
+							case LengthModifier_mnvaa2.wf:
 								if ((ulong)printf_core_LengthSpec2.bit_width <= 32uL)
 								{
 									llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc13);
@@ -253,7 +254,7 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 						case 101:
 						case 102:
 						case 103:
-							if (printf_core_LengthSpec2.lm != 7)
+							if (printf_core_LengthSpec2.lm != LengthModifier_mnvaa2.L)
 							{
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc17);
 								*(short*)(&printf_core_TypeDesc17) = printf_core_TypeDesc_printf_core_type_desc_from_type_double.Invoke();
@@ -277,7 +278,7 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 							break;
 						case 75:
 						case 107:
-							if (printf_core_LengthSpec2.lm == 2)
+							if (printf_core_LengthSpec2.lm == LengthModifier_mnvaa2.l)
 							{
 								llvm_lifetime_start_p0.Invoke(2L, &printf_core_TypeDesc20);
 								*(short*)(&printf_core_TypeDesc20) = printf_core_TypeDesc_printf_core_type_desc_from_type_unsigned_long.Invoke();
@@ -330,7 +331,7 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 				}
 				goto IL_0b26;
 				IL_0b26:
-				if (((sbyte*)((printf_core_Parser*)@this)->str)[num] != 0)
+				if (((sbyte*)@this->str)[num] != 0)
 				{
 					num++;
 				}

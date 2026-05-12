@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<_Float16>::has_error()")]
 internal static partial class StrToNumResult_Float16_has_error
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(StrToNumResult_stcih6* @this)
 	{
-		return unchecked((StrToNumResult_stcih6*)@this)->error != 0;
+		return @this->error != 0;
 	}
 }

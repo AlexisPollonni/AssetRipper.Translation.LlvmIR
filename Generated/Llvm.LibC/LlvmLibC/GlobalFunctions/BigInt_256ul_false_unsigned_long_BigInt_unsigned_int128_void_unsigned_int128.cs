@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>::BigInt<unsigned __int128, void>(unsigned __int128)")]
 internal static partial class BigInt_256ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128
 {
-	public unsafe static void Invoke(void* @this, [MangledName("v.coerce0")] long v, [MangledName("v.coerce1")] long T_SIZE)
+	public unsafe static void Invoke(BigInt_x9dsed* @this, [MangledName("v.coerce0")] long v, [MangledName("v.coerce1")] long T_SIZE)
 	{
 		Int128 @int = default(Int128);
 		long num = 0L;
@@ -20,7 +20,7 @@ internal static partial class BigInt_256ul_false_unsigned_long_BigInt_unsigned_i
 			*(long*)(&@int) = v;
 			((long*)(&@int))[1] = T_SIZE;
 			Int128 int2 = @int;
-			llvm_memset_p0_i64.Invoke(&((BigInt_x9dsed*)@this)->val.Data, 0, 32L, isVolatile: false);
+			llvm_memset_p0_i64.Invoke(&@this->val.Data, 0, 32L, isVolatile: false);
 			llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = 128L;
 			llvm_lifetime_start_p0.Invoke(1L, &b);
@@ -42,7 +42,7 @@ internal static partial class BigInt_256ul_false_unsigned_long_BigInt_unsigned_i
 					break;
 				}
 				long num4 = (long)int2;
-				*(long*)cpp_array_unsigned_long_4ul_operator_unsigned_long.Invoke(&((BigInt_x9dsed*)@this)->val, num2) = num4;
+				*(long*)cpp_array_unsigned_long_4ul_operator_unsigned_long.Invoke(&@this->val, num2) = num4;
 				int2 = NumericHelper.ShiftRightLogical(int2, 64L);
 				num2++;
 			}
@@ -59,7 +59,7 @@ internal static partial class BigInt_256ul_false_unsigned_long_BigInt_unsigned_i
 			case 1:
 				return;
 			}
-			throw null;
+			throw new NotImplementedException("Reached LLVM unreachable instruction.");
 		}
 	}
 }

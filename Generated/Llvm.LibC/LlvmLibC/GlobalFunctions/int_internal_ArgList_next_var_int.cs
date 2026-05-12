@@ -7,11 +7,11 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("int __llvm_libc_20_1_2_::internal::ArgList::next_var<int>()")]
 internal static partial class int_internal_ArgList_next_var_int
 {
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke(internal_ArgList* @this)
 	{
 		unchecked
 		{
-			va_list_tag* vlist = (va_list_tag*)(&((internal_ArgList*)@this)->vlist);
+			va_list_tag* vlist = (va_list_tag*)(&@this->vlist);
 			int* gp_offset = &vlist->gp_offset;
 			int num = *gp_offset;
 			nint num2;

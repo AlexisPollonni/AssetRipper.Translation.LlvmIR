@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::get_explicit_mantissa() const")]
 internal static partial class fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_get_explicit_mantissa_const
 {
-	public unsafe static Struct_fiz2nb Invoke(void* @this)
+	public unsafe static Struct_fiz2nb Invoke(fputil_internal_FPRepSem_f94eua* @this)
 	{
 		Int128 @int = default(Int128);
 		Int128 int2 = default(Int128);

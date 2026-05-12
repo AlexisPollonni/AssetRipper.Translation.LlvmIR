@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::LargeRangeReduction::LargeRangeReduction()")]
 internal static partial class LargeRangeReduction_LargeRangeReduction
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(LargeRangeReduction* @this)
 	{
-		NumberPair_double_NumberPair.Invoke(&unchecked((LargeRangeReduction*)@this)->y_mid);
+		NumberPair_double_NumberPair.Invoke(&@this->y_mid);
 	}
 }

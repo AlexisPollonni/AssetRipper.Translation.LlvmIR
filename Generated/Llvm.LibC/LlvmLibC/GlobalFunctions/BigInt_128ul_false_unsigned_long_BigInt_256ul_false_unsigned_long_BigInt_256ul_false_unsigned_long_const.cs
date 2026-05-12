@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>::BigInt<256ul, false, unsigned long>(__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long> const&)")]
 internal static partial class BigInt_128ul_false_unsigned_long_BigInt_256ul_false_unsigned_long_BigInt_256ul_false_unsigned_long_const
 {
-	public unsafe static void Invoke(void* @this, void* other)
+	public unsafe static void Invoke(anon_izyfb7* @this, BigInt_x9dsed* other)
 	{
 		sbyte b = 0;
 		long num = 0L;

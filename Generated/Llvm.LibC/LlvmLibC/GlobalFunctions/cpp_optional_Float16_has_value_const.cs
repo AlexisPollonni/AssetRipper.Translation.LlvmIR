@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<_Float16>::has_value() const")]
 internal static partial class cpp_optional_Float16_has_value_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(cpp_optional_aq7wey* @this)
 	{
-		return (unchecked((cpp_optional_aq7wey*)@this)->storage.in_use & 1) == 1;
+		return (@this->storage.in_use & 1) == 1;
 	}
 }

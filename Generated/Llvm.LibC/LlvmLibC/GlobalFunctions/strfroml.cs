@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
 
@@ -16,7 +17,7 @@ internal static partial class strfroml
 		llvm_lifetime_start_p0.Invoke(80L, &printf_core_FormatSection2);
 		llvm_memset_p0_i64.Invoke(&printf_core_FormatSection2, -86, 80L, isVolatile: false);
 		printf_core_FormatSection_internal_parse_format_string_long_double_char_const_long_double.Invoke(&printf_core_FormatSection2, format, fp);
-		printf_core_FormatSection2.length_modifier = 7;
+		printf_core_FormatSection2.length_modifier = LengthModifier_mnvaa2.L;
 		llvm_lifetime_start_p0.Invoke(56L, &printf_core_WriteBuffer2);
 		llvm_memset_p0_i64.Invoke(&printf_core_WriteBuffer2, -86, 56L, isVolatile: false);
 		unchecked

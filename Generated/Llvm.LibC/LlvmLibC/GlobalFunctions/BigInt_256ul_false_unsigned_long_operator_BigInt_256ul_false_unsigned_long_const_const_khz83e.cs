@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_256ul_false_unsigned_long_operator_BigInt_256ul_false_unsigned_long_const_const")]
 internal static partial class BigInt_256ul_false_unsigned_long_operator_BigInt_256ul_false_unsigned_long_const_const_khz83e
 {
-	public unsafe static void Invoke([MangledName("agg.result")] BigInt_x9dsed* agg_result, void* @this, void* other)
+	public unsafe static void Invoke([MangledName("agg.result")] BigInt_x9dsed* agg_result, BigInt_x9dsed* @this, BigInt_x9dsed* other)
 	{
 		BigInt_fjg8pd bigInt_fjg8pd = default(BigInt_fjg8pd);
 		llvm_lifetime_start_p0.Invoke(64L, &bigInt_fjg8pd);

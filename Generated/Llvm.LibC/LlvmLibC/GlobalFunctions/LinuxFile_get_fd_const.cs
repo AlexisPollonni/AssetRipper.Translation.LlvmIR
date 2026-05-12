@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::LinuxFile::get_fd() const")]
 internal static partial class LinuxFile_get_fd_const
 {
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke(LinuxFile* @this)
 	{
-		return unchecked((LinuxFile*)@this)->fd;
+		return @this->fd;
 	}
 }

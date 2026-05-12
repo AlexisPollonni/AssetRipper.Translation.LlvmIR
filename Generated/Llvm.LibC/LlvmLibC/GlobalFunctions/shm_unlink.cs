@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
 
@@ -35,7 +36,7 @@ internal static partial class shm_unlink
 			case 1:
 				return result;
 			default:
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 		}
 	}

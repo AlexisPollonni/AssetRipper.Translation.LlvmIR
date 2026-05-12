@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>>::optional(__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>&&)")]
 internal static partial class cpp_optional_BigInt_128ul_false_unsigned_long_optional_BigInt_128ul_false_unsigned_long
 {
-	public unsafe static void Invoke(void* @this, void* t)
+	public unsafe static void Invoke(void* @this, anon_izyfb7* t)
 	{
 		unchecked
 		{

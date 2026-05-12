@@ -10,7 +10,7 @@ namespace LlvmLibC.Structures;
 public partial struct printf_core_Writer
 {
 	[FieldOffset(0)]
-	public unsafe void* wb;
+	public unsafe printf_core_WriteBuffer* wb;
 
 	[FieldOffset(8)]
 	public int chars_written;

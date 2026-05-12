@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::right_shift(unsigned int)")]
 internal static partial class internal_HighPrecisionDecimal_right_shift_unsigned_int
 {
-	public unsafe static void Invoke(void* @this, int shift_amount)
+	public unsafe static void Invoke(internal_HighPrecisionDecimal* @this, int shift_amount)
 	{
 		int num = 0;
 		int num2 = 0;
@@ -32,23 +32,23 @@ internal static partial class internal_HighPrecisionDecimal_right_shift_unsigned
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num5);
 				num5 = 0L;
-				if ((uint)num < (uint)((internal_HighPrecisionDecimal*)@this)->num_digits)
+				if ((uint)num < (uint)@this->num_digits)
 				{
-					num5 = (byte)((sbyte*)(&((internal_HighPrecisionDecimal*)@this)->digits))[(uint)num];
+					num5 = (byte)((sbyte*)(&@this->digits))[(uint)num];
 				}
 				num3 = num3 * 10L + num5;
 				num++;
 				llvm_lifetime_end_p0.Invoke(8L, &num5);
 			}
-			((internal_HighPrecisionDecimal*)@this)->decimal_point -= num - 1;
-			while ((uint)num < (uint)((internal_HighPrecisionDecimal*)@this)->num_digits)
+			@this->decimal_point -= num - 1;
+			while ((uint)num < (uint)@this->num_digits)
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num6);
-				num6 = (byte)((sbyte*)(&((internal_HighPrecisionDecimal*)@this)->digits))[(uint)num];
+				num6 = (byte)((sbyte*)(&@this->digits))[(uint)num];
 				llvm_lifetime_start_p0.Invoke(8L, &num7);
 				num7 = num3 >>> (int)(uint)shift_amount;
 				num3 &= num4;
-				((sbyte*)(&((internal_HighPrecisionDecimal*)@this)->digits))[(uint)num2] = (sbyte)num7;
+				((sbyte*)(&@this->digits))[(uint)num2] = (sbyte)num7;
 				num3 = num3 * 10L + num6;
 				num++;
 				num2++;
@@ -62,17 +62,17 @@ internal static partial class internal_HighPrecisionDecimal_right_shift_unsigned
 				num3 &= num4;
 				if ((uint)num2 < 800u)
 				{
-					((sbyte*)(&((internal_HighPrecisionDecimal*)@this)->digits))[(uint)num2] = (sbyte)num8;
+					((sbyte*)(&@this->digits))[(uint)num2] = (sbyte)num8;
 					num2++;
 				}
 				else if ((ulong)num8 > 0uL)
 				{
-					((internal_HighPrecisionDecimal*)@this)->truncated = 1;
+					@this->truncated = 1;
 				}
 				num3 *= 10L;
 				llvm_lifetime_end_p0.Invoke(8L, &num8);
 			}
-			((internal_HighPrecisionDecimal*)@this)->num_digits = num2;
+			@this->num_digits = num2;
 			internal_HighPrecisionDecimal_trim_trailing_zeroes.Invoke(@this);
 			llvm_lifetime_end_p0.Invoke(8L, &num4);
 			llvm_lifetime_end_p0.Invoke(8L, &num3);

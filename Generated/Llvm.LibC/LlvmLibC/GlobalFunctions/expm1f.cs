@@ -42,7 +42,7 @@ internal static partial class expm1f
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
 			num2 = num & 0x7FFFFFFF;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num == 1043709637, expected: false))
@@ -58,7 +58,7 @@ internal static partial class expm1f
 				{
 					goto IL_03ac;
 				}
-				if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2))
+				if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)))
 				{
 					if (fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_inf_const.Invoke(&fputil_FPBits_5nkvcs2))
 					{
@@ -78,11 +78,11 @@ internal static partial class expm1f
 				}
 				else
 				{
-					if ((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) < 1118961664u)
+					if ((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) < 1118961664u)
 					{
 						goto IL_03ac;
 					}
-					if ((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) < 2139095040u)
+					if ((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) < 2139095040u)
 					{
 						llvm_lifetime_start_p0.Invoke(4L, &num5);
 						num5 = fputil_quick_get_round.Invoke();
@@ -134,7 +134,7 @@ internal static partial class expm1f
 			{
 				if ((uint)num2 < 855638016u)
 				{
-					result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) == int.MinValue, expected: false)) ? float_fputil_fma_float_float_float_float_float.Invoke(x, x, x) : x);
+					result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) == int.MinValue, expected: false)) ? float_fputil_fma_float_float_float_float_float.Invoke(x, x, x) : x);
 				}
 				else
 				{

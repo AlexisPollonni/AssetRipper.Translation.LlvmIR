@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (__float128 complex) == sizeof (__llvm_libc_20_1_2_::Complex<__float128>) && cpp::is_trivially_constructible<__float128 complex>::value && cpp::is_trivially_copyable<__float128 complex>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::Complex<__float128>>::value, __float128 complex>::type __llvm_libc_20_1_2_::cpp::bit_cast<__float128 complex, __llvm_libc_20_1_2_::Complex<__float128>>(__llvm_libc_20_1_2_::Complex<__float128> const&)")]
 internal static partial class cpp_enable_if_sizeof_float128_complex_sizeof_Complex_float128_cpp_is_trivially_constructible_float128_complex_value_cpp_is_trivially_copyable_float128_complex_value_cpp_is_trivially_copyable_Complex_float128_value_float128_complex_type_cpp_bit_cast_float128_complex_Complex_float128_Complex_float128_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] Struct_unhbb7* agg_result, void* from)
+	public unsafe static void Invoke([MangledName("agg.result")] Struct_unhbb7* agg_result, Complex_22i76p* from)
 	{
 		unchecked
 		{

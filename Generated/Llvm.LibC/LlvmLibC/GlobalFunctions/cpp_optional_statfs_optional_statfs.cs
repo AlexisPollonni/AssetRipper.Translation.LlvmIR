@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::optional(statfs&&)")]
 internal static partial class cpp_optional_statfs_optional_statfs
 {
-	public unsafe static void Invoke(void* @this, void* t)
+	public unsafe static void Invoke(cpp_optional_hij69m* @this, statfs* t)
 	{
-		unchecked
-		{
-			cpp_optional_statfs_OptionalStorage_statfs_false_OptionalStorage_statfs_cpp_in_place_t_statfs.Invoke(&((cpp_optional_hij69m*)@this)->storage, cpp_remove_reference_statfs_type_cpp_move_statfs_statfs.Invoke(t));
-			((cpp_optional_hij69m*)@this)->storage.in_use = 1;
-		}
+		cpp_optional_statfs_OptionalStorage_statfs_false_OptionalStorage_statfs_cpp_in_place_t_statfs.Invoke(&@this->storage, cpp_remove_reference_statfs_type_cpp_move_statfs_statfs.Invoke(t));
+		@this->storage.in_use = 1;
 	}
 }

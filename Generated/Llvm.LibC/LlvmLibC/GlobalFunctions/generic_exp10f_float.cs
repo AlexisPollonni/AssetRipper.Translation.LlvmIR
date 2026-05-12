@@ -35,7 +35,7 @@ internal static partial class generic_exp10f_float
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
 			num2 = num & 0x7FFFFFFF;
 			if (!bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 >= 1109008539u, expected: false))
@@ -70,7 +70,7 @@ internal static partial class generic_exp10f_float
 			}
 			else
 			{
-				if (!fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_pos_const.Invoke(&fputil_FPBits_5nkvcs2) || (uint)num < 1109008539u)
+				if (!fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_pos_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) || (uint)num < 1109008539u)
 				{
 					goto IL_0337;
 				}

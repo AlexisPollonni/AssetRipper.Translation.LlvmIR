@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::write_zeroes(unsigned int)")]
 internal static partial class printf_core_FloatWriter_write_zeroes_unsigned_int
 {
-	public unsafe static int Invoke(void* @this, int num_zeroes)
+	public unsafe static int Invoke(printf_core_FloatWriter* @this, int num_zeroes)
 	{
 		int result = 0;
 		int num = 0;
@@ -30,7 +31,7 @@ internal static partial class printf_core_FloatWriter_write_zeroes_unsigned_int
 		{
 		case 0:
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = unchecked(printf_core_Writer_write_char_unsigned_long.Invoke(((printf_core_FloatWriter*)@this)->writer, 48, (uint)num_zeroes));
+			num2 = printf_core_Writer_write_char_unsigned_long.Invoke(@this->writer, 48, unchecked((uint)num_zeroes));
 			if (num2 < 0)
 			{
 				result = num2;
@@ -59,6 +60,6 @@ internal static partial class printf_core_FloatWriter_write_zeroes_unsigned_int
 			end_IL_004a:
 			break;
 		}
-		throw null;
+		throw new NotImplementedException("Reached LLVM unreachable instruction.");
 	}
 }

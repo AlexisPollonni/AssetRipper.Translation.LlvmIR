@@ -28,26 +28,26 @@ internal static partial class long_long_fputil_internal_rounded_float_to_signed_
 			llvm_lifetime_start_p0.Invoke(1L, &anon_izyfb8);
 			*(sbyte*)(&anon_izyfb8) = -86;
 			long result;
-			if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_inf_or_nan_const.Invoke(&fputil_FPBits_5nkvcs2))
+			if (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_inf_or_nan_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)))
 			{
 				long_long_fputil_internal_rounded_float_to_signed_integer_float_long_long_0_float_lambda_operator_const.Invoke(&anon_izyfb8);
-				result = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2), long.MinValue, long.MaxValue);
+				result = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)), long.MinValue, long.MaxValue);
 			}
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
-				num3 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke(&fputil_FPBits_5nkvcs2);
+				num3 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 				llvm_lifetime_start_p0.Invoke(4L, &num4);
 				num4 = 63;
 				if (num3 > 63)
 				{
 					long_long_fputil_internal_rounded_float_to_signed_integer_float_long_long_0_float_lambda_operator_const.Invoke(&anon_izyfb8);
-					result = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2), long.MinValue, long.MaxValue);
+					result = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)), long.MinValue, long.MaxValue);
 				}
-				else if (num3 == 63 && (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_pos_const.Invoke(&fputil_FPBits_5nkvcs2) || fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke(&fputil_FPBits_5nkvcs2) != 0))
+				else if (num3 == 63 && (fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_pos_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) || fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) != 0))
 				{
 					long_long_fputil_internal_rounded_float_to_signed_integer_float_long_long_0_float_lambda_operator_const.Invoke(&anon_izyfb8);
-					result = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke(&fputil_FPBits_5nkvcs2), long.MinValue, long.MaxValue);
+					result = InstructionHelper.Select(fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)), long.MinValue, long.MaxValue);
 				}
 				else
 				{

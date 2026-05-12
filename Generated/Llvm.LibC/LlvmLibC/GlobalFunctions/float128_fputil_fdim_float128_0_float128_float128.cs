@@ -21,7 +21,7 @@ internal static partial class float128_fputil_fdim_float128_0_float128_float128
 			llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 			*(Int128*)(&fputil_FPBits_ubgsi4) = -6148914691236517206L;
 			fputil_FPBits_float128_FPBits_float128_float128.Invoke(&fputil_FPBits_ubgsi4, y);
-			double result = ((!fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke(&fputil_FPBits_ubgsi3)) ? ((!fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke(&fputil_FPBits_ubgsi4)) ? ((!(x > y)) ? 0.0 : (x - y)) : y) : x);
+			double result = ((!fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3))) ? ((!fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_nan_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi4))) ? ((!(x > y)) ? 0.0 : (x - y)) : y) : x);
 			llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
 			llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi3);
 			return result;

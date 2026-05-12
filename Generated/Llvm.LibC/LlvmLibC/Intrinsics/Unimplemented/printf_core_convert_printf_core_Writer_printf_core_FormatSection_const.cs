@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using LlvmLibC.Helpers;
 
@@ -10,6 +11,6 @@ internal static partial class printf_core_convert_printf_core_Writer_printf_core
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public unsafe static int Invoke(void* parameter_0, void* parameter_1)
 	{
-		throw null;
+		throw new NotImplementedException("Unimplemented LLVM intrinsic: _ZN19__llvm_libc_20_1_2_11printf_core7convertEPNS0_6WriterERKNS0_13FormatSectionE");
 	}
 }

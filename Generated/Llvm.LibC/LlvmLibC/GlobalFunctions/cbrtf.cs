@@ -41,9 +41,9 @@ internal static partial class cbrtf
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) & 0x7FFFFFFF;
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) & 0x7FFFFFFF;
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) >>> 31 << 11;
+			num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) >>> 31 << 11;
 			float result;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((x != 0f) ? ((uint)num >= 2139095040u) : true, expected: false))
 			{
@@ -57,13 +57,13 @@ internal static partial class cbrtf
 				*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
 				fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, x2);
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
-				num3 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke(&fputil_FPBits_wjhbrm2);
+				num3 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 				llvm_lifetime_start_p0.Invoke(4L, &num4);
 				num4 = (int)((uint)num3 / 3u + 682) | num2;
 				llvm_lifetime_start_p0.Invoke(4L, &num5);
 				num5 = (int)((uint)num3 % 3u);
 				llvm_lifetime_start_p0.Invoke(8L, &num6);
-				num6 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke(&fputil_FPBits_wjhbrm2);
+				num6 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 				llvm_lifetime_start_p0.Invoke(4L, &num7);
 				num7 = (int)(num6 >>> 48);
 				num6 |= 0x3FF0000000000000L;
@@ -112,7 +112,7 @@ internal static partial class cbrtf
 				llvm_lifetime_start_p0.Invoke(8L, &num11);
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm4);
 				fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm4, x4);
-				long num22 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke(&fputil_FPBits_wjhbrm4);
+				long num22 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm4));
 				llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm4);
 				num11 = num22;
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)((num11 + 8L) & 0xFFFFFFFFFFFL) <= 16uL, expected: false))

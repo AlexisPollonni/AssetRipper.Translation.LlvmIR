@@ -10,6 +10,6 @@ internal static partial class try_get_errno_name_int
 {
 	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q73pcj* agg_result, int err_num)
 	{
-		MessageMapper_134ul_3113ul_get_str_int_const.Invoke(agg_result, internal_ERRNO_NAME_MAPPER.Pointer, err_num);
+		MessageMapper_134ul_3113ul_get_str_int_const.Invoke(agg_result, unchecked((MessageMapper_76ei55*)internal_ERRNO_NAME_MAPPER.Pointer), err_num);
 	}
 }

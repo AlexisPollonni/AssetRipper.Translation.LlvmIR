@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 12ul>::lookup(unsigned short) const")]
 internal static partial class fputil_ExceptValues_Float16_12ul_lookup_unsigned_short_const
 {
-	public unsafe static int Invoke(void* @this, short x_bits)
+	public unsafe static int Invoke(fputil_ExceptValues_iy3bzz* @this, short x_bits)
 	{
 		cpp_optional_aq7wey cpp_optional_aq7wey2 = default(cpp_optional_aq7wey);
 		long num = 0L;
@@ -29,27 +29,27 @@ internal static partial class fputil_ExceptValues_Float16_12ul_lookup_unsigned_s
 					num4 = 2;
 					break;
 				}
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ushort)num3 == (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&((fputil_ExceptValues_iy3bzz*)@this)->values))[num].input, expected: false))
+				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ushort)num3 == (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&@this->values))[num].input, expected: false))
 				{
 					llvm_lifetime_start_p0.Invoke(2L, &num2);
-					num2 = ((fputil_ExceptValues_Float16_21_Mapping*)(&((fputil_ExceptValues_iy3bzz*)@this)->values))[num].rnd_towardzero_result;
+					num2 = ((fputil_ExceptValues_Float16_21_Mapping*)(&@this->values))[num].rnd_towardzero_result;
 					switch (fputil_quick_get_round.Invoke())
 					{
 					case 2048:
 					{
-						int num7 = (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&((fputil_ExceptValues_iy3bzz*)@this)->values))[num].rnd_upward_offset;
+						int num7 = (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&@this->values))[num].rnd_upward_offset;
 						num2 = (short)checked(unchecked((ushort)num2) + num7);
 						break;
 					}
 					case 1024:
 					{
-						int num6 = (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&((fputil_ExceptValues_iy3bzz*)@this)->values))[num].rnd_downward_offset;
+						int num6 = (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&@this->values))[num].rnd_downward_offset;
 						num2 = (short)checked(unchecked((ushort)num2) + num6);
 						break;
 					}
 					case 0:
 					{
-						int num5 = (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&((fputil_ExceptValues_iy3bzz*)@this)->values))[num].rnd_tonearest_offset;
+						int num5 = (ushort)((fputil_ExceptValues_Float16_21_Mapping*)(&@this->values))[num].rnd_tonearest_offset;
 						num2 = (short)checked(unchecked((ushort)num2) + num5);
 						break;
 					}
@@ -73,7 +73,7 @@ internal static partial class fputil_ExceptValues_Float16_12ul_lookup_unsigned_s
 			{
 				if (num8 != 1)
 				{
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 			}
 			else

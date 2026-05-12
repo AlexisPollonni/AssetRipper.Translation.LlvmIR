@@ -84,7 +84,7 @@ internal static partial class anonymous_namespace_log10_accurate_int_int_double
 			sbyte* ptr8 = (sbyte*)(&fputil_DyadicFloat_kt2kd11) + 8;
 			*(long*)ptr8 = -6148914691236517206L;
 			((long*)ptr8)[1] = -6148914691236517206L;
-			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd11, &fputil_DyadicFloat_kt2kd10, anonymous_namespace_BIG_COEFFS_33.Pointer);
+			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd11, &fputil_DyadicFloat_kt2kd10, (fputil_DyadicFloat_kt2kd4*)anonymous_namespace_BIG_COEFFS_33.Pointer);
 			llvm_lifetime_start_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd12);
 			llvm_lifetime_start_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd13);
 			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd14, &fputil_DyadicFloat_kt2kd11, 24L, isVolatile: false);

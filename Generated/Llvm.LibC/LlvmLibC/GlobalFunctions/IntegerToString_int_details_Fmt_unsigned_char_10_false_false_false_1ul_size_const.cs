@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::IntegerToString<int, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::size() const")]
 internal static partial class IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_size_const
 {
-	public unsafe static long Invoke(void* @this)
+	public unsafe static long Invoke(IntegerToString_exzmu4* @this)
 	{
-		return unchecked((IntegerToString_exzmu4*)@this)->written;
+		return @this->written;
 	}
 }

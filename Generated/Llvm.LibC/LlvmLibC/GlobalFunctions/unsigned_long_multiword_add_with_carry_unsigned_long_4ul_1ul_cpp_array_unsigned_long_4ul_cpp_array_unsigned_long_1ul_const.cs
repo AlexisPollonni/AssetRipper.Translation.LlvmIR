@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("unsigned long __llvm_libc_20_1_2_::multiword::add_with_carry<unsigned long, 4ul, 1ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 4ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned long, 1ul> const&)")]
 internal static partial class unsigned_long_multiword_add_with_carry_unsigned_long_4ul_1ul_cpp_array_unsigned_long_4ul_cpp_array_unsigned_long_1ul_const
 {
-	public unsafe static long Invoke(void* dst, void* rhs)
+	public unsafe static long Invoke(cpp_array_jgy3xh* dst, cpp_array_rpgxvv* rhs)
 	{
 		return unsigned_long_multiword_inplace_binop_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long_4ul_1ul_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long_cpp_array_unsigned_long_4ul_cpp_array_unsigned_long_1ul_const.Invoke(cpp_enable_if_cpp_is_unsigned_v_unsigned_long_unsigned_long_type_add_with_carry_unsigned_long_unsigned_long_unsigned_long_unsigned_long_unsigned_long.__pointer, dst, rhs);
 	}

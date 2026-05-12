@@ -1,5 +1,6 @@
 using System;
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -7,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::FPRepSem(unsigned __int128)")]
 internal static partial class fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_FPRepSem_unsigned_int128
 {
-	public unsafe static void Invoke(void* @this, [MangledName(".coerce0")] long coerce0, [MangledName(".coerce1")] long coerce1)
+	public unsafe static void Invoke(fputil_internal_FPRepSem_f94eua* @this, [MangledName(".coerce0")] long coerce0, [MangledName(".coerce1")] long coerce1)
 	{
 		Int128 @int = default(Int128);
 		unchecked

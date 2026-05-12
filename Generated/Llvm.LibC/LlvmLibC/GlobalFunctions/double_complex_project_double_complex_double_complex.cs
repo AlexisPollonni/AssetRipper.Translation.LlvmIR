@@ -35,7 +35,7 @@ internal static partial class double_complex_project_double_complex_double_compl
 			*(double*)num2 = struct_4ydhja4.field_1;
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, numberPair.lo);
-			bool num3 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_inf_const.Invoke(&fputil_FPBits_wjhbrm2);
+			bool num3 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_inf_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm2));
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 			int num4;
 			if (num3)
@@ -45,7 +45,7 @@ internal static partial class double_complex_project_double_complex_double_compl
 			else
 			{
 				fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm3, numberPair.hi);
-				num4 = (fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_inf_const.Invoke(&fputil_FPBits_wjhbrm3) ? 1 : 0);
+				num4 = (fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_inf_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm3)) ? 1 : 0);
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);

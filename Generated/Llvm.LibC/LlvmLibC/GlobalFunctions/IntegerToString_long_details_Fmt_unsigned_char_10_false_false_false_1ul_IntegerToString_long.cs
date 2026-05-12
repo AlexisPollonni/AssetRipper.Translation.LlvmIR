@@ -9,15 +9,15 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::IntegerToString<long, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::IntegerToString(long)")]
 internal static partial class IntegerToString_long_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerToString_long
 {
-	public unsafe static void Invoke(void* @this, long value)
+	public unsafe static void Invoke(IntegerToString_uuwdyc* @this, long value)
 	{
 		details_StringBufferWriterImpl details_StringBufferWriterImpl2 = default(details_StringBufferWriterImpl);
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
+		_ = &@this->array;
+		@this->written = 0L;
+		llvm_lifetime_start_p0.Invoke(32L, &details_StringBufferWriterImpl2);
 		unchecked
 		{
-			_ = &((IntegerToString_uuwdyc*)@this)->array;
-			((IntegerToString_uuwdyc*)@this)->written = 0L;
-			llvm_lifetime_start_p0.Invoke(32L, &details_StringBufferWriterImpl2);
 			sbyte* ptr = (sbyte*)(&details_StringBufferWriterImpl2);
 			*(IntPtr*)ptr = unchecked((nint)(-6148914691236517206L));
 			((long*)ptr)[1] = -6148914691236517206L;
@@ -31,10 +31,10 @@ internal static partial class IntegerToString_long_details_Fmt_unsigned_char_10_
 			ptr2[4] = -86;
 			ptr2[5] = -86;
 			ptr2[6] = -86;
-			cpp_span_char_span_char_21ul_true_cpp_array_char_21ul.Invoke(&cpp_string_view2, &((IntegerToString_uuwdyc*)@this)->array);
+			cpp_span_char_span_char_21ul_true_cpp_array_char_21ul.Invoke(&cpp_string_view2, &@this->array);
 			details_StringBufferWriterImpl_false_StringBufferWriterImpl_cpp_span_char.Invoke(&details_StringBufferWriterImpl2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 			IntegerToString_long_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerWriter_write_long_details_StringBufferWriterImpl_false.Invoke(value, &details_StringBufferWriterImpl2);
-			((IntegerToString_uuwdyc*)@this)->written = details_StringBufferWriterImpl_false_size_const.Invoke(&details_StringBufferWriterImpl2);
+			@this->written = details_StringBufferWriterImpl_false_size_const.Invoke(&details_StringBufferWriterImpl2);
 			llvm_lifetime_end_p0.Invoke(32L, &details_StringBufferWriterImpl2);
 		}
 	}

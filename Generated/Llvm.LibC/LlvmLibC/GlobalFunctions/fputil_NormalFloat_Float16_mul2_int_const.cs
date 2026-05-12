@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<_Float16>::mul2(int) const")]
 internal static partial class fputil_NormalFloat_Float16_mul2_int_const
 {
-	public unsafe static long Invoke(void* @this, int e)
+	public unsafe static long Invoke(fputil_NormalFloat_epbrnk* @this, int e)
 	{
 		fputil_NormalFloat_epbrnk fputil_NormalFloat_epbrnk2 = default(fputil_NormalFloat_epbrnk);
 		unchecked

@@ -7,11 +7,11 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::expected<__llvm_libc_20_1_2_::File*, int>::expected(__llvm_libc_20_1_2_::File*)")]
 internal static partial class cpp_expected_File_int_expected_File
 {
-	public unsafe static void Invoke(void* @this, void* exp)
+	public unsafe static void Invoke(void* @this, File_sjnxn4* exp)
 	{
 		unchecked
 		{
-			*(void**)(&((cpp_optional_char_OptionalStorage*)@this)->field) = exp;
+			*(File_sjnxn4**)(&((cpp_optional_char_OptionalStorage*)@this)->field) = exp;
 			((cpp_optional_char_OptionalStorage*)@this)->in_use = 1;
 		}
 	}

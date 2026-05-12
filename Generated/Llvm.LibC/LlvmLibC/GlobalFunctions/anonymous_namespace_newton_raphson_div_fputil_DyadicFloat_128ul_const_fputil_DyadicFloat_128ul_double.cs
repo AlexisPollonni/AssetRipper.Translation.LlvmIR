@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::newton_raphson_div(__llvm_libc_20_1_2_::fputil::DyadicFloat<128ul> const&, __llvm_libc_20_1_2_::fputil::DyadicFloat<128ul>, double)")]
 internal static partial class anonymous_namespace_newton_raphson_div_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_double
 {
-	public unsafe static void Invoke([MangledName("agg.result")] fputil_DyadicFloat_kt2kd4* agg_result, void* a, void* b, double q)
+	public unsafe static void Invoke([MangledName("agg.result")] fputil_DyadicFloat_kt2kd4* agg_result, fputil_DyadicFloat_kt2kd4* a, void* b, double q)
 	{
 		fputil_DyadicFloat_kt2kd4 fputil_DyadicFloat_kt2kd5 = default(fputil_DyadicFloat_kt2kd4);
 		fputil_DyadicFloat_kt2kd4 fputil_DyadicFloat_kt2kd6 = default(fputil_DyadicFloat_kt2kd4);
@@ -57,7 +57,7 @@ internal static partial class anonymous_namespace_newton_raphson_div_fputil_Dyad
 			((long*)ptr5)[1] = -6148914691236517206L;
 			llvm_lifetime_start_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd8);
 			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd9, &fputil_DyadicFloat_kt2kd6, 24L, isVolatile: false);
-			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd10, b, &fputil_DyadicFloat_kt2kd5);
+			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd10, (fputil_DyadicFloat_kt2kd4*)b, &fputil_DyadicFloat_kt2kd5);
 			fputil_DyadicFloat_128ul_fputil_quick_add_128ul_fputil_DyadicFloat_128ul_fputil_DyadicFloat_128ul.Invoke(&fputil_DyadicFloat_kt2kd8, &fputil_DyadicFloat_kt2kd9, &fputil_DyadicFloat_kt2kd10);
 			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd7, &fputil_DyadicFloat_kt2kd5, &fputil_DyadicFloat_kt2kd8);
 			llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd8);
@@ -73,7 +73,7 @@ internal static partial class anonymous_namespace_newton_raphson_div_fputil_Dyad
 			((long*)ptr7)[1] = -6148914691236517206L;
 			llvm_lifetime_start_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd12);
 			llvm_memcpy_p0_p0_i64.Invoke(&fputil_DyadicFloat_kt2kd13, &fputil_DyadicFloat_kt2kd6, 24L, isVolatile: false);
-			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd14, b, &fputil_DyadicFloat_kt2kd7);
+			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd14, (fputil_DyadicFloat_kt2kd4*)b, &fputil_DyadicFloat_kt2kd7);
 			fputil_DyadicFloat_128ul_fputil_quick_add_128ul_fputil_DyadicFloat_128ul_fputil_DyadicFloat_128ul.Invoke(&fputil_DyadicFloat_kt2kd12, &fputil_DyadicFloat_kt2kd13, &fputil_DyadicFloat_kt2kd14);
 			fputil_DyadicFloat_128ul_fputil_quick_mul_128ul_fputil_DyadicFloat_128ul_const_fputil_DyadicFloat_128ul_const.Invoke(&fputil_DyadicFloat_kt2kd11, &fputil_DyadicFloat_kt2kd7, &fputil_DyadicFloat_kt2kd12);
 			llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd12);

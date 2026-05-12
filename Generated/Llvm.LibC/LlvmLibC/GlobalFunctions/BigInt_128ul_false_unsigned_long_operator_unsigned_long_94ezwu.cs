@@ -10,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_128ul_false_unsigned_long_operator_unsigned_long")]
 internal static partial class BigInt_128ul_false_unsigned_long_operator_unsigned_long_94ezwu
 {
-	public unsafe static void* Invoke(void* @this, long s)
+	public unsafe static anon_izyfb7* Invoke(anon_izyfb7* @this, long s)
 	{
 		cpp_array_i3937k cpp_array_i3937k2 = default(cpp_array_i3937k);
 		cpp_array_i3937k cpp_array_i3937k3 = default(cpp_array_i3937k);

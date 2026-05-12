@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::abs() const")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const
 {
-	public unsafe static long Invoke(void* @this)
+	public unsafe static long Invoke(fputil_internal_FPRepImpl_ucubaq* @this)
 	{
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
 		fputil_FPBits_double_FPBits_unsigned_long_unsigned_long.Invoke(&fputil_FPBits_wjhbrm2, unchecked((fputil_internal_FPStorage_v3nexn*)@this)->val & 0x7FFFFFFFFFFFFFFFL);

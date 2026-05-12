@@ -8,12 +8,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::ArgList::operator=(__llvm_libc_20_1_2_::internal::ArgList&)")]
 internal static partial class internal_ArgList_operator_internal_ArgList
 {
-	public unsafe static void* Invoke(void* @this, void* rhs)
+	public unsafe static internal_ArgList* Invoke(internal_ArgList* @this, internal_ArgList* rhs)
 	{
-		unchecked
-		{
-			llvm_va_copy_p0.Invoke(&((internal_ArgList*)@this)->vlist, &((internal_ArgList*)rhs)->vlist);
-			return @this;
-		}
+		llvm_va_copy_p0.Invoke(&@this->vlist, &rhs->vlist);
+		return @this;
 	}
 }

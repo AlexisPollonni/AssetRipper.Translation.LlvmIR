@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("statfs&& __llvm_libc_20_1_2_::cpp::forward<statfs>(__llvm_libc_20_1_2_::cpp::remove_reference<statfs>::type&)")]
 internal static partial class statfs_cpp_forward_statfs_cpp_remove_reference_statfs_type
 {
-	public unsafe static void* Invoke(void* value)
+	public unsafe static statfs* Invoke(statfs* value)
 	{
 		return value;
 	}

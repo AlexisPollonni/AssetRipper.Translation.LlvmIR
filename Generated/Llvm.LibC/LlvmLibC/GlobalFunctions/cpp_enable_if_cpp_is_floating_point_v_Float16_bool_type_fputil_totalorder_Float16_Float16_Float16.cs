@@ -25,9 +25,9 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_bool
 			*(short*)(&fputil_FPBits_2fahva3) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva3, y);
 			llvm_lifetime_start_p0.Invoke(2L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2));
 			llvm_lifetime_start_p0.Invoke(2L, &num2);
-			num2 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva3);
+			num2 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3));
 			llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = (((((ushort)num | (ushort)num2) & 0x8000) != 0) ? ((sbyte)1) : ((sbyte)0));
 			int result = (((ushort)num != (ushort)num2) ? (((ushort)num < (ushort)num2 != ((b & 1) == 1)) ? 1 : 0) : (-1));

@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 4ul>::end() const")]
 internal static partial class cpp_array_unsigned_long_4ul_end_const
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static void* Invoke(cpp_array_jgy3xh* @this)
 	{
-		return unchecked((byte*)(&((cpp_array_jgy3xh*)@this)->Data)) + 32;
+		return unchecked((byte*)(&@this->Data)) + 32;
 	}
 }

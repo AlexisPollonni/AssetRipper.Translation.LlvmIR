@@ -8,12 +8,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<16ul, false, unsigned short>::BigInt(__llvm_libc_20_1_2_::cpp::array<unsigned short, 1ul> const&)")]
 internal static partial class BigInt_16ul_false_unsigned_short_BigInt_cpp_array_unsigned_short_1ul_const
 {
-	public unsafe static void Invoke(void* @this, void* words)
+	public unsafe static void Invoke(BigInt_ys7s55* @this, cpp_array_knh6hw* words)
 	{
-		unchecked
-		{
-			llvm_memset_p0_i64.Invoke(&((BigInt_ys7s55*)@this)->val.Data, 0, 2L, isVolatile: false);
-			llvm_memcpy_p0_p0_i64.Invoke(&((BigInt_ys7s55*)@this)->val, words, 2L, isVolatile: false);
-		}
+		llvm_memset_p0_i64.Invoke(&@this->val.Data, 0, 2L, isVolatile: false);
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->val, words, 2L, isVolatile: false);
 	}
 }

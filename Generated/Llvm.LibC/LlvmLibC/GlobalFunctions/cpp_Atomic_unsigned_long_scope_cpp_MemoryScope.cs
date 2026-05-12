@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 
 namespace LlvmLibC.GlobalFunctions;
@@ -6,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned long>::scope(__llvm_libc_20_1_2_::cpp::MemoryScope)")]
 internal static partial class cpp_Atomic_unsigned_long_scope_cpp_MemoryScope
 {
-	public static int Invoke(int mem_scope)
+	public static int Invoke(MemoryScope mem_scope)
 	{
-		return mem_scope;
+		return unchecked((int)mem_scope);
 	}
 }

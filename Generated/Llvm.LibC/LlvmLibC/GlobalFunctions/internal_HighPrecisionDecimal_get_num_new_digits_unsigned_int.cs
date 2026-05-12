@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::get_num_new_digits(unsigned int)")]
 internal static partial class internal_HighPrecisionDecimal_get_num_new_digits_unsigned_int
 {
-	public unsafe static int Invoke(void* @this, int lshift_amount)
+	public unsafe static int Invoke(internal_HighPrecisionDecimal* @this, int lshift_amount)
 	{
 		void* ptr = null;
 		int num = 0;
@@ -27,14 +27,14 @@ internal static partial class internal_HighPrecisionDecimal_get_num_new_digits_u
 			{
 				if (((sbyte*)ptr)[(uint)num2] != 0)
 				{
-					if ((uint)num2 >= (uint)((internal_HighPrecisionDecimal*)@this)->num_digits)
+					if ((uint)num2 >= (uint)@this->num_digits)
 					{
 						result = num - 1;
 						break;
 					}
-					if ((byte)((sbyte*)(&((internal_HighPrecisionDecimal*)@this)->digits))[(uint)num2] != internal_b36_char_to_int_int_120.Invoke(((sbyte*)ptr)[(uint)num2]))
+					if ((byte)((sbyte*)(&@this->digits))[(uint)num2] != internal_b36_char_to_int_int_120.Invoke(((sbyte*)ptr)[(uint)num2]))
 					{
-						result = num - InstructionHelper.Select((byte)((sbyte*)(&((internal_HighPrecisionDecimal*)@this)->digits))[(uint)num2] < internal_b36_char_to_int_int_120.Invoke(((sbyte*)ptr)[(uint)num2]), 1, 0);
+						result = num - InstructionHelper.Select((byte)((sbyte*)(&@this->digits))[(uint)num2] < internal_b36_char_to_int_int_120.Invoke(((sbyte*)ptr)[(uint)num2]), 1, 0);
 						break;
 					}
 					num2++;

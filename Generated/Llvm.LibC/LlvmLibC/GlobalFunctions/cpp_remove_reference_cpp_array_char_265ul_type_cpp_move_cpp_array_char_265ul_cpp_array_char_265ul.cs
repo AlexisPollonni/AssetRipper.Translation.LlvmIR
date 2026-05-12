@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::remove_reference<__llvm_libc_20_1_2_::cpp::array<char, 265ul>&>::type&& __llvm_libc_20_1_2_::cpp::move<__llvm_libc_20_1_2_::cpp::array<char, 265ul>&>(__llvm_libc_20_1_2_::cpp::array<char, 265ul>&)")]
 internal static partial class cpp_remove_reference_cpp_array_char_265ul_type_cpp_move_cpp_array_char_265ul_cpp_array_char_265ul
 {
-	public unsafe static void* Invoke(void* t)
+	public unsafe static cpp_array_55kc72* Invoke(cpp_array_55kc72* t)
 	{
 		return t;
 	}

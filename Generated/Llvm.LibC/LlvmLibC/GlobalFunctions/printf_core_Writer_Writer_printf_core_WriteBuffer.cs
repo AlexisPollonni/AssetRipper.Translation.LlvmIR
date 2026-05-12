@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::Writer::Writer(__llvm_libc_20_1_2_::printf_core::WriteBuffer*)")]
 internal static partial class printf_core_Writer_Writer_printf_core_WriteBuffer
 {
-	public unsafe static void Invoke(void* @this, void* WB)
+	public unsafe static void Invoke(printf_core_Writer* @this, printf_core_WriteBuffer* WB)
 	{
-		unchecked
-		{
-			((printf_core_Writer*)@this)->wb = WB;
-			((printf_core_Writer*)@this)->chars_written = 0;
-		}
+		@this->wb = WB;
+		@this->chars_written = 0;
 	}
 }

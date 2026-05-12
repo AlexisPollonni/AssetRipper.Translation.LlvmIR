@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::get_explicit_exponent() const")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_explicit_exponent_const
 {
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke(fputil_internal_FPRepImpl_ucubaq* @this)
 	{
 		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
 		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
@@ -18,38 +18,41 @@ internal static partial class fputil_internal_FPRepImpl_fputil_FPType_2_fputil_F
 		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
 		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2);
-		*unchecked((int*)(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2)) = -1431655766;
-		llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3);
-		int field_ = fputil_internal_FPStorage_fputil_FPType_2_biased_exponent_const.Invoke(@this);
-		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0 = field_;
-		int field_2 = fputil_internal_FPStorage_fputil_FPType_2_BiasedExponent_operator_fputil_internal_FPStorage_fputil_FPType_2_Exponent_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3);
-		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0 = field_2;
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3);
-		if (fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_zero_const.Invoke(@this))
+		unchecked
 		{
-			llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4);
-			int field_3 = fputil_internal_FPStorage_fputil_FPType_2_Exponent_zero.Invoke();
-			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4.field_0.field_0 = field_3;
-			llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4, 4L, isVolatile: false);
-			llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4);
+			*(int*)(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2) = -1431655766;
+			llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3);
+			int field_ = fputil_internal_FPStorage_fputil_FPType_2_biased_exponent_const.Invoke(@this);
+			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0 = field_;
+			int field_2 = fputil_internal_FPStorage_fputil_FPType_2_BiasedExponent_operator_fputil_internal_FPStorage_fputil_FPType_2_Exponent_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3);
+			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0 = field_2;
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3);
+			if (fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_zero_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)@this))
+			{
+				llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4);
+				int field_3 = fputil_internal_FPStorage_fputil_FPType_2_Exponent_zero.Invoke();
+				fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4.field_0.field_0 = field_3;
+				llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4, 4L, isVolatile: false);
+				llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent4);
+			}
+			llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, 4L, isVolatile: false);
+			llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5);
+			int field_4 = fputil_internal_FPStorage_fputil_FPType_2_Exponent_subnormal.Invoke();
+			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5.field_0.field_0 = field_4;
+			llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt3, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5, 4L, isVolatile: false);
+			bool num = fputil_internal_operator_fputil_internal_FPStorage_fputil_FPType_2_TypedInt_int_fputil_internal_FPStorage_fputil_FPType_2_TypedInt_int.Invoke(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2.field_0, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt3.field_0);
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5);
+			if (num)
+			{
+				llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6);
+				int field_5 = fputil_internal_FPStorage_fputil_FPType_2_Exponent_min.Invoke();
+				fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6.field_0.field_0 = field_5;
+				llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6, 4L, isVolatile: false);
+				llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6);
+			}
+			int result = fputil_internal_FPStorage_fputil_FPType_2_TypedInt_int_operator_int_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2);
+			llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2);
+			return result;
 		}
-		llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, 4L, isVolatile: false);
-		llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5);
-		int field_4 = fputil_internal_FPStorage_fputil_FPType_2_Exponent_subnormal.Invoke();
-		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5.field_0.field_0 = field_4;
-		llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt3, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5, 4L, isVolatile: false);
-		bool num = fputil_internal_operator_fputil_internal_FPStorage_fputil_FPType_2_TypedInt_int_fputil_internal_FPStorage_fputil_FPType_2_TypedInt_int.Invoke(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2.field_0, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt3.field_0);
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent5);
-		if (num)
-		{
-			llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6);
-			int field_5 = fputil_internal_FPStorage_fputil_FPType_2_Exponent_min.Invoke();
-			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6.field_0.field_0 = field_5;
-			llvm_memcpy_p0_p0_i64.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6, 4L, isVolatile: false);
-			llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent6);
-		}
-		int result = fputil_internal_FPStorage_fputil_FPType_2_TypedInt_int_operator_int_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2);
-		llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2);
-		return result;
 	}
 }

@@ -1,5 +1,6 @@
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -7,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<_Float16>::evaluate_normalization_shift(unsigned short)")]
 internal static partial class fputil_NormalFloat_Float16_evaluate_normalization_shift_unsigned_short
 {
-	public unsafe static int Invoke(void* @this, short m)
+	public unsafe static int Invoke(fputil_NormalFloat_epbrnk* @this, short m)
 	{
 		int num = 0;
 		short num2 = m;

@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 
 namespace LlvmLibC.GlobalFunctions;
@@ -8,6 +9,6 @@ internal static partial class callonce_impl_callonce_fastpath_Futex
 {
 	public unsafe static bool Invoke(void* flag)
 	{
-		return cpp_Atomic_unsigned_int_load_cpp_MemoryOrder_cpp_MemoryScope.Invoke(flag, 0, 1) == 51;
+		return cpp_Atomic_unsigned_int_load_cpp_MemoryOrder_cpp_MemoryScope.Invoke(flag, MemoryOrder.RELAXED, MemoryScope.DEVICE) == 51;
 	}
 }

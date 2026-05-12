@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::atan2f_double_double(double, double, double, int, double, double, __llvm_libc_20_1_2_::NumberPair<double> const&)")]
 internal static partial class anonymous_namespace_atan2f_double_double_double_double_double_int_double_double_NumberPair_double_const
 {
-	public unsafe static float Invoke(double num_d, double den_d, double q_d, int idx, double k_d, double final_sign, void* const_term)
+	public unsafe static float Invoke(double num_d, double den_d, double q_d, int idx, double k_d, double final_sign, NumberPair* const_term)
 	{
 		NumberPair numberPair = default(NumberPair);
 		double num = 0.0;
@@ -64,7 +64,7 @@ internal static partial class anonymous_namespace_atan2f_double_double_double_do
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair3);
 			*(double*)(&numberPair3) = double.NaN;
 			((double*)(&numberPair3))[1] = double.NaN;
-			Struct_4ydhja struct_4ydhja4 = cpp_enable_if_sizeof_NumberPair_double_8ul_NumberPair_double_type_fputil_polyeval_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const.Invoke(&numberPair2, anonymous_namespace_COEFFS_61.Pointer, (byte*)anonymous_namespace_COEFFS_61.Pointer + sizeof(NumberPair), (byte*)anonymous_namespace_COEFFS_61.Pointer + (nint)2 * sizeof(NumberPair), (byte*)anonymous_namespace_COEFFS_61.Pointer + (nint)3 * sizeof(NumberPair), (byte*)anonymous_namespace_COEFFS_61.Pointer + (nint)4 * sizeof(NumberPair), (byte*)anonymous_namespace_COEFFS_61.Pointer + (nint)5 * sizeof(NumberPair), (byte*)anonymous_namespace_COEFFS_61.Pointer + (nint)6 * sizeof(NumberPair), (byte*)anonymous_namespace_COEFFS_61.Pointer + (nint)7 * sizeof(NumberPair), (byte*)anonymous_namespace_COEFFS_61.Pointer + (nint)8 * sizeof(NumberPair));
+			Struct_4ydhja struct_4ydhja4 = cpp_enable_if_sizeof_NumberPair_double_8ul_NumberPair_double_type_fputil_polyeval_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const.Invoke(&numberPair2, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 1, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 2L, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 3L, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 4L, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 5L, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 6L, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 7L, (NumberPair*)anonymous_namespace_COEFFS_61.Pointer + 8L);
 			NumberPair* num7 = &numberPair3;
 			Struct_4ydhja struct_4ydhja5 = struct_4ydhja4;
 			*(double*)num7 = struct_4ydhja5.field_0;
@@ -75,7 +75,7 @@ internal static partial class anonymous_namespace_atan2f_double_double_double_do
 			*(double*)(&numberPair4) = double.NaN;
 			((double*)(&numberPair4))[1] = double.NaN;
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair5);
-			Struct_4ydhja struct_4ydhja7 = cpp_enable_if_sizeof_NumberPair_double_8ul_NumberPair_double_type_fputil_multiply_add_NumberPair_double_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const.Invoke(&numberPair, &numberPair3, (byte*)anonymous_namespace_ATAN_I.Pointer + (nint)idx * (nint)sizeof(NumberPair));
+			Struct_4ydhja struct_4ydhja7 = cpp_enable_if_sizeof_NumberPair_double_8ul_NumberPair_double_type_fputil_multiply_add_NumberPair_double_NumberPair_double_const_NumberPair_double_const_NumberPair_double_const.Invoke(&numberPair, &numberPair3, (NumberPair*)anonymous_namespace_ATAN_I.Pointer + idx);
 			NumberPair* num9 = &numberPair5;
 			Struct_4ydhja struct_4ydhja8 = struct_4ydhja7;
 			*(double*)num9 = struct_4ydhja8.field_0;

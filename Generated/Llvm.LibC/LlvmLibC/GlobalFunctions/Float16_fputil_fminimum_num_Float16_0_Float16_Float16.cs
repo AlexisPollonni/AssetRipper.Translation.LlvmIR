@@ -25,10 +25,10 @@ internal static partial class Float16_fputil_fminimum_num_Float16_0_Float16_Floa
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 			*(short*)(&fputil_FPBits_2fahva3) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva3, y);
-			if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke(&fputil_FPBits_2fahva2) || fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke(&fputil_FPBits_2fahva3))
+			if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)) || fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_signaling_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva3)))
 			{
 				fputil_raise_except_if_required_int.Invoke(1);
-				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva2) && fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva3))
+				if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)) && fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva3)))
 				{
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva4);
 					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
@@ -39,7 +39,7 @@ internal static partial class Float16_fputil_fminimum_num_Float16_0_Float16_Floa
 					goto IL_0145;
 				}
 			}
-			result = ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva2)) ? ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva3)) ? cpp_enable_if_cpp_is_floating_point_v_Float16_Float16_type_fputil_internal_min_Float16_Float16_Float16.Invoke(x, y) : x) : y);
+			result = ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2))) ? ((!fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva3))) ? cpp_enable_if_cpp_is_floating_point_v_Float16_Float16_type_fputil_internal_min_Float16_Float16_Float16.Invoke(x, y) : x) : y);
 			goto IL_0145;
 		}
 		IL_0145:

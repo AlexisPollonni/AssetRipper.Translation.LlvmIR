@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::AbsTimeout>::OptionalStorage<__llvm_libc_20_1_2_::internal::AbsTimeout, false>::OptionalStorage()")]
 internal static partial class cpp_optional_internal_AbsTimeout_OptionalStorage_internal_AbsTimeout_false_OptionalStorage
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(cpp_optional_long_double_OptionalStorage* @this)
 	{
 		unchecked
 		{

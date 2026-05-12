@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::IntegerToString<long, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, true, false, 2ul>>::IntegerWriter::write(long, __llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>&)")]
 internal static partial class IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_IntegerWriter_write_long_details_StringBufferWriterImpl_false
 {
-	public unsafe static void Invoke(long value, void* sink)
+	public unsafe static void Invoke(long value, details_StringBufferWriterImpl* sink)
 	{
 		IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_IntegerWriter_write_unsigned_number_unsigned_long_details_StringBufferWriterImpl_false.Invoke(IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_IntegerWriter_abs_long.Invoke(value), sink);
 		while (details_StringBufferWriterImpl_false_ok_const.Invoke(sink) && unchecked((ulong)details_StringBufferWriterImpl_false_size_const.Invoke(sink)) < 2uL)

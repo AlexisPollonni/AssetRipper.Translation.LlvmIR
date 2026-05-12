@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.InlineArrays;
 using LlvmLibC.Intrinsics.Implemented;
@@ -32,7 +33,7 @@ internal static partial class sincosf
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs2) & 0x7FFFFFFF;
+			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) & 0x7FFFFFFF;
 			llvm_lifetime_start_p0.Invoke(8L, &xd);
 			xd = x;
 			int num7;
@@ -203,7 +204,7 @@ internal static partial class sincosf
 			case 1:
 				return;
 			}
-			throw null;
+			throw new NotImplementedException("Reached LLVM unreachable instruction.");
 		}
 	}
 }

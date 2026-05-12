@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>>::has_value() const")]
 internal static partial class cpp_optional_internal_ExpandedFloat_long_double_has_value_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(cpp_optional_q5jaj8* @this)
 	{
-		return (unchecked((cpp_optional_q5jaj8*)@this)->storage.in_use & 1) == 1;
+		return (@this->storage.in_use & 1) == 1;
 	}
 }

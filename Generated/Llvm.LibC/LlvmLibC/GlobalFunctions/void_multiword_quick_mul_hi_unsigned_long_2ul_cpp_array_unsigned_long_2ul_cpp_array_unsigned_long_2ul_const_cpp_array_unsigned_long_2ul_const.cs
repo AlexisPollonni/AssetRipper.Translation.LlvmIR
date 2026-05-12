@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("void __llvm_libc_20_1_2_::multiword::quick_mul_hi<unsigned long, 2ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul> const&, __llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul> const&)")]
 internal static partial class void_multiword_quick_mul_hi_unsigned_long_2ul_cpp_array_unsigned_long_2ul_cpp_array_unsigned_long_2ul_const_cpp_array_unsigned_long_2ul_const
 {
-	public unsafe static void Invoke(void* dst, void* lhs, void* rhs)
+	public unsafe static void Invoke(cpp_array_i3937k* dst, cpp_array_i3937k* lhs, cpp_array_i3937k* rhs)
 	{
 		BigInt_qdkjbh bigInt_qdkjbh = default(BigInt_qdkjbh);
 		long num = 0L;
@@ -27,7 +27,7 @@ internal static partial class void_multiword_quick_mul_hi_unsigned_long_2ul_cpp_
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			for (num2 = 0L; (ulong)num2 < 2uL; num2++)
 			{
-				long num5 = unsigned_long_multiword_mul_add_with_carry_unsigned_long_2ul_cpp_array_unsigned_long_2ul_unsigned_long_unsigned_long.Invoke(&bigInt_qdkjbh, *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(lhs, num2), *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(rhs, 1L - num2));
+				long num5 = unsigned_long_multiword_mul_add_with_carry_unsigned_long_2ul_cpp_array_unsigned_long_2ul_unsigned_long_unsigned_long.Invoke((cpp_array_i3937k*)(&bigInt_qdkjbh), *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(lhs, num2), *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(rhs, 1L - num2));
 				num += num5;
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
@@ -39,7 +39,7 @@ internal static partial class void_multiword_quick_mul_hi_unsigned_long_2ul_cpp_
 				llvm_lifetime_start_p0.Invoke(8L, &num4);
 				for (num4 = num3 - 2L + 1L; (ulong)num4 < 2uL; num4++)
 				{
-					long num6 = unsigned_long_multiword_mul_add_with_carry_unsigned_long_2ul_cpp_array_unsigned_long_2ul_unsigned_long_unsigned_long.Invoke(&bigInt_qdkjbh, *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(lhs, num4), *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(rhs, num3 - num4));
+					long num6 = unsigned_long_multiword_mul_add_with_carry_unsigned_long_2ul_cpp_array_unsigned_long_2ul_unsigned_long_unsigned_long.Invoke((cpp_array_i3937k*)(&bigInt_qdkjbh), *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(lhs, num4), *(long*)cpp_array_unsigned_long_2ul_operator_unsigned_long_const.Invoke(rhs, num3 - num4));
 					num += num6;
 				}
 				llvm_lifetime_end_p0.Invoke(8L, &num4);

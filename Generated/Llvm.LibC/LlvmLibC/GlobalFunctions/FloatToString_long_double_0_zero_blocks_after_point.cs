@@ -8,20 +8,20 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<long double, 0>::zero_blocks_after_point()")]
 internal static partial class FloatToString_long_double_0_zero_blocks_after_point
 {
-	public unsafe static long Invoke(void* @this)
+	public unsafe static long Invoke(FloatToString_8m29tk* @this)
 	{
 		int num = 0;
 		int num2 = 0;
 		int num3 = 0;
 		long result;
-		if (unchecked((FloatToString_8m29tk*)@this)->exponent >= -63)
+		if (@this->exponent >= -63)
 		{
 			result = 0L;
 		}
 		else
 		{
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = -unchecked((FloatToString_8m29tk*)@this)->exponent - 1;
+			num = -@this->exponent - 1;
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
 			unchecked
 			{

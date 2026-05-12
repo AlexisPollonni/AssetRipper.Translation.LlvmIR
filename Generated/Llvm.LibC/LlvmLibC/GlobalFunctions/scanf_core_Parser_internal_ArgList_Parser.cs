@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::~Parser()")]
 internal static partial class scanf_core_Parser_internal_ArgList_Parser
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(scanf_core_Parser* @this)
 	{
-		unchecked
-		{
-			internal_ArgList_ArgList.Invoke(&((scanf_core_Parser*)@this)->args_start);
-			internal_ArgList_ArgList.Invoke(&((scanf_core_Parser*)@this)->args_cur);
-		}
+		internal_ArgList_ArgList.Invoke(&@this->args_start);
+		internal_ArgList_ArgList.Invoke(&@this->args_cur);
 	}
 }

@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::TypeDesc::operator==(__llvm_libc_20_1_2_::printf_core::TypeDesc const&) const")]
 internal static partial class printf_core_TypeDesc_operator_printf_core_TypeDesc_const_const
 {
-	public unsafe static bool Invoke(void* @this, void* other)
+	public unsafe static bool Invoke(printf_core_TypeDesc* @this, printf_core_TypeDesc* other)
 	{
-		return unchecked((byte)((printf_core_TypeDesc*)@this)->size == (byte)((printf_core_TypeDesc*)other)->size && (byte)((printf_core_TypeDesc*)@this)->primary_type == (byte)((printf_core_TypeDesc*)other)->primary_type);
+		return unchecked((byte)@this->size == (byte)other->size && (byte)@this->primary_type == (byte)other->primary_type);
 	}
 }

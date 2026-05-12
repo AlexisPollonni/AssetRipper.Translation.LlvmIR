@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -99,20 +100,20 @@ internal static partial class StrToNumResult_float_internal_strtofloatingpoint_f
 				if (num2 == 16)
 				{
 					llvm_lifetime_start_p0.Invoke(24L, &strToNumResult_kkgahp2);
-					StrToNumResult_internal_ExpandedFloat_float_internal_hexadecimal_string_to_float_float_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_kkgahp2, (byte*)src + num, 46, num3);
+					StrToNumResult_internal_ExpandedFloat_float_internal_hexadecimal_string_to_float_float_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_kkgahp2, (byte*)src + num, 46, (RoundDirection_b3pcwy)num3);
 					llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_kkgahp, &strToNumResult_kkgahp2, 24L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_kkgahp2);
 				}
 				else
 				{
 					llvm_lifetime_start_p0.Invoke(24L, &strToNumResult_kkgahp3);
-					StrToNumResult_internal_ExpandedFloat_float_internal_decimal_string_to_float_float_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_kkgahp3, (byte*)src + num, 46, num3);
+					StrToNumResult_internal_ExpandedFloat_float_internal_decimal_string_to_float_float_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_kkgahp3, (byte*)src + num, 46, (RoundDirection_b3pcwy)num3);
 					llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_kkgahp, &strToNumResult_kkgahp3, 24L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_kkgahp3);
 				}
 				b = ((strToNumResult_kkgahp.parsed_len != 0L) ? ((sbyte)1) : ((sbyte)0));
-				fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int.Invoke(&fputil_FPBits_5nkvcs2, strToNumResult_kkgahp.value.mantissa);
-				fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_biased_exponent_unsigned_int.Invoke(&fputil_FPBits_5nkvcs2, strToNumResult_kkgahp.value.exponent);
+				fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2), strToNumResult_kkgahp.value.mantissa);
+				fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_biased_exponent_unsigned_int.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2), strToNumResult_kkgahp.value.exponent);
 				long parsed_len = strToNumResult_kkgahp.parsed_len;
 				num = checked(num + parsed_len);
 				error = strToNumResult_kkgahp.error;

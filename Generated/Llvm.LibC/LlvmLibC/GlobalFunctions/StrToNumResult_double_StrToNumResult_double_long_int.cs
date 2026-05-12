@@ -7,13 +7,10 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double>::StrToNumResult(double, long, int)")]
 internal static partial class StrToNumResult_double_StrToNumResult_double_long_int
 {
-	public unsafe static void Invoke(void* @this, double value, long parsed_len, int error)
+	public unsafe static void Invoke(StrToNumResult_r53a3q* @this, double value, long parsed_len, int error)
 	{
-		unchecked
-		{
-			((StrToNumResult_r53a3q*)@this)->value = value;
-			((StrToNumResult_r53a3q*)@this)->error = error;
-			((StrToNumResult_r53a3q*)@this)->parsed_len = parsed_len;
-		}
+		@this->value = value;
+		@this->error = error;
+		@this->parsed_len = parsed_len;
 	}
 }

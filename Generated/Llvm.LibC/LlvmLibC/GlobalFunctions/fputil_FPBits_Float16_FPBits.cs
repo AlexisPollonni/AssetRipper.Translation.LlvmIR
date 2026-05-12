@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -6,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::FPBits<_Float16>::FPBits()")]
 internal static partial class fputil_FPBits_Float16_FPBits
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(fputil_FPBits_2fahva* @this)
 	{
-		fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_FPRepImpl.Invoke(@this);
+		fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_FPRepImpl.Invoke(unchecked((fputil_internal_FPRepImpl_7z3gh9*)@this));
 	}
 }

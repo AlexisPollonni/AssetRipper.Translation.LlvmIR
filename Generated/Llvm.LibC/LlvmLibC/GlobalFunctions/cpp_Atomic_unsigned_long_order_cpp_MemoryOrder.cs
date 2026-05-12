@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 
 namespace LlvmLibC.GlobalFunctions;
@@ -6,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned long>::order(__llvm_libc_20_1_2_::cpp::MemoryOrder)")]
 internal static partial class cpp_Atomic_unsigned_long_order_cpp_MemoryOrder
 {
-	public static int Invoke(int mem_ord)
+	public static int Invoke(MemoryOrder mem_ord)
 	{
-		return mem_ord;
+		return unchecked((int)mem_ord);
 	}
 }

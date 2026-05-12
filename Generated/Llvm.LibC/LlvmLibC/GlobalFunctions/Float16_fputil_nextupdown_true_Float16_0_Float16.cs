@@ -34,7 +34,7 @@ internal static partial class Float16_fputil_nextupdown_true_Float16_0_Float16
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
 			*(short*)(&fputil_FPBits_2fahva2) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, x);
-			bool num = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke(&fputil_FPBits_2fahva2);
+			bool num = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2));
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva4);
 			int num2;
@@ -79,14 +79,14 @@ internal static partial class Float16_fputil_nextupdown_true_Float16_0_Float16
 					if (operator_Sign_Sign_fy8fvt.Invoke(anon_izyfb11.val, anon_izyfb12.val))
 					{
 						llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva5);
-						fputil_FPBits_Float16_FPBits_unsigned_short_unsigned_short.Invoke(&fputil_FPBits_2fahva5, (short)checked(unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva2)) + 1));
+						fputil_FPBits_Float16_FPBits_unsigned_short_unsigned_short.Invoke(&fputil_FPBits_2fahva5, (short)checked(unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2))) + 1));
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_2fahva2, &fputil_FPBits_2fahva5, 2L, isVolatile: false);
 						llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva5);
 					}
 					else
 					{
 						llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva6);
-						fputil_FPBits_Float16_FPBits_unsigned_short_unsigned_short.Invoke(&fputil_FPBits_2fahva6, (short)checked(unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva2)) - 1));
+						fputil_FPBits_Float16_FPBits_unsigned_short_unsigned_short.Invoke(&fputil_FPBits_2fahva6, (short)checked(unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2))) - 1));
 						llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_2fahva2, &fputil_FPBits_2fahva6, 2L, isVolatile: false);
 						llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva6);
 					}

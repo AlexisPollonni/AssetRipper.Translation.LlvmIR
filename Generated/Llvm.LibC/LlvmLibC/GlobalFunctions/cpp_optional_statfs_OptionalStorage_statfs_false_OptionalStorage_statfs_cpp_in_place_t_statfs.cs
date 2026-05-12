@@ -8,12 +8,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::OptionalStorage<statfs, false>::OptionalStorage<statfs>(__llvm_libc_20_1_2_::cpp::in_place_t, statfs&&)")]
 internal static partial class cpp_optional_statfs_OptionalStorage_statfs_false_OptionalStorage_statfs_cpp_in_place_t_statfs
 {
-	public unsafe static void Invoke(void* @this, void* args)
+	public unsafe static void Invoke(cpp_optional_statfs_OptionalStorage* @this, void* args)
 	{
-		unchecked
-		{
-			llvm_memcpy_p0_p0_i64.Invoke(&((cpp_optional_statfs_OptionalStorage*)@this)->field, statfs_cpp_forward_statfs_cpp_remove_reference_statfs_type.Invoke(args), 120L, isVolatile: false);
-			((cpp_optional_statfs_OptionalStorage*)@this)->in_use = 0;
-		}
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->field, statfs_cpp_forward_statfs_cpp_remove_reference_statfs_type.Invoke(unchecked((statfs*)args)), 120L, isVolatile: false);
+		@this->in_use = 0;
 	}
 }

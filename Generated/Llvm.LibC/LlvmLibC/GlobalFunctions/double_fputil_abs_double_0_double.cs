@@ -15,7 +15,7 @@ internal static partial class double_fputil_abs_double_0_double
 		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 		fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm3, x);
-		long val = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke(&fputil_FPBits_wjhbrm3);
+		long val = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke(unchecked((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)));
 		fputil_FPBits_wjhbrm2.FPRepImpl.FPRepSem.FPStorage.val = val;
 		double result = fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2);
 		llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);

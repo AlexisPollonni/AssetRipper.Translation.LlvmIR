@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::HighPrecisionDecimal(char const*, unsigned long)")]
 internal static partial class internal_HighPrecisionDecimal_HighPrecisionDecimal_char_const_unsigned_long
 {
-	public unsafe static void Invoke(void* @this, void* num_string, long num_len)
+	public unsafe static void Invoke(internal_HighPrecisionDecimal* @this, void* num_string, long num_len)
 	{
 		sbyte b = 0;
 		long num = 0L;
@@ -16,17 +16,17 @@ internal static partial class internal_HighPrecisionDecimal_HighPrecisionDecimal
 		StrToNumResult_yrtfty strToNumResult_yrtfty = default(StrToNumResult_yrtfty);
 		int num3 = 0;
 		long num4 = 0L;
+		@this->num_digits = 0;
+		@this->decimal_point = 0;
+		@this->truncated = 0;
+		llvm_lifetime_start_p0.Invoke(1L, &b);
+		b = 0;
+		llvm_lifetime_start_p0.Invoke(8L, &num);
+		num = 0L;
+		llvm_lifetime_start_p0.Invoke(4L, &num2);
+		num2 = 0;
 		unchecked
 		{
-			((internal_HighPrecisionDecimal*)@this)->num_digits = 0;
-			((internal_HighPrecisionDecimal*)@this)->decimal_point = 0;
-			((internal_HighPrecisionDecimal*)@this)->truncated = 0;
-			llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = 0;
-			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = 0L;
-			llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = 0;
 			while ((ulong)num < (ulong)num_len && ((!internal_isdigit_int_121.Invoke(((sbyte*)num_string)[num])) ? (((sbyte*)num_string)[num] == 46) : true))
 			{
 				if (((sbyte*)num_string)[num] == 46)
@@ -35,37 +35,37 @@ internal static partial class internal_HighPrecisionDecimal_HighPrecisionDecimal
 					{
 						break;
 					}
-					((internal_HighPrecisionDecimal*)@this)->decimal_point = num2;
+					@this->decimal_point = num2;
 					b = 1;
 				}
 				else
 				{
-					if (((sbyte*)num_string)[num] == 48 && ((internal_HighPrecisionDecimal*)@this)->num_digits == 0)
+					if (((sbyte*)num_string)[num] == 48 && @this->num_digits == 0)
 					{
 						checked
 						{
-							unchecked((internal_HighPrecisionDecimal*)@this)->decimal_point += -1;
+							@this->decimal_point += -1;
 						}
 						num++;
 						continue;
 					}
 					num2++;
-					if ((uint)((internal_HighPrecisionDecimal*)@this)->num_digits < 800u)
+					if ((uint)@this->num_digits < 800u)
 					{
 						sbyte b2 = (sbyte)internal_b36_char_to_int_int_120.Invoke(((sbyte*)num_string)[num]);
-						((sbyte*)(&((internal_HighPrecisionDecimal*)@this)->digits))[(uint)((internal_HighPrecisionDecimal*)@this)->num_digits] = b2;
-						((internal_HighPrecisionDecimal*)@this)->num_digits++;
+						((sbyte*)(&@this->digits))[(uint)@this->num_digits] = b2;
+						@this->num_digits++;
 					}
 					else if (((sbyte*)num_string)[num] != 48)
 					{
-						((internal_HighPrecisionDecimal*)@this)->truncated = 1;
+						@this->truncated = 1;
 					}
 				}
 				num++;
 			}
 			if ((b & 1) != 1)
 			{
-				((internal_HighPrecisionDecimal*)@this)->decimal_point = num2;
+				@this->decimal_point = num2;
 			}
 			if ((ulong)num < (ulong)num_len && (((sbyte*)num_string)[num] == 101 || ((sbyte*)num_string)[num] == 69))
 			{
@@ -91,7 +91,7 @@ internal static partial class internal_HighPrecisionDecimal_HighPrecisionDecimal
 					llvm_lifetime_start_p0.Invoke(8L, &num4);
 					checked
 					{
-						num4 = unchecked((long)((internal_HighPrecisionDecimal*)@this)->decimal_point) + unchecked((long)num3);
+						num4 = unchecked((long)@this->decimal_point) + unchecked((long)num3);
 						if (num4 > 1073741824L)
 						{
 							num4 = 1073741824L;
@@ -101,7 +101,7 @@ internal static partial class internal_HighPrecisionDecimal_HighPrecisionDecimal
 							num4 = -1073741824L;
 						}
 					}
-					((internal_HighPrecisionDecimal*)@this)->decimal_point = (int)num4;
+					@this->decimal_point = (int)num4;
 					llvm_lifetime_end_p0.Invoke(8L, &num4);
 					llvm_lifetime_end_p0.Invoke(4L, &num3);
 					llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_yrtfty);

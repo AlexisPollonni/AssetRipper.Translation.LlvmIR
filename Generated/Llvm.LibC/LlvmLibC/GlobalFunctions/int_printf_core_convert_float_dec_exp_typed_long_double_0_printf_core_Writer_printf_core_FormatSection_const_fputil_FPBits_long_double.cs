@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -9,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("int __llvm_libc_20_1_2_::printf_core::convert_float_dec_exp_typed<long double, 0>(__llvm_libc_20_1_2_::printf_core::Writer*, __llvm_libc_20_1_2_::printf_core::FormatSection const&, __llvm_libc_20_1_2_::fputil::FPBits<long double>)")]
 internal static partial class int_printf_core_convert_float_dec_exp_typed_long_double_0_printf_core_Writer_printf_core_FormatSection_const_fputil_FPBits_long_double
 {
-	public unsafe static int Invoke(void* writer, void* to_conv, [MangledName("float_bits.coerce0")] long float_bits, [MangledName("float_bits.coerce1")] long FRACTION_LEN)
+	public unsafe static int Invoke(printf_core_Writer* writer, printf_core_FormatSection* to_conv, [MangledName("float_bits.coerce0")] long float_bits, [MangledName("float_bits.coerce1")] long FRACTION_LEN)
 	{
 		int result = 0;
 		fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi3 = default(fputil_FPBits_ubgsi2);
@@ -71,18 +72,18 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_long_d
 			{
 				init_sign_char = 45;
 			}
-			else if (((byte)((printf_core_FormatSection*)to_conv)->flags & 2) == 2)
+			else if (((byte)to_conv->flags & 2) == 2)
 			{
 				init_sign_char = 43;
 			}
-			else if (((byte)((printf_core_FormatSection*)to_conv)->flags & 4) == 4)
+			else if (((byte)to_conv->flags & 4) == 4)
 			{
 				init_sign_char = 32;
 			}
 			llvm_lifetime_start_p0.Invoke(4L, &num3);
-			num3 = ((((printf_core_FormatSection*)to_conv)->precision >= 0) ? ((printf_core_FormatSection*)to_conv)->precision : 6);
+			num3 = ((to_conv->precision >= 0) ? to_conv->precision : 6);
 			llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = (sbyte)(byte)((num3 == 0) ? ((((byte)((printf_core_FormatSection*)to_conv)->flags & 8) != 0) ? 1 : 0) : (-1));
+			b = (sbyte)(byte)((num3 == 0) ? ((((byte)to_conv->flags & 8) != 0) ? 1 : 0) : (-1));
 			llvm_lifetime_start_p0.Invoke(16L, &printf_core_PaddingWriter2);
 			*(sbyte*)(&printf_core_PaddingWriter2) = -86;
 			((sbyte*)(&printf_core_PaddingWriter2))[1] = -86;
@@ -213,6 +214,8 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_long_d
 				}
 				llvm_lifetime_start_p0.Invoke(4L, &num16);
 				num16 = -1431655766;
+				int last_digit;
+				bool truncated;
 				checked
 				{
 					if ((b2 & 1) != 1)
@@ -261,13 +264,13 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_long_d
 							}
 						}
 					}
-					int last_digit = num14;
-					bool truncated = (b2 & 1) == 1;
+					last_digit = num14;
+					truncated = (b2 & 1) == 1;
 					anon_izyfb8.val = fputil_internal_FPStorage_fputil_FPType_4_sign_const.Invoke(&fputil_FPBits_ubgsi3);
-					num16 = printf_core_get_round_direction_int_bool_Sign.Invoke(last_digit, truncated, anon_izyfb8.val);
-					llvm_lifetime_start_p0.Invoke(4L, &num18);
 				}
-				num18 = printf_core_FloatWriter_write_last_block_unsigned_int_unsigned_long_printf_core_RoundDirection_int_char.Invoke(&printf_core_FloatWriter2, num7, num13, num16, num5, InstructionHelper.Select(internal_islower_int.Invoke(((printf_core_FormatSection*)to_conv)->conv_name), (sbyte)101, (sbyte)69));
+				num16 = (int)printf_core_get_round_direction_int_bool_Sign.Invoke(last_digit, truncated, anon_izyfb8.val);
+				llvm_lifetime_start_p0.Invoke(4L, &num18);
+				num18 = printf_core_FloatWriter_write_last_block_unsigned_int_unsigned_long_printf_core_RoundDirection_int_char.Invoke(&printf_core_FloatWriter2, num7, num13, (RoundDirection_zvveyk)num16, num5, InstructionHelper.Select(internal_islower_int.Invoke(to_conv->conv_name), (sbyte)101, (sbyte)69));
 				if (num18 < 0)
 				{
 					result = num18;

@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::atan_eval(__llvm_libc_20_1_2_::NumberPair<double> const&)")]
 internal static partial class anonymous_namespace_atan_eval_NumberPair_double_const
 {
-	public unsafe static Struct_4ydhja Invoke(void* x)
+	public unsafe static Struct_4ydhja Invoke(NumberPair* x)
 	{
 		NumberPair numberPair = default(NumberPair);
 		double num = 0.0;
@@ -23,21 +23,21 @@ internal static partial class anonymous_namespace_atan_eval_NumberPair_double_co
 			*(double*)(&numberPair) = double.NaN;
 			((double*)(&numberPair))[1] = double.NaN;
 			NumberPair_double_NumberPair.Invoke(&numberPair);
-			numberPair.hi = ((NumberPair*)x)->hi;
+			numberPair.hi = x->hi;
 			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = ((NumberPair*)x)->hi * ((NumberPair*)x)->hi;
+			num = x->hi * x->hi;
 			llvm_lifetime_start_p0.Invoke(8L, &z);
 			z = fputil_multiply_add_double_double_double.Invoke(num, 0.2, -1.0 / 3.0);
 			llvm_lifetime_start_p0.Invoke(8L, &y);
 			y = fputil_multiply_add_double_double_double.Invoke(num, 1.0 / 9.0, -1.0 / 7.0);
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
-			x2 = num * ((NumberPair*)x)->hi;
+			x2 = num * x->hi;
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = num * num;
 			llvm_lifetime_start_p0.Invoke(8L, &y2);
 			y2 = fputil_multiply_add_double_double_double.Invoke(num2, y, z);
 			llvm_lifetime_start_p0.Invoke(8L, &z2);
-			z2 = fputil_multiply_add_double_double_double.Invoke(num2 - num, ((NumberPair*)x)->lo, ((NumberPair*)x)->lo);
+			z2 = fputil_multiply_add_double_double_double.Invoke(num2 - num, x->lo, x->lo);
 			numberPair.lo = fputil_multiply_add_double_double_double.Invoke(x2, y2, z2);
 			llvm_lifetime_end_p0.Invoke(8L, &z2);
 			llvm_lifetime_end_p0.Invoke(8L, &y2);

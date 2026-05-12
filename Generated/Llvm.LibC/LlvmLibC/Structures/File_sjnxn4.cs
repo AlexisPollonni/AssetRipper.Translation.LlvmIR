@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
 
@@ -56,7 +57,7 @@ public partial struct File_sjnxn4
 	public long pos;
 
 	[FieldOffset(104)]
-	public sbyte prev_op;
+	public FileOp prev_op;
 
 	[FieldOffset(105)]
 	public InlineArray7_SByte field_16;

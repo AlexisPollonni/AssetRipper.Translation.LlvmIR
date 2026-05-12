@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -9,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>> __llvm_libc_20_1_2_::internal::clinger_fast_path<double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_vqqfu4* agg_result, [MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] int round, [MangledName("round")] int mantissa)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_vqqfu4* agg_result, [MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
 	{
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv2 = default(internal_ExpandedFloat_k68bhv);
 		long num = 0L;
@@ -27,7 +28,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_double_interna
 		unchecked
 		{
 			*(long*)(&internal_ExpandedFloat_k68bhv2) = init_num;
-			((int*)(&internal_ExpandedFloat_k68bhv2))[2] = round;
+			((int*)(&internal_ExpandedFloat_k68bhv2))[2] = (int)round;
 			llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = internal_ExpandedFloat_k68bhv2.mantissa;
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
@@ -152,8 +153,8 @@ internal static partial class cpp_optional_internal_ExpandedFloat_double_interna
 			ptr[1] = -86;
 			ptr[2] = -86;
 			ptr[3] = -86;
-			internal_ExpandedFloat_k68bhv3.mantissa = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke(&fputil_FPBits_wjhbrm2);
-			internal_ExpandedFloat_k68bhv3.exponent = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke(&fputil_FPBits_wjhbrm2);
+			internal_ExpandedFloat_k68bhv3.mantissa = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa_const.Invoke((fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm2));
+			internal_ExpandedFloat_k68bhv3.exponent = (ushort)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 			cpp_optional_internal_ExpandedFloat_double_optional_internal_ExpandedFloat_double.Invoke(agg_result, &internal_ExpandedFloat_k68bhv3);
 			llvm_lifetime_end_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv3);
 			goto IL_04dd;

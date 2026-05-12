@@ -11,7 +11,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::get_negative_block(int)")]
 internal static partial class FloatToString_float_0_get_negative_block_int
 {
-	public unsafe static int Invoke(void* @this, int block_index)
+	public unsafe static int Invoke(FloatToString_uyiqeh* @this, int block_index)
 	{
 		int num = 0;
 		BigInt_ghrwnp bigInt_ghrwnp = default(BigInt_ghrwnp);
@@ -25,10 +25,10 @@ internal static partial class FloatToString_float_0_get_negative_block_int
 		unchecked
 		{
 			int result;
-			if (((FloatToString_uyiqeh*)@this)->exponent < 0)
+			if (@this->exponent < 0)
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = (int)((ulong)checked(-unchecked((FloatToString_uyiqeh*)@this)->exponent) / 16uL);
+				num = (int)((ulong)checked(-@this->exponent) / 16uL);
 				llvm_lifetime_start_p0.Invoke(24L, &bigInt_ghrwnp);
 				sbyte* ptr = (sbyte*)(&bigInt_ghrwnp);
 				*(long*)ptr = -6148914691236517206L;
@@ -70,12 +70,9 @@ internal static partial class FloatToString_float_0_get_negative_block_int
 						llvm_memcpy_p0_p0_i64.Invoke(&bigInt_ghrwnp, &bigInt_ghrwnp2, 24L, isVolatile: false);
 						llvm_lifetime_end_p0.Invoke(24L, &bigInt_ghrwnp2);
 						llvm_lifetime_start_p0.Invoke(4L, &num5);
-						checked
-						{
-							num5 = 120 + (-unchecked((FloatToString_uyiqeh*)@this)->exponent - num2);
-							llvm_lifetime_start_p0.Invoke(4L, &num6);
-						}
-						Int128 mantissa = ((FloatToString_uyiqeh*)@this)->mantissa;
+						num5 = checked(120 + (-@this->exponent - num2));
+						llvm_lifetime_start_p0.Invoke(4L, &num6);
+						Int128 mantissa = @this->mantissa;
 						int val = num5;
 						@int = mantissa;
 						num6 = internal_mul_shift_mod_1e9_unsigned_int128_BigInt_192ul_false_unsigned_long_const_int.Invoke(*(long*)(&@int), ((long*)(&@int))[1], &bigInt_ghrwnp, val);

@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -21,7 +22,7 @@ internal static partial class printf_core_TypeDesc_printf_core_type_desc_from_ty
 		llvm_lifetime_start_p0.Invoke(1L, &b3);
 		b3 = 0;
 		printf_core_TypeDesc2.size = 8;
-		printf_core_TypeDesc2.primary_type = 1;
+		printf_core_TypeDesc2.primary_type = PrimaryType.Float;
 		llvm_lifetime_end_p0.Invoke(1L, &b3);
 		llvm_lifetime_end_p0.Invoke(1L, &b2);
 		llvm_lifetime_end_p0.Invoke(1L, &b);

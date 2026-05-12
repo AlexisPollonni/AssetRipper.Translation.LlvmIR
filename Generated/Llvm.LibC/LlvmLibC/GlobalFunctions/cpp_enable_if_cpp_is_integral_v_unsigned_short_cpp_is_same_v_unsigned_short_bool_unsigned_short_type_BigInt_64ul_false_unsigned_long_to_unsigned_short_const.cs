@@ -8,14 +8,14 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned short> && !cpp::is_same_v<unsigned short, bool>, unsigned short>::type __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::to<unsigned short>() const")]
 internal static partial class cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_64ul_false_unsigned_long_to_unsigned_short_const
 {
-	public unsafe static short Invoke(void* @this)
+	public unsafe static short Invoke(BigInt_nx6qdt* @this)
 	{
 		long num = 0L;
 		short num2 = 0;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = 16L;
 		llvm_lifetime_start_p0.Invoke(2L, &num2);
-		num2 = unchecked((short)(*(long*)cpp_array_unsigned_long_1ul_operator_unsigned_long_const.Invoke(&((BigInt_nx6qdt*)@this)->val, 0L)));
+		num2 = unchecked((short)(*(long*)cpp_array_unsigned_long_1ul_operator_unsigned_long_const.Invoke(&@this->val, 0L)));
 		short result = num2;
 		llvm_lifetime_end_p0.Invoke(2L, &num2);
 		llvm_lifetime_end_p0.Invoke(8L, &num);

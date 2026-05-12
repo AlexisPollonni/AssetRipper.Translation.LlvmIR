@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Structures;
 
@@ -7,17 +8,14 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::WriteBuffer::WriteBuffer(char*, unsigned long)")]
 internal static partial class printf_core_WriteBuffer_WriteBuffer_char_unsigned_long
 {
-	public unsafe static void Invoke(void* @this, void* Buff, long Buff_len)
+	public unsafe static void Invoke(printf_core_WriteBuffer* @this, void* Buff, long Buff_len)
 	{
-		unchecked
-		{
-			((printf_core_WriteBuffer*)@this)->buff = Buff;
-			((printf_core_WriteBuffer*)@this)->init_buff = Buff;
-			((printf_core_WriteBuffer*)@this)->buff_len = Buff_len;
-			((printf_core_WriteBuffer*)@this)->buff_cur = 0L;
-			((printf_core_WriteBuffer*)@this)->stream_writer = null;
-			((printf_core_WriteBuffer*)@this)->output_target = null;
-			((printf_core_WriteBuffer*)@this)->write_mode = 0;
-		}
+		@this->buff = Buff;
+		@this->init_buff = Buff;
+		@this->buff_len = Buff_len;
+		@this->buff_cur = 0L;
+		@this->stream_writer = null;
+		@this->output_target = null;
+		@this->write_mode = WriteMode.FILL_BUFF_AND_DROP_OVERFLOW;
 	}
 }

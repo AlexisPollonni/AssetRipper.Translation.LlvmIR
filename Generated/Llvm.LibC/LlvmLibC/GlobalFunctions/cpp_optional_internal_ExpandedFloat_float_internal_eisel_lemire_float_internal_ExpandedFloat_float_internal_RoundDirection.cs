@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
@@ -11,7 +12,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<float>> __llvm_libc_20_1_2_::internal::eisel_lemire<float>(__llvm_libc_20_1_2_::internal::ExpandedFloat<float>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class cpp_optional_internal_ExpandedFloat_float_internal_eisel_lemire_float_internal_ExpandedFloat_float_internal_RoundDirection
 {
-	public unsafe static Struct_8myw6y Invoke([MangledName("init_num.coerce")] long init_num, int round)
+	public unsafe static Struct_8myw6y Invoke([MangledName("init_num.coerce")] long init_num, RoundDirection_b3pcwy round)
 	{
 		cpp_optional_6hseum cpp_optional_6hseum2 = default(cpp_optional_6hseum);
 		internal_ExpandedFloat_i7t5up internal_ExpandedFloat_i7t5up2 = default(internal_ExpandedFloat_i7t5up);
@@ -91,7 +92,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_float_internal
 			llvm_lifetime_start_p0.Invoke(4L, &num7);
 			num7 = (int)(internal_high64_unsigned_int128_const.Invoke(&int2) >>> (int)(uint)(num6 + 32 - 26));
 			num4 -= 1 ^ num6;
-			if (round == 2)
+			if (round == RoundDirection_b3pcwy.Nearest)
 			{
 				if (internal_low64_unsigned_int128_const.Invoke(&int2) == 0L && (internal_high64_unsigned_int128_const.Invoke(&int2) & 0x3FL) == 0L && (num7 & 3) == 1)
 				{
@@ -100,7 +101,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_float_internal
 				}
 				num7 += num7 & 1;
 			}
-			else if (round == 0 && ((ulong)internal_low64_unsigned_int128_const.Invoke(&int2) > 0uL || (ulong)(internal_high64_unsigned_int128_const.Invoke(&int2) & 0x3FL) > 0uL))
+			else if (round == RoundDirection_b3pcwy.Up && ((ulong)internal_low64_unsigned_int128_const.Invoke(&int2) > 0uL || (ulong)(internal_high64_unsigned_int128_const.Invoke(&int2) & 0x3FL) > 0uL))
 			{
 				num7 += 2;
 			}

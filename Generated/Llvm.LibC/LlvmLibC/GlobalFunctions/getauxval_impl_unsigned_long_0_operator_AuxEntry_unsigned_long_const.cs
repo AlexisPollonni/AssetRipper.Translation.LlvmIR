@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -38,12 +39,12 @@ internal static partial class getauxval_impl_unsigned_long_0_operator_AuxEntry_u
 			{
 				if (num2 != 1)
 				{
-					throw null;
+					throw new NotImplementedException("Reached LLVM unreachable instruction.");
 				}
 			}
 			else
 			{
-				AuxvErrnoGuard_mark_failure.Invoke(((anon_589mcc*)@this)->field_0);
+				AuxvErrnoGuard_mark_failure.Invoke((AuxvErrnoGuard*)((anon_589mcc*)@this)->field_0);
 				result = 0L;
 			}
 			return result;

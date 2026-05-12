@@ -9,15 +9,15 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long_const")]
 internal static partial class BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_5vdftb
 {
-	public unsafe static long Invoke(void* @this, long s)
+	public unsafe static long Invoke(BigInt_nx6qdt* @this, long s)
 	{
 		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
 		cpp_array_rpgxvv cpp_array_rpgxvv2 = default(cpp_array_rpgxvv);
 		cpp_array_rpgxvv cpp_array_rpgxvv3 = default(cpp_array_rpgxvv);
 		llvm_lifetime_start_p0.Invoke(8L, &cpp_array_rpgxvv2);
+		llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_rpgxvv3, &@this->val, 8L, isVolatile: false);
 		unchecked
 		{
-			llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_rpgxvv3, &((BigInt_nx6qdt*)@this)->val, 8L, isVolatile: false);
 			long data = cpp_array_unsigned_long_1ul_multiword_shift_multiword_Direction_1_false_unsigned_long_1ul_cpp_array_unsigned_long_1ul_unsigned_long.Invoke(*(long*)(&cpp_array_rpgxvv3.Data), s);
 			*(long*)(&cpp_array_rpgxvv2.Data) = data;
 			BigInt_64ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_1ul_const.Invoke(&bigInt_nx6qdt, &cpp_array_rpgxvv2);

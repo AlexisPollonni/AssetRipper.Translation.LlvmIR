@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::tan_eval(__llvm_libc_20_1_2_::NumberPair<double> const&, __llvm_libc_20_1_2_::NumberPair<double>&)")]
 internal static partial class anonymous_namespace_tan_eval_NumberPair_double_const_NumberPair_double
 {
-	public unsafe static double Invoke(void* u, void* result)
+	public unsafe static double Invoke(NumberPair* u, NumberPair* result)
 	{
 		double num = 0.0;
 		double y = 0.0;
@@ -23,29 +23,29 @@ internal static partial class anonymous_namespace_tan_eval_NumberPair_double_con
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm3 = default(fputil_FPBits_wjhbrm);
 		llvm_lifetime_start_p0.Invoke(8L, &num);
+		num = u->hi * u->hi;
+		llvm_lifetime_start_p0.Invoke(8L, &y);
+		y = fputil_multiply_add_double_double_double.Invoke(num, 0.021869488536155203, 17.0 / 315.0);
+		llvm_lifetime_start_p0.Invoke(8L, &z);
+		z = fputil_multiply_add_double_double_double.Invoke(num, 2.0 / 15.0, 1.0 / 3.0);
+		llvm_lifetime_start_p0.Invoke(8L, &y2);
+		y2 = fputil_multiply_add_double_double_double.Invoke(num, 2.0 / 3.0, 1.0);
+		llvm_lifetime_start_p0.Invoke(8L, &x);
+		x = num * u->hi;
+		llvm_lifetime_start_p0.Invoke(8L, &x2);
+		x2 = num * num;
+		llvm_lifetime_start_p0.Invoke(8L, &y3);
+		y3 = fputil_multiply_add_double_double_double.Invoke(x2, y, z);
+		llvm_lifetime_start_p0.Invoke(8L, &num2);
+		num2 = fputil_multiply_add_double_double_double.Invoke(num, y2, 1.0);
+		llvm_lifetime_start_p0.Invoke(8L, &b);
+		b = fputil_multiply_add_double_double_double.Invoke(x, y3, u->lo * num2);
+		llvm_lifetime_start_p0.Invoke(16L, &numberPair);
+		Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_add_true_double_double.Invoke(u->hi, b);
+		NumberPair* num3 = &numberPair;
+		Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
 		unchecked
 		{
-			num = ((NumberPair*)u)->hi * ((NumberPair*)u)->hi;
-			llvm_lifetime_start_p0.Invoke(8L, &y);
-			y = fputil_multiply_add_double_double_double.Invoke(num, 0.021869488536155203, 17.0 / 315.0);
-			llvm_lifetime_start_p0.Invoke(8L, &z);
-			z = fputil_multiply_add_double_double_double.Invoke(num, 2.0 / 15.0, 1.0 / 3.0);
-			llvm_lifetime_start_p0.Invoke(8L, &y2);
-			y2 = fputil_multiply_add_double_double_double.Invoke(num, 2.0 / 3.0, 1.0);
-			llvm_lifetime_start_p0.Invoke(8L, &x);
-			x = num * ((NumberPair*)u)->hi;
-			llvm_lifetime_start_p0.Invoke(8L, &x2);
-			x2 = num * num;
-			llvm_lifetime_start_p0.Invoke(8L, &y3);
-			y3 = fputil_multiply_add_double_double_double.Invoke(x2, y, z);
-			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = fputil_multiply_add_double_double_double.Invoke(num, y2, 1.0);
-			llvm_lifetime_start_p0.Invoke(8L, &b);
-			b = fputil_multiply_add_double_double_double.Invoke(x, y3, ((NumberPair*)u)->lo * num2);
-			llvm_lifetime_start_p0.Invoke(16L, &numberPair);
-			Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_add_true_double_double.Invoke(((NumberPair*)u)->hi, b);
-			NumberPair* num3 = &numberPair;
-			Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
 			*(double*)num3 = struct_4ydhja2.field_0;
 			byte* num4 = (byte*)(&numberPair) + 8u;
 			Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
@@ -55,7 +55,7 @@ internal static partial class anonymous_namespace_tan_eval_NumberPair_double_con
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm3, x);
-			long val = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke(&fputil_FPBits_wjhbrm3);
+			long val = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3));
 			fputil_FPBits_wjhbrm2.FPRepImpl.FPRepSem.FPStorage.val = val;
 			double result2 = fputil_multiply_add_double_double_double.Invoke(fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2), 4.440892098500626E-16, 1.9721522630525295E-31);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);

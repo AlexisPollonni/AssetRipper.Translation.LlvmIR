@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn<float> __llvm_libc_20_1_2_::internal::binary_exp_to_float<float>(__llvm_libc_20_1_2_::internal::ExpandedFloat<float>, bool, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class internal_FloatConvertReturn_float_internal_binary_exp_to_float_float_internal_ExpandedFloat_float_bool_internal_RoundDirection
 {
-	public unsafe static Struct_3driym Invoke([MangledName("init_num.coerce")] long init_num, bool truncated, int round)
+	public unsafe static Struct_3driym Invoke([MangledName("init_num.coerce")] long init_num, bool truncated, RoundDirection_b3pcwy round)
 	{
 		internal_FloatConvertReturn_a8f9er internal_FloatConvertReturn_a8f9er2 = default(internal_FloatConvertReturn_a8f9er);
 		internal_ExpandedFloat_i7t5up internal_ExpandedFloat_i7t5up2 = default(internal_ExpandedFloat_i7t5up);
@@ -96,13 +97,13 @@ internal static partial class internal_FloatConvertReturn_float_internal_binary_
 			b3 = (((num & 1) != 0) ? ((sbyte)1) : ((sbyte)0));
 			switch (round)
 			{
-			case 2:
+			case RoundDirection_b3pcwy.Nearest:
 				if ((b & 1) == 1 && ((b3 & 1) == 1 || (b2 & 1) == 1))
 				{
 					num++;
 				}
 				break;
-			case 0:
+			case RoundDirection_b3pcwy.Up:
 				if ((b & 1) == 1 || (b2 & 1) == 1)
 				{
 					num++;

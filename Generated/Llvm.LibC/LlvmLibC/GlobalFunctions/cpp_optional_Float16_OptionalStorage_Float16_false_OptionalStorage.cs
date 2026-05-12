@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<_Float16>::OptionalStorage<_Float16, false>::OptionalStorage()")]
 internal static partial class cpp_optional_Float16_OptionalStorage_Float16_false_OptionalStorage
 {
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke(cpp_optional_Float16_OptionalStorage* @this)
 	{
-		unchecked
-		{
-			*(sbyte*)(&((cpp_optional_Float16_OptionalStorage*)@this)->field) = 0;
-			((cpp_optional_Float16_OptionalStorage*)@this)->in_use = 0;
-		}
+		*unchecked((sbyte*)(&@this->field)) = 0;
+		@this->in_use = 0;
 	}
 }

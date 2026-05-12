@@ -6,7 +6,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class statvfs
 {
-	public unsafe static int Invoke(void* path, void* buf)
+	public unsafe static int Invoke(void* path, LlvmLibC.Structures.statvfs* buf)
 	{
 		cpp_optional_hij69m cpp_optional_hij69m2 = default(cpp_optional_hij69m);
 		LlvmLibC.Structures.statvfs statvfs2 = default(LlvmLibC.Structures.statvfs);

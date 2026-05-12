@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -95,7 +96,7 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 				{
 					llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_vqqfu6);
 					llvm_memcpy_p0_p0_i64.Invoke(&internal_ExpandedFloat_k68bhv5, &internal_ExpandedFloat_k68bhv2, 16L, isVolatile: false);
-					cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu6, *(long*)(&internal_ExpandedFloat_k68bhv5), ((int*)(&internal_ExpandedFloat_k68bhv5))[2], numStart);
+					cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu6, *(long*)(&internal_ExpandedFloat_k68bhv5), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv5))[2], numStart);
 					llvm_memcpy_p0_p0_i64.Invoke(&cpp_optional_vqqfu5, &cpp_optional_vqqfu6, 24L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_vqqfu6);
 					if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_vqqfu5))
@@ -107,7 +108,7 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 				}
 				llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_vqqfu7);
 				llvm_memcpy_p0_p0_i64.Invoke(&internal_ExpandedFloat_k68bhv6, &internal_ExpandedFloat_k68bhv2, 16L, isVolatile: false);
-				cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu7, *(long*)(&internal_ExpandedFloat_k68bhv6), ((int*)(&internal_ExpandedFloat_k68bhv6))[2], numStart);
+				cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu7, *(long*)(&internal_ExpandedFloat_k68bhv6), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv6))[2], numStart);
 				llvm_memcpy_p0_p0_i64.Invoke(&cpp_optional_vqqfu5, &cpp_optional_vqqfu7, 24L, isVolatile: false);
 				llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_vqqfu7);
 				if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_vqqfu5))
@@ -139,9 +140,9 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 					ptr11[6] = -86;
 					internal_ExpandedFloat_k68bhv7.mantissa = num + 1L;
 					internal_ExpandedFloat_k68bhv7.exponent = num2;
-					cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu8, *(long*)(&internal_ExpandedFloat_k68bhv7), ((int*)(&internal_ExpandedFloat_k68bhv7))[2], numStart);
+					cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu8, *(long*)(&internal_ExpandedFloat_k68bhv7), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv7))[2], numStart);
 					int num3;
-					if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_vqqfu8) && ((internal_ExpandedFloat_k68bhv*)cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu5))->mantissa == ((internal_ExpandedFloat_k68bhv*)cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu8))->mantissa && ((internal_ExpandedFloat_k68bhv*)cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu5))->exponent == ((internal_ExpandedFloat_k68bhv*)cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu8))->exponent)
+					if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_vqqfu8) && cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu5)->mantissa == cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu8)->mantissa && cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu5)->exponent == cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu8)->exponent)
 					{
 						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->num, cpp_optional_internal_ExpandedFloat_double_value.Invoke(&cpp_optional_vqqfu5), 16L, isVolatile: false);
 						agg_result->error = 0;
@@ -161,7 +162,7 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 					}
 				}
 				llvm_lifetime_start_p0.Invoke(24L, &internal_FloatConvertReturn_g92bm10);
-				internal_FloatConvertReturn_double_internal_simple_decimal_conversion_double_char_const_unsigned_long_internal_RoundDirection.Invoke(&internal_FloatConvertReturn_g92bm10, num_len, mantissa, numStart);
+				internal_FloatConvertReturn_double_internal_simple_decimal_conversion_double_char_const_unsigned_long_internal_RoundDirection.Invoke(&internal_FloatConvertReturn_g92bm10, num_len, mantissa, (RoundDirection_b3pcwy)numStart);
 				llvm_memcpy_p0_p0_i64.Invoke(&internal_FloatConvertReturn_g92bm9, &internal_FloatConvertReturn_g92bm10, 20L, isVolatile: false);
 				llvm_lifetime_end_p0.Invoke(24L, &internal_FloatConvertReturn_g92bm10);
 				llvm_memcpy_p0_p0_i64.Invoke(agg_result, &internal_FloatConvertReturn_g92bm9, 24L, isVolatile: false);

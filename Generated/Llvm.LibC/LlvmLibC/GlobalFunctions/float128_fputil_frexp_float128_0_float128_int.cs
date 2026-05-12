@@ -24,7 +24,7 @@ internal static partial class float128_fputil_frexp_float128_0_float128_int
 			{
 				result = x;
 			}
-			else if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke(&fputil_FPBits_ubgsi3))
+			else if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 			{
 				*(int*)exp = 0;
 				result = x;

@@ -7,12 +7,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::span<char>::span<char, 21ul, true>(__llvm_libc_20_1_2_::cpp::array<char, 21ul>&)")]
 internal static partial class cpp_span_char_span_char_21ul_true_cpp_array_char_21ul
 {
-	public unsafe static void Invoke(void* @this, void* arr)
+	public unsafe static void Invoke(cpp_string_view* @this, cpp_array_qkm4kn* arr)
 	{
-		unchecked
-		{
-			((cpp_string_view*)@this)->span_data = cpp_array_char_21ul_data.Invoke(arr);
-			((cpp_string_view*)@this)->span_size = cpp_array_char_21ul_size_const.Invoke(arr);
-		}
+		@this->span_data = cpp_array_char_21ul_data.Invoke(arr);
+		@this->span_size = cpp_array_char_21ul_size_const.Invoke(arr);
 	}
 }

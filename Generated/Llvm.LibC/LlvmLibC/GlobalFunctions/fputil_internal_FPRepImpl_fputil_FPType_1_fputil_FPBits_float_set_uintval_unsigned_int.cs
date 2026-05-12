@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::set_uintval(unsigned int)")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_uintval_unsigned_int
 {
-	public unsafe static void Invoke(void* @this, int value)
+	public unsafe static void Invoke(fputil_internal_FPRepImpl_vhj4tm* @this, int value)
 	{
 		unchecked((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0 = value & -1;
 	}

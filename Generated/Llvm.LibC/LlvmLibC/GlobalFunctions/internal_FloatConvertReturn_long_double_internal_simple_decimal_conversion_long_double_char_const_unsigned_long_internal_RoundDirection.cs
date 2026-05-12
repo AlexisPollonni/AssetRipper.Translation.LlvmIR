@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -10,7 +11,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn<long double> __llvm_libc_20_1_2_::internal::simple_decimal_conversion<long double>(char const*, unsigned long, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class internal_FloatConvertReturn_long_double_internal_simple_decimal_conversion_long_double_char_const_unsigned_long_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] internal_FloatConvertReturn_hgyipa* agg_result, void* numStart, long num_len, int round)
+	public unsafe static void Invoke([MangledName("agg.result")] internal_FloatConvertReturn_hgyipa* agg_result, void* numStart, long num_len, RoundDirection_b3pcwy round)
 	{
 		int i = 0;
 		internal_HighPrecisionDecimal internal_HighPrecisionDecimal2 = default(internal_HighPrecisionDecimal);
@@ -134,7 +135,7 @@ internal static partial class internal_FloatConvertReturn_long_double_internal_s
 			{
 				internal_HighPrecisionDecimal_shift_int.Invoke(&internal_HighPrecisionDecimal2, 63);
 				llvm_lifetime_start_p0.Invoke(16L, &@int);
-				Struct_fiz2nb struct_fiz2nb = unsigned_int128_internal_HighPrecisionDecimal_round_to_integer_type_unsigned_int128_internal_RoundDirection.Invoke(&internal_HighPrecisionDecimal2, 2);
+				Struct_fiz2nb struct_fiz2nb = unsigned_int128_internal_HighPrecisionDecimal_round_to_integer_type_unsigned_int128_internal_RoundDirection.Invoke(&internal_HighPrecisionDecimal2, RoundDirection_b3pcwy.Nearest);
 				Int128* num6 = &int2;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 				unchecked

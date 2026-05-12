@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
@@ -103,20 +104,20 @@ internal static partial class StrToNumResult_double_internal_strtofloatingpoint_
 				if (num2 == 16)
 				{
 					llvm_lifetime_start_p0.Invoke(32L, &strToNumResult_wpp2wp2);
-					StrToNumResult_internal_ExpandedFloat_double_internal_hexadecimal_string_to_float_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_wpp2wp2, (byte*)src + num, 46, num3);
+					StrToNumResult_internal_ExpandedFloat_double_internal_hexadecimal_string_to_float_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_wpp2wp2, (byte*)src + num, 46, (RoundDirection_b3pcwy)num3);
 					llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_wpp2wp, &strToNumResult_wpp2wp2, 32L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(32L, &strToNumResult_wpp2wp2);
 				}
 				else
 				{
 					llvm_lifetime_start_p0.Invoke(32L, &strToNumResult_wpp2wp3);
-					StrToNumResult_internal_ExpandedFloat_double_internal_decimal_string_to_float_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_wpp2wp3, (byte*)src + num, 46, num3);
+					StrToNumResult_internal_ExpandedFloat_double_internal_decimal_string_to_float_double_char_const_char_internal_RoundDirection.Invoke(&strToNumResult_wpp2wp3, (byte*)src + num, 46, (RoundDirection_b3pcwy)num3);
 					llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_wpp2wp, &strToNumResult_wpp2wp3, 32L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(32L, &strToNumResult_wpp2wp3);
 				}
 				b = ((strToNumResult_wpp2wp.parsed_len != 0L) ? ((sbyte)1) : ((sbyte)0));
-				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long.Invoke(&fputil_FPBits_wjhbrm2, strToNumResult_wpp2wp.value.mantissa);
-				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_biased_exponent_unsigned_long.Invoke(&fputil_FPBits_wjhbrm2, strToNumResult_wpp2wp.value.exponent);
+				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2), strToNumResult_wpp2wp.value.mantissa);
+				fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_biased_exponent_unsigned_long.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2), strToNumResult_wpp2wp.value.exponent);
 				long parsed_len = strToNumResult_wpp2wp.parsed_len;
 				num = checked(num + parsed_len);
 				error = strToNumResult_wpp2wp.error;

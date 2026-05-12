@@ -28,7 +28,7 @@ internal static partial class sincosf_eval_double_unsigned_int_double_double_dou
 				llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 				*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 				fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs2, x_abs);
-				k = fma_large_range_reduction_double_int_double.Invoke(xd, fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke(&fputil_FPBits_5nkvcs2), &y);
+				k = fma_large_range_reduction_double_int_double.Invoke(xd, fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_exponent_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)), &y);
 				llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 			}
 			sincosf_poly_eval_long_double_double_double_double_double.Invoke(k, y, sin_k, cos_k, sin_y, cosm1_y);

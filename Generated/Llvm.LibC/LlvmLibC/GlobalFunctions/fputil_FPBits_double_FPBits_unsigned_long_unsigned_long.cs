@@ -9,7 +9,10 @@ internal static partial class fputil_FPBits_double_FPBits_unsigned_long_unsigned
 {
 	public unsafe static void Invoke(void* @this, long x)
 	{
-		fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_FPRepImpl.Invoke(@this);
-		unchecked((fputil_internal_FPStorage_v3nexn*)@this)->val = x;
+		unchecked
+		{
+			fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_FPRepImpl.Invoke((fputil_internal_FPRepImpl_ucubaq*)@this);
+			((fputil_internal_FPStorage_v3nexn*)@this)->val = x;
+		}
 	}
 }

@@ -35,9 +35,9 @@ internal static partial class fputil_generic_FMod_float_unsigned_long_fputil_gen
 		fputil_FPBits_5nkvcs4.FPRepImpl.FPRepSem.field_0.field_0 = sy;
 		unchecked
 		{
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs3) <= (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs4), expected: true))
+			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3)) <= (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4)), expected: true))
 			{
-				if ((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs3) < (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs4))
+				if ((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3)) < (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4)))
 				{
 					llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs2, &fputil_FPBits_5nkvcs3, 4L, isVolatile: false);
 				}
@@ -51,9 +51,9 @@ internal static partial class fputil_generic_FMod_float_unsigned_long_fputil_gen
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_biased_exponent_const.Invoke(&fputil_FPBits_5nkvcs3);
+				num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
 				llvm_lifetime_start_p0.Invoke(4L, &num2);
-				num2 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_biased_exponent_const.Invoke(&fputil_FPBits_5nkvcs4);
+				num2 = (ushort)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4));
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 > 23 && checked(num - num2) <= 8, expected: true))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num3);
@@ -81,7 +81,7 @@ internal static partial class fputil_generic_FMod_float_unsigned_long_fputil_gen
 				{
 					*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
 					fputil_FPBits_float_FPBits.Invoke(&fputil_FPBits_5nkvcs2);
-					fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int.Invoke(&fputil_FPBits_5nkvcs2, (int)((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs3) % (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke(&fputil_FPBits_5nkvcs4)));
+					fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2), (int)((uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3)) % (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4))));
 				}
 				else
 				{
@@ -100,7 +100,7 @@ internal static partial class fputil_generic_FMod_float_unsigned_long_fputil_gen
 					}
 					else
 					{
-						num7 = (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke(&fputil_FPBits_5nkvcs4);
+						num7 = (uint)fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs4));
 						num9 = cpp_enable_if_cpp_is_unsigned_v_unsigned_long_int_type_cpp_countl_zero_unsigned_long_unsigned_long.Invoke(num7);
 					}
 					llvm_lifetime_start_p0.Invoke(4L, &num10);

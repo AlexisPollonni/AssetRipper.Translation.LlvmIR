@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using LlvmLibC.Helpers;
 
@@ -10,6 +11,6 @@ internal static partial class File_mode_flags_char_const
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public unsafe static int Invoke(void* parameter_0)
 	{
-		throw null;
+		throw new NotImplementedException("Unimplemented LLVM intrinsic: _ZN19__llvm_libc_20_1_2_4File10mode_flagsEPKc");
 	}
 }

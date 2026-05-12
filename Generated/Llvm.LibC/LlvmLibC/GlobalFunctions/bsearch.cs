@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Intrinsics.Implemented;
 
 namespace LlvmLibC.GlobalFunctions;
@@ -59,7 +60,7 @@ internal static partial class bsearch
 						case 1:
 							break;
 						default:
-							throw null;
+							throw new NotImplementedException("Reached LLVM unreachable instruction.");
 						}
 					}
 					else

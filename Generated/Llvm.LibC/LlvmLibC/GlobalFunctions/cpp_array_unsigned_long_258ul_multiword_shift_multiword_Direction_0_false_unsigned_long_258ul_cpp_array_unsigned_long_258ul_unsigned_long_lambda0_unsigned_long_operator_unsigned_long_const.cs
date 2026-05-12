@@ -15,7 +15,7 @@ internal static partial class cpp_array_unsigned_long_258ul_multiword_shift_mult
 		unchecked
 		{
 			num = cpp_array_unsigned_long_258ul_multiword_shift_multiword_Direction_0_false_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long_lambda_unsigned_long_operator_unsigned_long_const.Invoke(((anon_6je4un*)@this)->field_0, index);
-			long result = ((num >= 0) ? ((num < 258) ? (*(long*)cpp_array_unsigned_long_258ul_operator_unsigned_long.Invoke(((anon_6je4un*)@this)->field_1, num)) : 0) : 0);
+			long result = ((num >= 0) ? ((num < 258) ? (*(long*)cpp_array_unsigned_long_258ul_operator_unsigned_long.Invoke((cpp_array_vnnqx8*)((anon_6je4un*)@this)->field_1, num)) : 0) : 0);
 			llvm_lifetime_end_p0.Invoke(4L, &num);
 			return result;
 		}

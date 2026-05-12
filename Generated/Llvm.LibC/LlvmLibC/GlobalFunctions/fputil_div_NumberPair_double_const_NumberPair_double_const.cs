@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::div(__llvm_libc_20_1_2_::NumberPair<double> const&, __llvm_libc_20_1_2_::NumberPair<double> const&)")]
 internal static partial class fputil_div_NumberPair_double_const_NumberPair_double_const
 {
-	public unsafe static Struct_4ydhja Invoke(void* a, void* b)
+	public unsafe static Struct_4ydhja Invoke(NumberPair* a, NumberPair* b)
 	{
 		NumberPair numberPair = default(NumberPair);
 		double num = 0.0;
@@ -20,12 +20,12 @@ internal static partial class fputil_div_NumberPair_double_const_NumberPair_doub
 			((double*)(&numberPair))[1] = double.NaN;
 			NumberPair_double_NumberPair.Invoke(&numberPair);
 			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = 1.0 / ((NumberPair*)b)->hi;
-			numberPair.hi = ((NumberPair*)a)->hi * num;
+			num = 1.0 / b->hi;
+			numberPair.hi = a->hi * num;
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = fputil_multiply_add_double_double_double.Invoke(((NumberPair*)b)->hi, 0.0 - numberPair.hi, ((NumberPair*)a)->hi);
+			num2 = fputil_multiply_add_double_double_double.Invoke(b->hi, 0.0 - numberPair.hi, a->hi);
 			llvm_lifetime_start_p0.Invoke(8L, &num3);
-			num3 = fputil_multiply_add_double_double_double.Invoke(((NumberPair*)b)->lo, 0.0 - numberPair.hi, ((NumberPair*)a)->lo);
+			num3 = fputil_multiply_add_double_double_double.Invoke(b->lo, 0.0 - numberPair.hi, a->lo);
 			numberPair.lo = num * (num2 + num3);
 			llvm_lifetime_end_p0.Invoke(8L, &num3);
 			llvm_lifetime_end_p0.Invoke(8L, &num2);

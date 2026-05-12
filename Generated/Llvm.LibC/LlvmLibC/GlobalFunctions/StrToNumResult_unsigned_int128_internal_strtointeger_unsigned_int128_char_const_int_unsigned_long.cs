@@ -138,7 +138,7 @@ internal static partial class StrToNumResult_unsigned_int128_internal_strtointeg
 					case 3:
 						break;
 					default:
-						throw null;
+						throw new NotImplementedException("Reached LLVM unreachable instruction.");
 					}
 					break;
 				}

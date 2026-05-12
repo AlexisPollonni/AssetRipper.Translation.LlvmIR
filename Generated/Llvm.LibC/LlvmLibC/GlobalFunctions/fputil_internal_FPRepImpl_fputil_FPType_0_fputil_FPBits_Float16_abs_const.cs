@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)0, __llvm_libc_20_1_2_::fputil::FPBits<_Float16>>::abs() const")]
 internal static partial class fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_abs_const
 {
-	public unsafe static short Invoke(void* @this)
+	public unsafe static short Invoke(fputil_internal_FPRepImpl_7z3gh9* @this)
 	{
 		fputil_FPBits_2fahva fputil_FPBits_2fahva2 = default(fputil_FPBits_2fahva);
 		fputil_FPBits_Float16_FPBits_unsigned_short_unsigned_short.Invoke(&fputil_FPBits_2fahva2, unchecked((short)((ushort)((fputil_internal_FPStorage_za9n4f*)@this)->field_0 & 0x7FFF)));

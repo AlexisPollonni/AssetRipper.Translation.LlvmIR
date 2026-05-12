@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 
@@ -49,7 +50,7 @@ internal static partial class cpp_string_view_compareMemory_char_const_char_cons
 		{
 			if (num4 != 1)
 			{
-				throw null;
+				throw new NotImplementedException("Reached LLVM unreachable instruction.");
 			}
 		}
 		else

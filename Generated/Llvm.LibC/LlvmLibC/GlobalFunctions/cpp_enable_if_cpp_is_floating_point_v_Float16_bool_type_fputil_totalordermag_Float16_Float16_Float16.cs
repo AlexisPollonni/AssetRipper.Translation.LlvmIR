@@ -18,17 +18,17 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_bool
 		llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
 		llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 		fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva3, x);
-		short field_ = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_abs_const.Invoke(&fputil_FPBits_2fahva3);
-		fputil_FPBits_2fahva2.FPRepImpl.FPRepSem.FPStorage.field_0 = field_;
 		unchecked
 		{
-			ushort num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva2);
+			short field_ = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_abs_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva3));
+			fputil_FPBits_2fahva2.FPRepImpl.FPRepSem.FPStorage.field_0 = field_;
+			ushort num = (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2));
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva4);
 			llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva5);
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva5, y);
-			short field_2 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_abs_const.Invoke(&fputil_FPBits_2fahva5);
+			short field_2 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_abs_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva5));
 			fputil_FPBits_2fahva4.FPRepImpl.FPRepSem.FPStorage.field_0 = field_2;
-			bool result = num <= (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke(&fputil_FPBits_2fahva4);
+			bool result = num <= (ushort)fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva4));
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva5);
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva4);
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva3);

@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::vfscanf_internal(_IO_FILE*, char const*, __llvm_libc_20_1_2_::internal::ArgList&)")]
 internal static partial class scanf_core_vfscanf_internal_IO_FILE_char_const_internal_ArgList
 {
-	public unsafe static int Invoke(void* stream, void* format, void* args)
+	public unsafe static int Invoke(void* stream, void* format, internal_ArgList* args)
 	{
 		scanf_core_Reader scanf_core_Reader2 = default(scanf_core_Reader);
 		int num = 0;
@@ -17,7 +17,7 @@ internal static partial class scanf_core_vfscanf_internal_IO_FILE_char_const_int
 		llvm_memset_p0_i64.Invoke(&scanf_core_Reader2, 0, 40L, isVolatile: false);
 		unchecked
 		{
-			scanf_core_Reader2.rb = (void*)12297829382473034410uL;
+			scanf_core_Reader2.rb = (scanf_core_ReadBuffer*)12297829382473034410uL;
 			scanf_core_Reader2.input_stream = (void*)12297829382473034410uL;
 			scanf_core_Reader2.stream_getc = (void*)12297829382473034410uL;
 			scanf_core_Reader2.stream_ungetc = (void*)12297829382473034410uL;

@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>::ok() const")]
 internal static partial class details_StringBufferWriterImpl_false_ok_const
 {
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke(details_StringBufferWriterImpl* @this)
 	{
-		return unchecked((byte)((((((details_StringBufferWriterImpl*)@this)->out_of_range & 1) == 1) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return unchecked((byte)((((@this->out_of_range & 1) == 1) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
 	}
 }

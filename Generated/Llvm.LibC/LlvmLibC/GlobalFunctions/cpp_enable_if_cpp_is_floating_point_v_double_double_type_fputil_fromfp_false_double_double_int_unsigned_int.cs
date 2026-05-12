@@ -46,7 +46,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_doubl
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 				*(long*)(&fputil_FPBits_wjhbrm3) = -6148914691236517206L;
 				fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm3, x);
-				if (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan_const.Invoke(&fputil_FPBits_wjhbrm3))
+				if (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)))
 				{
 					fputil_raise_except_if_required_int.Invoke(1);
 					llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm4);

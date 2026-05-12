@@ -10,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::printf_core::Writer::pad(char, unsigned long)")]
 internal static partial class printf_core_Writer_pad_char_unsigned_long
 {
-	public unsafe static int Invoke(void* @this, sbyte new_char, long length)
+	public unsafe static int Invoke(printf_core_Writer* @this, sbyte new_char, long length)
 	{
 		int result = 0;
 		long num = 0L;
@@ -28,12 +28,12 @@ internal static partial class printf_core_Writer_pad_char_unsigned_long
 		llvm_lifetime_start_p0.Invoke(8L, &num2);
 		unchecked
 		{
-			num2 = ((printf_core_WriteBuffer*)((printf_core_Writer*)@this)->wb)->buff_len - ((printf_core_WriteBuffer*)((printf_core_Writer*)@this)->wb)->buff_cur;
+			num2 = @this->wb->buff_len - @this->wb->buff_cur;
 			if ((ulong)num2 > 0uL)
 			{
-				inline_memset_void_unsigned_char_unsigned_long.Invoke((byte*)((printf_core_WriteBuffer*)((printf_core_Writer*)@this)->wb)->buff + ((printf_core_WriteBuffer*)((printf_core_Writer*)@this)->wb)->buff_cur, value, num2);
+				inline_memset_void_unsigned_char_unsigned_long.Invoke((byte*)@this->wb->buff + @this->wb->buff_cur, value, num2);
 				long num5 = num2;
-				((printf_core_WriteBuffer*)((printf_core_Writer*)@this)->wb)->buff_cur += num5;
+				@this->wb->buff_cur += num5;
 				num = num2;
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &num3);
@@ -50,7 +50,7 @@ internal static partial class printf_core_Writer_pad_char_unsigned_long
 				if ((ulong)(num + 64L) < (ulong)length)
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num4);
-					void* wb = ((printf_core_Writer*)@this)->wb;
+					printf_core_WriteBuffer* wb = @this->wb;
 					llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view3, &cpp_string_view2, 16L, isVolatile: false);
 					num4 = printf_core_WriteBuffer_overflow_write_cpp_string_view.Invoke(wb, *(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1]);
 					int num6;
@@ -83,7 +83,7 @@ internal static partial class printf_core_Writer_pad_char_unsigned_long
 					byte* num8 = (byte*)(&cpp_string_view4) + 8u;
 					Struct_kqhe8i struct_kqhe8i3 = struct_kqhe8i;
 					*(long*)num8 = struct_kqhe8i3.field_1;
-					void* wb2 = ((printf_core_Writer*)@this)->wb;
+					printf_core_WriteBuffer* wb2 = @this->wb;
 					llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view5, &cpp_string_view4, 16L, isVolatile: false);
 					result = printf_core_WriteBuffer_overflow_write_cpp_string_view.Invoke(wb2, *(void**)(&cpp_string_view5), ((long*)(&cpp_string_view5))[1]);
 					llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view4);

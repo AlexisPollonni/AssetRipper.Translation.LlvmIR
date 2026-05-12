@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>::front()")]
 internal static partial class cpp_array_unsigned_long_2ul_front
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static void* Invoke(cpp_array_i3937k* @this)
 	{
-		return &unchecked((cpp_array_i3937k*)@this)->Data;
+		return &@this->Data;
 	}
 }

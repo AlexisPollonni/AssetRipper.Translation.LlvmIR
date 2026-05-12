@@ -57,7 +57,7 @@ internal static partial class tan
 			*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, x);
 			llvm_lifetime_start_p0.Invoke(2L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke(&fputil_FPBits_wjhbrm2);
+			num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair);
 			*(double*)(&numberPair) = double.NaN;
 			((double*)(&numberPair))[1] = double.NaN;
@@ -101,7 +101,7 @@ internal static partial class tan
 			{
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ushort)num > 2046, expected: false))
 				{
-					if (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke(&fputil_FPBits_wjhbrm2) == 0L)
+					if (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)) == 0L)
 					{
 						fputil_set_errno_if_required_int.Invoke(33);
 						fputil_raise_except_if_required_int.Invoke(1);
@@ -189,7 +189,7 @@ internal static partial class tan
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm4);
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm4, numberPair8.hi);
-			long num23 = long.MinValue - (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke(&fputil_FPBits_wjhbrm4) & 0x7FF0000000000000L);
+			long num23 = long.MinValue - (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm4)) & 0x7FF0000000000000L);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm4);
 			x2 = num23;
 			llvm_lifetime_start_p0.Invoke(8L, &num4);
@@ -200,7 +200,7 @@ internal static partial class tan
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm6);
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm7);
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm7, numberPair9.hi);
-			long val2 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke(&fputil_FPBits_wjhbrm7);
+			long val2 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm7));
 			fputil_FPBits_wjhbrm6.FPRepImpl.FPRepSem.FPStorage.val = val2;
 			double num25 = num24 * fputil_multiply_add_double_double_double.Invoke(x3, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm6), 1.0);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm7);

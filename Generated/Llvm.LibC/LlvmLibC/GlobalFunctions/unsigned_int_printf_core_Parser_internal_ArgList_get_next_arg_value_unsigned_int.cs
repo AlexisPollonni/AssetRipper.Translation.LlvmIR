@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("unsigned int __llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::get_next_arg_value<unsigned int>()")]
 internal static partial class unsigned_int_printf_core_Parser_internal_ArgList_get_next_arg_value_unsigned_int
 {
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke(printf_core_Parser* @this)
 	{
-		return unsigned_int_internal_ArgList_next_var_unsigned_int.Invoke(&unchecked((printf_core_Parser*)@this)->args_cur);
+		return unsigned_int_internal_ArgList_next_var_unsigned_int.Invoke(&@this->args_cur);
 	}
 }

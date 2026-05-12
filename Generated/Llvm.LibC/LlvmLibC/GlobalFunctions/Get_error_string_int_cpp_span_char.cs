@@ -34,7 +34,7 @@ internal static partial class Get_error_string_int_cpp_span_char
 			ptr3[4] = -86;
 			ptr3[5] = -86;
 			ptr3[6] = -86;
-			MessageMapper_134ul_3113ul_get_str_int_const.Invoke(&cpp_optional_q73pcj2, internal_ERROR_MAPPER.Pointer, err_num);
+			MessageMapper_134ul_3113ul_get_str_int_const.Invoke(&cpp_optional_q73pcj2, (MessageMapper_76ei55*)internal_ERROR_MAPPER.Pointer, err_num);
 			if (cpp_optional_cpp_string_view_operator_bool_const.Invoke(&cpp_optional_q73pcj2))
 			{
 				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view2, cpp_optional_cpp_string_view_operator.Invoke(&cpp_optional_q73pcj2), 16L, isVolatile: false);

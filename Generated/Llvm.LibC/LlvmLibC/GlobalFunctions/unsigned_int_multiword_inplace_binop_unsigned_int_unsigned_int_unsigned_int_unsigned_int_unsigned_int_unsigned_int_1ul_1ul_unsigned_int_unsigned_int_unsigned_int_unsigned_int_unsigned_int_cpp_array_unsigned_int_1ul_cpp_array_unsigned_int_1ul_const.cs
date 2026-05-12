@@ -1,5 +1,6 @@
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -7,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("unsigned int __llvm_libc_20_1_2_::multiword::inplace_binop<unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&), unsigned int, 1ul, 1ul>(unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&), __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
 internal static partial class unsigned_int_multiword_inplace_binop_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_1ul_1ul_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const
 {
-	public unsafe static int Invoke(void* op_with_carry, void* dst, void* rhs)
+	public unsafe static int Invoke(void* op_with_carry, cpp_array_aj48id* dst, cpp_array_aj48id* rhs)
 	{
 		int num = 0;
 		long num2 = 0L;

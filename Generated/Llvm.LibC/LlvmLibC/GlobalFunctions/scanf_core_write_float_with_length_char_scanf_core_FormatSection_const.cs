@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::write_float_with_length(char*, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
 internal static partial class scanf_core_write_float_with_length_char_scanf_core_FormatSection_const
 {
-	public unsafe static void Invoke(void* str, void* to_conv)
+	public unsafe static void Invoke(void* str, scanf_core_FormatSection* to_conv)
 	{
 		void* ptr = null;
 		int num = 0;
@@ -17,12 +17,12 @@ internal static partial class scanf_core_write_float_with_length_char_scanf_core
 		StrToNumResult_jptppf strToNumResult_jptppf = default(StrToNumResult_jptppf);
 		unchecked
 		{
-			if (((byte)((scanf_core_FormatSection*)to_conv)->flags & 1) == 0)
+			if (((byte)to_conv->flags & 1) == 0)
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &ptr);
-				ptr = ((scanf_core_FormatSection*)to_conv)->output_ptr;
+				ptr = to_conv->output_ptr;
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = ((scanf_core_FormatSection*)to_conv)->length_modifier;
+				num = (int)to_conv->length_modifier;
 				switch (num)
 				{
 				case 2:

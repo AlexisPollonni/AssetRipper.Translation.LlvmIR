@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::generic::sincos_eval(__llvm_libc_20_1_2_::NumberPair<double> const&, __llvm_libc_20_1_2_::NumberPair<double>&, __llvm_libc_20_1_2_::NumberPair<double>&)")]
 internal static partial class generic_sincos_eval_NumberPair_double_const_NumberPair_double_NumberPair_double
 {
-	public unsafe static double Invoke(void* u, void* sin_u, void* cos_u)
+	public unsafe static double Invoke(NumberPair* u, NumberPair* sin_u, NumberPair* cos_u)
 	{
 		double num = 0.0;
 		double y = 0.0;
@@ -31,30 +31,30 @@ internal static partial class generic_sincos_eval_NumberPair_double_const_Number
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm3 = default(fputil_FPBits_wjhbrm);
 		llvm_lifetime_start_p0.Invoke(8L, &num);
+		num = u->hi * u->hi;
+		llvm_lifetime_start_p0.Invoke(8L, &y);
+		y = fputil_multiply_add_double_double_double.Invoke(num, -0.0001984126984126984, 1.0 / 120.0);
+		llvm_lifetime_start_p0.Invoke(8L, &y2);
+		y2 = fputil_multiply_add_double_double_double.Invoke(num, 1.0 / 24.0, -0.5);
+		llvm_lifetime_start_p0.Invoke(8L, &x);
+		x = num * u->hi;
+		llvm_lifetime_start_p0.Invoke(8L, &y3);
+		y3 = fputil_multiply_add_double_double_double.Invoke(num, y, -1.0 / 6.0);
+		llvm_lifetime_start_p0.Invoke(8L, &num2);
+		num2 = fputil_multiply_add_double_double_double.Invoke(num, y2, 1.0);
+		llvm_lifetime_start_p0.Invoke(8L, &b);
+		b = fputil_multiply_add_double_double_double.Invoke(x, y3, u->lo * num2);
+		llvm_lifetime_start_p0.Invoke(8L, &y4);
+		y4 = -0.5 * u->hi;
+		llvm_lifetime_start_p0.Invoke(16L, &numberPair);
 		unchecked
 		{
-			num = ((NumberPair*)u)->hi * ((NumberPair*)u)->hi;
-			llvm_lifetime_start_p0.Invoke(8L, &y);
-			y = fputil_multiply_add_double_double_double.Invoke(num, -0.0001984126984126984, 1.0 / 120.0);
-			llvm_lifetime_start_p0.Invoke(8L, &y2);
-			y2 = fputil_multiply_add_double_double_double.Invoke(num, 1.0 / 24.0, -0.5);
-			llvm_lifetime_start_p0.Invoke(8L, &x);
-			x = num * ((NumberPair*)u)->hi;
-			llvm_lifetime_start_p0.Invoke(8L, &y3);
-			y3 = fputil_multiply_add_double_double_double.Invoke(num, y, -1.0 / 6.0);
-			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = fputil_multiply_add_double_double_double.Invoke(num, y2, 1.0);
-			llvm_lifetime_start_p0.Invoke(8L, &b);
-			b = fputil_multiply_add_double_double_double.Invoke(x, y3, ((NumberPair*)u)->lo * num2);
-			llvm_lifetime_start_p0.Invoke(8L, &y4);
-			y4 = -0.5 * ((NumberPair*)u)->hi;
-			llvm_lifetime_start_p0.Invoke(16L, &numberPair);
 			*(double*)(&numberPair) = double.NaN;
 			((double*)(&numberPair))[1] = double.NaN;
 			NumberPair_double_NumberPair.Invoke(&numberPair);
-			numberPair.hi = fputil_multiply_add_double_double_double.Invoke(((NumberPair*)u)->hi, y4, 1.0);
+			numberPair.hi = fputil_multiply_add_double_double_double.Invoke(u->hi, y4, 1.0);
 			numberPair.lo = 1.0 - numberPair.hi;
-			numberPair.lo = fputil_multiply_add_double_double_double.Invoke(((NumberPair*)u)->hi, y4, numberPair.lo);
+			numberPair.lo = fputil_multiply_add_double_double_double.Invoke(u->hi, y4, numberPair.lo);
 			llvm_lifetime_start_p0.Invoke(8L, &y5);
 			y5 = fputil_multiply_add_double_double_double.Invoke(num, 2.48015873015873E-05, -1.0 / 720.0);
 			llvm_lifetime_start_p0.Invoke(8L, &y6);
@@ -62,7 +62,7 @@ internal static partial class generic_sincos_eval_NumberPair_double_const_Number
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
 			x2 = num * num;
 			llvm_lifetime_start_p0.Invoke(8L, &x3);
-			x3 = ((NumberPair*)u)->hi * ((NumberPair*)u)->lo;
+			x3 = u->hi * u->lo;
 			llvm_lifetime_start_p0.Invoke(8L, &y7);
 			y7 = fputil_multiply_add_double_double_double.Invoke(num, y5, 1.0 / 24.0);
 			llvm_lifetime_start_p0.Invoke(8L, &z);
@@ -70,7 +70,7 @@ internal static partial class generic_sincos_eval_NumberPair_double_const_Number
 			llvm_lifetime_start_p0.Invoke(8L, &b2);
 			b2 = fputil_multiply_add_double_double_double.Invoke(x2, y7, z);
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair2);
-			Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_add_true_double_double.Invoke(((NumberPair*)u)->hi, b);
+			Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_add_true_double_double.Invoke(u->hi, b);
 			NumberPair* num3 = &numberPair2;
 			Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
 			*(double*)num3 = struct_4ydhja2.field_0;
@@ -92,7 +92,7 @@ internal static partial class generic_sincos_eval_NumberPair_double_const_Number
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm3, x);
-			long val = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke(&fputil_FPBits_wjhbrm3);
+			long val = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3));
 			fputil_FPBits_wjhbrm2.FPRepImpl.FPRepSem.FPStorage.val = val;
 			double result = fputil_multiply_add_double_double_double.Invoke(fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2), 4.440892098500626E-16, 2.465190328815662E-32);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);

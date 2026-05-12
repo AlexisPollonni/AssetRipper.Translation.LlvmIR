@@ -15,7 +15,7 @@ internal static partial class float_fputil_abs_float_0_float
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 		fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs3, x);
-		int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(&fputil_FPBits_5nkvcs3);
+		int field_ = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs_const.Invoke(unchecked((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3)));
 		fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
 		float result = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2);
 		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);

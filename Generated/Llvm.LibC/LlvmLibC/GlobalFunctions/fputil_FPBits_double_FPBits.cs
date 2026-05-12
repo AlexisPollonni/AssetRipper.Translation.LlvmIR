@@ -1,4 +1,5 @@
 using LlvmLibC.Helpers;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -8,6 +9,6 @@ internal static partial class fputil_FPBits_double_FPBits
 {
 	public unsafe static void Invoke(void* @this)
 	{
-		fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_FPRepImpl.Invoke(@this);
+		fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_FPRepImpl.Invoke(unchecked((fputil_internal_FPRepImpl_ucubaq*)@this));
 	}
 }

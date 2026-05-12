@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("operator_BigInt_128ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_const")]
 internal static partial class operator_BigInt_128ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_const_wgy84t
 {
-	public unsafe static Struct_fiz2nb Invoke(void* lhs, void* rhs)
+	public unsafe static Struct_fiz2nb Invoke(anon_izyfb7* lhs, anon_izyfb7* rhs)
 	{
 		BigInt_qdkjbh bigInt_qdkjbh = default(BigInt_qdkjbh);
 		long num = 0L;

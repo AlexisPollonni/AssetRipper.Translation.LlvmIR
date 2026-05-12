@@ -7,15 +7,12 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader::Reader(__llvm_libc_20_1_2_::scanf_core::ReadBuffer*)")]
 internal static partial class scanf_core_Reader_Reader_scanf_core_ReadBuffer
 {
-	public unsafe static void Invoke(void* @this, void* string_buffer)
+	public unsafe static void Invoke(scanf_core_Reader* @this, scanf_core_ReadBuffer* string_buffer)
 	{
-		unchecked
-		{
-			((scanf_core_Reader*)@this)->rb = string_buffer;
-			((scanf_core_Reader*)@this)->input_stream = null;
-			((scanf_core_Reader*)@this)->stream_getc = null;
-			((scanf_core_Reader*)@this)->stream_ungetc = null;
-			((scanf_core_Reader*)@this)->cur_chars_read = 0L;
-		}
+		@this->rb = string_buffer;
+		@this->input_stream = null;
+		@this->stream_getc = null;
+		@this->stream_ungetc = null;
+		@this->cur_chars_read = 0L;
 	}
 }

@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::scanf_main(__llvm_libc_20_1_2_::scanf_core::Reader*, char const*, __llvm_libc_20_1_2_::internal::ArgList&)")]
 internal static partial class scanf_core_scanf_main_scanf_core_Reader_char_const_internal_ArgList
 {
-	public unsafe static int Invoke(void* reader, void* str, void* args)
+	public unsafe static int Invoke(scanf_core_Reader* reader, void* str, internal_ArgList* args)
 	{
 		scanf_core_Parser scanf_core_Parser2 = default(scanf_core_Parser);
 		int num = 0;

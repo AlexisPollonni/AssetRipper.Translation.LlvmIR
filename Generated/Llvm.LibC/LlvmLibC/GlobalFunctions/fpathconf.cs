@@ -1,3 +1,4 @@
+using System;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
 
@@ -31,7 +32,7 @@ internal static partial class fpathconf
 		case 1:
 			return result;
 		default:
-			throw null;
+			throw new NotImplementedException("Reached LLVM unreachable instruction.");
 		}
 	}
 }

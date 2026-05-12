@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::convert_string(__llvm_libc_20_1_2_::scanf_core::Reader*, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
 internal static partial class scanf_core_convert_string_scanf_core_Reader_scanf_core_FormatSection_const
 {
-	public unsafe static int Invoke(void* reader, void* to_conv)
+	public unsafe static int Invoke(scanf_core_Reader* reader, scanf_core_FormatSection* to_conv)
 	{
 		long num = 0L;
 		void* ptr = null;
@@ -16,36 +16,36 @@ internal static partial class scanf_core_convert_string_scanf_core_Reader_scanf_
 		long num2 = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = 0L;
+		num = ((to_conv->max_width <= 0) ? ((to_conv->conv_name != 99) ? cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke() : 1L) : to_conv->max_width);
+		llvm_lifetime_start_p0.Invoke(8L, &ptr);
+		ptr = to_conv->output_ptr;
+		llvm_lifetime_start_p0.Invoke(1L, &b);
+		b = scanf_core_Reader_getc.Invoke(reader);
+		llvm_lifetime_start_p0.Invoke(8L, &num2);
 		unchecked
 		{
-			num = ((((scanf_core_FormatSection*)to_conv)->max_width <= 0) ? ((((scanf_core_FormatSection*)to_conv)->conv_name != 99) ? cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke() : 1L) : ((scanf_core_FormatSection*)to_conv)->max_width);
-			llvm_lifetime_start_p0.Invoke(8L, &ptr);
-			ptr = ((scanf_core_FormatSection*)to_conv)->output_ptr;
-			llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = scanf_core_Reader_getc.Invoke(reader);
-			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			for (num2 = 0L; (ulong)num2 < (ulong)num; num2++)
 			{
 				if (b == 0)
 				{
 					break;
 				}
-				if (((scanf_core_FormatSection*)to_conv)->conv_name == 115 && internal_isspace_int_134.Invoke(b))
+				if (to_conv->conv_name == 115 && internal_isspace_int_134.Invoke(b))
 				{
 					break;
 				}
-				if (((scanf_core_FormatSection*)to_conv)->conv_name == 91 && !cpp_bitset_256ul_test_unsigned_long_const.Invoke(&((scanf_core_FormatSection*)to_conv)->scan_set, b))
+				if (to_conv->conv_name == 91 && !cpp_bitset_256ul_test_unsigned_long_const.Invoke(&to_conv->scan_set, b))
 				{
 					break;
 				}
-				if (((byte)((scanf_core_FormatSection*)to_conv)->flags & 1) == 0)
+				if (((byte)to_conv->flags & 1) == 0)
 				{
 					((sbyte*)ptr)[num2] = b;
 				}
 				b = scanf_core_Reader_getc.Invoke(reader);
 			}
 			scanf_core_Reader_ungetc_char.Invoke(reader, b);
-			if (((scanf_core_FormatSection*)to_conv)->conv_name != 99 && ((byte)((scanf_core_FormatSection*)to_conv)->flags & 1) == 0)
+			if (to_conv->conv_name != 99 && ((byte)to_conv->flags & 1) == 0)
 			{
 				((sbyte*)ptr)[num2] = 0;
 			}

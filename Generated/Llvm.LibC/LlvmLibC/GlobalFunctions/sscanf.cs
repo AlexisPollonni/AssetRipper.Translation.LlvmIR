@@ -30,7 +30,7 @@ internal static partial class sscanf
 			((int*)ptr2)[1] = -1431655766;
 			*(IntPtr*)((byte*)ptr2 + 8) = unchecked((nint)(-6148914691236517206L));
 			*(IntPtr*)((byte*)ptr2 + 16) = unchecked((nint)(-6148914691236517206L));
-			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, &inlineArray1_va_list_tag);
+			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, (va_list_tag*)(&inlineArray1_va_list_tag));
 			llvm_lifetime_start_p0.Invoke(24L, &scanf_core_ReadBuffer2);
 			*(IntPtr*)(&scanf_core_ReadBuffer2) = unchecked((nint)(-6148914691236517206L));
 			((long*)(&scanf_core_ReadBuffer2))[1] = -6148914691236517206L;
@@ -40,7 +40,7 @@ internal static partial class sscanf
 			scanf_core_ReadBuffer2.buff_cur = 0L;
 			llvm_lifetime_start_p0.Invoke(40L, &scanf_core_Reader2);
 			llvm_memset_p0_i64.Invoke(&scanf_core_Reader2, 0, 40L, isVolatile: false);
-			scanf_core_Reader2.rb = (void*)12297829382473034410uL;
+			scanf_core_Reader2.rb = (scanf_core_ReadBuffer*)12297829382473034410uL;
 			scanf_core_Reader2.input_stream = (void*)12297829382473034410uL;
 			scanf_core_Reader2.stream_getc = (void*)12297829382473034410uL;
 			scanf_core_Reader2.stream_ungetc = (void*)12297829382473034410uL;

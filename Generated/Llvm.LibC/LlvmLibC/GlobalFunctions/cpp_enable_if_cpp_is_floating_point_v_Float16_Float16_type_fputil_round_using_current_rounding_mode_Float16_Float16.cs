@@ -19,7 +19,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_Float16_Floa
 			2048 => cpp_enable_if_cpp_is_floating_point_v_Float16_Float16_type_fputil_round_using_specific_rounding_mode_Float16_Float16_int.Invoke(x, 0), 
 			3072 => cpp_enable_if_cpp_is_floating_point_v_Float16_Float16_type_fputil_round_using_specific_rounding_mode_Float16_Float16_int.Invoke(x, 2), 
 			0 => cpp_enable_if_cpp_is_floating_point_v_Float16_Float16_type_fputil_round_using_specific_rounding_mode_Float16_Float16_int.Invoke(x, 4), 
-			_ => throw null, 
+			_ => throw new NotImplementedException("Reached LLVM unreachable instruction."), 
 		};
 		llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;

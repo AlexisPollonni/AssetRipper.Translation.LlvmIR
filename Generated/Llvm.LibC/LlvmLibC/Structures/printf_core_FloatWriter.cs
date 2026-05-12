@@ -34,7 +34,7 @@ public partial struct printf_core_FloatWriter
 	public sbyte has_decimal_point;
 
 	[FieldOffset(72)]
-	public unsafe void* writer;
+	public unsafe printf_core_Writer* writer;
 
 	[FieldOffset(80)]
 	public printf_core_PaddingWriter padding_writer;

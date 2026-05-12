@@ -1,5 +1,6 @@
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -13,10 +14,10 @@ internal static partial class multiword_Accumulator_unsigned_long_advance_unsign
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
-			num = *(long*)cpp_array_unsigned_long_2ul_front.Invoke(@this);
-			long num2 = *(long*)cpp_array_unsigned_long_2ul_back.Invoke(@this);
-			*(long*)cpp_array_unsigned_long_2ul_front.Invoke(@this) = num2;
-			*(long*)cpp_array_unsigned_long_2ul_back.Invoke(@this) = carry_in;
+			num = *(long*)cpp_array_unsigned_long_2ul_front.Invoke((cpp_array_i3937k*)@this);
+			long num2 = *(long*)cpp_array_unsigned_long_2ul_back.Invoke((cpp_array_i3937k*)@this);
+			*(long*)cpp_array_unsigned_long_2ul_front.Invoke((cpp_array_i3937k*)@this) = num2;
+			*(long*)cpp_array_unsigned_long_2ul_back.Invoke((cpp_array_i3937k*)@this) = carry_in;
 			long result = num;
 			llvm_lifetime_end_p0.Invoke(8L, &num);
 			return result;

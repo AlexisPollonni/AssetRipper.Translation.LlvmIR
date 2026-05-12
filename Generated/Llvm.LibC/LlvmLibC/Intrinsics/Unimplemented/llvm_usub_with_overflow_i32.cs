@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using LlvmLibC.Helpers;
 using LlvmLibC.Structures;
@@ -11,6 +12,6 @@ internal static partial class llvm_usub_with_overflow_i32
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Struct_ycs3bi Invoke(int parameter_0, int parameter_1)
 	{
-		throw null;
+		throw new NotImplementedException("Unimplemented LLVM intrinsic: llvm.usub.with.overflow.i32");
 	}
 }

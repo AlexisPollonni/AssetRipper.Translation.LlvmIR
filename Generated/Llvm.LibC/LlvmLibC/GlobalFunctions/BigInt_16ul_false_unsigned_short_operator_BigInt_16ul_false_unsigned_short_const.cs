@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<16ul, false, unsigned short>::operator-(__llvm_libc_20_1_2_::BigInt<16ul, false, unsigned short>&&) const")]
 internal static partial class BigInt_16ul_false_unsigned_short_operator_BigInt_16ul_false_unsigned_short_const
 {
-	public unsafe static short Invoke(void* @this, void* other)
+	public unsafe static short Invoke(BigInt_ys7s55* @this, BigInt_ys7s55* other)
 	{
 		BigInt_ys7s55 bigInt_ys7s = default(BigInt_ys7s55);
 		unchecked

@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<__float128>::init_from_bits(__llvm_libc_20_1_2_::fputil::FPBits<__float128>)")]
 internal static partial class fputil_NormalFloat_float128_init_from_bits_fputil_FPBits_float128
 {
-	public unsafe static void Invoke(void* @this, [MangledName("bits.coerce0")] long bits, [MangledName("bits.coerce1")] long shift)
+	public unsafe static void Invoke(fputil_NormalFloat_wqb3ie* @this, [MangledName("bits.coerce0")] long bits, [MangledName("bits.coerce1")] long shift)
 	{
 		fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi3 = default(fputil_FPBits_ubgsi2);
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
@@ -24,14 +24,14 @@ internal static partial class fputil_NormalFloat_float128_init_from_bits_fputil_
 			((long*)(&fputil_FPBits_ubgsi3))[1] = shift;
 			llvm_lifetime_start_p0.Invoke(1L, &anon_izyfb8);
 			anon_izyfb8.val = fputil_internal_FPStorage_fputil_FPType_3_sign_const.Invoke(&fputil_FPBits_ubgsi3);
-			llvm_memcpy_p0_p0_i64.Invoke(&((fputil_NormalFloat_wqb3ie*)@this)->sign, &anon_izyfb8, 1L, isVolatile: false);
+			llvm_memcpy_p0_p0_i64.Invoke(&@this->sign, &anon_izyfb8, 1L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb8);
-			if (fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_inf_or_nan_const.Invoke(&fputil_FPBits_ubgsi3) || fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke(&fputil_FPBits_ubgsi3))
+			if (fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_inf_or_nan_const.Invoke(&fputil_FPBits_ubgsi3) || fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 			{
-				((fputil_NormalFloat_wqb3ie*)@this)->exponent = 0;
-				((fputil_NormalFloat_wqb3ie*)@this)->mantissa = 0L;
+				@this->exponent = 0;
+				@this->mantissa = 0L;
 			}
-			else if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal_const.Invoke(&fputil_FPBits_ubgsi3))
+			else if (fputil_internal_FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal_const.Invoke((fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi3)))
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num);
 				Struct_fiz2nb struct_fiz2nb = fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa_const.Invoke(&fputil_FPBits_ubgsi3);
@@ -50,21 +50,27 @@ internal static partial class fputil_NormalFloat_float128_init_from_bits_fputil_
 				byte* num5 = (byte*)(&x) + 8u;
 				Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
 				*(long*)num5 = struct_fiz2nb6.field_1;
-				((fputil_NormalFloat_wqb3ie*)@this)->mantissa = NumericHelper.ShiftLeft(x, (Int128)(UInt128)(uint)num);
-				((fputil_NormalFloat_wqb3ie*)@this)->exponent = -16382 - num;
+				@this->mantissa = NumericHelper.ShiftLeft(x, (Int128)(UInt128)(uint)num);
+				@this->exponent = -16382 - num;
 				llvm_lifetime_end_p0.Invoke(4L, &num);
 			}
 			else
 			{
-				((fputil_NormalFloat_wqb3ie*)@this)->exponent = checked(unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_biased_exponent_const.Invoke(&fputil_FPBits_ubgsi3)) - 16383);
-				Struct_fiz2nb struct_fiz2nb7 = fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa_const.Invoke(&fputil_FPBits_ubgsi3);
-				Int128* num6 = &int3;
-				Struct_fiz2nb struct_fiz2nb8 = struct_fiz2nb7;
+				Struct_fiz2nb struct_fiz2nb7;
+				Int128* num6;
+				Struct_fiz2nb struct_fiz2nb8;
+				checked
+				{
+					@this->exponent = unchecked((ushort)fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_biased_exponent_const.Invoke(&fputil_FPBits_ubgsi3)) - 16383;
+					struct_fiz2nb7 = fputil_internal_FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa_const.Invoke(&fputil_FPBits_ubgsi3);
+					num6 = &int3;
+					struct_fiz2nb8 = struct_fiz2nb7;
+				}
 				*(long*)num6 = struct_fiz2nb8.field_0;
 				byte* num7 = (byte*)(&int3) + 8u;
 				Struct_fiz2nb struct_fiz2nb9 = struct_fiz2nb7;
 				*(long*)num7 = struct_fiz2nb9.field_1;
-				((fputil_NormalFloat_wqb3ie*)@this)->mantissa = NumericHelper.BitwiseOr(y: int3, x: 0L);
+				@this->mantissa = NumericHelper.BitwiseOr(y: int3, x: 0L);
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 using System;
+using LlvmLibC.Enumerations;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
@@ -11,7 +12,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>> __llvm_libc_20_1_2_::internal::eisel_lemire<double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_vqqfu4* agg_result, [MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] int round, [MangledName("round")] int mantissa)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_vqqfu4* agg_result, [MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
 	{
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv2 = default(internal_ExpandedFloat_k68bhv);
 		long num = 0L;
@@ -30,7 +31,7 @@ internal static partial class cpp_optional_internal_ExpandedFloat_double_interna
 		unchecked
 		{
 			*(long*)(&internal_ExpandedFloat_k68bhv2) = init_num;
-			((int*)(&internal_ExpandedFloat_k68bhv2))[2] = round;
+			((int*)(&internal_ExpandedFloat_k68bhv2))[2] = (int)round;
 			llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = internal_ExpandedFloat_k68bhv2.mantissa;
 			llvm_lifetime_start_p0.Invoke(4L, &num2);

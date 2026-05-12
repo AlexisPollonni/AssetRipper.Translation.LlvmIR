@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class tcsetattr
 {
-	public unsafe static int Invoke(int fd, int actions, void* t)
+	public unsafe static int Invoke(int fd, int actions, termios* t)
 	{
 		kernel_termios kernel_termios2 = default(kernel_termios);
 		long ts_76xnpk = 0L;
@@ -41,16 +41,16 @@ internal static partial class tcsetattr
 					break;
 				}
 				IL_00a9:
-				kernel_termios2.c_iflag = ((termios*)t)->c_iflag;
-				kernel_termios2.c_oflag = ((termios*)t)->c_oflag;
-				kernel_termios2.c_cflag = ((termios*)t)->c_cflag;
-				kernel_termios2.c_lflag = ((termios*)t)->c_lflag;
+				kernel_termios2.c_iflag = t->c_iflag;
+				kernel_termios2.c_oflag = t->c_oflag;
+				kernel_termios2.c_cflag = t->c_cflag;
+				kernel_termios2.c_lflag = t->c_lflag;
 				llvm_lifetime_start_p0.Invoke(8L, &num);
 				num = 19L;
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
 				for (num2 = 0L; (ulong)num2 < (ulong)num; num2++)
 				{
-					sbyte b = ((sbyte*)(&((termios*)t)->c_cc))[num2];
+					sbyte b = ((sbyte*)(&t->c_cc))[num2];
 					Unsafe.As<InlineArray19_SByte, sbyte>(ref Unsafe.AddByteOffset(ref kernel_termios2.c_cc, (nint)num2)) = b;
 				}
 				llvm_lifetime_end_p0.Invoke(8L, &num2);

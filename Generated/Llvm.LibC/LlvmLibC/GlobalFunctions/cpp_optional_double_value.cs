@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<double>::value() &")]
 internal static partial class cpp_optional_double_value
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static void* Invoke(cpp_optional_s4iqgj* @this)
 	{
-		return &unchecked((cpp_optional_s4iqgj*)@this)->storage.field;
+		return &@this->storage.field;
 	}
 }

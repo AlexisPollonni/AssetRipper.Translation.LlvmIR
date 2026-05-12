@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>::push(char)")]
 internal static partial class details_StringBufferWriterImpl_false_push_char
 {
-	public unsafe static void* Invoke(void* @this, sbyte c)
+	public unsafe static details_StringBufferWriterImpl* Invoke(details_StringBufferWriterImpl* @this, sbyte c)
 	{
 		sbyte b = c;
 		unchecked
@@ -16,12 +16,12 @@ internal static partial class details_StringBufferWriterImpl_false_push_char
 			{
 				if (!details_StringBufferWriterImpl_false_full_const.Invoke(@this))
 				{
-					*(sbyte*)cpp_span_char_operator_unsigned_long_const.Invoke(&((details_StringBufferWriterImpl*)@this)->buffer, details_StringBufferWriterImpl_false_location_const.Invoke(@this)) = b;
-					((details_StringBufferWriterImpl*)@this)->index++;
+					*(sbyte*)cpp_span_char_operator_unsigned_long_const.Invoke(&@this->buffer, details_StringBufferWriterImpl_false_location_const.Invoke(@this)) = b;
+					@this->index++;
 				}
 				else
 				{
-					((details_StringBufferWriterImpl*)@this)->out_of_range = 1;
+					@this->out_of_range = 1;
 				}
 			}
 			return @this;

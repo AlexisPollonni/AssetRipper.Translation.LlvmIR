@@ -9,7 +9,7 @@ namespace LlvmLibC.Structures;
 public partial struct scanf_core_Reader
 {
 	[FieldOffset(0)]
-	public unsafe void* rb;
+	public unsafe scanf_core_ReadBuffer* rb;
 
 	[FieldOffset(8)]
 	public unsafe void* input_stream;

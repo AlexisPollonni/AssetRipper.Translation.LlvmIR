@@ -17,7 +17,7 @@ internal static partial class Float16_fputil_floor_Float16_0_Float16
 		{
 			*(short*)(&fputil_FPBits_2fahva2) = -21846;
 			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, x);
-			Half result = ((!fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_neg_const.Invoke(&fputil_FPBits_2fahva2)) ? Float16_fputil_trunc_Float16_0_Float16.Invoke(x) : ((Half)(0f - (float)Float16_fputil_ceil_Float16_0_Float16.Invoke((Half)(0f - (float)x)))));
+			Half result = ((!fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_neg_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2))) ? Float16_fputil_trunc_Float16_0_Float16.Invoke(x) : ((Half)(0f - (float)Float16_fputil_ceil_Float16_0_Float16.Invoke((Half)(0f - (float)x)))));
 			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva2);
 			return result;
 		}

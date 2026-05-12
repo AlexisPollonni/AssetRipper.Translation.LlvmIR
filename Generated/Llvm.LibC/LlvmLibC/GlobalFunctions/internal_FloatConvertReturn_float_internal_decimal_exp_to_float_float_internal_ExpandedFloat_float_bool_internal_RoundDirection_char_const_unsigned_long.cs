@@ -1,3 +1,4 @@
+using LlvmLibC.Enumerations;
 using LlvmLibC.Helpers;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -8,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn<float> __llvm_libc_20_1_2_::internal::decimal_exp_to_float<float>(__llvm_libc_20_1_2_::internal::ExpandedFloat<float>, bool, __llvm_libc_20_1_2_::internal::RoundDirection, char const*, unsigned long)")]
 internal static partial class internal_FloatConvertReturn_float_internal_decimal_exp_to_float_float_internal_ExpandedFloat_float_bool_internal_RoundDirection_char_const_unsigned_long
 {
-	public unsafe static Struct_3driym Invoke([MangledName("init_num.coerce")] long init_num, bool truncated, int round, void* numStart, long num_len)
+	public unsafe static Struct_3driym Invoke([MangledName("init_num.coerce")] long init_num, bool truncated, RoundDirection_b3pcwy round, void* numStart, long num_len)
 	{
 		internal_FloatConvertReturn_a8f9er internal_FloatConvertReturn_a8f9er2 = default(internal_FloatConvertReturn_a8f9er);
 		internal_ExpandedFloat_i7t5up internal_ExpandedFloat_i7t5up2 = default(internal_ExpandedFloat_i7t5up);
@@ -127,7 +128,7 @@ internal static partial class internal_FloatConvertReturn_float_internal_decimal
 					struct_8myw6y3 = struct_8myw6y6;
 					llvm_memcpy_p0_p0_i64.Invoke(destination3, &struct_8myw6y3, 12L, isVolatile: false);
 					int num3;
-					if (cpp_optional_internal_ExpandedFloat_float_has_value_const.Invoke(&cpp_optional_6hseum5) && ((internal_ExpandedFloat_i7t5up*)cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum2))->mantissa == ((internal_ExpandedFloat_i7t5up*)cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum5))->mantissa && ((internal_ExpandedFloat_i7t5up*)cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum2))->exponent == ((internal_ExpandedFloat_i7t5up*)cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum5))->exponent)
+					if (cpp_optional_internal_ExpandedFloat_float_has_value_const.Invoke(&cpp_optional_6hseum5) && cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum2)->mantissa == cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum5)->mantissa && cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum2)->exponent == cpp_optional_internal_ExpandedFloat_float_operator.Invoke(&cpp_optional_6hseum5)->exponent)
 					{
 						llvm_memcpy_p0_p0_i64.Invoke(&internal_FloatConvertReturn_a8f9er2.num, cpp_optional_internal_ExpandedFloat_float_value.Invoke(&cpp_optional_6hseum2), 8L, isVolatile: false);
 						internal_FloatConvertReturn_a8f9er2.error = 0;

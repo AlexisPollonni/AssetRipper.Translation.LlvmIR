@@ -9,14 +9,14 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::is_lowest_block(unsigned long)")]
 internal static partial class FloatToString_float_0_is_lowest_block_unsigned_long
 {
-	public unsafe static bool Invoke(void* @this, long negative_block_index)
+	public unsafe static bool Invoke(FloatToString_uyiqeh* @this, long negative_block_index)
 	{
 		int num = 0;
 		long num2 = 0L;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		unchecked
 		{
-			num = (int)((ulong)checked(-unchecked((FloatToString_uyiqeh*)@this)->exponent) / 16uL);
+			num = (int)((ulong)checked(-@this->exponent) / 16uL);
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			long num3 = num;
 			long num4 = (ushort)((short*)POW10_OFFSET_2.Pointer)[num3] + negative_block_index;

@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>::begin() const")]
 internal static partial class cpp_array_unsigned_int_1ul_begin_const
 {
-	public unsafe static void* Invoke(void* @this)
+	public unsafe static void* Invoke(cpp_array_aj48id* @this)
 	{
-		return &unchecked((cpp_array_aj48id*)@this)->Data;
+		return &@this->Data;
 	}
 }

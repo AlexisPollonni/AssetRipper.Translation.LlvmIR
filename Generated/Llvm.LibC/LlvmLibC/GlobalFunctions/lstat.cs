@@ -1,11 +1,12 @@
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class lstat
 {
-	public unsafe static int Invoke(void* path, void* statbuf)
+	public unsafe static int Invoke(void* path, LlvmLibC.Structures.stat* statbuf)
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
