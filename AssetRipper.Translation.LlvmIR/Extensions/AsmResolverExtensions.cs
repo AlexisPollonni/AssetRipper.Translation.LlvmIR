@@ -1,13 +1,48 @@
-﻿using AsmResolver.DotNet;
+﻿using System.Diagnostics.CodeAnalysis;
+using AsmResolver.DotNet;
+using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AssetRipper.Translation.LlvmIR.Extensions;
 
 internal static class AsmResolverExtensions
 {
+	/// <summary>
+	/// Emits <c>newobj NotImplementedException()</c> followed by <c>throw</c>.
+	/// Replaces the dangerous <c>ldnull; throw</c> pattern that produces a confusing
+	/// <c>NullReferenceException</c> at runtime.
+	/// </summary>
+	public static void ThrowNotImplementedException(this CilInstructionCollection instructions)
+	{
+		ModuleDefinition module = instructions.Owner.Owner.DeclaringType!.DeclaringModule!;
+		IMethodDefOrRef ctor = (IMethodDefOrRef)
+			module.DefaultImporter.ImportMethod(
+				typeof(NotImplementedException).GetConstructor(Type.EmptyTypes)!
+			);
+		instructions.Add(CilOpCodes.Newobj, ctor);
+		instructions.Add(CilOpCodes.Throw);
+	}
+
+	/// <summary>
+	/// Emits <c>newobj NotImplementedException(message)</c> followed by <c>throw</c>.
+	/// </summary>
+	public static void ThrowNotImplementedException(
+		this CilInstructionCollection instructions,
+		string message
+	)
+	{
+		ModuleDefinition module = instructions.Owner.Owner.DeclaringType!.DeclaringModule!;
+		IMethodDefOrRef ctor = (IMethodDefOrRef)
+			module.DefaultImporter.ImportMethod(
+				typeof(NotImplementedException).GetConstructor([typeof(string)])!
+			);
+		instructions.Add(CilOpCodes.Ldstr, message);
+		instructions.Add(CilOpCodes.Newobj, ctor);
+		instructions.Add(CilOpCodes.Throw);
+	}
+
 	public static int GetSize(this TypeSignature type)
 	{
 		if (type is CorLibTypeSignature corLibTypeSignature)
@@ -32,7 +67,7 @@ internal static class AsmResolverExtensions
 	}
 
 	/// <summary>
-	/// 
+	///
 	/// </summary>
 	/// <remarks>
 	/// Void is treated as 1, for the sake of pointer arithmetic.
@@ -106,12 +141,31 @@ internal static class AsmResolverExtensions
 
 	public static bool IsVoidPointer(this TypeSignature type)
 	{
-		return type is PointerTypeSignature { BaseType: CorLibTypeSignature { ElementType: ElementType.Void } };
+		return type
+			is PointerTypeSignature
+			{
+				BaseType: CorLibTypeSignature { ElementType: ElementType.Void }
+			};
 	}
 
 	public static bool IsNumericPrimitive(this TypeSignature type)
 	{
-		return type is CorLibTypeSignature { ElementType: ElementType.I1 or ElementType.U1 or ElementType.I2 or ElementType.U2 or ElementType.I4 or ElementType.U4 or ElementType.I8 or ElementType.U8 or ElementType.I or ElementType.U or ElementType.R4 or ElementType.R8 };
+		return type
+			is CorLibTypeSignature
+			{
+				ElementType: ElementType.I1
+					or ElementType.U1
+					or ElementType.I2
+					or ElementType.U2
+					or ElementType.I4
+					or ElementType.U4
+					or ElementType.I8
+					or ElementType.U8
+					or ElementType.I
+					or ElementType.U
+					or ElementType.R4
+					or ElementType.R8
+			};
 	}
 
 	public static bool IsNumeric(this TypeSignature type)
@@ -121,7 +175,10 @@ internal static class AsmResolverExtensions
 			return true;
 		}
 
-		if (type is not TypeDefOrRefSignature typeDefOrRefSignature || !typeDefOrRefSignature.IsValueType)
+		if (
+			type is not TypeDefOrRefSignature typeDefOrRefSignature
+			|| !typeDefOrRefSignature.IsValueType
+		)
 		{
 			return false;
 		}
@@ -135,12 +192,21 @@ internal static class AsmResolverExtensions
 		// Look for INumberBase<T> interface
 		foreach (InterfaceImplementation interfaceImplementation in typeDefinition.Interfaces)
 		{
-			if (interfaceImplementation.Interface?.ToTypeSignature() is not GenericInstanceTypeSignature { TypeArguments.Count: 1 } genericInstanceTypeSignature)
+			if (
+				interfaceImplementation.Interface?.ToTypeSignature()
+				is not GenericInstanceTypeSignature
+				{
+					TypeArguments.Count: 1
+				} genericInstanceTypeSignature
+			)
 			{
 				continue;
 			}
 
-			if (genericInstanceTypeSignature.GenericType.Namespace == "System.Numerics" && genericInstanceTypeSignature.GenericType.Name == "INumberBase`1")
+			if (
+				genericInstanceTypeSignature.GenericType.Namespace == "System.Numerics"
+				&& genericInstanceTypeSignature.GenericType.Name == "INumberBase`1"
+			)
 			{
 				return true;
 			}
@@ -149,7 +215,10 @@ internal static class AsmResolverExtensions
 		return false;
 	}
 
-	public static bool TryGetReverseSign(this TypeSignature type, [NotNullWhen(true)] out TypeSignature? opposite)
+	public static bool TryGetReverseSign(
+		this TypeSignature type,
+		[NotNullWhen(true)] out TypeSignature? opposite
+	)
 	{
 		if (type is CorLibTypeSignature corLibTypeSignature)
 		{
@@ -182,19 +251,19 @@ internal static class AsmResolverExtensions
 		if (type is CorLibTypeSignature corLibTypeSignature)
 		{
 			return corLibTypeSignature.ElementType switch
-			{
-				ElementType.I1 => corLibTypeSignature,
-				ElementType.U1 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.SByte,
-				ElementType.I2 => corLibTypeSignature,
-				ElementType.U2 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Int16,
-				ElementType.I4 => corLibTypeSignature,
-				ElementType.U4 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Int32,
-				ElementType.I8 => corLibTypeSignature,
-				ElementType.U8 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Int64,
-				ElementType.I => corLibTypeSignature,
-				ElementType.U => corLibTypeSignature.ContextModule?.CorLibTypeFactory.IntPtr,
-				_ => null,
-			} ?? type;
+				{
+					ElementType.I1 => corLibTypeSignature,
+					ElementType.U1 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.SByte,
+					ElementType.I2 => corLibTypeSignature,
+					ElementType.U2 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Int16,
+					ElementType.I4 => corLibTypeSignature,
+					ElementType.U4 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Int32,
+					ElementType.I8 => corLibTypeSignature,
+					ElementType.U8 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Int64,
+					ElementType.I => corLibTypeSignature,
+					ElementType.U => corLibTypeSignature.ContextModule?.CorLibTypeFactory.IntPtr,
+					_ => null,
+				} ?? type;
 		}
 		else
 		{
@@ -207,19 +276,19 @@ internal static class AsmResolverExtensions
 		if (type is CorLibTypeSignature corLibTypeSignature)
 		{
 			return corLibTypeSignature.ElementType switch
-			{
-				ElementType.I1 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Byte,
-				ElementType.U1 => corLibTypeSignature,
-				ElementType.I2 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UInt16,
-				ElementType.U2 => corLibTypeSignature,
-				ElementType.I4 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UInt32,
-				ElementType.U4 => corLibTypeSignature,
-				ElementType.I8 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UInt64,
-				ElementType.U8 => corLibTypeSignature,
-				ElementType.I => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UIntPtr,
-				ElementType.U => corLibTypeSignature,
-				_ => null,
-			} ?? type;
+				{
+					ElementType.I1 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.Byte,
+					ElementType.U1 => corLibTypeSignature,
+					ElementType.I2 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UInt16,
+					ElementType.U2 => corLibTypeSignature,
+					ElementType.I4 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UInt32,
+					ElementType.U4 => corLibTypeSignature,
+					ElementType.I8 => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UInt64,
+					ElementType.U8 => corLibTypeSignature,
+					ElementType.I => corLibTypeSignature.ContextModule?.CorLibTypeFactory.UIntPtr,
+					ElementType.U => corLibTypeSignature,
+					_ => null,
+				} ?? type;
 		}
 		else
 		{
@@ -243,9 +312,7 @@ internal static class AsmResolverExtensions
 		for (int i = 0; i < type.Fields.Count; i++)
 		{
 			FieldDefinition field = type.Fields[i];
-			if (field.IsStatic)
-			{
-			}
+			if (field.IsStatic) { }
 			else if (index == 0)
 			{
 				return field;

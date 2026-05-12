@@ -7,6 +7,7 @@ using AsmResolver.DotNet.Collections;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AssetRipper.Translation.LlvmIR.Attributes;
+using AssetRipper.Translation.LlvmIR.Extensions;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -65,8 +66,9 @@ internal static partial class IntrinsicFunctionImplementer
 		{
 			MoveToUnimplementedType(context);
 
-			instructions.Add(CilOpCodes.Ldnull);
-			instructions.Add(CilOpCodes.Throw);
+			instructions.ThrowNotImplementedException(
+				$"Unimplemented LLVM intrinsic: {context.MangledName}"
+			);
 		}
 
 		context.Definition.IsAggressiveInlining = true;

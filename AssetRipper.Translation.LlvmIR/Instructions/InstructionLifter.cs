@@ -726,8 +726,9 @@ internal readonly unsafe struct InstructionLifter
 							declaringType.Methods.Add(method);
 
 							method.CilMethodBody = new();
-							method.CilMethodBody.Instructions.Add(CilOpCodes.Ldnull);
-							method.CilMethodBody.Instructions.Add(CilOpCodes.Throw);
+							method.CilMethodBody.Instructions.ThrowNotImplementedException(
+								$"Inline assembly not supported: {assemblyString}"
+							);
 
 							// Attribute
 							{
