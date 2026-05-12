@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Generated/">
+    <Project Path="Generated/Llvm.LibC/Llvm.LibC.csproj" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
