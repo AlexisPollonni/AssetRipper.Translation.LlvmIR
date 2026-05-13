@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Enumerations;
-using LlvmLibC.Helpers;
 
 namespace LlvmLibC.Structures;
 

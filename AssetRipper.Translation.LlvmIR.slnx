@@ -11,6 +11,7 @@
   </Folder>
   <Project Path="AssetRipper.Translation.LlvmIR.ConsoleApp/AssetRipper.Translation.LlvmIR.ConsoleApp.csproj" />
   <Project Path="AssetRipper.Translation.LlvmIR.LibCBuilder/AssetRipper.Translation.LlvmIR.LibCBuilder.csproj" />
+  <Project Path="AssetRipper.Translation.LlvmIR.Runtime/AssetRipper.Translation.LlvmIR.Runtime.csproj" />
   <Project Path="AssetRipper.Translation.LlvmIR.SampleGenerator/AssetRipper.Translation.LlvmIR.SampleGenerator.csproj" />
   <Project Path="AssetRipper.Translation.LlvmIR.SourceGenerator/AssetRipper.Translation.LlvmIR.SourceGenerator.csproj" />
   <Project Path="AssetRipper.Translation.LlvmIR.Tests/AssetRipper.Translation.LlvmIR.Tests.csproj" />

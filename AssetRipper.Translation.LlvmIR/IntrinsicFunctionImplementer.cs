@@ -6,8 +6,8 @@ using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Collections;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
-using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -46,7 +46,7 @@ internal static partial class IntrinsicFunctionImplementer
 				instructions.Add(CilOpCodes.Ldarg, parameter);
 			}
 
-			instructions.Add(CilOpCodes.Call, implementation);
+			instructions.Add(CilOpCodes.Call, context.Module.ImportRuntimeMethod(implementation));
 
 			instructions.Add(CilOpCodes.Ret);
 		}
@@ -103,7 +103,10 @@ internal static partial class IntrinsicFunctionImplementer
 				return false;
 			}
 
-			return m.FindCustomAttributes(context.HelpersNamespace, nameof(MangledNameAttribute))
+			return m.FindCustomAttributes(
+					typeof(MangledNameAttribute).Namespace,
+					nameof(MangledNameAttribute)
+				)
 				.Select(a => a.Signature?.FixedArguments[0].Element?.ToString())
 				.Contains(mangledName);
 		});
@@ -135,19 +138,27 @@ internal static partial class IntrinsicFunctionImplementer
 			)
 		)
 		{
-			implementation = context
-				.Module.InlineArrayNumericHelperType.Methods.FirstOrDefault(m =>
+			MethodDefinition? sourceMethod =
+				context.Module.InlineArrayNumericHelperType.Methods.FirstOrDefault(m =>
 					StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic
-				)
-				?.MakeGenericInstanceMethod(returnTypeSignature, arrayType.UltimateElementType);
+				);
+			implementation = sourceMethod is null
+				? null
+				: context
+					.Module.ImportRuntimeMethod(sourceMethod)
+					.MakeGenericInstanceMethod(returnTypeSignature, arrayType.UltimateElementType);
 		}
 		else
 		{
-			implementation = context
-				.Module.NumericHelperType.Methods.FirstOrDefault(m =>
+			MethodDefinition? sourceMethod =
+				context.Module.NumericHelperType.Methods.FirstOrDefault(m =>
 					StringComparer.OrdinalIgnoreCase.Equals(m.Name, operationName) && m.IsPublic
-				)
-				?.MakeGenericInstanceMethod(returnTypeSignature);
+				);
+			implementation = sourceMethod is null
+				? null
+				: context
+					.Module.ImportRuntimeMethod(sourceMethod)
+					.MakeGenericInstanceMethod(returnTypeSignature);
 		}
 		if (implementation is null)
 		{

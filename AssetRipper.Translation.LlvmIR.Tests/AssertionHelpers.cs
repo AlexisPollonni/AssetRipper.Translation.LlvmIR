@@ -63,6 +63,10 @@ internal static class AssertionHelpers
 			MetadataReference.CreateFromFile(
 				GetAssemblyPath("System.Text.Encoding.Extensions.dll")
 			),
+			// Runtime helpers are now in a separate assembly (no longer cloned into the output module).
+			MetadataReference.CreateFromFile(
+				Path.Combine(AppContext.BaseDirectory, "AssetRipper.Translation.LlvmIR.Runtime.dll")
+			),
 		];
 
 		using MemoryStream polyfillOutputStream = new();

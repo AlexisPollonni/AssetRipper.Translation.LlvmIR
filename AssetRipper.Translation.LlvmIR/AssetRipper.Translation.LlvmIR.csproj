@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference
-      Include="..\AssetRipper.Translation.LlvmIR.SourceGenerator\AssetRipper.Translation.LlvmIR.SourceGenerator.csproj"
-      OutputItemType="Analyzer"
-      ReferenceOutputAssembly="false"
-    />
+    <ProjectReference Include="..\AssetRipper.Translation.LlvmIR.Runtime\AssetRipper.Translation.LlvmIR.Runtime.csproj" />
   </ItemGroup>
 </Project>

@@ -10,9 +10,12 @@ public sealed record class LoadFieldInstruction(FieldDefinition Field) : Instruc
 	public override int PopCount => Field.IsStatic ? 0 : 1;
 	public override int PushCount => 1;
 	public CilOpCode OpCode => Field.IsStatic ? CilOpCodes.Ldsfld : CilOpCodes.Ldfld;
+
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
-		instructions.Add(OpCode, Field);
+		ModuleDefinition module = instructions.Owner.Owner!.DeclaringModule!;
+		IFieldDescriptor imported = (IFieldDescriptor)module.DefaultImporter.ImportField(Field);
+		instructions.Add(OpCode, imported);
 	}
 
 	public bool Equals(LoadFieldInstruction? other)

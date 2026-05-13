@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
-using LlvmLibC.Helpers;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.InlineArrays;
 
 namespace LlvmLibC.GlobalVariables;

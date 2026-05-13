@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-using LlvmLibC.Helpers;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.InlineArrays;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;

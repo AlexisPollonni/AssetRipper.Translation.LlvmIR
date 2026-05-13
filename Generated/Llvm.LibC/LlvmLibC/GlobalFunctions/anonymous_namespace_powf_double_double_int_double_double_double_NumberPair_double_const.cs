@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
-using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;

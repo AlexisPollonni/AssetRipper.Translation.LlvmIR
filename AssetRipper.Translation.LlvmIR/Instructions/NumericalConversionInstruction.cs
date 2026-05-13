@@ -5,6 +5,7 @@ using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Runtime;
 using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR.Instructions;
@@ -58,7 +59,9 @@ internal sealed record class NumericalConversionInstruction : Instruction
 							? nameof(NumericHelper.SextToBytes)
 							: nameof(NumericHelper.TruncOrZextToBytes);
 					IMethodDescriptor method = module
-						.NumericHelperType.Methods.First(m => m.Name == helperName)
+						.ImportRuntimeMethod(
+							module.NumericHelperType.Methods.First(m => m.Name == helperName)
+						)
 						.MakeGenericInstanceMethod(sourceType, resultType);
 					return new NumericalConversionInstruction
 					{
@@ -74,8 +77,10 @@ internal sealed record class NumericalConversionInstruction : Instruction
 				else
 				{
 					IMethodDescriptor method = module
-						.NumericHelperType.Methods.First(m =>
-							m.Name == nameof(NumericHelper.TruncOrZextToBytes)
+						.ImportRuntimeMethod(
+							module.NumericHelperType.Methods.First(m =>
+								m.Name == nameof(NumericHelper.TruncOrZextToBytes)
+							)
 						)
 						.MakeGenericInstanceMethod(sourceType, resultType);
 					return new NumericalConversionInstruction
@@ -129,10 +134,7 @@ internal sealed record class NumericalConversionInstruction : Instruction
 				// SextToBytes takes an extra int sourceBits argument
 				instructions.Add(CilOpCodes.Ldc_I4, InlineArraySourceBits);
 			}
-			instructions.Add(
-				CilOpCodes.Call,
-				mod.DefaultImporter.ImportMethod(InlineArrayConversionMethod)
-			);
+			instructions.Add(CilOpCodes.Call, InlineArrayConversionMethod);
 			return;
 		}
 

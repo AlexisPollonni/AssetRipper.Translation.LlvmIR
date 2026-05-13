@@ -17,7 +17,8 @@ internal static class ProjectFileStage
 {
 	private const string CsprojName = "Llvm.LibC.csproj";
 
-	private const string CsprojContent = """
+	private static string BuildCsprojContent() =>
+		"""
 			<Project Sdk="Microsoft.NET.Sdk">
 
 			  <PropertyGroup>
@@ -32,20 +33,21 @@ internal static class ProjectFileStage
 			    <DirectoryBuildTargetsPath />
 			  </PropertyGroup>
 
-		  <ItemGroup>
-		    <!-- Required by the injected NumericHelper and InlineArrayNumericHelper types -->
-		    <PackageReference Include="System.Numerics.Tensors" Version="10.0.0" />
-		  </ItemGroup>
+			  <ItemGroup>
+			    <PackageReference Include="System.Numerics.Tensors" Version="10.0.0" />
+			    <!-- Runtime helpers (IntrinsicFunctions, InlineArrayHelper, etc.) live in the Runtime assembly -->
+			    <ProjectReference Include="../../AssetRipper.Translation.LlvmIR.Runtime/AssetRipper.Translation.LlvmIR.Runtime.csproj" />
+			  </ItemGroup>
 
-		</Project>
-		""";
+			</Project>
+			""";
 
 	public static void Run(string outputDir, bool verifyBuild)
 	{
 		string csprojPath = Path.Combine(outputDir, CsprojName);
 
 		Console.WriteLine("[ProjectFile] Writing Llvm.LibC.csproj...");
-		File.WriteAllText(csprojPath, CsprojContent);
+		File.WriteAllText(csprojPath, BuildCsprojContent());
 
 		if (verifyBuild)
 		{

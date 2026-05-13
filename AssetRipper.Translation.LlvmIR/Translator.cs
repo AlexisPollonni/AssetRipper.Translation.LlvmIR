@@ -3,7 +3,6 @@ using System.Text;
 using AsmResolver.DotNet;
 using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
-using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
 using LLVMSharp.Interop;
@@ -167,14 +166,11 @@ public static unsafe class Translator
 		}
 
 		Console.WriteLine("Cleaning up (step 3: assembly functions)...");
-		if (moduleContext.InjectedTypes[typeof(AssemblyFunctions)].Methods.Count == 0)
+		if (moduleContext.AssemblyFunctionsType.Methods.Count == 0)
 		{
-			moduleDefinition.TopLevelTypes.Remove(
-				moduleContext.InjectedTypes[typeof(AssemblyFunctions)]
-			);
-			moduleDefinition.TopLevelTypes.Remove(
-				moduleContext.InjectedTypes[typeof(InlineAssemblyAttribute)]
-			);
+			moduleDefinition.TopLevelTypes.Remove(moduleContext.AssemblyFunctionsType);
+			// InlineAssemblyAttribute is from the Runtime assembly (referenced, not cloned),
+			// so there is nothing to remove from the output module.
 		}
 
 		Console.WriteLine("Cleaning up (step 4: metadata)...");

@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-using LlvmLibC.Helpers;
+using AssetRipper.Translation.LlvmIR.Runtime;
 
 namespace LlvmLibC.Intrinsics.Implemented;
 

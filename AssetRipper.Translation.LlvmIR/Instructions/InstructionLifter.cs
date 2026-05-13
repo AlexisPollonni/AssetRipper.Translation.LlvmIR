@@ -6,8 +6,9 @@ using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
-using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using AssetRipper.Translation.LlvmIR.Variables;
 using LLVMSharp.Interop;
 
@@ -729,9 +730,7 @@ internal readonly unsafe struct InstructionLifter
 							}
 							else
 							{
-								TypeDefinition declaringType = module.InjectedTypes[
-									typeof(AssemblyFunctions)
-								];
+								TypeDefinition declaringType = module.AssemblyFunctionsType;
 								MethodDefinition method = new(
 									$"M{declaringType.Methods.Count}",
 									MethodAttributes.Public
@@ -748,9 +747,11 @@ internal readonly unsafe struct InstructionLifter
 
 								// Attribute
 								{
-									MethodDefinition constructor = module
-										.InjectedTypes[typeof(InlineAssemblyAttribute)]
-										.GetMethodByName(".ctor");
+									IMethodDefOrRef constructor = module.ImportRuntimeMethod(
+										module
+											.InjectedTypes[typeof(InlineAssemblyAttribute)]
+											.GetMethodByName(".ctor")
+									);
 									CustomAttributeSignature signature = new();
 									signature.FixedArguments.Add(
 										new(
@@ -1741,17 +1742,16 @@ internal readonly unsafe struct InstructionLifter
 						// Load as i64 and truncate to the inline array size.
 						LoadVariable(basicBlock, new ConstantI8(integer, module.Definition));
 						IMethodDescriptor convMethod = module
-							.NumericHelperType.Methods.First(m =>
-								m.Name == nameof(NumericHelper.TruncOrZextToBytes)
+							.ImportRuntimeMethod(
+								module.NumericHelperType.Methods.First(m =>
+									m.Name == nameof(NumericHelper.TruncOrZextToBytes)
+								)
 							)
 							.MakeGenericInstanceMethod(
 								module.Definition.CorLibTypeFactory.Int64,
 								typeSignature
 							);
-						Call(
-							basicBlock,
-							module.Definition.DefaultImporter.ImportMethod(convMethod)
-						);
+						Call(basicBlock, convMethod);
 					}
 					else
 					{
@@ -1858,9 +1858,12 @@ internal readonly unsafe struct InstructionLifter
 						"Pointers cannot be used as generic type arguments"
 					);
 
-					GenericInstanceTypeSignature builderType = module
-						.InjectedTypes[typeof(InlineArrayBuilder<,>)]
-						.MakeGenericInstanceType(underlyingType, elementType);
+					GenericInstanceTypeSignature builderType =
+						module.RuntimeImporter.MakeGenericType(
+							typeof(InlineArrayBuilder<,>),
+							underlyingType,
+							elementType
+						);
 
 					MethodSignature addSignature = MethodSignature.CreateInstance(
 						module.Definition.CorLibTypeFactory.Void,
@@ -1874,12 +1877,11 @@ internal readonly unsafe struct InstructionLifter
 
 					MethodSignature conversionSignature = MethodSignature.CreateStatic(
 						new GenericParameterSignature(GenericParameterType.Type, 0),
-						module
-							.InjectedTypes[typeof(InlineArrayBuilder<,>)]
-							.MakeGenericInstanceType(
-								new GenericParameterSignature(GenericParameterType.Type, 0),
-								new GenericParameterSignature(GenericParameterType.Type, 1)
-							)
+						module.RuntimeImporter.MakeGenericType(
+							typeof(InlineArrayBuilder<,>),
+							new GenericParameterSignature(GenericParameterType.Type, 0),
+							new GenericParameterSignature(GenericParameterType.Type, 1)
+						)
 					);
 					IMethodDescriptor conversion = new MemberReference(
 						builderType.ToTypeDefOrRef(),

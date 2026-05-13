@@ -1,5 +1,5 @@
 using System;
-using LlvmLibC.Helpers;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace LlvmLibC.GlobalFunctions;
 

@@ -1,5 +1,5 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Enumerations;
-using LlvmLibC.Helpers;
 using LlvmLibC.InlineArrays;
 using LlvmLibC.Structures;
 

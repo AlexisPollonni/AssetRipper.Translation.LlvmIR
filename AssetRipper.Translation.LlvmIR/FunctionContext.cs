@@ -8,6 +8,7 @@ using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Runtime;
 using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR;
@@ -465,6 +466,7 @@ internal sealed class FunctionContext : IHasName
 			MethodDefinition exitToUserCode = Module
 				.InjectedTypes[typeof(StackFrameList)]
 				.GetMethodByName(nameof(StackFrameList.ExitToUserCode));
+			IMethodDefOrRef exitToUserCodeImported = Module.ImportRuntimeMethod(exitToUserCode);
 
 			CilInstructionLabel returnLabel = new();
 
@@ -472,10 +474,10 @@ internal sealed class FunctionContext : IHasName
 			ICilLabel tryEndLabel = instructions.Add(CilOpCodes.Leave, returnLabel).CreateLabel();
 
 			ICilLabel handlerStartLabel = instructions.Add(CilOpCodes.Pop).CreateLabel();
-			instructions.Add(CilOpCodes.Call, exitToUserCode); // Clean up the stack frame.
+			instructions.Add(CilOpCodes.Call, exitToUserCodeImported); // Clean up the stack frame.
 			ICilLabel handlerEndLabel = instructions.Add(CilOpCodes.Rethrow).CreateLabel(); // Continue propagating the exception.
 
-			returnLabel.Instruction = instructions.Add(CilOpCodes.Call, exitToUserCode); // Clean up the stack frame and maybe throw an exception.
+			returnLabel.Instruction = instructions.Add(CilOpCodes.Call, exitToUserCodeImported); // Clean up the stack frame and maybe throw an exception.
 
 			CilExceptionHandler exceptionHandler = new()
 			{

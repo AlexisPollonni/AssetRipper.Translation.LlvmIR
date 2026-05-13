@@ -6,8 +6,9 @@ using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
-using AssetRipper.Translation.LlvmIR.Attributes;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR;
@@ -21,31 +22,16 @@ internal sealed partial class ModuleContext
 	)
 	{
 		HelpersNamespace = options.GetNamespace("Helpers");
-		InjectedTypes = new TypeInjector(definition, HelpersNamespace).Inject([
-			typeof(IntrinsicFunctions),
-			typeof(InlineArrayHelper),
-			typeof(InlineArrayBuilder<,>),
-			typeof(IInlineArray<>),
-			typeof(IInlineArray<,>),
-			typeof(SpanHelper),
-			typeof(InstructionHelper),
-			typeof(NumericHelper),
-			typeof(InlineArrayNumericHelper),
-			typeof(NameAttribute),
-			typeof(MangledNameAttribute),
-			typeof(DemangledNameAttribute),
-			typeof(CleanNameAttribute),
-			typeof(NativeTypeAttribute),
-			typeof(InlineAssemblyAttribute),
-			typeof(MightThrowAttribute),
-			typeof(ExceptionInfo),
-			typeof(StackFrame),
-			typeof(StackFrameList),
-			typeof(FatalException),
-			typeof(PointerIndices),
-			typeof(NativeMemoryHelper),
-			typeof(AssemblyFunctions),
-		]);
+		RuntimeImporter = new RuntimeTypeImporter(definition);
+
+		// AssemblyFunctions is a local output-module type (methods are added to it dynamically).
+		AssemblyFunctionsType = new TypeDefinition(
+			HelpersNamespace,
+			nameof(AssemblyFunctions),
+			TypeAttributes.NotPublic | TypeAttributes.Abstract | TypeAttributes.Sealed,
+			definition.CorLibTypeFactory.Object.ToTypeDefOrRef()
+		);
+		definition.TopLevelTypes.Add(AssemblyFunctionsType);
 
 		Module = module;
 		Definition = definition;
@@ -74,14 +60,44 @@ internal sealed partial class ModuleContext
 	}
 
 	public string? HelpersNamespace { get; }
-	public IReadOnlyDictionary<Type, TypeDefinition> InjectedTypes { get; }
-	public TypeDefinition IntrinsicsType => InjectedTypes[typeof(IntrinsicFunctions)];
-	public TypeDefinition InlineArrayHelperType => InjectedTypes[typeof(InlineArrayHelper)];
-	public TypeDefinition SpanHelperType => InjectedTypes[typeof(SpanHelper)];
-	public TypeDefinition InstructionHelperType => InjectedTypes[typeof(InstructionHelper)];
-	public TypeDefinition NumericHelperType => InjectedTypes[typeof(NumericHelper)];
+
+	/// <summary>
+	/// Provides cross-assembly references to all helper/runtime types in
+	/// <c>AssetRipper.Translation.LlvmIR.Runtime</c>.  Use the <c>Import*</c> helpers
+	/// when passing methods or fields to CIL instructions.
+	/// </summary>
+	public RuntimeTypeImporter RuntimeImporter { get; }
+
+	/// <summary>Backward-compatible alias for <see cref="RuntimeImporter"/>.</summary>
+	public IReadOnlyDictionary<Type, TypeDefinition> InjectedTypes => RuntimeImporter;
+
+	/// <summary>The output-local container for unresolved inline-assembly stub methods.</summary>
+	public TypeDefinition AssemblyFunctionsType { get; }
+
+	// ─── Convenience shortcuts (source TypeDefinitions for method/field look-up) ──
+	public TypeDefinition IntrinsicsType => RuntimeImporter[typeof(IntrinsicFunctions)];
+	public TypeDefinition InlineArrayHelperType => RuntimeImporter[typeof(InlineArrayHelper)];
+	public TypeDefinition SpanHelperType => RuntimeImporter[typeof(SpanHelper)];
+	public TypeDefinition InstructionHelperType => RuntimeImporter[typeof(InstructionHelper)];
+	public TypeDefinition NumericHelperType => RuntimeImporter[typeof(NumericHelper)];
 	public TypeDefinition InlineArrayNumericHelperType =>
-		InjectedTypes[typeof(InlineArrayNumericHelper)];
+		RuntimeImporter[typeof(InlineArrayNumericHelper)];
+
+	// ─── Import helpers (delegate to RuntimeImporter) ─────────────────────────
+	/// <summary>Import a Runtime <see cref="MethodDefinition"/> into the output module for CIL emit.</summary>
+	public IMethodDefOrRef ImportRuntimeMethod(MethodDefinition method) =>
+		RuntimeImporter.ImportMethod(method);
+
+	/// <summary>Import a Runtime <see cref="FieldDefinition"/> into the output module for CIL emit.</summary>
+	public IFieldDescriptor ImportRuntimeField(FieldDefinition field) =>
+		RuntimeImporter.ImportField(field);
+
+	/// <summary>Get a <see cref="TypeSignature"/> referencing a Runtime type.</summary>
+	public TypeSignature GetRuntimeTypeSignature(Type type) =>
+		RuntimeImporter.GetTypeSignature(type);
+
+	/// <summary>Get an <see cref="ITypeDefOrRef"/> referencing a Runtime type.</summary>
+	public ITypeDefOrRef GetRuntimeTypeRef(Type type) => RuntimeImporter.GetTypeRef(type);
 
 	public LLVMModuleRef Module { get; }
 	public ModuleDefinition Definition { get; }
@@ -174,16 +190,17 @@ internal sealed partial class ModuleContext
 	public void IdentifyFunctionsThatMightThrow()
 	{
 		HashSet<string> intrinsicMethodsThatMightThrow = new();
+		string attrNs = RuntimeTypeImporter.AttributesNamespace;
 		foreach (MethodDefinition method in IntrinsicsType.Methods)
 		{
-			if (!method.HasCustomAttribute(HelpersNamespace, nameof(MightThrowAttribute)))
+			if (!method.HasCustomAttribute(attrNs, nameof(MightThrowAttribute)))
 			{
 				continue;
 			}
 
 			foreach (
 				CustomAttribute attribute in method.FindCustomAttributes(
-					HelpersNamespace,
+					attrNs,
 					nameof(MangledNameAttribute)
 				)
 			)
@@ -402,10 +419,9 @@ internal sealed partial class ModuleContext
 				{
 					LLVMOpcode.LLVMAlloca => GetTypeSignature(LLVM.GetAllocatedType(value))
 						.MakePointerType(),
-					LLVMOpcode.LLVMCatchPad or LLVMOpcode.LLVMCleanupPad => InjectedTypes[
+					LLVMOpcode.LLVMCatchPad or LLVMOpcode.LLVMCleanupPad => GetRuntimeTypeSignature(
 						typeof(ExceptionInfo)
-					]
-						.ToTypeSignature(),
+					),
 					LLVMOpcode.LLVMGetElementPtr => GetGEPFinalType(value).MakePointerType(),
 					LLVMOpcode.LLVMRet => Definition.CorLibTypeFactory.Void,
 					LLVMOpcode.LLVMStore => Definition.CorLibTypeFactory.Void,

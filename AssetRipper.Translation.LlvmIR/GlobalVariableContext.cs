@@ -9,6 +9,7 @@ using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Variables;
 using LLVMSharp.Interop;
 
@@ -278,9 +279,11 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 				instructions.Add(CilOpCodes.Call, PointerMethod);
 				instructions.Add(
 					CilOpCodes.Call,
-					Module
-						.InjectedTypes[typeof(PointerIndices)]
-						.GetMethodByName(nameof(PointerIndices.Register))
+					Module.ImportRuntimeMethod(
+						Module
+							.InjectedTypes[typeof(PointerIndices)]
+							.GetMethodByName(nameof(PointerIndices.Register))
+					)
 				);
 				instructions.Add(CilOpCodes.Pop);
 

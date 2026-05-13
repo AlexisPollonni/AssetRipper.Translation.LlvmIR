@@ -5,6 +5,7 @@ using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.CIL;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Variables;
 using LLVMSharp.Interop;
 
@@ -60,7 +61,9 @@ public static class NumericalComparison
 			};
 			return new CallInstruction(
 				module
-					.NumericHelperType.Methods.First(m => m.Name == methodName)
+					.ImportRuntimeMethod(
+						module.NumericHelperType.Methods.First(m => m.Name == methodName)
+					)
 					.MakeGenericInstanceMethod(type)
 			);
 		}
@@ -156,7 +159,9 @@ public static class NumericalComparison
 			}
 			return new CallInstruction(
 				module
-					.NumericHelperType.Methods.First(m => m.Name == methodName)
+					.ImportRuntimeMethod(
+						module.NumericHelperType.Methods.First(m => m.Name == methodName)
+					)
 					.MakeGenericInstanceMethod(type)
 			);
 		}
@@ -221,7 +226,9 @@ public static class NumericalComparison
 		{
 			return new CallInstruction(
 				module
-					.NumericHelperType.Methods.First(m => m.Name == methodName)
+					.ImportRuntimeMethod(
+						module.NumericHelperType.Methods.First(m => m.Name == methodName)
+					)
 					.MakeGenericInstanceMethod(type)
 			);
 		}

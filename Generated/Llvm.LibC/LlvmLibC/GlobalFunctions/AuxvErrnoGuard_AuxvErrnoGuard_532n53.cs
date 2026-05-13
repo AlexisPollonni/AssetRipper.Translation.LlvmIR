@@ -1,5 +1,5 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
-using LlvmLibC.Helpers;
 using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;

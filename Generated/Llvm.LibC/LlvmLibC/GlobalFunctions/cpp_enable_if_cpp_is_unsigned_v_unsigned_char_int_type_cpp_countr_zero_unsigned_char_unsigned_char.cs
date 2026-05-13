@@ -1,4 +1,5 @@
-using LlvmLibC.Helpers;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Intrinsics.Implemented;
 
 namespace LlvmLibC.GlobalFunctions;
