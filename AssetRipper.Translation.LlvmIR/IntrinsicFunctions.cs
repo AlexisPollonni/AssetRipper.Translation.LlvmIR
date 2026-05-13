@@ -33,20 +33,24 @@ internal static unsafe partial class IntrinsicFunctions
 	public static void Sse2Pause() => System.Threading.Thread.SpinWait(1);
 
 	// llvm.x86.sse.stmxcsr — emitted by _mm_getcsr() in fenv_mxcsr_utils.h
-	// Stores the MXCSR register value to memory; we return the SSE2 power-on
-	// default (all exceptions masked, round-to-nearest) since .NET has no
-	// mechanism to query or set the FP environment register.
+	// Stores the MXCSR register value to memory. .NET's managed intrinsics API
+	// covers only SIMD data operations — there is no API to read or write MXCSR
+	// from managed code. We return the SSE2 power-on default (0x1F80: all FP
+	// exceptions masked, round-to-nearest, no FTZ/DAZ), which matches the state
+	// the .NET JIT sets at startup and is correct for virtually all libc callers.
 	[MangledName("llvm.x86.sse.stmxcsr")]
-	public static unsafe void SseStoreMxcsr(uint* mem)
+	public static void SseStoreMxcsr(uint* mem)
 	{
 		if (mem != null)
-			*mem = 0x1F80u; // default MXCSR
+			*mem = 0x1F80u;
 	}
 
 	// llvm.x86.sse.ldmxcsr — emitted by _mm_setcsr() in fenv_mxcsr_utils.h
-	// Loads a value into the MXCSR register; no-op in managed code.
+	// Loads a value into MXCSR. Same limitation as above — no managed API to
+	// set MXCSR, so this is a no-op. Changes to rounding mode / exception masks
+	// requested by the libc fp-env functions will be silently ignored.
 	[MangledName("llvm.x86.sse.ldmxcsr")]
-	public static unsafe void SseLoadMxcsr(uint* mem) { }
+	public static void SseLoadMxcsr(uint* mem) { }
 
 	// ── Standard-stream sentinels (shared by both platform files) ────────────
 

@@ -8,6 +8,6 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_long_double_
 {
 	public static double Invoke(double x)
 	{
-		return AssemblyFunctions.M5(x);
+		return IntrinsicFunctions.AsmFsqrt(x);
 	}
 }

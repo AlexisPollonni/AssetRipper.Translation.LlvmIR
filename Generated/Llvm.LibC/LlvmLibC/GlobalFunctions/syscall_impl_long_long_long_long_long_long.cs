@@ -10,18 +10,18 @@ internal static partial class syscall_impl_long_long_long_long_long_long
 	public unsafe static long Invoke([MangledName("__number")] long number, [MangledName("__arg1")] long arg1, [MangledName("__arg2")] long arg2, [MangledName("__arg3")] long arg3, [MangledName("__arg4")] long arg4, [MangledName("__arg5")] long arg5)
 	{
 		long num = 0L;
-		long num2 = 0L;
-		long num3 = 0L;
+		long a = 0L;
+		long a2 = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = -6148914691236517206L;
-		llvm_lifetime_start_p0.Invoke(8L, &num2);
-		num2 = arg4;
-		llvm_lifetime_start_p0.Invoke(8L, &num3);
-		num3 = arg5;
-		num = AssemblyFunctions.M15(number, arg1, arg2, arg3, num2, num3);
+		llvm_lifetime_start_p0.Invoke(8L, &a);
+		a = arg4;
+		llvm_lifetime_start_p0.Invoke(8L, &a2);
+		a2 = arg5;
+		num = IntrinsicFunctions.SyscallN6(number, arg1, arg2, arg3, a, a2);
 		long result = num;
-		llvm_lifetime_end_p0.Invoke(8L, &num3);
-		llvm_lifetime_end_p0.Invoke(8L, &num2);
+		llvm_lifetime_end_p0.Invoke(8L, &a2);
+		llvm_lifetime_end_p0.Invoke(8L, &a);
 		llvm_lifetime_end_p0.Invoke(8L, &num);
 		return result;
 	}

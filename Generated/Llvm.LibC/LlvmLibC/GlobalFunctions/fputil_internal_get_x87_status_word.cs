@@ -12,7 +12,7 @@ internal static partial class fputil_internal_get_x87_status_word
 		short num = 0;
 		llvm_lifetime_start_p0.Invoke(2L, &num);
 		num = -21846;
-		AssemblyFunctions.M8(&num);
+		IntrinsicFunctions.AsmFnstsw(&num);
 		short result = num;
 		llvm_lifetime_end_p0.Invoke(2L, &num);
 		return result;

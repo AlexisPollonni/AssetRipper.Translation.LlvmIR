@@ -9,6 +9,6 @@ internal static partial class fputil_internal_write_x87_state_descriptor_fputil_
 {
 	public unsafe static void Invoke(fputil_internal_X87StateDescriptor* s)
 	{
-		AssemblyFunctions.M2(s);
+		IntrinsicFunctions.AsmFldenv(s);
 	}
 }

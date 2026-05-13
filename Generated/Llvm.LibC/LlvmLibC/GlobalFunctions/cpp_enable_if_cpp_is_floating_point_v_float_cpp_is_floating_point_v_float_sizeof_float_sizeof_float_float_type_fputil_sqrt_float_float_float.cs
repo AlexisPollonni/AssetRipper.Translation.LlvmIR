@@ -12,7 +12,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float_cpp_is
 		float num = 0f;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = float.NaN;
-		num = AssemblyFunctions.M6(x);
+		num = IntrinsicFunctions.AsmSqrtss(x);
 		float result = num;
 		llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;

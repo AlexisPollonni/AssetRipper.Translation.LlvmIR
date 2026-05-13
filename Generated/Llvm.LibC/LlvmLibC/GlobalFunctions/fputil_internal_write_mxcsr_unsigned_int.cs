@@ -9,6 +9,6 @@ internal static partial class fputil_internal_write_mxcsr_unsigned_int
 	public unsafe static void Invoke(int w)
 	{
 		int num = w;
-		AssemblyFunctions.M3(&num);
+		IntrinsicFunctions.AsmLdmxcsr(&num);
 	}
 }

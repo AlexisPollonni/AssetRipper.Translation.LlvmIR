@@ -8,6 +8,6 @@ internal static partial class fputil_internal_fwait
 {
 	public static void Invoke()
 	{
-		AssemblyFunctions.M4();
+		IntrinsicFunctions.AsmFwait();
 	}
 }

@@ -12,7 +12,7 @@ internal static partial class syscall_impl_long_long
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = -6148914691236517206L;
-		num = AssemblyFunctions.M12(number, arg1);
+		num = IntrinsicFunctions.SyscallN2(number, arg1);
 		long result = num;
 		llvm_lifetime_end_p0.Invoke(8L, &num);
 		return result;

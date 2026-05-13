@@ -9,6 +9,6 @@ internal static partial class fputil_internal_write_x87_control_word_unsigned_sh
 	public unsafe static void Invoke(short w)
 	{
 		short num = w;
-		AssemblyFunctions.M10(&num);
+		IntrinsicFunctions.AsmFldcw(&num);
 	}
 }

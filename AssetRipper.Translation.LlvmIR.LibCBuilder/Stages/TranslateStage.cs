@@ -13,12 +13,7 @@ namespace AssetRipper.Translation.LlvmIR.LibCBuilder.Stages;
 [SupportedOSPlatform("linux")]
 internal static class TranslateStage
 {
-	public static void Run(
-		string bcPath,
-		string outputDir,
-		ToolchainInfo toolchain,
-		bool clean
-	)
+	public static void Run(string bcPath, string outputDir, ToolchainInfo toolchain, bool clean)
 	{
 		if (!clean && Directory.Exists(outputDir))
 		{
@@ -50,6 +45,7 @@ internal static class TranslateStage
 			EmitNameAttributes = true,
 			PrecomputeInitializers = false,
 			StripNamePrefixes = [toolchain.StripPrefix],
+			InlineAssemblySubstitutions = LibCSubstitutions.Build(),
 		};
 
 		Console.WriteLine("[Translate] Translating...");
@@ -75,4 +71,3 @@ internal static class TranslateStage
 		return max;
 	}
 }
-

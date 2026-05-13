@@ -779,6 +779,34 @@ internal static unsafe partial class IntrinsicFunctions
 		return StartManagedThread((nint)fn, (nint)arg, parentTid, childTid);
 	}
 
+	// ── Per-arity syscall wrappers for InlineAssembly substitution ─────────────
+	// Each variant matches one of the llvm-libc syscall asm constraint patterns.
+	// The asm constraint string encodes the argument count via the register list
+	// (ax=syscall nr, di/si/dx/r10/r8/r9 = args 1-6).
+
+	[MangledName("__dotnet_syscall_n1")]
+	public static long SyscallN1(long n) => DotnetSyscall(n, 0, 0, 0, 0, 0, 0);
+
+	[MangledName("__dotnet_syscall_n2")]
+	public static long SyscallN2(long n, long a1) => DotnetSyscall(n, a1, 0, 0, 0, 0, 0);
+
+	[MangledName("__dotnet_syscall_n3")]
+	public static long SyscallN3(long n, long a1, long a2) => DotnetSyscall(n, a1, a2, 0, 0, 0, 0);
+
+	[MangledName("__dotnet_syscall_n4")]
+	public static long SyscallN4(long n, long a1, long a2, long a3) =>
+		DotnetSyscall(n, a1, a2, a3, 0, 0, 0);
+
+	[MangledName("__dotnet_syscall_n5")]
+	public static long SyscallN5(long n, long a1, long a2, long a3, long a4) =>
+		DotnetSyscall(n, a1, a2, a3, a4, 0, 0);
+
+	[MangledName("__dotnet_syscall_n6")]
+	public static long SyscallN6(long n, long a1, long a2, long a3, long a4, long a5) =>
+		DotnetSyscall(n, a1, a2, a3, a4, a5, 0);
+
+	// SyscallN7 uses DotnetSyscall directly (already 7 params).
+
 	// ── SYS_clone: reads StartArgs from the stack pointer ────────────────────
 
 	private static long SysClone(

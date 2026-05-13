@@ -713,43 +713,63 @@ internal readonly unsafe struct InstructionLifter
 									?? string.Empty;
 							}
 
-							TypeDefinition declaringType = module.InjectedTypes[
-								typeof(AssemblyFunctions)
-							];
-							MethodDefinition method = new(
-								$"M{declaringType.Methods.Count}",
-								MethodAttributes.Public
-									| MethodAttributes.Static
-									| MethodAttributes.HideBySig,
-								methodSignature
-							);
-							declaringType.Methods.Add(method);
-
-							method.CilMethodBody = new();
-							method.CilMethodBody.Instructions.ThrowNotImplementedException(
-								$"Inline assembly not supported: {assemblyString}"
-							);
-
-							// Attribute
+							// Check for a user-provided substitution first.
+							// If found, call the substitution method directly — no stub is created.
+							if (
+								module.Options.InlineAssemblySubstitutions.TryGetValue(
+									(assemblyString, constraintString),
+									out string? subMethodName
+								)
+							)
 							{
-								MethodDefinition constructor = module
-									.InjectedTypes[typeof(InlineAssemblyAttribute)]
-									.GetMethodByName(".ctor");
-								CustomAttributeSignature signature = new();
-								signature.FixedArguments.Add(
-									new(module.Definition.CorLibTypeFactory.String, assemblyString)
-								);
-								signature.FixedArguments.Add(
-									new(
-										module.Definition.CorLibTypeFactory.String,
-										constraintString
-									)
-								);
-								CustomAttribute attribute = new(constructor, signature);
-								method.CustomAttributes.Add(attribute);
+								MethodDefinition subMethod = module
+									.InjectedTypes[typeof(IntrinsicFunctions)]
+									.GetMethodByName(subMethodName);
+								Call(basicBlock, subMethod);
 							}
+							else
+							{
+								TypeDefinition declaringType = module.InjectedTypes[
+									typeof(AssemblyFunctions)
+								];
+								MethodDefinition method = new(
+									$"M{declaringType.Methods.Count}",
+									MethodAttributes.Public
+										| MethodAttributes.Static
+										| MethodAttributes.HideBySig,
+									methodSignature
+								);
+								declaringType.Methods.Add(method);
 
-							Call(basicBlock, method);
+								method.CilMethodBody = new();
+								method.CilMethodBody.Instructions.ThrowNotImplementedException(
+									$"Inline assembly not supported: {assemblyString}"
+								);
+
+								// Attribute
+								{
+									MethodDefinition constructor = module
+										.InjectedTypes[typeof(InlineAssemblyAttribute)]
+										.GetMethodByName(".ctor");
+									CustomAttributeSignature signature = new();
+									signature.FixedArguments.Add(
+										new(
+											module.Definition.CorLibTypeFactory.String,
+											assemblyString
+										)
+									);
+									signature.FixedArguments.Add(
+										new(
+											module.Definition.CorLibTypeFactory.String,
+											constraintString
+										)
+									);
+									CustomAttribute attribute = new(constructor, signature);
+									method.CustomAttributes.Add(attribute);
+								}
+
+								Call(basicBlock, method);
+							}
 						}
 						else
 						{

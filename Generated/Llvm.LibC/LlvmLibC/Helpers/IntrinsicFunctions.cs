@@ -3318,6 +3318,79 @@ internal static partial class IntrinsicFunctions
 		return _cLocale;
 	}
 
+	public unsafe static void AsmFnstenv(void* mem)
+	{
+		unchecked
+		{
+			if (mem != null)
+			{
+				new Span<byte>(mem, 28).Clear();
+				*(short*)mem = 895;
+				*(short*)checked(unchecked((nuint)mem) + (nuint)8u) = -1;
+			}
+		}
+	}
+
+	public unsafe static void AsmStmxcsr(int* mem)
+	{
+		if (mem != null)
+		{
+			*mem = 8064;
+		}
+	}
+
+	public unsafe static void AsmFldenv(void* mem)
+	{
+	}
+
+	public unsafe static void AsmLdmxcsr(int* mem)
+	{
+	}
+
+	public static void AsmFwait()
+	{
+	}
+
+	public static double AsmFsqrt(double x)
+	{
+		return Math.Sqrt(x);
+	}
+
+	public static float AsmSqrtss(float x)
+	{
+		return MathF.Sqrt(x);
+	}
+
+	public static double AsmSqrtsd(double x)
+	{
+		return Math.Sqrt(x);
+	}
+
+	public unsafe static void AsmFnstsw(short* mem)
+	{
+		if (mem != null)
+		{
+			*mem = 0;
+		}
+	}
+
+	public unsafe static void AsmFnstcw(short* mem)
+	{
+		if (mem != null)
+		{
+			*mem = 895;
+		}
+	}
+
+	public unsafe static void AsmFldcw(short* mem)
+	{
+	}
+
+	public unsafe static void AsmMemoryBarrierPtr(void* ptr)
+	{
+		Thread.MemoryBarrier();
+	}
+
 	[MangledName("__dotnet_syscall")]
 	public unsafe static long DotnetSyscall(long n, long a1, long a2, long a3, long a4, long a5, long a6)
 	{
@@ -3975,6 +4048,42 @@ internal static partial class IntrinsicFunctions
 			return -22L;
 		}
 		return StartManagedThread((nint)fn, (nint)arg, parentTid, childTid);
+	}
+
+	[MangledName("__dotnet_syscall_n1")]
+	public static long SyscallN1(long n)
+	{
+		return DotnetSyscall(n, 0L, 0L, 0L, 0L, 0L, 0L);
+	}
+
+	[MangledName("__dotnet_syscall_n2")]
+	public static long SyscallN2(long n, long a1)
+	{
+		return DotnetSyscall(n, a1, 0L, 0L, 0L, 0L, 0L);
+	}
+
+	[MangledName("__dotnet_syscall_n3")]
+	public static long SyscallN3(long n, long a1, long a2)
+	{
+		return DotnetSyscall(n, a1, a2, 0L, 0L, 0L, 0L);
+	}
+
+	[MangledName("__dotnet_syscall_n4")]
+	public static long SyscallN4(long n, long a1, long a2, long a3)
+	{
+		return DotnetSyscall(n, a1, a2, a3, 0L, 0L, 0L);
+	}
+
+	[MangledName("__dotnet_syscall_n5")]
+	public static long SyscallN5(long n, long a1, long a2, long a3, long a4)
+	{
+		return DotnetSyscall(n, a1, a2, a3, a4, 0L, 0L);
+	}
+
+	[MangledName("__dotnet_syscall_n6")]
+	public static long SyscallN6(long n, long a1, long a2, long a3, long a4, long a5)
+	{
+		return DotnetSyscall(n, a1, a2, a3, a4, a5, 0L);
 	}
 
 	private unsafe static long SysClone(CloneFlags flags, ThreadStartArgs* startArgs, int* parentTid, int* childTid, void* tls)

@@ -78,6 +78,23 @@ public sealed record class TranslatorOptions
 	/// </summary>
 	public bool PrecomputeInitializers { get; set; }
 
+	/// <summary>
+	/// Maps inline assembly (asm text, constraint string) pairs to the name of a method in the
+	/// injected <c>IntrinsicFunctions</c> type that should be called instead of emitting a
+	/// <c>throw new NotImplementedException</c> stub. The substitution method must have the
+	/// exact same parameter and return types as the inline asm block it replaces.
+	/// </summary>
+	/// <remarks>
+	/// The key is <c>(assemblyString, constraintString)</c> as extracted from the LLVM IR.
+	/// The constraint string uniquely identifies arity and register layout — e.g. the seven
+	/// <c>syscall</c> asm variants in llvm-libc all share the asm text <c>"syscall"</c>
+	/// but differ by their constraint strings.
+	/// </remarks>
+	public Dictionary<
+		(string Asm, string Constraints),
+		string
+	> InlineAssemblySubstitutions { get; init; } = new();
+
 	public string? GetNamespace(string? subNamespace)
 	{
 		if (string.IsNullOrEmpty(Namespace))

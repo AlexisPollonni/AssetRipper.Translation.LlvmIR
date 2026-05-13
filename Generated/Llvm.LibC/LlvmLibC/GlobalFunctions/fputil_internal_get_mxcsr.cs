@@ -12,7 +12,7 @@ internal static partial class fputil_internal_get_mxcsr
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = -1431655766;
-		AssemblyFunctions.M1(&num);
+		IntrinsicFunctions.AsmStmxcsr(&num);
 		int result = num;
 		llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;
