@@ -62,9 +62,27 @@ internal static partial class IntrinsicFunctionImplementer
 		{
 			MoveToImplementedType(context);
 		}
+		else if (TryImplementWithOverflowIntrinsic(context))
+		{
+			MoveToImplementedType(context);
+		}
+		else if (TryResolveDependency(context))
+		{
+			MoveToImplementedType(context);
+		}
 		else
 		{
 			MoveToUnimplementedType(context);
+
+			// Warn about unresolved external C/C++ symbols — these need to be provided via
+			// TranslatorOptions.Dependencies or TranslatorOptions.InlineAssemblySubstitutions.
+			// LLVM intrinsic stubs (llvm.*) are expected and do not generate a warning.
+			if (!context.MangledName.StartsWith("llvm.", StringComparison.Ordinal))
+			{
+				Console.Error.WriteLine(
+					$"[WARN] Unresolved external symbol: {context.MangledName}"
+				);
+			}
 
 			instructions.ThrowNotImplementedException(
 				$"Unimplemented LLVM intrinsic: {context.MangledName}"
@@ -238,6 +256,59 @@ internal static partial class IntrinsicFunctionImplementer
 		return true;
 	}
 
+	/// <summary>
+	/// Attempts to resolve the function from a previously-translated dependency assembly
+	/// listed in <see cref="TranslatorOptions.Dependencies"/>.
+	/// </summary>
+	/// <remarks>
+	/// When a match is found the method emits a simple forwarding body: loads all parameters
+	/// and calls the corresponding public method in the dependency's <c>GlobalMembers</c>
+	/// static class.  The mangled name guarantees signature compatibility — a match means
+	/// both sides were compiled from the same C++ declaration.
+	/// </remarks>
+	private static bool TryResolveDependency(FunctionContext context)
+	{
+		IReadOnlyList<TranslatedAssemblyDependency> dependencies = context
+			.Module
+			.Options
+			.Dependencies;
+		if (dependencies.Count == 0)
+		{
+			return false;
+		}
+
+		foreach (TranslatedAssemblyDependency dep in dependencies)
+		{
+			if (!dep.TryGetFunction(context.MangledName, out MethodDefinition? depMethod))
+			{
+				continue;
+			}
+
+			// Sanity-check: mangled names encode the full signature so a count mismatch
+			// indicates an ABI incompatibility (different compiler versions, sret mismatch,
+			// etc.) — skip this dependency and let the next one try.
+			if (depMethod.Parameters.Count != context.Definition.Parameters.Count)
+			{
+				continue;
+			}
+
+			CilInstructionCollection instructions = context.Definition.CilMethodBody!.Instructions;
+
+			foreach (Parameter parameter in context.Definition.Parameters)
+			{
+				instructions.Add(CilOpCodes.Ldarg, parameter);
+			}
+
+			IMethodDefOrRef imported = dep.ImportFunctionInto(depMethod, context.Module.Definition);
+			instructions.Add(CilOpCodes.Call, imported);
+			instructions.Add(CilOpCodes.Ret);
+
+			return true;
+		}
+
+		return false;
+	}
+
 	[GeneratedRegex(@"^llvm\.([a-z0-9_]+)\.([a-z0-9_]+)$")]
 	private static partial Regex SimpleOperationRegex { get; }
 
@@ -256,8 +327,107 @@ internal static partial class IntrinsicFunctionImplementer
 
 	/// <summary>
 	/// Intrinsics that return their first argument unchanged.
-	/// Currently: <c>llvm.expect.*</c> (branch-probability hint).
+	/// <list type="bullet">
+	///   <item><c>llvm.expect.*</c> — branch-probability hint; value is returned as-is.</item>
+	///   <item><c>llvm.threadlocal.address.*</c> — returns the address of the TLS variable unchanged (identity in managed code).</item>
+	/// </list>
 	/// </summary>
-	[GeneratedRegex(@"^llvm\.expect(\.[a-z0-9_]+)*$")]
+	[GeneratedRegex(@"^llvm\.(expect|threadlocal\.address)(\.[a-z0-9_]+)*$")]
 	private static partial Regex PassthroughIntrinsicRegex { get; }
+
+	/// <summary>
+	/// Handles <c>llvm.uadd.with.overflow.*</c> and <c>llvm.usub.with.overflow.*</c> intrinsics.
+	/// These return a struct <c>{ iN field_0; bool field_1 }</c> where <c>field_0</c> is the
+	/// wrapping arithmetic result and <c>field_1</c> is the unsigned overflow flag.
+	/// Since the return struct is a per-module generated type, this must be implemented by
+	/// emitting CIL directly rather than via a runtime method.
+	/// </summary>
+	private static bool TryImplementWithOverflowIntrinsic(FunctionContext context)
+	{
+		Match match = WithOverflowIntrinsicRegex.Match(context.MangledName);
+		if (!match.Success)
+		{
+			return false;
+		}
+
+		bool isAdd = match.Groups[1].Value == "uadd";
+		int bits = int.Parse(match.Groups[2].Value.TrimStart('i')); // strip 'i' prefix: i16→16, i32→32, i64→64
+
+		// The return type is a generated struct with field_0 (value) and field_1 (overflow bool).
+		TypeSignature? returnSig = context.Definition.Signature?.ReturnType;
+		if (returnSig?.Resolve() is not TypeDefinition returnStruct)
+		{
+			return false;
+		}
+
+		FieldDefinition? field0 = returnStruct.Fields.FirstOrDefault(f => f.Name == "field_0");
+		FieldDefinition? field1 = returnStruct.Fields.FirstOrDefault(f => f.Name == "field_1");
+		if (field0 is null || field1 is null)
+		{
+			return false;
+		}
+
+		CilMethodBody body = context.Definition.CilMethodBody!;
+		CilLocalVariable resultLocal = new(returnSig);
+		body.LocalVariables.Add(resultLocal);
+		CilInstructionCollection ins = body.Instructions;
+
+		// Zero-initialize the result struct.
+		ins.Add(CilOpCodes.Ldloca, resultLocal);
+		ins.Add(CilOpCodes.Initobj, returnStruct);
+
+		// ── field_0: wrapping arithmetic result ──────────────────────────────
+		ins.Add(CilOpCodes.Ldloca, resultLocal);
+		ins.Add(CilOpCodes.Ldarg_0);
+		ins.Add(CilOpCodes.Ldarg_1);
+		// CilOpCodes.Add / Sub are unchecked at the CIL level regardless of
+		// <CheckForOverflowUnderflow> (that only affects C# compiler output).
+		ins.Add(isAdd ? CilOpCodes.Add : CilOpCodes.Sub);
+		if (bits == 16)
+			ins.Add(CilOpCodes.Conv_I2); // truncate int32 result to i16
+		// i32: already int32; i64: already int64 — no extra truncation needed
+		ins.Add(CilOpCodes.Stfld, field0);
+
+		// ── field_1: unsigned overflow flag ───────────────────────────────────
+		// For uadd: overflow = (unsigned)(a + b) < (unsigned)a
+		// For usub: overflow = (unsigned)a < (unsigned)b
+		ins.Add(CilOpCodes.Ldloca, resultLocal);
+
+		if (isAdd)
+		{
+			// Recompute a + b so we can compare with a.
+			ins.Add(CilOpCodes.Ldarg_0);
+			ins.Add(CilOpCodes.Ldarg_1);
+			ins.Add(CilOpCodes.Add);
+		}
+		else
+		{
+			// Just load a for the left side of the comparison.
+			ins.Add(CilOpCodes.Ldarg_0);
+		}
+
+		// Zero-extend to the unsigned interpretation appropriate for this width.
+		CilOpCode convResult = bits switch
+		{
+			16 => CilOpCodes.Conv_U2,
+			32 => CilOpCodes.Conv_U4,
+			_ => CilOpCodes.Conv_U8, // 64
+		};
+		ins.Add(convResult);
+
+		// Right-hand side of comparison: always (unsigned)a for uadd, (unsigned)b for usub.
+		ins.Add(isAdd ? CilOpCodes.Ldarg_0 : CilOpCodes.Ldarg_1);
+		ins.Add(convResult);
+
+		ins.Add(CilOpCodes.Clt_Un); // unsigned less-than → 1 (true) if overflow
+		ins.Add(CilOpCodes.Stfld, field1);
+
+		// Return the struct by value.
+		ins.Add(CilOpCodes.Ldloc, resultLocal);
+		ins.Add(CilOpCodes.Ret);
+		return true;
+	}
+
+	[GeneratedRegex(@"^llvm\.(uadd|usub)\.with\.overflow\.(i16|i32|i64)$")]
+	private static partial Regex WithOverflowIntrinsicRegex { get; }
 }

@@ -5,6 +5,7 @@ using AsmResolver.DotNet.Code.Cil;
 using AsmResolver.DotNet.Signatures;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Instructions;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LLVMSharp.Interop;
 
 namespace AssetRipper.Translation.LlvmIR;
@@ -516,6 +517,36 @@ public static unsafe class Translator
 				validMetadata
 			);
 
+			// Emit the DWARF _ZTS... identifier as an additional [MangledName] attribute on
+			// struct TypeDefinitions so that TranslatedAssemblyDependency.BuildTypeIndex can
+			// index them when this module is later used as a dependency.
+			if (moduleContext.Options.EmitNameAttributes)
+			{
+				IMethodDefOrRef mangledNameCtor = (IMethodDefOrRef)
+					moduleContext.Definition.DefaultImporter.ImportMethod(
+						typeof(MangledNameAttribute).GetConstructor([typeof(string)])!
+					);
+				int emittedDwarfAttrs = 0;
+				foreach ((StructContext structCtx, List<LLVMMetadataRef> list) in validMetadata)
+				{
+					if (list.Count == 0)
+						continue;
+					string dwarfId = list[0].Identifier;
+					if (string.IsNullOrEmpty(dwarfId))
+						continue;
+
+					CustomAttributeSignature attrSig = new();
+					attrSig.FixedArguments.Add(
+						new(moduleContext.Definition.CorLibTypeFactory.String, dwarfId)
+					);
+					structCtx.Definition.CustomAttributes.Add(new(mangledNameCtor, attrSig));
+					emittedDwarfAttrs++;
+				}
+				Console.WriteLine(
+					$"[DIAG] DWARF identifier attributes emitted on structs: {emittedDwarfAttrs}"
+				);
+			}
+
 			// Apply DWARF types to struct fields (uses same offset matching as field naming).
 			int fieldTypeCount = 0;
 			foreach ((StructContext structContext, List<LLVMMetadataRef> list) in validMetadata)
@@ -645,6 +676,9 @@ public static unsafe class Translator
 	///   <item>All enumeration types registered in <see cref="ModuleContext.Enums"/>.</item>
 	///   <item>All struct/class/union types that were matched to DWARF metadata
 	///         (i.e. have a non-empty <see cref="LLVMMetadataRef.Identifier"/>).</item>
+	///   <item>All types imported from <see cref="TranslatorOptions.Dependencies"/> whose DWARF
+	///         identifier is not already covered by a locally-defined type.  Local definitions
+	///         always take precedence; dependency types fill in the gaps.</item>
 	/// </list>
 	/// </summary>
 	private static Dictionary<string, TypeSignature> BuildDwarfTypeLookup(
@@ -671,6 +705,30 @@ public static unsafe class Translator
 			{
 				lookup.TryAdd(id, structCtx.Definition.ToTypeSignature());
 			}
+		}
+
+		// Dependency types — fill in identifiers not covered by locally-defined types.
+		// Local types always win (TryAdd skips existing keys).
+		int depTypeCount = 0;
+		foreach (TranslatedAssemblyDependency dep in moduleContext.Options.Dependencies)
+		{
+			foreach ((string id, TypeDefinition depType) in dep.Types)
+			{
+				if (lookup.ContainsKey(id))
+					continue; // local definition takes precedence
+
+				// Import the dependency type into the output module and register its signature.
+				ITypeDefOrRef imported = dep.ImportTypeInto(depType, moduleContext.Definition);
+				lookup[id] = imported.ToTypeSignature();
+				depTypeCount++;
+			}
+		}
+
+		if (depTypeCount > 0)
+		{
+			Console.WriteLine(
+				$"[DIAG] Dependency type lookup: +{depTypeCount} types from {moduleContext.Options.Dependencies.Count} dependenc{(moduleContext.Options.Dependencies.Count == 1 ? "y" : "ies")}"
+			);
 		}
 
 		return lookup;

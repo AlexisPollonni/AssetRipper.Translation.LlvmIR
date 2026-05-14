@@ -119,10 +119,15 @@ internal static class DwarfTypeResolver
 	/// <summary>
 	/// Returns <see langword="true"/> when <paramref name="sig"/> refers to an enum type
 	/// whose underlying primitive element type equals <paramref name="requiredElemType"/>.
+	/// Handles both locally-defined types (<see cref="TypeDefinition"/>) and cross-assembly
+	/// type references (resolved via <see cref="ITypeDefOrRef.Resolve"/>).
 	/// </summary>
 	private static bool IsEnumTypeSignature(TypeDefOrRefSignature sig, ElementType requiredElemType)
 	{
-		if (sig.ToTypeDefOrRef() is not TypeDefinition def)
+		// Resolve() follows cross-assembly references back to the original TypeDefinition,
+		// which is needed when the enum is imported from a dependency module.
+		TypeDefinition? def = sig.ToTypeDefOrRef().Resolve();
+		if (def is null)
 			return false;
 
 		// Enums have a special "value__" backing field.

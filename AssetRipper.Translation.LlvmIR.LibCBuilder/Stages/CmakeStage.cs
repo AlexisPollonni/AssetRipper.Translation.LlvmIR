@@ -40,7 +40,8 @@ internal static class CmakeStage
 		// These flags make clang emit LLVM bitcode objects (not native code) while preserving
 		// all DWARF information that would otherwise be eliminated during LTO optimisation.
 		const string dwarf =
-			"-flto=thin "
+			"-march=x86-64 "
+			+ "-flto=thin "
 			+ "-Xclang -disable-llvm-passes "
 			+ "-g "
 			+ "-fstandalone-debug "
@@ -56,6 +57,12 @@ internal static class CmakeStage
 			$"-DCMAKE_CXX_COMPILER={toolchain.ClangPlusPlus}",
 			"-DLLVM_ENABLE_RUNTIMES=libc",
 			"-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+			// Limit llvm-libc CPU feature set to SSE2 baseline.
+			// This suppresses the ROUND_OPT and FMA_OPT flag expansions that would
+			// otherwise add -msse4.2 / -mavx2 -mfma to individual translation units,
+			// directing libc to use software fallbacks for ceil/floor/round/rint/trunc
+			// instead of the hardware ROUNDSS/ROUNDSD SSE4.1 instructions.
+			"-DLIBC_CPU_FEATURES=SSE2",
 			$"-DCMAKE_C_FLAGS=\"{dwarf}\"",
 			$"-DCMAKE_CXX_FLAGS=\"{dwarf}\""
 		);

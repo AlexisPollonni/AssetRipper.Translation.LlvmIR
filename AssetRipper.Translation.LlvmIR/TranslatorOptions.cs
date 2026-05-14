@@ -79,6 +79,24 @@ public sealed record class TranslatorOptions
 	public bool PrecomputeInitializers { get; set; }
 
 	/// <summary>
+	/// Previously-translated assemblies that this translation depends on.
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// When a forward-declared (external) function cannot be resolved within the current module,
+	/// the translator searches each dependency's function index (built from <c>[MangledName]</c>
+	/// attributes on public methods) before falling back to a <c>NotImplementedException</c> stub.
+	/// </para>
+	/// <para>
+	/// Dependencies must have been translated with <see cref="EmitNameAttributes"/> set to
+	/// <see langword="true"/> so that <c>[MangledName]</c> attributes are present for index
+	/// building.  See <see cref="TranslatedAssemblyDependency"/> for construction options
+	/// (from a <c>.dll</c> path or an in-memory <see cref="AsmResolver.DotNet.ModuleDefinition"/>).
+	/// </para>
+	/// </remarks>
+	public IReadOnlyList<TranslatedAssemblyDependency> Dependencies { get; init; } = [];
+
+	/// <summary>
 	/// Maps inline assembly (asm text, constraint string) pairs to the name of a method in the
 	/// injected <c>IntrinsicFunctions</c> type that should be called instead of emitting a
 	/// <c>throw new NotImplementedException</c> stub. The substitution method must have the
