@@ -14,7 +14,7 @@ internal static partial class acosf
 		int num = 0;
 		int num2 = 0;
 		int num3 = 0;
-		cpp_optional_89h55j cpp_optional_89h55j2 = default(cpp_optional_89h55j);
+		cpp_optional_xmxtsi cpp_optional_xmxtsi2 = default(cpp_optional_xmxtsi);
 		double num4 = 0.0;
 		double num5 = 0.0;
 		double num6 = 0.0;
@@ -43,8 +43,8 @@ internal static partial class acosf
 			{
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 < 981467136u, expected: false))
 				{
-					llvm_lifetime_start_p0.Invoke(8L, &cpp_optional_89h55j2);
-					sbyte* ptr = (sbyte*)(&cpp_optional_89h55j2);
+					llvm_lifetime_start_p0.Invoke(8L, &cpp_optional_xmxtsi2);
+					sbyte* ptr = (sbyte*)(&cpp_optional_xmxtsi2);
 					*(float*)ptr = float.NaN;
 					ptr[4] = -86;
 					sbyte* ptr2 = ptr + 5;
@@ -52,24 +52,24 @@ internal static partial class acosf
 					ptr2[1] = -86;
 					ptr2[2] = -86;
 					long storage = fputil_ExceptValues_float_4ul_lookup_unsigned_int_const.Invoke(x_bits: num, @this: ACOSF_EXCEPTS.Pointer);
-					*(long*)(&cpp_optional_89h55j2.storage) = storage;
+					*(long*)(&cpp_optional_xmxtsi2.storage) = storage;
 					int num11;
-					if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_float_has_value_const.Invoke(&cpp_optional_89h55j2), expected: false))
+					if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_float_has_value_const.Invoke(&cpp_optional_xmxtsi2), expected: false))
 					{
-						result = *(float*)cpp_optional_float_value.Invoke(&cpp_optional_89h55j2);
+						result = *(float*)cpp_optional_float_value.Invoke(&cpp_optional_xmxtsi2);
 						num11 = 1;
 					}
 					else
 					{
 						num11 = 0;
 					}
-					llvm_lifetime_end_p0.Invoke(8L, &cpp_optional_89h55j2);
+					llvm_lifetime_end_p0.Invoke(8L, &cpp_optional_xmxtsi2);
 					switch (num11)
 					{
 					case 0:
 						llvm_lifetime_start_p0.Invoke(8L, &num4);
 						num4 = x;
-						result = (float)fputil_multiply_add_double_double_double.Invoke(-1.0 / 6.0 * num4, num4 * num4, Math.PI / 2.0 - num4);
+						result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(-1.0 / 6.0 * num4, num4 * num4, Math.PI / 2.0 - num4);
 						llvm_lifetime_end_p0.Invoke(8L, &num4);
 						break;
 					}
@@ -83,8 +83,8 @@ internal static partial class acosf
 					llvm_lifetime_start_p0.Invoke(8L, &num7);
 					num7 = num5 * num6;
 					llvm_lifetime_start_p0.Invoke(8L, &y);
-					y = asin_eval_double_95.Invoke(num6);
-					result = (float)fputil_multiply_add_double_double_double.Invoke(0.0 - num7, y, Math.PI / 2.0 - num5);
+					y = asin_eval_double_97.Invoke(num6);
+					result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(0.0 - num7, y, Math.PI / 2.0 - num5);
 					llvm_lifetime_end_p0.Invoke(8L, &y);
 					llvm_lifetime_end_p0.Invoke(8L, &num7);
 					llvm_lifetime_end_p0.Invoke(8L, &num6);
@@ -119,13 +119,13 @@ internal static partial class acosf
 				llvm_lifetime_start_p0.Invoke(8L, &y2);
 				y2 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2);
 				llvm_lifetime_start_p0.Invoke(8L, &num8);
-				num8 = fputil_multiply_add_double_double_double.Invoke(-0.5, y2, 0.5);
+				num8 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(-0.5, y2, 0.5);
 				llvm_lifetime_start_p0.Invoke(8L, &num9);
 				num9 = 2.0 * cpp_enable_if_cpp_is_floating_point_v_double_cpp_is_floating_point_v_double_sizeof_double_sizeof_double_double_type_fputil_sqrt_double_double_double.Invoke(num8);
 				llvm_lifetime_start_p0.Invoke(8L, &y3);
-				y3 = asin_eval_double_95.Invoke(num8);
+				y3 = asin_eval_double_97.Invoke(num8);
 				llvm_lifetime_start_p0.Invoke(8L, &num10);
-				num10 = fputil_multiply_add_double_double_double.Invoke(num9 * num8, y3, num9);
+				num10 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num9 * num8, y3, num9);
 				result = (float)((num3 == 0) ? num10 : (Math.PI - num10));
 				llvm_lifetime_end_p0.Invoke(8L, &num10);
 				llvm_lifetime_end_p0.Invoke(8L, &y3);

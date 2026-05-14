@@ -13,15 +13,15 @@ internal static partial class fputil_DyadicFloat_32ul_normalize
 		int num = 0;
 		unchecked
 		{
-			if (!BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa))
+			if (!BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa))
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = cpp_enable_if_is_big_int_v_BigInt_32ul_false_unsigned_int_int_type_cpp_countl_zero_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa);
+				num = cpp_enable_if_is_big_int_v_BigInt_32ul_false_unsigned_int_int_type_cpp_countl_zero_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa);
 				checked
 				{
-					unchecked((fputil_DyadicFloat_c8qpxg*)@this)->exponent -= num;
+					unchecked((fputil_DyadicFloat_cs3nhs*)@this)->exponent -= num;
 				}
-				BigInt_32ul_false_unsigned_int_operator_unsigned_long_q7vm7c.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa, num);
+				BigInt_32ul_false_unsigned_int_operator_unsigned_long_q7vm7c.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa, num);
 				llvm_lifetime_end_p0.Invoke(4L, &num);
 			}
 			return @this;

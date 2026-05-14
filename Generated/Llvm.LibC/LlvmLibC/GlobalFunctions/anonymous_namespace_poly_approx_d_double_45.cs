@@ -16,11 +16,11 @@ internal static partial class anonymous_namespace_poly_approx_d_double_45
 		llvm_lifetime_start_p0.Invoke(8L, &x);
 		x = dx * dx;
 		llvm_lifetime_start_p0.Invoke(8L, &z);
-		z = fputil_multiply_add_double_double_double.Invoke(dx, 2.6509490552391997, 2.302585092994046);
+		z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(dx, 2.6509490552391997, 2.302585092994046);
 		llvm_lifetime_start_p0.Invoke(8L, &y);
-		y = fputil_multiply_add_double_double_double.Invoke(dx, 1.1712549195360904, 2.0346785162735497);
+		y = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(dx, 1.1712549195360904, 2.0346785162735497);
 		llvm_lifetime_start_p0.Invoke(8L, &num);
-		num = fputil_multiply_add_double_double_double.Invoke(x, y, z);
+		num = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, y, z);
 		double result = num;
 		llvm_lifetime_end_p0.Invoke(8L, &num);
 		llvm_lifetime_end_p0.Invoke(8L, &y);

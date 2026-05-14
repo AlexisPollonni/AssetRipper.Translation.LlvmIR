@@ -9,11 +9,11 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::DyadicFloat<float, 0>(float)")]
 internal static partial class fputil_DyadicFloat_64ul_DyadicFloat_float_0_float
 {
-	public unsafe static void Invoke(fputil_DyadicFloat_374hpp* @this, float x)
+	public unsafe static void Invoke(fputil_DyadicFloat_syracv* @this, float x)
 	{
 		fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs2 = default(fputil_FPBits_5nkvcs);
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
-		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
+		BigInt_555ggs bigInt_555ggs = default(BigInt_555ggs);
 		llvm_memcpy_p0_p0_i64.Invoke(&@this->sign, Sign_POS.Pointer, 1L, isVolatile: false);
 		@this->exponent = 0;
 		BigInt_64ul_false_unsigned_long_BigInt_int_void_int.Invoke(&@this->mantissa, 0);
@@ -25,10 +25,10 @@ internal static partial class fputil_DyadicFloat_64ul_DyadicFloat_float_0_float
 		llvm_memcpy_p0_p0_i64.Invoke(&@this->sign, &anon_izyfb8, 1L, isVolatile: false);
 		llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb8);
 		@this->exponent = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_get_explicit_exponent_const.Invoke(unchecked((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2))) - 23;
-		llvm_lifetime_start_p0.Invoke(8L, &bigInt_nx6qdt);
-		BigInt_64ul_false_unsigned_long_BigInt_unsigned_int_void_unsigned_int.Invoke(&bigInt_nx6qdt, fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_get_explicit_mantissa_const.Invoke(&fputil_FPBits_5nkvcs2));
-		llvm_memcpy_p0_p0_i64.Invoke(&@this->mantissa, &bigInt_nx6qdt, 8L, isVolatile: false);
-		llvm_lifetime_end_p0.Invoke(8L, &bigInt_nx6qdt);
+		llvm_lifetime_start_p0.Invoke(8L, &bigInt_555ggs);
+		BigInt_64ul_false_unsigned_long_BigInt_unsigned_int_void_unsigned_int.Invoke(&bigInt_555ggs, fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_get_explicit_mantissa_const.Invoke(&fputil_FPBits_5nkvcs2));
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->mantissa, &bigInt_555ggs, 8L, isVolatile: false);
+		llvm_lifetime_end_p0.Invoke(8L, &bigInt_555ggs);
 		fputil_DyadicFloat_64ul_normalize.Invoke(@this);
 		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 	}

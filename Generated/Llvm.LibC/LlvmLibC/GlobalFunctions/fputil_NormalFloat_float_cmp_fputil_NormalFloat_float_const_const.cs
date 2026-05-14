@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::cmp(__llvm_libc_20_1_2_::fputil::NormalFloat<float> const&) const")]
 internal static partial class fputil_NormalFloat_float_cmp_fputil_NormalFloat_float_const_const
 {
-	public unsafe static int Invoke(fputil_NormalFloat_i65f6x* @this, fputil_NormalFloat_i65f6x* other)
+	public unsafe static int Invoke(fputil_NormalFloat_phu2qv* @this, fputil_NormalFloat_phu2qv* other)
 	{
 		int num = 0;
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);

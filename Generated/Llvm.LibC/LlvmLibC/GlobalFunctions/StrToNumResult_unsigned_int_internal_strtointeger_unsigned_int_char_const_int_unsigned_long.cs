@@ -12,7 +12,7 @@ internal static partial class StrToNumResult_unsigned_int_internal_strtointeger_
 {
 	public unsafe static Struct_fiz2nb Invoke(void* src, int @base, long src_len)
 	{
-		StrToNumResult_yrtfty strToNumResult_yrtfty = default(StrToNumResult_yrtfty);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		int num = 0;
 		sbyte b = 0;
 		long num2 = 0L;
@@ -38,11 +38,11 @@ internal static partial class StrToNumResult_unsigned_int_internal_strtointeger_
 		{
 			if (src_len == 0L)
 			{
-				StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_yrtfty, 0, 0L, 0);
+				StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_imtnam, 0, 0L, 0);
 			}
 			else if (num8 < 0 || num8 == 1 || num8 > 36)
 			{
-				StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_yrtfty, 0, 0L, 22);
+				StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_imtnam, 0, 0L, 22);
 			}
 			else
 			{
@@ -132,7 +132,7 @@ internal static partial class StrToNumResult_unsigned_int_internal_strtointeger_
 				{
 					if ((b4 & 1) == 1 || uint.MaxValue != 0)
 					{
-						StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_yrtfty, cpp_internal_integer_impl_unsigned_int_0u_4294967295u_max.Invoke(), parsed_len, num3);
+						StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_imtnam, cpp_internal_integer_impl_unsigned_int_0u_4294967295u_max.Invoke(), parsed_len, num3);
 					}
 					else
 					{
@@ -140,12 +140,12 @@ internal static partial class StrToNumResult_unsigned_int_internal_strtointeger_
 						int value;
 						long parsed_len2;
 						int error;
-						StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_yrtfty, value, parsed_len2, error);
+						StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_imtnam, value, parsed_len2, error);
 					}
 				}
 				else
 				{
-					StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_yrtfty, ((b4 & 1) != 1) ? (-num) : num, parsed_len, num3);
+					StrToNumResult_unsigned_int_StrToNumResult_unsigned_int_long_int.Invoke(&strToNumResult_imtnam, ((b4 & 1) != 1) ? (-num) : num, parsed_len, num3);
 				}
 				llvm_lifetime_end_p0.Invoke(8L, &parsed_len);
 				llvm_lifetime_end_p0.Invoke(4L, &num6);
@@ -159,7 +159,7 @@ internal static partial class StrToNumResult_unsigned_int_internal_strtointeger_
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
 			llvm_lifetime_end_p0.Invoke(1L, &b);
 			llvm_lifetime_end_p0.Invoke(4L, &num);
-			return *(Struct_fiz2nb*)(&strToNumResult_yrtfty);
+			return *(Struct_fiz2nb*)(&strToNumResult_imtnam);
 		}
 	}
 }

@@ -36,7 +36,7 @@ internal static partial class exp_range_reduction_Float16
 			llvm_lifetime_start_p0.Invoke(4L, &num5);
 			num5 = num3 & 7;
 			llvm_lifetime_start_p0.Invoke(4L, &x2);
-			x2 = fputil_multiply_add_float_float_float.Invoke(num2, -0.125f, num);
+			x2 = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num2, -0.125f, num);
 			llvm_lifetime_start_p0.Invoke(4L, &num6);
 			num6 = *(float*)cpp_array_float_31ul_operator_unsigned_long_const.Invoke(Index: checked(num4 + 18), @this: EXP_HI.Pointer);
 			llvm_lifetime_start_p0.Invoke(4L, &num7);

@@ -16,15 +16,15 @@ internal static partial class FloatToString_double_0_is_lowest_block_unsigned_lo
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		unchecked
 		{
-			num = (int)((ulong)checked(-unchecked((FloatToString_dhsqbm*)@this)->field_1) / 16uL);
+			num = (int)((ulong)checked(-unchecked((FloatToString_rwjwy3*)@this)->field_1) / 16uL);
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			long num3 = num;
-			long num4 = (ushort)((short*)POW10_OFFSET_2_171.Pointer)[num3] + negative_block_index;
+			long num4 = (ushort)((short*)POW10_OFFSET_2_173.Pointer)[num3] + negative_block_index;
 			long num5 = num;
-			num2 = num4 - (byte)((sbyte*)MIN_BLOCK_2_170.Pointer)[num5];
+			num2 = num4 - (byte)((sbyte*)MIN_BLOCK_2_172.Pointer)[num5];
 			long num6 = num2;
 			long num7 = checked(num + 1);
-			bool result = (ulong)num6 >= (ulong)(ushort)((short*)POW10_OFFSET_2_171.Pointer)[num7];
+			bool result = (ulong)num6 >= (ulong)(ushort)((short*)POW10_OFFSET_2_173.Pointer)[num7];
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
 			llvm_lifetime_end_p0.Invoke(4L, &num);
 			return result;

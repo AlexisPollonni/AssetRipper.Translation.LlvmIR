@@ -8,6 +8,6 @@ internal static partial class strncasecmp_impl_char_const_char_const_unsigned_lo
 {
 	public unsafe static int Invoke(void* @this, sbyte a, sbyte b)
 	{
-		return internal_tolower_int_181.Invoke(a) - internal_tolower_int_181.Invoke(b);
+		return internal_tolower_int_183.Invoke(a) - internal_tolower_int_183.Invoke(b);
 	}
 }

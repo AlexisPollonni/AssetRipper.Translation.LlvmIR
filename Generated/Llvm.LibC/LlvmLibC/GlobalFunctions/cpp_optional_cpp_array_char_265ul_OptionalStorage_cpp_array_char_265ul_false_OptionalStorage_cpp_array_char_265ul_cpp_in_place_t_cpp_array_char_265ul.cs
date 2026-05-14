@@ -10,7 +10,7 @@ internal static partial class cpp_optional_cpp_array_char_265ul_OptionalStorage_
 {
 	public unsafe static void Invoke(cpp_optional_cpp_array_char_265_OptionalStorage* @this, void* args)
 	{
-		llvm_memcpy_p0_p0_i64.Invoke(&@this->field, cpp_array_char_265ul_cpp_forward_cpp_array_char_265ul_cpp_remove_reference_cpp_array_char_265ul_type.Invoke(unchecked((cpp_array_55kc72*)args)), 265L, isVolatile: false);
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->field, cpp_array_char_265ul_cpp_forward_cpp_array_char_265ul_cpp_remove_reference_cpp_array_char_265ul_type.Invoke(unchecked((cpp_array_knc3mr*)args)), 265L, isVolatile: false);
 		@this->in_use = 0;
 	}
 }

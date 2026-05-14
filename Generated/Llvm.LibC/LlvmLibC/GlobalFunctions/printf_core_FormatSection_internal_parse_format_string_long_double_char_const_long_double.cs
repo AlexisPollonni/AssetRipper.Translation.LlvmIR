@@ -15,7 +15,7 @@ internal static partial class printf_core_FormatSection_internal_parse_format_st
 		long num2 = 0L;
 		double num3 = 0.0;
 		sbyte b = 0;
-		StrToNumResult_yrtfty strToNumResult_yrtfty = default(StrToNumResult_yrtfty);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		Int128 conv_val_raw = default(Int128);
 		Int128 conv_val_raw2 = default(Int128);
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
@@ -43,28 +43,28 @@ internal static partial class printf_core_FormatSection_internal_parse_format_st
 				{
 					num2++;
 					agg_result->precision = 0;
-					if (internal_isdigit_int_167.Invoke(((sbyte*)format)[num2]))
+					if (internal_isdigit_int_169.Invoke(((sbyte*)format)[num2]))
 					{
-						llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_yrtfty);
-						*(int*)(&strToNumResult_yrtfty) = -1431655766;
-						((int*)(&strToNumResult_yrtfty))[1] = -1431655766;
-						((long*)(&strToNumResult_yrtfty))[1] = -6148914691236517206L;
+						llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_imtnam);
+						*(int*)(&strToNumResult_imtnam) = -1431655766;
+						((int*)(&strToNumResult_imtnam))[1] = -1431655766;
+						((long*)(&strToNumResult_imtnam))[1] = -6148914691236517206L;
 						Struct_fiz2nb struct_fiz2nb = StrToNumResult_int_internal_strtointeger_int_char_const_int_unsigned_long.Invoke((byte*)format + num2, 10, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
-						StrToNumResult_yrtfty* num4 = &strToNumResult_yrtfty;
+						StrToNumResult_imtnam* num4 = &strToNumResult_imtnam;
 						Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 						*(long*)num4 = struct_fiz2nb2.field_0;
-						byte* num5 = (byte*)(&strToNumResult_yrtfty) + 8u;
+						byte* num5 = (byte*)(&strToNumResult_imtnam) + 8u;
 						Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 						*(long*)num5 = struct_fiz2nb3.field_1;
-						int value = strToNumResult_yrtfty.value;
+						int value = strToNumResult_imtnam.value;
 						long parsed_len;
 						checked
 						{
 							agg_result->precision += value;
-							parsed_len = strToNumResult_yrtfty.parsed_len;
+							parsed_len = strToNumResult_imtnam.parsed_len;
 						}
 						num2 += parsed_len;
-						llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_yrtfty);
+						llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_imtnam);
 					}
 				}
 				agg_result->conv_name = ((sbyte*)format)[num2];

@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>::begin()")]
 internal static partial class cpp_array_unsigned_long_258ul_begin
 {
-	public unsafe static void* Invoke(cpp_array_vnnqx8* @this)
+	public unsafe static void* Invoke(cpp_array_anzbtp* @this)
 	{
 		return &@this->Data;
 	}

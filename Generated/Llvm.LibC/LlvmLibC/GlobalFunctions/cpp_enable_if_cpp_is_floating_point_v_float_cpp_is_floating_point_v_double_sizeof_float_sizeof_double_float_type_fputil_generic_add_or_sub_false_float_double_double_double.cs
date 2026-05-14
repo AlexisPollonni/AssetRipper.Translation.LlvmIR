@@ -63,9 +63,9 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float_cpp_is
 		sbyte b2 = 0;
 		long num13 = 0L;
 		int num14 = 0;
-		fputil_DyadicFloat_374hpp fputil_DyadicFloat_374hpp2 = default(fputil_DyadicFloat_374hpp);
+		fputil_DyadicFloat_syracv fputil_DyadicFloat_syracv2 = default(fputil_DyadicFloat_syracv);
 		anon_izyfb7 anon_izyfb25 = default(anon_izyfb7);
-		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
+		BigInt_555ggs bigInt_555ggs = default(BigInt_555ggs);
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = 3;
 		llvm_lifetime_start_p0.Invoke(4L, &num2);
@@ -340,21 +340,21 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_float_cpp_is
 				checked
 				{
 					num14 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_exponent_const.Invoke(unchecked((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm6))) - 55;
-					llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
+					llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
 				}
-				*(sbyte*)(&fputil_DyadicFloat_374hpp2) = -86;
-				sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_374hpp2) + 1;
+				*(sbyte*)(&fputil_DyadicFloat_syracv2) = -86;
+				sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_syracv2) + 1;
 				*ptr = -86;
 				ptr[1] = -86;
 				ptr[2] = -86;
-				((int*)(&fputil_DyadicFloat_374hpp2))[1] = -1431655766;
-				((long*)(&fputil_DyadicFloat_374hpp2))[1] = -6148914691236517206L;
+				((int*)(&fputil_DyadicFloat_syracv2))[1] = -1431655766;
+				((long*)(&fputil_DyadicFloat_syracv2))[1] = -6148914691236517206L;
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb25, &anon_izyfb21, 1L, isVolatile: false);
 				int e = num14;
-				BigInt_64ul_false_unsigned_long_BigInt_unsigned_long_void_unsigned_long.Invoke(&bigInt_nx6qdt, num8);
-				fputil_DyadicFloat_64ul_DyadicFloat_Sign_int_BigInt_64ul_false_unsigned_long.Invoke(&fputil_DyadicFloat_374hpp2, anon_izyfb25.val, e, *(long*)(&bigInt_nx6qdt.val.Data));
-				result = float_fputil_DyadicFloat_64ul_as_float_true_void_const.Invoke(&fputil_DyadicFloat_374hpp2);
-				llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
+				BigInt_64ul_false_unsigned_long_BigInt_unsigned_long_void_unsigned_long.Invoke(&bigInt_555ggs, num8);
+				fputil_DyadicFloat_64ul_DyadicFloat_Sign_int_BigInt_64ul_false_unsigned_long.Invoke(&fputil_DyadicFloat_syracv2, anon_izyfb25.val, e, *(long*)(&bigInt_555ggs.val.Data));
+				result = float_fputil_DyadicFloat_64ul_as_float_true_void_const.Invoke(&fputil_DyadicFloat_syracv2);
+				llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
 				llvm_lifetime_end_p0.Invoke(4L, &num14);
 				llvm_lifetime_end_p0.Invoke(8L, &num8);
 				llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm7);

@@ -21,7 +21,7 @@ internal static partial class scanf_core_convert_pointer_scanf_core_Reader_scanf
 		{
 			for (num = 0L; (ulong)num < 9uL; num++)
 			{
-				int num2 = internal_tolower_int_117.Invoke(b);
+				int num2 = internal_tolower_int_119.Invoke(b);
 				long num3 = num;
 				if (num2 != ((sbyte*)scanf_core_convert_pointer_scanf_core_Reader_scanf_core_FormatSection_const_nullptr_string.Pointer)[num3])
 				{

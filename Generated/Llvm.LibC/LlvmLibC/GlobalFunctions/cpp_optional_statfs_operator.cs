@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::operator*() &")]
 internal static partial class cpp_optional_statfs_operator
 {
-	public unsafe static statfs* Invoke(cpp_optional_hij69m* @this)
+	public unsafe static statfs* Invoke(cpp_optional_qbe95b* @this)
 	{
 		return unchecked((statfs*)(&@this->storage.field));
 	}

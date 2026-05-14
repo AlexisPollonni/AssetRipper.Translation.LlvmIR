@@ -6,6 +6,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 48)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_6fputil11NormalFloatIgEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::fputil::NormalFloat")]
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat")]
 [CleanName("fputil_NormalFloat")]

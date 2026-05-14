@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class ASINF_EXCEPTS_HI
 {
 	[FixedAddressValueType]
-	private static fputil_ExceptValues_r2mqym __value;
+	private static fputil_ExceptValues_v8stj6 __value;
 
-	public unsafe static fputil_ExceptValues_r2mqym* Pointer => unchecked((fputil_ExceptValues_r2mqym*)Unsafe.AsPointer(ref __value));
+	public unsafe static fputil_ExceptValues_v8stj6* Pointer => unchecked((fputil_ExceptValues_v8stj6*)Unsafe.AsPointer(ref __value));
 
-	public static fputil_ExceptValues_r2mqym Value
+	public static fputil_ExceptValues_v8stj6 Value
 	{
 		get
 		{
@@ -29,7 +29,7 @@ internal static partial class ASINF_EXCEPTS_HI
 
 	unsafe static ASINF_EXCEPTS_HI()
 	{
-		Value = new fputil_ExceptValues_r2mqym
+		Value = new fputil_ExceptValues_v8stj6
 		{
 			values = new InlineArrayBuilder<InlineArray2_fputil_ExceptValues_float_6_Mapping, fputil_ExceptValues_float_6_Mapping>
 			{

@@ -2,7 +2,6 @@ using System;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Intrinsics.Implemented;
-using LlvmLibC.Intrinsics.Unimplemented;
 using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
@@ -33,7 +32,7 @@ internal static partial class internal_build_signal_string_int_cpp_span_char
 			if (num >= libc_current_sigrtmin.Invoke() && num <= libc_current_sigrtmax.Invoke())
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view5);
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view5, str_185.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view5, str_187.Pointer);
 				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view4, &cpp_string_view5, 16L, isVolatile: false);
 				llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view5);
 				num = checked(num - libc_current_sigrtmin.Invoke());
@@ -41,7 +40,7 @@ internal static partial class internal_build_signal_string_int_cpp_span_char
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view6);
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view6, str_1_186.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view6, str_1_188.Pointer);
 				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view4, &cpp_string_view6, 16L, isVolatile: false);
 				llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view6);
 			}

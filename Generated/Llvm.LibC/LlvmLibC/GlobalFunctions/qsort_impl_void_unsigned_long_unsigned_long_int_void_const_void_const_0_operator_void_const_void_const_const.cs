@@ -9,6 +9,6 @@ internal static partial class qsort_impl_void_unsigned_long_unsigned_long_int_vo
 {
 	public unsafe static bool Invoke(void* @this, void* a, void* b)
 	{
-		return unchecked((delegate*<void*, void*, int>)((anon_589mcc*)@this)->field_0)(a, b) < 0;
+		return unchecked((delegate*<void*, void*, int>)((anon_5uk363*)@this)->field_0)(a, b) < 0;
 	}
 }

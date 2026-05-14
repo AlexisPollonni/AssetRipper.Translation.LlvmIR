@@ -12,11 +12,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class EXP_HI
 {
 	[FixedAddressValueType]
-	private static cpp_array_fe7abs __value;
+	private static cpp_array_55dk65 __value;
 
-	public unsafe static cpp_array_fe7abs* Pointer => unchecked((cpp_array_fe7abs*)Unsafe.AsPointer(ref __value));
+	public unsafe static cpp_array_55dk65* Pointer => unchecked((cpp_array_55dk65*)Unsafe.AsPointer(ref __value));
 
-	public static cpp_array_fe7abs Value
+	public static cpp_array_55dk65 Value
 	{
 		get
 		{
@@ -30,7 +30,7 @@ internal static partial class EXP_HI
 
 	unsafe static EXP_HI()
 	{
-		Value = new cpp_array_fe7abs
+		Value = new cpp_array_55dk65
 		{
 			Data = InlineArrayHelper.Create<InlineArray31_Single, float>(new float[31]
 			{

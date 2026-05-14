@@ -11,8 +11,8 @@ internal static partial class cpp_optional_int_optional_int
 	{
 		unchecked
 		{
-			cpp_optional_int_OptionalStorage_int_false_OptionalStorage_int_cpp_in_place_t_int.Invoke(&((cpp_optional_39hkks*)@this)->storage, cpp_remove_reference_int_type_cpp_move_int_int.Invoke(t));
-			((cpp_optional_39hkks*)@this)->storage.in_use = 1;
+			cpp_optional_int_OptionalStorage_int_false_OptionalStorage_int_cpp_in_place_t_int.Invoke(&((cpp_optional_g66fk4*)@this)->storage, cpp_remove_reference_int_type_cpp_move_int_int.Invoke(t));
+			((cpp_optional_g66fk4*)@this)->storage.in_use = 1;
 		}
 	}
 }

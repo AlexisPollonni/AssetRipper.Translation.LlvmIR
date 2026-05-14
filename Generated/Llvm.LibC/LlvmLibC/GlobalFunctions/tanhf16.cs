@@ -161,7 +161,7 @@ internal static partial class tanhf16
 						llvm_lifetime_start_p0.Invoke(4L, &num9);
 						num9 = num7 & 0x1F;
 						llvm_lifetime_start_p0.Invoke(4L, &x3);
-						x3 = fputil_multiply_add_float_float_float.Invoke(num6, -0.010830425f, num5);
+						x3 = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num6, -0.010830425f, num5);
 						llvm_lifetime_start_p0.Invoke(4L, &x4);
 					}
 					x4 = *(int*)cpp_array_unsigned_int_32ul_operator_unsigned_long_const.Invoke(Index: (uint)num9, @this: EXP2_MID_5_BITS.Pointer) + (num8 << 23);

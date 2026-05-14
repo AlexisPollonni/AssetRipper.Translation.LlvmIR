@@ -9,6 +9,6 @@ internal static partial class cpp_optional_internal_AbsTimeout_operator_bool_con
 {
 	public unsafe static bool Invoke(cpp_optional_59q3zq* @this)
 	{
-		return (unchecked((cpp_optional_7xva92*)@this)->storage.in_use & 1) == 1;
+		return (unchecked((cpp_optional_r9nbkt*)@this)->storage.in_use & 1) == 1;
 	}
 }

@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::increment()")]
 internal static partial class BigInt_64ul_false_unsigned_long_increment
 {
-	public unsafe static void Invoke(BigInt_nx6qdt* @this)
+	public unsafe static void Invoke(BigInt_555ggs* @this)
 	{
 		cpp_array_rpgxvv cpp_array_rpgxvv2 = default(cpp_array_rpgxvv);
 		cpp_array_rpgxvv* val = &@this->val;

@@ -6,6 +6,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 128)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_4FileE")]
 [MangledName("class.__llvm_libc_20_1_2_::File")]
 [DemangledName("__llvm_libc_20_1_2_::File")]
 [CleanName("File")]

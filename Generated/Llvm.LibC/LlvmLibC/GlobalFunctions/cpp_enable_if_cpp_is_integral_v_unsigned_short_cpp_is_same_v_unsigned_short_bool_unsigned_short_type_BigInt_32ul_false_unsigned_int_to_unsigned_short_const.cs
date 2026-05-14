@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned short> && !cpp::is_same_v<unsigned short, bool>, unsigned short>::type __llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::to<unsigned short>() const")]
 internal static partial class cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_32ul_false_unsigned_int_to_unsigned_short_const
 {
-	public unsafe static short Invoke(BigInt_fzjdu3* @this)
+	public unsafe static short Invoke(BigInt_vtm4cw* @this)
 	{
 		long num = 0L;
 		short num2 = 0;

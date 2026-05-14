@@ -30,7 +30,7 @@ internal static partial class scanf_core_convert_string_scanf_core_Reader_scanf_
 				{
 					break;
 				}
-				if (to_conv->conv_name == 115 && internal_isspace_int_134.Invoke(b))
+				if (to_conv->conv_name == 115 && internal_isspace_int_136.Invoke(b))
 				{
 					break;
 				}

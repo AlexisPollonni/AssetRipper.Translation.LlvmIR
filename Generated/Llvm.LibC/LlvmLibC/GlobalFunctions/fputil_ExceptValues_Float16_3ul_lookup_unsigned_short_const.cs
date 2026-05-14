@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 3ul>::lookup(unsigned short) const")]
 internal static partial class fputil_ExceptValues_Float16_3ul_lookup_unsigned_short_const
 {
-	public unsafe static int Invoke(fputil_ExceptValues_uk6z3c* @this, short x_bits)
+	public unsafe static int Invoke(fputil_ExceptValues_x8ns5m* @this, short x_bits)
 	{
 		cpp_optional_aq7wey cpp_optional_aq7wey2 = default(cpp_optional_aq7wey);
 		long num = 0L;

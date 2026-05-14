@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::IntegerToString<int, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::IntegerToString(int)")]
 internal static partial class IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerToString_int
 {
-	public unsafe static void Invoke(IntegerToString_exzmu4* @this, int value)
+	public unsafe static void Invoke(IntegerToString_bz5c8a* @this, int value)
 	{
 		details_StringBufferWriterImpl details_StringBufferWriterImpl2 = default(details_StringBufferWriterImpl);
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);

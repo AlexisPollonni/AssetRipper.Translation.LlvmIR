@@ -10,9 +10,9 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const")]
 internal static partial class BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_3tyjsr
 {
-	public unsafe static long Invoke(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static long Invoke(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
-		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
+		BigInt_555ggs bigInt_555ggs = default(BigInt_555ggs);
 		BigInt_qdkjbh bigInt_qdkjbh = default(BigInt_qdkjbh);
 		llvm_lifetime_start_p0.Invoke(16L, &bigInt_qdkjbh);
 		Struct_fiz2nb struct_fiz2nb = auto_BigInt_64ul_false_unsigned_long_ful_mul_64ul_BigInt_64ul_false_unsigned_long_const_const.Invoke(@this, other);
@@ -23,9 +23,9 @@ internal static partial class BigInt_64ul_false_unsigned_long_operator_BigInt_64
 			((Struct_fiz2nb*)ptr)->field_0 = struct_fiz2nb2.field_0;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			((Struct_fiz2nb*)ptr)->field_1 = struct_fiz2nb3.field_1;
-			BigInt_64ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_const.Invoke(&bigInt_nx6qdt, (anon_izyfb7*)(&bigInt_qdkjbh));
+			BigInt_64ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_const.Invoke(&bigInt_555ggs, (anon_izyfb7*)(&bigInt_qdkjbh));
 			llvm_lifetime_end_p0.Invoke(16L, &bigInt_qdkjbh);
-			return *(long*)(&bigInt_nx6qdt.val.Data);
+			return *(long*)(&bigInt_555ggs.val.Data);
 		}
 	}
 }

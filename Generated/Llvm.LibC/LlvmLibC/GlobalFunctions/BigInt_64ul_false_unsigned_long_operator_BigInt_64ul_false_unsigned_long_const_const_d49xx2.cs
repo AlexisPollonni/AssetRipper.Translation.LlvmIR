@@ -9,15 +9,15 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const")]
 internal static partial class BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_d49xx2
 {
-	public unsafe static long Invoke(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static long Invoke(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
-		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
+		BigInt_555ggs bigInt_555ggs = default(BigInt_555ggs);
 		unchecked
 		{
-			*(long*)(&bigInt_nx6qdt) = -6148914691236517206L;
-			llvm_memcpy_p0_p0_i64.Invoke(&bigInt_nx6qdt, @this, 8L, isVolatile: false);
-			BigInt_64ul_false_unsigned_long_sub_overflow_BigInt_64ul_false_unsigned_long_const.Invoke(&bigInt_nx6qdt, other);
-			return *(long*)(&bigInt_nx6qdt.val.Data);
+			*(long*)(&bigInt_555ggs) = -6148914691236517206L;
+			llvm_memcpy_p0_p0_i64.Invoke(&bigInt_555ggs, @this, 8L, isVolatile: false);
+			BigInt_64ul_false_unsigned_long_sub_overflow_BigInt_64ul_false_unsigned_long_const.Invoke(&bigInt_555ggs, other);
+			return *(long*)(&bigInt_555ggs.val.Data);
 		}
 	}
 }

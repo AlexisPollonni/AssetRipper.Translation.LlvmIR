@@ -9,6 +9,6 @@ internal static partial class cpp_array_unsigned_int_8ul_operator_unsigned_long_
 {
 	public unsafe static void* Invoke(void* @this, long Index)
 	{
-		return unchecked((byte*)(&((cpp_array_vwpjic*)@this)->Data) + (nint)Index * 4);
+		return unchecked((byte*)(&((cpp_array_wwfw4y*)@this)->Data) + (nint)Index * 4);
 	}
 }

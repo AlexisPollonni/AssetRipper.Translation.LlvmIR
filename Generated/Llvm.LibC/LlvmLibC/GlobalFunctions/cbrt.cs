@@ -264,7 +264,7 @@ internal static partial class cbrt
 			llvm_lifetime_start_p0.Invoke(8L, &num13);
 			num13 = numberPair5.hi + numberPair5.lo;
 			llvm_lifetime_start_p0.Invoke(8L, &num14);
-			num14 = numberPair5.hi + fputil_multiply_add_double_double_double.Invoke(num12, 8.881784197001252E-16 * num6, numberPair5.lo);
+			num14 = numberPair5.hi + cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num12, 8.881784197001252E-16 * num6, numberPair5.lo);
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num14 == num13, expected: true))
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm10);
@@ -340,9 +340,9 @@ internal static partial class cbrt
 				Struct_4ydhja struct_4ydhja24 = struct_4ydhja22;
 				*(double*)num48 = struct_4ydhja24.field_1;
 				llvm_lifetime_start_p0.Invoke(8L, &num17);
-				num17 = numberPair9.hi + fputil_multiply_add_double_double_double.Invoke(num6, 1.9721522630525295E-31, numberPair9.lo);
+				num17 = numberPair9.hi + cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num6, 1.9721522630525295E-31, numberPair9.lo);
 				llvm_lifetime_start_p0.Invoke(8L, &num18);
-				num18 = numberPair9.hi + fputil_multiply_add_double_double_double.Invoke(num6, -1.9721522630525295E-31, numberPair9.lo);
+				num18 = numberPair9.hi + cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num6, -1.9721522630525295E-31, numberPair9.lo);
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num17 == num18, expected: true))
 				{
 					result = cbrt_impl_double_0_operator_double_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2, num17);

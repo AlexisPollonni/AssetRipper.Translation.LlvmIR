@@ -97,7 +97,7 @@ internal static partial class acoshf
 				}
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
 				num2 = x;
-				result = (float)log_eval_double_64.Invoke(num2 + cpp_enable_if_cpp_is_floating_point_v_double_cpp_is_floating_point_v_double_sizeof_double_sizeof_double_double_type_fputil_sqrt_double_double_double.Invoke(fputil_multiply_add_double_double_double.Invoke(num2, num2, -1.0)));
+				result = (float)log_eval_double_64.Invoke(num2 + cpp_enable_if_cpp_is_floating_point_v_double_cpp_is_floating_point_v_double_sizeof_double_sizeof_double_double_type_fputil_sqrt_double_double_double.Invoke(cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, num2, -1.0)));
 				llvm_lifetime_end_p0.Invoke(8L, &num2);
 			}
 			goto IL_02a7;

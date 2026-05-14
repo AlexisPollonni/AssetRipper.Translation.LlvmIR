@@ -14,14 +14,14 @@ internal static partial class Get_signal_string_int_cpp_span_char
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		cpp_string_view cpp_string_view3 = default(cpp_string_view);
-		cpp_optional_q73pcj cpp_optional_q73pcj2 = default(cpp_optional_q73pcj);
+		cpp_optional_bnt67x cpp_optional_bnt67x2 = default(cpp_optional_bnt67x);
 		cpp_string_view cpp_string_view4 = default(cpp_string_view);
 		unchecked
 		{
 			*(void**)(&cpp_string_view3) = buffer;
 			((long*)(&cpp_string_view3))[1] = opt_str;
-			llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_q73pcj2);
-			sbyte* ptr = (sbyte*)(&cpp_optional_q73pcj2);
+			llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_bnt67x2);
+			sbyte* ptr = (sbyte*)(&cpp_optional_bnt67x2);
 			sbyte* ptr2 = ptr;
 			*(IntPtr*)ptr2 = unchecked((nint)(-6148914691236517206L));
 			((long*)ptr2)[1] = -6148914691236517206L;
@@ -34,10 +34,10 @@ internal static partial class Get_signal_string_int_cpp_span_char
 			ptr3[4] = -86;
 			ptr3[5] = -86;
 			ptr3[6] = -86;
-			MessageMapper_32ul_487ul_get_str_int_const.Invoke(&cpp_optional_q73pcj2, (MessageMapper_f6bdqy*)internal_signal_mapper.Pointer, sig_num);
-			if (cpp_optional_cpp_string_view_operator_bool_const.Invoke(&cpp_optional_q73pcj2))
+			MessageMapper_32ul_487ul_get_str_int_const.Invoke(&cpp_optional_bnt67x2, (MessageMapper_f6bdqy*)internal_signal_mapper.Pointer, sig_num);
+			if (cpp_optional_cpp_string_view_operator_bool_const.Invoke(&cpp_optional_bnt67x2))
 			{
-				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view2, cpp_optional_cpp_string_view_operator.Invoke(&cpp_optional_q73pcj2), 16L, isVolatile: false);
+				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view2, cpp_optional_cpp_string_view_operator.Invoke(&cpp_optional_bnt67x2), 16L, isVolatile: false);
 			}
 			else
 			{
@@ -50,7 +50,7 @@ internal static partial class Get_signal_string_int_cpp_span_char
 				Struct_kqhe8i struct_kqhe8i3 = struct_kqhe8i;
 				*(long*)num2 = struct_kqhe8i3.field_1;
 			}
-			llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_q73pcj2);
+			llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_bnt67x2);
 			return *(Struct_kqhe8i*)(&cpp_string_view2);
 		}
 	}

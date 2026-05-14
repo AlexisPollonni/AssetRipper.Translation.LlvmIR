@@ -9,21 +9,21 @@ internal static partial class fpathconf
 	public unsafe static long Invoke(int fd, int name)
 	{
 		long result = 0L;
-		cpp_optional_hij69m cpp_optional_hij69m2 = default(cpp_optional_hij69m);
-		llvm_lifetime_start_p0.Invoke(128L, &cpp_optional_hij69m2);
-		llvm_memset_p0_i64.Invoke(&cpp_optional_hij69m2, -86, 128L, isVolatile: false);
-		statfs_utils_linux_fstatfs_int.Invoke(&cpp_optional_hij69m2, fd);
+		cpp_optional_qbe95b cpp_optional_qbe95b2 = default(cpp_optional_qbe95b);
+		llvm_lifetime_start_p0.Invoke(128L, &cpp_optional_qbe95b2);
+		llvm_memset_p0_i64.Invoke(&cpp_optional_qbe95b2, -86, 128L, isVolatile: false);
+		statfs_utils_linux_fstatfs_int.Invoke(&cpp_optional_qbe95b2, fd);
 		int num;
-		if (cpp_optional_statfs_operator_bool_const.Invoke(&cpp_optional_hij69m2))
+		if (cpp_optional_statfs_operator_bool_const.Invoke(&cpp_optional_qbe95b2))
 		{
-			result = pathconfig_statfs_const_int.Invoke(cpp_optional_statfs_value.Invoke(&cpp_optional_hij69m2), name);
+			result = pathconfig_statfs_const_int.Invoke(cpp_optional_statfs_value.Invoke(&cpp_optional_qbe95b2), name);
 			num = 1;
 		}
 		else
 		{
 			num = 0;
 		}
-		llvm_lifetime_end_p0.Invoke(128L, &cpp_optional_hij69m2);
+		llvm_lifetime_end_p0.Invoke(128L, &cpp_optional_qbe95b2);
 		switch (num)
 		{
 		case 0:

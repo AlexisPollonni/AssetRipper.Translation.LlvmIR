@@ -12,7 +12,7 @@ internal static partial class StrToNumResult_int_internal_strtointeger_int_char_
 {
 	public unsafe static Struct_fiz2nb Invoke(void* src, int @base, long src_len)
 	{
-		StrToNumResult_yrtfty strToNumResult_yrtfty = default(StrToNumResult_yrtfty);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		int num = 0;
 		sbyte b = 0;
 		long num2 = 0L;
@@ -38,11 +38,11 @@ internal static partial class StrToNumResult_int_internal_strtointeger_int_char_
 		{
 			if (src_len == 0L)
 			{
-				StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_yrtfty, 0, 0L, 0);
+				StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_imtnam, 0, 0L, 0);
 			}
 			else if (num8 < 0 || num8 == 1 || num8 > 36)
 			{
-				StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_yrtfty, 0, 0L, 22);
+				StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_imtnam, 0, 0L, 22);
 			}
 			else
 			{
@@ -72,10 +72,10 @@ internal static partial class StrToNumResult_int_internal_strtointeger_int_char_
 				num5 = InstructionHelper.Select((b4 & 1) == 1, cpp_internal_integer_impl_int_2147483648_2147483647_max.Invoke(), int.MinValue);
 				llvm_lifetime_start_p0.Invoke(4L, &num6);
 				num6 = (int)((uint)num5 / (uint)num8);
-				while ((ulong)num2 < (ulong)src_len && internal_isalnum_int_119.Invoke(((sbyte*)src)[num2]))
+				while ((ulong)num2 < (ulong)src_len && internal_isalnum_int_121.Invoke(((sbyte*)src)[num2]))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num7);
-					num7 = internal_b36_char_to_int_int_120.Invoke(((sbyte*)src)[num2]);
+					num7 = internal_b36_char_to_int_int_122.Invoke(((sbyte*)src)[num2]);
 					int num9;
 					if (num7 >= num8)
 					{
@@ -132,16 +132,16 @@ internal static partial class StrToNumResult_int_internal_strtointeger_int_char_
 				{
 					if ((b4 & 1) == 1)
 					{
-						StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_yrtfty, cpp_internal_integer_impl_int_2147483648_2147483647_max.Invoke(), parsed_len, num3);
+						StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_imtnam, cpp_internal_integer_impl_int_2147483648_2147483647_max.Invoke(), parsed_len, num3);
 					}
 					else
 					{
-						StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_yrtfty, cpp_internal_integer_impl_int_2147483648_2147483647_min.Invoke(), parsed_len, num3);
+						StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_imtnam, cpp_internal_integer_impl_int_2147483648_2147483647_min.Invoke(), parsed_len, num3);
 					}
 				}
 				else
 				{
-					StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_yrtfty, ((b4 & 1) != 1) ? (-num) : num, parsed_len, num3);
+					StrToNumResult_int_StrToNumResult_int_long_int.Invoke(&strToNumResult_imtnam, ((b4 & 1) != 1) ? (-num) : num, parsed_len, num3);
 				}
 				llvm_lifetime_end_p0.Invoke(8L, &parsed_len);
 				llvm_lifetime_end_p0.Invoke(4L, &num6);
@@ -155,7 +155,7 @@ internal static partial class StrToNumResult_int_internal_strtointeger_int_char_
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
 			llvm_lifetime_end_p0.Invoke(1L, &b);
 			llvm_lifetime_end_p0.Invoke(4L, &num);
-			return *(Struct_fiz2nb*)(&strToNumResult_yrtfty);
+			return *(Struct_fiz2nb*)(&strToNumResult_imtnam);
 		}
 	}
 }

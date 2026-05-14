@@ -209,7 +209,7 @@ internal static partial class float_fputil_DyadicFloat_256ul_fast_as_float_true_
 					fputil_FPBits_5nkvcs8.FPRepImpl.FPRepSem.field_0.field_0 = field_6;
 					x = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs8);
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs8);
-					result = fputil_multiply_add_float_float_float.Invoke(x, num10, num9 * num12) * num13;
+					result = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x, num10, num9 * num12) * num13;
 					llvm_lifetime_end_p0.Invoke(4L, &num13);
 					llvm_lifetime_end_p0.Invoke(4L, &num12);
 					llvm_lifetime_end_p0.Invoke(4L, &num11);
@@ -223,7 +223,7 @@ internal static partial class float_fputil_DyadicFloat_256ul_fast_as_float_true_
 					x = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs9);
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs9);
 					llvm_lifetime_start_p0.Invoke(4L, &num14);
-					num14 = fputil_multiply_add_float_float_float.Invoke(x, num10, num9);
+					num14 = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x, num10, num9);
 					unchecked
 					{
 						if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((b & 1) == 1, expected: false))

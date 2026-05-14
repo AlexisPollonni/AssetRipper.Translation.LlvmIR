@@ -7,8 +7,8 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>::value() &")]
 internal static partial class cpp_optional_BigInt_16512ul_false_unsigned_long_value
 {
-	public unsafe static BigInt_k36xhe* Invoke(cpp_optional_tchbah* @this)
+	public unsafe static BigInt_q8g275* Invoke(cpp_optional_he65ea* @this)
 	{
-		return unchecked((BigInt_k36xhe*)(&@this->storage.field));
+		return unchecked((BigInt_q8g275*)(&@this->storage.field));
 	}
 }

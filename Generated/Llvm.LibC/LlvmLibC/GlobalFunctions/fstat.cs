@@ -10,7 +10,7 @@ internal static partial class fstat
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = statx_int_char_const_int_stat.Invoke(fd, str_108.Pointer, 4096, statbuf);
+		num = statx_int_char_const_int_stat.Invoke(fd, str_110.Pointer, 4096, statbuf);
 		int result;
 		if (num != 0)
 		{

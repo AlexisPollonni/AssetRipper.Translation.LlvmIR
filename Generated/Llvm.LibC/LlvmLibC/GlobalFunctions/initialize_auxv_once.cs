@@ -15,7 +15,7 @@ internal static partial class initialize_auxv_once
 
 	public unsafe static void Invoke()
 	{
-		anon_589mcc anon_589mcc2 = default(anon_589mcc);
+		anon_5uk363 anon_5uk364 = default(anon_5uk363);
 		void* ptr = null;
 		long num = 0L;
 		int num2 = 0;
@@ -27,20 +27,20 @@ internal static partial class initialize_auxv_once
 		{
 			return;
 		}
-		llvm_lifetime_start_p0.Invoke(8L, &anon_589mcc2);
+		llvm_lifetime_start_p0.Invoke(8L, &anon_5uk364);
 		int num4;
 		int num7;
 		unchecked
 		{
-			*(IntPtr*)(&anon_589mcc2) = unchecked((nint)(-6148914691236517206L));
-			AuxvMMapGuard_AuxvMMapGuard_6sti8k.Invoke(&anon_589mcc2);
-			if (!AuxvMMapGuard_allocated_const.Invoke(&anon_589mcc2))
+			*(IntPtr*)(&anon_5uk364) = unchecked((nint)(-6148914691236517206L));
+			AuxvMMapGuard_AuxvMMapGuard_6sti8k.Invoke(&anon_5uk364);
+			if (!AuxvMMapGuard_allocated_const.Invoke(&anon_5uk364))
 			{
 				num4 = 1;
 				goto IL_02a8;
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &ptr);
-			ptr = AuxvMMapGuard_get_const.Invoke(&anon_589mcc2);
+			ptr = AuxvMMapGuard_get_const.Invoke(&anon_5uk364);
 			llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = 1016L;
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
@@ -49,7 +49,7 @@ internal static partial class initialize_auxv_once
 			num2 = ((delegate*<int, long, long, long, long, int>)prctl.__pointer)(1096112214, num5, num6, 0L, 0L);
 			if (num2 >= 0)
 			{
-				AuxvMMapGuard_submit_to_global.Invoke(&anon_589mcc2);
+				AuxvMMapGuard_submit_to_global.Invoke(&anon_5uk364);
 				num4 = 1;
 				goto IL_0276;
 			}
@@ -106,7 +106,7 @@ internal static partial class initialize_auxv_once
 		IL_0225:
 		if ((b & 1) != 1)
 		{
-			AuxvMMapGuard_submit_to_global.Invoke(&anon_589mcc2);
+			AuxvMMapGuard_submit_to_global.Invoke(&anon_5uk364);
 		}
 		llvm_lifetime_end_p0.Invoke(1L, &b);
 		llvm_lifetime_end_p0.Invoke(8L, &ptr2);
@@ -122,8 +122,8 @@ internal static partial class initialize_auxv_once
 		llvm_lifetime_end_p0.Invoke(8L, &ptr);
 		goto IL_02a8;
 		IL_02a8:
-		AuxvMMapGuard_AuxvMMapGuard_zmckj4.Invoke(&anon_589mcc2);
-		llvm_lifetime_end_p0.Invoke(8L, &anon_589mcc2);
+		AuxvMMapGuard_AuxvMMapGuard_zmckj4.Invoke(&anon_5uk364);
+		llvm_lifetime_end_p0.Invoke(8L, &anon_5uk364);
 		switch (num4)
 		{
 		case 0:

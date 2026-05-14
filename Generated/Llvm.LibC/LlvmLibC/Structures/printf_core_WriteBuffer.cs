@@ -6,6 +6,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 56)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_11printf_core11WriteBufferE")]
 [MangledName("struct.__llvm_libc_20_1_2_::printf_core::WriteBuffer")]
 [DemangledName("__llvm_libc_20_1_2_::printf_core::WriteBuffer")]
 public partial struct printf_core_WriteBuffer

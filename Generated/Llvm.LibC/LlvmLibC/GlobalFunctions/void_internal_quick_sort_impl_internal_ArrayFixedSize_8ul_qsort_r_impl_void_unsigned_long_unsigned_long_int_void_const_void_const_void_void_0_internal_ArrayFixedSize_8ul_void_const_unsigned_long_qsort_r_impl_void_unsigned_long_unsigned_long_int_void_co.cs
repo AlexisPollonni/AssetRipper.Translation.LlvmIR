@@ -14,7 +14,7 @@ internal static partial class void_internal_quick_sort_impl_internal_ArrayFixedS
 		long num = 0L;
 		long num2 = 0L;
 		long num3 = 0L;
-		anon_apfvhe anon_apfvhe2 = default(anon_apfvhe);
+		anon_e6q534 anon_e6q535 = default(anon_e6q534);
 		long num4 = 0L;
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		void* ptr = null;
@@ -47,10 +47,10 @@ internal static partial class void_internal_quick_sort_impl_internal_ArrayFixedS
 					{
 						llvm_lifetime_start_p0.Invoke(8L, &num3);
 						long pivot_index = num2;
-						llvm_lifetime_start_p0.Invoke(16L, &anon_apfvhe2);
-						llvm_memcpy_p0_p0_i64.Invoke(&anon_apfvhe2.field_0, is_less, 16L, isVolatile: false);
-						long num8 = unsigned_long_internal_partition_internal_ArrayFixedSize_8ul_void_internal_quick_sort_impl_internal_ArrayFixedSize_8ul_qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_internal_ArrayFixedSize_8ul_void_const_unsigned_long_qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_const_lambda_void_const_void_const_internal_ArrayFixedSize_8ul_const_unsigned_long_qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_const.Invoke(array, pivot_index, &anon_apfvhe2);
-						llvm_lifetime_end_p0.Invoke(16L, &anon_apfvhe2);
+						llvm_lifetime_start_p0.Invoke(16L, &anon_e6q535);
+						llvm_memcpy_p0_p0_i64.Invoke(&anon_e6q535.field_0, is_less, 16L, isVolatile: false);
+						long num8 = unsigned_long_internal_partition_internal_ArrayFixedSize_8ul_void_internal_quick_sort_impl_internal_ArrayFixedSize_8ul_qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_internal_ArrayFixedSize_8ul_void_const_unsigned_long_qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_const_lambda_void_const_void_const_internal_ArrayFixedSize_8ul_const_unsigned_long_qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_const.Invoke(array, pivot_index, &anon_e6q535);
+						llvm_lifetime_end_p0.Invoke(16L, &anon_e6q535);
 						num3 = num8;
 						internal_ArrayFixedSize_8ul_reset_bounds_unsigned_long_unsigned_long.Invoke(array, num3 + 1L, internal_ArrayFixedSize_8ul_len_const.Invoke(array) - (num3 + 1L));
 						ptr2 = null;
@@ -124,6 +124,6 @@ internal static partial class void_internal_quick_sort_impl_internal_ArrayFixedS
 {
 	public unsafe static bool Invoke(void* @this, void* a, void* b)
 	{
-		return unchecked((byte)((qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_operator_void_const_void_const_const.Invoke(&((anon_apfvhe*)@this)->field_0, b, a) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return unchecked((byte)((qsort_r_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_void_void_0_operator_void_const_void_const_const.Invoke(&((anon_e6q534*)@this)->field_0, b, a) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
 	}
 }

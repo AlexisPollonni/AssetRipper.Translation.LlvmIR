@@ -310,7 +310,7 @@ internal static partial class printf_core_convert_float_hex_exp_printf_core_Writ
 			llvm_lifetime_start_p0.Invoke(1L, &b7);
 			b7 = (sbyte)(byte)(((ulong)num10 <= 1uL) ? ((((byte)to_conv->flags & 8) == 8) ? 1 : 0) : (-1));
 			llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view3);
-			*(InlineArray2_SByte**)(&cpp_string_view3) = str_4_160.Pointer;
+			*(InlineArray2_SByte**)(&cpp_string_view3) = str_4_162.Pointer;
 			((long*)(&cpp_string_view3))[1] = 1L;
 			llvm_lifetime_start_p0.Invoke(1L, &new_char);
 			new_char = InstructionHelper.Select(internal_islower_int.Invoke(to_conv->conv_name), (sbyte)112, (sbyte)80);

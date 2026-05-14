@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::NormalFloat(__llvm_libc_20_1_2_::Sign, int, unsigned long)")]
 internal static partial class fputil_NormalFloat_double_NormalFloat_Sign_int_unsigned_long
 {
-	public unsafe static void Invoke(fputil_NormalFloat_n2h9ta* @this, [MangledName("s.coerce")] sbyte s, int e, long m)
+	public unsafe static void Invoke(fputil_NormalFloat_vc4yvk* @this, [MangledName("s.coerce")] sbyte s, int e, long m)
 	{
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
 		int num = 0;

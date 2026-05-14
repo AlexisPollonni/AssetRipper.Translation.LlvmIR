@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_float_StrToNumResult_float_long_int
 	{
 		unchecked
 		{
-			((StrToNumResult_jptppf*)@this)->value = value;
-			((StrToNumResult_jptppf*)@this)->error = error;
-			((StrToNumResult_jptppf*)@this)->parsed_len = parsed_len;
+			((StrToNumResult_cqc3yy*)@this)->value = value;
+			((StrToNumResult_cqc3yy*)@this)->error = error;
+			((StrToNumResult_cqc3yy*)@this)->parsed_len = parsed_len;
 		}
 	}
 }

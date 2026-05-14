@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cmp(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 internal static partial class cmp_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const
 {
-	public unsafe static int Invoke(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static int Invoke(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		int result = 0;
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);

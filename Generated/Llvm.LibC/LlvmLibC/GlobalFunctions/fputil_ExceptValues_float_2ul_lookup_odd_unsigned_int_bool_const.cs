@@ -11,7 +11,7 @@ internal static partial class fputil_ExceptValues_float_2ul_lookup_odd_unsigned_
 {
 	public unsafe static long Invoke(void* @this, int x_abs, bool sign)
 	{
-		cpp_optional_89h55j cpp_optional_89h55j2 = default(cpp_optional_89h55j);
+		cpp_optional_xmxtsi cpp_optional_xmxtsi2 = default(cpp_optional_xmxtsi);
 		long num = 0L;
 		int num2 = 0;
 		float num3 = 0f;
@@ -29,39 +29,39 @@ internal static partial class fputil_ExceptValues_float_2ul_lookup_odd_unsigned_
 					num4 = 2;
 					break;
 				}
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(x_abs == ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_r2mqym*)@this)->values))[num].input, expected: false))
+				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(x_abs == ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_v8stj6*)@this)->values))[num].input, expected: false))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num2);
-					num2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_r2mqym*)@this)->values))[num].rnd_towardzero_result;
+					num2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_v8stj6*)@this)->values))[num].rnd_towardzero_result;
 					switch (fputil_quick_get_round.Invoke())
 					{
 					case 2048:
 						if ((b & 1) == 1)
 						{
-							int rnd_downward_offset2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_r2mqym*)@this)->values))[num].rnd_downward_offset;
+							int rnd_downward_offset2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_v8stj6*)@this)->values))[num].rnd_downward_offset;
 							num2 += rnd_downward_offset2;
 						}
 						else
 						{
-							int rnd_upward_offset2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_r2mqym*)@this)->values))[num].rnd_upward_offset;
+							int rnd_upward_offset2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_v8stj6*)@this)->values))[num].rnd_upward_offset;
 							num2 += rnd_upward_offset2;
 						}
 						break;
 					case 1024:
 						if ((b & 1) == 1)
 						{
-							int rnd_upward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_r2mqym*)@this)->values))[num].rnd_upward_offset;
+							int rnd_upward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_v8stj6*)@this)->values))[num].rnd_upward_offset;
 							num2 += rnd_upward_offset;
 						}
 						else
 						{
-							int rnd_downward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_r2mqym*)@this)->values))[num].rnd_downward_offset;
+							int rnd_downward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_v8stj6*)@this)->values))[num].rnd_downward_offset;
 							num2 += rnd_downward_offset;
 						}
 						break;
 					case 0:
 					{
-						int rnd_tonearest_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_r2mqym*)@this)->values))[num].rnd_tonearest_offset;
+						int rnd_tonearest_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_v8stj6*)@this)->values))[num].rnd_tonearest_offset;
 						num2 += rnd_tonearest_offset;
 						break;
 					}
@@ -76,7 +76,7 @@ internal static partial class fputil_ExceptValues_float_2ul_lookup_odd_unsigned_
 					{
 						num3 = 0f - num3;
 					}
-					cpp_optional_float_optional_float.Invoke(&cpp_optional_89h55j2, &num3);
+					cpp_optional_float_optional_float.Invoke(&cpp_optional_xmxtsi2, &num3);
 					num4 = 1;
 					llvm_lifetime_end_p0.Invoke(4L, &num3);
 					llvm_lifetime_end_p0.Invoke(4L, &num2);
@@ -95,9 +95,9 @@ internal static partial class fputil_ExceptValues_float_2ul_lookup_odd_unsigned_
 			}
 			else
 			{
-				cpp_optional_float_optional_cpp_nullopt_t.Invoke(&cpp_optional_89h55j2);
+				cpp_optional_float_optional_cpp_nullopt_t.Invoke(&cpp_optional_xmxtsi2);
 			}
-			return *(long*)(&cpp_optional_89h55j2.storage);
+			return *(long*)(&cpp_optional_xmxtsi2.storage);
 		}
 	}
 }

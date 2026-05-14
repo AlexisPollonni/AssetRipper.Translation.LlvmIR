@@ -21,7 +21,7 @@ internal static partial class fputil_quick_mult_double_NumberPair_double_const
 			byte* num2 = (byte*)(&numberPair) + 8u;
 			Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
 			*(double*)num2 = struct_4ydhja3.field_1;
-			numberPair.lo = fputil_multiply_add_double_double_double.Invoke(a, b->lo, numberPair.lo);
+			numberPair.lo = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(a, b->lo, numberPair.lo);
 			return *(Struct_4ydhja*)(&numberPair);
 		}
 	}

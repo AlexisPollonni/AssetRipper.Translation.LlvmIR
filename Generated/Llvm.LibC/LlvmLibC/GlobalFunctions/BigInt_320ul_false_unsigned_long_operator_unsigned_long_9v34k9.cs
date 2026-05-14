@@ -11,13 +11,13 @@ internal static partial class BigInt_320ul_false_unsigned_long_operator_unsigned
 {
 	public unsafe static BigInt_76gxx6* Invoke(BigInt_76gxx6* @this, long s)
 	{
-		cpp_array_v97b5b cpp_array_v97b5b2 = default(cpp_array_v97b5b);
-		cpp_array_v97b5b cpp_array_v97b5b3 = default(cpp_array_v97b5b);
-		llvm_lifetime_start_p0.Invoke(40L, &cpp_array_v97b5b2);
-		llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_v97b5b3, &@this->val, 40L, isVolatile: false);
-		cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_0_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long.Invoke(&cpp_array_v97b5b2, &cpp_array_v97b5b3, s);
-		llvm_memcpy_p0_p0_i64.Invoke(&@this->val, &cpp_array_v97b5b2, 40L, isVolatile: false);
-		llvm_lifetime_end_p0.Invoke(40L, &cpp_array_v97b5b2);
+		cpp_array_msasyg cpp_array_msasyg2 = default(cpp_array_msasyg);
+		cpp_array_msasyg cpp_array_msasyg3 = default(cpp_array_msasyg);
+		llvm_lifetime_start_p0.Invoke(40L, &cpp_array_msasyg2);
+		llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_msasyg3, &@this->val, 40L, isVolatile: false);
+		cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_0_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long.Invoke(&cpp_array_msasyg2, &cpp_array_msasyg3, s);
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->val, &cpp_array_msasyg2, 40L, isVolatile: false);
+		llvm_lifetime_end_p0.Invoke(40L, &cpp_array_msasyg2);
 		return @this;
 	}
 }

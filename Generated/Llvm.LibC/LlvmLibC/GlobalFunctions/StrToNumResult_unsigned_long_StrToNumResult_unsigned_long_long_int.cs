@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_unsigned_long_StrToNumResult_unsign
 	{
 		unchecked
 		{
-			((StrToNumResult_aztiru*)@this)->value = value;
-			((StrToNumResult_aztiru*)@this)->error = error;
-			((StrToNumResult_aztiru*)@this)->parsed_len = parsed_len;
+			((StrToNumResult_gbeb3a*)@this)->value = value;
+			((StrToNumResult_gbeb3a*)@this)->error = error;
+			((StrToNumResult_gbeb3a*)@this)->parsed_len = parsed_len;
 		}
 	}
 }

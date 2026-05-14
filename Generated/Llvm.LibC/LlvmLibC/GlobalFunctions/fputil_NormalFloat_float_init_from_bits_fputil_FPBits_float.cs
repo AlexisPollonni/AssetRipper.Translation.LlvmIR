@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::init_from_bits(__llvm_libc_20_1_2_::fputil::FPBits<float>)")]
 internal static partial class fputil_NormalFloat_float_init_from_bits_fputil_FPBits_float
 {
-	public unsafe static void Invoke(fputil_NormalFloat_i65f6x* @this, [MangledName("bits.coerce")] int bits)
+	public unsafe static void Invoke(fputil_NormalFloat_phu2qv* @this, [MangledName("bits.coerce")] int bits)
 	{
 		fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs2 = default(fputil_FPBits_5nkvcs);
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);

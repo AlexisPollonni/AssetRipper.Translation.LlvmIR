@@ -9,6 +9,6 @@ internal static partial class asinhf_impl_float_1_operator_float_const
 {
 	public unsafe static float Invoke(void* @this, float r)
 	{
-		return unchecked(fputil_multiply_add_float_float_float.Invoke((float)((anon_6i3r2b*)@this)->field_0, r, (float)((anon_6i3r2b*)@this)->field_0 * 5.9604645E-08f));
+		return unchecked(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke((float)((anon_prxz47*)@this)->field_0, r, (float)((anon_prxz47*)@this)->field_0 * 5.9604645E-08f));
 	}
 }

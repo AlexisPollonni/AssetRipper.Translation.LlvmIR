@@ -13,7 +13,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>> __llvm_libc_20_1_2_::internal::eisel_lemire<double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 internal static partial class cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_vqqfu4* agg_result, [MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_9m4esb* agg_result, [MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
 	{
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv2 = default(internal_ExpandedFloat_k68bhv);
 		long num = 0L;

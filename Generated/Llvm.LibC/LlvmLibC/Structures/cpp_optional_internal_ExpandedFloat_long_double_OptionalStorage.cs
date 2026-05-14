@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 48)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIeEEE15OptionalStorageIS4_Lb0EEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>>::OptionalStorage")]
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>>::OptionalStorage")]
 public partial struct cpp_optional_internal_ExpandedFloat_long_double_OptionalStorage

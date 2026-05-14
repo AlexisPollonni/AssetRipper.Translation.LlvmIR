@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 14688)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_5LogRRE")]
 [MangledName("struct.__llvm_libc_20_1_2_::LogRR")]
 [DemangledName("__llvm_libc_20_1_2_::LogRR")]
 public partial struct LogRR

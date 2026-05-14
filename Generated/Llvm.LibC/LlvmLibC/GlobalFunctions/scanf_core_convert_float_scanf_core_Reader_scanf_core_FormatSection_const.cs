@@ -67,7 +67,7 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 		IL_0111:
 		unchecked
 		{
-			if (internal_tolower_int_118.Invoke(b2) == *(sbyte*)scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const_inf_string.Pointer)
+			if (internal_tolower_int_120.Invoke(b2) == *(sbyte*)scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const_inf_string.Pointer)
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
 				num2 = 0L;
@@ -75,7 +75,7 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 				{
 					if ((ulong)num2 < 8uL && (ulong)CharVector_length.Invoke(&charVector) < (ulong)num)
 					{
-						int num5 = internal_tolower_int_118.Invoke(b2);
+						int num5 = internal_tolower_int_120.Invoke(b2);
 						long num6 = num2;
 						if (num5 == ((sbyte*)scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const_inf_string.Pointer)[num6])
 						{
@@ -104,7 +104,7 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 			}
 			else
 			{
-				if (internal_tolower_int_118.Invoke(b2) != *(sbyte*)scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const_nan_string.Pointer)
+				if (internal_tolower_int_120.Invoke(b2) != *(sbyte*)scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const_nan_string.Pointer)
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num4);
 					num4 = 10;
@@ -125,7 +125,7 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 					else
 					{
 						b2 = scanf_core_Reader_getc.Invoke(reader);
-						if (internal_tolower_int_118.Invoke(b2) != 120)
+						if (internal_tolower_int_120.Invoke(b2) != 120)
 						{
 							goto IL_03a4;
 						}
@@ -153,7 +153,7 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 				{
 					if ((ulong)num3 < 3uL && (ulong)CharVector_length.Invoke(&charVector) < (ulong)num)
 					{
-						int num7 = internal_tolower_int_118.Invoke(b2);
+						int num7 = internal_tolower_int_120.Invoke(b2);
 						long num8 = num3;
 						if (num7 == ((sbyte*)scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const_nan_string.Pointer)[num8])
 						{
@@ -193,7 +193,7 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 			{
 				if ((ulong)CharVector_length.Invoke(&charVector) < (ulong)num)
 				{
-					if (internal_isalnum_int_119.Invoke(b2) && internal_b36_char_to_int_int_120.Invoke(b2) < num4)
+					if (internal_isalnum_int_121.Invoke(b2) && internal_b36_char_to_int_int_122.Invoke(b2) < num4)
 					{
 						b = 1;
 						if (!CharVector_append_char.Invoke(&charVector, b2))
@@ -216,7 +216,7 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 						continue;
 					}
 				}
-				if (internal_tolower_int_118.Invoke(b2) == b3)
+				if (internal_tolower_int_120.Invoke(b2) == b3)
 				{
 					if (!CharVector_append_char.Invoke(&charVector, b2))
 					{
@@ -243,12 +243,12 @@ internal static partial class scanf_core_convert_float_scanf_core_Reader_scanf_c
 						}
 						b2 = scanf_core_Reader_getc.Invoke(reader);
 					}
-					if (!internal_isdigit_int_121.Invoke(b2))
+					if (!internal_isdigit_int_123.Invoke(b2))
 					{
 						result = -3;
 						break;
 					}
-					while (internal_isdigit_int_121.Invoke(b2) && (ulong)CharVector_length.Invoke(&charVector) < (ulong)num)
+					while (internal_isdigit_int_123.Invoke(b2) && (ulong)CharVector_length.Invoke(&charVector) < (ulong)num)
 					{
 						if (!CharVector_append_char.Invoke(&charVector, b2))
 						{

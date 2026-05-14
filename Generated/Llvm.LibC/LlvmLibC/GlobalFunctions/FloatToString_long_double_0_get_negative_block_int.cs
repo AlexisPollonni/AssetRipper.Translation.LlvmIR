@@ -11,7 +11,7 @@ internal static partial class FloatToString_long_double_0_get_negative_block_int
 	public unsafe static int Invoke(FloatToString_8m29tk* @this, int negative_block_index)
 	{
 		int num = 0;
-		BigInt_k36xhe bigInt_k36xhe = default(BigInt_k36xhe);
+		BigInt_q8g275 bigInt_q8g = default(BigInt_q8g275);
 		int result;
 		if (@this->exponent >= 0)
 		{
@@ -27,10 +27,10 @@ internal static partial class FloatToString_long_double_0_get_negative_block_int
 				BigInt_16512ul_false_unsigned_long_mul_unsigned_long.Invoke(&@this->float_as_fixed, 1000000000L);
 				@this->int_block_index += -1;
 			}
-			llvm_lifetime_start_p0.Invoke(2064L, &bigInt_k36xhe);
-			BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_zwn8yf.Invoke(&bigInt_k36xhe, &@this->float_as_fixed, 16384L);
-			result = BigInt_16512ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const.Invoke(&bigInt_k36xhe);
-			llvm_lifetime_end_p0.Invoke(2064L, &bigInt_k36xhe);
+			llvm_lifetime_start_p0.Invoke(2064L, &bigInt_q8g);
+			BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_zwn8yf.Invoke(&bigInt_q8g, &@this->float_as_fixed, 16384L);
+			result = BigInt_16512ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const.Invoke(&bigInt_q8g);
+			llvm_lifetime_end_p0.Invoke(2064L, &bigInt_q8g);
 			llvm_lifetime_end_p0.Invoke(4L, &num);
 		}
 		return result;

@@ -10,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double> __llvm_libc_20_1_2_::internal::strtofloatingpoint<double>(char const*)")]
 internal static partial class StrToNumResult_double_internal_strtofloatingpoint_double_char_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_r53a3q* agg_result, void* src)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_k826n6* agg_result, void* src)
 	{
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
 		sbyte b = 0;
@@ -55,7 +55,7 @@ internal static partial class StrToNumResult_double_internal_strtofloatingpoint_
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_NEG.Pointer, 1L, isVolatile: false);
 				fputil_internal_FPStorage_fputil_FPType_2_set_sign_Sign.Invoke(&fputil_FPBits_wjhbrm2, anon_izyfb8.val);
 			}
-			if (internal_isdigit_int_121.Invoke(((sbyte*)src)[num]) || ((sbyte*)src)[num] == 46)
+			if (internal_isdigit_int_123.Invoke(((sbyte*)src)[num]) || ((sbyte*)src)[num] == 46)
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num2);
 				num2 = 10;
@@ -125,9 +125,9 @@ internal static partial class StrToNumResult_double_internal_strtofloatingpoint_
 				llvm_lifetime_end_p0.Invoke(4L, &num3);
 				llvm_lifetime_end_p0.Invoke(4L, &num2);
 			}
-			else if (internal_tolower_int_118.Invoke(((sbyte*)src)[num]) == 110)
+			else if (internal_tolower_int_120.Invoke(((sbyte*)src)[num]) == 110)
 			{
-				if (internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 1L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_nan_string.Value)[1] && internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 2L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_nan_string.Value)[2])
+				if (internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 1L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_nan_string.Value)[1] && internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 2L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_nan_string.Value)[2])
 				{
 					b = 1;
 					num = checked(num + 3L);
@@ -137,7 +137,7 @@ internal static partial class StrToNumResult_double_internal_strtofloatingpoint_
 					{
 						llvm_lifetime_start_p0.Invoke(8L, &num5);
 						num5 = num;
-						for (num = checked(num + 1L); (!internal_isalnum_int_119.Invoke(((sbyte*)src)[num])) ? (((sbyte*)src)[num] == 95) : true; num = checked(num + 1L))
+						for (num = checked(num + 1L); (!internal_isalnum_int_121.Invoke(((sbyte*)src)[num])) ? (((sbyte*)src)[num] == 95) : true; num = checked(num + 1L))
 						{
 						}
 						if (((sbyte*)src)[num] == 41)
@@ -161,7 +161,7 @@ internal static partial class StrToNumResult_double_internal_strtofloatingpoint_
 					llvm_lifetime_end_p0.Invoke(8L, &num4);
 				}
 			}
-			else if (internal_tolower_int_118.Invoke(((sbyte*)src)[num]) == 105 && internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 1L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[1] && internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 2L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[2])
+			else if (internal_tolower_int_120.Invoke(((sbyte*)src)[num]) == 105 && internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 1L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[1] && internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 2L)]) == ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[2])
 			{
 				b = 1;
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm4);
@@ -170,7 +170,7 @@ internal static partial class StrToNumResult_double_internal_strtofloatingpoint_
 				fputil_FPBits_wjhbrm4.FPRepImpl.FPRepSem.FPStorage.val = val2;
 				llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_wjhbrm2, &fputil_FPBits_wjhbrm4, 8L, isVolatile: false);
 				llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm4);
-				num = ((internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 3L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[3] || internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 4L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[4] || internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 5L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[5] || internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 6L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[6] || internal_tolower_int_118.Invoke(((sbyte*)src)[checked(num + 7L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[7]) ? checked(num + 3L) : checked(num + 8L));
+				num = ((internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 3L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[3] || internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 4L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[4] || internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 5L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[5] || internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 6L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[6] || internal_tolower_int_120.Invoke(((sbyte*)src)[checked(num + 7L)]) != ((sbyte*)StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string.Value)[7]) ? checked(num + 3L) : checked(num + 8L));
 			}
 			if ((b & 1) != 1)
 			{

@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<float>::optional(__llvm_libc_20_1_2_::cpp::nullopt_t)")]
 internal static partial class cpp_optional_float_optional_cpp_nullopt_t
 {
-	public unsafe static void Invoke(cpp_optional_89h55j* @this)
+	public unsafe static void Invoke(cpp_optional_xmxtsi* @this)
 	{
 		cpp_optional_float_OptionalStorage_float_false_OptionalStorage.Invoke(&@this->storage);
 	}

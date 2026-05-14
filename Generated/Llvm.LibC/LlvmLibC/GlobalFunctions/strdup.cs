@@ -9,11 +9,11 @@ internal static partial class strdup
 {
 	public unsafe static void* Invoke(void* src)
 	{
-		cpp_optional_e5s7qx cpp_optional_e5s7qx2 = default(cpp_optional_e5s7qx);
-		llvm_lifetime_start_p0.Invoke(16L, &cpp_optional_e5s7qx2);
+		cpp_optional_77yu8f cpp_optional_77yu8f2 = default(cpp_optional_77yu8f);
+		llvm_lifetime_start_p0.Invoke(16L, &cpp_optional_77yu8f2);
 		unchecked
 		{
-			sbyte* ptr = (sbyte*)(&cpp_optional_e5s7qx2);
+			sbyte* ptr = (sbyte*)(&cpp_optional_77yu8f2);
 			*(IntPtr*)ptr = unchecked((nint)(-6148914691236517206L));
 			ptr[8] = -86;
 			sbyte* ptr2 = ptr + 9;
@@ -25,15 +25,15 @@ internal static partial class strdup
 			ptr2[5] = -86;
 			ptr2[6] = -86;
 			Struct_yx4nca struct_yx4nca = internal_strdup_char_const.Invoke(src);
-			cpp_optional_char_OptionalStorage* ptr3 = &cpp_optional_e5s7qx2.storage;
+			cpp_optional_char_OptionalStorage* ptr3 = &cpp_optional_77yu8f2.storage;
 			Struct_yx4nca struct_yx4nca2 = struct_yx4nca;
 			((Struct_yx4nca*)ptr3)->field_0 = struct_yx4nca2.field_0;
 			Struct_yx4nca struct_yx4nca3 = struct_yx4nca;
 			((Struct_yx4nca*)ptr3)->field_1 = struct_yx4nca3.field_1;
 			void* result;
-			if (cpp_optional_char_operator_bool_const.Invoke(&cpp_optional_e5s7qx2))
+			if (cpp_optional_char_operator_bool_const.Invoke(&cpp_optional_77yu8f2))
 			{
-				result = *(void**)cpp_optional_char_operator.Invoke(&cpp_optional_e5s7qx2);
+				result = *(void**)cpp_optional_char_operator.Invoke(&cpp_optional_77yu8f2);
 			}
 			else
 			{
@@ -43,7 +43,7 @@ internal static partial class strdup
 				}
 				result = null;
 			}
-			llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_e5s7qx2);
+			llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_77yu8f2);
 			return result;
 		}
 	}

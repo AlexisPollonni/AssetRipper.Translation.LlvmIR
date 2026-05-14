@@ -13,7 +13,7 @@ internal static partial class IntegerToString_int_details_Fmt_unsigned_char_10_f
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		unchecked
 		{
-			num = internal_int_to_b36_char_int_187.Invoke((byte)digit);
+			num = internal_int_to_b36_char_int_189.Invoke((byte)digit);
 			sbyte result = (sbyte)num;
 			llvm_lifetime_end_p0.Invoke(4L, &num);
 			return result;

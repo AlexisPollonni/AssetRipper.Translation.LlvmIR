@@ -14,7 +14,7 @@ internal static partial class void_internal_quick_sort_impl_internal_ArrayGeneri
 		long num = 0L;
 		long num2 = 0L;
 		long num3 = 0L;
-		anon_f93id7 anon_f93id8 = default(anon_f93id7);
+		anon_7y5tgm anon_7y5tgm2 = default(anon_7y5tgm);
 		long num4 = 0L;
 		scanf_core_ReadBuffer scanf_core_ReadBuffer2 = default(scanf_core_ReadBuffer);
 		void* ptr = null;
@@ -47,10 +47,10 @@ internal static partial class void_internal_quick_sort_impl_internal_ArrayGeneri
 					{
 						llvm_lifetime_start_p0.Invoke(8L, &num3);
 						long pivot_index = num2;
-						llvm_lifetime_start_p0.Invoke(8L, &anon_f93id8);
-						llvm_memcpy_p0_p0_i64.Invoke(&anon_f93id8.field_0, is_less, 8L, isVolatile: false);
-						long num8 = unsigned_long_internal_partition_internal_ArrayGenericSize_void_internal_quick_sort_impl_internal_ArrayGenericSize_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_internal_ArrayGenericSize_void_const_unsigned_long_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_const_lambda_void_const_void_const_internal_ArrayGenericSize_const_unsigned_long_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_const.Invoke(array, pivot_index, &anon_f93id8);
-						llvm_lifetime_end_p0.Invoke(8L, &anon_f93id8);
+						llvm_lifetime_start_p0.Invoke(8L, &anon_7y5tgm2);
+						llvm_memcpy_p0_p0_i64.Invoke(&anon_7y5tgm2.field_0, is_less, 8L, isVolatile: false);
+						long num8 = unsigned_long_internal_partition_internal_ArrayGenericSize_void_internal_quick_sort_impl_internal_ArrayGenericSize_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_internal_ArrayGenericSize_void_const_unsigned_long_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_const_lambda_void_const_void_const_internal_ArrayGenericSize_const_unsigned_long_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_const.Invoke(array, pivot_index, &anon_7y5tgm2);
+						llvm_lifetime_end_p0.Invoke(8L, &anon_7y5tgm2);
 						num3 = num8;
 						internal_ArrayGenericSize_reset_bounds_unsigned_long_unsigned_long.Invoke(array, num3 + 1L, internal_ArrayGenericSize_len_const.Invoke(array) - (num3 + 1L));
 						ptr2 = null;
@@ -114,6 +114,6 @@ internal static partial class void_internal_quick_sort_impl_internal_ArrayGeneri
 {
 	public unsafe static bool Invoke(void* @this, void* a, void* b)
 	{
-		return unchecked((byte)((qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_operator_void_const_void_const_const.Invoke(&((anon_f93id7*)@this)->field_0, b, a) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return unchecked((byte)((qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_operator_void_const_void_const_const.Invoke(&((anon_7y5tgm*)@this)->field_0, b, a) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
 	}
 }

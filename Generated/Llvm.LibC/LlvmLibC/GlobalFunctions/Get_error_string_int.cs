@@ -1,6 +1,6 @@
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
-using LlvmLibC.Intrinsics.Unimplemented;
+using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;

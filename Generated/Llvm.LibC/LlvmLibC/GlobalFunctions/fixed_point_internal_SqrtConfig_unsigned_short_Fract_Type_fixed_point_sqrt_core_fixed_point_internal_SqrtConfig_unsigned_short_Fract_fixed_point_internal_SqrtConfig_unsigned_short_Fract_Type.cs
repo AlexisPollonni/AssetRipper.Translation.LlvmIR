@@ -2,7 +2,6 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.InlineArrays;
 using LlvmLibC.Intrinsics.Implemented;
-using LlvmLibC.Intrinsics.Unimplemented;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -15,7 +14,7 @@ internal static partial class fixed_point_internal_SqrtConfig_unsigned_short_Fra
 		sbyte b = 0;
 		sbyte b2 = 0;
 		int num = 0;
-		sbyte parameter_ = 0;
+		sbyte a = 0;
 		sbyte b3 = 0;
 		sbyte b4 = 0;
 		int i = 0;
@@ -31,16 +30,16 @@ internal static partial class fixed_point_internal_SqrtConfig_unsigned_short_Fra
 			b2 = cpp_enable_if_sizeof_unsigned_char_sizeof_unsigned_short_Fract_cpp_is_trivially_constructible_unsigned_char_value_cpp_is_trivially_copyable_unsigned_char_value_cpp_is_trivially_copyable_unsigned_short_Fract_value_unsigned_char_type_cpp_bit_cast_unsigned_char_unsigned_short_Fract_unsigned_short_Fract_const.Invoke(&b);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = (unchecked((byte)b2) >> 4) - 4;
-			llvm_lifetime_start_p0.Invoke(1L, &parameter_);
+			llvm_lifetime_start_p0.Invoke(1L, &a);
 			long num2 = num;
 			unchecked
 			{
-				parameter_ = ((sbyte*)fixed_point_internal_SqrtConfig_unsigned_short_Fract_FIRST_APPROX.Pointer)[(nint)num2 * sizeof(InlineArray2_SByte)];
+				a = ((sbyte*)fixed_point_internal_SqrtConfig_unsigned_short_Fract_FIRST_APPROX.Pointer)[(nint)num2 * sizeof(InlineArray2_SByte)];
 				llvm_lifetime_start_p0.Invoke(1L, &b3);
 				long num3 = num;
 				b3 = (sbyte)((byte*)fixed_point_internal_SqrtConfig_unsigned_short_Fract_FIRST_APPROX.Pointer + (nint)num3 * sizeof(InlineArray2_SByte))[1];
 				llvm_lifetime_start_p0.Invoke(1L, &b4);
-				b4 = (sbyte)(llvm_umul_fix_i8.Invoke(parameter_, b, 8) + b3);
+				b4 = (sbyte)(llvm_umul_fix_i8.Invoke(a, b, 8) + b3);
 				llvm_lifetime_start_p0.Invoke(4L, &i);
 				for (i = 0; i < 0; i = checked(i + 1))
 				{
@@ -50,7 +49,7 @@ internal static partial class fixed_point_internal_SqrtConfig_unsigned_short_Fra
 				result = b4;
 				llvm_lifetime_end_p0.Invoke(1L, &b4);
 				llvm_lifetime_end_p0.Invoke(1L, &b3);
-				llvm_lifetime_end_p0.Invoke(1L, &parameter_);
+				llvm_lifetime_end_p0.Invoke(1L, &a);
 				llvm_lifetime_end_p0.Invoke(4L, &num);
 				llvm_lifetime_end_p0.Invoke(1L, &b2);
 			}

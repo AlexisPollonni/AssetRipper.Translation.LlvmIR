@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("int __llvm_libc_20_1_2_::multiword::countl_zero<unsigned int, 1ul>(__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
 internal static partial class int_multiword_countl_zero_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const
 {
-	public unsafe static int Invoke(cpp_array_aj48id* val)
+	public unsafe static int Invoke(cpp_array_2v7m9i* val)
 	{
 		int num = 0;
 		long num2 = 0L;

@@ -8,6 +8,6 @@ internal static partial class cpp_enable_if_sizeof_float_8ul_float_type_fputil_p
 {
 	public static float Invoke(float x, float a0, float a)
 	{
-		return fputil_multiply_add_float_float_float.Invoke(x, cpp_enable_if_sizeof_float_8ul_float_type_fputil_polyeval_float_float_float.Invoke(x, a), a0);
+		return cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x, cpp_enable_if_sizeof_float_8ul_float_type_fputil_polyeval_float_float_float.Invoke(x, a), a0);
 	}
 }

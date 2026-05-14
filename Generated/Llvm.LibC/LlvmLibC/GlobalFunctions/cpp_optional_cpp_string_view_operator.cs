@@ -9,6 +9,6 @@ internal static partial class cpp_optional_cpp_string_view_operator
 {
 	public unsafe static void* Invoke(void* @this)
 	{
-		return &unchecked((cpp_optional_q73pcj*)@this)->storage.field;
+		return &unchecked((cpp_optional_bnt67x*)@this)->storage.field;
 	}
 }

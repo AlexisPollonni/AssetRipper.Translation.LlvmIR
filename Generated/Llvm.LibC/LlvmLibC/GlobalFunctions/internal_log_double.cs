@@ -78,7 +78,7 @@ internal static partial class internal_log_double
 				llvm_lifetime_start_p0.Invoke(8L, &a);
 				double x2 = num3;
 				long num11 = num4;
-				a = fputil_multiply_add_double_double_double.Invoke(x2, 0.6931471805599453, ((double*)LOG_F.Pointer)[num11]);
+				a = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, 0.6931471805599453, ((double*)LOG_F.Pointer)[num11]);
 				llvm_lifetime_start_p0.Invoke(8L, &num6);
 				num6 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double_double_double_double_double_double_double.Invoke(num5, a, 0.9999999999999907, -0.49999999994038113, 0.33333327224101483, -0.24997806824515623, 0.19678021117199124);
 				result = (float)num6;

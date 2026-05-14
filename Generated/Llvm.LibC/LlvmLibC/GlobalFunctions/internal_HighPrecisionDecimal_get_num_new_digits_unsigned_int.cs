@@ -33,9 +33,9 @@ internal static partial class internal_HighPrecisionDecimal_get_num_new_digits_u
 						result = num - 1;
 						break;
 					}
-					if ((byte)((sbyte*)(&@this->digits))[(uint)num2] != internal_b36_char_to_int_int_120.Invoke(((sbyte*)ptr)[(uint)num2]))
+					if ((byte)((sbyte*)(&@this->digits))[(uint)num2] != internal_b36_char_to_int_int_122.Invoke(((sbyte*)ptr)[(uint)num2]))
 					{
-						result = num - InstructionHelper.Select((byte)((sbyte*)(&@this->digits))[(uint)num2] < internal_b36_char_to_int_int_120.Invoke(((sbyte*)ptr)[(uint)num2]), 1, 0);
+						result = num - InstructionHelper.Select((byte)((sbyte*)(&@this->digits))[(uint)num2] < internal_b36_char_to_int_int_122.Invoke(((sbyte*)ptr)[(uint)num2]), 1, 0);
 						break;
 					}
 					num2++;

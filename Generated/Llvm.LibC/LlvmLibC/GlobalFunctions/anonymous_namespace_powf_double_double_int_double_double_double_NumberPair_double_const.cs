@@ -40,11 +40,11 @@ internal static partial class anonymous_namespace_powf_double_double_int_double_
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		unchecked
 		{
-			num = (int)fputil_nearest_integer_double.Invoke(fputil_multiply_add_double_double_double.Invoke(dx, 16384.0, 64.0));
+			num = (int)fputil_nearest_integer_double.Invoke(cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(dx, 16384.0, 64.0));
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			double x = 1.0 + dx;
 			long num4 = num;
-			num2 = fputil_multiply_add_double_double_double.Invoke(x, ((double*)R2.Pointer)[num4], -1.0);
+			num2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, ((double*)R2.Pointer)[num4], -1.0);
 			llvm_lifetime_start_p0.Invoke(96L, &inlineArray6_NumberPair);
 			llvm_memcpy_p0_p0_i64.Invoke(&inlineArray6_NumberPair, COEFFS_yazmcg.Pointer, 96L, isVolatile: false);
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair);

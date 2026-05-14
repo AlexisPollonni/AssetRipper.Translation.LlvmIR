@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.InlineArrays;
@@ -8,7 +9,10 @@ namespace LlvmLibC.GlobalVariables;
 [DemangledName("__llvm_libc_20_1_2_::CD")]
 internal static partial class CD
 {
+	[FixedAddressValueType]
 	private static InlineArray128_Double __value;
+
+	public unsafe static InlineArray128_Double* Pointer => unchecked((InlineArray128_Double*)Unsafe.AsPointer(ref __value));
 
 	public static InlineArray128_Double Value
 	{
@@ -22,7 +26,7 @@ internal static partial class CD
 		}
 	}
 
-	static CD()
+	unsafe static CD()
 	{
 		Value = InlineArrayHelper.Create<InlineArray128_Double, double>(new double[128]
 		{
@@ -155,5 +159,6 @@ internal static partial class CD
 			-6.103515625E-05,
 			-1.0 / 256.0
 		});
+		PointerIndices.Register(Pointer);
 	}
 }

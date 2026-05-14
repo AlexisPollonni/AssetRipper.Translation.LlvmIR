@@ -15,14 +15,14 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 		long num = 0L;
 		int num2 = 0;
 		internal_FloatConvertReturn_g92bm8 internal_FloatConvertReturn_g92bm9 = default(internal_FloatConvertReturn_g92bm8);
-		cpp_optional_vqqfu4 cpp_optional_vqqfu5 = default(cpp_optional_vqqfu4);
+		cpp_optional_9m4esb cpp_optional_9m4esb2 = default(cpp_optional_9m4esb);
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv3 = default(internal_ExpandedFloat_k68bhv);
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv4 = default(internal_ExpandedFloat_k68bhv);
-		cpp_optional_vqqfu4 cpp_optional_vqqfu6 = default(cpp_optional_vqqfu4);
+		cpp_optional_9m4esb cpp_optional_9m4esb3 = default(cpp_optional_9m4esb);
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv5 = default(internal_ExpandedFloat_k68bhv);
-		cpp_optional_vqqfu4 cpp_optional_vqqfu7 = default(cpp_optional_vqqfu4);
+		cpp_optional_9m4esb cpp_optional_9m4esb4 = default(cpp_optional_9m4esb);
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv6 = default(internal_ExpandedFloat_k68bhv);
-		cpp_optional_vqqfu4 cpp_optional_vqqfu8 = default(cpp_optional_vqqfu4);
+		cpp_optional_9m4esb cpp_optional_9m4esb5 = default(cpp_optional_9m4esb);
 		internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv7 = default(internal_ExpandedFloat_k68bhv);
 		internal_FloatConvertReturn_g92bm8 internal_FloatConvertReturn_g92bm10 = default(internal_FloatConvertReturn_g92bm8);
 		unchecked
@@ -50,8 +50,8 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 			ptr3[2] = -86;
 			ptr3[3] = -86;
 			internal_FloatConvertReturn_double_FloatConvertReturn.Invoke(&internal_FloatConvertReturn_g92bm9);
-			llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_vqqfu5);
-			sbyte* ptr4 = (sbyte*)(&cpp_optional_vqqfu5);
+			llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_9m4esb2);
+			sbyte* ptr4 = (sbyte*)(&cpp_optional_9m4esb2);
 			sbyte* ptr5 = ptr4;
 			*(long*)ptr5 = -6148914691236517206L;
 			((int*)ptr5)[2] = -1431655766;
@@ -69,7 +69,7 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 			ptr7[4] = -86;
 			ptr7[5] = -86;
 			ptr7[6] = -86;
-			cpp_optional_internal_ExpandedFloat_double_optional.Invoke(&cpp_optional_vqqfu5);
+			cpp_optional_internal_ExpandedFloat_double_optional.Invoke(&cpp_optional_9m4esb2);
 			if (num2 > int_internal_get_upper_bound_double.Invoke())
 			{
 				llvm_lifetime_start_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv3);
@@ -94,33 +94,33 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 			{
 				if ((b & 1) != 1)
 				{
-					llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_vqqfu6);
+					llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_9m4esb3);
 					llvm_memcpy_p0_p0_i64.Invoke(&internal_ExpandedFloat_k68bhv5, &internal_ExpandedFloat_k68bhv2, 16L, isVolatile: false);
-					cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu6, *(long*)(&internal_ExpandedFloat_k68bhv5), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv5))[2], numStart);
-					llvm_memcpy_p0_p0_i64.Invoke(&cpp_optional_vqqfu5, &cpp_optional_vqqfu6, 24L, isVolatile: false);
-					llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_vqqfu6);
-					if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_vqqfu5))
+					cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_9m4esb3, *(long*)(&internal_ExpandedFloat_k68bhv5), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv5))[2], numStart);
+					llvm_memcpy_p0_p0_i64.Invoke(&cpp_optional_9m4esb2, &cpp_optional_9m4esb3, 24L, isVolatile: false);
+					llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_9m4esb3);
+					if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_9m4esb2))
 					{
-						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->num, cpp_optional_internal_ExpandedFloat_double_value.Invoke(&cpp_optional_vqqfu5), 16L, isVolatile: false);
+						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->num, cpp_optional_internal_ExpandedFloat_double_value.Invoke(&cpp_optional_9m4esb2), 16L, isVolatile: false);
 						agg_result->error = 0;
 						goto IL_0608;
 					}
 				}
-				llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_vqqfu7);
+				llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_9m4esb4);
 				llvm_memcpy_p0_p0_i64.Invoke(&internal_ExpandedFloat_k68bhv6, &internal_ExpandedFloat_k68bhv2, 16L, isVolatile: false);
-				cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu7, *(long*)(&internal_ExpandedFloat_k68bhv6), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv6))[2], numStart);
-				llvm_memcpy_p0_p0_i64.Invoke(&cpp_optional_vqqfu5, &cpp_optional_vqqfu7, 24L, isVolatile: false);
-				llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_vqqfu7);
-				if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_vqqfu5))
+				cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_9m4esb4, *(long*)(&internal_ExpandedFloat_k68bhv6), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv6))[2], numStart);
+				llvm_memcpy_p0_p0_i64.Invoke(&cpp_optional_9m4esb2, &cpp_optional_9m4esb4, 24L, isVolatile: false);
+				llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_9m4esb4);
+				if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_9m4esb2))
 				{
 					if ((b & 1) != 1)
 					{
-						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->num, cpp_optional_internal_ExpandedFloat_double_value.Invoke(&cpp_optional_vqqfu5), 16L, isVolatile: false);
+						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->num, cpp_optional_internal_ExpandedFloat_double_value.Invoke(&cpp_optional_9m4esb2), 16L, isVolatile: false);
 						agg_result->error = 0;
 						goto IL_0608;
 					}
-					llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_vqqfu8);
-					sbyte* ptr8 = (sbyte*)(&cpp_optional_vqqfu8);
+					llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_9m4esb5);
+					sbyte* ptr8 = (sbyte*)(&cpp_optional_9m4esb5);
 					sbyte* ptr9 = ptr8;
 					*(long*)ptr9 = -6148914691236517206L;
 					((int*)ptr9)[2] = -1431655766;
@@ -140,11 +140,11 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 					ptr11[6] = -86;
 					internal_ExpandedFloat_k68bhv7.mantissa = num + 1L;
 					internal_ExpandedFloat_k68bhv7.exponent = num2;
-					cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_vqqfu8, *(long*)(&internal_ExpandedFloat_k68bhv7), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv7))[2], numStart);
+					cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&cpp_optional_9m4esb5, *(long*)(&internal_ExpandedFloat_k68bhv7), ((RoundDirection_b3pcwy*)(&internal_ExpandedFloat_k68bhv7))[2], numStart);
 					int num3;
-					if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_vqqfu8) && cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu5)->mantissa == cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu8)->mantissa && cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu5)->exponent == cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_vqqfu8)->exponent)
+					if (cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(&cpp_optional_9m4esb5) && cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_9m4esb2)->mantissa == cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_9m4esb5)->mantissa && cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_9m4esb2)->exponent == cpp_optional_internal_ExpandedFloat_double_operator.Invoke(&cpp_optional_9m4esb5)->exponent)
 					{
-						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->num, cpp_optional_internal_ExpandedFloat_double_value.Invoke(&cpp_optional_vqqfu5), 16L, isVolatile: false);
+						llvm_memcpy_p0_p0_i64.Invoke(&agg_result->num, cpp_optional_internal_ExpandedFloat_double_value.Invoke(&cpp_optional_9m4esb2), 16L, isVolatile: false);
 						agg_result->error = 0;
 						num3 = 1;
 					}
@@ -152,7 +152,7 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 					{
 						num3 = 0;
 					}
-					llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_vqqfu8);
+					llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_9m4esb5);
 					switch (num3)
 					{
 					case 0:
@@ -170,7 +170,7 @@ internal static partial class internal_FloatConvertReturn_double_internal_decima
 			goto IL_0608;
 		}
 		IL_0608:
-		llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_vqqfu5);
+		llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_9m4esb2);
 		llvm_lifetime_end_p0.Invoke(24L, &internal_FloatConvertReturn_g92bm9);
 		llvm_lifetime_end_p0.Invoke(4L, &num2);
 		llvm_lifetime_end_p0.Invoke(8L, &num);

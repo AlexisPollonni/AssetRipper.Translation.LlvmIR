@@ -40,7 +40,7 @@ internal static partial class exp_b_reduc_t_exp_b_range_reduc_Exp10Base_float
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 			lo = num6;
 			llvm_lifetime_start_p0.Invoke(8L, &hi);
-			hi = fputil_multiply_add_double_double_double.Invoke(num2, 2.6663575990803458E-15, fputil_multiply_add_double_double_double.Invoke(num2, -0.009407187364502079, num));
+			hi = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, 2.6663575990803458E-15, cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, -0.009407187364502079, num));
 			numberPair.lo = lo;
 			numberPair.hi = hi;
 			llvm_lifetime_end_p0.Invoke(8L, &hi);

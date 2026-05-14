@@ -174,7 +174,7 @@ internal static partial class expm1f16
 			*(Half*)ptr2 = default(Half);
 			ptr2[2] = -86;
 			ptr2[3] = -86;
-			int storage2 = fputil_ExceptValues_Float16_2ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: EXPM1F16_EXCEPTS_HI.Pointer);
+			int storage2 = fputil_ExceptValues_Float16_3ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: EXPM1F16_EXCEPTS_HI.Pointer);
 			*(int*)(&cpp_optional_aq7wey3.storage) = storage2;
 			int num5;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_Float16_has_value_const.Invoke(&cpp_optional_aq7wey3), expected: false))
@@ -194,7 +194,7 @@ internal static partial class expm1f16
 				*(float*)(&expRangeReduction) = float.NaN;
 				((float*)(&expRangeReduction))[1] = float.NaN;
 				*(InlineArray2_Single*)(&expRangeReduction) = exp_range_reduction_Float16.Invoke(x);
-				result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(fputil_multiply_add_float_float_float.Invoke(expRangeReduction.exp_hi_mid, expRangeReduction.exp_lo, -1f));
+				result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(expRangeReduction.exp_hi_mid, expRangeReduction.exp_lo, -1f));
 				llvm_lifetime_end_p0.Invoke(8L, &expRangeReduction);
 				break;
 			}

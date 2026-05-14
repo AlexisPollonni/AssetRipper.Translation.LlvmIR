@@ -4,6 +4,7 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 88)]
+[MangledName("_ZTS7statvfs")]
 [MangledName("struct.statvfs")]
 public partial struct statvfs
 {

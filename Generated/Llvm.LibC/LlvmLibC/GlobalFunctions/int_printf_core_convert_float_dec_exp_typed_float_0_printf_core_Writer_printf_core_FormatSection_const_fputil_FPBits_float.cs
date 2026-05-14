@@ -23,7 +23,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 		sbyte b = 0;
 		printf_core_PaddingWriter printf_core_PaddingWriter2 = default(printf_core_PaddingWriter);
 		printf_core_FloatWriter printf_core_FloatWriter2 = default(printf_core_FloatWriter);
-		FloatToString_uyiqeh floatToString_uyiqeh = default(FloatToString_uyiqeh);
+		FloatToString_vnf553 floatToString_vnf = default(FloatToString_vnf553);
 		long num4 = 0L;
 		int num5 = 0;
 		int num6 = 0;
@@ -89,10 +89,10 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 			llvm_lifetime_start_p0.Invoke(96L, &printf_core_FloatWriter2);
 			llvm_memset_p0_i64.Invoke(&printf_core_FloatWriter2, -86, 96L, isVolatile: false);
 			printf_core_FloatWriter_FloatWriter_printf_core_Writer_bool_printf_core_PaddingWriter_const.Invoke(&printf_core_FloatWriter2, writer, (b & 1) == 1, &printf_core_PaddingWriter2);
-			llvm_lifetime_start_p0.Invoke(32L, &floatToString_uyiqeh);
-			*(int*)(&floatToString_uyiqeh) = -1431655766;
-			((int*)(&floatToString_uyiqeh))[1] = -1431655766;
-			sbyte* ptr2 = (sbyte*)(&floatToString_uyiqeh) + 8;
+			llvm_lifetime_start_p0.Invoke(32L, &floatToString_vnf);
+			*(int*)(&floatToString_vnf) = -1431655766;
+			((int*)(&floatToString_vnf))[1] = -1431655766;
+			sbyte* ptr2 = (sbyte*)(&floatToString_vnf) + 8;
 			*ptr2 = -86;
 			ptr2[1] = -86;
 			ptr2[2] = -86;
@@ -101,15 +101,15 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 			ptr2[5] = -86;
 			ptr2[6] = -86;
 			ptr2[7] = -86;
-			*(Int128*)((byte*)(&floatToString_uyiqeh) + 16) = -6148914691236517206L;
-			FloatToString_float_0_FloatToString_float.Invoke(&floatToString_uyiqeh, fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2));
+			*(Int128*)((byte*)(&floatToString_vnf) + 16) = -6148914691236517206L;
+			FloatToString_float_0_FloatToString_float.Invoke(&floatToString_vnf, fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(8L, &num4);
 			num4 = 0L;
 			llvm_lifetime_start_p0.Invoke(4L, &num5);
 			num5 = 0;
 			llvm_lifetime_start_p0.Invoke(4L, &num6);
 			num6 = -1431655766;
-			num6 = (int)((num2 >= 0) ? FloatToString_float_0_get_positive_blocks.Invoke(&floatToString_uyiqeh) : checked(-unchecked((int)FloatToString_float_0_zero_blocks_after_point.Invoke(&floatToString_uyiqeh))));
+			num6 = (int)((num2 >= 0) ? FloatToString_float_0_get_positive_blocks.Invoke(&floatToString_vnf) : checked(-unchecked((int)FloatToString_float_0_zero_blocks_after_point.Invoke(&floatToString_vnf))));
 			llvm_lifetime_start_p0.Invoke(4L, &num7);
 			num7 = 0;
 			if (NumericHelper.IntCmpNe(x, 0L))
@@ -117,7 +117,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 				while (num7 == 0)
 				{
 					num6 = checked(num6 + -1);
-					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 				}
 			}
 			else
@@ -154,7 +154,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 				int num22;
 				if ((ulong)(num4 + 9L) < (ulong)(uint)(num3 + 1))
 				{
-					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 					llvm_lifetime_start_p0.Invoke(4L, &num11);
 					num11 = printf_core_FloatWriter_write_middle_block_unsigned_int.Invoke(&printf_core_FloatWriter2, num7);
 					if (num11 < 0)
@@ -174,7 +174,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 					}
 					break;
 				}
-				num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+				num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 				llvm_lifetime_start_p0.Invoke(8L, &num12);
 				num12 = 9L;
 				if (num4 == 0L)
@@ -205,7 +205,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 				{
 					num6 = checked(num6 + -1);
 					llvm_lifetime_start_p0.Invoke(4L, &num15);
-					num15 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+					num15 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 					num14 = (int)((uint)num15 / 100000000u);
 					if ((uint)num15 % 100000000u != 0)
 					{
@@ -225,7 +225,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 							for (j = num6 - 1; j >= 0; j += -1)
 							{
 								llvm_lifetime_start_p0.Invoke(4L, &num17);
-								num17 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, j);
+								num17 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, j);
 								if (num17 != 0)
 								{
 									b2 = 1;
@@ -256,7 +256,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 				anon_izyfb8.val = fputil_internal_FPStorage_fputil_FPType_1_sign_const.Invoke(&fputil_FPBits_5nkvcs2);
 				num16 = (int)printf_core_get_round_direction_int_bool_Sign.Invoke(last_digit, truncated, anon_izyfb8.val);
 				llvm_lifetime_start_p0.Invoke(4L, &num18);
-				num18 = printf_core_FloatWriter_write_last_block_unsigned_int_unsigned_long_printf_core_RoundDirection_int_char.Invoke(&printf_core_FloatWriter2, num7, num13, (RoundDirection_zvveyk)num16, num5, InstructionHelper.Select(internal_islower_int_168.Invoke(to_conv->conv_name), (sbyte)101, (sbyte)69));
+				num18 = printf_core_FloatWriter_write_last_block_unsigned_int_unsigned_long_printf_core_RoundDirection_int_char.Invoke(&printf_core_FloatWriter2, num7, num13, (RoundDirection_zvveyk)num16, num5, InstructionHelper.Select(internal_islower_int_170.Invoke(to_conv->conv_name), (sbyte)101, (sbyte)69));
 				if (num18 < 0)
 				{
 					result = num18;
@@ -307,7 +307,7 @@ internal static partial class int_printf_core_convert_float_dec_exp_typed_float_
 			llvm_lifetime_end_p0.Invoke(4L, &num6);
 			llvm_lifetime_end_p0.Invoke(4L, &num5);
 			llvm_lifetime_end_p0.Invoke(8L, &num4);
-			llvm_lifetime_end_p0.Invoke(32L, &floatToString_uyiqeh);
+			llvm_lifetime_end_p0.Invoke(32L, &floatToString_vnf);
 			llvm_lifetime_end_p0.Invoke(96L, &printf_core_FloatWriter2);
 			llvm_lifetime_end_p0.Invoke(16L, &printf_core_PaddingWriter2);
 			llvm_lifetime_end_p0.Invoke(1L, &b);

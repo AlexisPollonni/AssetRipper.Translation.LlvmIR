@@ -9,6 +9,6 @@ internal static partial class cpp_optional_BigInt_320ul_false_unsigned_long_opti
 {
 	public unsafe static void Invoke(void* @this)
 	{
-		cpp_optional_BigInt_320ul_false_unsigned_long_OptionalStorage_BigInt_320ul_false_unsigned_long_false_OptionalStorage.Invoke(&unchecked((cpp_optional_w3bnnt*)@this)->storage);
+		cpp_optional_BigInt_320ul_false_unsigned_long_OptionalStorage_BigInt_320ul_false_unsigned_long_false_OptionalStorage.Invoke(&unchecked((cpp_optional_t82b4p*)@this)->storage);
 	}
 }

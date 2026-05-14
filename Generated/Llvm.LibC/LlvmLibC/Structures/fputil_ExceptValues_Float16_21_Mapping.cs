@@ -4,6 +4,7 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 10)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm8EE7MappingE")]
 [MangledName("struct.__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 21>::Mapping")]
 [DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 21>::Mapping")]
 public partial struct fputil_ExceptValues_Float16_21_Mapping

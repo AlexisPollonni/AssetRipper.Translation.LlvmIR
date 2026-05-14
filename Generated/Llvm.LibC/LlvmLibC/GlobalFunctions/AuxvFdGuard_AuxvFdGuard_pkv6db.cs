@@ -14,7 +14,7 @@ internal static partial class AuxvFdGuard_AuxvFdGuard_pkv6db
 	{
 		unchecked
 		{
-			((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0 = ((delegate*<InlineArray16_SByte*, int, int>)open.__pointer)(str_101.Pointer, 524288);
+			((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0 = ((delegate*<InlineArray16_SByte*, int, int>)open.__pointer)(str_103.Pointer, 524288);
 		}
 	}
 }

@@ -173,7 +173,7 @@ internal static partial class atan2f
 				num21 = (int)num20;
 				llvm_lifetime_start_p0.Invoke(8L, &num22);
 				num22 = double.NaN;
-				num19 = fputil_multiply_add_double_double_double.Invoke(num20, -0.0625, num19);
+				num19 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num20, -0.0625, num19);
 				llvm_lifetime_start_p0.Invoke(8L, &num23);
 				num23 = atan_eval_double_unsigned_int_60.Invoke(num19, num21);
 				double num32 = num18;
@@ -181,7 +181,7 @@ internal static partial class atan2f
 				double y2 = num23;
 				double hi = numberPair.hi;
 				long num33 = num21;
-				num22 = num32 * fputil_multiply_add_double_double_double.Invoke(x3, y2, hi + *(double*)((byte*)ATAN_COEFFS.Pointer + (nint)num33 * sizeof(InlineArray9_Double)));
+				num22 = num32 * cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, y2, hi + *(double*)((byte*)ATAN_COEFFS.Pointer + (nint)num33 * sizeof(InlineArray9_Double)));
 				llvm_lifetime_start_p0.Invoke(4L, &num24);
 				num24 = 4;
 				llvm_lifetime_start_p0.Invoke(4L, &num25);

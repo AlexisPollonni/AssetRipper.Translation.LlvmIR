@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::is_lowest_block(unsigned long)")]
 internal static partial class FloatToString_float_0_is_lowest_block_unsigned_long
 {
-	public unsafe static bool Invoke(FloatToString_uyiqeh* @this, long negative_block_index)
+	public unsafe static bool Invoke(FloatToString_vnf553* @this, long negative_block_index)
 	{
 		int num = 0;
 		long num2 = 0L;

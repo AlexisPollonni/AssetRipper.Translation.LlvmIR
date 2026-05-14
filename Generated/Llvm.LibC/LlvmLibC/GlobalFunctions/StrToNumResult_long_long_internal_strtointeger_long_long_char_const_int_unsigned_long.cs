@@ -10,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long long> __llvm_libc_20_1_2_::internal::strtointeger<long long>(char const*, int, unsigned long)")]
 internal static partial class StrToNumResult_long_long_internal_strtointeger_long_long_char_const_int_unsigned_long
 {
-	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_aztiru* agg_result, void* src, int @base, long src_len)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_gbeb3a* agg_result, void* src, int @base, long src_len)
 	{
 		long num = 0L;
 		sbyte b = 0;
@@ -71,10 +71,10 @@ internal static partial class StrToNumResult_long_long_internal_strtointeger_lon
 				num5 = InstructionHelper.Select((b4 & 1) == 1, cpp_internal_integer_impl_long_long_9223372036854775808ll_9223372036854775807ll_max.Invoke(), long.MinValue);
 				llvm_lifetime_start_p0.Invoke(8L, &num6);
 				num6 = (long)((ulong)num5 / (ulong)num8);
-				while ((ulong)num2 < (ulong)src_len && internal_isalnum_int_156.Invoke(((sbyte*)src)[num2]))
+				while ((ulong)num2 < (ulong)src_len && internal_isalnum_int_158.Invoke(((sbyte*)src)[num2]))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num7);
-					num7 = internal_b36_char_to_int_int_157.Invoke(((sbyte*)src)[num2]);
+					num7 = internal_b36_char_to_int_int_159.Invoke(((sbyte*)src)[num2]);
 					int num9;
 					if (num7 >= num8)
 					{

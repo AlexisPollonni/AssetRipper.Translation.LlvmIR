@@ -34,17 +34,17 @@ internal static partial class internal_HighPrecisionDecimal_LEFT_SHIFT_DIGIT_TAB
 			new internal_LShiftTableEntry
 			{
 				new_digits = 0,
-				power_of_five = str_2_124.Pointer
+				power_of_five = str_2_126.Pointer
 			},
 			new internal_LShiftTableEntry
 			{
 				new_digits = 1,
-				power_of_five = str_3_125.Pointer
+				power_of_five = str_3_127.Pointer
 			},
 			new internal_LShiftTableEntry
 			{
 				new_digits = 1,
-				power_of_five = str_4_126.Pointer
+				power_of_five = str_4_128.Pointer
 			},
 			new internal_LShiftTableEntry
 			{
@@ -319,7 +319,7 @@ internal static partial class internal_HighPrecisionDecimal_LEFT_SHIFT_DIGIT_TAB
 			new internal_LShiftTableEntry
 			{
 				new_digits = 18,
-				power_of_five = str_59_127.Pointer
+				power_of_five = str_59_129.Pointer
 			},
 			new internal_LShiftTableEntry
 			{

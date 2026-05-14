@@ -11,8 +11,8 @@ internal static partial class cpp_optional_BigInt_320ul_false_unsigned_long_opti
 	{
 		unchecked
 		{
-			cpp_optional_BigInt_320ul_false_unsigned_long_OptionalStorage_BigInt_320ul_false_unsigned_long_false_OptionalStorage_BigInt_320ul_false_unsigned_long_cpp_in_place_t_BigInt_320ul_false_unsigned_long.Invoke(&((cpp_optional_w3bnnt*)@this)->storage, cpp_remove_reference_BigInt_320ul_false_unsigned_long_type_cpp_move_BigInt_320ul_false_unsigned_long_BigInt_320ul_false_unsigned_long.Invoke(t));
-			((cpp_optional_w3bnnt*)@this)->storage.field_1 = 1;
+			cpp_optional_BigInt_320ul_false_unsigned_long_OptionalStorage_BigInt_320ul_false_unsigned_long_false_OptionalStorage_BigInt_320ul_false_unsigned_long_cpp_in_place_t_BigInt_320ul_false_unsigned_long.Invoke(&((cpp_optional_t82b4p*)@this)->storage, cpp_remove_reference_BigInt_320ul_false_unsigned_long_type_cpp_move_BigInt_320ul_false_unsigned_long_BigInt_320ul_false_unsigned_long.Invoke(t));
+			((cpp_optional_t82b4p*)@this)->storage.field_1 = 1;
 		}
 	}
 }

@@ -220,7 +220,7 @@ internal static partial class double_fputil_DyadicFloat_128ul_fast_as_double_fal
 					fputil_FPBits_wjhbrm7.FPRepImpl.FPRepSem.FPStorage.val = val6;
 					x = fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm7);
 					llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm7);
-					result = fputil_multiply_add_double_double_double.Invoke(x, num10, num9 * num12) * num13;
+					result = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, num10, num9 * num12) * num13;
 					llvm_lifetime_end_p0.Invoke(8L, &num13);
 					llvm_lifetime_end_p0.Invoke(8L, &num12);
 					llvm_lifetime_end_p0.Invoke(4L, &num11);
@@ -234,7 +234,7 @@ internal static partial class double_fputil_DyadicFloat_128ul_fast_as_double_fal
 					x = fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm8);
 					llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm8);
 					llvm_lifetime_start_p0.Invoke(8L, &num14);
-					num14 = fputil_multiply_add_double_double_double.Invoke(x, num10, num9);
+					num14 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, num10, num9);
 					unchecked
 					{
 						if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((b & 1) == 1, expected: false))

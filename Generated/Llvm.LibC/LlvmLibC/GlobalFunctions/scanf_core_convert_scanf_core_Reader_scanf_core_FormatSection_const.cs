@@ -26,11 +26,11 @@ internal static partial class scanf_core_convert_scanf_core_Reader_scanf_core_Fo
 			switch (to_conv->conv_name)
 			{
 			case 37:
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, str_142.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, str_144.Pointer);
 				result = scanf_core_raw_match_scanf_core_Reader_cpp_string_view.Invoke(reader, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 				break;
 			case 115:
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view3, str_1_145.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view3, str_1_147.Pointer);
 				num = scanf_core_raw_match_scanf_core_Reader_cpp_string_view.Invoke(reader, *(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1]);
 				result = ((num == 0) ? scanf_core_convert_string_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv) : num);
 				break;
@@ -44,7 +44,7 @@ internal static partial class scanf_core_convert_scanf_core_Reader_scanf_core_Fo
 			case 111:
 			case 117:
 			case 120:
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view4, str_1_145.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view4, str_1_147.Pointer);
 				num = scanf_core_raw_match_scanf_core_Reader_cpp_string_view.Invoke(reader, *(void**)(&cpp_string_view4), ((long*)(&cpp_string_view4))[1]);
 				result = ((num == 0) ? scanf_core_convert_int_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv) : num);
 				break;
@@ -56,7 +56,7 @@ internal static partial class scanf_core_convert_scanf_core_Reader_scanf_core_Fo
 			case 101:
 			case 102:
 			case 103:
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view5, str_1_145.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view5, str_1_147.Pointer);
 				num = scanf_core_raw_match_scanf_core_Reader_cpp_string_view.Invoke(reader, *(void**)(&cpp_string_view5), ((long*)(&cpp_string_view5))[1]);
 				result = ((num == 0) ? scanf_core_convert_float_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv) : num);
 				break;
@@ -64,7 +64,7 @@ internal static partial class scanf_core_convert_scanf_core_Reader_scanf_core_Fo
 				result = scanf_core_convert_current_pos_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv);
 				break;
 			case 112:
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view6, str_1_145.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view6, str_1_147.Pointer);
 				num = scanf_core_raw_match_scanf_core_Reader_cpp_string_view.Invoke(reader, *(void**)(&cpp_string_view6), ((long*)(&cpp_string_view6))[1]);
 				result = ((num == 0) ? scanf_core_convert_pointer_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv) : num);
 				break;

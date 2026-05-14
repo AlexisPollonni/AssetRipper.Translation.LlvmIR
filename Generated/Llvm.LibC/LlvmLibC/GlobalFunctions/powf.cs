@@ -209,7 +209,7 @@ internal static partial class powf
 									case 0:
 										break;
 									default:
-										goto IL_172d;
+										goto IL_1731;
 									}
 								}
 							}
@@ -218,7 +218,7 @@ internal static partial class powf
 								if ((uint)num4 > 2139095040u)
 								{
 									result = ((num != 1065353216) ? num42 : 1f);
-									goto IL_172d;
+									goto IL_1731;
 								}
 								llvm_lifetime_start_p0.Invoke(4L, &num11);
 								num11 = (num3 & int.MinValue) + 1333788672;
@@ -247,12 +247,12 @@ internal static partial class powf
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs8);
 				}
 			}
-			goto IL_172d;
+			goto IL_1731;
 		}
-		IL_170b:
+		IL_170f:
 		llvm_lifetime_end_p0.Invoke(8L, &num13);
 		llvm_lifetime_end_p0.Invoke(4L, &num12);
-		goto IL_172d;
+		goto IL_1731;
 		IL_0ca4:
 		llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs14);
 		fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs14, num41);
@@ -275,9 +275,9 @@ internal static partial class powf
 			num17 = num48;
 			llvm_lifetime_start_p0.Invoke(8L, &num19);
 			num19 = double.NaN;
-			float x4 = num17;
+			double x4 = num17;
 			long num49 = num16;
-			num19 = fputil_multiply_add_float_float_float.Invoke(x4, ((float*)R.Pointer)[num49], -1f);
+			num19 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x4, ((double*)RD.Pointer)[num49], -1.0);
 			llvm_lifetime_start_p0.Invoke(48L, &inlineArray6_Double);
 			llvm_memset_p0_i64.Invoke(&inlineArray6_Double, 0, 48L, isVolatile: false);
 			*(double*)(&inlineArray6_Double) = 1.4426950408889634;
@@ -289,18 +289,18 @@ internal static partial class powf
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
 			x2 = num19 * num19;
 			llvm_lifetime_start_p0.Invoke(8L, &a);
-			a = fputil_multiply_add_double_double_double.Invoke(num19, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, sizeof(double))), *(double*)(&inlineArray6_Double));
+			a = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num19, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, sizeof(double))), *(double*)(&inlineArray6_Double));
 			llvm_lifetime_start_p0.Invoke(8L, &a_yc74sk);
-			a_yc74sk = fputil_multiply_add_double_double_double.Invoke(num19, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)3 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)2 * sizeof(double))));
+			a_yc74sk = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num19, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)3 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)2 * sizeof(double))));
 			llvm_lifetime_start_p0.Invoke(8L, &a_ijazrn);
-			a_ijazrn = fputil_multiply_add_double_double_double.Invoke(num19, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)5 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)4 * sizeof(double))));
+			a_ijazrn = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num19, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)5 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)4 * sizeof(double))));
 			llvm_lifetime_start_p0.Invoke(8L, &num20);
 			num20 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double.Invoke(x2, a, a_yc74sk, a_ijazrn);
 			llvm_lifetime_start_p0.Invoke(8L, &num21);
 			double x5 = num19;
 			double y2 = num20;
 			long num50 = num16;
-			num21 = fputil_multiply_add_double_double_double.Invoke(x5, y2, ((double*)LOG2_R.Pointer)[num50] + num14);
+			num21 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x5, y2, ((double*)LOG2_R.Pointer)[num50] + num14);
 			llvm_lifetime_start_p0.Invoke(8L, &num22);
 			num22 = num42 * 64f;
 			llvm_lifetime_start_p0.Invoke(8L, &num23);
@@ -309,13 +309,13 @@ internal static partial class powf
 			double x6 = num22;
 			double num51 = num14;
 			long num52 = num16;
-			num24 = fputil_multiply_add_double_double_double.Invoke(x6, num51 + ((fputil_TripleDouble*)anonymous_namespace_LOG2_R_TD.Pointer)[num52].hi, 0.0 - num23);
+			num24 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x6, num51 + ((fputil_TripleDouble*)anonymous_namespace_LOG2_R_TD.Pointer)[num52].hi, 0.0 - num23);
 			llvm_lifetime_start_p0.Invoke(8L, &num25);
 			double x7 = num22;
 			double x8 = num19;
 			double y3 = num20;
 			long num53 = num16;
-			num25 = fputil_multiply_add_double_double_double.Invoke(x7, fputil_multiply_add_double_double_double.Invoke(x8, y3, ((fputil_TripleDouble*)anonymous_namespace_LOG2_R_TD.Pointer)[num53].mid), num24);
+			num25 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x7, cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x8, y3, ((fputil_TripleDouble*)anonymous_namespace_LOG2_R_TD.Pointer)[num53].mid), num24);
 			llvm_lifetime_start_p0.Invoke(8L, &num26);
 			num26 = (long)num23;
 			num26 = ((num26 <= 32768L) ? ((num26 >= -32768L) ? num26 : (-32768L)) : 32768L);
@@ -341,11 +341,11 @@ internal static partial class powf
 			llvm_lifetime_start_p0.Invoke(8L, &x3);
 			x3 = num25 * num25;
 			llvm_lifetime_start_p0.Invoke(8L, &a2);
-			a2 = fputil_multiply_add_double_double_double.Invoke(num25, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, sizeof(double))), *(double*)(&inlineArray6_Double2));
+			a2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num25, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, sizeof(double))), *(double*)(&inlineArray6_Double2));
 			llvm_lifetime_start_p0.Invoke(8L, &a_yc74sk2);
-			a_yc74sk2 = fputil_multiply_add_double_double_double.Invoke(num25, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)3 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)2 * sizeof(double))));
+			a_yc74sk2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num25, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)3 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)2 * sizeof(double))));
 			llvm_lifetime_start_p0.Invoke(8L, &a_ijazrn2);
-			a_ijazrn2 = fputil_multiply_add_double_double_double.Invoke(num25, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)5 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)4 * sizeof(double))));
+			a_ijazrn2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num25, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)5 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double2, (nint)4 * sizeof(double))));
 			llvm_lifetime_start_p0.Invoke(8L, &num32);
 			num32 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double.Invoke(x3, a2, a_yc74sk2, a_ijazrn2);
 			llvm_lifetime_start_p0.Invoke(8L, &num33);
@@ -354,13 +354,13 @@ internal static partial class powf
 			num34 = cpp_enable_if_sizeof_unsigned_long_sizeof_double_cpp_is_trivially_constructible_unsigned_long_value_cpp_is_trivially_copyable_unsigned_long_value_cpp_is_trivially_copyable_double_value_unsigned_long_type_cpp_bit_cast_unsigned_long_double_double_const.Invoke(&num33);
 			llvm_lifetime_start_p0.Invoke(4L, &num35);
 			llvm_lifetime_start_p0.Invoke(8L, &num36);
-			num36 = num34 + 64L;
+			num36 = num34 + 128L;
 			float num55 = (float)cpp_enable_if_sizeof_double_sizeof_unsigned_long_cpp_is_trivially_constructible_double_value_cpp_is_trivially_copyable_double_value_cpp_is_trivially_copyable_unsigned_long_value_double_type_cpp_bit_cast_double_unsigned_long_unsigned_long_const.Invoke(&num36);
 			llvm_lifetime_end_p0.Invoke(8L, &num36);
 			num35 = num55;
 			llvm_lifetime_start_p0.Invoke(4L, &num37);
 			llvm_lifetime_start_p0.Invoke(8L, &num38);
-			num38 = num34 - 64L;
+			num38 = num34 - 128L;
 			float num56 = (float)cpp_enable_if_sizeof_double_sizeof_unsigned_long_cpp_is_trivially_constructible_double_value_cpp_is_trivially_copyable_double_value_cpp_is_trivially_copyable_unsigned_long_value_double_type_cpp_bit_cast_double_unsigned_long_unsigned_long_const.Invoke(&num38);
 			llvm_lifetime_end_p0.Invoke(8L, &num38);
 			num37 = num56;
@@ -453,9 +453,9 @@ internal static partial class powf
 			llvm_lifetime_end_p0.Invoke(4L, &num16);
 			llvm_lifetime_end_p0.Invoke(4L, &num15);
 			llvm_lifetime_end_p0.Invoke(8L, &num14);
-			goto IL_170b;
+			goto IL_170f;
 		}
-		IL_172d:
+		IL_1731:
 		llvm_lifetime_end_p0.Invoke(4L, &num4);
 		llvm_lifetime_end_p0.Invoke(4L, &num3);
 		llvm_lifetime_end_p0.Invoke(4L, &num2);
@@ -601,7 +601,7 @@ internal static partial class powf
 			{
 				result = 1f;
 			}
-			goto IL_170b;
+			goto IL_170f;
 		}
 		IL_0c82:
 		llvm_lifetime_end_p0.Invoke(1L, &b);
@@ -610,7 +610,7 @@ internal static partial class powf
 		case 0:
 			break;
 		default:
-			goto IL_170b;
+			goto IL_170f;
 		}
 		goto IL_0ca4;
 	}

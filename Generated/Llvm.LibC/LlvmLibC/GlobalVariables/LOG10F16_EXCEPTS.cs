@@ -31,7 +31,7 @@ internal static partial class LOG10F16_EXCEPTS
 	{
 		Value = new fputil_ExceptValues_dwtyzi
 		{
-			values = new InlineArrayBuilder<InlineArray11_fputil_ExceptValues_Float16_21_Mapping, fputil_ExceptValues_Float16_21_Mapping>
+			values = new InlineArrayBuilder<InlineArray17_fputil_ExceptValues_Float16_21_Mapping, fputil_ExceptValues_Float16_21_Mapping>
 			{
 				new fputil_ExceptValues_Float16_21_Mapping
 				{
@@ -45,6 +45,14 @@ internal static partial class LOG10F16_EXCEPTS
 				{
 					input = 13304,
 					rnd_towardzero_result = -18220,
+					rnd_upward_offset = 0,
+					rnd_downward_offset = 1,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 14565,
+					rnd_towardzero_result = -19757,
 					rnd_upward_offset = 0,
 					rnd_downward_offset = 1,
 					rnd_tonearest_offset = 1
@@ -71,6 +79,46 @@ internal static partial class LOG10F16_EXCEPTS
 					rnd_towardzero_result = -24137,
 					rnd_upward_offset = 0,
 					rnd_downward_offset = 1,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 15310,
+					rnd_towardzero_result = -24194,
+					rnd_upward_offset = 0,
+					rnd_downward_offset = 1,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 15350,
+					rnd_towardzero_result = -26534,
+					rnd_upward_offset = 0,
+					rnd_downward_offset = 1,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 15358,
+					rnd_towardzero_result = -28941,
+					rnd_upward_offset = 0,
+					rnd_downward_offset = 1,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 15581,
+					rnd_towardzero_result = 11630,
+					rnd_upward_offset = 1,
+					rnd_downward_offset = 0,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 16635,
+					rnd_towardzero_result = 13910,
+					rnd_upward_offset = 1,
+					rnd_downward_offset = 0,
 					rnd_tonearest_offset = 1
 				},
 				new fputil_ExceptValues_Float16_21_Mapping

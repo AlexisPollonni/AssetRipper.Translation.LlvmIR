@@ -4,6 +4,7 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 32)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_7ComplexIgEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::Complex")]
 [DemangledName("__llvm_libc_20_1_2_::Complex")]
 [CleanName("Complex")]

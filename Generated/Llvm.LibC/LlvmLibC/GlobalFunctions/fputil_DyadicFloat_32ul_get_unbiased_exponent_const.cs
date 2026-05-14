@@ -9,6 +9,6 @@ internal static partial class fputil_DyadicFloat_32ul_get_unbiased_exponent_cons
 {
 	public unsafe static int Invoke(void* @this)
 	{
-		return unchecked((int)(((fputil_DyadicFloat_c8qpxg*)@this)->exponent + 31L));
+		return unchecked((int)(((fputil_DyadicFloat_cs3nhs*)@this)->exponent + 31L));
 	}
 }

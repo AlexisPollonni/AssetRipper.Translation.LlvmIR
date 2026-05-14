@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::get_positive_blocks()")]
 internal static partial class FloatToString_float_0_get_positive_blocks
 {
-	public unsafe static long Invoke(FloatToString_uyiqeh* @this)
+	public unsafe static long Invoke(FloatToString_vnf553* @this)
 	{
 		int num = 0;
 		unchecked

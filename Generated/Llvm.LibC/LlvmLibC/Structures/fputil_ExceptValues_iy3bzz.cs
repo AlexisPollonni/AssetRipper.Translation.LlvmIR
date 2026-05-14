@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 120)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm12EEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::fputil::ExceptValues.0")]
 [DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues")]
 [CleanName("fputil_ExceptValues")]

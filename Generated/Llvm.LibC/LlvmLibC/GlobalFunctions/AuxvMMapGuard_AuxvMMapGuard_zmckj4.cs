@@ -12,9 +12,9 @@ internal static partial class AuxvMMapGuard_AuxvMMapGuard_zmckj4
 	{
 		unchecked
 		{
-			if (((anon_589mcc*)@this)->field_0 != (void*)(-1L))
+			if (((anon_5uk363*)@this)->field_0 != (void*)(-1L))
 			{
-				((delegate*<void*, long, int>)munmap.__pointer)(((anon_589mcc*)@this)->field_0, 1024L);
+				((delegate*<void*, long, int>)munmap.__pointer)(((anon_5uk363*)@this)->field_0, 1024L);
 			}
 		}
 	}

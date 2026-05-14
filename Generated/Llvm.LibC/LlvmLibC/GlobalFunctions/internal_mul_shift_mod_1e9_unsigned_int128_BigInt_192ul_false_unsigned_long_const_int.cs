@@ -17,7 +17,7 @@ internal static partial class internal_mul_shift_mod_1e9_unsigned_int128_BigInt_
 		BigInt_76gxx6 bigInt_76gxx2 = default(BigInt_76gxx6);
 		BigInt_76gxx6 bigInt_76gxx3 = default(BigInt_76gxx6);
 		BigInt_76gxx6 bigInt_76gxx4 = default(BigInt_76gxx6);
-		cpp_optional_w3bnnt cpp_optional_w3bnnt2 = default(cpp_optional_w3bnnt);
+		cpp_optional_t82b4p cpp_optional_t82b4p2 = default(cpp_optional_t82b4p);
 		unchecked
 		{
 			*(long*)(&@int) = mantissa;
@@ -31,7 +31,7 @@ internal static partial class internal_mul_shift_mod_1e9_unsigned_int128_BigInt_
 			((long*)ptr)[2] = -6148914691236517206L;
 			((long*)ptr)[3] = -6148914691236517206L;
 			((long*)ptr)[4] = -6148914691236517206L;
-			BigInt_320ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_const.Invoke(&bigInt_76gxx, (BigInt_ghrwnp*)shift_amount);
+			BigInt_320ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_const.Invoke(&bigInt_76gxx, (BigInt_khh67p*)shift_amount);
 			llvm_lifetime_start_p0.Invoke(40L, &bigInt_76gxx2);
 			llvm_lifetime_start_p0.Invoke(40L, &bigInt_76gxx3);
 			llvm_lifetime_start_p0.Invoke(40L, &bigInt_76gxx4);
@@ -43,10 +43,10 @@ internal static partial class internal_mul_shift_mod_1e9_unsigned_int128_BigInt_
 			llvm_lifetime_end_p0.Invoke(40L, &bigInt_76gxx4);
 			llvm_lifetime_end_p0.Invoke(40L, &bigInt_76gxx3);
 			llvm_lifetime_end_p0.Invoke(40L, &bigInt_76gxx2);
-			llvm_lifetime_start_p0.Invoke(48L, &cpp_optional_w3bnnt2);
-			BigInt_320ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long.Invoke(&cpp_optional_w3bnnt2, &bigInt_76gxx, 1000000000, 0L);
-			int result = BigInt_320ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const.Invoke(cpp_optional_BigInt_320ul_false_unsigned_long_value.Invoke(&cpp_optional_w3bnnt2));
-			llvm_lifetime_end_p0.Invoke(48L, &cpp_optional_w3bnnt2);
+			llvm_lifetime_start_p0.Invoke(48L, &cpp_optional_t82b4p2);
+			BigInt_320ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long.Invoke(&cpp_optional_t82b4p2, &bigInt_76gxx, 1000000000, 0L);
+			int result = BigInt_320ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const.Invoke(cpp_optional_BigInt_320ul_false_unsigned_long_value.Invoke(&cpp_optional_t82b4p2));
+			llvm_lifetime_end_p0.Invoke(48L, &cpp_optional_t82b4p2);
 			llvm_lifetime_end_p0.Invoke(40L, &bigInt_76gxx);
 			return result;
 		}

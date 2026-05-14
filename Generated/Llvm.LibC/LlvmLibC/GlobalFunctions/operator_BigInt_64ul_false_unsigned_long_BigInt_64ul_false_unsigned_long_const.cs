@@ -8,9 +8,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::operator|=(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 internal static partial class operator_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const
 {
-	public unsafe static long Invoke(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static long Invoke(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
-		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
+		BigInt_555ggs bigInt_555ggs = default(BigInt_555ggs);
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
@@ -21,8 +21,8 @@ internal static partial class operator_BigInt_64ul_false_unsigned_long_BigInt_64
 				*(long*)BigInt_64ul_false_unsigned_long_operator_unsigned_long_kztvyk.Invoke(lhs, num) |= num2;
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &num);
-			llvm_memcpy_p0_p0_i64.Invoke(&bigInt_nx6qdt, lhs, 8L, isVolatile: false);
-			return *(long*)(&bigInt_nx6qdt.val.Data);
+			llvm_memcpy_p0_p0_i64.Invoke(&bigInt_555ggs, lhs, 8L, isVolatile: false);
+			return *(long*)(&bigInt_555ggs.val.Data);
 		}
 	}
 }

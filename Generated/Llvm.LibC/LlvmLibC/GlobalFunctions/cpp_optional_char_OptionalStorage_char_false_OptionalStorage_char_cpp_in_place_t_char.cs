@@ -12,7 +12,7 @@ internal static partial class cpp_optional_char_OptionalStorage_char_false_Optio
 	{
 		unchecked
 		{
-			anon_589mcc* field = &((cpp_optional_char_OptionalStorage*)@this)->field;
+			anon_5uk363* field = &((cpp_optional_char_OptionalStorage*)@this)->field;
 			*(IntPtr*)field = *(IntPtr*)char_cpp_forward_char_cpp_remove_reference_char_type.Invoke(args);
 			((cpp_optional_char_OptionalStorage*)@this)->in_use = 0;
 		}

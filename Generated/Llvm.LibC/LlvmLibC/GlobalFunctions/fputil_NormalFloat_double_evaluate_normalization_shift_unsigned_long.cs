@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::evaluate_normalization_shift(unsigned long)")]
 internal static partial class fputil_NormalFloat_double_evaluate_normalization_shift_unsigned_long
 {
-	public unsafe static int Invoke(fputil_NormalFloat_n2h9ta* @this, long m)
+	public unsafe static int Invoke(fputil_NormalFloat_vc4yvk* @this, long m)
 	{
 		int num = 0;
 		long num2 = m;

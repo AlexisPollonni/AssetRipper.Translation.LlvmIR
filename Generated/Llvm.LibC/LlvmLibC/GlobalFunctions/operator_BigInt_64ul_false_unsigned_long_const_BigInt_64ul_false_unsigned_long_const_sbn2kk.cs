@@ -10,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const")]
 internal static partial class operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sbn2kk
 {
-	public unsafe static bool Invoke(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static bool Invoke(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		bool result = false;
 		long num = 0L;

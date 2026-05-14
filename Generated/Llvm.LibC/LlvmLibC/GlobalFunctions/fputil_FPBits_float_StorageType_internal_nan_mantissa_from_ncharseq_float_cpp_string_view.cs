@@ -12,7 +12,7 @@ internal static partial class fputil_FPBits_float_StorageType_internal_nan_manti
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		int num = 0;
-		StrToNumResult_yrtfty strToNumResult_yrtfty = default(StrToNumResult_yrtfty);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		unchecked
 		{
 			*(void**)(&cpp_string_view2) = ncharseq;
@@ -21,26 +21,26 @@ internal static partial class fputil_FPBits_float_StorageType_internal_nan_manti
 			num = 0;
 			if (cpp_string_view_data_const.Invoke(&cpp_string_view2) != null && internal_isdigit_int_25.Invoke(*(sbyte*)cpp_string_view_operator_unsigned_long_const.Invoke(&cpp_string_view2, 0L)))
 			{
-				llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_yrtfty);
-				*(int*)(&strToNumResult_yrtfty) = -1431655766;
-				((int*)(&strToNumResult_yrtfty))[1] = -1431655766;
-				((long*)(&strToNumResult_yrtfty))[1] = -6148914691236517206L;
+				llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_imtnam);
+				*(int*)(&strToNumResult_imtnam) = -1431655766;
+				((int*)(&strToNumResult_imtnam))[1] = -1431655766;
+				((long*)(&strToNumResult_imtnam))[1] = -6148914691236517206L;
 				Struct_fiz2nb struct_fiz2nb = StrToNumResult_unsigned_int_internal_strtointeger_unsigned_int_char_const_int_unsigned_long.Invoke(cpp_string_view_data_const.Invoke(&cpp_string_view2), 0, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
-				StrToNumResult_yrtfty* num2 = &strToNumResult_yrtfty;
+				StrToNumResult_imtnam* num2 = &strToNumResult_imtnam;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 				*(long*)num2 = struct_fiz2nb2.field_0;
-				byte* num3 = (byte*)(&strToNumResult_yrtfty) + 8u;
+				byte* num3 = (byte*)(&strToNumResult_imtnam) + 8u;
 				Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 				*(long*)num3 = struct_fiz2nb3.field_1;
-				if (!StrToNumResult_unsigned_int_has_error.Invoke(&strToNumResult_yrtfty))
+				if (!StrToNumResult_unsigned_int_has_error.Invoke(&strToNumResult_imtnam))
 				{
-					num = strToNumResult_yrtfty.value;
+					num = strToNumResult_imtnam.value;
 				}
-				if (strToNumResult_yrtfty.parsed_len != cpp_string_view_size_const.Invoke(&cpp_string_view2))
+				if (strToNumResult_imtnam.parsed_len != cpp_string_view_size_const.Invoke(&cpp_string_view2))
 				{
 					num = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_yrtfty);
+				llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_imtnam);
 			}
 			int result = num;
 			llvm_lifetime_end_p0.Invoke(4L, &num);

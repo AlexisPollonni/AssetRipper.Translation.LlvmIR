@@ -9,7 +9,7 @@ internal static partial class cpp_optional_double_OptionalStorage_double_false_O
 {
 	public unsafe static void Invoke(cpp_optional_double_OptionalStorage* @this, void* args)
 	{
-		anon_6i3r2b* field = &@this->field;
+		anon_prxz47* field = &@this->field;
 		unchecked
 		{
 			*(double*)field = *(double*)double_cpp_forward_double_cpp_remove_reference_double_type.Invoke(args);

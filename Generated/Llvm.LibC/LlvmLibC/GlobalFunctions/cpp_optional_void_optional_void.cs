@@ -11,8 +11,8 @@ internal static partial class cpp_optional_void_optional_void
 	{
 		unchecked
 		{
-			cpp_optional_void_OptionalStorage_void_false_OptionalStorage_void_cpp_in_place_t_void.Invoke(&((cpp_optional_e5s7qx*)@this)->storage, cpp_remove_reference_void_type_cpp_move_void_void.Invoke(t));
-			((cpp_optional_e5s7qx*)@this)->storage.in_use = 1;
+			cpp_optional_void_OptionalStorage_void_false_OptionalStorage_void_cpp_in_place_t_void.Invoke(&((cpp_optional_77yu8f*)@this)->storage, cpp_remove_reference_void_type_cpp_move_void_void.Invoke(t));
+			((cpp_optional_77yu8f*)@this)->storage.in_use = 1;
 		}
 	}
 }

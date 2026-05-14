@@ -16,7 +16,7 @@ internal static partial class double_fputil_logb_double_0_double
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm4 = default(fputil_FPBits_wjhbrm);
 		anon_izyfb7 anon_izyfb9 = default(anon_izyfb7);
-		fputil_DyadicFloat_374hpp fputil_DyadicFloat_374hpp2 = default(fputil_DyadicFloat_374hpp);
+		fputil_DyadicFloat_syracv fputil_DyadicFloat_syracv2 = default(fputil_DyadicFloat_syracv);
 		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 		unchecked
 		{
@@ -55,17 +55,17 @@ internal static partial class double_fputil_logb_double_0_double
 			}
 			else
 			{
-				llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
-				*(sbyte*)(&fputil_DyadicFloat_374hpp2) = -86;
-				sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_374hpp2) + 1;
+				llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
+				*(sbyte*)(&fputil_DyadicFloat_syracv2) = -86;
+				sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_syracv2) + 1;
 				*ptr = -86;
 				ptr[1] = -86;
 				ptr[2] = -86;
-				((int*)(&fputil_DyadicFloat_374hpp2))[1] = -1431655766;
-				((long*)(&fputil_DyadicFloat_374hpp2))[1] = -6148914691236517206L;
-				fputil_DyadicFloat_64ul_DyadicFloat_double_0_double.Invoke(&fputil_DyadicFloat_374hpp2, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
-				result = fputil_DyadicFloat_64ul_get_unbiased_exponent_const.Invoke(&fputil_DyadicFloat_374hpp2);
-				llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
+				((int*)(&fputil_DyadicFloat_syracv2))[1] = -1431655766;
+				((long*)(&fputil_DyadicFloat_syracv2))[1] = -6148914691236517206L;
+				fputil_DyadicFloat_64ul_DyadicFloat_double_0_double.Invoke(&fputil_DyadicFloat_syracv2, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
+				result = fputil_DyadicFloat_64ul_get_unbiased_exponent_const.Invoke(&fputil_DyadicFloat_syracv2);
+				llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 			return result;

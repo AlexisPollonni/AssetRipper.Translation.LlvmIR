@@ -33,13 +33,13 @@ internal static partial class range_reduction_small_double_NumberPair_double
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = fputil_nearest_integer_double.Invoke(x2);
 			llvm_lifetime_start_p0.Invoke(8L, &num3);
-			num3 = fputil_multiply_add_double_double_double.Invoke(num2, *(double*)(&inlineArray3_Double), x);
-			u->hi = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, sizeof(double))), num3);
+			num3 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, *(double*)(&inlineArray3_Double), x);
+			u->hi = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, sizeof(double))), num3);
 			llvm_lifetime_start_p0.Invoke(8L, &z);
 			z = num3 - u->hi;
 			llvm_lifetime_start_p0.Invoke(8L, &z2);
-			z2 = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, sizeof(double))), z);
-			u->lo = fputil_multiply_add_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, (nint)2 * sizeof(double))), z2);
+			z2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, sizeof(double))), z);
+			u->lo = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, Unsafe.As<InlineArray3_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray3_Double, (nint)2 * sizeof(double))), z2);
 			int result = (int)(long)num2;
 			llvm_lifetime_end_p0.Invoke(8L, &z2);
 			llvm_lifetime_end_p0.Invoke(8L, &z);

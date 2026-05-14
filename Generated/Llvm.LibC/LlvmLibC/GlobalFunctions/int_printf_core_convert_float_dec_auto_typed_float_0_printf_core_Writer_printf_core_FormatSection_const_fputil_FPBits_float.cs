@@ -19,7 +19,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 		int num3 = 0;
 		int num4 = 0;
 		int num5 = 0;
-		FloatToString_uyiqeh floatToString_uyiqeh = default(FloatToString_uyiqeh);
+		FloatToString_vnf553 floatToString_vnf = default(FloatToString_vnf553);
 		int num6 = 0;
 		int num7 = 0;
 		printf_core_FormatSection printf_core_FormatSection2 = default(printf_core_FormatSection);
@@ -75,10 +75,10 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 			num4 = 0;
 			llvm_lifetime_start_p0.Invoke(4L, &num5);
 			num5 = num3 - 1;
-			llvm_lifetime_start_p0.Invoke(32L, &floatToString_uyiqeh);
-			*(int*)(&floatToString_uyiqeh) = -1431655766;
-			((int*)(&floatToString_uyiqeh))[1] = -1431655766;
-			sbyte* ptr = (sbyte*)(&floatToString_uyiqeh) + 8;
+			llvm_lifetime_start_p0.Invoke(32L, &floatToString_vnf);
+			*(int*)(&floatToString_vnf) = -1431655766;
+			((int*)(&floatToString_vnf))[1] = -1431655766;
+			sbyte* ptr = (sbyte*)(&floatToString_vnf) + 8;
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
@@ -87,11 +87,11 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 			ptr[5] = -86;
 			ptr[6] = -86;
 			ptr[7] = -86;
-			*(Int128*)((byte*)(&floatToString_uyiqeh) + 16) = -6148914691236517206L;
-			FloatToString_float_0_FloatToString_float.Invoke(&floatToString_uyiqeh, fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2));
+			*(Int128*)((byte*)(&floatToString_vnf) + 16) = -6148914691236517206L;
+			FloatToString_float_0_FloatToString_float.Invoke(&floatToString_vnf, fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(4L, &num6);
 			num6 = -1431655766;
-			num6 = (int)((num2 >= 0) ? FloatToString_float_0_get_positive_blocks.Invoke(&floatToString_uyiqeh) : checked(-unchecked((int)FloatToString_float_0_zero_blocks_after_point.Invoke(&floatToString_uyiqeh))));
+			num6 = (int)((num2 >= 0) ? FloatToString_float_0_get_positive_blocks.Invoke(&floatToString_vnf) : checked(-unchecked((int)FloatToString_float_0_zero_blocks_after_point.Invoke(&floatToString_vnf))));
 			llvm_lifetime_start_p0.Invoke(4L, &num7);
 			num7 = 0;
 			int result;
@@ -100,7 +100,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 				while (num7 == 0)
 				{
 					num6 = checked(num6 + -1);
-					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 				}
 				llvm_lifetime_start_p0.Invoke(8L, &num8);
 				llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc);
@@ -186,7 +186,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 				}
 				while ((ulong)(num9 + 9L) < (ulong)(uint)(num5 + 1))
 				{
-					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+					num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 					num9 += 9L;
 					switch (num7)
 					{
@@ -223,7 +223,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 					}
 					num6 = checked(num6 + -1);
 				}
-				num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+				num7 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 				llvm_lifetime_start_p0.Invoke(8L, &num15);
 				num15 = 9L;
 				llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc3);
@@ -326,7 +326,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 				{
 					num6 = checked(num6 + -1);
 					llvm_lifetime_start_p0.Invoke(4L, &num21);
-					num21 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, num6);
+					num21 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, num6);
 					num20 = (int)((uint)num21 / 100000000u);
 					if ((uint)num21 % 100000000u != 0)
 					{
@@ -346,7 +346,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 							for (k = num6 - 1; k >= 0; k += -1)
 							{
 								llvm_lifetime_start_p0.Invoke(4L, &num23);
-								num23 = FloatToString_float_0_get_block_int.Invoke(&floatToString_uyiqeh, k);
+								num23 = FloatToString_float_0_get_block_int.Invoke(&floatToString_vnf, k);
 								int num34;
 								if (num23 != 0)
 								{
@@ -502,7 +502,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_float
 			}
 			llvm_lifetime_end_p0.Invoke(4L, &num7);
 			llvm_lifetime_end_p0.Invoke(4L, &num6);
-			llvm_lifetime_end_p0.Invoke(32L, &floatToString_uyiqeh);
+			llvm_lifetime_end_p0.Invoke(32L, &floatToString_vnf);
 			llvm_lifetime_end_p0.Invoke(4L, &num5);
 			llvm_lifetime_end_p0.Invoke(4L, &num4);
 			llvm_lifetime_end_p0.Invoke(4L, &num3);

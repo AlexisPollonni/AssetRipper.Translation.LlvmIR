@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::operator float() const")]
 internal static partial class fputil_NormalFloat_float_operator_float_const
 {
-	public unsafe static float Invoke(fputil_NormalFloat_i65f6x* @this)
+	public unsafe static float Invoke(fputil_NormalFloat_phu2qv* @this)
 	{
 		int num = 0;
 		int num2 = 0;

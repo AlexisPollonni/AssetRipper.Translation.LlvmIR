@@ -9,6 +9,6 @@ internal static partial class AuxvMMapGuard_get_const
 {
 	public unsafe static void* Invoke(void* @this)
 	{
-		return unchecked((anon_589mcc*)@this)->field_0;
+		return unchecked((anon_5uk363*)@this)->field_0;
 	}
 }

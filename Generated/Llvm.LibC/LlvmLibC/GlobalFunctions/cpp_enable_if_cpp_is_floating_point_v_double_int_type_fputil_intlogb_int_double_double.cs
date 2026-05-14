@@ -12,7 +12,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_int_t
 	public unsafe static int Invoke(double x)
 	{
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
-		fputil_DyadicFloat_374hpp fputil_DyadicFloat_374hpp2 = default(fputil_DyadicFloat_374hpp);
+		fputil_DyadicFloat_syracv fputil_DyadicFloat_syracv2 = default(fputil_DyadicFloat_syracv);
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 		unchecked
@@ -28,17 +28,17 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_int_t
 			}
 			else
 			{
-				llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
-				*(sbyte*)(&fputil_DyadicFloat_374hpp2) = -86;
-				sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_374hpp2) + 1;
+				llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
+				*(sbyte*)(&fputil_DyadicFloat_syracv2) = -86;
+				sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_syracv2) + 1;
 				*ptr = -86;
 				ptr[1] = -86;
 				ptr[2] = -86;
-				((int*)(&fputil_DyadicFloat_374hpp2))[1] = -1431655766;
-				((long*)(&fputil_DyadicFloat_374hpp2))[1] = -6148914691236517206L;
-				fputil_DyadicFloat_64ul_DyadicFloat_double_0_double.Invoke(&fputil_DyadicFloat_374hpp2, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
+				((int*)(&fputil_DyadicFloat_syracv2))[1] = -1431655766;
+				((long*)(&fputil_DyadicFloat_syracv2))[1] = -6148914691236517206L;
+				fputil_DyadicFloat_64ul_DyadicFloat_double_0_double.Invoke(&fputil_DyadicFloat_syracv2, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
 				llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = fputil_DyadicFloat_64ul_get_unbiased_exponent_const.Invoke(&fputil_DyadicFloat_374hpp2);
+				num = fputil_DyadicFloat_64ul_get_unbiased_exponent_const.Invoke(&fputil_DyadicFloat_syracv2);
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((num <= int.MaxValue) ? (num < int.MinValue) : true, expected: false))
 				{
 					fputil_set_errno_if_required_int.Invoke(34);
@@ -50,7 +50,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_int_t
 					result = num;
 				}
 				llvm_lifetime_end_p0.Invoke(4L, &num);
-				llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
+				llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 			return result;

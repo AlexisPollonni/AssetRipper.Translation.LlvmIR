@@ -1,5 +1,4 @@
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
-using LlvmLibC.Intrinsics.Unimplemented;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -9,6 +8,6 @@ internal static partial class float_fputil_fma_float_float_float_float_float
 {
 	public static float Invoke(float x, float y, float z)
 	{
-		return llvm_fma_f32.Invoke(x, y, z);
+		return cpp_enable_if_cpp_is_floating_point_v_float_cpp_is_floating_point_v_float_sizeof_float_sizeof_float_float_type_fputil_generic_fma_float_float_float_float_float.Invoke(x, y, z);
 	}
 }

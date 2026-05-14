@@ -136,7 +136,7 @@ internal static partial class printf_core_convert_inf_nan_printf_core_Writer_pri
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num4);
 				void* ptr = writer;
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, (!internal_islower_int.Invoke(to_conv->conv_name)) ? str_1_164.Pointer : str_163.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, (!internal_islower_int.Invoke(to_conv->conv_name)) ? str_1_166.Pointer : str_165.Pointer);
 				num4 = printf_core_Writer_write_cpp_string_view.Invoke((printf_core_Writer*)ptr, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 				int num9;
 				if (num4 < 0)
@@ -161,7 +161,7 @@ internal static partial class printf_core_convert_inf_nan_printf_core_Writer_pri
 			{
 				llvm_lifetime_start_p0.Invoke(4L, &num5);
 				void* ptr2 = writer;
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view3, (!internal_islower_int.Invoke(to_conv->conv_name)) ? str_3_166.Pointer : str_2_165.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view3, (!internal_islower_int.Invoke(to_conv->conv_name)) ? str_3_168.Pointer : str_2_167.Pointer);
 				num5 = printf_core_Writer_write_cpp_string_view.Invoke((printf_core_Writer*)ptr2, *(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1]);
 				int num9;
 				if (num5 < 0)

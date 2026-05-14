@@ -24,7 +24,7 @@ internal static partial class StrToNumResult_internal_ExpandedFloat_double_inter
 		long num5 = 0L;
 		int num6 = 0;
 		sbyte b5 = 0;
-		StrToNumResult_yrtfty strToNumResult_yrtfty = default(StrToNumResult_yrtfty);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		int num7 = 0;
 		long num8 = 0L;
 		internal_FloatConvertReturn_g92bm8 internal_FloatConvertReturn_g92bm9 = default(internal_FloatConvertReturn_g92bm8);
@@ -69,10 +69,10 @@ internal static partial class StrToNumResult_internal_ExpandedFloat_double_inter
 			num5 = 1152921504606846975L;
 			while (true)
 			{
-				if (internal_isalnum_int_119.Invoke(((sbyte*)src)[num4]))
+				if (internal_isalnum_int_121.Invoke(((sbyte*)src)[num4]))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num6);
-					num6 = internal_b36_char_to_int_int_120.Invoke(((sbyte*)src)[num4]);
+					num6 = internal_b36_char_to_int_int_122.Invoke(((sbyte*)src)[num4]);
 					int num9;
 					if ((uint)num6 < 16u)
 					{
@@ -125,7 +125,7 @@ internal static partial class StrToNumResult_internal_ExpandedFloat_double_inter
 			if ((b3 & 1) == 1)
 			{
 				num3 = checked(num3 * 4);
-				if (internal_tolower_int_118.Invoke(((sbyte*)src)[num4]) == 112)
+				if (internal_tolower_int_120.Invoke(((sbyte*)src)[num4]) == 112)
 				{
 					llvm_lifetime_start_p0.Invoke(1L, &b5);
 					b5 = 0;
@@ -133,27 +133,27 @@ internal static partial class StrToNumResult_internal_ExpandedFloat_double_inter
 					{
 						b5 = 1;
 					}
-					if (internal_isdigit_int_121.Invoke(((sbyte*)src)[num4 + 1L + (((b5 & 1) == 1) ? 1L : 0L)]))
+					if (internal_isdigit_int_123.Invoke(((sbyte*)src)[num4 + 1L + (((b5 & 1) == 1) ? 1L : 0L)]))
 					{
 						num4++;
-						llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_yrtfty);
-						*(int*)(&strToNumResult_yrtfty) = -1431655766;
-						((int*)(&strToNumResult_yrtfty))[1] = -1431655766;
-						((long*)(&strToNumResult_yrtfty))[1] = -6148914691236517206L;
+						llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_imtnam);
+						*(int*)(&strToNumResult_imtnam) = -1431655766;
+						((int*)(&strToNumResult_imtnam))[1] = -1431655766;
+						((long*)(&strToNumResult_imtnam))[1] = -6148914691236517206L;
 						Struct_fiz2nb struct_fiz2nb = StrToNumResult_int_internal_strtointeger_int_char_const_int_unsigned_long.Invoke((byte*)src + num4, 10, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
-						StrToNumResult_yrtfty* num10 = &strToNumResult_yrtfty;
+						StrToNumResult_imtnam* num10 = &strToNumResult_imtnam;
 						Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 						*(long*)num10 = struct_fiz2nb2.field_0;
-						byte* num11 = (byte*)(&strToNumResult_yrtfty) + 8u;
+						byte* num11 = (byte*)(&strToNumResult_imtnam) + 8u;
 						Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 						*(long*)num11 = struct_fiz2nb3.field_1;
-						if (StrToNumResult_int_has_error.Invoke(&strToNumResult_yrtfty))
+						if (StrToNumResult_int_has_error.Invoke(&strToNumResult_imtnam))
 						{
-							agg_result->error = strToNumResult_yrtfty.error;
+							agg_result->error = strToNumResult_imtnam.error;
 						}
 						llvm_lifetime_start_p0.Invoke(4L, &num7);
-						num7 = strToNumResult_yrtfty.value;
-						long parsed_len = strToNumResult_yrtfty.parsed_len;
+						num7 = strToNumResult_imtnam.value;
+						long parsed_len = strToNumResult_imtnam.parsed_len;
 						num4 += parsed_len;
 						llvm_lifetime_start_p0.Invoke(8L, &num8);
 						checked
@@ -163,7 +163,7 @@ internal static partial class StrToNumResult_internal_ExpandedFloat_double_inter
 						num3 = (int)((num8 <= 2047L) ? ((num8 >= -2047L) ? num8 : (-2047)) : 2047);
 						llvm_lifetime_end_p0.Invoke(8L, &num8);
 						llvm_lifetime_end_p0.Invoke(4L, &num7);
-						llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_yrtfty);
+						llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_imtnam);
 					}
 					llvm_lifetime_end_p0.Invoke(1L, &b5);
 				}

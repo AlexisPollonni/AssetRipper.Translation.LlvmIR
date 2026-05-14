@@ -105,7 +105,7 @@ internal static partial class log2f16
 				*(Half*)ptr = default(Half);
 				ptr[2] = -86;
 				ptr[3] = -86;
-				int storage = fputil_ExceptValues_Float16_2ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: LOG2F16_EXCEPTS.Pointer);
+				int storage = fputil_ExceptValues_Float16_9ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: LOG2F16_EXCEPTS.Pointer);
 				*(int*)(&cpp_optional_aq7wey2.storage) = storage;
 				int num9;
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_Float16_has_value_const.Invoke(&cpp_optional_aq7wey2), expected: false))
@@ -147,7 +147,7 @@ internal static partial class log2f16
 					llvm_lifetime_start_p0.Invoke(4L, &x2);
 					x2 = (float)fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva2);
 					llvm_lifetime_start_p0.Invoke(4L, &num6);
-					num6 = fputil_multiply_add_float_float_float.Invoke(x2, *(float*)cpp_array_float_32ul_operator_unsigned_long_const.Invoke(Index: num5, @this: ONE_OVER_F_F_9.Pointer), -1f);
+					num6 = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x2, *(float*)cpp_array_float_32ul_operator_unsigned_long_const.Invoke(Index: num5, @this: ONE_OVER_F_F_9.Pointer), -1f);
 					llvm_lifetime_start_p0.Invoke(4L, &num7);
 					num7 = num6 * cpp_enable_if_sizeof_float_8ul_float_type_fputil_polyeval_float_float_float_float_float_float_float.Invoke(num6, 1.442695f, -0.7216118f, 0.4811537f);
 					llvm_lifetime_start_p0.Invoke(4L, &num8);

@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::zero_blocks_after_point()")]
 internal static partial class FloatToString_float_0_zero_blocks_after_point
 {
-	public unsafe static long Invoke(FloatToString_uyiqeh* @this)
+	public unsafe static long Invoke(FloatToString_vnf553* @this)
 	{
 		unchecked
 		{

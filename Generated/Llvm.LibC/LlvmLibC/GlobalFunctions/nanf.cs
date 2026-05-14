@@ -8,26 +8,26 @@ internal static partial class nanf
 {
 	public unsafe static float Invoke(void* arg)
 	{
-		StrToNumResult_jptppf strToNumResult_jptppf = default(StrToNumResult_jptppf);
-		llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_jptppf);
+		StrToNumResult_cqc3yy strToNumResult_cqc3yy = default(StrToNumResult_cqc3yy);
+		llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_cqc3yy);
 		unchecked
 		{
-			*(float*)(&strToNumResult_jptppf) = float.NaN;
-			((int*)(&strToNumResult_jptppf))[1] = -1431655766;
-			((long*)(&strToNumResult_jptppf))[1] = -6148914691236517206L;
+			*(float*)(&strToNumResult_cqc3yy) = float.NaN;
+			((int*)(&strToNumResult_cqc3yy))[1] = -1431655766;
+			((long*)(&strToNumResult_cqc3yy))[1] = -6148914691236517206L;
 			Struct_fiz2nb struct_fiz2nb = StrToNumResult_float_internal_strtonan_float_char_const.Invoke(arg);
-			StrToNumResult_jptppf* num = &strToNumResult_jptppf;
+			StrToNumResult_cqc3yy* num = &strToNumResult_cqc3yy;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num = struct_fiz2nb2.field_0;
-			byte* num2 = (byte*)(&strToNumResult_jptppf) + 8u;
+			byte* num2 = (byte*)(&strToNumResult_cqc3yy) + 8u;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			*(long*)num2 = struct_fiz2nb3.field_1;
-			if (StrToNumResult_float_has_error.Invoke(&strToNumResult_jptppf))
+			if (StrToNumResult_float_has_error.Invoke(&strToNumResult_cqc3yy))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_jptppf.error, @this: libc_errno.Pointer);
+				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_cqc3yy.error, @this: libc_errno.Pointer);
 			}
-			float value = strToNumResult_jptppf.value;
-			llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_jptppf);
+			float value = strToNumResult_cqc3yy.value;
+			llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_cqc3yy);
 			return value;
 		}
 	}

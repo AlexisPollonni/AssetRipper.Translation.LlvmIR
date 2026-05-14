@@ -42,7 +42,7 @@ internal static partial class printf_core_vfprintf_internal_IO_FILE_char_const_i
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
 			num2 = printf_core_printf_main_printf_core_Writer_char_const_internal_ArgList.Invoke(&printf_core_Writer2, format, args);
 			llvm_lifetime_start_p0.Invoke(4L, &num3);
-			cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, str_116.Pointer);
+			cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, str_118.Pointer);
 			num3 = printf_core_WriteBuffer_overflow_write_cpp_string_view.Invoke(&printf_core_WriteBuffer2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 			if (num3 != 0)
 			{

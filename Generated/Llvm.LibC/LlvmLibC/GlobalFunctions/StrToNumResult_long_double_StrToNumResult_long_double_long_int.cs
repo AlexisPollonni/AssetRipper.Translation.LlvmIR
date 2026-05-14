@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_long_double_StrToNumResult_long_dou
 	{
 		unchecked
 		{
-			((StrToNumResult_6sg7zz*)@this)->value = value;
-			((StrToNumResult_6sg7zz*)@this)->error = error;
-			((StrToNumResult_6sg7zz*)@this)->parsed_len = parsed_len;
+			((StrToNumResult_uytq62*)@this)->value = value;
+			((StrToNumResult_uytq62*)@this)->error = error;
+			((StrToNumResult_uytq62*)@this)->parsed_len = parsed_len;
 		}
 	}
 }

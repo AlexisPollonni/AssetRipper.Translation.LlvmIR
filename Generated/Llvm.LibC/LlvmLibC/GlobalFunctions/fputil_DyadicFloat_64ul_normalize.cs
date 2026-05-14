@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::normalize()")]
 internal static partial class fputil_DyadicFloat_64ul_normalize
 {
-	public unsafe static fputil_DyadicFloat_374hpp* Invoke(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static fputil_DyadicFloat_syracv* Invoke(fputil_DyadicFloat_syracv* @this)
 	{
 		int num = 0;
 		if (!BigInt_64ul_false_unsigned_long_is_zero_const.Invoke(&@this->mantissa))

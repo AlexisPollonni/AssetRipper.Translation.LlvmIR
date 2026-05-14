@@ -73,7 +73,7 @@ internal static partial class cospif16
 				llvm_lifetime_start_p0.Invoke(4L, &y);
 				y = float.NaN;
 				sincospif16_eval_float_float_float_float_float.Invoke(xf, &num3, &num4, &num5, &y);
-				result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num5 == 0f && num4 == 0f, expected: false)) ? cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(fputil_multiply_add_float_float_float.Invoke(num4, y, fputil_multiply_add_float_float_float.Invoke(0f - num3, num5, num4))) : cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(0f));
+				result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num5 == 0f && num4 == 0f, expected: false)) ? cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num4, y, cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(0f - num3, num5, num4))) : cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(0f));
 				llvm_lifetime_end_p0.Invoke(4L, &y);
 				llvm_lifetime_end_p0.Invoke(4L, &num5);
 				llvm_lifetime_end_p0.Invoke(4L, &num4);

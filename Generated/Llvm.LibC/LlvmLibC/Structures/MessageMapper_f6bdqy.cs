@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 616)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_13MessageMapperILm32ELm487EEE")]
 [MangledName("class.__llvm_libc_20_1_2_::MessageMapper")]
 [DemangledName("__llvm_libc_20_1_2_::MessageMapper")]
 [CleanName("MessageMapper")]

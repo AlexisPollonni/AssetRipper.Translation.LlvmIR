@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 328)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_11printf_core6ParserINS_8internal7ArgListEEE")]
 [MangledName("class.__llvm_libc_20_1_2_::printf_core::Parser")]
 [DemangledName("__llvm_libc_20_1_2_::printf_core::Parser")]
 public partial struct printf_core_Parser

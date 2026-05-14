@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class EXP2M1F16_EXCEPTS_HI
 {
 	[FixedAddressValueType]
-	private static fputil_ExceptValues_susv2z __value;
+	private static fputil_ExceptValues_pcxpx6 __value;
 
-	public unsafe static fputil_ExceptValues_susv2z* Pointer => unchecked((fputil_ExceptValues_susv2z*)Unsafe.AsPointer(ref __value));
+	public unsafe static fputil_ExceptValues_pcxpx6* Pointer => unchecked((fputil_ExceptValues_pcxpx6*)Unsafe.AsPointer(ref __value));
 
-	public static fputil_ExceptValues_susv2z Value
+	public static fputil_ExceptValues_pcxpx6 Value
 	{
 		get
 		{
@@ -29,9 +29,9 @@ internal static partial class EXP2M1F16_EXCEPTS_HI
 
 	unsafe static EXP2M1F16_EXCEPTS_HI()
 	{
-		Value = new fputil_ExceptValues_susv2z
+		Value = new fputil_ExceptValues_pcxpx6
 		{
-			values = new InlineArrayBuilder<InlineArray6_fputil_ExceptValues_Float16_21_Mapping, fputil_ExceptValues_Float16_21_Mapping>
+			values = new InlineArrayBuilder<InlineArray7_fputil_ExceptValues_Float16_21_Mapping, fputil_ExceptValues_Float16_21_Mapping>
 			{
 				new fputil_ExceptValues_Float16_21_Mapping
 				{
@@ -43,19 +43,19 @@ internal static partial class EXP2M1F16_EXCEPTS_HI
 				},
 				new fputil_ExceptValues_Float16_21_Mapping
 				{
-					input = 14006,
-					rnd_towardzero_result = 13670,
+					input = 13498,
+					rnd_towardzero_result = 13125,
 					rnd_upward_offset = 1,
 					rnd_downward_offset = 0,
 					rnd_tonearest_offset = 0
 				},
 				new fputil_ExceptValues_Float16_21_Mapping
 				{
-					input = 14263,
-					rnd_towardzero_result = 13913,
+					input = 14006,
+					rnd_towardzero_result = 13670,
 					rnd_upward_offset = 1,
 					rnd_downward_offset = 0,
-					rnd_tonearest_offset = 1
+					rnd_tonearest_offset = 0
 				},
 				new fputil_ExceptValues_Float16_21_Mapping
 				{
@@ -77,6 +77,14 @@ internal static partial class EXP2M1F16_EXCEPTS_HI
 				{
 					input = -18267,
 					rnd_towardzero_result = -19124,
+					rnd_upward_offset = 0,
+					rnd_downward_offset = 1,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = -17779,
+					rnd_towardzero_result = -18707,
 					rnd_upward_offset = 0,
 					rnd_downward_offset = 1,
 					rnd_tonearest_offset = 1

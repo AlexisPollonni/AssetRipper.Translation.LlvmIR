@@ -82,9 +82,9 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 							goto IL_0b01;
 						}
 					}
-					else if (internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]))
+					else if (internal_isdigit_int_151.Invoke(((sbyte*)@this->str)[num]))
 					{
-						for (; internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]); num++)
+						for (; internal_isdigit_int_151.Invoke(((sbyte*)@this->str)[num]); num++)
 						{
 						}
 					}
@@ -117,9 +117,9 @@ internal static partial class printf_core_Parser_internal_ArgList_get_type_desc_
 								goto IL_0b01;
 							}
 						}
-						else if (internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]))
+						else if (internal_isdigit_int_151.Invoke(((sbyte*)@this->str)[num]))
 						{
-							for (; internal_isdigit_int_149.Invoke(((sbyte*)@this->str)[num]); num++)
+							for (; internal_isdigit_int_151.Invoke(((sbyte*)@this->str)[num]); num++)
 							{
 							}
 						}

@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::array<float, 31ul>::operator[](unsigned long) const")]
 internal static partial class cpp_array_float_31ul_operator_unsigned_long_const
 {
-	public unsafe static void* Invoke(cpp_array_fe7abs* @this, long Index)
+	public unsafe static void* Invoke(cpp_array_55dk65* @this, long Index)
 	{
 		return unchecked((byte*)(&@this->Data) + (nint)Index * sizeof(float));
 	}

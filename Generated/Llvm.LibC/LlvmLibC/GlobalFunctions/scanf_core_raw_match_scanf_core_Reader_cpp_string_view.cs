@@ -25,9 +25,9 @@ internal static partial class scanf_core_raw_match_scanf_core_Reader_cpp_string_
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			for (num2 = 0L; (ulong)num2 < (ulong)cpp_string_view_size_const.Invoke(&cpp_string_view2); num2++)
 			{
-				if (internal_isspace_int_146.Invoke(*(sbyte*)cpp_string_view_operator_unsigned_long_const.Invoke(&cpp_string_view2, num2)))
+				if (internal_isspace_int_148.Invoke(*(sbyte*)cpp_string_view_operator_unsigned_long_const.Invoke(&cpp_string_view2, num2)))
 				{
-					while (internal_isspace_int_146.Invoke(b))
+					while (internal_isspace_int_148.Invoke(b))
 					{
 						b = scanf_core_Reader_getc.Invoke(reader);
 					}

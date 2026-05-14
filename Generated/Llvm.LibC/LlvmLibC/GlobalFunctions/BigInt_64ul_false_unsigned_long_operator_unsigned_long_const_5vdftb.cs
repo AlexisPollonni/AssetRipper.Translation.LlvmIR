@@ -9,9 +9,9 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long_const")]
 internal static partial class BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_5vdftb
 {
-	public unsafe static long Invoke(BigInt_nx6qdt* @this, long s)
+	public unsafe static long Invoke(BigInt_555ggs* @this, long s)
 	{
-		BigInt_nx6qdt bigInt_nx6qdt = default(BigInt_nx6qdt);
+		BigInt_555ggs bigInt_555ggs = default(BigInt_555ggs);
 		cpp_array_rpgxvv cpp_array_rpgxvv2 = default(cpp_array_rpgxvv);
 		cpp_array_rpgxvv cpp_array_rpgxvv3 = default(cpp_array_rpgxvv);
 		llvm_lifetime_start_p0.Invoke(8L, &cpp_array_rpgxvv2);
@@ -20,9 +20,9 @@ internal static partial class BigInt_64ul_false_unsigned_long_operator_unsigned_
 		{
 			long data = cpp_array_unsigned_long_1ul_multiword_shift_multiword_Direction_1_false_unsigned_long_1ul_cpp_array_unsigned_long_1ul_unsigned_long.Invoke(*(long*)(&cpp_array_rpgxvv3.Data), s);
 			*(long*)(&cpp_array_rpgxvv2.Data) = data;
-			BigInt_64ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_1ul_const.Invoke(&bigInt_nx6qdt, &cpp_array_rpgxvv2);
+			BigInt_64ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_1ul_const.Invoke(&bigInt_555ggs, &cpp_array_rpgxvv2);
 			llvm_lifetime_end_p0.Invoke(8L, &cpp_array_rpgxvv2);
-			return *(long*)(&bigInt_nx6qdt.val.Data);
+			return *(long*)(&bigInt_555ggs.val.Data);
 		}
 	}
 }

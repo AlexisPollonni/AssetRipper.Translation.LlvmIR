@@ -33,7 +33,7 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_cpp_i
 		anon_izyfb7 anon_izyfb20 = default(anon_izyfb7);
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm6 = default(fputil_FPBits_wjhbrm);
 		anon_izyfb7 anon_izyfb21 = default(anon_izyfb7);
-		fputil_DyadicFloat_374hpp fputil_DyadicFloat_374hpp2 = default(fputil_DyadicFloat_374hpp);
+		fputil_DyadicFloat_syracv fputil_DyadicFloat_syracv2 = default(fputil_DyadicFloat_syracv);
 		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
 		double result;
 		unchecked
@@ -115,19 +115,19 @@ internal static partial class cpp_enable_if_cpp_is_floating_point_v_double_cpp_i
 				llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm5);
 				goto IL_04ed;
 			}
-			llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
-			*(sbyte*)(&fputil_DyadicFloat_374hpp2) = -86;
-			sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_374hpp2) + 1;
+			llvm_lifetime_start_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
+			*(sbyte*)(&fputil_DyadicFloat_syracv2) = -86;
+			sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_syracv2) + 1;
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
-			((int*)(&fputil_DyadicFloat_374hpp2))[1] = -1431655766;
-			((long*)(&fputil_DyadicFloat_374hpp2))[1] = -6148914691236517206L;
-			fputil_DyadicFloat_64ul_DyadicFloat_double_0_double.Invoke(&fputil_DyadicFloat_374hpp2, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
+			((int*)(&fputil_DyadicFloat_syracv2))[1] = -1431655766;
+			((long*)(&fputil_DyadicFloat_syracv2))[1] = -6148914691236517206L;
+			fputil_DyadicFloat_64ul_DyadicFloat_double_0_double.Invoke(&fputil_DyadicFloat_syracv2, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
 		}
-		fputil_DyadicFloat_374hpp2.exponent += unchecked((int)exp);
-		result = double_fputil_DyadicFloat_64ul_as_double_true_void_const.Invoke(&fputil_DyadicFloat_374hpp2);
-		llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_374hpp2);
+		fputil_DyadicFloat_syracv2.exponent += unchecked((int)exp);
+		result = double_fputil_DyadicFloat_64ul_as_double_true_void_const.Invoke(&fputil_DyadicFloat_syracv2);
+		llvm_lifetime_end_p0.Invoke(16L, &fputil_DyadicFloat_syracv2);
 		goto IL_05a8;
 		IL_0300:
 		llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb8);

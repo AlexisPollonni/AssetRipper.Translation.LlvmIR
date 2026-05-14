@@ -9,6 +9,6 @@ internal static partial class AuxvMMapGuard_allocated_const
 {
 	public unsafe static bool Invoke(void* @this)
 	{
-		return unchecked(((anon_589mcc*)@this)->field_0 != (void*)(-1L));
+		return unchecked(((anon_5uk363*)@this)->field_0 != (void*)(-1L));
 	}
 }

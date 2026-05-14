@@ -4,6 +4,7 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 24)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm128EEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::fputil::DyadicFloat")]
 [DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat")]
 [CleanName("fputil_DyadicFloat")]

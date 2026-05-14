@@ -7,6 +7,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 80)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_11printf_core13FormatSectionE")]
 [MangledName("struct.__llvm_libc_20_1_2_::printf_core::FormatSection")]
 [DemangledName("__llvm_libc_20_1_2_::printf_core::FormatSection")]
 public partial struct printf_core_FormatSection

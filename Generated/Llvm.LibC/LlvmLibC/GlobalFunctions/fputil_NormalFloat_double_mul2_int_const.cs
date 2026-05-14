@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::mul2(int) const")]
 internal static partial class fputil_NormalFloat_double_mul2_int_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] fputil_NormalFloat_n2h9ta* agg_result, fputil_NormalFloat_n2h9ta* @this, int e)
+	public unsafe static void Invoke([MangledName("agg.result")] fputil_NormalFloat_vc4yvk* agg_result, fputil_NormalFloat_vc4yvk* @this, int e)
 	{
 		unchecked
 		{

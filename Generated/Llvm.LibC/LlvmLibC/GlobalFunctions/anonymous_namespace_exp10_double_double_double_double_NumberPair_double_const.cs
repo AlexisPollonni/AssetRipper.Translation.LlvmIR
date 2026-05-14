@@ -17,7 +17,7 @@ internal static partial class anonymous_namespace_exp10_double_double_double_dou
 		NumberPair numberPair2 = default(NumberPair);
 		NumberPair numberPair3 = default(NumberPair);
 		llvm_lifetime_start_p0.Invoke(8L, &a);
-		a = fputil_multiply_add_double_double_double.Invoke(kd, -7.349365128561658E-05, x);
+		a = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(kd, -7.349365128561658E-05, x);
 		llvm_lifetime_start_p0.Invoke(8L, &b);
 		b = kd * 4.649201285808973E-16;
 		llvm_lifetime_start_p0.Invoke(8L, &num);

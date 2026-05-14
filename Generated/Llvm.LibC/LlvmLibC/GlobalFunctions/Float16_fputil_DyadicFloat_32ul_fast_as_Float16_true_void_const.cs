@@ -26,18 +26,18 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 		sbyte b = 0;
 		int num4 = 0;
 		int num5 = 0;
-		BigInt_fzjdu3 bigInt_fzjdu = default(BigInt_fzjdu3);
+		BigInt_vtm4cw bigInt_vtm4cw = default(BigInt_vtm4cw);
 		Half half4 = default(Half);
 		fputil_FPBits_2fahva fputil_FPBits_2fahva5 = default(fputil_FPBits_2fahva);
 		anon_izyfb7 anon_izyfb10 = default(anon_izyfb7);
-		BigInt_fzjdu3 bigInt_fzjdu2 = default(BigInt_fzjdu3);
-		BigInt_fzjdu3 bigInt_fzjdu3 = default(BigInt_fzjdu3);
-		BigInt_fzjdu3 bigInt_fzjdu4 = default(BigInt_fzjdu3);
-		BigInt_fzjdu3 bigInt_fzjdu5 = default(BigInt_fzjdu3);
+		BigInt_vtm4cw bigInt_vtm4cw2 = default(BigInt_vtm4cw);
+		BigInt_vtm4cw bigInt_vtm4cw3 = default(BigInt_vtm4cw);
+		BigInt_vtm4cw bigInt_vtm4cw4 = default(BigInt_vtm4cw);
+		BigInt_vtm4cw bigInt_vtm4cw5 = default(BigInt_vtm4cw);
 		sbyte b2 = 0;
-		BigInt_fzjdu3 bigInt_fzjdu6 = default(BigInt_fzjdu3);
+		BigInt_vtm4cw bigInt_vtm4cw6 = default(BigInt_vtm4cw);
 		sbyte b3 = 0;
-		BigInt_fzjdu3 bigInt_fzjdu7 = default(BigInt_fzjdu3);
+		BigInt_vtm4cw bigInt_vtm4cw7 = default(BigInt_vtm4cw);
 		int num6 = 0;
 		Half x = default(Half);
 		int num7 = 0;
@@ -59,10 +59,10 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 		unchecked
 		{
 			Half result;
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa), expected: false))
+			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa), expected: false))
 			{
 				llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
-				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, &((fputil_DyadicFloat_c8qpxg*)@this)->sign, 1L, isVolatile: false);
+				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, &((fputil_DyadicFloat_cs3nhs*)@this)->sign, 1L, isVolatile: false);
 				short field_ = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_zero_Sign.Invoke(anon_izyfb8.val);
 				fputil_FPBits_2fahva2.FPRepImpl.FPRepSem.FPStorage.field_0 = field_;
 				result = fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva2);
@@ -77,13 +77,13 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
 				checked
 				{
-					num3 = unchecked((fputil_DyadicFloat_c8qpxg*)@this)->exponent + 46;
+					num3 = unchecked((fputil_DyadicFloat_cs3nhs*)@this)->exponent + 46;
 				}
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num3 > 30, expected: false))
 				{
 					llvm_lifetime_start_p0.Invoke(2L, &half);
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
-					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, &((fputil_DyadicFloat_c8qpxg*)@this)->sign, 1L, isVolatile: false);
+					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, &((fputil_DyadicFloat_cs3nhs*)@this)->sign, 1L, isVolatile: false);
 					short field_2 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_create_value_Sign_unsigned_short_unsigned_short.Invoke(anon_izyfb9.val, 30, 0);
 					fputil_FPBits_2fahva3.FPRepImpl.FPRepSem.FPStorage.field_0 = field_2;
 					Half half8 = fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva3);
@@ -120,60 +120,60 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 					}
 					llvm_lifetime_start_p0.Invoke(4L, &num5);
 					num5 = checked(num3 - 11 - 1);
-					llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu);
-					*(int*)(&bigInt_fzjdu) = -1431655766;
+					llvm_lifetime_start_p0.Invoke(4L, &bigInt_vtm4cw);
+					*(int*)(&bigInt_vtm4cw) = -1431655766;
 					if ((ulong)(uint)num4 >= 32uL)
 					{
-						BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_fzjdu, 0);
+						BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_vtm4cw, 0);
 					}
 					else
 					{
-						int data = BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_mny5rw.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa, (uint)num4);
-						*(int*)(&bigInt_fzjdu.val.Data) = data;
+						int data = BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_mny5rw.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa, (uint)num4);
+						*(int*)(&bigInt_vtm4cw.val.Data) = data;
 					}
 					llvm_lifetime_start_p0.Invoke(2L, &half4);
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva5);
-					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb10, &((fputil_DyadicFloat_c8qpxg*)@this)->sign, 1L, isVolatile: false);
-					short field_3 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_create_value_Sign_unsigned_short_unsigned_short.Invoke(biased_exp: (short)num3, mantissa: (short)(((ushort)BigInt_32ul_false_unsigned_int_operator_unsigned_short_unsigned_short_const.Invoke(&bigInt_fzjdu) & 0x3FF) | 0), sign: anon_izyfb10.val);
+					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb10, &((fputil_DyadicFloat_cs3nhs*)@this)->sign, 1L, isVolatile: false);
+					short field_3 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_create_value_Sign_unsigned_short_unsigned_short.Invoke(biased_exp: (short)num3, mantissa: (short)(((ushort)BigInt_32ul_false_unsigned_int_operator_unsigned_short_unsigned_short_const.Invoke(&bigInt_vtm4cw) & 0x3FF) | 0), sign: anon_izyfb10.val);
 					fputil_FPBits_2fahva5.FPRepImpl.FPRepSem.FPStorage.field_0 = field_3;
 					Half half9 = fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva5);
 					llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva5);
 					half4 = half9;
-					llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu2);
-					*(int*)(&bigInt_fzjdu2) = -1431655766;
+					llvm_lifetime_start_p0.Invoke(4L, &bigInt_vtm4cw2);
+					*(int*)(&bigInt_vtm4cw2) = -1431655766;
 					bool num11 = (ulong)(uint)num4 > 32uL;
-					llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu3);
+					llvm_lifetime_start_p0.Invoke(4L, &bigInt_vtm4cw3);
 					if (num11)
 					{
-						BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_fzjdu2, 0);
+						BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_vtm4cw2, 0);
 					}
 					else
 					{
-						BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_fzjdu3, 1);
-						int data2 = BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_umqe9p.Invoke(&bigInt_fzjdu3, (uint)(num4 - 1));
-						*(int*)(&bigInt_fzjdu2.val.Data) = data2;
+						BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_vtm4cw3, 1);
+						int data2 = BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_umqe9p.Invoke(&bigInt_vtm4cw3, (uint)(num4 - 1));
+						*(int*)(&bigInt_vtm4cw2.val.Data) = data2;
 					}
-					llvm_lifetime_end_p0.Invoke(4L, &bigInt_fzjdu3);
-					llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu4);
-					*(int*)(&bigInt_fzjdu4) = -1431655766;
-					llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu5);
-					BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_fzjdu5, 1);
-					int data3 = BigInt_32ul_false_unsigned_int_operator_BigInt_32ul_false_unsigned_int_const.Invoke(&bigInt_fzjdu2, &bigInt_fzjdu5);
-					*(int*)(&bigInt_fzjdu4.val.Data) = data3;
-					llvm_lifetime_end_p0.Invoke(4L, &bigInt_fzjdu5);
+					llvm_lifetime_end_p0.Invoke(4L, &bigInt_vtm4cw3);
+					llvm_lifetime_start_p0.Invoke(4L, &bigInt_vtm4cw4);
+					*(int*)(&bigInt_vtm4cw4) = -1431655766;
+					llvm_lifetime_start_p0.Invoke(4L, &bigInt_vtm4cw5);
+					BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(&bigInt_vtm4cw5, 1);
+					int data3 = BigInt_32ul_false_unsigned_int_operator_BigInt_32ul_false_unsigned_int_const.Invoke(&bigInt_vtm4cw2, &bigInt_vtm4cw5);
+					*(int*)(&bigInt_vtm4cw4.val.Data) = data3;
+					llvm_lifetime_end_p0.Invoke(4L, &bigInt_vtm4cw5);
 					llvm_lifetime_start_p0.Invoke(1L, &b2);
-					llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu6);
-					int data4 = operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa, &bigInt_fzjdu2);
-					*(int*)(&bigInt_fzjdu6.val.Data) = data4;
-					int num12 = (BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&bigInt_fzjdu6) ? 1 : 0) ^ -1;
-					llvm_lifetime_end_p0.Invoke(4L, &bigInt_fzjdu6);
+					llvm_lifetime_start_p0.Invoke(4L, &bigInt_vtm4cw6);
+					int data4 = operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa, &bigInt_vtm4cw2);
+					*(int*)(&bigInt_vtm4cw6.val.Data) = data4;
+					int num12 = (BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&bigInt_vtm4cw6) ? 1 : 0) ^ -1;
+					llvm_lifetime_end_p0.Invoke(4L, &bigInt_vtm4cw6);
 					b2 = (sbyte)(byte)num12;
 					llvm_lifetime_start_p0.Invoke(1L, &b3);
-					llvm_lifetime_start_p0.Invoke(4L, &bigInt_fzjdu7);
-					int data5 = operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa, &bigInt_fzjdu4);
-					*(int*)(&bigInt_fzjdu7.val.Data) = data5;
-					int num13 = (BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&bigInt_fzjdu7) ? 1 : 0) ^ -1;
-					llvm_lifetime_end_p0.Invoke(4L, &bigInt_fzjdu7);
+					llvm_lifetime_start_p0.Invoke(4L, &bigInt_vtm4cw7);
+					int data5 = operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa, &bigInt_vtm4cw4);
+					*(int*)(&bigInt_vtm4cw7.val.Data) = data5;
+					int num13 = (BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(&bigInt_vtm4cw7) ? 1 : 0) ^ -1;
+					llvm_lifetime_end_p0.Invoke(4L, &bigInt_vtm4cw7);
 					b3 = (sbyte)(byte)num13;
 					llvm_lifetime_start_p0.Invoke(4L, &num6);
 					num6 = checked((((b2 & 1) == 1) ? 1 : 0) * 2 + (((b3 & 1) == 1) ? 1 : 0));
@@ -200,7 +200,7 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 						llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva7);
 						half6 = half11;
 						llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva8);
-						llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb13, &((fputil_DyadicFloat_c8qpxg*)@this)->sign, 1L, isVolatile: false);
+						llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb13, &((fputil_DyadicFloat_cs3nhs*)@this)->sign, 1L, isVolatile: false);
 						short field_6 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_create_value_Sign_unsigned_short_unsigned_short.Invoke(biased_exp: (short)checked(num5 + num7), sign: anon_izyfb13.val, mantissa: 0);
 						fputil_FPBits_2fahva8.FPRepImpl.FPRepSem.FPStorage.field_0 = field_6;
 						x = fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva8);
@@ -213,7 +213,7 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 					else
 					{
 						llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva9);
-						llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb14, &((fputil_DyadicFloat_c8qpxg*)@this)->sign, 1L, isVolatile: false);
+						llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb14, &((fputil_DyadicFloat_cs3nhs*)@this)->sign, 1L, isVolatile: false);
 						short field_7 = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_create_value_Sign_unsigned_short_unsigned_short.Invoke(biased_exp: (short)num5, sign: anon_izyfb14.val, mantissa: 0);
 						fputil_FPBits_2fahva9.FPRepImpl.FPRepSem.FPStorage.field_0 = field_7;
 						x = fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva9);
@@ -256,10 +256,10 @@ internal static partial class Float16_fputil_DyadicFloat_32ul_fast_as_Float16_tr
 					llvm_lifetime_end_p0.Invoke(4L, &num6);
 					llvm_lifetime_end_p0.Invoke(1L, &b3);
 					llvm_lifetime_end_p0.Invoke(1L, &b2);
-					llvm_lifetime_end_p0.Invoke(4L, &bigInt_fzjdu4);
-					llvm_lifetime_end_p0.Invoke(4L, &bigInt_fzjdu2);
+					llvm_lifetime_end_p0.Invoke(4L, &bigInt_vtm4cw4);
+					llvm_lifetime_end_p0.Invoke(4L, &bigInt_vtm4cw2);
 					llvm_lifetime_end_p0.Invoke(2L, &half4);
-					llvm_lifetime_end_p0.Invoke(4L, &bigInt_fzjdu);
+					llvm_lifetime_end_p0.Invoke(4L, &bigInt_vtm4cw);
 					llvm_lifetime_end_p0.Invoke(4L, &num5);
 					llvm_lifetime_end_p0.Invoke(4L, &num4);
 					llvm_lifetime_end_p0.Invoke(1L, &b);

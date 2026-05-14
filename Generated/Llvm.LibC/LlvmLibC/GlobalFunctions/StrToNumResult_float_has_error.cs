@@ -9,6 +9,6 @@ internal static partial class StrToNumResult_float_has_error
 {
 	public unsafe static bool Invoke(void* @this)
 	{
-		return unchecked((StrToNumResult_jptppf*)@this)->error != 0;
+		return unchecked((StrToNumResult_cqc3yy*)@this)->error != 0;
 	}
 }

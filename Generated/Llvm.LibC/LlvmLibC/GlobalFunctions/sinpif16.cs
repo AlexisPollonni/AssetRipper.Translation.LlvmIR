@@ -88,7 +88,7 @@ internal static partial class sinpif16
 				}
 				else
 				{
-					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(fputil_multiply_add_float_float_float.Invoke(num4, y, fputil_multiply_add_float_float_float.Invoke(x2, num3, num3)));
+					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num4, y, cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x2, num3, num3)));
 				}
 				llvm_lifetime_end_p0.Invoke(4L, &x2);
 				llvm_lifetime_end_p0.Invoke(4L, &num4);

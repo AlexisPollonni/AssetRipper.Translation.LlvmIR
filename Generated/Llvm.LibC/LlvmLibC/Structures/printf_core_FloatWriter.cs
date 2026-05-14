@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 96)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_11printf_core11FloatWriterE")]
 [MangledName("class.__llvm_libc_20_1_2_::printf_core::FloatWriter")]
 [DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter")]
 public partial struct printf_core_FloatWriter

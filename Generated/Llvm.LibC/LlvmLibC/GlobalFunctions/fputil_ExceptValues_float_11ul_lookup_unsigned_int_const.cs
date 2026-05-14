@@ -9,9 +9,9 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<float, 11ul>::lookup(unsigned int) const")]
 internal static partial class fputil_ExceptValues_float_11ul_lookup_unsigned_int_const
 {
-	public unsafe static long Invoke(fputil_ExceptValues_bray65* @this, int x_bits)
+	public unsafe static long Invoke(fputil_ExceptValues_zsuwev* @this, int x_bits)
 	{
-		cpp_optional_89h55j cpp_optional_89h55j2 = default(cpp_optional_89h55j);
+		cpp_optional_xmxtsi cpp_optional_xmxtsi2 = default(cpp_optional_xmxtsi);
 		long num = 0L;
 		int num2 = 0;
 		float num3 = 0f;
@@ -57,7 +57,7 @@ internal static partial class fputil_ExceptValues_float_11ul_lookup_unsigned_int
 					llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 					fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs2, num2);
 					num3 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2);
-					cpp_optional_float_optional_float.Invoke(&cpp_optional_89h55j2, &num3);
+					cpp_optional_float_optional_float.Invoke(&cpp_optional_xmxtsi2, &num3);
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 					llvm_lifetime_end_p0.Invoke(4L, &num3);
 					num4 = 1;
@@ -77,9 +77,9 @@ internal static partial class fputil_ExceptValues_float_11ul_lookup_unsigned_int
 			}
 			else
 			{
-				cpp_optional_float_optional_cpp_nullopt_t.Invoke(&cpp_optional_89h55j2);
+				cpp_optional_float_optional_cpp_nullopt_t.Invoke(&cpp_optional_xmxtsi2);
 			}
-			return *(long*)(&cpp_optional_89h55j2.storage);
+			return *(long*)(&cpp_optional_xmxtsi2.storage);
 		}
 	}
 }

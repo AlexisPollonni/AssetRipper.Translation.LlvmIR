@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 21)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_3cpp5arrayIcLm21EEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::cpp::array.22")]
 [DemangledName("__llvm_libc_20_1_2_::cpp::array")]
 [CleanName("cpp_array")]

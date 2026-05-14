@@ -68,6 +68,18 @@ internal static partial class log1pf
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 					break;
 				}
+				case 1287768075:
+					result = float_fputil_round_result_slightly_down_float_float.Invoke(18.436527f);
+					break;
+				case 1592301646:
+					result = float_fputil_round_result_slightly_up_float_float.Invoke(43.57239f);
+					break;
+				case 1717468326:
+					result = float_fputil_round_result_slightly_up_float_float.Invoke(53.92517f);
+					break;
+				case 2045242423:
+					result = float_fputil_round_result_slightly_up_float_float.Invoke(80.99944f);
+					break;
 				default:
 					result = internal_log_double.Invoke(num3 + 1.0);
 					break;
@@ -104,11 +116,11 @@ internal static partial class log1pf
 					llvm_lifetime_start_p0.Invoke(8L, &x2);
 					x2 = num3 * num3;
 					llvm_lifetime_start_p0.Invoke(8L, &a_yc74sk);
-					a_yc74sk = fputil_multiply_add_double_double_double.Invoke(num3, Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, sizeof(double))), *(double*)(&inlineArray7_Double));
+					a_yc74sk = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num3, Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, sizeof(double))), *(double*)(&inlineArray7_Double));
 					llvm_lifetime_start_p0.Invoke(8L, &a_ijazrn);
-					a_ijazrn = fputil_multiply_add_double_double_double.Invoke(num3, Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)3 * sizeof(double))), Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)2 * sizeof(double))));
+					a_ijazrn = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num3, Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)3 * sizeof(double))), Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)2 * sizeof(double))));
 					llvm_lifetime_start_p0.Invoke(8L, &a_889uw);
-					a_889uw = fputil_multiply_add_double_double_double.Invoke(num3, Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)5 * sizeof(double))), Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)4 * sizeof(double))));
+					a_889uw = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num3, Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)5 * sizeof(double))), Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)4 * sizeof(double))));
 					llvm_lifetime_start_p0.Invoke(8L, &num4);
 					num4 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double_double_double_double_double.Invoke(x2, num3, a_yc74sk, a_ijazrn, a_889uw, Unsafe.As<InlineArray7_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray7_Double, (nint)6 * sizeof(double))));
 					result = (float)num4;

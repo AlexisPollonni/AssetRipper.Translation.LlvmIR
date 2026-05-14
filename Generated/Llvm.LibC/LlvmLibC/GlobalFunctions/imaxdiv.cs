@@ -11,7 +11,7 @@ internal static partial class imaxdiv
 		{
 			*(long*)(&auxEntry) = -6148914691236517206L;
 			((long*)(&auxEntry))[1] = -6148914691236517206L;
-			cpp_enable_if_cpp_is_integral_v_long_void_type_integer_rem_quo_long_long_long_long_long_179.Invoke(x, y, &auxEntry.tv_sec, &auxEntry.tv_nsec);
+			cpp_enable_if_cpp_is_integral_v_long_void_type_integer_rem_quo_long_long_long_long_long_181.Invoke(x, y, &auxEntry.tv_sec, &auxEntry.tv_nsec);
 			return *(Struct_fiz2nb*)(&auxEntry);
 		}
 	}

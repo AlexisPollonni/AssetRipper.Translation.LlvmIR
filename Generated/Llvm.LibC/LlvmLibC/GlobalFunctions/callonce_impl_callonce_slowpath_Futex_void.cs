@@ -15,7 +15,7 @@ internal static partial class callonce_impl_callonce_slowpath_Futex_void
 		int num = 0;
 		int num2 = 0;
 		int num3 = 0;
-		cpp_optional_7xva92 cpp_optional_7xva93 = default(cpp_optional_7xva92);
+		cpp_optional_r9nbkt cpp_optional_r9nbkt2 = default(cpp_optional_r9nbkt);
 		llvm_lifetime_start_p0.Invoke(8L, &ptr);
 		ptr = flag;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
@@ -42,8 +42,8 @@ internal static partial class callonce_impl_callonce_slowpath_Futex_void
 				if (cpp_Atomic_unsigned_int_compare_exchange_strong_unsigned_int_unsigned_int_cpp_MemoryOrder_cpp_MemoryScope.Invoke(ptr, &num3, 34, MemoryOrder.SEQ_CST, MemoryScope.DEVICE) || num3 == 34)
 				{
 					void* intPtr = ptr;
-					cpp_optional_internal_AbsTimeout_optional_cpp_nullopt_t.Invoke((cpp_optional_59q3zq*)(&cpp_optional_7xva93));
-					Futex_wait_unsigned_int_cpp_optional_internal_AbsTimeout_bool.Invoke(intPtr, 34, &cpp_optional_7xva93, is_shared: false);
+					cpp_optional_internal_AbsTimeout_optional_cpp_nullopt_t.Invoke((cpp_optional_59q3zq*)(&cpp_optional_r9nbkt2));
+					Futex_wait_unsigned_int_cpp_optional_internal_AbsTimeout_bool.Invoke(intPtr, 34, &cpp_optional_r9nbkt2, is_shared: false);
 				}
 				result = 0;
 				llvm_lifetime_end_p0.Invoke(4L, &num3);

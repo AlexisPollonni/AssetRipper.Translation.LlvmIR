@@ -8,6 +8,6 @@ internal static partial class cpp_enable_if_sizeof_float_8ul_float_type_fputil_p
 {
 	public static float Invoke(float x, float a0, [MangledName("a")][CleanName("a")] float a_yc74sk, [MangledName("a1")][CleanName("a")] float a_ijazrn, [MangledName("a3")][CleanName("a")] float a_889uw5, [MangledName("a5")][CleanName("a")] float a_79nth8)
 	{
-		return fputil_multiply_add_float_float_float.Invoke(x, cpp_enable_if_sizeof_float_8ul_float_type_fputil_polyeval_float_float_float_float_float_float_float_float_float.Invoke(x, a_yc74sk, a_ijazrn, a_889uw5, a_79nth8), a0);
+		return cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x, cpp_enable_if_sizeof_float_8ul_float_type_fputil_polyeval_float_float_float_float_float_float_float_float_float.Invoke(x, a_yc74sk, a_ijazrn, a_889uw5, a_79nth8), a0);
 	}
 }

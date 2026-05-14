@@ -9,7 +9,7 @@ internal static partial class cpp_optional_float_OptionalStorage_float_false_Opt
 {
 	public unsafe static void Invoke(cpp_optional_float_OptionalStorage* @this, void* args)
 	{
-		anon_rkx6n5* field = &@this->field;
+		anon_egcq2t* field = &@this->field;
 		unchecked
 		{
 			*(float*)field = *(float*)float_cpp_forward_float_cpp_remove_reference_float_type.Invoke(args);

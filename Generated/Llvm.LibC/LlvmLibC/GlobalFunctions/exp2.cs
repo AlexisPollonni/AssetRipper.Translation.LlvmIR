@@ -88,17 +88,17 @@ internal static partial class exp2
 				Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
 				*(double*)num25 = struct_4ydhja3.field_1;
 				llvm_lifetime_start_p0.Invoke(8L, &num7);
-				num7 = fputil_multiply_add_double_double_double.Invoke(x2, -0.000244140625, x);
+				num7 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, -0.000244140625, x);
 				llvm_lifetime_start_p0.Invoke(8L, &y);
 				y = num7 * numberPair3.hi;
 				llvm_lifetime_start_p0.Invoke(8L, &x3);
 				x3 = anonymous_namespace_poly_approx_d_double_39.Invoke(num7);
 				llvm_lifetime_start_p0.Invoke(8L, &num8);
-				num8 = fputil_multiply_add_double_double_double.Invoke(x3, y, numberPair3.lo);
+				num8 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, y, numberPair3.lo);
 				llvm_lifetime_start_p0.Invoke(8L, &num9);
-				num9 = numberPair3.hi + (num8 + 1.0842021724855044E-19);
+				num9 = numberPair3.hi + (num8 + 1.6263032587282567E-19);
 				llvm_lifetime_start_p0.Invoke(8L, &num10);
-				num10 = numberPair3.hi + (num8 - 1.0842021724855044E-19);
+				num10 = numberPair3.hi + (num8 - 1.6263032587282567E-19);
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num9 == num10, expected: true))
 				{
 					llvm_lifetime_start_p0.Invoke(8L, &num11);

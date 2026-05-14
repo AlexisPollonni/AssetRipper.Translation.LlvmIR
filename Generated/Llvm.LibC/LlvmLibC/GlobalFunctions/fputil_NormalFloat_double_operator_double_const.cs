@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::operator double() const")]
 internal static partial class fputil_NormalFloat_double_operator_double_const
 {
-	public unsafe static double Invoke(fputil_NormalFloat_n2h9ta* @this)
+	public unsafe static double Invoke(fputil_NormalFloat_vc4yvk* @this)
 	{
 		int num = 0;
 		int num2 = 0;

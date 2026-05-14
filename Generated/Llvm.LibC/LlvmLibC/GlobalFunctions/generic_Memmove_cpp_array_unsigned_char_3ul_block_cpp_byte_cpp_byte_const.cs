@@ -11,11 +11,11 @@ internal static partial class generic_Memmove_cpp_array_unsigned_char_3ul_block_
 {
 	public unsafe static void Invoke(void* dst, void* src)
 	{
-		cpp_array_cdhstp cpp_array_cdhstp2 = default(cpp_array_cdhstp);
+		cpp_array_txpwtz cpp_array_txpwtz2 = default(cpp_array_txpwtz);
 		InlineArray3_Byte value = default(InlineArray3_Byte);
 		InlineArray3_Byte data = cpp_array_unsigned_char_3ul_generic_load_cpp_array_unsigned_char_3ul_cpp_byte_const.Invoke(src);
-		*unchecked((InlineArray3_Byte*)(&cpp_array_cdhstp2.Data)) = data;
-		llvm_memcpy_p0_p0_i64.Invoke(&value, &cpp_array_cdhstp2.Data, 3L, isVolatile: false);
+		*unchecked((InlineArray3_Byte*)(&cpp_array_txpwtz2.Data)) = data;
+		llvm_memcpy_p0_p0_i64.Invoke(&value, &cpp_array_txpwtz2.Data, 3L, isVolatile: false);
 		void_generic_store_cpp_array_unsigned_char_3ul_cpp_byte_cpp_array_unsigned_char_3ul.Invoke(dst, value);
 	}
 }

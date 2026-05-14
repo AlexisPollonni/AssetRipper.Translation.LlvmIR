@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::is_zero() const")]
 internal static partial class BigInt_64ul_false_unsigned_long_is_zero_const
 {
-	public unsafe static bool Invoke(BigInt_nx6qdt* @this)
+	public unsafe static bool Invoke(BigInt_555ggs* @this)
 	{
 		bool result = false;
 		void* ptr = null;

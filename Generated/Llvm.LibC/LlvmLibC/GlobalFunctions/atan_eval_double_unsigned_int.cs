@@ -25,21 +25,21 @@ internal static partial class atan_eval_double_unsigned_int
 		llvm_lifetime_start_p0.Invoke(8L, &z);
 		unchecked
 		{
-			z = fputil_multiply_add_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[2L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[1]);
+			z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[2L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[1]);
 			llvm_lifetime_start_p0.Invoke(8L, &y);
-			y = fputil_multiply_add_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[4L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[3L]);
+			y = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[4L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[3L]);
 			llvm_lifetime_start_p0.Invoke(8L, &z2);
-			z2 = fputil_multiply_add_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[6L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[5L]);
+			z2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[6L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[5L]);
 			llvm_lifetime_start_p0.Invoke(8L, &y2);
-			y2 = fputil_multiply_add_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[8L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[7L]);
+			y2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[8L], ((double*)((byte*)ATAN_COEFFS.Pointer + (nint)(uint)i * (nint)sizeof(InlineArray9_Double)))[7L]);
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
 			x2 = num * num;
 			llvm_lifetime_start_p0.Invoke(8L, &z3);
-			z3 = fputil_multiply_add_double_double_double.Invoke(num, y, z);
+			z3 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num, y, z);
 			llvm_lifetime_start_p0.Invoke(8L, &y3);
-			y3 = fputil_multiply_add_double_double_double.Invoke(num, y2, z2);
+			y3 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num, y2, z2);
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = fputil_multiply_add_double_double_double.Invoke(x2, y3, z3);
+			num2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, y3, z3);
 			double result = num2;
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
 			llvm_lifetime_end_p0.Invoke(8L, &y3);

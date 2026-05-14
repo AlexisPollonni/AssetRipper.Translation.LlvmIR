@@ -4,6 +4,7 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 24)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_5MutexE")]
 [MangledName("class.__llvm_libc_20_1_2_::Mutex")]
 [DemangledName("__llvm_libc_20_1_2_::Mutex")]
 public partial struct Mutex

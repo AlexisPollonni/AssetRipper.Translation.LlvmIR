@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("auto __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::ful_mul<64ul>(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&) const")]
 internal static partial class auto_BigInt_64ul_false_unsigned_long_ful_mul_64ul_BigInt_64ul_false_unsigned_long_const_const
 {
-	public unsafe static Struct_fiz2nb Invoke(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static Struct_fiz2nb Invoke(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		BigInt_qdkjbh bigInt_qdkjbh = default(BigInt_qdkjbh);
 		BigInt_qdkjbh bigInt_qdkjbh2 = default(BigInt_qdkjbh);

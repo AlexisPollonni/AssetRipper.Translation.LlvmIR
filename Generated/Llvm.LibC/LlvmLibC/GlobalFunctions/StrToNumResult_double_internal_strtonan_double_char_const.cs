@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double> __llvm_libc_20_1_2_::internal::strtonan<double>(char const*)")]
 internal static partial class StrToNumResult_double_internal_strtonan_double_char_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_r53a3q* agg_result, void* arg)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_k826n6* agg_result, void* arg)
 	{
 		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
 		int error = 0;

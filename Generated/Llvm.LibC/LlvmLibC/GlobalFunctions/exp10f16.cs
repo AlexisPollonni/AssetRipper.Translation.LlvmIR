@@ -186,7 +186,7 @@ internal static partial class exp10f16
 			*(Half*)ptr = default(Half);
 			ptr[2] = -86;
 			ptr[3] = -86;
-			int storage = fputil_ExceptValues_Float16_5ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: EXP10F16_EXCEPTS.Pointer);
+			int storage = fputil_ExceptValues_Float16_8ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: EXP10F16_EXCEPTS.Pointer);
 			*(int*)(&cpp_optional_aq7wey2.storage) = storage;
 			int num5;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_Float16_has_value_const.Invoke(&cpp_optional_aq7wey2), expected: false))

@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::MessageMapper<32ul, 487ul>::get_str(int) const")]
 internal static partial class MessageMapper_32ul_487ul_get_str_int_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_q73pcj* agg_result, MessageMapper_f6bdqy* @this, int num)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_bnt67x* agg_result, MessageMapper_f6bdqy* @this, int num)
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		unchecked

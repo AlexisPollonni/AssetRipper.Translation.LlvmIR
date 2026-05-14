@@ -9,6 +9,6 @@ internal static partial class cpp_optional_unsigned_int_has_value_const
 {
 	public unsafe static bool Invoke(void* @this)
 	{
-		return (unchecked((cpp_optional_39hkks*)@this)->storage.in_use & 1) == 1;
+		return (unchecked((cpp_optional_g66fk4*)@this)->storage.in_use & 1) == 1;
 	}
 }

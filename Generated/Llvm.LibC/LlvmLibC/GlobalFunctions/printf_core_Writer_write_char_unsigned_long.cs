@@ -15,7 +15,7 @@ internal static partial class printf_core_Writer_write_char_unsigned_long
 		{
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)(@this->wb->buff_cur + length) <= (ulong)@this->wb->buff_len, expected: true))
 			{
-				inline_memset_void_unsigned_char_unsigned_long_161.Invoke((byte*)@this->wb->buff + @this->wb->buff_cur, b, length);
+				inline_memset_void_unsigned_char_unsigned_long_163.Invoke((byte*)@this->wb->buff + @this->wb->buff_cur, b, length);
 				@this->wb->buff_cur += length;
 				return 0;
 			}

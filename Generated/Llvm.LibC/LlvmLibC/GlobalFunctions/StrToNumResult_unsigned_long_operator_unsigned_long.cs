@@ -9,6 +9,6 @@ internal static partial class StrToNumResult_unsigned_long_operator_unsigned_lon
 {
 	public unsafe static long Invoke(void* @this)
 	{
-		return unchecked((StrToNumResult_aztiru*)@this)->value;
+		return unchecked((StrToNumResult_gbeb3a*)@this)->value;
 	}
 }

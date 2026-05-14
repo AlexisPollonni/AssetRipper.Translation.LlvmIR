@@ -19,11 +19,11 @@ internal static partial class Exp10Base_powb_lo_double
 		llvm_lifetime_start_p0.Invoke(8L, &a);
 		unchecked
 		{
-			a = fputil_multiply_add_double_double_double.Invoke(dx, *(double*)Exp10Base_COEFFS.Pointer, 1.0);
+			a = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(dx, *(double*)Exp10Base_COEFFS.Pointer, 1.0);
 			llvm_lifetime_start_p0.Invoke(8L, &a_yc74sk);
-			a_yc74sk = fputil_multiply_add_double_double_double.Invoke(dx, ((double*)Exp10Base_COEFFS.Pointer)[2L], ((double*)Exp10Base_COEFFS.Pointer)[1]);
+			a_yc74sk = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(dx, ((double*)Exp10Base_COEFFS.Pointer)[2L], ((double*)Exp10Base_COEFFS.Pointer)[1]);
 			llvm_lifetime_start_p0.Invoke(8L, &a_ijazrn);
-			a_ijazrn = fputil_multiply_add_double_double_double.Invoke(dx, ((double*)Exp10Base_COEFFS.Pointer)[4L], ((double*)Exp10Base_COEFFS.Pointer)[3L]);
+			a_ijazrn = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(dx, ((double*)Exp10Base_COEFFS.Pointer)[4L], ((double*)Exp10Base_COEFFS.Pointer)[3L]);
 			double result = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double.Invoke(x, a, a_yc74sk, a_ijazrn);
 			llvm_lifetime_end_p0.Invoke(8L, &a_ijazrn);
 			llvm_lifetime_end_p0.Invoke(8L, &a_yc74sk);

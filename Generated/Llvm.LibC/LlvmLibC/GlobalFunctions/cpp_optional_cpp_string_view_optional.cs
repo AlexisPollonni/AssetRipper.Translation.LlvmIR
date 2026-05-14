@@ -9,6 +9,6 @@ internal static partial class cpp_optional_cpp_string_view_optional
 {
 	public unsafe static void Invoke(void* @this)
 	{
-		cpp_optional_cpp_string_view_OptionalStorage_cpp_string_view_false_OptionalStorage.Invoke(&unchecked((cpp_optional_q73pcj*)@this)->storage);
+		cpp_optional_cpp_string_view_OptionalStorage_cpp_string_view_false_OptionalStorage.Invoke(&unchecked((cpp_optional_bnt67x*)@this)->storage);
 	}
 }

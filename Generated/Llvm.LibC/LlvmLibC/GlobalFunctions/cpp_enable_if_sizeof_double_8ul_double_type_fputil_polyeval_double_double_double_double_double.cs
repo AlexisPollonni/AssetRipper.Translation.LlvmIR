@@ -8,6 +8,6 @@ internal static partial class cpp_enable_if_sizeof_double_8ul_double_type_fputil
 {
 	public static double Invoke(double x, double a0, double a)
 	{
-		return fputil_multiply_add_double_double_double.Invoke(x, cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double.Invoke(x, a), a0);
+		return cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double.Invoke(x, a), a0);
 	}
 }

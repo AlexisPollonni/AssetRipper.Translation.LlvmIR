@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::FloatToString(float)")]
 internal static partial class FloatToString_float_0_FloatToString_float
 {
-	public unsafe static void Invoke(FloatToString_uyiqeh* @this, float init_float)
+	public unsafe static void Invoke(FloatToString_vnf553* @this, float init_float)
 	{
 		fputil_FPBits_float_FPBits_float_float.Invoke(&@this->float_bits, init_float);
 		unchecked

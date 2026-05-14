@@ -26,14 +26,14 @@ internal static partial class exp
 		double y = 0.0;
 		double x2 = 0.0;
 		double num9 = 0.0;
-		cpp_optional_s4iqgj cpp_optional_s4iqgj2 = default(cpp_optional_s4iqgj);
+		cpp_optional_vhbvq7 cpp_optional_vhbvq8 = default(cpp_optional_vhbvq7);
 		double num10 = 0.0;
 		double num11 = 0.0;
 		long num12 = 0L;
 		double num13 = 0.0;
 		long num14 = 0L;
 		NumberPair numberPair4 = default(NumberPair);
-		cpp_optional_s4iqgj cpp_optional_s4iqgj3 = default(cpp_optional_s4iqgj);
+		cpp_optional_vhbvq7 cpp_optional_vhbvq9 = default(cpp_optional_vhbvq7);
 		double num15 = 0.0;
 		double num16 = 0.0;
 		long num17 = 0L;
@@ -53,7 +53,7 @@ internal static partial class exp
 				goto IL_0aa7;
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = fputil_multiply_add_double_double_double.Invoke(x, 1.4426950408889634, 3145728.0001220703);
+			num2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, 1.4426950408889634, 3145728.0001220703);
 			llvm_lifetime_start_p0.Invoke(4L, &num3);
 			num3 = (int)(cpp_enable_if_sizeof_unsigned_long_sizeof_double_cpp_is_trivially_constructible_unsigned_long_value_cpp_is_trivially_copyable_unsigned_long_value_cpp_is_trivially_copyable_double_value_unsigned_long_type_cpp_bit_cast_unsigned_long_double_double_const.Invoke(&num2) >>> 19);
 			llvm_lifetime_start_p0.Invoke(8L, &num4);
@@ -91,19 +91,19 @@ internal static partial class exp
 			Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
 			*(double*)num25 = struct_4ydhja3.field_1;
 			llvm_lifetime_start_p0.Invoke(8L, &z);
-			z = fputil_multiply_add_double_double_double.Invoke(num4, -0.00016922538588914904, x);
+			z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, -0.00016922538588914904, x);
 			llvm_lifetime_start_p0.Invoke(8L, &num8);
-			num8 = fputil_multiply_add_double_double_double.Invoke(num4, 1.0256140314162804E-14, z);
+			num8 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, 1.0256140314162804E-14, z);
 			llvm_lifetime_start_p0.Invoke(8L, &y);
 			y = num8 * numberPair3.hi;
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
 			x2 = anonymous_namespace_poly_approx_d_double_51.Invoke(num8);
 			llvm_lifetime_start_p0.Invoke(8L, &num9);
-			num9 = fputil_multiply_add_double_double_double.Invoke(x2, y, numberPair3.lo);
+			num9 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, y, numberPair3.lo);
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((b & 1) == 1, expected: false))
 			{
-				llvm_lifetime_start_p0.Invoke(16L, &cpp_optional_s4iqgj2);
-				sbyte* ptr = (sbyte*)(&cpp_optional_s4iqgj2);
+				llvm_lifetime_start_p0.Invoke(16L, &cpp_optional_vhbvq8);
+				sbyte* ptr = (sbyte*)(&cpp_optional_vhbvq8);
 				*(double*)ptr = double.NaN;
 				ptr[8] = -86;
 				sbyte* ptr2 = ptr + 9;
@@ -115,22 +115,22 @@ internal static partial class exp
 				ptr2[5] = -86;
 				ptr2[6] = -86;
 				Struct_8myw6y struct_8myw6y = ziv_test_denorm_int_double_double_double.Invoke(num7, numberPair3.hi, num9, 1.6263032587282567E-19);
-				cpp_optional_double_OptionalStorage* ptr3 = &cpp_optional_s4iqgj2.storage;
+				cpp_optional_double_OptionalStorage* ptr3 = &cpp_optional_vhbvq8.storage;
 				Struct_8myw6y struct_8myw6y2 = struct_8myw6y;
 				((Struct_8myw6y*)ptr3)->field_0 = struct_8myw6y2.field_0;
 				Struct_8myw6y struct_8myw6y3 = struct_8myw6y;
 				((Struct_8myw6y*)ptr3)->field_1 = struct_8myw6y3.field_1;
 				int num26;
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_double_has_value_const.Invoke(&cpp_optional_s4iqgj2), expected: true))
+				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_double_has_value_const.Invoke(&cpp_optional_vhbvq8), expected: true))
 				{
-					result = *(double*)cpp_optional_double_value.Invoke(&cpp_optional_s4iqgj2);
+					result = *(double*)cpp_optional_double_value.Invoke(&cpp_optional_vhbvq8);
 					num26 = 1;
 				}
 				else
 				{
 					num26 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_s4iqgj2);
+				llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_vhbvq8);
 				switch (num26)
 				{
 				case 0:
@@ -187,8 +187,8 @@ internal static partial class exp
 			*(double*)num29 = struct_4ydhja6.field_1;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((b & 1) == 1, expected: false))
 			{
-				llvm_lifetime_start_p0.Invoke(16L, &cpp_optional_s4iqgj3);
-				sbyte* ptr4 = (sbyte*)(&cpp_optional_s4iqgj3);
+				llvm_lifetime_start_p0.Invoke(16L, &cpp_optional_vhbvq9);
+				sbyte* ptr4 = (sbyte*)(&cpp_optional_vhbvq9);
 				*(double*)ptr4 = double.NaN;
 				ptr4[8] = -86;
 				sbyte* ptr5 = ptr4 + 9;
@@ -200,22 +200,22 @@ internal static partial class exp
 				ptr5[5] = -86;
 				ptr5[6] = -86;
 				Struct_8myw6y struct_8myw6y4 = ziv_test_denorm_int_double_double_double.Invoke(num7, numberPair4.hi, numberPair4.lo, 1.5777218104420236E-30);
-				cpp_optional_double_OptionalStorage* ptr6 = &cpp_optional_s4iqgj3.storage;
+				cpp_optional_double_OptionalStorage* ptr6 = &cpp_optional_vhbvq9.storage;
 				Struct_8myw6y struct_8myw6y5 = struct_8myw6y4;
 				((Struct_8myw6y*)ptr6)->field_0 = struct_8myw6y5.field_0;
 				Struct_8myw6y struct_8myw6y6 = struct_8myw6y4;
 				((Struct_8myw6y*)ptr6)->field_1 = struct_8myw6y6.field_1;
 				int num26;
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_double_has_value_const.Invoke(&cpp_optional_s4iqgj3), expected: true))
+				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_double_has_value_const.Invoke(&cpp_optional_vhbvq9), expected: true))
 				{
-					result = *(double*)cpp_optional_double_value.Invoke(&cpp_optional_s4iqgj3);
+					result = *(double*)cpp_optional_double_value.Invoke(&cpp_optional_vhbvq9);
 					num26 = 1;
 				}
 				else
 				{
 					num26 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_s4iqgj3);
+				llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_vhbvq9);
 				switch (num26)
 				{
 				case 0:

@@ -9,6 +9,6 @@ internal static partial class StrToNumResult_long_double_has_error
 {
 	public unsafe static bool Invoke(void* @this)
 	{
-		return unchecked((StrToNumResult_6sg7zz*)@this)->error != 0;
+		return unchecked((StrToNumResult_uytq62*)@this)->error != 0;
 	}
 }

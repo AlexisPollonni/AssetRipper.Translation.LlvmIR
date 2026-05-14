@@ -9,6 +9,6 @@ internal static partial class cpp_optional_BigInt_320ul_false_unsigned_long_valu
 {
 	public unsafe static BigInt_76gxx6* Invoke(void* @this)
 	{
-		return cpp_remove_reference_BigInt_320ul_false_unsigned_long_type_cpp_move_BigInt_320ul_false_unsigned_long_BigInt_320ul_false_unsigned_long.Invoke(unchecked((BigInt_76gxx6*)(&((cpp_optional_w3bnnt*)@this)->storage.field)));
+		return cpp_remove_reference_BigInt_320ul_false_unsigned_long_type_cpp_move_BigInt_320ul_false_unsigned_long_BigInt_320ul_false_unsigned_long.Invoke(unchecked((BigInt_76gxx6*)(&((cpp_optional_t82b4p*)@this)->storage.field)));
 	}
 }

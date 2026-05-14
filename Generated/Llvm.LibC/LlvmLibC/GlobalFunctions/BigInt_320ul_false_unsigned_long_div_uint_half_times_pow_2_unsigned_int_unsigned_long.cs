@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<320ul, false, unsigned long>::div_uint_half_times_pow_2(unsigned int, unsigned long)")]
 internal static partial class BigInt_320ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_w3bnnt* agg_result, BigInt_76gxx6* @this, int x, long e)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_t82b4p* agg_result, BigInt_76gxx6* @this, int x, long e)
 	{
 		BigInt_76gxx6 bigInt_76gxx = default(BigInt_76gxx6);
 		BigInt_76gxx6 bigInt_76gxx2 = default(BigInt_76gxx6);
@@ -83,7 +83,7 @@ internal static partial class BigInt_320ul_false_unsigned_long_div_uint_half_tim
 				for (num9 = 5L - num6; (ulong)num9 > 0uL; num9 += -1L)
 				{
 					num7 <<= 32;
-					cpp_array_v97b5b* val = &@this->val;
+					cpp_array_msasyg* val = &@this->val;
 					long num14 = num8 + -1L;
 					num8 = num14;
 					long num15 = *(long*)cpp_array_unsigned_long_5ul_operator_unsigned_long.Invoke(val, num14) >>> 32;
@@ -108,7 +108,7 @@ internal static partial class BigInt_320ul_false_unsigned_long_div_uint_half_tim
 					llvm_lifetime_start_p0.Invoke(8L, &num12);
 					num12 = 0L;
 					llvm_lifetime_start_p0.Invoke(8L, &num13);
-					cpp_array_v97b5b* val2 = &@this->val;
+					cpp_array_msasyg* val2 = &@this->val;
 					long num18 = num8 + -1L;
 					num8 = num18;
 					num13 = *(long*)cpp_array_unsigned_long_5ul_operator_unsigned_long.Invoke(val2, num18);

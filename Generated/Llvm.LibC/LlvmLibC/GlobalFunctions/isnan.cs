@@ -1,4 +1,4 @@
-using LlvmLibC.Intrinsics.Unimplemented;
+using LlvmLibC.Intrinsics.Implemented;
 
 namespace LlvmLibC.GlobalFunctions;
 

@@ -51,7 +51,7 @@ internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_cor
 		{
 			num3 = 8;
 		}
-		else if (internal_tolower_int_130.Invoke(to_conv->conv_name) == 120 || to_conv->conv_name == 112)
+		else if (internal_tolower_int_132.Invoke(to_conv->conv_name) == 120 || to_conv->conv_name == 112)
 		{
 			num3 = 16;
 		}
@@ -98,7 +98,7 @@ internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_cor
 					}
 					num += -1L;
 					b3 = scanf_core_Reader_getc.Invoke(reader);
-					if (internal_tolower_int_130.Invoke(b3) == 120)
+					if (internal_tolower_int_132.Invoke(b3) == 120)
 					{
 						b = 0;
 						num3 = 16;
@@ -117,7 +117,7 @@ internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_cor
 				}
 				else if (num3 == 0)
 				{
-					if (!internal_isdigit_int_131.Invoke(b3))
+					if (!internal_isdigit_int_133.Invoke(b3))
 					{
 						scanf_core_Reader_ungetc_char.Invoke(reader, b3);
 						scanf_core_write_int_with_length_unsigned_long_scanf_core_FormatSection_const.Invoke(0L, to_conv);
@@ -137,7 +137,7 @@ internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_cor
 			num7 = (((b2 & 1) != 1) ? (-1L) : InstructionHelper.Select((b5 & 1) == 1, long.MinValue, long.MaxValue));
 			llvm_lifetime_start_p0.Invoke(8L, &num8);
 			num8 = (long)((ulong)num7 / (ulong)num3);
-			if (internal_isalnum_int_132.Invoke(b3) && internal_b36_char_to_int_int_133.Invoke(b3) < num3)
+			if (internal_isalnum_int_134.Invoke(b3) && internal_b36_char_to_int_int_135.Invoke(b3) < num3)
 			{
 				b = 1;
 			}
@@ -145,10 +145,10 @@ internal static partial class scanf_core_convert_int_scanf_core_Reader_scanf_cor
 			b6 = 0;
 			llvm_lifetime_start_p0.Invoke(8L, &num9);
 			num9 = 0L;
-			while ((ulong)num9 < (ulong)num && internal_isalnum_int_132.Invoke(b3) && internal_b36_char_to_int_int_133.Invoke(b3) < num3)
+			while ((ulong)num9 < (ulong)num && internal_isalnum_int_134.Invoke(b3) && internal_b36_char_to_int_int_135.Invoke(b3) < num3)
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num10);
-				num10 = internal_b36_char_to_int_int_133.Invoke(b3);
+				num10 = internal_b36_char_to_int_int_135.Invoke(b3);
 				int num11;
 				if (num2 == num7)
 				{

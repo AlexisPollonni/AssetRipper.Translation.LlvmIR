@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class EXP10M1F_EXCEPTS_HI
 {
 	[FixedAddressValueType]
-	private static fputil_ExceptValues_58kucm __value;
+	private static fputil_ExceptValues_92qrhp __value;
 
-	public unsafe static fputil_ExceptValues_58kucm* Pointer => unchecked((fputil_ExceptValues_58kucm*)Unsafe.AsPointer(ref __value));
+	public unsafe static fputil_ExceptValues_92qrhp* Pointer => unchecked((fputil_ExceptValues_92qrhp*)Unsafe.AsPointer(ref __value));
 
-	public static fputil_ExceptValues_58kucm Value
+	public static fputil_ExceptValues_92qrhp Value
 	{
 		get
 		{
@@ -29,7 +29,7 @@ internal static partial class EXP10M1F_EXCEPTS_HI
 
 	unsafe static EXP10M1F_EXCEPTS_HI()
 	{
-		Value = new fputil_ExceptValues_58kucm
+		Value = new fputil_ExceptValues_92qrhp
 		{
 			values = new InlineArrayBuilder<InlineArray19_fputil_ExceptValues_float_6_Mapping, fputil_ExceptValues_float_6_Mapping>
 			{

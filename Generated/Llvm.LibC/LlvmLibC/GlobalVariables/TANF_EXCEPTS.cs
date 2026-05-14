@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class TANF_EXCEPTS
 {
 	[FixedAddressValueType]
-	private static fputil_ExceptValues_x9e5i2 __value;
+	private static fputil_ExceptValues_7xi2jk __value;
 
-	public unsafe static fputil_ExceptValues_x9e5i2* Pointer => unchecked((fputil_ExceptValues_x9e5i2*)Unsafe.AsPointer(ref __value));
+	public unsafe static fputil_ExceptValues_7xi2jk* Pointer => unchecked((fputil_ExceptValues_7xi2jk*)Unsafe.AsPointer(ref __value));
 
-	public static fputil_ExceptValues_x9e5i2 Value
+	public static fputil_ExceptValues_7xi2jk Value
 	{
 		get
 		{
@@ -29,7 +29,7 @@ internal static partial class TANF_EXCEPTS
 
 	unsafe static TANF_EXCEPTS()
 	{
-		Value = new fputil_ExceptValues_x9e5i2
+		Value = new fputil_ExceptValues_7xi2jk
 		{
 			values = new InlineArrayBuilder<InlineArray6_fputil_ExceptValues_float_6_Mapping, fputil_ExceptValues_float_6_Mapping>
 			{

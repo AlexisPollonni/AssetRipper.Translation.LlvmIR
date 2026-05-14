@@ -53,16 +53,18 @@ internal static partial class log1p
 		double num14 = 0.0;
 		double a = 0.0;
 		NumberPair numberPair5 = default(NumberPair);
+		double num15 = 0.0;
+		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm14 = default(fputil_FPBits_wjhbrm);
 		NumberPair numberPair6 = default(NumberPair);
 		NumberPair numberPair7 = default(NumberPair);
 		double x4 = 0.0;
 		double a_yc74sk = 0.0;
 		double a_ijazrn = 0.0;
 		double a_889uw = 0.0;
-		double num15 = 0.0;
 		double num16 = 0.0;
 		double num17 = 0.0;
 		double num18 = 0.0;
+		double num19 = 0.0;
 		NumberPair numberPair8 = default(NumberPair);
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = 1023;
@@ -87,14 +89,14 @@ internal static partial class log1p
 			{
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)num3 >= 5066549580791808000uL, expected: false))
 				{
-					long num19 = num3;
+					long num20 = num3;
 					llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
 					long val = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_max_normal_Sign.Invoke(anon_izyfb8.val);
 					fputil_FPBits_wjhbrm3.FPRepImpl.FPRepSem.FPStorage.val = val;
-					bool num20 = bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)num19 > (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)), expected: false);
+					bool num21 = bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)num20 > (ulong)fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm3)), expected: false);
 					llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
-					if (num20)
+					if (num21)
 					{
 						if (num3 == -4616189618054758400L)
 						{
@@ -122,7 +124,7 @@ internal static partial class log1p
 						{
 							result = x;
 						}
-						goto IL_0f84;
+						goto IL_1012;
 					}
 					numberPair.hi = x;
 				}
@@ -130,12 +132,12 @@ internal static partial class log1p
 				{
 					llvm_lifetime_start_p0.Invoke(16L, &numberPair2);
 					Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_exact_add_true_double_double.Invoke(x, 1.0);
-					NumberPair* num21 = &numberPair2;
+					NumberPair* num22 = &numberPair2;
 					Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
-					*(double*)num21 = struct_4ydhja2.field_0;
-					byte* num22 = (byte*)(&numberPair2) + 8u;
+					*(double*)num22 = struct_4ydhja2.field_0;
+					byte* num23 = (byte*)(&numberPair2) + 8u;
 					Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
-					*(double*)num22 = struct_4ydhja3.field_1;
+					*(double*)num23 = struct_4ydhja3.field_1;
 					llvm_memcpy_p0_p0_i64.Invoke(&numberPair, &numberPair2, 16L, isVolatile: false);
 					llvm_lifetime_end_p0.Invoke(16L, &numberPair2);
 				}
@@ -181,16 +183,16 @@ internal static partial class log1p
 						llvm_lifetime_end_p0.Invoke(4L, &num6);
 						llvm_lifetime_end_p0.Invoke(4L, &num5);
 					}
-					goto IL_0f84;
+					goto IL_1012;
 				}
 				llvm_lifetime_start_p0.Invoke(16L, &numberPair3);
 				Struct_4ydhja struct_4ydhja4 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(1.0, x);
-				NumberPair* num23 = &numberPair3;
+				NumberPair* num24 = &numberPair3;
 				Struct_4ydhja struct_4ydhja5 = struct_4ydhja4;
-				*(double*)num23 = struct_4ydhja5.field_0;
-				byte* num24 = (byte*)(&numberPair3) + 8u;
+				*(double*)num24 = struct_4ydhja5.field_0;
+				byte* num25 = (byte*)(&numberPair3) + 8u;
 				Struct_4ydhja struct_4ydhja6 = struct_4ydhja4;
-				*(double*)num24 = struct_4ydhja6.field_1;
+				*(double*)num25 = struct_4ydhja6.field_1;
 				llvm_memcpy_p0_p0_i64.Invoke(&numberPair, &numberPair3, 16L, isVolatile: false);
 				llvm_lifetime_end_p0.Invoke(16L, &numberPair3);
 			}
@@ -209,14 +211,14 @@ internal static partial class log1p
 		num10 = num9;
 		llvm_lifetime_start_p0.Invoke(8L, &num11);
 		double x5 = num10;
-		long num25 = num8;
+		long num26 = num8;
 		unchecked
 		{
-			num11 = fputil_multiply_add_double_double_double.Invoke(x5, 0.6931471805598903, ((NumberPair*)anonymous_namespace_LOG_R1_DD.Pointer)[num25].hi);
+			num11 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x5, 0.6931471805598903, ((NumberPair*)anonymous_namespace_LOG_R1_DD.Pointer)[num26].hi);
 			llvm_lifetime_start_p0.Invoke(8L, &num12);
 			double x6 = num10;
-			long num26 = num8;
-			num12 = fputil_multiply_add_double_double_double.Invoke(x6, 5.497923018708371E-14, ((NumberPair*)anonymous_namespace_LOG_R1_DD.Pointer)[num26].lo);
+			long num27 = num8;
+			num12 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x6, 5.497923018708371E-14, ((NumberPair*)anonymous_namespace_LOG_R1_DD.Pointer)[num27].lo);
 			llvm_lifetime_start_p0.Invoke(16L, &inlineArray2_Double);
 			*(double*)(&inlineArray2_Double) = 2.5849394142282115E-26;
 			((double*)(&inlineArray2_Double))[1] = 0.0;
@@ -229,19 +231,19 @@ internal static partial class log1p
 			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb11, Sign_POS.Pointer, 1L, isVolatile: false);
 			long val4 = fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_one_Sign.Invoke(anon_izyfb11.val);
 			fputil_FPBits_wjhbrm9.FPRepImpl.FPRepSem.FPStorage.val = val4;
-			long num27 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm9)) | num7;
+			long num28 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm9)) | num7;
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm9);
-			x2 = num27;
+			x2 = num28;
 			llvm_lifetime_start_p0.Invoke(8L, &x3);
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm10);
 			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm11);
 			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm11, numberPair.lo);
 			long val5 = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_abs_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm11));
 			fputil_FPBits_wjhbrm10.FPRepImpl.FPRepSem.FPStorage.val = val5;
-			long num28 = ((!(fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm10) > numberPair.hi * 5.877471754111438E-39)) ? 0L : checked(cpp_enable_if_sizeof_long_sizeof_double_cpp_is_trivially_constructible_long_value_cpp_is_trivially_copyable_long_value_cpp_is_trivially_copyable_double_value_long_type_cpp_bit_cast_long_double_double_const.Invoke(&numberPair.lo) - num13));
+			long num29 = ((!(fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm10) > numberPair.hi * 5.877471754111438E-39)) ? 0L : checked(cpp_enable_if_sizeof_long_sizeof_double_cpp_is_trivially_constructible_long_value_cpp_is_trivially_copyable_long_value_cpp_is_trivially_copyable_double_value_long_type_cpp_bit_cast_long_double_double_const.Invoke(&numberPair.lo) - num13));
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm11);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm10);
-			x3 = num28;
+			x3 = num29;
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair4);
 			*(double*)(&numberPair4) = double.NaN;
 			((double*)(&numberPair4))[1] = double.NaN;
@@ -254,80 +256,90 @@ internal static partial class log1p
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm13);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm12);
 			llvm_lifetime_start_p0.Invoke(8L, &num14);
-			long num29 = num8;
-			num14 = ((double*)anonymous_namespace_R1.Pointer)[num29];
+			long num30 = num8;
+			num14 = ((double*)anonymous_namespace_R1.Pointer)[num30];
 			llvm_lifetime_start_p0.Invoke(8L, &a);
 			a = double.NaN;
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair5);
 			*(double*)(&numberPair5) = double.NaN;
 			((double*)(&numberPair5))[1] = double.NaN;
 			Struct_4ydhja struct_4ydhja7 = NumberPair_double_fputil_exact_mult_27ul_double_double.Invoke(numberPair4.lo, num14);
-			NumberPair* num30 = &numberPair5;
+			NumberPair* num31 = &numberPair5;
 			Struct_4ydhja struct_4ydhja8 = struct_4ydhja7;
-			*(double*)num30 = struct_4ydhja8.field_0;
-			byte* num31 = (byte*)(&numberPair5) + 8u;
+			*(double*)num31 = struct_4ydhja8.field_0;
+			byte* num32 = (byte*)(&numberPair5) + 8u;
 			Struct_4ydhja struct_4ydhja9 = struct_4ydhja7;
-			*(double*)num31 = struct_4ydhja9.field_1;
-			a = fputil_multiply_add_double_double_double.Invoke(num14, numberPair4.hi, -1.0);
+			*(double*)num32 = struct_4ydhja9.field_1;
+			llvm_lifetime_start_p0.Invoke(8L, &num15);
+			llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm14);
+			fputil_FPBits_double_FPBits_unsigned_long_unsigned_long.Invoke(&fputil_FPBits_wjhbrm14, ((long)num8 << 45) + 4607182418800017408L);
+			double num33 = fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm14);
+			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm14);
+			num15 = num33;
+			double x7 = num14;
+			double y = numberPair4.hi - num15;
+			long num34 = num8;
+			a = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x7, y, ((double*)anonymous_namespace_RCM1.Pointer)[num34]);
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair6);
 			*(double*)(&numberPair6) = double.NaN;
 			((double*)(&numberPair6))[1] = double.NaN;
 			Struct_4ydhja struct_4ydhja10 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(a, numberPair5.hi);
-			NumberPair* num32 = &numberPair6;
+			NumberPair* num35 = &numberPair6;
 			Struct_4ydhja struct_4ydhja11 = struct_4ydhja10;
-			*(double*)num32 = struct_4ydhja11.field_0;
-			byte* num33 = (byte*)(&numberPair6) + 8u;
+			*(double*)num35 = struct_4ydhja11.field_0;
+			byte* num36 = (byte*)(&numberPair6) + 8u;
 			Struct_4ydhja struct_4ydhja12 = struct_4ydhja10;
-			*(double*)num33 = struct_4ydhja12.field_1;
+			*(double*)num36 = struct_4ydhja12.field_1;
 			double lo = numberPair5.lo;
 			numberPair6.lo += lo;
 			llvm_lifetime_start_p0.Invoke(16L, &numberPair7);
 			*(double*)(&numberPair7) = double.NaN;
 			((double*)(&numberPair7))[1] = double.NaN;
 			Struct_4ydhja struct_4ydhja13 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(num11, numberPair6.hi);
-			NumberPair* num34 = &numberPair7;
+			NumberPair* num37 = &numberPair7;
 			Struct_4ydhja struct_4ydhja14 = struct_4ydhja13;
-			*(double*)num34 = struct_4ydhja14.field_0;
-			byte* num35 = (byte*)(&numberPair7) + 8u;
+			*(double*)num37 = struct_4ydhja14.field_0;
+			byte* num38 = (byte*)(&numberPair7) + 8u;
 			Struct_4ydhja struct_4ydhja15 = struct_4ydhja13;
-			*(double*)num35 = struct_4ydhja15.field_1;
+			*(double*)num38 = struct_4ydhja15.field_1;
 			llvm_lifetime_start_p0.Invoke(8L, &x4);
 			x4 = numberPair6.hi * numberPair6.hi;
 			llvm_lifetime_start_p0.Invoke(8L, &a_yc74sk);
-			a_yc74sk = fputil_multiply_add_double_double_double.Invoke(numberPair6.hi, ((double*)anonymous_namespace_P_COEFFS.Pointer)[1], *(double*)anonymous_namespace_P_COEFFS.Pointer);
+			a_yc74sk = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(numberPair6.hi, ((double*)anonymous_namespace_P_COEFFS.Pointer)[1], *(double*)anonymous_namespace_P_COEFFS.Pointer);
 			llvm_lifetime_start_p0.Invoke(8L, &a_ijazrn);
-			a_ijazrn = fputil_multiply_add_double_double_double.Invoke(numberPair6.hi, ((double*)anonymous_namespace_P_COEFFS.Pointer)[3L], ((double*)anonymous_namespace_P_COEFFS.Pointer)[2L]);
+			a_ijazrn = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(numberPair6.hi, ((double*)anonymous_namespace_P_COEFFS.Pointer)[3L], ((double*)anonymous_namespace_P_COEFFS.Pointer)[2L]);
 			llvm_lifetime_start_p0.Invoke(8L, &a_889uw);
-			a_889uw = fputil_multiply_add_double_double_double.Invoke(numberPair6.hi, ((double*)anonymous_namespace_P_COEFFS.Pointer)[5L], ((double*)anonymous_namespace_P_COEFFS.Pointer)[4L]);
-			llvm_lifetime_start_p0.Invoke(8L, &num15);
-			num15 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double_double_double.Invoke(x4, numberPair6.lo + numberPair7.lo + num12, a_yc74sk, a_ijazrn, a_889uw);
+			a_889uw = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(numberPair6.hi, ((double*)anonymous_namespace_P_COEFFS.Pointer)[5L], ((double*)anonymous_namespace_P_COEFFS.Pointer)[4L]);
 			llvm_lifetime_start_p0.Invoke(8L, &num16);
-			num16 = fputil_multiply_add_double_double_double.Invoke(x4, 1.7763568394002505E-15, z);
+			num16 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double_double_double.Invoke(x4, numberPair6.lo + numberPair7.lo + num12, a_yc74sk, a_ijazrn, a_889uw);
 			llvm_lifetime_start_p0.Invoke(8L, &num17);
-			num17 = numberPair7.hi + (num15 - num16);
+			num17 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x4, 1.7763568394002505E-15, z);
 			llvm_lifetime_start_p0.Invoke(8L, &num18);
-			num18 = numberPair7.hi + (num15 + num16);
-			if (num17 == num18)
+			num18 = numberPair7.hi + (num16 - num17);
+			llvm_lifetime_start_p0.Invoke(8L, &num19);
+			num19 = numberPair7.hi + (num16 + num17);
+			if (num18 == num19)
 			{
-				result = num17;
+				result = num18;
 			}
 			else
 			{
 				int e_x = num9;
-				int num36 = num8;
+				int num39 = num8;
 				llvm_memcpy_p0_p0_i64.Invoke(&numberPair8, &numberPair6, 16L, isVolatile: false);
-				result = anonymous_namespace_log1p_accurate_int_int_NumberPair_double.Invoke(e_x, num36, *(double*)(&numberPair8), ((double*)(&numberPair8))[1]);
+				result = anonymous_namespace_log1p_accurate_int_int_NumberPair_double.Invoke(e_x, num39, *(double*)(&numberPair8), ((double*)(&numberPair8))[1]);
 			}
+			llvm_lifetime_end_p0.Invoke(8L, &num19);
 			llvm_lifetime_end_p0.Invoke(8L, &num18);
 			llvm_lifetime_end_p0.Invoke(8L, &num17);
 			llvm_lifetime_end_p0.Invoke(8L, &num16);
-			llvm_lifetime_end_p0.Invoke(8L, &num15);
 			llvm_lifetime_end_p0.Invoke(8L, &a_889uw);
 			llvm_lifetime_end_p0.Invoke(8L, &a_ijazrn);
 			llvm_lifetime_end_p0.Invoke(8L, &a_yc74sk);
 			llvm_lifetime_end_p0.Invoke(8L, &x4);
 			llvm_lifetime_end_p0.Invoke(16L, &numberPair7);
 			llvm_lifetime_end_p0.Invoke(16L, &numberPair6);
+			llvm_lifetime_end_p0.Invoke(8L, &num15);
 			llvm_lifetime_end_p0.Invoke(16L, &numberPair5);
 			llvm_lifetime_end_p0.Invoke(8L, &a);
 			llvm_lifetime_end_p0.Invoke(8L, &num14);
@@ -344,9 +356,9 @@ internal static partial class log1p
 			llvm_lifetime_end_p0.Invoke(4L, &num8);
 			llvm_lifetime_end_p0.Invoke(8L, &num7);
 			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm8);
-			goto IL_0f84;
+			goto IL_1012;
 		}
-		IL_0f84:
+		IL_1012:
 		llvm_lifetime_end_p0.Invoke(2L, &num4);
 		llvm_lifetime_end_p0.Invoke(16L, &numberPair);
 		llvm_lifetime_end_p0.Invoke(8L, &num3);

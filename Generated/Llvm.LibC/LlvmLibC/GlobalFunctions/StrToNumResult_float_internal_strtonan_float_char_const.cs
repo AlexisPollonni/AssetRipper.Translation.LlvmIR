@@ -11,7 +11,7 @@ internal static partial class StrToNumResult_float_internal_strtonan_float_char_
 {
 	public unsafe static Struct_fiz2nb Invoke(void* arg)
 	{
-		StrToNumResult_jptppf strToNumResult_jptppf = default(StrToNumResult_jptppf);
+		StrToNumResult_cqc3yy strToNumResult_cqc3yy = default(StrToNumResult_cqc3yy);
 		fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs2 = default(fputil_FPBits_5nkvcs);
 		int error = 0;
 		int num = 0;
@@ -47,12 +47,12 @@ internal static partial class StrToNumResult_float_internal_strtonan_float_char_
 			fputil_FPBits_5nkvcs3.FPRepImpl.FPRepSem.field_0.field_0 = field_;
 			llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs2, &fputil_FPBits_5nkvcs3, 4L, isVolatile: false);
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
-			StrToNumResult_float_StrToNumResult_float_long_int.Invoke(&strToNumResult_jptppf, fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2), 0L, error);
+			StrToNumResult_float_StrToNumResult_float_long_int.Invoke(&strToNumResult_cqc3yy, fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2), 0L, error);
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
 			llvm_lifetime_end_p0.Invoke(4L, &num);
 			llvm_lifetime_end_p0.Invoke(4L, &error);
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
-			return *(Struct_fiz2nb*)(&strToNumResult_jptppf);
+			return *(Struct_fiz2nb*)(&strToNumResult_cqc3yy);
 		}
 	}
 }

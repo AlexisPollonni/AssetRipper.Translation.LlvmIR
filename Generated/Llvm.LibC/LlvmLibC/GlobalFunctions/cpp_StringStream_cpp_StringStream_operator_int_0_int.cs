@@ -10,12 +10,12 @@ internal static partial class cpp_StringStream_cpp_StringStream_operator_int_0_i
 {
 	public unsafe static void* Invoke(void* @this, int val)
 	{
-		IntegerToString_exzmu4 integerToString_exzmu = default(IntegerToString_exzmu4);
+		IntegerToString_bz5c8a integerToString_bz5c8a = default(IntegerToString_bz5c8a);
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
-		llvm_lifetime_start_p0.Invoke(24L, &integerToString_exzmu);
+		llvm_lifetime_start_p0.Invoke(24L, &integerToString_bz5c8a);
 		unchecked
 		{
-			sbyte* ptr = (sbyte*)(&integerToString_exzmu);
+			sbyte* ptr = (sbyte*)(&integerToString_bz5c8a);
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
@@ -27,15 +27,15 @@ internal static partial class cpp_StringStream_cpp_StringStream_operator_int_0_i
 			ptr[8] = -86;
 			ptr[9] = -86;
 			ptr[10] = -86;
-			sbyte* ptr2 = (sbyte*)(&integerToString_exzmu) + 11;
+			sbyte* ptr2 = (sbyte*)(&integerToString_bz5c8a) + 11;
 			*ptr2 = -86;
 			ptr2[1] = -86;
 			ptr2[2] = -86;
 			ptr2[3] = -86;
 			ptr2[4] = -86;
-			((long*)(&integerToString_exzmu))[2] = -6148914691236517206L;
-			IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerToString_int.Invoke(&integerToString_exzmu, val);
-			Struct_kqhe8i struct_kqhe8i = IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_view_const.Invoke(&integerToString_exzmu);
+			((long*)(&integerToString_bz5c8a))[2] = -6148914691236517206L;
+			IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerToString_int.Invoke(&integerToString_bz5c8a, val);
+			Struct_kqhe8i struct_kqhe8i = IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_view_const.Invoke(&integerToString_bz5c8a);
 			cpp_string_view* num = &cpp_string_view2;
 			Struct_kqhe8i struct_kqhe8i2 = struct_kqhe8i;
 			*(void**)num = struct_kqhe8i2.field_0;
@@ -43,7 +43,7 @@ internal static partial class cpp_StringStream_cpp_StringStream_operator_int_0_i
 			Struct_kqhe8i struct_kqhe8i3 = struct_kqhe8i;
 			*(long*)num2 = struct_kqhe8i3.field_1;
 			void* result = cpp_StringStream_operator_cpp_string_view.Invoke(@this, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
-			llvm_lifetime_end_p0.Invoke(24L, &integerToString_exzmu);
+			llvm_lifetime_end_p0.Invoke(24L, &integerToString_bz5c8a);
 			return result;
 		}
 	}

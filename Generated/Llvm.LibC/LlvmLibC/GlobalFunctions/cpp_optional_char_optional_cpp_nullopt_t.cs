@@ -9,6 +9,6 @@ internal static partial class cpp_optional_char_optional_cpp_nullopt_t
 {
 	public unsafe static void Invoke(void* @this)
 	{
-		cpp_optional_char_OptionalStorage_char_false_OptionalStorage.Invoke(&unchecked((cpp_optional_e5s7qx*)@this)->storage);
+		cpp_optional_char_OptionalStorage_char_false_OptionalStorage.Invoke(&unchecked((cpp_optional_77yu8f*)@this)->storage);
 	}
 }

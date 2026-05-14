@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class ACOSF_EXCEPTS
 {
 	[FixedAddressValueType]
-	private static fputil_ExceptValues_wpg668 __value;
+	private static fputil_ExceptValues_kbc9gk __value;
 
-	public unsafe static fputil_ExceptValues_wpg668* Pointer => unchecked((fputil_ExceptValues_wpg668*)Unsafe.AsPointer(ref __value));
+	public unsafe static fputil_ExceptValues_kbc9gk* Pointer => unchecked((fputil_ExceptValues_kbc9gk*)Unsafe.AsPointer(ref __value));
 
-	public static fputil_ExceptValues_wpg668 Value
+	public static fputil_ExceptValues_kbc9gk Value
 	{
 		get
 		{
@@ -29,7 +29,7 @@ internal static partial class ACOSF_EXCEPTS
 
 	unsafe static ACOSF_EXCEPTS()
 	{
-		Value = new fputil_ExceptValues_wpg668
+		Value = new fputil_ExceptValues_kbc9gk
 		{
 			values = new InlineArrayBuilder<InlineArray4_fputil_ExceptValues_float_6_Mapping, fputil_ExceptValues_float_6_Mapping>
 			{

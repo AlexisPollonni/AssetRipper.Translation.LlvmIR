@@ -1,11 +1,9 @@
-using LlvmLibC.Intrinsics.Implemented;
-
 namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class ceil
 {
 	public static double Invoke(double x)
 	{
-		return llvm_ceil_f64.Invoke(x);
+		return double_fputil_ceil_double_0_double.Invoke(x);
 	}
 }

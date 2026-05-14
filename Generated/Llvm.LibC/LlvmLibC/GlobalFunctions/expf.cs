@@ -124,7 +124,7 @@ internal static partial class expf
 		llvm_lifetime_start_p0.Invoke(4L, &num4);
 		num4 = fputil_nearest_integer_float.Invoke(x * 128f);
 		llvm_lifetime_start_p0.Invoke(8L, &x2);
-		x2 = fputil_multiply_add_float_float_float.Invoke(num4, -1f / 128f, x);
+		x2 = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num4, -1f / 128f, x);
 		llvm_lifetime_start_p0.Invoke(4L, &num5);
 		num5 = unchecked((int)num4);
 		num5 += 13312;

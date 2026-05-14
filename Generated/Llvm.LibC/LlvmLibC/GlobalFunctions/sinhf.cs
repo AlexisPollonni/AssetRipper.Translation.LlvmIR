@@ -54,7 +54,7 @@ internal static partial class sinhf
 						x2 = num2 * num2;
 						llvm_lifetime_start_p0.Invoke(8L, &y);
 						y = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double_double_double.Invoke(x2, 0.0, 0.16666666666678162, 0.00833333321902746, 0.00019844500753408458);
-						result = (float)fputil_multiply_add_double_double_double.Invoke(num2, y, num2);
+						result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, y, num2);
 						llvm_lifetime_end_p0.Invoke(8L, &y);
 						llvm_lifetime_end_p0.Invoke(8L, &x2);
 						llvm_lifetime_end_p0.Invoke(8L, &num2);

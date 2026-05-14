@@ -63,7 +63,7 @@ internal static partial class expm1
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
-				num2 = fputil_multiply_add_double_double_double.Invoke(x, 1.4426950408889634, 3145728.0001220703);
+				num2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, 1.4426950408889634, 3145728.0001220703);
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
 				num3 = (int)(cpp_enable_if_sizeof_unsigned_long_sizeof_double_cpp_is_trivially_constructible_unsigned_long_value_cpp_is_trivially_copyable_unsigned_long_value_cpp_is_trivially_copyable_double_value_unsigned_long_type_cpp_bit_cast_unsigned_long_double_double_const.Invoke(&num2) >>> 19);
 				llvm_lifetime_start_p0.Invoke(8L, &num4);
@@ -132,15 +132,15 @@ internal static partial class expm1
 				double lo = numberPair3.lo;
 				numberPair4.lo += lo;
 				llvm_lifetime_start_p0.Invoke(8L, &z);
-				z = fputil_multiply_add_double_double_double.Invoke(num4, -0.00016922538588914904, x);
+				z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, -0.00016922538588914904, x);
 				llvm_lifetime_start_p0.Invoke(8L, &num9);
-				num9 = fputil_multiply_add_double_double_double.Invoke(num4, 1.0256140314162804E-14, z);
+				num9 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, 1.0256140314162804E-14, z);
 				llvm_lifetime_start_p0.Invoke(8L, &y);
 				y = num9 * numberPair3.hi;
 				llvm_lifetime_start_p0.Invoke(8L, &x2);
 				x2 = anonymous_namespace_poly_approx_d_double.Invoke(num9);
 				llvm_lifetime_start_p0.Invoke(8L, &num10);
-				num10 = fputil_multiply_add_double_double_double.Invoke(x2, y, numberPair4.lo);
+				num10 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, y, numberPair4.lo);
 				llvm_lifetime_start_p0.Invoke(8L, &num11);
 				num11 = (((b & 1) != 1) ? 0L : ((long)checked(-num7) << 52));
 				llvm_lifetime_start_p0.Invoke(8L, &num12);

@@ -50,7 +50,7 @@ internal static partial class exp10
 				goto IL_0b1f;
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = fputil_multiply_add_double_double_double.Invoke(x, 3.321928094887362, 3145728.0001220703);
+			num2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, 3.321928094887362, 3145728.0001220703);
 			llvm_lifetime_start_p0.Invoke(4L, &num3);
 			num3 = (int)(cpp_enable_if_sizeof_unsigned_long_sizeof_double_cpp_is_trivially_constructible_unsigned_long_value_cpp_is_trivially_copyable_unsigned_long_value_cpp_is_trivially_copyable_double_value_unsigned_long_type_cpp_bit_cast_unsigned_long_double_double_const.Invoke(&num2) >>> 19);
 			llvm_lifetime_start_p0.Invoke(8L, &num4);
@@ -86,15 +86,15 @@ internal static partial class exp10
 			Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
 			*(double*)num25 = struct_4ydhja3.field_1;
 			llvm_lifetime_start_p0.Invoke(8L, &z);
-			z = fputil_multiply_add_double_double_double.Invoke(num4, -7.349365128561658E-05, x);
+			z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, -7.349365128561658E-05, x);
 			llvm_lifetime_start_p0.Invoke(8L, &num8);
-			num8 = fputil_multiply_add_double_double_double.Invoke(num4, 4.649201285928778E-16, z);
+			num8 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, 4.649201285928778E-16, z);
 			llvm_lifetime_start_p0.Invoke(8L, &y);
 			y = num8 * numberPair3.hi;
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
 			x2 = anonymous_namespace_poly_approx_d_double_45.Invoke(num8);
 			llvm_lifetime_start_p0.Invoke(8L, &num9);
-			num9 = fputil_multiply_add_double_double_double.Invoke(x2, y, numberPair3.lo);
+			num9 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, y, numberPair3.lo);
 			llvm_lifetime_start_p0.Invoke(8L, &num10);
 			num10 = numberPair3.hi + (num9 + 1.6263032587282567E-19);
 			llvm_lifetime_start_p0.Invoke(8L, &num11);

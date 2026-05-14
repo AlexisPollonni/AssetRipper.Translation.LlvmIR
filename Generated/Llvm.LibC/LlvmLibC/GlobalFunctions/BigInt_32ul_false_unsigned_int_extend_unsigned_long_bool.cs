@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::extend(unsigned long, bool)")]
 internal static partial class BigInt_32ul_false_unsigned_int_extend_unsigned_long_bool
 {
-	public unsafe static void Invoke(BigInt_fzjdu3* @this, long index, bool is_neg)
+	public unsafe static void Invoke(BigInt_vtm4cw* @this, long index, bool is_neg)
 	{
 		int num = 0;
 		long num2 = 0L;

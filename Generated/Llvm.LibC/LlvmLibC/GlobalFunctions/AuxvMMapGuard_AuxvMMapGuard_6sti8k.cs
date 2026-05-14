@@ -12,7 +12,7 @@ internal static partial class AuxvMMapGuard_AuxvMMapGuard_6sti8k
 	{
 		unchecked
 		{
-			((anon_589mcc*)@this)->field_0 = ((delegate*<void*, long, int, int, int, long, void*>)mmap.__pointer)(null, 1024L, 3, 34, -1, 0L);
+			((anon_5uk363*)@this)->field_0 = ((delegate*<void*, long, int, int, int, long, void*>)mmap.__pointer)(null, 1024L, 3, 34, -1, 0L);
 		}
 	}
 }

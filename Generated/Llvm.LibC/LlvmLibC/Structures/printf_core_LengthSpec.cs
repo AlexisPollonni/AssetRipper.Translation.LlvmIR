@@ -5,6 +5,7 @@ using LlvmLibC.Enumerations;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 16)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_11printf_core10LengthSpecE")]
 [MangledName("struct.__llvm_libc_20_1_2_::printf_core::LengthSpec")]
 [DemangledName("__llvm_libc_20_1_2_::printf_core::LengthSpec")]
 public partial struct printf_core_LengthSpec

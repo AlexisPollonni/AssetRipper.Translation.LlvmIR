@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 60)]
+[MangledName("_ZTS7termios")]
 [MangledName("struct.termios")]
 public partial struct termios
 {

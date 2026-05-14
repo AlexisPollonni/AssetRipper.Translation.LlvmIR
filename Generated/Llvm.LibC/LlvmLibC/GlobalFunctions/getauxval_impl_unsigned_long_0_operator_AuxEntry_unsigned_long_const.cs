@@ -44,7 +44,7 @@ internal static partial class getauxval_impl_unsigned_long_0_operator_AuxEntry_u
 			}
 			else
 			{
-				AuxvErrnoGuard_mark_failure.Invoke((AuxvErrnoGuard*)((anon_589mcc*)@this)->field_0);
+				AuxvErrnoGuard_mark_failure.Invoke((AuxvErrnoGuard*)((anon_5uk363*)@this)->field_0);
 				result = 0L;
 			}
 			return result;

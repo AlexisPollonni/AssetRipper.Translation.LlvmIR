@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>&& __llvm_libc_20_1_2_::cpp::forward<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>(__llvm_libc_20_1_2_::cpp::remove_reference<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>::type&)")]
 internal static partial class BigInt_16512ul_false_unsigned_long_cpp_forward_BigInt_16512ul_false_unsigned_long_cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type
 {
-	public unsafe static BigInt_k36xhe* Invoke(BigInt_k36xhe* value)
+	public unsafe static BigInt_q8g275* Invoke(BigInt_q8g275* value)
 	{
 		return value;
 	}

@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::DyadicFloat()")]
 internal static partial class fputil_DyadicFloat_64ul_DyadicFloat
 {
-	public unsafe static void Invoke(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static void Invoke(fputil_DyadicFloat_syracv* @this)
 	{
 		llvm_memcpy_p0_p0_i64.Invoke(&@this->sign, Sign_POS.Pointer, 1L, isVolatile: false);
 		@this->exponent = 0;

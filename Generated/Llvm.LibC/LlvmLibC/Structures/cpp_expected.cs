@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 16)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_3cpp8optionalIdE15OptionalStorageIdLb0EEE")]
 [MangledName("class.__llvm_libc_20_1_2_::cpp::expected")]
 [DemangledName("__llvm_libc_20_1_2_::cpp::expected")]
 public partial struct cpp_expected

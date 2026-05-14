@@ -19,7 +19,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 		int num3 = 0;
 		int num4 = 0;
 		int num5 = 0;
-		FloatToString_dhsqbm floatToString_dhsqbm = default(FloatToString_dhsqbm);
+		FloatToString_rwjwy3 floatToString_rwjwy = default(FloatToString_rwjwy3);
 		int num6 = 0;
 		int num7 = 0;
 		printf_core_FormatSection printf_core_FormatSection2 = default(printf_core_FormatSection);
@@ -75,19 +75,19 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 			num4 = 0;
 			llvm_lifetime_start_p0.Invoke(4L, &num5);
 			num5 = num3 - 1;
-			llvm_lifetime_start_p0.Invoke(32L, &floatToString_dhsqbm);
-			*(long*)(&floatToString_dhsqbm) = -6148914691236517206L;
-			((int*)(&floatToString_dhsqbm))[2] = -1431655766;
-			sbyte* ptr = (sbyte*)(&floatToString_dhsqbm) + 12;
+			llvm_lifetime_start_p0.Invoke(32L, &floatToString_rwjwy);
+			*(long*)(&floatToString_rwjwy) = -6148914691236517206L;
+			((int*)(&floatToString_rwjwy))[2] = -1431655766;
+			sbyte* ptr = (sbyte*)(&floatToString_rwjwy) + 12;
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
 			ptr[3] = -86;
-			*(Int128*)((byte*)(&floatToString_dhsqbm) + 16) = -6148914691236517206L;
-			FloatToString_double_0_FloatToString_double.Invoke(&floatToString_dhsqbm, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
+			*(Int128*)((byte*)(&floatToString_rwjwy) + 16) = -6148914691236517206L;
+			FloatToString_double_0_FloatToString_double.Invoke(&floatToString_rwjwy, fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm2));
 			llvm_lifetime_start_p0.Invoke(4L, &num6);
 			num6 = -1431655766;
-			num6 = (int)((num2 >= 0) ? FloatToString_double_0_get_positive_blocks.Invoke(&floatToString_dhsqbm) : checked(-unchecked((int)FloatToString_double_0_zero_blocks_after_point.Invoke(&floatToString_dhsqbm))));
+			num6 = (int)((num2 >= 0) ? FloatToString_double_0_get_positive_blocks.Invoke(&floatToString_rwjwy) : checked(-unchecked((int)FloatToString_double_0_zero_blocks_after_point.Invoke(&floatToString_rwjwy))));
 			llvm_lifetime_start_p0.Invoke(4L, &num7);
 			num7 = 0;
 			int result;
@@ -96,7 +96,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 				while (num7 == 0)
 				{
 					num6 = checked(num6 + -1);
-					num7 = FloatToString_double_0_get_block_int.Invoke(&floatToString_dhsqbm, num6);
+					num7 = FloatToString_double_0_get_block_int.Invoke(&floatToString_rwjwy, num6);
 				}
 				llvm_lifetime_start_p0.Invoke(8L, &num8);
 				llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc);
@@ -182,7 +182,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 				}
 				while ((ulong)(num9 + 9L) < (ulong)(uint)(num5 + 1))
 				{
-					num7 = FloatToString_double_0_get_block_int.Invoke(&floatToString_dhsqbm, num6);
+					num7 = FloatToString_double_0_get_block_int.Invoke(&floatToString_rwjwy, num6);
 					num9 += 9L;
 					switch (num7)
 					{
@@ -219,7 +219,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 					}
 					num6 = checked(num6 + -1);
 				}
-				num7 = FloatToString_double_0_get_block_int.Invoke(&floatToString_dhsqbm, num6);
+				num7 = FloatToString_double_0_get_block_int.Invoke(&floatToString_rwjwy, num6);
 				llvm_lifetime_start_p0.Invoke(8L, &num15);
 				num15 = 9L;
 				llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc3);
@@ -322,7 +322,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 				{
 					num6 = checked(num6 + -1);
 					llvm_lifetime_start_p0.Invoke(4L, &num21);
-					num21 = FloatToString_double_0_get_block_int.Invoke(&floatToString_dhsqbm, num6);
+					num21 = FloatToString_double_0_get_block_int.Invoke(&floatToString_rwjwy, num6);
 					num20 = (int)((uint)num21 / 100000000u);
 					if ((uint)num21 % 100000000u != 0)
 					{
@@ -342,7 +342,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 							for (k = num6 - 1; k >= 0; k += -1)
 							{
 								llvm_lifetime_start_p0.Invoke(4L, &num23);
-								num23 = FloatToString_double_0_get_block_int.Invoke(&floatToString_dhsqbm, k);
+								num23 = FloatToString_double_0_get_block_int.Invoke(&floatToString_rwjwy, k);
 								int num34;
 								if (num23 != 0)
 								{
@@ -498,7 +498,7 @@ internal static partial class int_printf_core_convert_float_dec_auto_typed_doubl
 			}
 			llvm_lifetime_end_p0.Invoke(4L, &num7);
 			llvm_lifetime_end_p0.Invoke(4L, &num6);
-			llvm_lifetime_end_p0.Invoke(32L, &floatToString_dhsqbm);
+			llvm_lifetime_end_p0.Invoke(32L, &floatToString_rwjwy);
 			llvm_lifetime_end_p0.Invoke(4L, &num5);
 			llvm_lifetime_end_p0.Invoke(4L, &num4);
 			llvm_lifetime_end_p0.Invoke(4L, &num3);

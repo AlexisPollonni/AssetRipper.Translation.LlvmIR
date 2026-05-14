@@ -1,5 +1,5 @@
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
-using LlvmLibC.Intrinsics.Unimplemented;
+using LlvmLibC.Intrinsics.Implemented;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -9,6 +9,6 @@ internal static partial class void_memcpy_inline_32ul_void_void_const
 {
 	public unsafe static void Invoke(void* dst, void* src)
 	{
-		llvm_memcpy_inline_p0_p0_i64.Invoke(dst, src, 32L, parameter_3: false);
+		llvm_memcpy_inline_p0_p0_i64.Invoke(dst, src, 32L, isVolatile: false);
 	}
 }

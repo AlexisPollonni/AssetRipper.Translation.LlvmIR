@@ -70,7 +70,7 @@ internal static partial class tanf16
 						}
 						llvm_lifetime_start_p0.Invoke(4L, &num4);
 						num4 = fputil_quick_get_round.Invoke();
-						result = (((!fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_pos_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) || num4 != 2048) && (!fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_neg_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) || num4 != 1024)) ? x : cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(fputil_multiply_add_float_float_float.Invoke(num3, 0.00048828125f, num3)));
+						result = (((!fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_pos_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) || num4 != 2048) && (!fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_neg_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) || num4 != 1024)) ? x : cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num3, 0.00048828125f, num3)));
 						llvm_lifetime_end_p0.Invoke(4L, &num4);
 					}
 					else
@@ -110,7 +110,7 @@ internal static partial class tanf16
 					llvm_lifetime_start_p0.Invoke(4L, &x4);
 					x4 = float.NaN;
 					sincosf16_eval_float_float_float_float_float.Invoke(num3, &num6, &num7, &x3, &x4);
-					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(fputil_multiply_add_float_float_float.Invoke(x3, num7, fputil_multiply_add_float_float_float.Invoke(x4, num6, num6)) / fputil_multiply_add_float_float_float.Invoke(x3, 0f - num6, fputil_multiply_add_float_float_float.Invoke(x4, num7, num7)));
+					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x3, num7, cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x4, num6, num6)) / cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x3, 0f - num6, cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x4, num7, num7)));
 					llvm_lifetime_end_p0.Invoke(4L, &x4);
 					llvm_lifetime_end_p0.Invoke(4L, &x3);
 					llvm_lifetime_end_p0.Invoke(4L, &num7);

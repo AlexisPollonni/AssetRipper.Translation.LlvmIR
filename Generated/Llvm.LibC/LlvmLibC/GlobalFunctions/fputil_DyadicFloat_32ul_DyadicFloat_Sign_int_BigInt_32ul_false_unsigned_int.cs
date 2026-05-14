@@ -11,14 +11,14 @@ internal static partial class fputil_DyadicFloat_32ul_DyadicFloat_Sign_int_BigIn
 	public unsafe static void Invoke(void* @this, [MangledName("s.coerce")] sbyte s, int e, [MangledName("m.coerce")] int m)
 	{
 		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
-		BigInt_fzjdu3 bigInt_fzjdu = default(BigInt_fzjdu3);
+		BigInt_vtm4cw bigInt_vtm4cw = default(BigInt_vtm4cw);
 		anon_izyfb8.val = s;
 		unchecked
 		{
-			*(int*)(&bigInt_fzjdu.val.Data) = m;
-			llvm_memcpy_p0_p0_i64.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->sign, &anon_izyfb8, 1L, isVolatile: false);
-			((fputil_DyadicFloat_c8qpxg*)@this)->exponent = e;
-			llvm_memcpy_p0_p0_i64.Invoke(&((fputil_DyadicFloat_c8qpxg*)@this)->mantissa, &bigInt_fzjdu, 4L, isVolatile: false);
+			*(int*)(&bigInt_vtm4cw.val.Data) = m;
+			llvm_memcpy_p0_p0_i64.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->sign, &anon_izyfb8, 1L, isVolatile: false);
+			((fputil_DyadicFloat_cs3nhs*)@this)->exponent = e;
+			llvm_memcpy_p0_p0_i64.Invoke(&((fputil_DyadicFloat_cs3nhs*)@this)->mantissa, &bigInt_vtm4cw, 4L, isVolatile: false);
 			fputil_DyadicFloat_32ul_normalize.Invoke(@this);
 		}
 	}

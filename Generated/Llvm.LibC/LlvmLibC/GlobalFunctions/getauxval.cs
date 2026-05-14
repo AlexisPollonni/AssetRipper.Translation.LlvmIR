@@ -14,7 +14,7 @@ internal static partial class getauxval
 	{
 		long result = 0L;
 		AuxvErrnoGuard auxvErrnoGuard = default(AuxvErrnoGuard);
-		anon_589mcc anon_589mcc2 = default(anon_589mcc);
+		anon_5uk363 anon_5uk364 = default(anon_5uk363);
 		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt);
 		AuxEntry auxEntry = default(AuxEntry);
 		llvm_lifetime_start_p0.Invoke(8L, &auxvErrnoGuard);
@@ -27,12 +27,12 @@ internal static partial class getauxval
 			ptr[1] = -86;
 			ptr[2] = -86;
 			AuxvErrnoGuard_AuxvErrnoGuard_532n53.Invoke(&auxvErrnoGuard);
-			llvm_lifetime_start_p0.Invoke(8L, &anon_589mcc2);
-			*(IntPtr*)(&anon_589mcc2) = unchecked((nint)(-6148914691236517206L));
-			anon_589mcc2.field_0 = &auxvErrnoGuard;
+			llvm_lifetime_start_p0.Invoke(8L, &anon_5uk364);
+			*(IntPtr*)(&anon_5uk364) = unchecked((nint)(-6148914691236517206L));
+			anon_5uk364.field_0 = &auxvErrnoGuard;
 			if (app.Pointer != null)
 			{
-				result = getauxval_impl_unsigned_long_0_operator_AuxEntry_unsigned_long_const.Invoke(&anon_589mcc2, app.Pointer->auxv_ptr, id);
+				result = getauxval_impl_unsigned_long_0_operator_AuxEntry_unsigned_long_const.Invoke(&anon_5uk364, app.Pointer->auxv_ptr, id);
 			}
 			else
 			{
@@ -84,12 +84,12 @@ internal static partial class getauxval
 					result = 0L;
 					goto IL_0201;
 				}
-				result = getauxval_impl_unsigned_long_0_operator_AuxEntry_unsigned_long_const.Invoke(&anon_589mcc2, auxv.Value, id);
+				result = getauxval_impl_unsigned_long_0_operator_AuxEntry_unsigned_long_const.Invoke(&anon_5uk364, auxv.Value, id);
 			}
 			goto IL_021a;
 		}
 		IL_021a:
-		llvm_lifetime_end_p0.Invoke(8L, &anon_589mcc2);
+		llvm_lifetime_end_p0.Invoke(8L, &anon_5uk364);
 		AuxvErrnoGuard_AuxvErrnoGuard_6mcd53.Invoke(&auxvErrnoGuard);
 		llvm_lifetime_end_p0.Invoke(8L, &auxvErrnoGuard);
 		return result;

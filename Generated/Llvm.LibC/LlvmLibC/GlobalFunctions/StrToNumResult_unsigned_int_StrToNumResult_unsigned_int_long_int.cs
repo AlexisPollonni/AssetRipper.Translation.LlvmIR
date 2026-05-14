@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_unsigned_int_StrToNumResult_unsigne
 	{
 		unchecked
 		{
-			((StrToNumResult_yrtfty*)@this)->value = value;
-			((StrToNumResult_yrtfty*)@this)->error = error;
-			((StrToNumResult_yrtfty*)@this)->parsed_len = parsed_len;
+			((StrToNumResult_imtnam*)@this)->value = value;
+			((StrToNumResult_imtnam*)@this)->error = error;
+			((StrToNumResult_imtnam*)@this)->parsed_len = parsed_len;
 		}
 	}
 }

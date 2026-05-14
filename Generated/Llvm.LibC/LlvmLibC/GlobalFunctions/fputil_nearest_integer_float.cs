@@ -1,8 +1,5 @@
-using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
-using LlvmLibC.InlineArrays;
 using LlvmLibC.Intrinsics.Implemented;
-using LlvmLibC.Intrinsics.Unimplemented;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -12,29 +9,23 @@ internal static partial class fputil_nearest_integer_float
 {
 	public unsafe static float Invoke(float x)
 	{
-		InlineArray4_Single inlineArray4_Single = default(InlineArray4_Single);
-		InlineArray4_Single buffer = default(InlineArray4_Single);
-		llvm_lifetime_start_p0.Invoke(16L, &inlineArray4_Single);
-		inlineArray4_Single = InlineArrayHelper.Create<InlineArray4_Single, float>(new float[4]
+		float num = 0f;
+		float num2 = 0f;
+		float result;
+		if (x < 16777216f && x > -16777216f)
 		{
-			float.NaN,
-			float.NaN,
-			float.NaN,
-			float.NaN
-		});
-		inlineArray4_Single = mm_set_ss_float.Invoke(x);
-		llvm_lifetime_start_p0.Invoke(16L, &buffer);
-		buffer = InlineArrayHelper.Create<InlineArray4_Single, float>(new float[4]
+			llvm_lifetime_start_p0.Invoke(4L, &num);
+			num = ((!(x < 0f)) ? (x + 8388608f - 8388608f) : (x - 8388608f + 8388608f));
+			llvm_lifetime_start_p0.Invoke(4L, &num2);
+			num2 = x - num;
+			result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 > 0.5f, expected: false)) ? ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 < -0.5f, expected: false)) ? num : (num - 1f)) : (num + 1f));
+			llvm_lifetime_end_p0.Invoke(4L, &num2);
+			llvm_lifetime_end_p0.Invoke(4L, &num);
+		}
+		else
 		{
-			float.NaN,
-			float.NaN,
-			float.NaN,
-			float.NaN
-		});
-		buffer = llvm_x86_sse41_round_ss.Invoke(inlineArray4_Single, inlineArray4_Single, 8);
-		float result = buffer.ExtractElement<InlineArray4_Single, float>(0);
-		llvm_lifetime_end_p0.Invoke(16L, &buffer);
-		llvm_lifetime_end_p0.Invoke(16L, &inlineArray4_Single);
+			result = x;
+		}
 		return result;
 	}
 }

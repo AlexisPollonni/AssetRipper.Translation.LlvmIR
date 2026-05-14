@@ -5,6 +5,7 @@ using LlvmLibC.Enumerations;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 88)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_10scanf_core13FormatSectionE")]
 [MangledName("struct.__llvm_libc_20_1_2_::scanf_core::FormatSection")]
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::FormatSection")]
 public partial struct scanf_core_FormatSection

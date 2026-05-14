@@ -59,7 +59,7 @@ internal static partial class log10f
 									{
 										if (num8 != 1232348160)
 										{
-											goto IL_0263;
+											goto IL_0307;
 										}
 										result = 6f;
 									}
@@ -110,9 +110,44 @@ internal static partial class log10f
 									{
 										if (num9 != 1065382104)
 										{
-											goto IL_0263;
+											if (num9 != 145662806)
+											{
+												if (num9 != 302748636)
+												{
+													if (num9 != 330201299)
+													{
+														if (num9 != 1326665603)
+														{
+															if (num9 != 2035726942)
+															{
+																goto IL_0307;
+															}
+															result = float_fputil_round_result_slightly_up_float_float.Invoke(34.84313f);
+														}
+														else
+														{
+															result = float_fputil_round_result_slightly_down_float_float.Invoke(9.392954f);
+														}
+													}
+													else
+													{
+														result = float_fputil_round_result_slightly_down_float_float.Invoke(-26.356123f);
+													}
+												}
+												else
+												{
+													result = float_fputil_round_result_slightly_down_float_float.Invoke(-27.356123f);
+												}
+											}
+											else
+											{
+												result = float_fputil_round_result_slightly_up_float_float.Invoke(-32.97837f);
+											}
 										}
-										result = float_fputil_round_result_slightly_up_float_float.Invoke(0.0014930184f);
+										else
+										{
+											result = float_fputil_round_result_slightly_up_float_float.Invoke(0.0014930184f);
+										}
 									}
 									else
 									{
@@ -144,12 +179,9 @@ internal static partial class log10f
 					result = 7f;
 				}
 			}
-			goto IL_0786;
+			goto IL_082f;
 		}
-		IL_0774:
-		llvm_lifetime_end_p0.Invoke(4L, &num3);
-		goto IL_0786;
-		IL_0263:
+		IL_0307:
 		llvm_lifetime_start_p0.Invoke(4L, &num3);
 		num3 = -127;
 		int num10 = num2;
@@ -179,7 +211,7 @@ internal static partial class log10f
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 			if (!num13)
 			{
-				goto IL_04db;
+				goto IL_057f;
 			}
 			if (x == 0f)
 			{
@@ -213,18 +245,21 @@ internal static partial class log10f
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs7);
 					num3 = checked(num3 - 23);
 					num2 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
-					goto IL_04db;
+					goto IL_057f;
 				}
 				result = x;
 			}
-			goto IL_0774;
+			goto IL_081d;
 		}
-		IL_0786:
+		IL_082f:
 		llvm_lifetime_end_p0.Invoke(4L, &num2);
 		llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 		llvm_lifetime_end_p0.Invoke(8L, &num);
 		return result;
-		IL_04db:
+		IL_081d:
+		llvm_lifetime_end_p0.Invoke(4L, &num3);
+		goto IL_082f;
+		IL_057f:
 		num3 += num2 >>> 23;
 		llvm_lifetime_start_p0.Invoke(4L, &num4);
 		num4 = (num2 >>> 16) & 0x7F;
@@ -235,9 +270,9 @@ internal static partial class log10f
 			num5 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2);
 			llvm_lifetime_start_p0.Invoke(8L, &num6);
 			num6 = double.NaN;
-			float x3 = num5;
+			double x3 = num5;
 			long num14 = num4;
-			num6 = fputil_multiply_add_float_float_float.Invoke(x3, ((float*)R.Pointer)[num14], -1f);
+			num6 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, ((float*)R.Pointer)[num14], -1.0);
 			llvm_lifetime_start_p0.Invoke(40L, &inlineArray5_Double);
 			llvm_memset_p0_i64.Invoke(&inlineArray5_Double, 0, 40L, isVolatile: false);
 			*(double*)(&inlineArray5_Double) = 0.4342944819032211;
@@ -248,16 +283,16 @@ internal static partial class log10f
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
 			x2 = num6 * num6;
 			llvm_lifetime_start_p0.Invoke(8L, &a_ijazrn);
-			a_ijazrn = fputil_multiply_add_double_double_double.Invoke(num6, Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, (nint)4 * sizeof(double))), Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, (nint)3 * sizeof(double))));
+			a_ijazrn = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num6, Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, (nint)4 * sizeof(double))), Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, (nint)3 * sizeof(double))));
 			llvm_lifetime_start_p0.Invoke(8L, &a_yc74sk);
-			a_yc74sk = fputil_multiply_add_double_double_double.Invoke(num6, Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, (nint)2 * sizeof(double))), Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, sizeof(double))));
+			a_yc74sk = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num6, Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, (nint)2 * sizeof(double))), Unsafe.As<InlineArray5_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray5_Double, sizeof(double))));
 			llvm_lifetime_start_p0.Invoke(8L, &a);
 			double x4 = num6;
 			double y = *(double*)(&inlineArray5_Double);
 			long num15 = num4;
-			a = fputil_multiply_add_double_double_double.Invoke(x4, y, ((double*)LOG10_R.Pointer)[num15]);
+			a = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x4, y, ((double*)LOG10_R.Pointer)[num15]);
 			llvm_lifetime_start_p0.Invoke(8L, &num7);
-			num7 = fputil_multiply_add_double_double_double.Invoke(num3, 0.3010299956639812, cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double.Invoke(x2, a, a_yc74sk, a_ijazrn));
+			num7 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num3, 0.3010299956639812, cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double.Invoke(x2, a, a_yc74sk, a_ijazrn));
 			result = (float)num7;
 			llvm_lifetime_end_p0.Invoke(8L, &num7);
 			llvm_lifetime_end_p0.Invoke(8L, &a);
@@ -268,7 +303,7 @@ internal static partial class log10f
 			llvm_lifetime_end_p0.Invoke(8L, &num6);
 			llvm_lifetime_end_p0.Invoke(4L, &num5);
 			llvm_lifetime_end_p0.Invoke(4L, &num4);
-			goto IL_0774;
+			goto IL_081d;
 		}
 	}
 }

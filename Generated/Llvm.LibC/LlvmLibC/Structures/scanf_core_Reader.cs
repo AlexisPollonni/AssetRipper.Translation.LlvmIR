@@ -4,6 +4,7 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 40)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_10scanf_core6ReaderE")]
 [MangledName("class.__llvm_libc_20_1_2_::scanf_core::Reader")]
 [DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader")]
 public partial struct scanf_core_Reader

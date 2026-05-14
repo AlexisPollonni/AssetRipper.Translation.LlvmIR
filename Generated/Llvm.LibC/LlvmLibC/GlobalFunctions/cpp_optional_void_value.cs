@@ -9,6 +9,6 @@ internal static partial class cpp_optional_void_value
 {
 	public unsafe static void* Invoke(void* @this)
 	{
-		return &unchecked((cpp_optional_e5s7qx*)@this)->storage.field;
+		return &unchecked((cpp_optional_77yu8f*)@this)->storage.field;
 	}
 }

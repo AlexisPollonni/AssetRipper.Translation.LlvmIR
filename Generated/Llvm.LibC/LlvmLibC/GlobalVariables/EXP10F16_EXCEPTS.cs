@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class EXP10F16_EXCEPTS
 {
 	[FixedAddressValueType]
-	private static fputil_ExceptValues_ist8fx __value;
+	private static fputil_ExceptValues_ztktch __value;
 
-	public unsafe static fputil_ExceptValues_ist8fx* Pointer => unchecked((fputil_ExceptValues_ist8fx*)Unsafe.AsPointer(ref __value));
+	public unsafe static fputil_ExceptValues_ztktch* Pointer => unchecked((fputil_ExceptValues_ztktch*)Unsafe.AsPointer(ref __value));
 
-	public static fputil_ExceptValues_ist8fx Value
+	public static fputil_ExceptValues_ztktch Value
 	{
 		get
 		{
@@ -29,9 +29,9 @@ internal static partial class EXP10F16_EXCEPTS
 
 	unsafe static EXP10F16_EXCEPTS()
 	{
-		Value = new fputil_ExceptValues_ist8fx
+		Value = new fputil_ExceptValues_ztktch
 		{
-			values = new InlineArrayBuilder<InlineArray5_fputil_ExceptValues_Float16_21_Mapping, fputil_ExceptValues_Float16_21_Mapping>
+			values = new InlineArrayBuilder<InlineArray8_fputil_ExceptValues_Float16_21_Mapping, fputil_ExceptValues_Float16_21_Mapping>
 			{
 				new fputil_ExceptValues_Float16_21_Mapping
 				{
@@ -72,6 +72,30 @@ internal static partial class EXP10F16_EXCEPTS
 					rnd_upward_offset = 1,
 					rnd_downward_offset = 0,
 					rnd_tonearest_offset = 0
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 16432,
+					rnd_towardzero_result = 22465,
+					rnd_upward_offset = 1,
+					rnd_downward_offset = 0,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 16494,
+					rnd_towardzero_result = 22815,
+					rnd_upward_offset = 1,
+					rnd_downward_offset = 0,
+					rnd_tonearest_offset = 1
+				},
+				new fputil_ExceptValues_Float16_21_Mapping
+				{
+					input = 17518,
+					rnd_towardzero_result = 30352,
+					rnd_upward_offset = 1,
+					rnd_downward_offset = 0,
+					rnd_tonearest_offset = 1
 				}
 			}
 		};

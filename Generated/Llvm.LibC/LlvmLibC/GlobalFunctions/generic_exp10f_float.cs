@@ -129,14 +129,14 @@ internal static partial class generic_exp10f_float
 			llvm_lifetime_start_p0.Invoke(8L, &num4);
 			num4 = numberPair.hi * numberPair.hi;
 			llvm_lifetime_start_p0.Invoke(8L, &num5);
-			num5 = fputil_multiply_add_double_double_double.Invoke(numberPair.hi, *(double*)Exp10Base_COEFFS.Pointer, 1.0);
+			num5 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(numberPair.hi, *(double*)Exp10Base_COEFFS.Pointer, 1.0);
 			llvm_lifetime_start_p0.Invoke(8L, &z);
-			z = fputil_multiply_add_double_double_double.Invoke(numberPair.hi, ((double*)Exp10Base_COEFFS.Pointer)[2L], ((double*)Exp10Base_COEFFS.Pointer)[1]);
+			z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(numberPair.hi, ((double*)Exp10Base_COEFFS.Pointer)[2L], ((double*)Exp10Base_COEFFS.Pointer)[1]);
 			llvm_lifetime_start_p0.Invoke(8L, &y);
-			y = fputil_multiply_add_double_double_double.Invoke(numberPair.hi, ((double*)Exp10Base_COEFFS.Pointer)[4L], ((double*)Exp10Base_COEFFS.Pointer)[3L]);
+			y = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(numberPair.hi, ((double*)Exp10Base_COEFFS.Pointer)[4L], ((double*)Exp10Base_COEFFS.Pointer)[3L]);
 			llvm_lifetime_start_p0.Invoke(8L, &x2);
-			x2 = fputil_multiply_add_double_double_double.Invoke(num4, y, z);
-			result = (float)fputil_multiply_add_double_double_double.Invoke(x2, num4 * numberPair.lo, num5 * numberPair.lo);
+			x2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, y, z);
+			result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, num4 * numberPair.lo, num5 * numberPair.lo);
 			llvm_lifetime_end_p0.Invoke(8L, &x2);
 			llvm_lifetime_end_p0.Invoke(8L, &y);
 			llvm_lifetime_end_p0.Invoke(8L, &z);
@@ -150,7 +150,7 @@ internal static partial class generic_exp10f_float
 		{
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 <= 999956635u, expected: false))
 			{
-				result = ((bool_details_expects_bool_condition_bool_bool_bool.Invoke(num == -1302438951, expected: false) && fputil_fenv_is_round_to_nearest.Invoke()) ? ((float)Math.PI * 113f / 355f) : ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 <= 847249408u, expected: false)) ? ((float)Exp10Base_powb_lo_double.Invoke(x)) : fputil_multiply_add_float_float_float.Invoke(x, 2.3025851f, 1f)));
+				result = ((bool_details_expects_bool_condition_bool_bool_bool.Invoke(num == -1302438951, expected: false) && fputil_fenv_is_round_to_nearest.Invoke()) ? ((float)Math.PI * 113f / 355f) : ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 <= 847249408u, expected: false)) ? ((float)Exp10Base_powb_lo_double.Invoke(x)) : cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x, 2.3025851f, 1f)));
 			}
 			else if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num == 1024776534, expected: false) && fputil_fenv_is_round_up.Invoke())
 			{

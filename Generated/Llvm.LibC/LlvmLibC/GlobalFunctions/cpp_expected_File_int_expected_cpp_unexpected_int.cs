@@ -15,7 +15,7 @@ internal static partial class cpp_expected_File_int_expected_cpp_unexpected_int
 		};
 		unchecked
 		{
-			anon_589mcc* field = &((cpp_optional_char_OptionalStorage*)@this)->field;
+			anon_5uk363* field = &((cpp_optional_char_OptionalStorage*)@this)->field;
 			*(int*)field = cpp_unexpected_int_error.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
 			((cpp_optional_char_OptionalStorage*)@this)->in_use = 0;
 		}

@@ -22,6 +22,6 @@ internal static partial class StrToNumResult_double_internal_strtofloatingpoint_
 
 	unsafe static StrToNumResult_double_internal_strtofloatingpoint_double_char_const_inf_string()
 	{
-		Value = str_122.Pointer;
+		Value = str_124.Pointer;
 	}
 }

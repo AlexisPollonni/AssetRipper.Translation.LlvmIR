@@ -1,11 +1,9 @@
-using LlvmLibC.Intrinsics.Implemented;
-
 namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class floor
 {
 	public static double Invoke(double x)
 	{
-		return llvm_floor_f64.Invoke(x);
+		return double_fputil_floor_double_0_double.Invoke(x);
 	}
 }

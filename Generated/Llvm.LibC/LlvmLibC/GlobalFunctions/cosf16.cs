@@ -83,7 +83,7 @@ internal static partial class cosf16
 					llvm_lifetime_start_p0.Invoke(4L, &y2);
 					y2 = float.NaN;
 					sincosf16_eval_float_float_float_float_float.Invoke(xf, &num3, &num4, &y, &y2);
-					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(fputil_multiply_add_float_float_float.Invoke(num4, y2, fputil_multiply_add_float_float_float.Invoke(0f - num3, y, num4)));
+					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num4, y2, cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(0f - num3, y, num4)));
 					llvm_lifetime_end_p0.Invoke(4L, &y2);
 					llvm_lifetime_end_p0.Invoke(4L, &y);
 					llvm_lifetime_end_p0.Invoke(4L, &num4);

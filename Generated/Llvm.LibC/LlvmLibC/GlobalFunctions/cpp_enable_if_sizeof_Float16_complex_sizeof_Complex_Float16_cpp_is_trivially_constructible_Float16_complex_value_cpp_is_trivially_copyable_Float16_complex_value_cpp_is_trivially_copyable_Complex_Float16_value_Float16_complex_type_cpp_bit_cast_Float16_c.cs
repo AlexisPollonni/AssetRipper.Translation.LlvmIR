@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (_Float16 complex) == sizeof (__llvm_libc_20_1_2_::Complex<_Float16>) && cpp::is_trivially_constructible<_Float16 complex>::value && cpp::is_trivially_copyable<_Float16 complex>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::Complex<_Float16>>::value, _Float16 complex>::type __llvm_libc_20_1_2_::cpp::bit_cast<_Float16 complex, __llvm_libc_20_1_2_::Complex<_Float16>>(__llvm_libc_20_1_2_::Complex<_Float16> const&)")]
 internal static partial class cpp_enable_if_sizeof_Float16_complex_sizeof_Complex_Float16_cpp_is_trivially_constructible_Float16_complex_value_cpp_is_trivially_copyable_Float16_complex_value_cpp_is_trivially_copyable_Complex_Float16_value_Float16_complex_type_cpp_bit_cast_Float16_complex_Complex_Float16_Complex_Float16_const
 {
-	public unsafe static InlineArray2_Half Invoke(Complex_ueqjqt* from)
+	public unsafe static InlineArray2_Half Invoke(Complex_mify6x* from)
 	{
 		Struct_zwcg27 struct_zwcg = default(Struct_zwcg27);
 		unchecked

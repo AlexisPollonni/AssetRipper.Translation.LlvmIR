@@ -37,7 +37,7 @@ internal static partial class anonymous_namespace_set_exceptional_double
 			num2 = num4;
 			if ((ulong)num2 <= 4368491638549381120uL)
 			{
-				result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)num2 <= 247697979505377280uL, expected: false)) ? double_fputil_round_result_slightly_up_double_double.Invoke(x) : ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 == 0L, expected: false)) ? (6.223015277861142E-61 * fputil_multiply_add_double_double_double.Invoke(x, 1.6069380442589903E+60, 2.2250738585072014E-308)) : x));
+				result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke((ulong)num2 <= 247697979505377280uL, expected: false)) ? double_fputil_round_result_slightly_up_double_double.Invoke(x) : ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 == 0L, expected: false)) ? (6.223015277861142E-61 * cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, 1.6069380442589903E+60, 2.2250738585072014E-308)) : x));
 			}
 			else if ((ulong)num >= 13853836650999914722uL)
 			{

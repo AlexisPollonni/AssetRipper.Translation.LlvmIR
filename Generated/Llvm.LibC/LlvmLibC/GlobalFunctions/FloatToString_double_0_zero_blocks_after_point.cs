@@ -12,8 +12,8 @@ internal static partial class FloatToString_double_0_zero_blocks_after_point
 	{
 		unchecked
 		{
-			long num = (long)((ulong)checked(-unchecked((FloatToString_dhsqbm*)@this)->field_1) / 16uL);
-			return (byte)((sbyte*)MIN_BLOCK_2_170.Pointer)[num];
+			long num = (long)((ulong)checked(-unchecked((FloatToString_rwjwy3*)@this)->field_1) / 16uL);
+			return (byte)((sbyte*)MIN_BLOCK_2_172.Pointer)[num];
 		}
 	}
 }

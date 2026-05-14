@@ -4,6 +4,6 @@ internal static partial class isdigit
 {
 	public static int Invoke(int c)
 	{
-		return internal_isdigit_int_228.Invoke(c) ? 1 : 0;
+		return internal_isdigit_int_230.Invoke(c) ? 1 : 0;
 	}
 }

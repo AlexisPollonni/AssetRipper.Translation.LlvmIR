@@ -8,6 +8,6 @@ internal static partial class strcasestr_impl_char_const_char_const_0_operator_c
 {
 	public unsafe static int Invoke(void* @this, sbyte a, sbyte b)
 	{
-		return internal_tolower_int_199.Invoke(a) - internal_tolower_int_199.Invoke(b);
+		return internal_tolower_int_201.Invoke(a) - internal_tolower_int_201.Invoke(b);
 	}
 }

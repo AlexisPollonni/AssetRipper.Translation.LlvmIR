@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<double>::optional()")]
 internal static partial class cpp_optional_double_optional
 {
-	public unsafe static void Invoke(cpp_optional_s4iqgj* @this)
+	public unsafe static void Invoke(cpp_optional_vhbvq7* @this)
 	{
 		cpp_optional_double_OptionalStorage_double_false_OptionalStorage.Invoke(&@this->storage);
 	}

@@ -11,7 +11,7 @@ internal static partial class ziv_test_denorm_int_double_double_double
 {
 	public unsafe static Struct_8myw6y Invoke(int hi, double mid, double lo, double err)
 	{
-		cpp_optional_s4iqgj cpp_optional_s4iqgj2 = default(cpp_optional_s4iqgj);
+		cpp_optional_vhbvq7 cpp_optional_vhbvq8 = default(cpp_optional_vhbvq7);
 		double x = 0.0;
 		double num = 0.0;
 		long num2 = 0L;
@@ -90,13 +90,13 @@ internal static partial class ziv_test_denorm_int_double_double_double
 				llvm_lifetime_start_p0.Invoke(8L, &num16);
 				num16 = cpp_enable_if_sizeof_unsigned_long_sizeof_double_cpp_is_trivially_constructible_unsigned_long_value_cpp_is_trivially_copyable_unsigned_long_value_cpp_is_trivially_copyable_double_value_unsigned_long_type_cpp_bit_cast_unsigned_long_double_double_const.Invoke(&num13) - num8;
 				num15 = cpp_enable_if_sizeof_double_sizeof_unsigned_long_cpp_is_trivially_constructible_double_value_cpp_is_trivially_copyable_double_value_cpp_is_trivially_copyable_unsigned_long_value_double_type_cpp_bit_cast_double_unsigned_long_unsigned_long_const.Invoke(&num16);
-				cpp_optional_double_optional_double.Invoke(&cpp_optional_s4iqgj2, &num15);
+				cpp_optional_double_optional_double.Invoke(&cpp_optional_vhbvq8, &num15);
 				llvm_lifetime_end_p0.Invoke(8L, &num16);
 				llvm_lifetime_end_p0.Invoke(8L, &num15);
 			}
 			else
 			{
-				cpp_optional_double_optional_cpp_nullopt_t.Invoke(&cpp_optional_s4iqgj2);
+				cpp_optional_double_optional_cpp_nullopt_t.Invoke(&cpp_optional_vhbvq8);
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &num14);
 			llvm_lifetime_end_p0.Invoke(8L, &num13);
@@ -108,7 +108,7 @@ internal static partial class ziv_test_denorm_int_double_double_double
 			llvm_lifetime_end_p0.Invoke(8L, &num5);
 			llvm_lifetime_end_p0.Invoke(8L, &num3);
 			llvm_lifetime_end_p0.Invoke(8L, &num2);
-			return *(Struct_8myw6y*)(&cpp_optional_s4iqgj2.storage);
+			return *(Struct_8myw6y*)(&cpp_optional_vhbvq8.storage);
 		}
 	}
 }

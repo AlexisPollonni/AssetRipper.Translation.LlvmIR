@@ -5,12 +5,13 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 24)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIdEEE15OptionalStorageIS4_Lb0EEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::string_view>::OptionalStorage")]
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::string_view>::OptionalStorage")]
 public partial struct cpp_optional_cpp_string_view_OptionalStorage
 {
 	[FieldOffset(0)]
-	public anon_t4s8je field;
+	public anon_hnnzgy field;
 
 	[FieldOffset(16)]
 	public sbyte in_use;

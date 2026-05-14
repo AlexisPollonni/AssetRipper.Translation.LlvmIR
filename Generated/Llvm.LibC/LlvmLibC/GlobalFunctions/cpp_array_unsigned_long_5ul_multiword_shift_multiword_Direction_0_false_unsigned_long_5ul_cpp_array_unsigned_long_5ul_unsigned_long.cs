@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul> __llvm_libc_20_1_2_::multiword::shift<(__llvm_libc_20_1_2_::multiword::Direction)0, false, unsigned long, 5ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>, unsigned long)")]
 internal static partial class cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_0_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_array_v97b5b* agg_result, void* array, long offset)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_array_msasyg* agg_result, void* array, long offset)
 	{
 		long num = 0L;
 		long num2 = 0L;

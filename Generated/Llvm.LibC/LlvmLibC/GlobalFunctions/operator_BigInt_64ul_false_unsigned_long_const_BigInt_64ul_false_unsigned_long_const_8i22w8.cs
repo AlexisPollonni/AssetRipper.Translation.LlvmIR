@@ -8,7 +8,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const")]
 internal static partial class operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_8i22w8
 {
-	public unsafe static bool Invoke(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static bool Invoke(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		return cmp_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const.Invoke(lhs, rhs) >= 0;
 	}

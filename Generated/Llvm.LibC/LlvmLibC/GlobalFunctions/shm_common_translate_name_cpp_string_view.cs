@@ -9,14 +9,14 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::shm_common::translate_name(__llvm_libc_20_1_2_::cpp::string_view)")]
 internal static partial class shm_common_translate_name_cpp_string_view
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_pjf72b* agg_result, [MangledName("name.coerce0")] void* name, [MangledName("name.coerce1")] long offset)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_hnriuf* agg_result, [MangledName("name.coerce0")] void* name, [MangledName("name.coerce1")] long offset)
 	{
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		long num = 0L;
 		cpp_string_view cpp_string_view3 = default(cpp_string_view);
 		cpp_string_view cpp_string_view4 = default(cpp_string_view);
 		cpp_string_view cpp_string_view5 = default(cpp_string_view);
-		cpp_array_55kc72 cpp_array_55kc73 = default(cpp_array_55kc72);
+		cpp_array_knc3mr cpp_array_knc3mr2 = default(cpp_array_knc3mr);
 		unchecked
 		{
 			*(void**)(&cpp_string_view2) = name;
@@ -47,19 +47,19 @@ internal static partial class shm_common_translate_name_cpp_string_view
 				}
 				else
 				{
-					cpp_string_view_string_view_char_const.Invoke(&cpp_string_view4, str_109.Pointer);
+					cpp_string_view_string_view_char_const.Invoke(&cpp_string_view4, str_111.Pointer);
 					if (!cpp_string_view_operator_cpp_string_view_const.Invoke(&cpp_string_view2, *(void**)(&cpp_string_view4), ((long*)(&cpp_string_view4))[1]))
 					{
-						cpp_string_view_string_view_char_const.Invoke(&cpp_string_view5, str_1_110.Pointer);
+						cpp_string_view_string_view_char_const.Invoke(&cpp_string_view5, str_1_112.Pointer);
 						if (!cpp_string_view_operator_cpp_string_view_const.Invoke(&cpp_string_view2, *(void**)(&cpp_string_view5), ((long*)(&cpp_string_view5))[1]) && !cpp_string_view_contains_char_const.Invoke(&cpp_string_view2, 47))
 						{
-							llvm_lifetime_start_p0.Invoke(265L, &cpp_array_55kc73);
-							llvm_memset_p0_i64.Invoke(&cpp_array_55kc73, -86, 265L, isVolatile: false);
-							inline_memcpy_void_void_const_unsigned_long.Invoke(cpp_array_char_265ul_data.Invoke(&cpp_array_55kc73), cpp_string_view_data_const.Invoke(shm_common_SHM_PREFIX.Pointer), cpp_string_view_size_const.Invoke(shm_common_SHM_PREFIX.Pointer));
-							inline_memcpy_void_void_const_unsigned_long.Invoke((byte*)cpp_array_char_265ul_data.Invoke(&cpp_array_55kc73) + cpp_string_view_size_const.Invoke(shm_common_SHM_PREFIX.Pointer), cpp_string_view_data_const.Invoke(&cpp_string_view2), cpp_string_view_size_const.Invoke(&cpp_string_view2));
-							*(sbyte*)cpp_array_char_265ul_operator_unsigned_long.Invoke(&cpp_array_55kc73, cpp_string_view_size_const.Invoke(shm_common_SHM_PREFIX.Pointer) + cpp_string_view_size_const.Invoke(&cpp_string_view2)) = 0;
-							cpp_optional_cpp_array_char_265ul_optional_cpp_array_char_265ul.Invoke(agg_result, &cpp_array_55kc73);
-							llvm_lifetime_end_p0.Invoke(265L, &cpp_array_55kc73);
+							llvm_lifetime_start_p0.Invoke(265L, &cpp_array_knc3mr2);
+							llvm_memset_p0_i64.Invoke(&cpp_array_knc3mr2, -86, 265L, isVolatile: false);
+							inline_memcpy_void_void_const_unsigned_long.Invoke(cpp_array_char_265ul_data.Invoke(&cpp_array_knc3mr2), cpp_string_view_data_const.Invoke(shm_common_SHM_PREFIX.Pointer), cpp_string_view_size_const.Invoke(shm_common_SHM_PREFIX.Pointer));
+							inline_memcpy_void_void_const_unsigned_long.Invoke((byte*)cpp_array_char_265ul_data.Invoke(&cpp_array_knc3mr2) + cpp_string_view_size_const.Invoke(shm_common_SHM_PREFIX.Pointer), cpp_string_view_data_const.Invoke(&cpp_string_view2), cpp_string_view_size_const.Invoke(&cpp_string_view2));
+							*(sbyte*)cpp_array_char_265ul_operator_unsigned_long.Invoke(&cpp_array_knc3mr2, cpp_string_view_size_const.Invoke(shm_common_SHM_PREFIX.Pointer) + cpp_string_view_size_const.Invoke(&cpp_string_view2)) = 0;
+							cpp_optional_cpp_array_char_265ul_optional_cpp_array_char_265ul.Invoke(agg_result, &cpp_array_knc3mr2);
+							llvm_lifetime_end_p0.Invoke(265L, &cpp_array_knc3mr2);
 							goto IL_0234;
 						}
 					}

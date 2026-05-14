@@ -12,14 +12,14 @@ internal static partial class FloatToString_long_double_0_init_convert
 {
 	public unsafe static void Invoke(FloatToString_8m29tk* @this)
 	{
-		BigInt_k36xhe bigInt_k36xhe = default(BigInt_k36xhe);
+		BigInt_q8g275 bigInt_q8g = default(BigInt_q8g275);
 		Int128 @int = default(Int128);
-		BigInt_k36xhe bigInt_k36xhe2 = default(BigInt_k36xhe);
-		BigInt_k36xhe bigInt_k36xhe3 = default(BigInt_k36xhe);
+		BigInt_q8g275 bigInt_q8g2 = default(BigInt_q8g275);
+		BigInt_q8g275 bigInt_q8g3 = default(BigInt_q8g275);
 		Int128 int2 = default(Int128);
 		int num = 0;
 		BigInt_qdkjbh bigInt_qdkjbh = default(BigInt_qdkjbh);
-		BigInt_k36xhe bigInt_k36xhe4 = default(BigInt_k36xhe);
+		BigInt_q8g275 bigInt_q8g4 = default(BigInt_q8g275);
 		long num2 = 0L;
 		BigInt_qdkjbh bigInt_qdkjbh2 = default(BigInt_qdkjbh);
 		if (NumericHelper.IntCmpEq(@this->mantissa, 0L) && @this->exponent == 0)
@@ -30,23 +30,23 @@ internal static partial class FloatToString_long_double_0_init_convert
 		{
 			if (@this->exponent > 0)
 			{
-				llvm_lifetime_start_p0.Invoke(2064L, &bigInt_k36xhe);
-				llvm_memset_p0_i64.Invoke(&bigInt_k36xhe, -86, 2064L, isVolatile: false);
+				llvm_lifetime_start_p0.Invoke(2064L, &bigInt_q8g);
+				llvm_memset_p0_i64.Invoke(&bigInt_q8g, -86, 2064L, isVolatile: false);
 				@int = @this->mantissa;
-				BigInt_16512ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(&bigInt_k36xhe, *(long*)(&@int), ((long*)(&@int))[1]);
-				BigInt_16512ul_false_unsigned_long_operator_unsigned_long_en4bet.Invoke(&bigInt_k36xhe, @this->exponent);
+				BigInt_16512ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(&bigInt_q8g, *(long*)(&@int), ((long*)(&@int))[1]);
+				BigInt_16512ul_false_unsigned_long_operator_unsigned_long_en4bet.Invoke(&bigInt_q8g, @this->exponent);
 				@this->int_block_index = 0;
 				while (true)
 				{
-					llvm_lifetime_start_p0.Invoke(2064L, &bigInt_k36xhe2);
-					BigInt_16512ul_false_unsigned_long_BigInt_int_void_int.Invoke(&bigInt_k36xhe2, 0);
-					bool num3 = operator_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const.Invoke(&bigInt_k36xhe, &bigInt_k36xhe2);
-					llvm_lifetime_end_p0.Invoke(2064L, &bigInt_k36xhe2);
+					llvm_lifetime_start_p0.Invoke(2064L, &bigInt_q8g2);
+					BigInt_16512ul_false_unsigned_long_BigInt_int_void_int.Invoke(&bigInt_q8g2, 0);
+					bool num3 = operator_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const.Invoke(&bigInt_q8g, &bigInt_q8g2);
+					llvm_lifetime_end_p0.Invoke(2064L, &bigInt_q8g2);
 					if (!num3)
 					{
 						break;
 					}
-					int num4 = unsigned_int_FloatToString_long_double_0_grab_digits_16512ul_BigInt_16512ul_false_internal_WordTypeSelector_16512ul_type.Invoke(&bigInt_k36xhe);
+					int num4 = unsigned_int_FloatToString_long_double_0_grab_digits_16512ul_BigInt_16512ul_false_internal_WordTypeSelector_16512ul_type.Invoke(&bigInt_q8g);
 					((int*)(&@this->block_buffer))[@this->int_block_index] = num4;
 					checked
 					{
@@ -54,14 +54,14 @@ internal static partial class FloatToString_long_double_0_init_convert
 					}
 				}
 				@this->block_buffer_valid = @this->int_block_index;
-				llvm_lifetime_end_p0.Invoke(2064L, &bigInt_k36xhe);
+				llvm_lifetime_end_p0.Invoke(2064L, &bigInt_q8g);
 				return;
 			}
-			llvm_lifetime_start_p0.Invoke(2064L, &bigInt_k36xhe3);
+			llvm_lifetime_start_p0.Invoke(2064L, &bigInt_q8g3);
 			int2 = @this->mantissa;
-			BigInt_16512ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(&bigInt_k36xhe3, *(long*)(&int2), ((long*)(&int2))[1]);
-			llvm_memcpy_p0_p0_i64.Invoke(&@this->float_as_fixed, &bigInt_k36xhe3, 2064L, isVolatile: false);
-			llvm_lifetime_end_p0.Invoke(2064L, &bigInt_k36xhe3);
+			BigInt_16512ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(&bigInt_q8g3, *(long*)(&int2), ((long*)(&int2))[1]);
+			llvm_memcpy_p0_p0_i64.Invoke(&@this->float_as_fixed, &bigInt_q8g3, 2064L, isVolatile: false);
+			llvm_lifetime_end_p0.Invoke(2064L, &bigInt_q8g3);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = (int)(16384L + @this->exponent);
 			BigInt_16512ul_false_unsigned_long_operator_unsigned_long_en4bet.Invoke(&@this->float_as_fixed, num);
@@ -71,10 +71,10 @@ internal static partial class FloatToString_long_double_0_init_convert
 				sbyte* ptr = (sbyte*)(&bigInt_qdkjbh);
 				*(long*)ptr = -6148914691236517206L;
 				((long*)ptr)[1] = -6148914691236517206L;
-				llvm_lifetime_start_p0.Invoke(2064L, &bigInt_k36xhe4);
-				BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_zwn8yf.Invoke(&bigInt_k36xhe4, &@this->float_as_fixed, 16384L);
-				BigInt_128ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const.Invoke((anon_izyfb7*)(&bigInt_qdkjbh), &bigInt_k36xhe4);
-				llvm_lifetime_end_p0.Invoke(2064L, &bigInt_k36xhe4);
+				llvm_lifetime_start_p0.Invoke(2064L, &bigInt_q8g4);
+				BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_zwn8yf.Invoke(&bigInt_q8g4, &@this->float_as_fixed, 16384L);
+				BigInt_128ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const.Invoke((anon_izyfb7*)(&bigInt_qdkjbh), &bigInt_q8g4);
+				llvm_lifetime_end_p0.Invoke(2064L, &bigInt_q8g4);
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
 				num2 = 0L;
 				while (true)

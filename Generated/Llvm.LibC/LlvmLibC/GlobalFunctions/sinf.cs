@@ -38,7 +38,7 @@ internal static partial class sinf
 			{
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num2 < 971544425u, expected: false))
 				{
-					result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 == 0, expected: false)) ? fputil_multiply_add_float_float_float.Invoke(x, -2.9802322E-08f, x) : x);
+					result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke(num2 == 0, expected: false)) ? ((float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num3, -2.980232238769531E-08, num3)) : x);
 				}
 				else
 				{
@@ -90,7 +90,7 @@ internal static partial class sinf
 				llvm_lifetime_start_p0.Invoke(8L, &x4);
 				x4 = double.NaN;
 				sincosf_eval_double_unsigned_int_double_double_double_double.Invoke(num3, num2, &num7, &y, &x3, &x4);
-				result = (float)fputil_multiply_add_double_double_double.Invoke(x3, y, fputil_multiply_add_double_double_double.Invoke(x4, num7, num7));
+				result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, y, cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x4, num7, num7));
 				llvm_lifetime_end_p0.Invoke(8L, &x4);
 				llvm_lifetime_end_p0.Invoke(8L, &x3);
 				llvm_lifetime_end_p0.Invoke(8L, &y);

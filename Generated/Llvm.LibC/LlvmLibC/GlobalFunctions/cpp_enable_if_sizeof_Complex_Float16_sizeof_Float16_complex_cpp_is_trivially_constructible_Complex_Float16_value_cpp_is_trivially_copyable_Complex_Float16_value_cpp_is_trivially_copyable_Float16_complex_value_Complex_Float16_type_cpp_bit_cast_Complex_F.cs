@@ -11,8 +11,8 @@ internal static partial class cpp_enable_if_sizeof_Complex_Float16_sizeof_Float1
 {
 	public unsafe static InlineArray2_Half Invoke(void* from)
 	{
-		Complex_ueqjqt complex_ueqjqt = default(Complex_ueqjqt);
-		llvm_memcpy_p0_p0_i64.Invoke(&complex_ueqjqt, from, 4L, isVolatile: false);
-		return *unchecked((InlineArray2_Half*)(&complex_ueqjqt));
+		Complex_mify6x complex_mify6x = default(Complex_mify6x);
+		llvm_memcpy_p0_p0_i64.Invoke(&complex_mify6x, from, 4L, isVolatile: false);
+		return *unchecked((InlineArray2_Half*)(&complex_mify6x));
 	}
 }

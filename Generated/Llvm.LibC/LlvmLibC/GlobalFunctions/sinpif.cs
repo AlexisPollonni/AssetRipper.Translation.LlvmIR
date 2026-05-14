@@ -113,7 +113,7 @@ internal static partial class sinpif
 				}
 				else
 				{
-					result = (float)fputil_multiply_add_double_double_double.Invoke(num7, y, fputil_multiply_add_double_double_double.Invoke(x3, num6, num6));
+					result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num7, y, cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, num6, num6));
 				}
 				llvm_lifetime_end_p0.Invoke(8L, &x3);
 				llvm_lifetime_end_p0.Invoke(8L, &num7);

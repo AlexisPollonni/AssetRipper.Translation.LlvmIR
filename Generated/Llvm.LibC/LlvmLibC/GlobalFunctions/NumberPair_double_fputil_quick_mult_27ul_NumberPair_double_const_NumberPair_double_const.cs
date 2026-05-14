@@ -25,9 +25,9 @@ internal static partial class NumberPair_double_fputil_quick_mult_27ul_NumberPai
 			Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
 			*(double*)num3 = struct_4ydhja3.field_1;
 			llvm_lifetime_start_p0.Invoke(8L, &z);
-			z = fputil_multiply_add_double_double_double.Invoke(a->hi, b->lo, numberPair.lo);
+			z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(a->hi, b->lo, numberPair.lo);
 			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = (numberPair.lo = fputil_multiply_add_double_double_double.Invoke(a->lo, b->hi, z));
+			num = (numberPair.lo = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(a->lo, b->hi, z));
 			llvm_lifetime_end_p0.Invoke(8L, &num);
 			llvm_lifetime_end_p0.Invoke(8L, &z);
 			return *(Struct_4ydhja*)(&numberPair);

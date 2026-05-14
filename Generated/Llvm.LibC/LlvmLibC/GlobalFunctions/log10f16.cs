@@ -105,7 +105,7 @@ internal static partial class log10f16
 				*(Half*)ptr = default(Half);
 				ptr[2] = -86;
 				ptr[3] = -86;
-				int storage = fputil_ExceptValues_Float16_11ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: LOG10F16_EXCEPTS.Pointer);
+				int storage = fputil_ExceptValues_Float16_17ul_lookup_unsigned_short_const.Invoke(x_bits: num, @this: LOG10F16_EXCEPTS.Pointer);
 				*(int*)(&cpp_optional_aq7wey2.storage) = storage;
 				int num8;
 				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_Float16_has_value_const.Invoke(&cpp_optional_aq7wey2), expected: false))
@@ -147,12 +147,12 @@ internal static partial class log10f16
 					llvm_lifetime_start_p0.Invoke(4L, &x2);
 					x2 = (float)fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva2);
 					llvm_lifetime_start_p0.Invoke(4L, &num6);
-					num6 = fputil_multiply_add_float_float_float.Invoke(x2, *(float*)cpp_array_float_32ul_operator_unsigned_long_const.Invoke(Index: num5, @this: ONE_OVER_F_F_10.Pointer), -1f);
+					num6 = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x2, *(float*)cpp_array_float_32ul_operator_unsigned_long_const.Invoke(Index: num5, @this: ONE_OVER_F_F_10.Pointer), -1f);
 					llvm_lifetime_start_p0.Invoke(4L, &num7);
 					num7 = num6 * cpp_enable_if_sizeof_float_8ul_float_type_fputil_polyeval_float_float_float_float_float_float_float.Invoke(num6, 0.43429446f, -0.2172268f, 0.14486068f);
 					llvm_lifetime_start_p0.Invoke(4L, &z);
 					z = *(float*)cpp_array_float_32ul_operator_unsigned_long_const.Invoke(Index: num5, @this: LOG10F_F.Pointer) + num7;
-					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(fputil_multiply_add_float_float_float.Invoke(num2, 0.30103f, z));
+					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num2, 0.30103f, z));
 					llvm_lifetime_end_p0.Invoke(4L, &z);
 					llvm_lifetime_end_p0.Invoke(4L, &num7);
 					llvm_lifetime_end_p0.Invoke(4L, &num6);

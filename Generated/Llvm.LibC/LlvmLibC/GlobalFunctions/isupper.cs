@@ -4,6 +4,6 @@ internal static partial class isupper
 {
 	public static int Invoke(int c)
 	{
-		return internal_isupper_int_223.Invoke(c) ? 1 : 0;
+		return internal_isupper_int_225.Invoke(c) ? 1 : 0;
 	}
 }

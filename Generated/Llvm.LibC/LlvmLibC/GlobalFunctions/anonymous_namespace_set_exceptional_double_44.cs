@@ -39,7 +39,7 @@ internal static partial class anonymous_namespace_set_exceptional_double_44
 			num2 = num4;
 			if ((ulong)num2 <= 4362804393534743822uL)
 			{
-				result = fputil_multiply_add_double_double_double.Invoke(x, 0.5, 1.0);
+				result = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, 0.5, 1.0);
 			}
 			else if ((ulong)num >= 13867491935800207938uL)
 			{

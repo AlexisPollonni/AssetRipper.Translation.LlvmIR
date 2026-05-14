@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::statfs_utils::linux_statfs(char const*)")]
 internal static partial class statfs_utils_linux_statfs_char_const
 {
-	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_hij69m* agg_result, void* path)
+	public unsafe static void Invoke([MangledName("agg.result")] cpp_optional_qbe95b* agg_result, void* path)
 	{
 		statfs statfs2 = default(statfs);
 		int num = 0;

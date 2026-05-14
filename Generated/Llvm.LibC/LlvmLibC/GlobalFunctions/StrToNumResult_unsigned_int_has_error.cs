@@ -9,6 +9,6 @@ internal static partial class StrToNumResult_unsigned_int_has_error
 {
 	public unsafe static bool Invoke(void* @this)
 	{
-		return unchecked((StrToNumResult_yrtfty*)@this)->error != 0;
+		return unchecked((StrToNumResult_imtnam*)@this)->error != 0;
 	}
 }

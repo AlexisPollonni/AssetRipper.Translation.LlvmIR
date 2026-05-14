@@ -11,7 +11,7 @@ internal static partial class cpp_optional_char_printf_core_Parser_internal_ArgL
 {
 	public unsafe static Struct_yx4nca Invoke(printf_core_Parser* @this, long index)
 	{
-		cpp_optional_e5s7qx cpp_optional_e5s7qx2 = default(cpp_optional_e5s7qx);
+		cpp_optional_77yu8f cpp_optional_77yu8f2 = default(cpp_optional_77yu8f);
 		sbyte b = 0;
 		printf_core_TypeDesc printf_core_TypeDesc2 = default(printf_core_TypeDesc);
 		void* ptr = null;
@@ -22,8 +22,8 @@ internal static partial class cpp_optional_char_printf_core_Parser_internal_ArgL
 			int num;
 			if ((b & 1) != 1)
 			{
-				llvm_memset_p0_i64.Invoke(&cpp_optional_e5s7qx2, 0, 16L, isVolatile: false);
-				cpp_optional_char_optional.Invoke(&cpp_optional_e5s7qx2);
+				llvm_memset_p0_i64.Invoke(&cpp_optional_77yu8f2, 0, 16L, isVolatile: false);
+				cpp_optional_char_optional.Invoke(&cpp_optional_77yu8f2);
 				num = 1;
 			}
 			else
@@ -48,11 +48,11 @@ internal static partial class cpp_optional_char_printf_core_Parser_internal_ArgL
 			@this->args_index++;
 			llvm_lifetime_start_p0.Invoke(8L, &ptr);
 			ptr = char_printf_core_Parser_internal_ArgList_get_next_arg_value_char.Invoke(@this);
-			cpp_optional_char_optional_char.Invoke(&cpp_optional_e5s7qx2, &ptr);
+			cpp_optional_char_optional_char.Invoke(&cpp_optional_77yu8f2, &ptr);
 			llvm_lifetime_end_p0.Invoke(8L, &ptr);
 			goto IL_0122;
 		}
 		IL_0122:
-		return *unchecked((Struct_yx4nca*)(&cpp_optional_e5s7qx2.storage));
+		return *unchecked((Struct_yx4nca*)(&cpp_optional_77yu8f2.storage));
 	}
 }

@@ -14,7 +14,7 @@ internal static partial class internal_is_float_hex_start_char_const_char
 		unchecked
 		{
 			bool result;
-			if (*(sbyte*)src != 48 || internal_tolower_int_118.Invoke(((sbyte*)src)[1]) != 120)
+			if (*(sbyte*)src != 48 || internal_tolower_int_120.Invoke(((sbyte*)src)[1]) != 120)
 			{
 				result = false;
 			}
@@ -26,7 +26,7 @@ internal static partial class internal_is_float_hex_start_char_const_char
 				{
 					num++;
 				}
-				result = internal_isalnum_int_119.Invoke(((sbyte*)src)[num]) && internal_b36_char_to_int_int_120.Invoke(((sbyte*)src)[num]) < 16;
+				result = internal_isalnum_int_121.Invoke(((sbyte*)src)[num]) && internal_b36_char_to_int_int_122.Invoke(((sbyte*)src)[num]) < 16;
 				llvm_lifetime_end_p0.Invoke(8L, &num);
 			}
 			return result;

@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::BigInt<unsigned int, void>(unsigned int)")]
 internal static partial class BigInt_32ul_false_unsigned_int_BigInt_unsigned_int_void_unsigned_int
 {
-	public unsafe static void Invoke(BigInt_fzjdu3* @this, int v)
+	public unsafe static void Invoke(BigInt_vtm4cw* @this, int v)
 	{
 		long num = 0L;
 		sbyte b = 0;

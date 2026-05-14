@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 36)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_14kernel_termiosE")]
 [MangledName("struct.__llvm_libc_20_1_2_::kernel_termios")]
 [DemangledName("__llvm_libc_20_1_2_::kernel_termios")]
 public partial struct kernel_termios

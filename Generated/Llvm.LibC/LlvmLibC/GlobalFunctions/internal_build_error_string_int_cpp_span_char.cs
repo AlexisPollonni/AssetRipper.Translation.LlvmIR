@@ -22,7 +22,7 @@ internal static partial class internal_build_error_string_int_cpp_span_char
 			((long*)(&cpp_string_view3))[1] = buffer_stream;
 			if ((ulong)cpp_span_char_size_const.Invoke(&cpp_string_view3) < (ulong)(15L + IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_buffer_size.Invoke()))
 			{
-				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, str_193.Pointer);
+				cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, str_195.Pointer);
 			}
 			else
 			{
@@ -44,7 +44,7 @@ internal static partial class internal_build_error_string_int_cpp_span_char
 				cpp_span_char_span_char_unsigned_long.Invoke(&cpp_string_view4, cpp_span_char_data_const.Invoke(&cpp_string_view3), cpp_span_char_size_const.Invoke(&cpp_string_view3));
 				cpp_StringStream_StringStream_cpp_span_char_const.Invoke(&details_StringBufferWriterImpl2, &cpp_string_view4);
 				llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view4);
-				cpp_StringStream_operator_char.Invoke(cpp_StringStream_cpp_StringStream_operator_int_0_int.Invoke(cpp_StringStream_operator_char.Invoke(cpp_StringStream_operator_char_const.Invoke(&details_StringBufferWriterImpl2, str_193.Pointer), 32), err_num), 0);
+				cpp_StringStream_operator_char.Invoke(cpp_StringStream_cpp_StringStream_operator_int_0_int.Invoke(cpp_StringStream_operator_char.Invoke(cpp_StringStream_operator_char_const.Invoke(&details_StringBufferWriterImpl2, str_195.Pointer), 32), err_num), 0);
 				Struct_kqhe8i struct_kqhe8i = cpp_StringStream_str_const.Invoke(&details_StringBufferWriterImpl2);
 				cpp_string_view* num = &cpp_string_view2;
 				Struct_kqhe8i struct_kqhe8i2 = struct_kqhe8i;

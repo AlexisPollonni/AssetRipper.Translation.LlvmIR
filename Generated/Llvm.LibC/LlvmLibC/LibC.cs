@@ -294,7 +294,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L15LOG2F16_EXCEPTSE")]
 	[DemangledName("__llvm_libc_20_1_2_::LOG2F16_EXCEPTS")]
-	public static fputil_ExceptValues_rhfsch LOG2F16_EXCEPTS
+	public static fputil_ExceptValues_fkx7qf LOG2F16_EXCEPTS
 	{
 		get
 		{
@@ -378,7 +378,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L19EXPM1F16_EXCEPTS_LOE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXPM1F16_EXCEPTS_LO")]
-	public static fputil_ExceptValues_a5qtu7 EXPM1F16_EXCEPTS_LO
+	public static fputil_ExceptValues_yv4gxk EXPM1F16_EXCEPTS_LO
 	{
 		get
 		{
@@ -392,7 +392,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L19EXPM1F16_EXCEPTS_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXPM1F16_EXCEPTS_HI")]
-	public static fputil_ExceptValues_rhfsch EXPM1F16_EXCEPTS_HI
+	public static fputil_ExceptValues_x8ns5m EXPM1F16_EXCEPTS_HI
 	{
 		get
 		{
@@ -406,7 +406,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L6EXP_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP_HI")]
-	public static cpp_array_fe7abs EXP_HI
+	public static cpp_array_55dk65 EXP_HI
 	{
 		get
 		{
@@ -448,7 +448,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L17EXPF16_EXCEPTS_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXPF16_EXCEPTS_HI")]
-	public static fputil_ExceptValues_uk6z3c EXPF16_EXCEPTS_HI
+	public static fputil_ExceptValues_x8ns5m EXPF16_EXCEPTS_HI
 	{
 		get
 		{
@@ -462,7 +462,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L20EXP2M1F16_EXCEPTS_LOE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP2M1F16_EXCEPTS_LO")]
-	public static fputil_ExceptValues_susv2z EXP2M1F16_EXCEPTS_LO
+	public static fputil_ExceptValues_eezwkt EXP2M1F16_EXCEPTS_LO
 	{
 		get
 		{
@@ -476,7 +476,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L20EXP2M1F16_EXCEPTS_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP2M1F16_EXCEPTS_HI")]
-	public static fputil_ExceptValues_susv2z EXP2M1F16_EXCEPTS_HI
+	public static fputil_ExceptValues_pcxpx6 EXP2M1F16_EXCEPTS_HI
 	{
 		get
 		{
@@ -490,7 +490,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L13EXP2_MID_BITSE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP2_MID_BITS")]
-	public static cpp_array_vwpjic EXP2_MID_BITS
+	public static cpp_array_wwfw4y EXP2_MID_BITS
 	{
 		get
 		{
@@ -504,7 +504,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L15EXP2F16_EXCEPTSE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP2F16_EXCEPTS")]
-	public static fputil_ExceptValues_uk6z3c EXP2F16_EXCEPTS
+	public static fputil_ExceptValues_x8ns5m EXP2F16_EXCEPTS
 	{
 		get
 		{
@@ -518,7 +518,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L21EXP10M1F16_EXCEPTS_LOE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP10M1F16_EXCEPTS_LO")]
-	public static fputil_ExceptValues_uk6z3c EXP10M1F16_EXCEPTS_LO
+	public static fputil_ExceptValues_x8ns5m EXP10M1F16_EXCEPTS_LO
 	{
 		get
 		{
@@ -532,7 +532,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L21EXP10M1F16_EXCEPTS_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP10M1F16_EXCEPTS_HI")]
-	public static fputil_ExceptValues_uk6z3c EXP10M1F16_EXCEPTS_HI
+	public static fputil_ExceptValues_eezwkt EXP10M1F16_EXCEPTS_HI
 	{
 		get
 		{
@@ -546,7 +546,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L13EXP2_MID_BITSE.11")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP2_MID_BITS (.11)")]
-	public static cpp_array_vwpjic EXP2_MID_BITS_11
+	public static cpp_array_wwfw4y EXP2_MID_BITS_11
 	{
 		get
 		{
@@ -560,7 +560,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L16EXP10F16_EXCEPTSE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP10F16_EXCEPTS")]
-	public static fputil_ExceptValues_ist8fx EXP10F16_EXCEPTS
+	public static fputil_ExceptValues_ztktch EXP10F16_EXCEPTS
 	{
 		get
 		{
@@ -630,7 +630,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L12TANF_EXCEPTSE")]
 	[DemangledName("__llvm_libc_20_1_2_::TANF_EXCEPTS")]
-	public static fputil_ExceptValues_x9e5i2 TANF_EXCEPTS
+	public static fputil_ExceptValues_7xi2jk TANF_EXCEPTS
 	{
 		get
 		{
@@ -642,17 +642,31 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_3fmaL17THIRTYTWO_OVER_PIE")]
-	[DemangledName("__llvm_libc_20_1_2_::fma::THIRTYTWO_OVER_PI")]
-	public static InlineArray5_Double fma_THIRTYTWO_OVER_PI
+	[MangledName("_ZN19__llvm_libc_20_1_2_7genericL20THIRTYTWO_OVER_PI_28E")]
+	[DemangledName("__llvm_libc_20_1_2_::generic::THIRTYTWO_OVER_PI_28")]
+	public static InlineArray8_Double generic_THIRTYTWO_OVER_PI_28
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.fma_THIRTYTWO_OVER_PI.Value;
+			return LlvmLibC.GlobalVariables.generic_THIRTYTWO_OVER_PI_28.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.fma_THIRTYTWO_OVER_PI.Value = value;
+			LlvmLibC.GlobalVariables.generic_THIRTYTWO_OVER_PI_28.Value = value;
+		}
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_7genericL28THIRTYTWO_OVER_PI_28_LSB_EXPE")]
+	[DemangledName("__llvm_libc_20_1_2_::generic::THIRTYTWO_OVER_PI_28_LSB_EXP")]
+	public static InlineArray8_Int32 generic_THIRTYTWO_OVER_PI_28_LSB_EXP
+	{
+		get
+		{
+			return LlvmLibC.GlobalVariables.generic_THIRTYTWO_OVER_PI_28_LSB_EXP.Value;
+		}
+		set
+		{
+			LlvmLibC.GlobalVariables.generic_THIRTYTWO_OVER_PI_28_LSB_EXP.Value = value;
 		}
 	}
 
@@ -1021,6 +1035,20 @@ public static partial class LibC
 		}
 	}
 
+	[MangledName("_ZN19__llvm_libc_20_1_2_12_GLOBAL__N_14RCM1E")]
+	[DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::RCM1")]
+	public static InlineArray129_Double anonymous_namespace_RCM1
+	{
+		get
+		{
+			return LlvmLibC.GlobalVariables.anonymous_namespace_RCM1.Value;
+		}
+		set
+		{
+			LlvmLibC.GlobalVariables.anonymous_namespace_RCM1.Value = value;
+		}
+	}
+
 	[MangledName("_ZN19__llvm_libc_20_1_2_12_GLOBAL__N_18P_COEFFSE")]
 	[DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::P_COEFFS")]
 	public static InlineArray6_Double anonymous_namespace_P_COEFFS
@@ -1318,7 +1346,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L18EXP2M1F_EXCEPTS_LOE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP2M1F_EXCEPTS_LO")]
-	public static fputil_ExceptValues_669x8w EXP2M1F_EXCEPTS_LO
+	public static fputil_ExceptValues_rejery EXP2M1F_EXCEPTS_LO
 	{
 		get
 		{
@@ -1332,7 +1360,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L18EXP2M1F_EXCEPTS_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP2M1F_EXCEPTS_HI")]
-	public static fputil_ExceptValues_wd8iaa EXP2M1F_EXCEPTS_HI
+	public static fputil_ExceptValues_evg4xu EXP2M1F_EXCEPTS_HI
 	{
 		get
 		{
@@ -1374,7 +1402,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L19EXP10M1F_EXCEPTS_LOE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP10M1F_EXCEPTS_LO")]
-	public static fputil_ExceptValues_bray65 EXP10M1F_EXCEPTS_LO
+	public static fputil_ExceptValues_zsuwev EXP10M1F_EXCEPTS_LO
 	{
 		get
 		{
@@ -1388,7 +1416,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L19EXP10M1F_EXCEPTS_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::EXP10M1F_EXCEPTS_HI")]
-	public static fputil_ExceptValues_58kucm EXP10M1F_EXCEPTS_HI
+	public static fputil_ExceptValues_92qrhp EXP10M1F_EXCEPTS_HI
 	{
 		get
 		{
@@ -1529,7 +1557,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L12COSF_EXCEPTSE")]
 	[DemangledName("__llvm_libc_20_1_2_::COSF_EXCEPTS")]
-	public static fputil_ExceptValues_x9e5i2 COSF_EXCEPTS
+	public static fputil_ExceptValues_7xi2jk COSF_EXCEPTS
 	{
 		get
 		{
@@ -1785,7 +1813,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L16ASINF_EXCEPTS_LOE")]
 	[DemangledName("__llvm_libc_20_1_2_::ASINF_EXCEPTS_LO")]
-	public static fputil_ExceptValues_r2mqym ASINF_EXCEPTS_LO
+	public static fputil_ExceptValues_v8stj6 ASINF_EXCEPTS_LO
 	{
 		get
 		{
@@ -1799,7 +1827,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L16ASINF_EXCEPTS_HIE")]
 	[DemangledName("__llvm_libc_20_1_2_::ASINF_EXCEPTS_HI")]
-	public static fputil_ExceptValues_r2mqym ASINF_EXCEPTS_HI
+	public static fputil_ExceptValues_v8stj6 ASINF_EXCEPTS_HI
 	{
 		get
 		{
@@ -2107,7 +2135,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L13ACOSF_EXCEPTSE")]
 	[DemangledName("__llvm_libc_20_1_2_::ACOSF_EXCEPTS")]
-	public static fputil_ExceptValues_wpg668 ACOSF_EXCEPTS
+	public static fputil_ExceptValues_kbc9gk ACOSF_EXCEPTS
 	{
 		get
 		{
@@ -2119,17 +2147,17 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L11ASIN_COEFFSE.96")]
-	[DemangledName("__llvm_libc_20_1_2_::ASIN_COEFFS (.96)")]
-	public static InlineArray10_Double ASIN_COEFFS_96
+	[MangledName("_ZN19__llvm_libc_20_1_2_L11ASIN_COEFFSE.98")]
+	[DemangledName("__llvm_libc_20_1_2_::ASIN_COEFFS (.98)")]
+	public static InlineArray10_Double ASIN_COEFFS_98
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.ASIN_COEFFS_96.Value;
+			return LlvmLibC.GlobalVariables.ASIN_COEFFS_98.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.ASIN_COEFFS_96.Value = value;
+			LlvmLibC.GlobalVariables.ASIN_COEFFS_98.Value = value;
 		}
 	}
 
@@ -2189,73 +2217,73 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.101")]
-	[DemangledName(".str.101")]
-	public static InlineArray16_SByte str_101
+	[MangledName(".str.103")]
+	[DemangledName(".str.103")]
+	public static InlineArray16_SByte str_103
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_101.Value;
+			return LlvmLibC.GlobalVariables.str_103.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_101.Value = value;
+			LlvmLibC.GlobalVariables.str_103.Value = value;
 		}
 	}
 
-	[MangledName(".str.108")]
-	[DemangledName(".str.108")]
-	public static InlineArray1_SByte str_108
+	[MangledName(".str.110")]
+	[DemangledName(".str.110")]
+	public static InlineArray1_SByte str_110
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_108.Value;
+			return LlvmLibC.GlobalVariables.str_110.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_108.Value = value;
+			LlvmLibC.GlobalVariables.str_110.Value = value;
 		}
 	}
 
-	[MangledName(".str.109")]
-	[DemangledName(".str.109")]
-	public static InlineArray2_SByte str_109
+	[MangledName(".str.111")]
+	[DemangledName(".str.111")]
+	public static InlineArray2_SByte str_111
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_109.Value;
+			return LlvmLibC.GlobalVariables.str_111.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_109.Value = value;
+			LlvmLibC.GlobalVariables.str_111.Value = value;
 		}
 	}
 
-	[MangledName(".str.1.110")]
-	[DemangledName(".str.1.110")]
-	public static InlineArray3_SByte str_1_110
+	[MangledName(".str.1.112")]
+	[DemangledName(".str.1.112")]
+	public static InlineArray3_SByte str_1_112
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_1_110.Value;
+			return LlvmLibC.GlobalVariables.str_1_112.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_1_110.Value = value;
+			LlvmLibC.GlobalVariables.str_1_112.Value = value;
 		}
 	}
 
-	[MangledName(".str.2.111")]
-	[DemangledName(".str.2.111")]
-	public static InlineArray10_SByte str_2_111
+	[MangledName(".str.2.113")]
+	[DemangledName(".str.2.113")]
+	public static InlineArray10_SByte str_2_113
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_2_111.Value;
+			return LlvmLibC.GlobalVariables.str_2_113.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_2_111.Value = value;
+			LlvmLibC.GlobalVariables.str_2_113.Value = value;
 		}
 	}
 
@@ -2273,17 +2301,17 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.116")]
-	[DemangledName(".str.116")]
-	public static InlineArray1_SByte str_116
+	[MangledName(".str.118")]
+	[DemangledName(".str.118")]
+	public static InlineArray1_SByte str_118
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_116.Value;
+			return LlvmLibC.GlobalVariables.str_118.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_116.Value = value;
+			LlvmLibC.GlobalVariables.str_118.Value = value;
 		}
 	}
 
@@ -2329,31 +2357,31 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.122")]
-	[DemangledName(".str.122")]
-	public static InlineArray9_SByte str_122
+	[MangledName(".str.124")]
+	[DemangledName(".str.124")]
+	public static InlineArray9_SByte str_124
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_122.Value;
+			return LlvmLibC.GlobalVariables.str_124.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_122.Value = value;
+			LlvmLibC.GlobalVariables.str_124.Value = value;
 		}
 	}
 
-	[MangledName(".str.1.123")]
-	[DemangledName(".str.1.123")]
-	public static InlineArray4_SByte str_1_123
+	[MangledName(".str.1.125")]
+	[DemangledName(".str.1.125")]
+	public static InlineArray4_SByte str_1_125
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_1_123.Value;
+			return LlvmLibC.GlobalVariables.str_1_125.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_1_123.Value = value;
+			LlvmLibC.GlobalVariables.str_1_125.Value = value;
 		}
 	}
 
@@ -2385,45 +2413,45 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.2.124")]
-	[DemangledName(".str.2.124")]
-	public static InlineArray1_SByte str_2_124
+	[MangledName(".str.2.126")]
+	[DemangledName(".str.2.126")]
+	public static InlineArray1_SByte str_2_126
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_2_124.Value;
+			return LlvmLibC.GlobalVariables.str_2_126.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_2_124.Value = value;
+			LlvmLibC.GlobalVariables.str_2_126.Value = value;
 		}
 	}
 
-	[MangledName(".str.3.125")]
-	[DemangledName(".str.3.125")]
-	public static InlineArray2_SByte str_3_125
+	[MangledName(".str.3.127")]
+	[DemangledName(".str.3.127")]
+	public static InlineArray2_SByte str_3_127
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_3_125.Value;
+			return LlvmLibC.GlobalVariables.str_3_127.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_3_125.Value = value;
+			LlvmLibC.GlobalVariables.str_3_127.Value = value;
 		}
 	}
 
-	[MangledName(".str.4.126")]
-	[DemangledName(".str.4.126")]
-	public static InlineArray3_SByte str_4_126
+	[MangledName(".str.4.128")]
+	[DemangledName(".str.4.128")]
+	public static InlineArray3_SByte str_4_128
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_4_126.Value;
+			return LlvmLibC.GlobalVariables.str_4_128.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_4_126.Value = value;
+			LlvmLibC.GlobalVariables.str_4_128.Value = value;
 		}
 	}
 
@@ -3183,17 +3211,17 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.59.127")]
-	[DemangledName(".str.59.127")]
-	public static InlineArray41_SByte str_59_127
+	[MangledName(".str.59.129")]
+	[DemangledName(".str.59.129")]
+	public static InlineArray41_SByte str_59_129
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_59_127.Value;
+			return LlvmLibC.GlobalVariables.str_59_129.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_59_127.Value = value;
+			LlvmLibC.GlobalVariables.str_59_129.Value = value;
 		}
 	}
 
@@ -3239,31 +3267,31 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.142")]
-	[DemangledName(".str.142")]
-	public static InlineArray2_SByte str_142
+	[MangledName(".str.144")]
+	[DemangledName(".str.144")]
+	public static InlineArray2_SByte str_144
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_142.Value;
+			return LlvmLibC.GlobalVariables.str_144.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_142.Value = value;
+			LlvmLibC.GlobalVariables.str_144.Value = value;
 		}
 	}
 
-	[MangledName(".str.1.145")]
-	[DemangledName(".str.1.145")]
-	public static InlineArray2_SByte str_1_145
+	[MangledName(".str.1.147")]
+	[DemangledName(".str.1.147")]
+	public static InlineArray2_SByte str_1_147
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_1_145.Value;
+			return LlvmLibC.GlobalVariables.str_1_147.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_1_145.Value = value;
+			LlvmLibC.GlobalVariables.str_1_147.Value = value;
 		}
 	}
 
@@ -3375,73 +3403,73 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.163")]
-	[DemangledName(".str.163")]
-	public static InlineArray4_SByte str_163
+	[MangledName(".str.165")]
+	[DemangledName(".str.165")]
+	public static InlineArray4_SByte str_165
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_163.Value;
+			return LlvmLibC.GlobalVariables.str_165.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_163.Value = value;
+			LlvmLibC.GlobalVariables.str_165.Value = value;
 		}
 	}
 
-	[MangledName(".str.1.164")]
-	[DemangledName(".str.1.164")]
-	public static InlineArray4_SByte str_1_164
+	[MangledName(".str.1.166")]
+	[DemangledName(".str.1.166")]
+	public static InlineArray4_SByte str_1_166
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_1_164.Value;
+			return LlvmLibC.GlobalVariables.str_1_166.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_1_164.Value = value;
+			LlvmLibC.GlobalVariables.str_1_166.Value = value;
 		}
 	}
 
-	[MangledName(".str.2.165")]
-	[DemangledName(".str.2.165")]
-	public static InlineArray4_SByte str_2_165
+	[MangledName(".str.2.167")]
+	[DemangledName(".str.2.167")]
+	public static InlineArray4_SByte str_2_167
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_2_165.Value;
+			return LlvmLibC.GlobalVariables.str_2_167.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_2_165.Value = value;
+			LlvmLibC.GlobalVariables.str_2_167.Value = value;
 		}
 	}
 
-	[MangledName(".str.3.166")]
-	[DemangledName(".str.3.166")]
-	public static InlineArray4_SByte str_3_166
+	[MangledName(".str.3.168")]
+	[DemangledName(".str.3.168")]
+	public static InlineArray4_SByte str_3_168
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_3_166.Value;
+			return LlvmLibC.GlobalVariables.str_3_168.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_3_166.Value = value;
+			LlvmLibC.GlobalVariables.str_3_168.Value = value;
 		}
 	}
 
-	[MangledName(".str.4.160")]
-	[DemangledName(".str.4.160")]
-	public static InlineArray2_SByte str_4_160
+	[MangledName(".str.4.162")]
+	[DemangledName(".str.4.162")]
+	public static InlineArray2_SByte str_4_162
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_4_160.Value;
+			return LlvmLibC.GlobalVariables.str_4_162.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_4_160.Value = value;
+			LlvmLibC.GlobalVariables.str_4_162.Value = value;
 		}
 	}
 
@@ -3510,73 +3538,73 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName("_ZL11POW10_SPLIT.174")]
-	[DemangledName("POW10_SPLIT (.174)")]
-	public static InlineArray1224_InlineArray3_Int64 POW10_SPLIT_174
+	[MangledName("_ZL11POW10_SPLIT.176")]
+	[DemangledName("POW10_SPLIT (.176)")]
+	public static InlineArray1224_InlineArray3_Int64 POW10_SPLIT_176
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.POW10_SPLIT_174.Value;
+			return LlvmLibC.GlobalVariables.POW10_SPLIT_176.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.POW10_SPLIT_174.Value = value;
+			LlvmLibC.GlobalVariables.POW10_SPLIT_176.Value = value;
 		}
 	}
 
-	[MangledName("_ZL12POW10_OFFSET.173")]
-	[DemangledName("POW10_OFFSET (.173)")]
-	public static InlineArray64_Int16 POW10_OFFSET_173
+	[MangledName("_ZL12POW10_OFFSET.175")]
+	[DemangledName("POW10_OFFSET (.175)")]
+	public static InlineArray64_Int16 POW10_OFFSET_175
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.POW10_OFFSET_173.Value;
+			return LlvmLibC.GlobalVariables.POW10_OFFSET_175.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.POW10_OFFSET_173.Value = value;
+			LlvmLibC.GlobalVariables.POW10_OFFSET_175.Value = value;
 		}
 	}
 
-	[MangledName("_ZL11MIN_BLOCK_2.170")]
-	[DemangledName("MIN_BLOCK_2 (.170)")]
-	public static InlineArray69_SByte MIN_BLOCK_2_170
+	[MangledName("_ZL11MIN_BLOCK_2.172")]
+	[DemangledName("MIN_BLOCK_2 (.172)")]
+	public static InlineArray69_SByte MIN_BLOCK_2_172
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.MIN_BLOCK_2_170.Value;
+			return LlvmLibC.GlobalVariables.MIN_BLOCK_2_172.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.MIN_BLOCK_2_170.Value = value;
+			LlvmLibC.GlobalVariables.MIN_BLOCK_2_172.Value = value;
 		}
 	}
 
-	[MangledName("_ZL14POW10_OFFSET_2.171")]
-	[DemangledName("POW10_OFFSET_2 (.171)")]
-	public static InlineArray69_Int16 POW10_OFFSET_2_171
+	[MangledName("_ZL14POW10_OFFSET_2.173")]
+	[DemangledName("POW10_OFFSET_2 (.173)")]
+	public static InlineArray69_Int16 POW10_OFFSET_2_173
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.POW10_OFFSET_2_171.Value;
+			return LlvmLibC.GlobalVariables.POW10_OFFSET_2_173.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.POW10_OFFSET_2_171.Value = value;
+			LlvmLibC.GlobalVariables.POW10_OFFSET_2_173.Value = value;
 		}
 	}
 
-	[MangledName("_ZL13POW10_SPLIT_2.172")]
-	[DemangledName("POW10_SPLIT_2 (.172)")]
-	public static InlineArray3133_InlineArray3_Int64 POW10_SPLIT_2_172
+	[MangledName("_ZL13POW10_SPLIT_2.174")]
+	[DemangledName("POW10_SPLIT_2 (.174)")]
+	public static InlineArray3133_InlineArray3_Int64 POW10_SPLIT_2_174
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.POW10_SPLIT_2_172.Value;
+			return LlvmLibC.GlobalVariables.POW10_SPLIT_2_174.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.POW10_SPLIT_2_172.Value = value;
+			LlvmLibC.GlobalVariables.POW10_SPLIT_2_174.Value = value;
 		}
 	}
 
@@ -3720,31 +3748,31 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.185")]
-	[DemangledName(".str.185")]
-	public static InlineArray17_SByte str_185
+	[MangledName(".str.187")]
+	[DemangledName(".str.187")]
+	public static InlineArray17_SByte str_187
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_185.Value;
+			return LlvmLibC.GlobalVariables.str_187.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_185.Value = value;
+			LlvmLibC.GlobalVariables.str_187.Value = value;
 		}
 	}
 
-	[MangledName(".str.1.186")]
-	[DemangledName(".str.1.186")]
-	public static InlineArray15_SByte str_1_186
+	[MangledName(".str.1.188")]
+	[DemangledName(".str.1.188")]
+	public static InlineArray15_SByte str_1_188
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_1_186.Value;
+			return LlvmLibC.GlobalVariables.str_1_188.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_1_186.Value = value;
+			LlvmLibC.GlobalVariables.str_1_188.Value = value;
 		}
 	}
 
@@ -3776,17 +3804,17 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.193")]
-	[DemangledName(".str.193")]
-	public static InlineArray14_SByte str_193
+	[MangledName(".str.195")]
+	[DemangledName(".str.195")]
+	public static InlineArray14_SByte str_195
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_193.Value;
+			return LlvmLibC.GlobalVariables.str_195.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_193.Value = value;
+			LlvmLibC.GlobalVariables.str_195.Value = value;
 		}
 	}
 
@@ -3832,17 +3860,17 @@ public static partial class LibC
 		}
 	}
 
-	[MangledName(".str.218")]
-	[DemangledName(".str.218")]
-	public static InlineArray12_SByte str_218
+	[MangledName(".str.220")]
+	[DemangledName(".str.220")]
+	public static InlineArray12_SByte str_220
 	{
 		get
 		{
-			return LlvmLibC.GlobalVariables.str_218.Value;
+			return LlvmLibC.GlobalVariables.str_220.Value;
 		}
 		set
 		{
-			LlvmLibC.GlobalVariables.str_218.Value = value;
+			LlvmLibC.GlobalVariables.str_220.Value = value;
 		}
 	}
 
@@ -4069,14 +4097,14 @@ public static partial class LibC
 	[DemangledName("llvm.umul.fix.i32")]
 	public static int llvm_umul_fix_i32(int parameter_0, int parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_umul_fix_i32.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_umul_fix_i32.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("llvm.udiv.fix.i32")]
 	[DemangledName("llvm.udiv.fix.i32")]
 	public static int llvm_udiv_fix_i32(int parameter_0, int parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_udiv_fix_i32.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_udiv_fix_i32.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("llvm.ctlz.i32")]
@@ -4151,14 +4179,14 @@ public static partial class LibC
 	[DemangledName("llvm.umul.fix.i16")]
 	public static short llvm_umul_fix_i16(short parameter_0, short parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_umul_fix_i16.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_umul_fix_i16.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("llvm.udiv.fix.i16")]
 	[DemangledName("llvm.udiv.fix.i16")]
 	public static short llvm_udiv_fix_i16(short parameter_0, short parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_udiv_fix_i16.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_udiv_fix_i16.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("llvm.ctlz.i16")]
@@ -4325,14 +4353,14 @@ public static partial class LibC
 	[DemangledName("llvm.umul.fix.i8")]
 	public static sbyte llvm_umul_fix_i8(sbyte parameter_0, sbyte parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_umul_fix_i8.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_umul_fix_i8.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("llvm.udiv.fix.i8")]
 	[DemangledName("llvm.udiv.fix.i8")]
 	public static sbyte llvm_udiv_fix_i8(sbyte parameter_0, sbyte parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_udiv_fix_i8.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_udiv_fix_i8.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("llvm.ctlz.i8")]
@@ -5004,7 +5032,7 @@ public static partial class LibC
 	[DemangledName("llvm.smul.fix.i32")]
 	public static int llvm_smul_fix_i32(int parameter_0, int parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_smul_fix_i32.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_smul_fix_i32.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	public static short exphk(short x)
@@ -5016,7 +5044,7 @@ public static partial class LibC
 	[DemangledName("llvm.smul.fix.i16")]
 	public static short llvm_smul_fix_i16(short parameter_0, short parameter_1, int parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_smul_fix_i16.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_smul_fix_i16.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	public static short absr(short x)
@@ -5838,7 +5866,7 @@ public static partial class LibC
 	[DemangledName("llvm.usub.with.overflow.i64")]
 	public static Struct_u6p3uf llvm_usub_with_overflow_i64(long parameter_0, long parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_usub_with_overflow_i64.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_usub_with_overflow_i64.Invoke(parameter_0, parameter_1);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE0ELb0EmLm2EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
@@ -6825,11 +6853,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.BigInt_128ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const.Invoke(@this);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil12multiply_addEfff")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::multiply_add(float, float, float)")]
-	public static float fputil_multiply_add_float_float_float(float x, float y, float z)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil12multiply_addIfEENS_3cpp9enable_ifIXlestT_Lm8EES4_E4typeES4_S4_S4_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (float) <= 8ul, float>::type __llvm_libc_20_1_2_::fputil::multiply_add<float>(float, float, float)")]
+	public static float cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float(float x, float y, float z)
 	{
-		return LlvmLibC.GlobalFunctions.fputil_multiply_add_float_float_float.Invoke(x, y, z);
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x, y, z);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE1ENS0_6FPBitsIfEEE7uintvalEv")]
@@ -6867,11 +6895,11 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_1_FPStorage.Invoke(@this);
 	}
 
-	[MangledName("llvm.fma.f32")]
-	[DemangledName("llvm.fma.f32")]
-	public static float llvm_fma_f32(float parameter_0, float parameter_1, float parameter_2)
+	[MangledName("llvm.fmuladd.f32")]
+	[DemangledName("llvm.fmuladd.f32")]
+	public static float llvm_fmuladd_f32(float parameter_0, float parameter_1, float parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_fma_f32.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_fmuladd_f32.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm128ELb0EmE2toIjEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
@@ -7458,7 +7486,7 @@ public static partial class LibC
 	[DemangledName("llvm.uadd.with.overflow.i64")]
 	public static Struct_u6p3uf llvm_uadd_with_overflow_i64(long parameter_0, long parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_uadd_with_overflow_i64.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_uadd_with_overflow_i64.Invoke(parameter_0, parameter_1);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5splitIoEEDaT_")]
@@ -8135,11 +8163,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.BigInt_128ul_false_unsigned_long_operator_unsigned_long_unsigned_long_const.Invoke(@this);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil12multiply_addEddd")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::multiply_add(double, double, double)")]
-	public static double fputil_multiply_add_double_double_double(double x, double y, double z)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil12multiply_addIdEENS_3cpp9enable_ifIXlestT_Lm8EES4_E4typeES4_S4_S4_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (double) <= 8ul, double>::type __llvm_libc_20_1_2_::fputil::multiply_add<double>(double, double, double)")]
+	public static double cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double(double x, double y, double z)
 	{
-		return LlvmLibC.GlobalFunctions.fputil_multiply_add_double_double_double.Invoke(x, y, z);
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, y, z);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE2ENS0_6FPBitsIdEEE7uintvalEv")]
@@ -8177,11 +8205,11 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_2_FPStorage.Invoke(@this);
 	}
 
-	[MangledName("llvm.fma.f64")]
-	[DemangledName("llvm.fma.f64")]
-	public static double llvm_fma_f64(double parameter_0, double parameter_1, double parameter_2)
+	[MangledName("llvm.fmuladd.f64")]
+	[DemangledName("llvm.fmuladd.f64")]
+	public static double llvm_fmuladd_f64(double parameter_0, double parameter_1, double parameter_2)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_fma_f64.Invoke(parameter_0, parameter_1, parameter_2);
+		return LlvmLibC.Intrinsics.Implemented.llvm_fmuladd_f64.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm128ELb0EmE2toImEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
@@ -8658,13 +8686,6 @@ public static partial class LibC
 	public unsafe static void fputil_internal_FPStorage_fputil_FPType_0_FPStorage(void* @this)
 	{
 		LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_0_FPStorage.Invoke(@this);
-	}
-
-	[MangledName("llvm.fmuladd.f32")]
-	[DemangledName("llvm.fmuladd.f32")]
-	public static float llvm_fmuladd_f32(float parameter_0, float parameter_1, float parameter_2)
-	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_fmuladd_f32.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm128ELb0EmE2toItEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
@@ -9184,27 +9205,6 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.fputil_nearest_integer_float.Invoke(x);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil12multiply_addIfEENS_3cpp9enable_ifIXlestT_Lm8EES4_E4typeES4_S4_S4_")]
-	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (float) <= 8ul, float>::type __llvm_libc_20_1_2_::fputil::multiply_add<float>(float, float, float)")]
-	public static float cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float(float x, float y, float z)
-	{
-		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(x, y, z);
-	}
-
-	[MangledName("_ZL10_mm_set_ssf")]
-	[DemangledName("_mm_set_ss(float)")]
-	public static InlineArray4_Single mm_set_ss_float([MangledName("__w")] float w)
-	{
-		return LlvmLibC.GlobalFunctions.mm_set_ss_float.Invoke(w);
-	}
-
-	[MangledName("llvm.x86.sse41.round.ss")]
-	[DemangledName("llvm.x86.sse41.round.ss")]
-	public static InlineArray4_Single llvm_x86_sse41_round_ss(InlineArray4_Single parameter_0, InlineArray4_Single parameter_1, int parameter_2)
-	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_x86_sse41_round_ss.Invoke(parameter_0, parameter_1, parameter_2);
-	}
-
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalIDF16_EC2EODF16_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<_Float16>::optional(_Float16&&)")]
 	public unsafe static void cpp_optional_Float16_optional_Float16(cpp_optional_aq7wey* @this, void* t)
@@ -9346,20 +9346,6 @@ public static partial class LibC
 	public static double fputil_nearest_integer_double(double x)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_nearest_integer_double.Invoke(x);
-	}
-
-	[MangledName("_ZL10_mm_set_sdd")]
-	[DemangledName("_mm_set_sd(double)")]
-	public static InlineArray2_Double mm_set_sd_double([MangledName("__w")] double w)
-	{
-		return LlvmLibC.GlobalFunctions.mm_set_sd_double.Invoke(w);
-	}
-
-	[MangledName("llvm.x86.sse41.round.sd")]
-	[DemangledName("llvm.x86.sse41.round.sd")]
-	public static InlineArray2_Double llvm_x86_sse41_round_sd(InlineArray2_Double parameter_0, InlineArray2_Double parameter_1, int parameter_2)
-	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_x86_sse41_round_sd.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	public static Half sqrtf16(Half x)
@@ -9557,7 +9543,7 @@ public static partial class LibC
 	[DemangledName("llvm.usub.with.overflow.i16")]
 	public static Struct_yzqsj9 llvm_usub_with_overflow_i16(short parameter_0, short parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_usub_with_overflow_i16.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_usub_with_overflow_i16.Invoke(parameter_0, parameter_1);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE0ELb0EtLm1EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
@@ -10406,11 +10392,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.logf16.Invoke(x);
 	}
 
-	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm5EE6lookupEt")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 5ul>::lookup(unsigned short) const")]
-	public unsafe static int fputil_ExceptValues_Float16_5ul_lookup_unsigned_short_const(fputil_ExceptValues_ist8fx* @this, short x_bits)
+	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm11EE6lookupEt")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 11ul>::lookup(unsigned short) const")]
+	public unsafe static int fputil_ExceptValues_Float16_11ul_lookup_unsigned_short_const(fputil_ExceptValues_ist8fx* @this, short x_bits)
 	{
-		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_5ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
+		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_11ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayIfLm32EEixEm")]
@@ -10444,16 +10430,23 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.log2f16.Invoke(x);
 	}
 
+	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm9EE6lookupEt")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 9ul>::lookup(unsigned short) const")]
+	public unsafe static int fputil_ExceptValues_Float16_9ul_lookup_unsigned_short_const(fputil_ExceptValues_fkx7qf* @this, short x_bits)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_9ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
+	}
+
 	public static Half log10f16(Half x)
 	{
 		return LlvmLibC.GlobalFunctions.log10f16.Invoke(x);
 	}
 
-	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm11EE6lookupEt")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 11ul>::lookup(unsigned short) const")]
-	public unsafe static int fputil_ExceptValues_Float16_11ul_lookup_unsigned_short_const(fputil_ExceptValues_dwtyzi* @this, short x_bits)
+	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm17EE6lookupEt")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 17ul>::lookup(unsigned short) const")]
+	public unsafe static int fputil_ExceptValues_Float16_17ul_lookup_unsigned_short_const(fputil_ExceptValues_dwtyzi* @this, short x_bits)
 	{
-		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_11ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
+		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_17ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
 	}
 
 	public static long llroundf16(Half x)
@@ -10700,7 +10693,7 @@ public static partial class LibC
 	[DemangledName("llvm.minnum.f16")]
 	public static Half llvm_minnum_f16(Half parameter_0, Half parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_minnum_f16.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_minnum_f16.Invoke(parameter_0, parameter_1);
 	}
 
 	public static Half fminimum_numf16(Half x, Half y)
@@ -10781,7 +10774,7 @@ public static partial class LibC
 	[DemangledName("llvm.maxnum.f16")]
 	public static Half llvm_maxnum_f16(Half parameter_0, Half parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_maxnum_f16.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_maxnum_f16.Invoke(parameter_0, parameter_1);
 	}
 
 	public static Half fmaximum_numf16(Half x, Half y)
@@ -11182,7 +11175,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEC2IjvEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::BigInt<unsigned int, void>(unsigned int)")]
-	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt_unsigned_int_void_unsigned_int(BigInt_fzjdu3* @this, int v)
+	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt_unsigned_int_void_unsigned_int(BigInt_vtm4cw* @this, int v)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_BigInt_unsigned_int_void_unsigned_int.Invoke(@this, v);
 	}
@@ -11210,14 +11203,14 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjE7is_zeroEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::is_zero() const")]
-	public unsafe static bool BigInt_32ul_false_unsigned_int_is_zero_const(BigInt_fzjdu3* @this)
+	public unsafe static bool BigInt_32ul_false_unsigned_int_is_zero_const(BigInt_vtm4cw* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_is_zero_const.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEC2IivEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::BigInt<int, void>(int)")]
-	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt_int_void_int(BigInt_fzjdu3* @this, int v)
+	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt_int_void_int(BigInt_vtm4cw* @this, int v)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_BigInt_int_void_int.Invoke(@this, v);
 	}
@@ -11225,14 +11218,14 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjErsEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator>>(unsigned long) const")]
 	[CleanName("BigInt_32ul_false_unsigned_int_operator_unsigned_long_const")]
-	public unsafe static int BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_mny5rw(BigInt_fzjdu3* @this, long s)
+	public unsafe static int BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_mny5rw(BigInt_vtm4cw* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_mny5rw.Invoke(@this, s);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEcvT_ItEEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator unsigned short<unsigned short>() const")]
-	public unsafe static short BigInt_32ul_false_unsigned_int_operator_unsigned_short_unsigned_short_const(BigInt_fzjdu3* @this)
+	public unsafe static short BigInt_32ul_false_unsigned_int_operator_unsigned_short_unsigned_short_const(BigInt_vtm4cw* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_unsigned_short_unsigned_short_const.Invoke(@this);
 	}
@@ -11240,28 +11233,28 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjElsEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator<<(unsigned long) const")]
 	[CleanName("BigInt_32ul_false_unsigned_int_operator_unsigned_long_const")]
-	public unsafe static int BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_umqe9p(BigInt_fzjdu3* @this, long s)
+	public unsafe static int BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_umqe9p(BigInt_vtm4cw* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_umqe9p.Invoke(@this, s);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEmiEOS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator-(__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>&&) const")]
-	public unsafe static int BigInt_32ul_false_unsigned_int_operator_BigInt_32ul_false_unsigned_int_const(BigInt_fzjdu3* @this, BigInt_fzjdu3* other)
+	public unsafe static int BigInt_32ul_false_unsigned_int_operator_BigInt_32ul_false_unsigned_int_const(BigInt_vtm4cw* @this, BigInt_vtm4cw* other)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_BigInt_32ul_false_unsigned_int_const.Invoke(@this, other);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_anERKNS_6BigIntILm32ELb0EjEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator&(__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int> const&, __llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int> const&)")]
-	public unsafe static int operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const(BigInt_fzjdu3* lhs, BigInt_fzjdu3* rhs)
+	public unsafe static int operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const(BigInt_vtm4cw* lhs, BigInt_vtm4cw* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_32ul_false_unsigned_int_const_BigInt_32ul_false_unsigned_int_const.Invoke(lhs, rhs);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::BigInt()")]
-	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt(BigInt_fzjdu3* @this)
+	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt(BigInt_vtm4cw* @this)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_BigInt.Invoke(@this);
 	}
@@ -11269,7 +11262,7 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator[](unsigned long) const")]
 	[CleanName("BigInt_32ul_false_unsigned_int_operator_unsigned_long_const")]
-	public unsafe static void* BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_w3q3b2(BigInt_fzjdu3* @this, long i)
+	public unsafe static void* BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_w3q3b2(BigInt_vtm4cw* @this, long i)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_unsigned_long_const_w3q3b2.Invoke(@this, i);
 	}
@@ -11277,35 +11270,35 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator[](unsigned long)")]
 	[CleanName("BigInt_32ul_false_unsigned_int_operator_unsigned_long")]
-	public unsafe static void* BigInt_32ul_false_unsigned_int_operator_unsigned_long_pb64yf(BigInt_fzjdu3* @this, long i)
+	public unsafe static void* BigInt_32ul_false_unsigned_int_operator_unsigned_long_pb64yf(BigInt_vtm4cw* @this, long i)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_unsigned_long_pb64yf.Invoke(@this, i);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayIjLm1EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>::operator[](unsigned long)")]
-	public unsafe static void* cpp_array_unsigned_int_1ul_operator_unsigned_long(cpp_array_aj48id* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_int_1ul_operator_unsigned_long(cpp_array_2v7m9i* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_int_1ul_operator_unsigned_long.Invoke(@this, Index);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayIjLm1EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>::operator[](unsigned long) const")]
-	public unsafe static void* cpp_array_unsigned_int_1ul_operator_unsigned_long_const(cpp_array_aj48id* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_int_1ul_operator_unsigned_long_const(cpp_array_2v7m9i* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_int_1ul_operator_unsigned_long_const.Invoke(@this, Index);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjE12sub_overflowERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::sub_overflow(__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int> const&)")]
-	public unsafe static int BigInt_32ul_false_unsigned_int_sub_overflow_BigInt_32ul_false_unsigned_int_const(BigInt_fzjdu3* @this, BigInt_fzjdu3* rhs)
+	public unsafe static int BigInt_32ul_false_unsigned_int_sub_overflow_BigInt_32ul_false_unsigned_int_const(BigInt_vtm4cw* @this, BigInt_vtm4cw* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_sub_overflow_BigInt_32ul_false_unsigned_int_const.Invoke(@this, rhs);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword15sub_with_borrowIjLm1ELm1EEET_RNS_3cpp5arrayIS2_XT0_EEERKNS4_IS2_XT1_EEE")]
 	[DemangledName("unsigned int __llvm_libc_20_1_2_::multiword::sub_with_borrow<unsigned int, 1ul, 1ul>(__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
-	public unsafe static int unsigned_int_multiword_sub_with_borrow_unsigned_int_1ul_1ul_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const(cpp_array_aj48id* dst, cpp_array_aj48id* rhs)
+	public unsafe static int unsigned_int_multiword_sub_with_borrow_unsigned_int_1ul_1ul_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const(cpp_array_2v7m9i* dst, cpp_array_2v7m9i* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.unsigned_int_multiword_sub_with_borrow_unsigned_int_1ul_1ul_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const.Invoke(dst, rhs);
 	}
@@ -11319,7 +11312,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword13inplace_binopIPFjjjjRjEjLm1ELm1EEET0_T_RNS_3cpp5arrayIS5_XT1_EEERKNS8_IS5_XT2_EEE")]
 	[DemangledName("unsigned int __llvm_libc_20_1_2_::multiword::inplace_binop<unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&), unsigned int, 1ul, 1ul>(unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&), __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
-	public unsafe static int unsigned_int_multiword_inplace_binop_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_1ul_1ul_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const(void* op_with_carry, cpp_array_aj48id* dst, cpp_array_aj48id* rhs)
+	public unsafe static int unsigned_int_multiword_inplace_binop_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_1ul_1ul_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const(void* op_with_carry, cpp_array_2v7m9i* dst, cpp_array_2v7m9i* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.unsigned_int_multiword_inplace_binop_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_1ul_1ul_unsigned_int_unsigned_int_unsigned_int_unsigned_int_unsigned_int_cpp_array_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const.Invoke(op_with_carry, dst, rhs);
 	}
@@ -11335,7 +11328,7 @@ public static partial class LibC
 	[DemangledName("llvm.usub.with.overflow.i32")]
 	public static Struct_ycs3bi llvm_usub_with_overflow_i32(int parameter_0, int parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_usub_with_overflow_i32.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_usub_with_overflow_i32.Invoke(parameter_0, parameter_1);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE0ELb0EjLm1EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
@@ -11347,7 +11340,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEC2ERKNS_3cpp5arrayIjLm1EEE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::BigInt(__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
-	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt_cpp_array_unsigned_int_1ul_const(BigInt_fzjdu3* @this, cpp_array_aj48id* words)
+	public unsafe static void BigInt_32ul_false_unsigned_int_BigInt_cpp_array_unsigned_int_1ul_const(BigInt_vtm4cw* @this, cpp_array_2v7m9i* words)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_BigInt_cpp_array_unsigned_int_1ul_const.Invoke(@this, words);
 	}
@@ -11368,7 +11361,7 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjE2toItEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned short> && !cpp::is_same_v<unsigned short, bool>, unsigned short>::type __llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::to<unsigned short>() const")]
-	public unsafe static short cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_32ul_false_unsigned_int_to_unsigned_short_const(BigInt_fzjdu3* @this)
+	public unsafe static short cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_32ul_false_unsigned_int_to_unsigned_short_const(BigInt_vtm4cw* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_32ul_false_unsigned_int_to_unsigned_short_const.Invoke(@this);
 	}
@@ -11396,7 +11389,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjE6extendEmb")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::extend(unsigned long, bool)")]
-	public unsafe static void BigInt_32ul_false_unsigned_int_extend_unsigned_long_bool(BigInt_fzjdu3* @this, long index, bool is_neg)
+	public unsafe static void BigInt_32ul_false_unsigned_int_extend_unsigned_long_bool(BigInt_vtm4cw* @this, long index, bool is_neg)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_extend_unsigned_long_bool.Invoke(@this, index, is_neg);
 	}
@@ -11417,14 +11410,14 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayIjLm1EE5beginEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>::begin() const")]
-	public unsafe static void* cpp_array_unsigned_int_1ul_begin_const(cpp_array_aj48id* @this)
+	public unsafe static void* cpp_array_unsigned_int_1ul_begin_const(cpp_array_2v7m9i* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_int_1ul_begin_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayIjLm1EE3endEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>::end() const")]
-	public unsafe static void* cpp_array_unsigned_int_1ul_end_const(cpp_array_aj48id* @this)
+	public unsafe static void* cpp_array_unsigned_int_1ul_end_const(cpp_array_2v7m9i* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_int_1ul_end_const.Invoke(@this);
 	}
@@ -11438,7 +11431,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp11countl_zeroINS_6BigIntILm32ELb0EjEEEENS0_9enable_ifIX12is_big_int_vIT_EEiE4typeERKS5_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<is_big_int_v<__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>>, int>::type __llvm_libc_20_1_2_::cpp::countl_zero<__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>>(__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int> const&)")]
-	public unsafe static int cpp_enable_if_is_big_int_v_BigInt_32ul_false_unsigned_int_int_type_cpp_countl_zero_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const(BigInt_fzjdu3* value)
+	public unsafe static int cpp_enable_if_is_big_int_v_BigInt_32ul_false_unsigned_int_int_type_cpp_countl_zero_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const(BigInt_vtm4cw* value)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_is_big_int_v_BigInt_32ul_false_unsigned_int_int_type_cpp_countl_zero_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const.Invoke(value);
 	}
@@ -11446,14 +11439,14 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjElSEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator<<=(unsigned long)")]
 	[CleanName("BigInt_32ul_false_unsigned_int_operator_unsigned_long")]
-	public unsafe static BigInt_fzjdu3* BigInt_32ul_false_unsigned_int_operator_unsigned_long_q7vm7c(BigInt_fzjdu3* @this, long s)
+	public unsafe static BigInt_vtm4cw* BigInt_32ul_false_unsigned_int_operator_unsigned_long_q7vm7c(BigInt_vtm4cw* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_unsigned_long_q7vm7c.Invoke(@this, s);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword11countl_zeroIjLm1EEEiRKNS_3cpp5arrayIT_XT0_EEE")]
 	[DemangledName("int __llvm_libc_20_1_2_::multiword::countl_zero<unsigned int, 1ul>(__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
-	public unsafe static int int_multiword_countl_zero_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const(cpp_array_aj48id* val)
+	public unsafe static int int_multiword_countl_zero_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const(cpp_array_2v7m9i* val)
 	{
 		return LlvmLibC.GlobalFunctions.int_multiword_countl_zero_unsigned_int_1ul_cpp_array_unsigned_int_1ul_const.Invoke(val);
 	}
@@ -11626,42 +11619,42 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEC2ImvEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::BigInt<unsigned long, void>(unsigned long)")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_unsigned_long_void_unsigned_long(BigInt_nx6qdt* @this, long v)
+	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_unsigned_long_void_unsigned_long(BigInt_555ggs* @this, long v)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_BigInt_unsigned_long_void_unsigned_long.Invoke(@this, v);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EEC2ENS_4SignEiNS_6BigIntILm64ELb0EmEE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::DyadicFloat(__llvm_libc_20_1_2_::Sign, int, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>)")]
-	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat_Sign_int_BigInt_64ul_false_unsigned_long(fputil_DyadicFloat_374hpp* @this, [MangledName("s.coerce")] sbyte s, int e, [MangledName("m.coerce")] long m)
+	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat_Sign_int_BigInt_64ul_false_unsigned_long(fputil_DyadicFloat_syracv* @this, [MangledName("s.coerce")] sbyte s, int e, [MangledName("m.coerce")] long m)
 	{
 		LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_DyadicFloat_Sign_int_BigInt_64ul_false_unsigned_long.Invoke(@this, s, e, m);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE2asIDF16_Lb1EvEET_v")]
 	[DemangledName("_Float16 __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::as<_Float16, true, void>() const")]
-	public unsafe static Half Float16_fputil_DyadicFloat_64ul_as_Float16_true_void_const(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static Half Float16_fputil_DyadicFloat_64ul_as_Float16_true_void_const(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.Float16_fputil_DyadicFloat_64ul_as_Float16_true_void_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE7fast_asIDF16_Lb1EvEET_v")]
 	[DemangledName("_Float16 __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::fast_as<_Float16, true, void>() const")]
-	public unsafe static Half Float16_fputil_DyadicFloat_64ul_fast_as_Float16_true_void_const(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static Half Float16_fputil_DyadicFloat_64ul_fast_as_Float16_true_void_const(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.Float16_fputil_DyadicFloat_64ul_fast_as_Float16_true_void_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE7is_zeroEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::is_zero() const")]
-	public unsafe static bool BigInt_64ul_false_unsigned_long_is_zero_const(BigInt_nx6qdt* @this)
+	public unsafe static bool BigInt_64ul_false_unsigned_long_is_zero_const(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_is_zero_const.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEC2IivEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::BigInt<int, void>(int)")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_int_void_int(BigInt_nx6qdt* @this, int v)
+	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_int_void_int(BigInt_555ggs* @this, int v)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_BigInt_int_void_int.Invoke(@this, v);
 	}
@@ -11669,14 +11662,14 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmErsEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator>>(unsigned long) const")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long_const")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_5vdftb(BigInt_nx6qdt* @this, long s)
+	public unsafe static long BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_5vdftb(BigInt_555ggs* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_5vdftb.Invoke(@this, s);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEcvT_ItEEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator unsigned short<unsigned short>() const")]
-	public unsafe static short BigInt_64ul_false_unsigned_long_operator_unsigned_short_unsigned_short_const(BigInt_nx6qdt* @this)
+	public unsafe static short BigInt_64ul_false_unsigned_long_operator_unsigned_short_unsigned_short_const(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_short_unsigned_short_const.Invoke(@this);
 	}
@@ -11684,7 +11677,7 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmElsEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator<<(unsigned long) const")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long_const")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_vswmz5(BigInt_nx6qdt* @this, long s)
+	public unsafe static long BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_vswmz5(BigInt_555ggs* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_vswmz5.Invoke(@this, s);
 	}
@@ -11692,7 +11685,7 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEmiEOS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator-(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>&&) const")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_dhppwb(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static long BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_dhppwb(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_dhppwb.Invoke(@this, other);
 	}
@@ -11700,14 +11693,14 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_anERKNS_6BigIntILm64ELb0EmEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator&(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 	[CleanName("operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const")]
-	public unsafe static long operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_ufy43f(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static long operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_ufy43f(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_ufy43f.Invoke(lhs, rhs);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::BigInt()")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt(BigInt_nx6qdt* @this)
+	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt(BigInt_555ggs* @this)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_BigInt.Invoke(@this);
 	}
@@ -11715,7 +11708,7 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator[](unsigned long) const")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long_const")]
-	public unsafe static void* BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_64yjsu(BigInt_nx6qdt* @this, long i)
+	public unsafe static void* BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_64yjsu(BigInt_555ggs* @this, long i)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_long_const_64yjsu.Invoke(@this, i);
 	}
@@ -11723,7 +11716,7 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator[](unsigned long)")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long")]
-	public unsafe static void* BigInt_64ul_false_unsigned_long_operator_unsigned_long_kztvyk(BigInt_nx6qdt* @this, long i)
+	public unsafe static void* BigInt_64ul_false_unsigned_long_operator_unsigned_long_kztvyk(BigInt_555ggs* @this, long i)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_long_kztvyk.Invoke(@this, i);
 	}
@@ -11737,7 +11730,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE12sub_overflowERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::sub_overflow(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_sub_overflow_BigInt_64ul_false_unsigned_long_const(BigInt_nx6qdt* @this, BigInt_nx6qdt* rhs)
+	public unsafe static long BigInt_64ul_false_unsigned_long_sub_overflow_BigInt_64ul_false_unsigned_long_const(BigInt_555ggs* @this, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_sub_overflow_BigInt_64ul_false_unsigned_long_const.Invoke(@this, rhs);
 	}
@@ -11765,7 +11758,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEC2ERKNS_3cpp5arrayImLm1EEE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::BigInt(__llvm_libc_20_1_2_::cpp::array<unsigned long, 1ul> const&)")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_1ul_const(BigInt_nx6qdt* @this, cpp_array_rpgxvv* words)
+	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_1ul_const(BigInt_555ggs* @this, cpp_array_rpgxvv* words)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_1ul_const.Invoke(@this, words);
 	}
@@ -11786,7 +11779,7 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE2toItEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned short> && !cpp::is_same_v<unsigned short, bool>, unsigned short>::type __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::to<unsigned short>() const")]
-	public unsafe static short cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_64ul_false_unsigned_long_to_unsigned_short_const(BigInt_nx6qdt* @this)
+	public unsafe static short cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_64ul_false_unsigned_long_to_unsigned_short_const(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_unsigned_short_cpp_is_same_v_unsigned_short_bool_unsigned_short_type_BigInt_64ul_false_unsigned_long_to_unsigned_short_const.Invoke(@this);
 	}
@@ -11814,7 +11807,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE6extendEmb")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::extend(unsigned long, bool)")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_extend_unsigned_long_bool(BigInt_nx6qdt* @this, long index, bool is_neg)
+	public unsafe static void BigInt_64ul_false_unsigned_long_extend_unsigned_long_bool(BigInt_555ggs* @this, long index, bool is_neg)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_extend_unsigned_long_bool.Invoke(@this, index, is_neg);
 	}
@@ -11835,14 +11828,14 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE9normalizeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::normalize()")]
-	public unsafe static fputil_DyadicFloat_374hpp* fputil_DyadicFloat_64ul_normalize(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static fputil_DyadicFloat_syracv* fputil_DyadicFloat_64ul_normalize(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_normalize.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp11countl_zeroINS_6BigIntILm64ELb0EmEEEENS0_9enable_ifIX12is_big_int_vIT_EEiE4typeERKS5_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<is_big_int_v<__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>>, int>::type __llvm_libc_20_1_2_::cpp::countl_zero<__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>>(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
-	public unsafe static int cpp_enable_if_is_big_int_v_BigInt_64ul_false_unsigned_long_int_type_cpp_countl_zero_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const(BigInt_nx6qdt* value)
+	public unsafe static int cpp_enable_if_is_big_int_v_BigInt_64ul_false_unsigned_long_int_type_cpp_countl_zero_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const(BigInt_555ggs* value)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_is_big_int_v_BigInt_64ul_false_unsigned_long_int_type_cpp_countl_zero_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const.Invoke(value);
 	}
@@ -11850,7 +11843,7 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmElSEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator<<=(unsigned long)")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long")]
-	public unsafe static BigInt_nx6qdt* BigInt_64ul_false_unsigned_long_operator_unsigned_long_pq2pm2(BigInt_nx6qdt* @this, long s)
+	public unsafe static BigInt_555ggs* BigInt_64ul_false_unsigned_long_operator_unsigned_long_pq2pm2(BigInt_555ggs* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_long_pq2pm2.Invoke(@this, s);
 	}
@@ -12122,35 +12115,35 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EEC2IfTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES6_")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::DyadicFloat<float, 0>(float)")]
-	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat_float_0_float(fputil_DyadicFloat_374hpp* @this, float x)
+	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat_float_0_float(fputil_DyadicFloat_syracv* @this, float x)
 	{
 		LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_DyadicFloat_float_0_float.Invoke(@this, x);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil9quick_mulILm64EEENS0_11DyadicFloatIXT_EEERKS3_S5_")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul> __llvm_libc_20_1_2_::fputil::quick_mul<64ul>(__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul> const&, __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul> const&)")]
-	public unsafe static Struct_fiz2nb fputil_DyadicFloat_64ul_fputil_quick_mul_64ul_fputil_DyadicFloat_64ul_const_fputil_DyadicFloat_64ul_const(fputil_DyadicFloat_374hpp* a, fputil_DyadicFloat_374hpp* b)
+	public unsafe static Struct_fiz2nb fputil_DyadicFloat_64ul_fputil_quick_mul_64ul_fputil_DyadicFloat_64ul_const_fputil_DyadicFloat_64ul_const(fputil_DyadicFloat_syracv* a, fputil_DyadicFloat_syracv* b)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_fputil_quick_mul_64ul_fputil_DyadicFloat_64ul_const_fputil_DyadicFloat_64ul_const.Invoke(a, b);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::DyadicFloat()")]
-	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat(fputil_DyadicFloat_syracv* @this)
 	{
 		LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_DyadicFloat.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE12quick_mul_hiERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::quick_mul_hi(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&) const")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_quick_mul_hi_BigInt_64ul_false_unsigned_long_const_const(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static long BigInt_64ul_false_unsigned_long_quick_mul_hi_BigInt_64ul_false_unsigned_long_const_const(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_quick_mul_hi_BigInt_64ul_false_unsigned_long_const_const.Invoke(@this, other);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE10shift_leftEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::shift_left(unsigned int)")]
-	public unsafe static fputil_DyadicFloat_374hpp* fputil_DyadicFloat_64ul_shift_left_unsigned_int(fputil_DyadicFloat_374hpp* @this, int shift_length)
+	public unsafe static fputil_DyadicFloat_syracv* fputil_DyadicFloat_64ul_shift_left_unsigned_int(fputil_DyadicFloat_syracv* @this, int shift_length)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_shift_left_unsigned_int.Invoke(@this, shift_length);
 	}
@@ -12178,7 +12171,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEC2IjvEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::BigInt<unsigned int, void>(unsigned int)")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_unsigned_int_void_unsigned_int(BigInt_nx6qdt* @this, int v)
+	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_unsigned_int_void_unsigned_int(BigInt_555ggs* @this, int v)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_BigInt_unsigned_int_void_unsigned_int.Invoke(@this, v);
 	}
@@ -12306,14 +12299,14 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEmlERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator*(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&) const")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_3tyjsr(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static long BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_3tyjsr(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_3tyjsr.Invoke(@this, other);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil7generic8internal14shift_mantissaINS_6BigIntILm64ELb0EmEEEENS_3cpp9enable_ifIX33is_unsigned_integral_or_big_int_vIT_EEbE4typeEiRS8_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<is_unsigned_integral_or_big_int_v<__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>>, bool>::type __llvm_libc_20_1_2_::fputil::generic::internal::shift_mantissa<__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>>(int, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>&)")]
-	public unsafe static bool cpp_enable_if_is_unsigned_integral_or_big_int_v_BigInt_64ul_false_unsigned_long_bool_type_fputil_generic_internal_shift_mantissa_BigInt_64ul_false_unsigned_long_int_BigInt_64ul_false_unsigned_long(int shift_length, BigInt_nx6qdt* mant)
+	public unsafe static bool cpp_enable_if_is_unsigned_integral_or_big_int_v_BigInt_64ul_false_unsigned_long_bool_type_fputil_generic_internal_shift_mantissa_BigInt_64ul_false_unsigned_long_int_BigInt_64ul_false_unsigned_long(int shift_length, BigInt_555ggs* mant)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_is_unsigned_integral_or_big_int_v_BigInt_64ul_false_unsigned_long_bool_type_fputil_generic_internal_shift_mantissa_BigInt_64ul_false_unsigned_long_int_BigInt_64ul_false_unsigned_long.Invoke(shift_length, mant);
 	}
@@ -12321,7 +12314,7 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEpLERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator+=(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const")]
-	public unsafe static BigInt_nx6qdt* BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_rty9c9(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static BigInt_555ggs* BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_rty9c9(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_rty9c9.Invoke(@this, other);
 	}
@@ -12329,14 +12322,14 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_geERKNS_6BigIntILm64ELb0EmEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator>=(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 	[CleanName("operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const")]
-	public unsafe static bool operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_8i22w8(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static bool operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_8i22w8(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_8i22w8.Invoke(lhs, rhs);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEppEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator++()")]
-	public unsafe static BigInt_nx6qdt* BigInt_64ul_false_unsigned_long_operator(BigInt_nx6qdt* @this)
+	public unsafe static BigInt_555ggs* BigInt_64ul_false_unsigned_long_operator(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator.Invoke(@this);
 	}
@@ -12344,7 +12337,7 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEmIERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator-=(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const")]
-	public unsafe static BigInt_nx6qdt* BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_ft5pma(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static BigInt_555ggs* BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_ft5pma(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_ft5pma.Invoke(@this, other);
 	}
@@ -12352,7 +12345,7 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEmiERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator-(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&) const")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_d49xx2(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static long BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_d49xx2(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_BigInt_64ul_false_unsigned_long_const_const_d49xx2.Invoke(@this, other);
 	}
@@ -12360,21 +12353,21 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_eqERKNS_6BigIntILm64ELb0EmEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator==(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 	[CleanName("operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const")]
-	public unsafe static bool operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sbn2kk(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static bool operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sbn2kk(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sbn2kk.Invoke(lhs, rhs);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_oRERNS_6BigIntILm64ELb0EmEERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator|=(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
-	public unsafe static long operator_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static long operator_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_64ul_false_unsigned_long_BigInt_64ul_false_unsigned_long_const.Invoke(lhs, rhs);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE9incrementEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::increment()")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_increment(BigInt_nx6qdt* @this)
+	public unsafe static void BigInt_64ul_false_unsigned_long_increment(BigInt_555ggs* @this)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_increment.Invoke(@this);
 	}
@@ -12388,7 +12381,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cmpERKNS_6BigIntILm64ELb0EmEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::cmp(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
-	public unsafe static int cmp_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static int cmp_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.cmp_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const.Invoke(lhs, rhs);
 	}
@@ -12402,7 +12395,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE12add_overflowERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::add_overflow(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_add_overflow_BigInt_64ul_false_unsigned_long_const(BigInt_nx6qdt* @this, BigInt_nx6qdt* rhs)
+	public unsafe static long BigInt_64ul_false_unsigned_long_add_overflow_BigInt_64ul_false_unsigned_long_const(BigInt_555ggs* @this, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_add_overflow_BigInt_64ul_false_unsigned_long_const.Invoke(@this, rhs);
 	}
@@ -12410,7 +12403,7 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_neERKNS_6BigIntILm64ELb0EmEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator!=(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&)")]
 	[CleanName("operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const")]
-	public unsafe static bool operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sx97vk(BigInt_nx6qdt* lhs, BigInt_nx6qdt* rhs)
+	public unsafe static bool operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sx97vk(BigInt_555ggs* lhs, BigInt_555ggs* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_64ul_false_unsigned_long_const_BigInt_64ul_false_unsigned_long_const_sx97vk.Invoke(lhs, rhs);
 	}
@@ -12418,21 +12411,21 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmErSEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator>>=(unsigned long)")]
 	[CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long")]
-	public unsafe static BigInt_nx6qdt* BigInt_64ul_false_unsigned_long_operator_unsigned_long_d49ii6(BigInt_nx6qdt* @this, long s)
+	public unsafe static BigInt_555ggs* BigInt_64ul_false_unsigned_long_operator_unsigned_long_d49ii6(BigInt_555ggs* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_long_d49ii6.Invoke(@this, s);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE7ful_mulILm64EEEDaRKNS0_IXT_ELb0EmEE")]
 	[DemangledName("auto __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::ful_mul<64ul>(__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&) const")]
-	public unsafe static Struct_fiz2nb auto_BigInt_64ul_false_unsigned_long_ful_mul_64ul_BigInt_64ul_false_unsigned_long_const_const(BigInt_nx6qdt* @this, BigInt_nx6qdt* other)
+	public unsafe static Struct_fiz2nb auto_BigInt_64ul_false_unsigned_long_ful_mul_64ul_BigInt_64ul_false_unsigned_long_const_const(BigInt_555ggs* @this, BigInt_555ggs* other)
 	{
 		return LlvmLibC.GlobalFunctions.auto_BigInt_64ul_false_unsigned_long_ful_mul_64ul_BigInt_64ul_false_unsigned_long_const_const.Invoke(@this, other);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEC2ILm128ELb0EmEERKNS0_IXT_EXT0_ET1_EE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::BigInt<128ul, false, unsigned long>(__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long> const&)")]
-	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_const(BigInt_nx6qdt* @this, anon_izyfb7* other)
+	public unsafe static void BigInt_64ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_const(BigInt_555ggs* @this, anon_izyfb7* other)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_BigInt_128ul_false_unsigned_long_const.Invoke(@this, other);
 	}
@@ -12461,13 +12454,6 @@ public static partial class LibC
 	public static Half cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_double_sizeof_Float16_sizeof_double_Float16_type_fputil_generic_fma_Float16_double_double_double_double(double x, double y, double z)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_double_sizeof_Float16_sizeof_double_Float16_type_fputil_generic_fma_Float16_double_double_double_double.Invoke(x, y, z);
-	}
-
-	[MangledName("llvm.fmuladd.f64")]
-	[DemangledName("llvm.fmuladd.f64")]
-	public static double llvm_fmuladd_f64(double parameter_0, double parameter_1, double parameter_2)
-	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_fmuladd_f64.Invoke(parameter_0, parameter_1, parameter_2);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm128ELb0EmEmlERKS1_")]
@@ -12646,21 +12632,21 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEcvT_IjEEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::operator unsigned int<unsigned int>() const")]
-	public unsafe static int BigInt_32ul_false_unsigned_int_operator_unsigned_int_unsigned_int_const(BigInt_fzjdu3* @this)
+	public unsafe static int BigInt_32ul_false_unsigned_int_operator_unsigned_int_unsigned_int_const(BigInt_vtm4cw* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_32ul_false_unsigned_int_operator_unsigned_int_unsigned_int_const.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_oRERNS_6BigIntILm32ELb0EjEERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator|=(__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>&, __llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int> const&)")]
-	public unsafe static int operator_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const(BigInt_fzjdu3* lhs, BigInt_fzjdu3* rhs)
+	public unsafe static int operator_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const(BigInt_vtm4cw* lhs, BigInt_vtm4cw* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_32ul_false_unsigned_int_BigInt_32ul_false_unsigned_int_const.Invoke(lhs, rhs);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjE2toIjEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned int> && !cpp::is_same_v<unsigned int, bool>, unsigned int>::type __llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::to<unsigned int>() const")]
-	public unsafe static int cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_32ul_false_unsigned_int_to_unsigned_int_const(BigInt_fzjdu3* @this)
+	public unsafe static int cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_32ul_false_unsigned_int_to_unsigned_int_const(BigInt_vtm4cw* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_32ul_false_unsigned_int_to_unsigned_int_const.Invoke(@this);
 	}
@@ -12679,21 +12665,21 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EEC2IdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES6_")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::DyadicFloat<double, 0>(double)")]
-	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat_double_0_double(fputil_DyadicFloat_374hpp* @this, double x)
+	public unsafe static void fputil_DyadicFloat_64ul_DyadicFloat_double_0_double(fputil_DyadicFloat_syracv* @this, double x)
 	{
 		LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_DyadicFloat_double_0_double.Invoke(@this, x);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEcvT_ImEEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator unsigned long<unsigned long>() const")]
-	public unsafe static long BigInt_64ul_false_unsigned_long_operator_unsigned_long_unsigned_long_const(BigInt_nx6qdt* @this)
+	public unsafe static long BigInt_64ul_false_unsigned_long_operator_unsigned_long_unsigned_long_const(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_long_unsigned_long_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE2toImEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned long> && !cpp::is_same_v<unsigned long, bool>, unsigned long>::type __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::to<unsigned long>() const")]
-	public unsafe static long cpp_enable_if_cpp_is_integral_v_unsigned_long_cpp_is_same_v_unsigned_long_bool_unsigned_long_type_BigInt_64ul_false_unsigned_long_to_unsigned_long_const(BigInt_nx6qdt* @this)
+	public unsafe static long cpp_enable_if_cpp_is_integral_v_unsigned_long_cpp_is_same_v_unsigned_long_bool_unsigned_long_type_BigInt_64ul_false_unsigned_long_to_unsigned_long_const(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_unsigned_long_cpp_is_same_v_unsigned_long_bool_unsigned_long_type_BigInt_64ul_false_unsigned_long_to_unsigned_long_const.Invoke(@this);
 	}
@@ -12776,7 +12762,7 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm1EE6lookupEt")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 1ul>::lookup(unsigned short) const")]
-	public unsafe static int fputil_ExceptValues_Float16_1ul_lookup_unsigned_short_const(fputil_ExceptValues_a5qtu7* @this, short x_bits)
+	public unsafe static int fputil_ExceptValues_Float16_1ul_lookup_unsigned_short_const(fputil_ExceptValues_yv4gxk* @this, short x_bits)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_1ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
 	}
@@ -12788,6 +12774,13 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_float_8ul_float_type_fputil_polyeval_float_float_float_float_float_float_float_float_float_float_float.Invoke(x, a0, a_yc74sk, a_ijazrn, a_889uw5, a_79nth8);
 	}
 
+	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm3EE6lookupEt")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 3ul>::lookup(unsigned short) const")]
+	public unsafe static int fputil_ExceptValues_Float16_3ul_lookup_unsigned_short_const(fputil_ExceptValues_x8ns5m* @this, short x_bits)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_3ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
+	}
+
 	[MangledName("_ZN19__llvm_libc_20_1_2_19exp_range_reductionEDF16_")]
 	[DemangledName("__llvm_libc_20_1_2_::exp_range_reduction(_Float16)")]
 	public static InlineArray2_Single exp_range_reduction_Float16(Half x)
@@ -12797,7 +12790,7 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayIfLm31EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<float, 31ul>::operator[](unsigned long) const")]
-	public unsafe static void* cpp_array_float_31ul_operator_unsigned_long_const(cpp_array_fe7abs* @this, long Index)
+	public unsafe static void* cpp_array_float_31ul_operator_unsigned_long_const(cpp_array_55dk65* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_float_31ul_operator_unsigned_long_const.Invoke(@this, Index);
 	}
@@ -12821,13 +12814,6 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.expf16.Invoke(x);
 	}
 
-	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm3EE6lookupEt")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 3ul>::lookup(unsigned short) const")]
-	public unsafe static int fputil_ExceptValues_Float16_3ul_lookup_unsigned_short_const(fputil_ExceptValues_uk6z3c* @this, short x_bits)
-	{
-		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_3ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
-	}
-
 	public static Half exp2m1f16(Half x)
 	{
 		return LlvmLibC.GlobalFunctions.exp2m1f16.Invoke(x);
@@ -12835,9 +12821,16 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm6EE6lookupEt")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 6ul>::lookup(unsigned short) const")]
-	public unsafe static int fputil_ExceptValues_Float16_6ul_lookup_unsigned_short_const(fputil_ExceptValues_susv2z* @this, short x_bits)
+	public unsafe static int fputil_ExceptValues_Float16_6ul_lookup_unsigned_short_const(fputil_ExceptValues_eezwkt* @this, short x_bits)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_6ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
+	}
+
+	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm7EE6lookupEt")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 7ul>::lookup(unsigned short) const")]
+	public unsafe static int fputil_ExceptValues_Float16_7ul_lookup_unsigned_short_const(fputil_ExceptValues_pcxpx6* @this, short x_bits)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_7ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_20exp2_range_reductionEDF16_")]
@@ -12883,6 +12876,13 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.exp10f16.Invoke(x);
 	}
 
+	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm8EE6lookupEt")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 8ul>::lookup(unsigned short) const")]
+	public unsafe static int fputil_ExceptValues_Float16_8ul_lookup_unsigned_short_const(fputil_ExceptValues_ztktch* @this, short x_bits)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_8ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
+	}
+
 	public static Half cospif16(Half x)
 	{
 		return LlvmLibC.GlobalFunctions.cospif16.Invoke(x);
@@ -12891,13 +12891,6 @@ public static partial class LibC
 	public static Half coshf16(Half x)
 	{
 		return LlvmLibC.GlobalFunctions.coshf16.Invoke(x);
-	}
-
-	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm9EE6lookupEt")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<_Float16, 9ul>::lookup(unsigned short) const")]
-	public unsafe static int fputil_ExceptValues_Float16_9ul_lookup_unsigned_short_const(fputil_ExceptValues_fkx7qf* @this, short x_bits)
-	{
-		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_Float16_9ul_lookup_unsigned_short_const.Invoke(@this, x_bits);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIDF16_Lm4EE6lookupEt")]
@@ -12928,7 +12921,7 @@ public static partial class LibC
 	[DemangledName("llvm.copysign.f16")]
 	public static Half llvm_copysign_f16(Half parameter_0, Half parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_copysign_f16.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_copysign_f16.Invoke(parameter_0, parameter_1);
 	}
 
 	public static Half ceilf16(Half x)
@@ -12962,7 +12955,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8bit_castICDF16_NS_7ComplexIDF16_EEEENS0_9enable_ifIXaaaaaaeqstT_stT0_sr3cpp26is_trivially_constructibleIS6_EE5valuesr3cpp21is_trivially_copyableIS6_EE5valuesr3cpp21is_trivially_copyableIS7_EE5valueES6_E4typeERKS7_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (_Float16 complex) == sizeof (__llvm_libc_20_1_2_::Complex<_Float16>) && cpp::is_trivially_constructible<_Float16 complex>::value && cpp::is_trivially_copyable<_Float16 complex>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::Complex<_Float16>>::value, _Float16 complex>::type __llvm_libc_20_1_2_::cpp::bit_cast<_Float16 complex, __llvm_libc_20_1_2_::Complex<_Float16>>(__llvm_libc_20_1_2_::Complex<_Float16> const&)")]
-	public unsafe static InlineArray2_Half cpp_enable_if_sizeof_Float16_complex_sizeof_Complex_Float16_cpp_is_trivially_constructible_Float16_complex_value_cpp_is_trivially_copyable_Float16_complex_value_cpp_is_trivially_copyable_Complex_Float16_value_Float16_complex_type_cpp_bit_cast_Float16_complex_Complex_Float16_Complex_Float16_const(Complex_ueqjqt* from)
+	public unsafe static InlineArray2_Half cpp_enable_if_sizeof_Float16_complex_sizeof_Complex_Float16_cpp_is_trivially_constructible_Float16_complex_value_cpp_is_trivially_copyable_Float16_complex_value_cpp_is_trivially_copyable_Complex_Float16_value_Float16_complex_type_cpp_bit_cast_Float16_complex_Complex_Float16_Complex_Float16_const(Complex_mify6x* from)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_Float16_complex_sizeof_Complex_Float16_cpp_is_trivially_constructible_Float16_complex_value_cpp_is_trivially_copyable_Float16_complex_value_cpp_is_trivially_copyable_Complex_Float16_value_Float16_complex_type_cpp_bit_cast_Float16_complex_Complex_Float16_Complex_Float16_const.Invoke(from);
 	}
@@ -13141,11 +13134,25 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.truncf.Invoke(x);
 	}
 
-	[MangledName("llvm.trunc.f32")]
-	[DemangledName("llvm.trunc.f32")]
-	public static float llvm_trunc_f32(float parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5truncIfTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("float __llvm_libc_20_1_2_::fputil::trunc<float, 0>(float)")]
+	public static float float_fputil_trunc_float_0_float(float x)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_trunc_f32.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.float_fputil_trunc_float_0_float.Invoke(x);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE1ENS0_6FPBitsIfEEE12set_mantissaEj")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::set_mantissa(unsigned int)")]
+	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int(fputil_internal_FPRepImpl_vhj4tm* @this, int mantVal)
+	{
+		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int.Invoke(@this, mantVal);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE1EE5mergeEjjj")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)1>::merge(unsigned int, unsigned int, unsigned int)")]
+	public static int fputil_internal_FPStorage_fputil_FPType_1_merge_unsigned_int_unsigned_int_unsigned_int(int a, int b, int mask)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_1_merge_unsigned_int_unsigned_int_unsigned_int.Invoke(a, b, mask);
 	}
 
 	public static double trunc(double x)
@@ -13153,11 +13160,25 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.trunc.Invoke(x);
 	}
 
-	[MangledName("llvm.trunc.f64")]
-	[DemangledName("llvm.trunc.f64")]
-	public static double llvm_trunc_f64(double parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5truncIdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("double __llvm_libc_20_1_2_::fputil::trunc<double, 0>(double)")]
+	public static double double_fputil_trunc_double_0_double(double x)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_trunc_f64.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.double_fputil_trunc_double_0_double.Invoke(x);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE2ENS0_6FPBitsIdEEE12set_mantissaEm")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::set_mantissa(unsigned long)")]
+	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long(fputil_internal_FPRepImpl_ucubaq* @this, long mantVal)
+	{
+		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long.Invoke(@this, mantVal);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE2EE5mergeEmmm")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)2>::merge(unsigned long, unsigned long, unsigned long)")]
+	public static long fputil_internal_FPStorage_fputil_FPType_2_merge_unsigned_long_unsigned_long_unsigned_long(long a, long b, long mask)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_2_merge_unsigned_long_unsigned_long_unsigned_long.Invoke(a, b, mask);
 	}
 
 	public unsafe static int totalordermagl(void* x, void* y)
@@ -13279,14 +13300,14 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp8optionalIfE9has_valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<float>::has_value() const")]
-	public unsafe static bool cpp_optional_float_has_value_const(cpp_optional_89h55j* @this)
+	public unsafe static bool cpp_optional_float_has_value_const(cpp_optional_xmxtsi* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_float_has_value_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNR19__llvm_libc_20_1_2_3cpp8optionalIfE5valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<float>::value() &")]
-	public unsafe static void* cpp_optional_float_value(cpp_optional_89h55j* @this)
+	public unsafe static void* cpp_optional_float_value(cpp_optional_xmxtsi* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_float_value.Invoke(@this);
 	}
@@ -13298,18 +13319,18 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.sincosf_eval_double_unsigned_int_double_double_double_double.Invoke(xd, x_abs, sin_k, cos_k, sin_y, cosm1_y);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_3fma21small_range_reductionEdRd")]
-	[DemangledName("__llvm_libc_20_1_2_::fma::small_range_reduction(double, double&)")]
-	public unsafe static long fma_small_range_reduction_double_double(double x, void* y)
+	[MangledName("_ZN19__llvm_libc_20_1_2_7generic21small_range_reductionEdRd")]
+	[DemangledName("__llvm_libc_20_1_2_::generic::small_range_reduction(double, double&)")]
+	public unsafe static long generic_small_range_reduction_double_double(double x, void* y)
 	{
-		return LlvmLibC.GlobalFunctions.fma_small_range_reduction_double_double.Invoke(x, y);
+		return LlvmLibC.GlobalFunctions.generic_small_range_reduction_double_double.Invoke(x, y);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_3fma21large_range_reductionEdiRd")]
-	[DemangledName("__llvm_libc_20_1_2_::fma::large_range_reduction(double, int, double&)")]
-	public unsafe static long fma_large_range_reduction_double_int_double(double x, int x_exp, void* y)
+	[MangledName("_ZN19__llvm_libc_20_1_2_7generic21large_range_reductionEdiRd")]
+	[DemangledName("__llvm_libc_20_1_2_::generic::large_range_reduction(double, int, double&)")]
+	public unsafe static long generic_large_range_reduction_double_int_double(double x, int x_exp, void* y)
 	{
-		return LlvmLibC.GlobalFunctions.fma_large_range_reduction_double_int_double.Invoke(x, x_exp, y);
+		return LlvmLibC.GlobalFunctions.generic_large_range_reduction_double_int_double.Invoke(x, x_exp, y);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L17sincosf_poly_evalEldRdS0_S0_S0_")]
@@ -13326,30 +13347,16 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double_double_double.Invoke(x, a0, a_yc74sk, a_ijazrn, a_889uw5);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE2ENS0_6FPBitsIdEEE11set_uintvalEm")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::set_uintval(unsigned long)")]
-	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long(fputil_internal_FPRepImpl_ucubaq* @this, long value)
-	{
-		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long.Invoke(@this, value);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil3fmaIddEET_T0_S3_S3_")]
-	[DemangledName("double __llvm_libc_20_1_2_::fputil::fma<double, double>(double, double, double)")]
-	public static double double_fputil_fma_double_double_double_double_double(double x, double y, double z)
-	{
-		return LlvmLibC.GlobalFunctions.double_fputil_fma_double_double_double_double_double.Invoke(x, y, z);
-	}
-
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalIfEC2EOf")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<float>::optional(float&&)")]
-	public unsafe static void cpp_optional_float_optional_float(cpp_optional_89h55j* @this, void* t)
+	public unsafe static void cpp_optional_float_optional_float(cpp_optional_xmxtsi* @this, void* t)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_float_optional_float.Invoke(@this, t);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalIfEC2ENS0_9nullopt_tE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<float>::optional(__llvm_libc_20_1_2_::cpp::nullopt_t)")]
-	public unsafe static void cpp_optional_float_optional_cpp_nullopt_t(cpp_optional_89h55j* @this)
+	public unsafe static void cpp_optional_float_optional_cpp_nullopt_t(cpp_optional_xmxtsi* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_float_optional_cpp_nullopt_t.Invoke(@this);
 	}
@@ -13622,6 +13629,20 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.NumberPair_double_fputil_exact_mult_27ul_double_double.Invoke(a, b);
 	}
 
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5splitILm27EEENS_10NumberPairIdEEd")]
+	[DemangledName("__llvm_libc_20_1_2_::NumberPair<double> __llvm_libc_20_1_2_::fputil::split<27ul>(double)")]
+	public static Struct_4ydhja NumberPair_double_fputil_split_27ul_double(double a)
+	{
+		return LlvmLibC.GlobalFunctions.NumberPair_double_fputil_split_27ul_double.Invoke(a);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil10exact_multILm27EEENS_10NumberPairIdEERKS3_dd")]
+	[DemangledName("__llvm_libc_20_1_2_::NumberPair<double> __llvm_libc_20_1_2_::fputil::exact_mult<27ul>(__llvm_libc_20_1_2_::NumberPair<double> const&, double, double)")]
+	public unsafe static Struct_4ydhja NumberPair_double_fputil_exact_mult_27ul_NumberPair_double_const_double_double(NumberPair* @as, double a, double b)
+	{
+		return LlvmLibC.GlobalFunctions.NumberPair_double_fputil_exact_mult_27ul_NumberPair_double_const_double_double.Invoke(@as, a, b);
+	}
+
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil9exact_addILb1EEENS_10NumberPairIdEEdd")]
 	[DemangledName("__llvm_libc_20_1_2_::NumberPair<double> __llvm_libc_20_1_2_::fputil::exact_add<true>(double, double)")]
 	public static Struct_4ydhja NumberPair_double_fputil_exact_add_true_double_double(double a, double b)
@@ -13636,18 +13657,39 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_biased_exponent_unsigned_long.Invoke(@this, biased);
 	}
 
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil10exact_multILm28EEENS_10NumberPairIdEERKS3_dd")]
+	[DemangledName("__llvm_libc_20_1_2_::NumberPair<double> __llvm_libc_20_1_2_::fputil::exact_mult<28ul>(__llvm_libc_20_1_2_::NumberPair<double> const&, double, double)")]
+	public unsafe static Struct_4ydhja NumberPair_double_fputil_exact_mult_28ul_NumberPair_double_const_double_double(NumberPair* @as, double a, double b)
+	{
+		return LlvmLibC.GlobalFunctions.NumberPair_double_fputil_exact_mult_28ul_NumberPair_double_const_double_double.Invoke(@as, a, b);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil10quick_multILm28EEENS_10NumberPairIdEERKS3_S5_")]
+	[DemangledName("__llvm_libc_20_1_2_::NumberPair<double> __llvm_libc_20_1_2_::fputil::quick_mult<28ul>(__llvm_libc_20_1_2_::NumberPair<double> const&, __llvm_libc_20_1_2_::NumberPair<double> const&)")]
+	public unsafe static Struct_4ydhja NumberPair_double_fputil_quick_mult_28ul_NumberPair_double_const_NumberPair_double_const(NumberPair* a, NumberPair* b)
+	{
+		return LlvmLibC.GlobalFunctions.NumberPair_double_fputil_quick_mult_28ul_NumberPair_double_const_NumberPair_double_const.Invoke(a, b);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil10exact_multILm28EEENS_10NumberPairIdEEdd")]
+	[DemangledName("__llvm_libc_20_1_2_::NumberPair<double> __llvm_libc_20_1_2_::fputil::exact_mult<28ul>(double, double)")]
+	public static Struct_4ydhja NumberPair_double_fputil_exact_mult_28ul_double_double(double a, double b)
+	{
+		return LlvmLibC.GlobalFunctions.NumberPair_double_fputil_exact_mult_28ul_double_double.Invoke(a, b);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5splitILm28EEENS_10NumberPairIdEEd")]
+	[DemangledName("__llvm_libc_20_1_2_::NumberPair<double> __llvm_libc_20_1_2_::fputil::split<28ul>(double)")]
+	public static Struct_4ydhja NumberPair_double_fputil_split_28ul_double(double a)
+	{
+		return LlvmLibC.GlobalFunctions.NumberPair_double_fputil_split_28ul_double.Invoke(a);
+	}
+
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE2EE19set_biased_exponentENS4_14BiasedExponentE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)2>::set_biased_exponent(__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)2>::BiasedExponent)")]
 	public unsafe static void fputil_internal_FPStorage_fputil_FPType_2_set_biased_exponent_fputil_internal_FPStorage_fputil_FPType_2_BiasedExponent(void* @this, [MangledName("biased.coerce")] int biased)
 	{
 		LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_2_set_biased_exponent_fputil_internal_FPStorage_fputil_FPType_2_BiasedExponent.Invoke(@this, biased);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE2EE5mergeEmmm")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)2>::merge(unsigned long, unsigned long, unsigned long)")]
-	public static long fputil_internal_FPStorage_fputil_FPType_2_merge_unsigned_long_unsigned_long_unsigned_long(long a, long b, long mask)
-	{
-		return LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_2_merge_unsigned_long_unsigned_long_unsigned_long.Invoke(a, b, mask);
 	}
 
 	public static double sqrtl(double x)
@@ -13712,13 +13754,6 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.sincosf_poly_eval_long_double_double_double_double_double_14.Invoke(k, y, sin_k, cos_k, sin_y, cosm1_y);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil12multiply_addIdEENS_3cpp9enable_ifIXlestT_Lm8EES4_E4typeES4_S4_S4_")]
-	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (double) <= 8ul, double>::type __llvm_libc_20_1_2_::fputil::multiply_add<double>(double, double, double)")]
-	public static double cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double(double x, double y, double z)
-	{
-		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, y, z);
-	}
-
 	public static float sinhf(float x)
 	{
 		return LlvmLibC.GlobalFunctions.sinhf.Invoke(x);
@@ -13774,6 +13809,13 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.sincos.Invoke(x, sin_x, cos_x);
 	}
 
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil26round_result_slightly_downIdEET_S2_")]
+	[DemangledName("double __llvm_libc_20_1_2_::fputil::round_result_slightly_down<double>(double)")]
+	public static double double_fputil_round_result_slightly_down_double_double(double value_rn)
+	{
+		return LlvmLibC.GlobalFunctions.double_fputil_round_result_slightly_down_double_double.Invoke(value_rn);
+	}
+
 	[MangledName("_ZN19__llvm_libc_20_1_2_7generic11sincos_evalERKNS_10NumberPairIdEERS2_S5_")]
 	[DemangledName("__llvm_libc_20_1_2_::generic::sincos_eval(__llvm_libc_20_1_2_::NumberPair<double> const&, __llvm_libc_20_1_2_::NumberPair<double>&, __llvm_libc_20_1_2_::NumberPair<double>&)")]
 	public unsafe static double generic_sincos_eval_NumberPair_double_const_NumberPair_double_NumberPair_double(NumberPair* u, NumberPair* sin_u, NumberPair* cos_u)
@@ -13804,6 +13846,13 @@ public static partial class LibC
 		fputil_DyadicFloat_kt2kd4 result = default(fputil_DyadicFloat_kt2kd4);
 		LlvmLibC.GlobalFunctions.sincos_impl_double_double_double_0_operator_unsigned_int_const.Invoke(&result, @this, kk);
 		return result;
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE2ENS0_6FPBitsIdEEE10min_normalENS_4SignE")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::min_normal(__llvm_libc_20_1_2_::Sign)")]
+	public static long fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_min_normal_Sign([MangledName("sign.coerce")] sbyte sign)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_min_normal_Sign.Invoke(sign);
 	}
 
 	public static double sin(double x)
@@ -14072,14 +14121,14 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE2asIdLb1EvEET_v")]
 	[DemangledName("double __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::as<double, true, void>() const")]
-	public unsafe static double double_fputil_DyadicFloat_64ul_as_double_true_void_const(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static double double_fputil_DyadicFloat_64ul_as_double_true_void_const(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.double_fputil_DyadicFloat_64ul_as_double_true_void_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE7fast_asIdLb1EvEET_v")]
 	[DemangledName("double __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::fast_as<double, true, void>() const")]
-	public unsafe static double double_fputil_DyadicFloat_64ul_fast_as_double_true_void_const(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static double double_fputil_DyadicFloat_64ul_fast_as_double_true_void_const(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.double_fputil_DyadicFloat_64ul_fast_as_double_true_void_const.Invoke(@this);
 	}
@@ -14172,11 +14221,25 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.roundf.Invoke(x);
 	}
 
-	[MangledName("llvm.round.f32")]
-	[DemangledName("llvm.round.f32")]
-	public static float llvm_round_f32(float parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5roundIfTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("float __llvm_libc_20_1_2_::fputil::round<float, 0>(float)")]
+	public static float float_fputil_round_float_0_float(float x)
 	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_round_f32.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.float_fputil_round_float_0_float.Invoke(x);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE1ENS0_6FPBitsIfEEE3oneENS_4SignE")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::one(__llvm_libc_20_1_2_::Sign)")]
+	public static int fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_one_Sign([MangledName("sign.coerce")] sbyte sign)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_one_Sign.Invoke(sign);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE1ENS0_6FPBitsIfEEE11set_uintvalEj")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::set_uintval(unsigned int)")]
+	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_uintval_unsigned_int(fputil_internal_FPRepImpl_vhj4tm* @this, int value)
+	{
+		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_uintval_unsigned_int.Invoke(@this, value);
 	}
 
 	public static double roundevenl(double x)
@@ -14189,23 +14252,9 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.roundevenf.Invoke(x);
 	}
 
-	[MangledName("llvm.roundeven.f32")]
-	[DemangledName("llvm.roundeven.f32")]
-	public static float llvm_roundeven_f32(float parameter_0)
-	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_roundeven_f32.Invoke(parameter_0);
-	}
-
 	public static double roundeven(double x)
 	{
 		return LlvmLibC.GlobalFunctions.roundeven.Invoke(x);
-	}
-
-	[MangledName("llvm.roundeven.f64")]
-	[DemangledName("llvm.roundeven.f64")]
-	public static double llvm_roundeven_f64(double parameter_0)
-	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_roundeven_f64.Invoke(parameter_0);
 	}
 
 	public static double round(double x)
@@ -14213,11 +14262,25 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.round.Invoke(x);
 	}
 
-	[MangledName("llvm.round.f64")]
-	[DemangledName("llvm.round.f64")]
-	public static double llvm_round_f64(double parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5roundIdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("double __llvm_libc_20_1_2_::fputil::round<double, 0>(double)")]
+	public static double double_fputil_round_double_0_double(double x)
 	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_round_f64.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.double_fputil_round_double_0_double.Invoke(x);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE2ENS0_6FPBitsIdEEE3oneENS_4SignE")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::one(__llvm_libc_20_1_2_::Sign)")]
+	public static long fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_one_Sign([MangledName("sign.coerce")] sbyte sign)
+	{
+		return LlvmLibC.GlobalFunctions.fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_one_Sign.Invoke(sign);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE2ENS0_6FPBitsIdEEE11set_uintvalEm")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::set_uintval(unsigned long)")]
+	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long(fputil_internal_FPRepImpl_ucubaq* @this, long value)
+	{
+		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_uintval_unsigned_long.Invoke(@this, value);
 	}
 
 	public static double rintl(double x)
@@ -14237,11 +14300,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.rintf.Invoke(x);
 	}
 
-	[MangledName("llvm.rint.f32")]
-	[DemangledName("llvm.rint.f32")]
-	public static float llvm_rint_f32(float parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil33round_using_current_rounding_modeIfEENS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EES4_E4typeES4_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<float>, float>::type __llvm_libc_20_1_2_::fputil::round_using_current_rounding_mode<float>(float)")]
+	public static float cpp_enable_if_cpp_is_floating_point_v_float_float_type_fputil_round_using_current_rounding_mode_float_float(float x)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_rint_f32.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_float_float_type_fputil_round_using_current_rounding_mode_float_float.Invoke(x);
 	}
 
 	public static double rint(double x)
@@ -14249,11 +14312,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.rint.Invoke(x);
 	}
 
-	[MangledName("llvm.rint.f64")]
-	[DemangledName("llvm.rint.f64")]
-	public static double llvm_rint_f64(double parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil33round_using_current_rounding_modeIdEENS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EES4_E4typeES4_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<double>, double>::type __llvm_libc_20_1_2_::fputil::round_using_current_rounding_mode<double>(double)")]
+	public static double cpp_enable_if_cpp_is_floating_point_v_double_double_type_fputil_round_using_current_rounding_mode_double_double(double x)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_rint_f64.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_double_double_type_fputil_round_using_current_rounding_mode_double_double.Invoke(x);
 	}
 
 	public unsafe static double remquol(double x, double y, void* exp)
@@ -14389,35 +14452,35 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIfEC2ENS0_6FPBitsIfEE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::NormalFloat(__llvm_libc_20_1_2_::fputil::FPBits<float>)")]
-	public unsafe static void fputil_NormalFloat_float_NormalFloat_fputil_FPBits_float(fputil_NormalFloat_i65f6x* @this, [MangledName("bits.coerce")] int bits)
+	public unsafe static void fputil_NormalFloat_float_NormalFloat_fputil_FPBits_float(fputil_NormalFloat_phu2qv* @this, [MangledName("bits.coerce")] int bits)
 	{
 		LlvmLibC.GlobalFunctions.fputil_NormalFloat_float_NormalFloat_fputil_FPBits_float.Invoke(@this, bits);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIfEC2ENS_4SignEij")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::NormalFloat(__llvm_libc_20_1_2_::Sign, int, unsigned int)")]
-	public unsafe static void fputil_NormalFloat_float_NormalFloat_Sign_int_unsigned_int(fputil_NormalFloat_i65f6x* @this, [MangledName("s.coerce")] sbyte s, int e, int m)
+	public unsafe static void fputil_NormalFloat_float_NormalFloat_Sign_int_unsigned_int(fputil_NormalFloat_phu2qv* @this, [MangledName("s.coerce")] sbyte s, int e, int m)
 	{
 		LlvmLibC.GlobalFunctions.fputil_NormalFloat_float_NormalFloat_Sign_int_unsigned_int.Invoke(@this, s, e, m);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11NormalFloatIfEcvfEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::operator float() const")]
-	public unsafe static float fputil_NormalFloat_float_operator_float_const(fputil_NormalFloat_i65f6x* @this)
+	public unsafe static float fputil_NormalFloat_float_operator_float_const(fputil_NormalFloat_phu2qv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_NormalFloat_float_operator_float_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11NormalFloatIfE4mul2Ei")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::mul2(int) const")]
-	public unsafe static Struct_8myw6y fputil_NormalFloat_float_mul2_int_const(fputil_NormalFloat_i65f6x* @this, int e)
+	public unsafe static Struct_8myw6y fputil_NormalFloat_float_mul2_int_const(fputil_NormalFloat_phu2qv* @this, int e)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_NormalFloat_float_mul2_int_const.Invoke(@this, e);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11NormalFloatIfE3cmpERKS2_")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::cmp(__llvm_libc_20_1_2_::fputil::NormalFloat<float> const&) const")]
-	public unsafe static int fputil_NormalFloat_float_cmp_fputil_NormalFloat_float_const_const(fputil_NormalFloat_i65f6x* @this, fputil_NormalFloat_i65f6x* other)
+	public unsafe static int fputil_NormalFloat_float_cmp_fputil_NormalFloat_float_const_const(fputil_NormalFloat_phu2qv* @this, fputil_NormalFloat_phu2qv* other)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_NormalFloat_float_cmp_fputil_NormalFloat_float_const_const.Invoke(@this, other);
 	}
@@ -14429,20 +14492,6 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_biased_exponent_unsigned_int.Invoke(@this, biased);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE1ENS0_6FPBitsIfEEE12set_mantissaEj")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::set_mantissa(unsigned int)")]
-	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int(fputil_internal_FPRepImpl_vhj4tm* @this, int mantVal)
-	{
-		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa_unsigned_int.Invoke(@this, mantVal);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE1EE5mergeEjjj")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)1>::merge(unsigned int, unsigned int, unsigned int)")]
-	public static int fputil_internal_FPStorage_fputil_FPType_1_merge_unsigned_int_unsigned_int_unsigned_int(int a, int b, int mask)
-	{
-		return LlvmLibC.GlobalFunctions.fputil_internal_FPStorage_fputil_FPType_1_merge_unsigned_int_unsigned_int_unsigned_int.Invoke(a, b, mask);
-	}
-
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE1EE19set_biased_exponentENS4_14BiasedExponentE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)1>::set_biased_exponent(__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)1>::BiasedExponent)")]
 	public unsafe static void fputil_internal_FPStorage_fputil_FPType_1_set_biased_exponent_fputil_internal_FPStorage_fputil_FPType_1_BiasedExponent(void* @this, [MangledName("biased.coerce")] int biased)
@@ -14452,14 +14501,14 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIfE28evaluate_normalization_shiftEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::evaluate_normalization_shift(unsigned int)")]
-	public unsafe static int fputil_NormalFloat_float_evaluate_normalization_shift_unsigned_int(fputil_NormalFloat_i65f6x* @this, int m)
+	public unsafe static int fputil_NormalFloat_float_evaluate_normalization_shift_unsigned_int(fputil_NormalFloat_phu2qv* @this, int m)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_NormalFloat_float_evaluate_normalization_shift_unsigned_int.Invoke(@this, m);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIfE14init_from_bitsENS0_6FPBitsIfEE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::init_from_bits(__llvm_libc_20_1_2_::fputil::FPBits<float>)")]
-	public unsafe static void fputil_NormalFloat_float_init_from_bits_fputil_FPBits_float(fputil_NormalFloat_i65f6x* @this, [MangledName("bits.coerce")] int bits)
+	public unsafe static void fputil_NormalFloat_float_init_from_bits_fputil_FPBits_float(fputil_NormalFloat_phu2qv* @this, [MangledName("bits.coerce")] int bits)
 	{
 		LlvmLibC.GlobalFunctions.fputil_NormalFloat_float_init_from_bits_fputil_FPBits_float.Invoke(@this, bits);
 	}
@@ -14492,58 +14541,51 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIdEC2ENS0_6FPBitsIdEE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::NormalFloat(__llvm_libc_20_1_2_::fputil::FPBits<double>)")]
-	public unsafe static void fputil_NormalFloat_double_NormalFloat_fputil_FPBits_double(fputil_NormalFloat_n2h9ta* @this, [MangledName("bits.coerce")] long bits)
+	public unsafe static void fputil_NormalFloat_double_NormalFloat_fputil_FPBits_double(fputil_NormalFloat_vc4yvk* @this, [MangledName("bits.coerce")] long bits)
 	{
 		LlvmLibC.GlobalFunctions.fputil_NormalFloat_double_NormalFloat_fputil_FPBits_double.Invoke(@this, bits);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIdEC2ENS_4SignEim")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::NormalFloat(__llvm_libc_20_1_2_::Sign, int, unsigned long)")]
-	public unsafe static void fputil_NormalFloat_double_NormalFloat_Sign_int_unsigned_long(fputil_NormalFloat_n2h9ta* @this, [MangledName("s.coerce")] sbyte s, int e, long m)
+	public unsafe static void fputil_NormalFloat_double_NormalFloat_Sign_int_unsigned_long(fputil_NormalFloat_vc4yvk* @this, [MangledName("s.coerce")] sbyte s, int e, long m)
 	{
 		LlvmLibC.GlobalFunctions.fputil_NormalFloat_double_NormalFloat_Sign_int_unsigned_long.Invoke(@this, s, e, m);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11NormalFloatIdEcvdEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::operator double() const")]
-	public unsafe static double fputil_NormalFloat_double_operator_double_const(fputil_NormalFloat_n2h9ta* @this)
+	public unsafe static double fputil_NormalFloat_double_operator_double_const(fputil_NormalFloat_vc4yvk* @this)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_NormalFloat_double_operator_double_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11NormalFloatIdE4mul2Ei")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::mul2(int) const")]
-	public unsafe static fputil_NormalFloat_n2h9ta fputil_NormalFloat_double_mul2_int_const(fputil_NormalFloat_n2h9ta* @this, int e)
+	public unsafe static fputil_NormalFloat_vc4yvk fputil_NormalFloat_double_mul2_int_const(fputil_NormalFloat_vc4yvk* @this, int e)
 	{
-		fputil_NormalFloat_n2h9ta result = default(fputil_NormalFloat_n2h9ta);
+		fputil_NormalFloat_vc4yvk result = default(fputil_NormalFloat_vc4yvk);
 		LlvmLibC.GlobalFunctions.fputil_NormalFloat_double_mul2_int_const.Invoke(&result, @this, e);
 		return result;
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11NormalFloatIdE3cmpERKS2_")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::cmp(__llvm_libc_20_1_2_::fputil::NormalFloat<double> const&) const")]
-	public unsafe static int fputil_NormalFloat_double_cmp_fputil_NormalFloat_double_const_const(fputil_NormalFloat_n2h9ta* @this, fputil_NormalFloat_n2h9ta* other)
+	public unsafe static int fputil_NormalFloat_double_cmp_fputil_NormalFloat_double_const_const(fputil_NormalFloat_vc4yvk* @this, fputil_NormalFloat_vc4yvk* other)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_NormalFloat_double_cmp_fputil_NormalFloat_double_const_const.Invoke(@this, other);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE2ENS0_6FPBitsIdEEE12set_mantissaEm")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::set_mantissa(unsigned long)")]
-	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long(fputil_internal_FPRepImpl_ucubaq* @this, long mantVal)
-	{
-		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_mantissa_unsigned_long.Invoke(@this, mantVal);
-	}
-
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIdE28evaluate_normalization_shiftEm")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::evaluate_normalization_shift(unsigned long)")]
-	public unsafe static int fputil_NormalFloat_double_evaluate_normalization_shift_unsigned_long(fputil_NormalFloat_n2h9ta* @this, long m)
+	public unsafe static int fputil_NormalFloat_double_evaluate_normalization_shift_unsigned_long(fputil_NormalFloat_vc4yvk* @this, long m)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_NormalFloat_double_evaluate_normalization_shift_unsigned_long.Invoke(@this, m);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIdE14init_from_bitsENS0_6FPBitsIdEE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::init_from_bits(__llvm_libc_20_1_2_::fputil::FPBits<double>)")]
-	public unsafe static void fputil_NormalFloat_double_init_from_bits_fputil_FPBits_double(fputil_NormalFloat_n2h9ta* @this, [MangledName("bits.coerce")] long bits)
+	public unsafe static void fputil_NormalFloat_double_init_from_bits_fputil_FPBits_double(fputil_NormalFloat_vc4yvk* @this, [MangledName("bits.coerce")] long bits)
 	{
 		LlvmLibC.GlobalFunctions.fputil_NormalFloat_double_init_from_bits_fputil_FPBits_double.Invoke(@this, bits);
 	}
@@ -14746,20 +14788,6 @@ public static partial class LibC
 	public static double pow(double x, double y)
 	{
 		return LlvmLibC.GlobalFunctions.pow.Invoke(x, y);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE2ENS0_6FPBitsIdEEE3oneENS_4SignE")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::one(__llvm_libc_20_1_2_::Sign)")]
-	public static long fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_one_Sign([MangledName("sign.coerce")] sbyte sign)
-	{
-		return LlvmLibC.GlobalFunctions.fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_one_Sign.Invoke(sign);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE2ENS0_6FPBitsIdEEE10min_normalENS_4SignE")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>::min_normal(__llvm_libc_20_1_2_::Sign)")]
-	public static long fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_min_normal_Sign([MangledName("sign.coerce")] sbyte sign)
-	{
-		return LlvmLibC.GlobalFunctions.fputil_internal_FPRepSem_fputil_FPType_2_fputil_FPBits_double_min_normal_Sign.Invoke(sign);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_12_GLOBAL__N_114is_odd_integerEd")]
@@ -15001,23 +15029,9 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.nearbyintf.Invoke(x);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil33round_using_current_rounding_modeIfEENS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EES4_E4typeES4_")]
-	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<float>, float>::type __llvm_libc_20_1_2_::fputil::round_using_current_rounding_mode<float>(float)")]
-	public static float cpp_enable_if_cpp_is_floating_point_v_float_float_type_fputil_round_using_current_rounding_mode_float_float(float x)
-	{
-		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_float_float_type_fputil_round_using_current_rounding_mode_float_float.Invoke(x);
-	}
-
 	public static double nearbyint(double x)
 	{
 		return LlvmLibC.GlobalFunctions.nearbyint.Invoke(x);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil33round_using_current_rounding_modeIdEENS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EES4_E4typeES4_")]
-	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<double>, double>::type __llvm_libc_20_1_2_::fputil::round_using_current_rounding_mode<double>(double)")]
-	public static double cpp_enable_if_cpp_is_floating_point_v_double_double_type_fputil_round_using_current_rounding_mode_double_double(double x)
-	{
-		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_double_double_type_fputil_round_using_current_rounding_mode_double_double.Invoke(x);
 	}
 
 	public unsafe static double nanl(void* arg)
@@ -15027,9 +15041,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal8strtonanIeEENS_14StrToNumResultIT_EEPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long double> __llvm_libc_20_1_2_::internal::strtonan<long double>(char const*)")]
-	public unsafe static StrToNumResult_6sg7zz StrToNumResult_long_double_internal_strtonan_long_double_char_const(void* arg)
+	public unsafe static StrToNumResult_uytq62 StrToNumResult_long_double_internal_strtonan_long_double_char_const(void* arg)
 	{
-		StrToNumResult_6sg7zz result = default(StrToNumResult_6sg7zz);
+		StrToNumResult_uytq62 result = default(StrToNumResult_uytq62);
 		LlvmLibC.GlobalFunctions.StrToNumResult_long_double_internal_strtonan_long_double_char_const.Invoke(&result, arg);
 		return result;
 	}
@@ -15165,16 +15179,16 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal8strtonanIdEENS_14StrToNumResultIT_EEPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double> __llvm_libc_20_1_2_::internal::strtonan<double>(char const*)")]
-	public unsafe static StrToNumResult_r53a3q StrToNumResult_double_internal_strtonan_double_char_const(void* arg)
+	public unsafe static StrToNumResult_k826n6 StrToNumResult_double_internal_strtonan_double_char_const(void* arg)
 	{
-		StrToNumResult_r53a3q result = default(StrToNumResult_r53a3q);
+		StrToNumResult_k826n6 result = default(StrToNumResult_k826n6);
 		LlvmLibC.GlobalFunctions.StrToNumResult_double_internal_strtonan_double_char_const.Invoke(&result, arg);
 		return result;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIdE9has_errorEv")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double>::has_error()")]
-	public unsafe static bool StrToNumResult_double_has_error(StrToNumResult_r53a3q* @this)
+	public unsafe static bool StrToNumResult_double_has_error(StrToNumResult_k826n6* @this)
 	{
 		return LlvmLibC.GlobalFunctions.StrToNumResult_double_has_error.Invoke(@this);
 	}
@@ -15202,7 +15216,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIdEC2Edli")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double>::StrToNumResult(double, long, int)")]
-	public unsafe static void StrToNumResult_double_StrToNumResult_double_long_int(StrToNumResult_r53a3q* @this, double value, long parsed_len, int error)
+	public unsafe static void StrToNumResult_double_StrToNumResult_double_long_int(StrToNumResult_k826n6* @this, double value, long parsed_len, int error)
 	{
 		LlvmLibC.GlobalFunctions.StrToNumResult_double_StrToNumResult_double_long_int.Invoke(@this, value, parsed_len, error);
 	}
@@ -15216,9 +15230,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal12strtointegerImEENS_14StrToNumResultIT_EEPKcim")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<unsigned long> __llvm_libc_20_1_2_::internal::strtointeger<unsigned long>(char const*, int, unsigned long)")]
-	public unsafe static StrToNumResult_aztiru StrToNumResult_unsigned_long_internal_strtointeger_unsigned_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
+	public unsafe static StrToNumResult_gbeb3a StrToNumResult_unsigned_long_internal_strtointeger_unsigned_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
 	{
-		StrToNumResult_aztiru result = default(StrToNumResult_aztiru);
+		StrToNumResult_gbeb3a result = default(StrToNumResult_gbeb3a);
 		LlvmLibC.GlobalFunctions.StrToNumResult_unsigned_long_internal_strtointeger_unsigned_long_char_const_int_unsigned_long.Invoke(&result, src, @base, src_len);
 		return result;
 	}
@@ -15268,13 +15282,6 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.float_fputil_modf_float_0_float_float.Invoke(x, iptr);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5truncIfTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
-	[DemangledName("float __llvm_libc_20_1_2_::fputil::trunc<float, 0>(float)")]
-	public static float float_fputil_trunc_float_0_float(float x)
-	{
-		return LlvmLibC.GlobalFunctions.float_fputil_trunc_float_0_float.Invoke(x);
-	}
-
 	public unsafe static double modf(double x, void* iptr)
 	{
 		return LlvmLibC.GlobalFunctions.modf.Invoke(x, iptr);
@@ -15285,13 +15292,6 @@ public static partial class LibC
 	public unsafe static double double_fputil_modf_double_0_double_double(double x, void* iptr)
 	{
 		return LlvmLibC.GlobalFunctions.double_fputil_modf_double_0_double_double.Invoke(x, iptr);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5truncIdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
-	[DemangledName("double __llvm_libc_20_1_2_::fputil::trunc<double, 0>(double)")]
-	public static double double_fputil_trunc_double_0_double(double x)
-	{
-		return LlvmLibC.GlobalFunctions.double_fputil_trunc_double_0_double.Invoke(x);
 	}
 
 	public static long lroundl(double x)
@@ -15332,13 +15332,6 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.long_fputil_round_to_signed_integer_float_long_0_float.Invoke(x);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5roundIfTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
-	[DemangledName("float __llvm_libc_20_1_2_::fputil::round<float, 0>(float)")]
-	public static float float_fputil_round_float_0_float(float x)
-	{
-		return LlvmLibC.GlobalFunctions.float_fputil_round_float_0_float.Invoke(x);
-	}
-
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal31rounded_float_to_signed_integerIflTnNS_3cpp9enable_ifIXaasr3cppE19is_floating_point_vIT_Esr3cppE13is_integral_vIT0_EEiE4typeELi0EEES6_S5_")]
 	[DemangledName("long __llvm_libc_20_1_2_::fputil::internal::rounded_float_to_signed_integer<float, long, 0>(float)")]
 	public static long long_fputil_internal_rounded_float_to_signed_integer_float_long_0_float(float x)
@@ -15353,20 +15346,6 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.long_fputil_internal_rounded_float_to_signed_integer_float_long_0_float_lambda_operator_const.Invoke(@this);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE1ENS0_6FPBitsIfEEE3oneENS_4SignE")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::one(__llvm_libc_20_1_2_::Sign)")]
-	public static int fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_one_Sign([MangledName("sign.coerce")] sbyte sign)
-	{
-		return LlvmLibC.GlobalFunctions.fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_one_Sign.Invoke(sign);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE1ENS0_6FPBitsIfEEE11set_uintvalEj")]
-	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::set_uintval(unsigned int)")]
-	public unsafe static void fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_uintval_unsigned_int(fputil_internal_FPRepImpl_vhj4tm* @this, int value)
-	{
-		LlvmLibC.GlobalFunctions.fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_uintval_unsigned_int.Invoke(@this, value);
-	}
-
 	public static long lround(double x)
 	{
 		return LlvmLibC.GlobalFunctions.lround.Invoke(x);
@@ -15377,13 +15356,6 @@ public static partial class LibC
 	public static long long_fputil_round_to_signed_integer_double_long_0_double(double x)
 	{
 		return LlvmLibC.GlobalFunctions.long_fputil_round_to_signed_integer_double_long_0_double.Invoke(x);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5roundIdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
-	[DemangledName("double __llvm_libc_20_1_2_::fputil::round<double, 0>(double)")]
-	public static double double_fputil_round_double_0_double(double x)
-	{
-		return LlvmLibC.GlobalFunctions.double_fputil_round_double_0_double.Invoke(x);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal31rounded_float_to_signed_integerIdlTnNS_3cpp9enable_ifIXaasr3cppE19is_floating_point_vIT_Esr3cppE13is_integral_vIT0_EEiE4typeELi0EEES6_S5_")]
@@ -15493,7 +15465,7 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE21get_unbiased_exponentEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::get_unbiased_exponent() const")]
-	public unsafe static int fputil_DyadicFloat_64ul_get_unbiased_exponent_const(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static int fputil_DyadicFloat_64ul_get_unbiased_exponent_const(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_DyadicFloat_64ul_get_unbiased_exponent_const.Invoke(@this);
 	}
@@ -15808,7 +15780,7 @@ public static partial class LibC
 	[DemangledName("llvm.is.fpclass.f80")]
 	public static bool llvm_is_fpclass_f80(double parameter_0, int parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_is_fpclass_f80.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_is_fpclass_f80.Invoke(parameter_0, parameter_1);
 	}
 
 	public static int isnanf(float x)
@@ -15820,7 +15792,7 @@ public static partial class LibC
 	[DemangledName("llvm.is.fpclass.f32")]
 	public static bool llvm_is_fpclass_f32(float parameter_0, int parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_is_fpclass_f32.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_is_fpclass_f32.Invoke(parameter_0, parameter_1);
 	}
 
 	public static int isnan(double x)
@@ -15832,7 +15804,7 @@ public static partial class LibC
 	[DemangledName("llvm.is.fpclass.f64")]
 	public static bool llvm_is_fpclass_f64(double parameter_0, int parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_is_fpclass_f64.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_is_fpclass_f64.Invoke(parameter_0, parameter_1);
 	}
 
 	public static int iscanonicall(double x)
@@ -16063,28 +16035,28 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE2asIfLb1EvEET_v")]
 	[DemangledName("float __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::as<float, true, void>() const")]
-	public unsafe static float float_fputil_DyadicFloat_64ul_as_float_true_void_const(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static float float_fputil_DyadicFloat_64ul_as_float_true_void_const(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.float_fputil_DyadicFloat_64ul_as_float_true_void_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11DyadicFloatILm64EE7fast_asIfLb1EvEET_v")]
 	[DemangledName("float __llvm_libc_20_1_2_::fputil::DyadicFloat<64ul>::fast_as<float, true, void>() const")]
-	public unsafe static float float_fputil_DyadicFloat_64ul_fast_as_float_true_void_const(fputil_DyadicFloat_374hpp* @this)
+	public unsafe static float float_fputil_DyadicFloat_64ul_fast_as_float_true_void_const(fputil_DyadicFloat_syracv* @this)
 	{
 		return LlvmLibC.GlobalFunctions.float_fputil_DyadicFloat_64ul_fast_as_float_true_void_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmEcvT_IjEEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator unsigned int<unsigned int>() const")]
-	public unsafe static int BigInt_64ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const(BigInt_nx6qdt* @this)
+	public unsafe static int BigInt_64ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_64ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE2toIjEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned int> && !cpp::is_same_v<unsigned int, bool>, unsigned int>::type __llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::to<unsigned int>() const")]
-	public unsafe static int cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_64ul_false_unsigned_long_to_unsigned_int_const(BigInt_nx6qdt* @this)
+	public unsafe static int cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_64ul_false_unsigned_long_to_unsigned_int_const(BigInt_555ggs* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_64ul_false_unsigned_long_to_unsigned_int_const.Invoke(@this);
 	}
@@ -16236,6 +16208,13 @@ public static partial class LibC
 	public static float fmul(double x, double y)
 	{
 		return LlvmLibC.GlobalFunctions.fmul.Invoke(x, y);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil7generic3mulIfdEENS_3cpp9enable_ifIXaaaasr3cppE19is_floating_point_vIT_Esr3cppE19is_floating_point_vIT0_ElestS5_stS6_ES5_E4typeES6_S6_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<float> && cpp::is_floating_point_v<double> && sizeof (float) <= sizeof (double), float>::type __llvm_libc_20_1_2_::fputil::generic::mul<float, double>(double, double)")]
+	public static float cpp_enable_if_cpp_is_floating_point_v_float_cpp_is_floating_point_v_double_sizeof_float_sizeof_double_float_type_fputil_generic_mul_float_double_double_double(double x, double y)
+	{
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_float_cpp_is_floating_point_v_double_sizeof_float_sizeof_double_float_type_fputil_generic_mul_float_double_double_double.Invoke(x, y);
 	}
 
 	public static double fmodl(double x, double y)
@@ -16828,9 +16807,30 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.float_fputil_fma_float_float_float_float_float.Invoke(x, y, z);
 	}
 
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil7generic3fmaIffEENS_3cpp9enable_ifIXaaaasr3cppE19is_floating_point_vIT_Esr3cppE19is_floating_point_vIT0_ElestS5_stS6_ES5_E4typeES6_S6_S6_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<float> && cpp::is_floating_point_v<float> && sizeof (float) <= sizeof (float), float>::type __llvm_libc_20_1_2_::fputil::generic::fma<float, float>(float, float, float)")]
+	public static float cpp_enable_if_cpp_is_floating_point_v_float_cpp_is_floating_point_v_float_sizeof_float_sizeof_float_float_type_fputil_generic_fma_float_float_float_float_float(float x, float y, float z)
+	{
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_float_cpp_is_floating_point_v_float_sizeof_float_sizeof_float_float_type_fputil_generic_fma_float_float_float_float_float.Invoke(x, y, z);
+	}
+
 	public static double fma(double x, double y, double z)
 	{
 		return LlvmLibC.GlobalFunctions.fma.Invoke(x, y, z);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil3fmaIddEET_T0_S3_S3_")]
+	[DemangledName("double __llvm_libc_20_1_2_::fputil::fma<double, double>(double, double, double)")]
+	public static double double_fputil_fma_double_double_double_double_double(double x, double y, double z)
+	{
+		return LlvmLibC.GlobalFunctions.double_fputil_fma_double_double_double_double_double.Invoke(x, y, z);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil7generic3fmaIddEENS_3cpp9enable_ifIXaaaasr3cppE19is_floating_point_vIT_Esr3cppE19is_floating_point_vIT0_ElestS5_stS6_ES5_E4typeES6_S6_S6_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<double> && cpp::is_floating_point_v<double> && sizeof (double) <= sizeof (double), double>::type __llvm_libc_20_1_2_::fputil::generic::fma<double, double>(double, double, double)")]
+	public static double cpp_enable_if_cpp_is_floating_point_v_double_cpp_is_floating_point_v_double_sizeof_double_sizeof_double_double_type_fputil_generic_fma_double_double_double_double_double(double x, double y, double z)
+	{
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_floating_point_v_double_cpp_is_floating_point_v_double_sizeof_double_sizeof_double_double_type_fputil_generic_fma_double_double_double_double_double.Invoke(x, y, z);
 	}
 
 	public static double floorl(double x)
@@ -16857,11 +16857,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.floorf.Invoke(x);
 	}
 
-	[MangledName("llvm.floor.f32")]
-	[DemangledName("llvm.floor.f32")]
-	public static float llvm_floor_f32(float parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5floorIfTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("float __llvm_libc_20_1_2_::fputil::floor<float, 0>(float)")]
+	public static float float_fputil_floor_float_0_float(float x)
 	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_floor_f32.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.float_fputil_floor_float_0_float.Invoke(x);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil4ceilIfTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("float __llvm_libc_20_1_2_::fputil::ceil<float, 0>(float)")]
+	public static float float_fputil_ceil_float_0_float(float x)
+	{
+		return LlvmLibC.GlobalFunctions.float_fputil_ceil_float_0_float.Invoke(x);
 	}
 
 	public static double floor(double x)
@@ -16869,11 +16876,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.floor.Invoke(x);
 	}
 
-	[MangledName("llvm.floor.f64")]
-	[DemangledName("llvm.floor.f64")]
-	public static double llvm_floor_f64(double parameter_0)
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5floorIdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("double __llvm_libc_20_1_2_::fputil::floor<double, 0>(double)")]
+	public static double double_fputil_floor_double_0_double(double x)
 	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_floor_f64.Invoke(parameter_0);
+		return LlvmLibC.GlobalFunctions.double_fputil_floor_double_0_double.Invoke(x);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil4ceilIdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("double __llvm_libc_20_1_2_::fputil::ceil<double, 0>(double)")]
+	public static double double_fputil_ceil_double_0_double(double x)
+	{
+		return LlvmLibC.GlobalFunctions.double_fputil_ceil_double_0_double.Invoke(x);
 	}
 
 	public static float ffmal(double x, double y, double z)
@@ -17291,28 +17305,28 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp8optionalIdE9has_valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<double>::has_value() const")]
-	public unsafe static bool cpp_optional_double_has_value_const(cpp_optional_s4iqgj* @this)
+	public unsafe static bool cpp_optional_double_has_value_const(cpp_optional_vhbvq7* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_double_has_value_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNR19__llvm_libc_20_1_2_3cpp8optionalIdE5valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<double>::value() &")]
-	public unsafe static void* cpp_optional_double_value(cpp_optional_s4iqgj* @this)
+	public unsafe static void* cpp_optional_double_value(cpp_optional_vhbvq7* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_double_value.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalIdEC2EOd")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<double>::optional(double&&)")]
-	public unsafe static void cpp_optional_double_optional_double(cpp_optional_s4iqgj* @this, void* t)
+	public unsafe static void cpp_optional_double_optional_double(cpp_optional_vhbvq7* @this, void* t)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_double_optional_double.Invoke(@this, t);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalIdEC2ENS0_9nullopt_tE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<double>::optional(__llvm_libc_20_1_2_::cpp::nullopt_t)")]
-	public unsafe static void cpp_optional_double_optional_cpp_nullopt_t(cpp_optional_s4iqgj* @this)
+	public unsafe static void cpp_optional_double_optional_cpp_nullopt_t(cpp_optional_vhbvq7* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_double_optional_cpp_nullopt_t.Invoke(@this);
 	}
@@ -17352,14 +17366,14 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIfLm11EE6lookupEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<float, 11ul>::lookup(unsigned int) const")]
-	public unsafe static long fputil_ExceptValues_float_11ul_lookup_unsigned_int_const(fputil_ExceptValues_bray65* @this, int x_bits)
+	public unsafe static long fputil_ExceptValues_float_11ul_lookup_unsigned_int_const(fputil_ExceptValues_zsuwev* @this, int x_bits)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_float_11ul_lookup_unsigned_int_const.Invoke(@this, x_bits);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIfLm19EE6lookupEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<float, 19ul>::lookup(unsigned int) const")]
-	public unsafe static long fputil_ExceptValues_float_19ul_lookup_unsigned_int_const(fputil_ExceptValues_58kucm* @this, int x_bits)
+	public unsafe static long fputil_ExceptValues_float_19ul_lookup_unsigned_int_const(fputil_ExceptValues_92qrhp* @this, int x_bits)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_float_19ul_lookup_unsigned_int_const.Invoke(@this, x_bits);
 	}
@@ -17610,13 +17624,6 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.cos.Invoke(x);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil26round_result_slightly_downIdEET_S2_")]
-	[DemangledName("double __llvm_libc_20_1_2_::fputil::round_result_slightly_down<double>(double)")]
-	public static double double_fputil_round_result_slightly_down_double_double(double value_rn)
-	{
-		return LlvmLibC.GlobalFunctions.double_fputil_round_result_slightly_down_double_double.Invoke(value_rn);
-	}
-
 	[MangledName("_ZN19__llvm_libc_20_1_2_L26range_reduction_small_f128Ed.56")]
 	[DemangledName("__llvm_libc_20_1_2_::range_reduction_small_f128(double) (.56)")]
 	public unsafe static fputil_DyadicFloat_kt2kd4 range_reduction_small_f128_double_56(double x)
@@ -17649,7 +17656,7 @@ public static partial class LibC
 	[DemangledName("llvm.copysign.f32")]
 	public static float llvm_copysign_f32(float parameter_0, float parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_copysign_f32.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_copysign_f32.Invoke(parameter_0, parameter_1);
 	}
 
 	public static double copysign(double x, double y)
@@ -17661,7 +17668,7 @@ public static partial class LibC
 	[DemangledName("llvm.copysign.f64")]
 	public static double llvm_copysign_f64(double parameter_0, double parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_copysign_f64.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_copysign_f64.Invoke(parameter_0, parameter_1);
 	}
 
 	public static double ceill(double x)
@@ -17674,23 +17681,9 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.ceilf.Invoke(x);
 	}
 
-	[MangledName("llvm.ceil.f32")]
-	[DemangledName("llvm.ceil.f32")]
-	public static float llvm_ceil_f32(float parameter_0)
-	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_ceil_f32.Invoke(parameter_0);
-	}
-
 	public static double ceil(double x)
 	{
 		return LlvmLibC.GlobalFunctions.ceil.Invoke(x);
-	}
-
-	[MangledName("llvm.ceil.f64")]
-	[DemangledName("llvm.ceil.f64")]
-	public static double llvm_ceil_f64(double parameter_0)
-	{
-		return LlvmLibC.Intrinsics.Implemented.llvm_ceil_f64.Invoke(parameter_0);
 	}
 
 	public static float cbrtf(float x)
@@ -17796,6 +17789,13 @@ public static partial class LibC
 	public unsafe static float anonymous_namespace_atan2f_double_double_double_double_double_int_double_double_NumberPair_double_const(double num_d, double den_d, double q_d, int idx, double k_d, double final_sign, NumberPair* const_term)
 	{
 		return LlvmLibC.GlobalFunctions.anonymous_namespace_atan2f_double_double_double_double_double_int_double_double_NumberPair_double_const.Invoke(num_d, den_d, q_d, idx, k_d, final_sign, const_term);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_12_GLOBAL__N_17split_dEd")]
+	[DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::split_d(double)")]
+	public static Struct_4ydhja anonymous_namespace_split_d_double(double a)
+	{
+		return LlvmLibC.GlobalFunctions.anonymous_namespace_split_d_double.Invoke(a);
 	}
 
 	public static double atan2(double y, double x)
@@ -17909,16 +17909,16 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil12ExceptValuesIfLm4EE6lookupEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::ExceptValues<float, 4ul>::lookup(unsigned int) const")]
-	public unsafe static long fputil_ExceptValues_float_4ul_lookup_unsigned_int_const(fputil_ExceptValues_wpg668* @this, int x_bits)
+	public unsafe static long fputil_ExceptValues_float_4ul_lookup_unsigned_int_const(void* @this, int x_bits)
 	{
 		return LlvmLibC.GlobalFunctions.fputil_ExceptValues_float_4ul_lookup_unsigned_int_const.Invoke(@this, x_bits);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L9asin_evalEd.95")]
-	[DemangledName("__llvm_libc_20_1_2_::asin_eval(double) (.95)")]
-	public static double asin_eval_double_95(double xsq)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L9asin_evalEd.97")]
+	[DemangledName("__llvm_libc_20_1_2_::asin_eval(double) (.97)")]
+	public static double asin_eval_double_97(double xsq)
 	{
-		return LlvmLibC.GlobalFunctions.asin_eval_double_95.Invoke(xsq);
+		return LlvmLibC.GlobalFunctions.asin_eval_double_97.Invoke(xsq);
 	}
 
 	public unsafe static int feupdateenv(void* envp)
@@ -18106,9 +18106,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8bit_castINS_7ComplexIeEECeEENS0_9enable_ifIXaaaaaaeqstT_stT0_sr3cpp26is_trivially_constructibleIS6_EE5valuesr3cpp21is_trivially_copyableIS6_EE5valuesr3cpp21is_trivially_copyableIS7_EE5valueES6_E4typeERKS7_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (__llvm_libc_20_1_2_::Complex<long double>) == sizeof (long double complex) && cpp::is_trivially_constructible<__llvm_libc_20_1_2_::Complex<long double>>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::Complex<long double>>::value && cpp::is_trivially_copyable<long double complex>::value, __llvm_libc_20_1_2_::Complex<long double>>::type __llvm_libc_20_1_2_::cpp::bit_cast<__llvm_libc_20_1_2_::Complex<long double>, long double complex>(long double complex const&)")]
-	public unsafe static Complex_wk9una cpp_enable_if_sizeof_Complex_long_double_sizeof_long_double_complex_cpp_is_trivially_constructible_Complex_long_double_value_cpp_is_trivially_copyable_Complex_long_double_value_cpp_is_trivially_copyable_long_double_complex_value_Complex_long_double_type_cpp_bit_cast_Complex_long_double_long_double_complex_long_double_complex_const(void* from)
+	public unsafe static Complex_p54sq8 cpp_enable_if_sizeof_Complex_long_double_sizeof_long_double_complex_cpp_is_trivially_constructible_Complex_long_double_value_cpp_is_trivially_copyable_Complex_long_double_value_cpp_is_trivially_copyable_long_double_complex_value_Complex_long_double_type_cpp_bit_cast_Complex_long_double_long_double_complex_long_double_complex_const(void* from)
 	{
-		Complex_wk9una result = default(Complex_wk9una);
+		Complex_p54sq8 result = default(Complex_p54sq8);
 		LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_Complex_long_double_sizeof_long_double_complex_cpp_is_trivially_constructible_Complex_long_double_value_cpp_is_trivially_copyable_Complex_long_double_value_cpp_is_trivially_copyable_long_double_complex_value_Complex_long_double_type_cpp_bit_cast_Complex_long_double_long_double_complex_long_double_complex_const.Invoke(&result, from);
 		return result;
 	}
@@ -18620,23 +18620,23 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_12statfs_utils12linux_statfsEPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::statfs_utils::linux_statfs(char const*)")]
-	public unsafe static cpp_optional_hij69m statfs_utils_linux_statfs_char_const(void* path)
+	public unsafe static cpp_optional_qbe95b statfs_utils_linux_statfs_char_const(void* path)
 	{
-		cpp_optional_hij69m result = default(cpp_optional_hij69m);
+		cpp_optional_qbe95b result = default(cpp_optional_qbe95b);
 		LlvmLibC.GlobalFunctions.statfs_utils_linux_statfs_char_const.Invoke(&result, path);
 		return result;
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp8optionalI6statfsEcvbEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::operator bool() const")]
-	public unsafe static bool cpp_optional_statfs_operator_bool_const(cpp_optional_hij69m* @this)
+	public unsafe static bool cpp_optional_statfs_operator_bool_const(cpp_optional_qbe95b* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_statfs_operator_bool_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNR19__llvm_libc_20_1_2_3cpp8optionalI6statfsE5valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::value() &")]
-	public unsafe static statfs* cpp_optional_statfs_value(cpp_optional_hij69m* @this)
+	public unsafe static statfs* cpp_optional_statfs_value(cpp_optional_qbe95b* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_statfs_value.Invoke(@this);
 	}
@@ -18650,14 +18650,14 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalI6statfsEC2ENS0_9nullopt_tE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::optional(__llvm_libc_20_1_2_::cpp::nullopt_t)")]
-	public unsafe static void cpp_optional_statfs_optional_cpp_nullopt_t(cpp_optional_hij69m* @this)
+	public unsafe static void cpp_optional_statfs_optional_cpp_nullopt_t(cpp_optional_qbe95b* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_statfs_optional_cpp_nullopt_t.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalI6statfsEC2EOS2_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::optional(statfs&&)")]
-	public unsafe static void cpp_optional_statfs_optional_statfs(cpp_optional_hij69m* @this, statfs* t)
+	public unsafe static void cpp_optional_statfs_optional_statfs(cpp_optional_qbe95b* @this, statfs* t)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_statfs_optional_statfs.Invoke(@this, t);
 	}
@@ -19115,7 +19115,7 @@ public static partial class LibC
 	[DemangledName("llvm.memcpy.inline.p0.p0.i64")]
 	public unsafe static void llvm_memcpy_inline_p0_p0_i64(void* parameter_0, void* parameter_1, long parameter_2, bool parameter_3)
 	{
-		LlvmLibC.Intrinsics.Unimplemented.llvm_memcpy_inline_p0_p0_i64.Invoke(parameter_0, parameter_1, parameter_2, parameter_3);
+		LlvmLibC.Intrinsics.Implemented.llvm_memcpy_inline_p0_p0_i64.Invoke(parameter_0, parameter_1, parameter_2, parameter_3);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_25align_p1_to_next_boundaryILm32ENS_3cpp4byteEKS2_EEvRrPT0_RrPT1_Rm")]
@@ -19364,9 +19364,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_12statfs_utils13linux_fstatfsEi")]
 	[DemangledName("__llvm_libc_20_1_2_::statfs_utils::linux_fstatfs(int)")]
-	public unsafe static cpp_optional_hij69m statfs_utils_linux_fstatfs_int(int fd)
+	public unsafe static cpp_optional_qbe95b statfs_utils_linux_fstatfs_int(int fd)
 	{
-		cpp_optional_hij69m result = default(cpp_optional_hij69m);
+		cpp_optional_qbe95b result = default(cpp_optional_qbe95b);
 		LlvmLibC.GlobalFunctions.statfs_utils_linux_fstatfs_int.Invoke(&result, fd);
 		return result;
 	}
@@ -19923,7 +19923,7 @@ public static partial class LibC
 
 	[MangledName("_ZNR19__llvm_libc_20_1_2_3cpp8optionalI6statfsEdeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::operator*() &")]
-	public unsafe static statfs* cpp_optional_statfs_operator(cpp_optional_hij69m* @this)
+	public unsafe static statfs* cpp_optional_statfs_operator(cpp_optional_qbe95b* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_statfs_operator.Invoke(@this);
 	}
@@ -20086,30 +20086,30 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10shm_common14translate_nameENS_3cpp11string_viewE")]
 	[DemangledName("__llvm_libc_20_1_2_::shm_common::translate_name(__llvm_libc_20_1_2_::cpp::string_view)")]
-	public unsafe static cpp_optional_pjf72b shm_common_translate_name_cpp_string_view([MangledName("name.coerce0")] void* name, [MangledName("name.coerce1")] long offset)
+	public unsafe static cpp_optional_hnriuf shm_common_translate_name_cpp_string_view([MangledName("name.coerce0")] void* name, [MangledName("name.coerce1")] long offset)
 	{
-		cpp_optional_pjf72b result = default(cpp_optional_pjf72b);
+		cpp_optional_hnriuf result = default(cpp_optional_hnriuf);
 		LlvmLibC.GlobalFunctions.shm_common_translate_name_cpp_string_view.Invoke(&result, name, offset);
 		return result;
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp8optionalINS0_5arrayIcLm265EEEEcvbEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>::operator bool() const")]
-	public unsafe static bool cpp_optional_cpp_array_char_265ul_operator_bool_const(cpp_optional_pjf72b* @this)
+	public unsafe static bool cpp_optional_cpp_array_char_265ul_operator_bool_const(cpp_optional_hnriuf* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_cpp_array_char_265ul_operator_bool_const.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS0_5arrayIcLm265EEEEptEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>::operator->()")]
-	public unsafe static cpp_array_55kc72* cpp_optional_cpp_array_char_265ul_operator(cpp_optional_pjf72b* @this)
+	public unsafe static cpp_array_knc3mr* cpp_optional_cpp_array_char_265ul_operator(cpp_optional_hnriuf* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_cpp_array_char_265ul_operator.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayIcLm265EE4dataEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<char, 265ul>::data()")]
-	public unsafe static void* cpp_array_char_265ul_data(cpp_array_55kc72* @this)
+	public unsafe static void* cpp_array_char_265ul_data(cpp_array_knc3mr* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_char_265ul_data.Invoke(@this);
 	}
@@ -20123,7 +20123,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS0_5arrayIcLm265EEEEC2ENS0_9nullopt_tE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>::optional(__llvm_libc_20_1_2_::cpp::nullopt_t)")]
-	public unsafe static void cpp_optional_cpp_array_char_265ul_optional_cpp_nullopt_t(cpp_optional_pjf72b* @this)
+	public unsafe static void cpp_optional_cpp_array_char_265ul_optional_cpp_nullopt_t(cpp_optional_hnriuf* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_cpp_array_char_265ul_optional_cpp_nullopt_t.Invoke(@this);
 	}
@@ -20151,21 +20151,21 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayIcLm265EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<char, 265ul>::operator[](unsigned long)")]
-	public unsafe static void* cpp_array_char_265ul_operator_unsigned_long(cpp_array_55kc72* @this, long Index)
+	public unsafe static void* cpp_array_char_265ul_operator_unsigned_long(cpp_array_knc3mr* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_char_265ul_operator_unsigned_long.Invoke(@this, Index);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS0_5arrayIcLm265EEEEC2EOS3_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>::optional(__llvm_libc_20_1_2_::cpp::array<char, 265ul>&&)")]
-	public unsafe static void cpp_optional_cpp_array_char_265ul_optional_cpp_array_char_265ul(cpp_optional_pjf72b* @this, cpp_array_55kc72* t)
+	public unsafe static void cpp_optional_cpp_array_char_265ul_optional_cpp_array_char_265ul(cpp_optional_hnriuf* @this, cpp_array_knc3mr* t)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_cpp_array_char_265ul_optional_cpp_array_char_265ul.Invoke(@this, t);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp4moveIRNS0_5arrayIcLm265EEEEEONS0_16remove_referenceIT_E4typeEOS6_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::remove_reference<__llvm_libc_20_1_2_::cpp::array<char, 265ul>&>::type&& __llvm_libc_20_1_2_::cpp::move<__llvm_libc_20_1_2_::cpp::array<char, 265ul>&>(__llvm_libc_20_1_2_::cpp::array<char, 265ul>&)")]
-	public unsafe static cpp_array_55kc72* cpp_remove_reference_cpp_array_char_265ul_type_cpp_move_cpp_array_char_265ul_cpp_array_char_265ul(cpp_array_55kc72* t)
+	public unsafe static cpp_array_knc3mr* cpp_remove_reference_cpp_array_char_265ul_type_cpp_move_cpp_array_char_265ul_cpp_array_char_265ul(cpp_array_knc3mr* t)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_remove_reference_cpp_array_char_265ul_type_cpp_move_cpp_array_char_265ul_cpp_array_char_265ul.Invoke(t);
 	}
@@ -20179,7 +20179,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp7forwardINS0_5arrayIcLm265EEEEEOT_RNS0_16remove_referenceIS4_E4typeE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<char, 265ul>&& __llvm_libc_20_1_2_::cpp::forward<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>(__llvm_libc_20_1_2_::cpp::remove_reference<__llvm_libc_20_1_2_::cpp::array<char, 265ul>>::type&)")]
-	public unsafe static cpp_array_55kc72* cpp_array_char_265ul_cpp_forward_cpp_array_char_265ul_cpp_remove_reference_cpp_array_char_265ul_type(cpp_array_55kc72* value)
+	public unsafe static cpp_array_knc3mr* cpp_array_char_265ul_cpp_forward_cpp_array_char_265ul_cpp_remove_reference_cpp_array_char_265ul_type(cpp_array_knc3mr* value)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_char_265ul_cpp_forward_cpp_array_char_265ul_cpp_remove_reference_cpp_array_char_265ul_type.Invoke(value);
 	}
@@ -20540,7 +20540,7 @@ public static partial class LibC
 
 	public unsafe static void funlockfile(void* parameter_0)
 	{
-		LlvmLibC.Intrinsics.Unimplemented.funlockfile.Invoke(parameter_0);
+		LlvmLibC.Intrinsics.Implemented.funlockfile.Invoke(parameter_0);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11WriteBuffer22fill_remaining_to_buffENS_3cpp11string_viewE")]
@@ -20566,7 +20566,7 @@ public static partial class LibC
 
 	public unsafe static void flockfile(void* parameter_0)
 	{
-		LlvmLibC.Intrinsics.Unimplemented.flockfile.Invoke(parameter_0);
+		LlvmLibC.Intrinsics.Implemented.flockfile.Invoke(parameter_0);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal15fwrite_unlockedEPKvmmP8_IO_FILE")]
@@ -20585,12 +20585,12 @@ public static partial class LibC
 
 	public unsafe static int ferror_unlocked(void* parameter_0)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.ferror_unlocked.Invoke(parameter_0);
+		return LlvmLibC.Intrinsics.Implemented.ferror_unlocked.Invoke(parameter_0);
 	}
 
 	public unsafe static long fwrite_unlocked(void* parameter_0, long parameter_1, long parameter_2, void* parameter_3)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.fwrite_unlocked.Invoke(parameter_0, parameter_1, parameter_2, parameter_3);
+		return LlvmLibC.Intrinsics.Implemented.fwrite_unlocked.Invoke(parameter_0, parameter_1, parameter_2, parameter_3);
 	}
 
 	public unsafe static int vfprintf(void* stream, void* format, va_list_tag* vlist)
@@ -20629,11 +20629,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.scanf_core_Reader_getc.Invoke(@this);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.117")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.117)")]
-	public static int internal_tolower_int_117(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.119")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.119)")]
+	public static int internal_tolower_int_119(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_tolower_int_117.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_tolower_int_119.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core13convert_floatEPNS0_6ReaderERKNS0_13FormatSectionE")]
@@ -20665,11 +20665,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.CharVector_length.Invoke(@this);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.118")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.118)")]
-	public static int internal_tolower_int_118(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.120")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.120)")]
+	public static int internal_tolower_int_120(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_tolower_int_118.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_tolower_int_120.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10CharVector5c_strEv")]
@@ -20686,25 +20686,25 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.scanf_core_write_float_with_length_char_scanf_core_FormatSection_const.Invoke(str, to_conv);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.119")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.119)")]
-	public static bool internal_isalnum_int_119(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.121")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.121)")]
+	public static bool internal_isalnum_int_121(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_119.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_121.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.120")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.120)")]
-	public static int internal_b36_char_to_int_int_120(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.122")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.122)")]
+	public static int internal_b36_char_to_int_int_122(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_120.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_122.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.121")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.121)")]
-	public static bool internal_isdigit_int_121(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.123")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.123)")]
+	public static bool internal_isdigit_int_123(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_121.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_123.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10CharVectorD2Ev")]
@@ -20717,25 +20717,25 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal18strtofloatingpointIdEENS_14StrToNumResultIT_EEPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double> __llvm_libc_20_1_2_::internal::strtofloatingpoint<double>(char const*)")]
-	public unsafe static StrToNumResult_r53a3q StrToNumResult_double_internal_strtofloatingpoint_double_char_const(void* src)
+	public unsafe static StrToNumResult_k826n6 StrToNumResult_double_internal_strtofloatingpoint_double_char_const(void* src)
 	{
-		StrToNumResult_r53a3q result = default(StrToNumResult_r53a3q);
+		StrToNumResult_k826n6 result = default(StrToNumResult_k826n6);
 		LlvmLibC.GlobalFunctions.StrToNumResult_double_internal_strtofloatingpoint_double_char_const.Invoke(&result, src);
 		return result;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIdEcvdEv")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<double>::operator double()")]
-	public unsafe static double StrToNumResult_double_operator_double(StrToNumResult_r53a3q* @this)
+	public unsafe static double StrToNumResult_double_operator_double(StrToNumResult_k826n6* @this)
 	{
 		return LlvmLibC.GlobalFunctions.StrToNumResult_double_operator_double.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal18strtofloatingpointIeEENS_14StrToNumResultIT_EEPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long double> __llvm_libc_20_1_2_::internal::strtofloatingpoint<long double>(char const*)")]
-	public unsafe static StrToNumResult_6sg7zz StrToNumResult_long_double_internal_strtofloatingpoint_long_double_char_const(void* src)
+	public unsafe static StrToNumResult_uytq62 StrToNumResult_long_double_internal_strtofloatingpoint_long_double_char_const(void* src)
 	{
-		StrToNumResult_6sg7zz result = default(StrToNumResult_6sg7zz);
+		StrToNumResult_uytq62 result = default(StrToNumResult_uytq62);
 		LlvmLibC.GlobalFunctions.StrToNumResult_long_double_internal_strtofloatingpoint_long_double_char_const.Invoke(&result, src);
 		return result;
 	}
@@ -21277,7 +21277,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIdEEEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::optional()")]
-	public unsafe static void cpp_optional_internal_ExpandedFloat_double_optional(cpp_optional_vqqfu4* @this)
+	public unsafe static void cpp_optional_internal_ExpandedFloat_double_optional(cpp_optional_9m4esb* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_optional.Invoke(@this);
 	}
@@ -21298,39 +21298,39 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal17clinger_fast_pathIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>> __llvm_libc_20_1_2_::internal::clinger_fast_path<double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
-	public unsafe static cpp_optional_vqqfu4 cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection([MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
+	public unsafe static cpp_optional_9m4esb cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection([MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
 	{
-		cpp_optional_vqqfu4 result = default(cpp_optional_vqqfu4);
+		cpp_optional_9m4esb result = default(cpp_optional_9m4esb);
 		LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_internal_clinger_fast_path_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&result, init_num, round, mantissa);
 		return result;
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIdEEE9has_valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::has_value() const")]
-	public unsafe static bool cpp_optional_internal_ExpandedFloat_double_has_value_const(cpp_optional_vqqfu4* @this)
+	public unsafe static bool cpp_optional_internal_ExpandedFloat_double_has_value_const(cpp_optional_9m4esb* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_has_value_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNR19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIdEEE5valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::value() &")]
-	public unsafe static internal_ExpandedFloat_k68bhv* cpp_optional_internal_ExpandedFloat_double_value(cpp_optional_vqqfu4* @this)
+	public unsafe static internal_ExpandedFloat_k68bhv* cpp_optional_internal_ExpandedFloat_double_value(cpp_optional_9m4esb* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_value.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>> __llvm_libc_20_1_2_::internal::eisel_lemire<double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
-	public unsafe static cpp_optional_vqqfu4 cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection([MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
+	public unsafe static cpp_optional_9m4esb cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection([MangledName("init_num.coerce0")] long init_num, [MangledName("init_num.coerce1")] RoundDirection_b3pcwy round, [MangledName("round")] int mantissa)
 	{
-		cpp_optional_vqqfu4 result = default(cpp_optional_vqqfu4);
+		cpp_optional_9m4esb result = default(cpp_optional_9m4esb);
 		LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_internal_eisel_lemire_double_internal_ExpandedFloat_double_internal_RoundDirection.Invoke(&result, init_num, round, mantissa);
 		return result;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIdEEEptEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::operator->()")]
-	public unsafe static internal_ExpandedFloat_k68bhv* cpp_optional_internal_ExpandedFloat_double_operator(cpp_optional_vqqfu4* @this)
+	public unsafe static internal_ExpandedFloat_k68bhv* cpp_optional_internal_ExpandedFloat_double_operator(cpp_optional_9m4esb* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_operator.Invoke(@this);
 	}
@@ -21353,14 +21353,14 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIdEEEC2ENS0_9nullopt_tE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::optional(__llvm_libc_20_1_2_::cpp::nullopt_t)")]
-	public unsafe static void cpp_optional_internal_ExpandedFloat_double_optional_cpp_nullopt_t(cpp_optional_vqqfu4* @this)
+	public unsafe static void cpp_optional_internal_ExpandedFloat_double_optional_cpp_nullopt_t(cpp_optional_9m4esb* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_optional_cpp_nullopt_t.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS_8internal13ExpandedFloatIdEEEC2EOS4_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<double>>::optional(__llvm_libc_20_1_2_::internal::ExpandedFloat<double>&&)")]
-	public unsafe static void cpp_optional_internal_ExpandedFloat_double_optional_internal_ExpandedFloat_double(cpp_optional_vqqfu4* @this, internal_ExpandedFloat_k68bhv* t)
+	public unsafe static void cpp_optional_internal_ExpandedFloat_double_optional_internal_ExpandedFloat_double(cpp_optional_9m4esb* @this, internal_ExpandedFloat_k68bhv* t)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_internal_ExpandedFloat_double_optional_internal_ExpandedFloat_double.Invoke(@this, t);
 	}
@@ -21409,11 +21409,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.scanf_core_convert_int_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.130")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.130)")]
-	public static int internal_tolower_int_130(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.132")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.132)")]
+	public static int internal_tolower_int_132(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_tolower_int_130.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_tolower_int_132.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core21write_int_with_lengthEmRKNS0_13FormatSectionE")]
@@ -21423,25 +21423,25 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.scanf_core_write_int_with_length_unsigned_long_scanf_core_FormatSection_const.Invoke(output_val, to_conv);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.131")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.131)")]
-	public static bool internal_isdigit_int_131(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.133")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.133)")]
+	public static bool internal_isdigit_int_133(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_131.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_133.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.132")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.132)")]
-	public static bool internal_isalnum_int_132(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.134")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.134)")]
+	public static bool internal_isalnum_int_134(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_132.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_134.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.133")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.133)")]
-	public static int internal_b36_char_to_int_int_133(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.135")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.135)")]
+	public static int internal_b36_char_to_int_int_135(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_133.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_135.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core14convert_stringEPNS0_6ReaderERKNS0_13FormatSectionE")]
@@ -21451,11 +21451,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.scanf_core_convert_string_scanf_core_Reader_scanf_core_FormatSection_const.Invoke(reader, to_conv);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isspaceEi.134")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isspace(int) (.134)")]
-	public static bool internal_isspace_int_134(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isspaceEi.136")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isspace(int) (.136)")]
+	public static bool internal_isspace_int_136(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isspace_int_134.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isspace_int_136.Invoke(ch);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp6bitsetILm256EE4testEm")]
@@ -21523,11 +21523,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.scanf_core_Parser_internal_ArgList_parse_index_unsigned_long.Invoke(@this, local_pos);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.137")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.137)")]
-	public static bool internal_isdigit_int_137(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.139")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.139)")]
+	public static bool internal_isdigit_int_139(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_137.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_139.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core6ParserINS_8internal7ArgListEE21parse_length_modifierEPm")]
@@ -21937,11 +21937,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.scanf_core_Reader_chars_read.Invoke(@this);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isspaceEi.146")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isspace(int) (.146)")]
-	public static bool internal_isspace_int_146(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isspaceEi.148")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isspace(int) (.148)")]
+	public static bool internal_isspace_int_148(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isspace_int_146.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isspace_int_148.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11printf_mainEPNS0_6WriterEPKcRNS_8internal7ArgListE")]
@@ -22030,11 +22030,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_sizeof_int_sizeof_int_cpp_is_trivially_constructible_int_value_cpp_is_trivially_copyable_int_value_cpp_is_trivially_copyable_int_value_int_type_cpp_bit_cast_int_int_int_const.Invoke(from);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.149")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.149)")]
-	public static bool internal_isdigit_int_149(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.151")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.151)")]
+	public static bool internal_isdigit_int_151(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_149.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_151.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core6ParserINS_8internal7ArgListEE21parse_length_modifierEPm")]
@@ -22437,7 +22437,7 @@ public static partial class LibC
 	[DemangledName("llvm.ptrmask.p0.i64")]
 	public unsafe static void* llvm_ptrmask_p0_i64(void* parameter_0, long parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_ptrmask_p0_i64.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.llvm_ptrmask_p0_i64.Invoke(parameter_0, parameter_1);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core19type_desc_from_typeIiEENS0_8TypeDescEv")]
@@ -22575,7 +22575,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalIdEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<double>::optional()")]
-	public unsafe static void cpp_optional_double_optional(cpp_optional_s4iqgj* @this)
+	public unsafe static void cpp_optional_double_optional(cpp_optional_vhbvq7* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_double_optional.Invoke(@this);
 	}
@@ -22811,7 +22811,7 @@ public static partial class LibC
 
 	public unsafe static int ungetc(int parameter_0, void* parameter_1)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.ungetc.Invoke(parameter_0, parameter_1);
+		return LlvmLibC.Intrinsics.Implemented.ungetc.Invoke(parameter_0, parameter_1);
 	}
 
 	public unsafe static int getc(void* parameter_0)
@@ -23096,9 +23096,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal12strtointegerIyEENS_14StrToNumResultIT_EEPKcim")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<unsigned long long> __llvm_libc_20_1_2_::internal::strtointeger<unsigned long long>(char const*, int, unsigned long)")]
-	public unsafe static StrToNumResult_aztiru StrToNumResult_unsigned_long_long_internal_strtointeger_unsigned_long_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
+	public unsafe static StrToNumResult_gbeb3a StrToNumResult_unsigned_long_long_internal_strtointeger_unsigned_long_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
 	{
-		StrToNumResult_aztiru result = default(StrToNumResult_aztiru);
+		StrToNumResult_gbeb3a result = default(StrToNumResult_gbeb3a);
 		LlvmLibC.GlobalFunctions.StrToNumResult_unsigned_long_long_internal_strtointeger_unsigned_long_long_char_const_int_unsigned_long.Invoke(&result, src, @base, src_len);
 		return result;
 	}
@@ -23131,18 +23131,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.cpp_internal_integer_impl_unsigned_long_long_0ull_18446744073709551615ull_max.Invoke();
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.154")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.154)")]
-	public static bool internal_isalnum_int_154(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.156")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.156)")]
+	public static bool internal_isalnum_int_156(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_154.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_156.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.155")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.155)")]
-	public static int internal_b36_char_to_int_int_155(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.157")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.157)")]
+	public static int internal_b36_char_to_int_int_157(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_155.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_157.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8internal12integer_implIyLy0ELy18446744073709551615EE3minEv")]
@@ -23171,9 +23171,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal12strtointegerIxEENS_14StrToNumResultIT_EEPKcim")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long long> __llvm_libc_20_1_2_::internal::strtointeger<long long>(char const*, int, unsigned long)")]
-	public unsafe static StrToNumResult_aztiru StrToNumResult_long_long_internal_strtointeger_long_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
+	public unsafe static StrToNumResult_gbeb3a StrToNumResult_long_long_internal_strtointeger_long_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
 	{
-		StrToNumResult_aztiru result = default(StrToNumResult_aztiru);
+		StrToNumResult_gbeb3a result = default(StrToNumResult_gbeb3a);
 		LlvmLibC.GlobalFunctions.StrToNumResult_long_long_internal_strtointeger_long_long_char_const_int_unsigned_long.Invoke(&result, src, @base, src_len);
 		return result;
 	}
@@ -23206,18 +23206,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.cpp_internal_integer_impl_long_long_9223372036854775808ll_9223372036854775807ll_max.Invoke();
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.156")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.156)")]
-	public static bool internal_isalnum_int_156(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.158")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.158)")]
+	public static bool internal_isalnum_int_158(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_156.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_158.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.157")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.157)")]
-	public static int internal_b36_char_to_int_int_157(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.159")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.159)")]
+	public static int internal_b36_char_to_int_int_159(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_157.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_159.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8internal12integer_implIxLxn9223372036854775808ELx9223372036854775807EE3minEv")]
@@ -23239,9 +23239,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal12strtointegerIlEENS_14StrToNumResultIT_EEPKcim")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long> __llvm_libc_20_1_2_::internal::strtointeger<long>(char const*, int, unsigned long)")]
-	public unsafe static StrToNumResult_aztiru StrToNumResult_long_internal_strtointeger_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
+	public unsafe static StrToNumResult_gbeb3a StrToNumResult_long_internal_strtointeger_long_char_const_int_unsigned_long(void* src, int @base, long src_len)
 	{
-		StrToNumResult_aztiru result = default(StrToNumResult_aztiru);
+		StrToNumResult_gbeb3a result = default(StrToNumResult_gbeb3a);
 		LlvmLibC.GlobalFunctions.StrToNumResult_long_internal_strtointeger_long_char_const_int_unsigned_long.Invoke(&result, src, @base, src_len);
 		return result;
 	}
@@ -23274,18 +23274,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.cpp_internal_integer_impl_long_9223372036854775808l_9223372036854775807l_max.Invoke();
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.158")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.158)")]
-	public static bool internal_isalnum_int_158(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.160")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.160)")]
+	public static bool internal_isalnum_int_160(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_158.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_160.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.159")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.159)")]
-	public static int internal_b36_char_to_int_int_159(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.161")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.161)")]
+	public static int internal_b36_char_to_int_int_161(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_159.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_161.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8internal12integer_implIlLln9223372036854775808ELl9223372036854775807EE3minEv")]
@@ -23587,14 +23587,14 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIeLi0EE19zero_leading_digitsERNS_6BigIntILm16512ELb0EmEE")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<long double, 0>::zero_leading_digits(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>&)")]
-	public unsafe static void FloatToString_long_double_0_zero_leading_digits_BigInt_16512ul_false_unsigned_long(BigInt_k36xhe* int_num)
+	public unsafe static void FloatToString_long_double_0_zero_leading_digits_BigInt_16512ul_false_unsigned_long(BigInt_q8g275* int_num)
 	{
 		LlvmLibC.GlobalFunctions.FloatToString_long_double_0_zero_leading_digits_BigInt_16512ul_false_unsigned_long.Invoke(int_num);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmE3mulEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::mul(unsigned long)")]
-	public unsafe static long BigInt_16512ul_false_unsigned_long_mul_unsigned_long(BigInt_k36xhe* @this, long x)
+	public unsafe static long BigInt_16512ul_false_unsigned_long_mul_unsigned_long(BigInt_q8g275* @this, long x)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_mul_unsigned_long.Invoke(@this, x);
 	}
@@ -23602,46 +23602,46 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmErsEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::operator>>(unsigned long) const")]
 	[CleanName("BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const")]
-	public unsafe static BigInt_k36xhe BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_zwn8yf(BigInt_k36xhe* @this, long s)
+	public unsafe static BigInt_q8g275 BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_zwn8yf(BigInt_q8g275* @this, long s)
 	{
-		BigInt_k36xhe result = default(BigInt_k36xhe);
+		BigInt_q8g275 result = default(BigInt_q8g275);
 		LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_zwn8yf.Invoke(&result, @this, s);
 		return result;
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmEcvT_IjEEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::operator unsigned int<unsigned int>() const")]
-	public unsafe static int BigInt_16512ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const(BigInt_k36xhe* @this)
+	public unsafe static int BigInt_16512ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const(BigInt_q8g275* @this)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_operator_unsigned_int_unsigned_int_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmE2toIjEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned int> && !cpp::is_same_v<unsigned int, bool>, unsigned int>::type __llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::to<unsigned int>() const")]
-	public unsafe static int cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_16512ul_false_unsigned_long_to_unsigned_int_const(BigInt_k36xhe* @this)
+	public unsafe static int cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_16512ul_false_unsigned_long_to_unsigned_int_const(BigInt_q8g275* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_unsigned_int_cpp_is_same_v_unsigned_int_bool_unsigned_int_type_BigInt_16512ul_false_unsigned_long_to_unsigned_int_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayImLm258EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>::operator[](unsigned long) const")]
-	public unsafe static void* cpp_array_unsigned_long_258ul_operator_unsigned_long_const(cpp_array_vnnqx8* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_long_258ul_operator_unsigned_long_const(cpp_array_anzbtp* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_258ul_operator_unsigned_long_const.Invoke(@this, Index);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE1ELb0EmLm258EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul> __llvm_libc_20_1_2_::multiword::shift<(__llvm_libc_20_1_2_::multiword::Direction)1, false, unsigned long, 258ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>, unsigned long)")]
-	public unsafe static cpp_array_vnnqx8 cpp_array_unsigned_long_258ul_multiword_shift_multiword_Direction_1_false_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long(void* array, long offset)
+	public unsafe static cpp_array_anzbtp cpp_array_unsigned_long_258ul_multiword_shift_multiword_Direction_1_false_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long(void* array, long offset)
 	{
-		cpp_array_vnnqx8 result = default(cpp_array_vnnqx8);
+		cpp_array_anzbtp result = default(cpp_array_anzbtp);
 		LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_258ul_multiword_shift_multiword_Direction_1_false_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long.Invoke(&result, array, offset);
 		return result;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmEC2ERKNS_3cpp5arrayImLm258EEE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::BigInt(__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul> const&)")]
-	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_258ul_const(BigInt_k36xhe* @this, cpp_array_vnnqx8* words)
+	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_258ul_const(BigInt_q8g275* @this, cpp_array_anzbtp* words)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_258ul_const.Invoke(@this, words);
 	}
@@ -23662,28 +23662,28 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayImLm258EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>::operator[](unsigned long)")]
-	public unsafe static void* cpp_array_unsigned_long_258ul_operator_unsigned_long(cpp_array_vnnqx8* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_long_258ul_operator_unsigned_long(cpp_array_anzbtp* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_258ul_operator_unsigned_long.Invoke(@this, Index);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword26scalar_multiply_with_carryImLm258EEET_RNS_3cpp5arrayIS2_XT0_EEES2_")]
 	[DemangledName("unsigned long __llvm_libc_20_1_2_::multiword::scalar_multiply_with_carry<unsigned long, 258ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>&, unsigned long)")]
-	public unsafe static long unsigned_long_multiword_scalar_multiply_with_carry_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long(cpp_array_vnnqx8* dst, long x)
+	public unsafe static long unsigned_long_multiword_scalar_multiply_with_carry_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long(cpp_array_anzbtp* dst, long x)
 	{
 		return LlvmLibC.GlobalFunctions.unsigned_long_multiword_scalar_multiply_with_carry_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long.Invoke(dst, x);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayImLm258EE5beginEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>::begin()")]
-	public unsafe static void* cpp_array_unsigned_long_258ul_begin(cpp_array_vnnqx8* @this)
+	public unsafe static void* cpp_array_unsigned_long_258ul_begin(cpp_array_anzbtp* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_258ul_begin.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayImLm258EE3endEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>::end()")]
-	public unsafe static void* cpp_array_unsigned_long_258ul_end(cpp_array_vnnqx8* @this)
+	public unsafe static void* cpp_array_unsigned_long_258ul_end(cpp_array_anzbtp* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_258ul_end.Invoke(@this);
 	}
@@ -23691,7 +23691,7 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::operator[](unsigned long)")]
 	[CleanName("BigInt_16512ul_false_unsigned_long_operator_unsigned_long")]
-	public unsafe static void* BigInt_16512ul_false_unsigned_long_operator_unsigned_long_jsva56(BigInt_k36xhe* @this, long i)
+	public unsafe static void* BigInt_16512ul_false_unsigned_long_operator_unsigned_long_jsva56(BigInt_q8g275* @this, long i)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_operator_unsigned_long_jsva56.Invoke(@this, i);
 	}
@@ -23726,7 +23726,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmEC2IivEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::BigInt<int, void>(int)")]
-	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt_int_void_int(BigInt_k36xhe* @this, int v)
+	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt_int_void_int(BigInt_q8g275* @this, int v)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_BigInt_int_void_int.Invoke(@this, v);
 	}
@@ -23740,7 +23740,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmEC2IovEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::BigInt<unsigned __int128, void>(unsigned __int128)")]
-	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128(BigInt_k36xhe* @this, [MangledName("v.coerce0")] long v, [MangledName("v.coerce1")] long T_SIZE)
+	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128(BigInt_q8g275* @this, [MangledName("v.coerce0")] long v, [MangledName("v.coerce1")] long T_SIZE)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_BigInt_unsigned_int128_void_unsigned_int128.Invoke(@this, v, T_SIZE);
 	}
@@ -23748,35 +23748,35 @@ public static partial class LibC
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmElSEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::operator<<=(unsigned long)")]
 	[CleanName("BigInt_16512ul_false_unsigned_long_operator_unsigned_long")]
-	public unsafe static BigInt_k36xhe* BigInt_16512ul_false_unsigned_long_operator_unsigned_long_en4bet(BigInt_k36xhe* @this, long s)
+	public unsafe static BigInt_q8g275* BigInt_16512ul_false_unsigned_long_operator_unsigned_long_en4bet(BigInt_q8g275* @this, long s)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_operator_unsigned_long_en4bet.Invoke(@this, s);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_gtERKNS_6BigIntILm16512ELb0EmEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::operator>(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&)")]
-	public unsafe static bool operator_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const(BigInt_k36xhe* lhs, BigInt_k36xhe* rhs)
+	public unsafe static bool operator_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const(BigInt_q8g275* lhs, BigInt_q8g275* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.operator_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const.Invoke(lhs, rhs);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIeLi0EE11grab_digitsILm16512EEEjRNS_6BigIntIXT_ELb0ENS_8internal16WordTypeSelectorIXT_EE4typeEEE")]
 	[DemangledName("unsigned int __llvm_libc_20_1_2_::FloatToString<long double, 0>::grab_digits<16512ul>(__llvm_libc_20_1_2_::BigInt<16512ul, false, __llvm_libc_20_1_2_::internal::WordTypeSelector<16512ul>::type>&)")]
-	public unsafe static int unsigned_int_FloatToString_long_double_0_grab_digits_16512ul_BigInt_16512ul_false_internal_WordTypeSelector_16512ul_type(BigInt_k36xhe* int_num)
+	public unsafe static int unsigned_int_FloatToString_long_double_0_grab_digits_16512ul_BigInt_16512ul_false_internal_WordTypeSelector_16512ul_type(BigInt_q8g275* int_num)
 	{
 		return LlvmLibC.GlobalFunctions.unsigned_int_FloatToString_long_double_0_grab_digits_16512ul_BigInt_16512ul_false_internal_WordTypeSelector_16512ul_type.Invoke(int_num);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp11countl_zeroINS_6BigIntILm16512ELb0EmEEEENS0_9enable_ifIX12is_big_int_vIT_EEiE4typeERKS5_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<is_big_int_v<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>, int>::type __llvm_libc_20_1_2_::cpp::countl_zero<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&)")]
-	public unsafe static int cpp_enable_if_is_big_int_v_BigInt_16512ul_false_unsigned_long_int_type_cpp_countl_zero_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const(BigInt_k36xhe* value)
+	public unsafe static int cpp_enable_if_is_big_int_v_BigInt_16512ul_false_unsigned_long_int_type_cpp_countl_zero_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const(BigInt_q8g275* value)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_enable_if_is_big_int_v_BigInt_16512ul_false_unsigned_long_int_type_cpp_countl_zero_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const.Invoke(value);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm128ELb0EmEC2ILm16512ELb0EmEERKNS0_IXT_EXT0_ET1_EE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>::BigInt<16512ul, false, unsigned long>(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&)")]
-	public unsafe static void BigInt_128ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const(anon_izyfb7* @this, BigInt_k36xhe* other)
+	public unsafe static void BigInt_128ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const(anon_izyfb7* @this, BigInt_q8g275* other)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_128ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long_const.Invoke(@this, other);
 	}
@@ -23857,58 +23857,58 @@ public static partial class LibC
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::operator[](unsigned long) const")]
 	[CleanName("BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const")]
-	public unsafe static void* BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_h7iz72(BigInt_k36xhe* @this, long i)
+	public unsafe static void* BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_h7iz72(BigInt_q8g275* @this, long i)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_operator_unsigned_long_const_h7iz72.Invoke(@this, i);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword11countl_zeroImLm258EEEiRKNS_3cpp5arrayIT_XT0_EEE")]
 	[DemangledName("int __llvm_libc_20_1_2_::multiword::countl_zero<unsigned long, 258ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul> const&)")]
-	public unsafe static int int_multiword_countl_zero_unsigned_long_258ul_cpp_array_unsigned_long_258ul_const(cpp_array_vnnqx8* val)
+	public unsafe static int int_multiword_countl_zero_unsigned_long_258ul_cpp_array_unsigned_long_258ul_const(cpp_array_anzbtp* val)
 	{
 		return LlvmLibC.GlobalFunctions.int_multiword_countl_zero_unsigned_long_258ul_cpp_array_unsigned_long_258ul_const.Invoke(val);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmE25div_uint_half_times_pow_2Ejm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::div_uint_half_times_pow_2(unsigned int, unsigned long)")]
-	public unsafe static cpp_optional_tchbah BigInt_16512ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long(BigInt_k36xhe* @this, int x, long e)
+	public unsafe static cpp_optional_he65ea BigInt_16512ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long(BigInt_q8g275* @this, int x, long e)
 	{
-		cpp_optional_tchbah result = default(cpp_optional_tchbah);
+		cpp_optional_he65ea result = default(cpp_optional_he65ea);
 		LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long.Invoke(&result, @this, x, e);
 		return result;
 	}
 
 	[MangledName("_ZNR19__llvm_libc_20_1_2_3cpp8optionalINS_6BigIntILm16512ELb0EmEEE5valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>::value() &")]
-	public unsafe static BigInt_k36xhe* cpp_optional_BigInt_16512ul_false_unsigned_long_value(cpp_optional_tchbah* @this)
+	public unsafe static BigInt_q8g275* cpp_optional_BigInt_16512ul_false_unsigned_long_value(cpp_optional_he65ea* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_optional_BigInt_16512ul_false_unsigned_long_value.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::BigInt()")]
-	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt(BigInt_k36xhe* @this)
+	public unsafe static void BigInt_16512ul_false_unsigned_long_BigInt(BigInt_q8g275* @this)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_BigInt.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS_6BigIntILm16512ELb0EmEEEC2ENS0_9nullopt_tE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>::optional(__llvm_libc_20_1_2_::cpp::nullopt_t)")]
-	public unsafe static void cpp_optional_BigInt_16512ul_false_unsigned_long_optional_cpp_nullopt_t(cpp_optional_tchbah* @this)
+	public unsafe static void cpp_optional_BigInt_16512ul_false_unsigned_long_optional_cpp_nullopt_t(cpp_optional_he65ea* @this)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_BigInt_16512ul_false_unsigned_long_optional_cpp_nullopt_t.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS_6BigIntILm16512ELb0EmEEEC2EOS3_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>::optional(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>&&)")]
-	public unsafe static void cpp_optional_BigInt_16512ul_false_unsigned_long_optional_BigInt_16512ul_false_unsigned_long(cpp_optional_tchbah* @this, BigInt_k36xhe* t)
+	public unsafe static void cpp_optional_BigInt_16512ul_false_unsigned_long_optional_BigInt_16512ul_false_unsigned_long(cpp_optional_he65ea* @this, BigInt_q8g275* t)
 	{
 		LlvmLibC.GlobalFunctions.cpp_optional_BigInt_16512ul_false_unsigned_long_optional_BigInt_16512ul_false_unsigned_long.Invoke(@this, t);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp4moveIRNS_6BigIntILm16512ELb0EmEEEEONS0_16remove_referenceIT_E4typeEOS6_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::remove_reference<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>&>::type&& __llvm_libc_20_1_2_::cpp::move<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>&>(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>&)")]
-	public unsafe static BigInt_k36xhe* cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type_cpp_move_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long(BigInt_k36xhe* t)
+	public unsafe static BigInt_q8g275* cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type_cpp_move_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long(BigInt_q8g275* t)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type_cpp_move_BigInt_16512ul_false_unsigned_long_BigInt_16512ul_false_unsigned_long.Invoke(t);
 	}
@@ -23922,7 +23922,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp7forwardINS_6BigIntILm16512ELb0EmEEEEOT_RNS0_16remove_referenceIS4_E4typeE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>&& __llvm_libc_20_1_2_::cpp::forward<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>(__llvm_libc_20_1_2_::cpp::remove_reference<__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>>::type&)")]
-	public unsafe static BigInt_k36xhe* BigInt_16512ul_false_unsigned_long_cpp_forward_BigInt_16512ul_false_unsigned_long_cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type(BigInt_k36xhe* value)
+	public unsafe static BigInt_q8g275* BigInt_16512ul_false_unsigned_long_cpp_forward_BigInt_16512ul_false_unsigned_long_cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type(BigInt_q8g275* value)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_cpp_forward_BigInt_16512ul_false_unsigned_long_cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type.Invoke(value);
 	}
@@ -23936,7 +23936,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cmpERKNS_6BigIntILm16512ELb0EmEES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::cmp(__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&, __llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long> const&)")]
-	public unsafe static int cmp_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const(BigInt_k36xhe* lhs, BigInt_k36xhe* rhs)
+	public unsafe static int cmp_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const(BigInt_q8g275* lhs, BigInt_q8g275* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.cmp_BigInt_16512ul_false_unsigned_long_const_BigInt_16512ul_false_unsigned_long_const.Invoke(lhs, rhs);
 	}
@@ -23950,9 +23950,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE0ELb0EmLm258EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul> __llvm_libc_20_1_2_::multiword::shift<(__llvm_libc_20_1_2_::multiword::Direction)0, false, unsigned long, 258ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 258ul>, unsigned long)")]
-	public unsafe static cpp_array_vnnqx8 cpp_array_unsigned_long_258ul_multiword_shift_multiword_Direction_0_false_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long(void* array, long offset)
+	public unsafe static cpp_array_anzbtp cpp_array_unsigned_long_258ul_multiword_shift_multiword_Direction_0_false_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long(void* array, long offset)
 	{
-		cpp_array_vnnqx8 result = default(cpp_array_vnnqx8);
+		cpp_array_anzbtp result = default(cpp_array_anzbtp);
 		LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_258ul_multiword_shift_multiword_Direction_0_false_unsigned_long_258ul_cpp_array_unsigned_long_258ul_unsigned_long.Invoke(&result, array, offset);
 		return result;
 	}
@@ -23973,7 +23973,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm16512ELb0EmE6extendEmb")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16512ul, false, unsigned long>::extend(unsigned long, bool)")]
-	public unsafe static void BigInt_16512ul_false_unsigned_long_extend_unsigned_long_bool(BigInt_k36xhe* @this, long index, bool is_neg)
+	public unsafe static void BigInt_16512ul_false_unsigned_long_extend_unsigned_long_bool(BigInt_q8g275* @this, long index, bool is_neg)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_16512ul_false_unsigned_long_extend_unsigned_long_bool.Invoke(@this, index, is_neg);
 	}
@@ -24013,18 +24013,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.printf_core_Writer_write_char_unsigned_long.Invoke(@this, new_char, length);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.161")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_memset(void*, unsigned char, unsigned long) (.161)")]
-	public unsafe static void inline_memset_void_unsigned_char_unsigned_long_161(void* dst, sbyte value, long count)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.163")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_memset(void*, unsigned char, unsigned long) (.163)")]
+	public unsafe static void inline_memset_void_unsigned_char_unsigned_long_163(void* dst, sbyte value, long count)
 	{
-		LlvmLibC.GlobalFunctions.inline_memset_void_unsigned_char_unsigned_long_161.Invoke(dst, value, count);
+		LlvmLibC.GlobalFunctions.inline_memset_void_unsigned_char_unsigned_long_163.Invoke(dst, value, count);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L17inline_memset_x86EPNS_3cpp4byteEhm.162")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_memset_x86(__llvm_libc_20_1_2_::cpp::byte*, unsigned char, unsigned long) (.162)")]
-	public unsafe static void inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_162(void* dst, sbyte value, long count)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L17inline_memset_x86EPNS_3cpp4byteEhm.164")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_memset_x86(__llvm_libc_20_1_2_::cpp::byte*, unsigned char, unsigned long) (.164)")]
+	public unsafe static void inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_164(void* dst, sbyte value, long count)
 	{
-		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_162.Invoke(dst, value, count);
+		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_164.Invoke(dst, value, count);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core13PaddingWriterC2ERKNS0_13FormatSectionEc")]
@@ -24160,11 +24160,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.FloatToString_long_double_0_is_lowest_block_unsigned_long.Invoke(@this, negative_block_index);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.167")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.167)")]
-	public static bool internal_isdigit_int_167(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.169")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.169)")]
+	public static bool internal_isdigit_int_169(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_167.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_169.Invoke(ch);
 	}
 
 	public unsafe static int strfromf(void* s, long n, void* format, float fp)
@@ -24211,28 +24211,28 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EEC2Ef")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::FloatToString(float)")]
-	public unsafe static void FloatToString_float_0_FloatToString_float(FloatToString_uyiqeh* @this, float init_float)
+	public unsafe static void FloatToString_float_0_FloatToString_float(FloatToString_vnf553* @this, float init_float)
 	{
 		LlvmLibC.GlobalFunctions.FloatToString_float_0_FloatToString_float.Invoke(@this, init_float);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE23zero_blocks_after_pointEv")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::zero_blocks_after_point()")]
-	public unsafe static long FloatToString_float_0_zero_blocks_after_point(FloatToString_uyiqeh* @this)
+	public unsafe static long FloatToString_float_0_zero_blocks_after_point(FloatToString_vnf553* @this)
 	{
 		return LlvmLibC.GlobalFunctions.FloatToString_float_0_zero_blocks_after_point.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE19get_positive_blocksEv")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::get_positive_blocks()")]
-	public unsafe static long FloatToString_float_0_get_positive_blocks(FloatToString_uyiqeh* @this)
+	public unsafe static long FloatToString_float_0_get_positive_blocks(FloatToString_vnf553* @this)
 	{
 		return LlvmLibC.GlobalFunctions.FloatToString_float_0_get_positive_blocks.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE9get_blockEi")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::get_block(int)")]
-	public unsafe static int FloatToString_float_0_get_block_int(FloatToString_uyiqeh* @this, int block_index)
+	public unsafe static int FloatToString_float_0_get_block_int(FloatToString_vnf553* @this, int block_index)
 	{
 		return LlvmLibC.GlobalFunctions.FloatToString_float_0_get_block_int.Invoke(@this, block_index);
 	}
@@ -24253,28 +24253,28 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE18get_positive_blockEi")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::get_positive_block(int)")]
-	public unsafe static int FloatToString_float_0_get_positive_block_int(FloatToString_uyiqeh* @this, int block_index)
+	public unsafe static int FloatToString_float_0_get_positive_block_int(FloatToString_vnf553* @this, int block_index)
 	{
 		return LlvmLibC.GlobalFunctions.FloatToString_float_0_get_positive_block_int.Invoke(@this, block_index);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE18get_negative_blockEi")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::get_negative_block(int)")]
-	public unsafe static int FloatToString_float_0_get_negative_block_int(FloatToString_uyiqeh* @this, int block_index)
+	public unsafe static int FloatToString_float_0_get_negative_block_int(FloatToString_vnf553* @this, int block_index)
 	{
 		return LlvmLibC.GlobalFunctions.FloatToString_float_0_get_negative_block_int.Invoke(@this, block_index);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm192ELb0EmEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<192ul, false, unsigned long>::BigInt()")]
-	public unsafe static void BigInt_192ul_false_unsigned_long_BigInt(BigInt_ghrwnp* @this)
+	public unsafe static void BigInt_192ul_false_unsigned_long_BigInt(BigInt_khh67p* @this)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_192ul_false_unsigned_long_BigInt.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm192ELb0EmEC2ILm3EEERAT__Km")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<192ul, false, unsigned long>::BigInt<3ul>(unsigned long const (&) [3ul])")]
-	public unsafe static void BigInt_192ul_false_unsigned_long_BigInt_3ul_unsigned_long_const_3ul(BigInt_ghrwnp* @this, void* nums)
+	public unsafe static void BigInt_192ul_false_unsigned_long_BigInt_3ul_unsigned_long_const_3ul(BigInt_khh67p* @this, void* nums)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_192ul_false_unsigned_long_BigInt_3ul_unsigned_long_const_3ul.Invoke(@this, nums);
 	}
@@ -24288,7 +24288,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm320ELb0EmEC2ILm192ELb0EmEERKNS0_IXT_EXT0_ET1_EE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<320ul, false, unsigned long>::BigInt<192ul, false, unsigned long>(__llvm_libc_20_1_2_::BigInt<192ul, false, unsigned long> const&)")]
-	public unsafe static void BigInt_320ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_const(BigInt_76gxx6* @this, BigInt_ghrwnp* other)
+	public unsafe static void BigInt_320ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_const(BigInt_76gxx6* @this, BigInt_khh67p* other)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_320ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_BigInt_192ul_false_unsigned_long_const.Invoke(@this, other);
 	}
@@ -24320,9 +24320,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm320ELb0EmE25div_uint_half_times_pow_2Ejm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<320ul, false, unsigned long>::div_uint_half_times_pow_2(unsigned int, unsigned long)")]
-	public unsafe static cpp_optional_w3bnnt BigInt_320ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long(BigInt_76gxx6* @this, int x, long e)
+	public unsafe static cpp_optional_t82b4p BigInt_320ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long(BigInt_76gxx6* @this, int x, long e)
 	{
-		cpp_optional_w3bnnt result = default(cpp_optional_w3bnnt);
+		cpp_optional_t82b4p result = default(cpp_optional_t82b4p);
 		LlvmLibC.GlobalFunctions.BigInt_320ul_false_unsigned_long_div_uint_half_times_pow_2_unsigned_int_unsigned_long.Invoke(&result, @this, x, e);
 		return result;
 	}
@@ -24350,7 +24350,7 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayImLm5EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>::operator[](unsigned long) const")]
-	public unsafe static void* cpp_array_unsigned_long_5ul_operator_unsigned_long_const(cpp_array_v97b5b* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_long_5ul_operator_unsigned_long_const(cpp_array_msasyg* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_5ul_operator_unsigned_long_const.Invoke(@this, Index);
 	}
@@ -24385,7 +24385,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayImLm5EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>::operator[](unsigned long)")]
-	public unsafe static void* cpp_array_unsigned_long_5ul_operator_unsigned_long(cpp_array_v97b5b* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_long_5ul_operator_unsigned_long(cpp_array_msasyg* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_5ul_operator_unsigned_long.Invoke(@this, Index);
 	}
@@ -24408,9 +24408,9 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE0ELb0EmLm5EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul> __llvm_libc_20_1_2_::multiword::shift<(__llvm_libc_20_1_2_::multiword::Direction)0, false, unsigned long, 5ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>, unsigned long)")]
-	public unsafe static cpp_array_v97b5b cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_0_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long(void* array, long offset)
+	public unsafe static cpp_array_msasyg cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_0_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long(void* array, long offset)
 	{
-		cpp_array_v97b5b result = default(cpp_array_v97b5b);
+		cpp_array_msasyg result = default(cpp_array_msasyg);
 		LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_0_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long.Invoke(&result, array, offset);
 		return result;
 	}
@@ -24452,16 +24452,16 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE1ELb0EmLm5EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul> __llvm_libc_20_1_2_::multiword::shift<(__llvm_libc_20_1_2_::multiword::Direction)1, false, unsigned long, 5ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>, unsigned long)")]
-	public unsafe static cpp_array_v97b5b cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_1_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long(void* array, long offset)
+	public unsafe static cpp_array_msasyg cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_1_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long(void* array, long offset)
 	{
-		cpp_array_v97b5b result = default(cpp_array_v97b5b);
+		cpp_array_msasyg result = default(cpp_array_msasyg);
 		LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_5ul_multiword_shift_multiword_Direction_1_false_unsigned_long_5ul_cpp_array_unsigned_long_5ul_unsigned_long.Invoke(&result, array, offset);
 		return result;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm320ELb0EmEC2ERKNS_3cpp5arrayImLm5EEE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<320ul, false, unsigned long>::BigInt(__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul> const&)")]
-	public unsafe static void BigInt_320ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_5ul_const(BigInt_76gxx6* @this, cpp_array_v97b5b* words)
+	public unsafe static void BigInt_320ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_5ul_const(BigInt_76gxx6* @this, cpp_array_msasyg* words)
 	{
 		LlvmLibC.GlobalFunctions.BigInt_320ul_false_unsigned_long_BigInt_cpp_array_unsigned_long_5ul_const.Invoke(@this, words);
 	}
@@ -24519,7 +24519,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword19multiply_with_carryImLm10ELm5ELm5EEET_RNS_3cpp5arrayIS2_XT0_EEERKNS4_IS2_XT1_EEERKNS4_IS2_XT2_EEE")]
 	[DemangledName("unsigned long __llvm_libc_20_1_2_::multiword::multiply_with_carry<unsigned long, 10ul, 5ul, 5ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 10ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul> const&, __llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul> const&)")]
-	public unsafe static long unsigned_long_multiword_multiply_with_carry_unsigned_long_10ul_5ul_5ul_cpp_array_unsigned_long_10ul_cpp_array_unsigned_long_5ul_const_cpp_array_unsigned_long_5ul_const(cpp_array_f7mn55* dst, cpp_array_v97b5b* lhs, cpp_array_v97b5b* rhs)
+	public unsafe static long unsigned_long_multiword_multiply_with_carry_unsigned_long_10ul_5ul_5ul_cpp_array_unsigned_long_10ul_cpp_array_unsigned_long_5ul_const_cpp_array_unsigned_long_5ul_const(cpp_array_f7mn55* dst, cpp_array_msasyg* lhs, cpp_array_msasyg* rhs)
 	{
 		return LlvmLibC.GlobalFunctions.unsigned_long_multiword_multiply_with_carry_unsigned_long_10ul_5ul_5ul_cpp_array_unsigned_long_10ul_cpp_array_unsigned_long_5ul_const_cpp_array_unsigned_long_5ul_const.Invoke(dst, lhs, rhs);
 	}
@@ -24540,44 +24540,44 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm192ELb0EmEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<192ul, false, unsigned long>::operator[](unsigned long) const")]
-	public unsafe static void* BigInt_192ul_false_unsigned_long_operator_unsigned_long_const(BigInt_ghrwnp* @this, long i)
+	public unsafe static void* BigInt_192ul_false_unsigned_long_operator_unsigned_long_const(BigInt_khh67p* @this, long i)
 	{
 		return LlvmLibC.GlobalFunctions.BigInt_192ul_false_unsigned_long_operator_unsigned_long_const.Invoke(@this, i);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayImLm3EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 3ul>::operator[](unsigned long) const")]
-	public unsafe static void* cpp_array_unsigned_long_3ul_operator_unsigned_long_const(cpp_array_8cyvs4* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_long_3ul_operator_unsigned_long_const(cpp_array_tqfcue* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_3ul_operator_unsigned_long_const.Invoke(@this, Index);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayImLm3EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 3ul>::operator[](unsigned long)")]
-	public unsafe static void* cpp_array_unsigned_long_3ul_operator_unsigned_long(cpp_array_8cyvs4* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_long_3ul_operator_unsigned_long(cpp_array_tqfcue* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_long_3ul_operator_unsigned_long.Invoke(@this, Index);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7islowerEi.168")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::islower(int) (.168)")]
-	public static bool internal_islower_int_168(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7islowerEi.170")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::islower(int) (.170)")]
+	public static bool internal_islower_int_170(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_islower_int_168.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_islower_int_170.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE15is_lowest_blockEm")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::is_lowest_block(unsigned long)")]
-	public unsafe static bool FloatToString_float_0_is_lowest_block_unsigned_long(FloatToString_uyiqeh* @this, long negative_block_index)
+	public unsafe static bool FloatToString_float_0_is_lowest_block_unsigned_long(FloatToString_vnf553* @this, long negative_block_index)
 	{
 		return LlvmLibC.GlobalFunctions.FloatToString_float_0_is_lowest_block_unsigned_long.Invoke(@this, negative_block_index);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.169")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.169)")]
-	public static bool internal_isdigit_int_169(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.171")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.171)")]
+	public static bool internal_isdigit_int_171(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_169.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_171.Invoke(ch);
 	}
 
 	public unsafe static int strfromd(void* s, long n, void* format, double fp)
@@ -24678,11 +24678,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.FloatToString_double_0_get_negative_block_int.Invoke(@this, block_index);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7islowerEi.175")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::islower(int) (.175)")]
-	public static bool internal_islower_int_175(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7islowerEi.177")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::islower(int) (.177)")]
+	public static bool internal_islower_int_177(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_islower_int_175.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_islower_int_177.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIdLi0EE15is_lowest_blockEm")]
@@ -24692,11 +24692,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.FloatToString_double_0_is_lowest_block_unsigned_long.Invoke(@this, negative_block_index);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.176")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.176)")]
-	public static bool internal_isdigit_int_176(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.178")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.178)")]
+	public static bool internal_isdigit_int_178(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_176.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_178.Invoke(ch);
 	}
 
 	public static void srand(int seed)
@@ -26660,11 +26660,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.imaxdiv.Invoke(x, y);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L15integer_rem_quoIlEENS_3cpp9enable_ifIXsr3cppE13is_integral_vIT_EEvE4typeES3_S3_RS3_S6_.179")]
-	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<long>, void>::type __llvm_libc_20_1_2_::integer_rem_quo<long>(long, long, long&, long&) (.179)")]
-	public unsafe static void cpp_enable_if_cpp_is_integral_v_long_void_type_integer_rem_quo_long_long_long_long_long_179(long x, long y, void* quot, void* rem)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L15integer_rem_quoIlEENS_3cpp9enable_ifIXsr3cppE13is_integral_vIT_EEvE4typeES3_S3_RS3_S6_.181")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<long>, void>::type __llvm_libc_20_1_2_::integer_rem_quo<long>(long, long, long&, long&) (.181)")]
+	public unsafe static void cpp_enable_if_cpp_is_integral_v_long_void_type_integer_rem_quo_long_long_long_long_long_181(long x, long y, void* quot, void* rem)
 	{
-		LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_long_void_type_integer_rem_quo_long_long_long_long_long_179.Invoke(x, y, quot, rem);
+		LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_long_void_type_integer_rem_quo_long_long_long_long_long_181.Invoke(x, y, quot, rem);
 	}
 
 	public static long imaxabs(long j)
@@ -26672,11 +26672,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.imaxabs.Invoke(j);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L11integer_absIlEENS_3cpp9enable_ifIXsr3cppE13is_integral_vIT_EES3_E4typeES3_.180")]
-	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<long>, long>::type __llvm_libc_20_1_2_::integer_abs<long>(long) (.180)")]
-	public static long cpp_enable_if_cpp_is_integral_v_long_long_type_integer_abs_long_long_180(long n)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L11integer_absIlEENS_3cpp9enable_ifIXsr3cppE13is_integral_vIT_EES3_E4typeES3_.182")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<long>, long>::type __llvm_libc_20_1_2_::integer_abs<long>(long) (.182)")]
+	public static long cpp_enable_if_cpp_is_integral_v_long_long_type_integer_abs_long_long_182(long n)
 	{
-		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_long_long_type_integer_abs_long_long_180.Invoke(n);
+		return LlvmLibC.GlobalFunctions.cpp_enable_if_cpp_is_integral_v_long_long_type_integer_abs_long_long_182.Invoke(n);
 	}
 
 	public unsafe static int strncasecmp(void* left, void* right, long n)
@@ -26698,11 +26698,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.strncasecmp_impl_char_const_char_const_unsigned_long_0_operator_char_char_const.Invoke(@this, a, b);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.181")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.181)")]
-	public static int internal_tolower_int_181(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.183")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.183)")]
+	public static int internal_tolower_int_183(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_tolower_int_181.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_tolower_int_183.Invoke(ch);
 	}
 
 	public unsafe static int strcasecmp(void* left, void* right)
@@ -26724,11 +26724,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.strcasecmp_impl_char_const_char_const_0_operator_char_char_const.Invoke(@this, a, b);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.182")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.182)")]
-	public static int internal_tolower_int_182(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.184")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.184)")]
+	public static int internal_tolower_int_184(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_tolower_int_182.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_tolower_int_184.Invoke(ch);
 	}
 
 	public unsafe static void* rindex(void* src, int c)
@@ -26774,18 +26774,18 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.inline_bzero_cpp_byte_unsigned_long.Invoke(dst, count);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.183")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_memset(void*, unsigned char, unsigned long) (.183)")]
-	public unsafe static void inline_memset_void_unsigned_char_unsigned_long_183(void* dst, sbyte value, long count)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.185")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_memset(void*, unsigned char, unsigned long) (.185)")]
+	public unsafe static void inline_memset_void_unsigned_char_unsigned_long_185(void* dst, sbyte value, long count)
 	{
-		LlvmLibC.GlobalFunctions.inline_memset_void_unsigned_char_unsigned_long_183.Invoke(dst, value, count);
+		LlvmLibC.GlobalFunctions.inline_memset_void_unsigned_char_unsigned_long_185.Invoke(dst, value, count);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L17inline_memset_x86EPNS_3cpp4byteEhm.184")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_memset_x86(__llvm_libc_20_1_2_::cpp::byte*, unsigned char, unsigned long) (.184)")]
-	public unsafe static void inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_184(void* dst, sbyte value, long count)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L17inline_memset_x86EPNS_3cpp4byteEhm.186")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_memset_x86(__llvm_libc_20_1_2_::cpp::byte*, unsigned char, unsigned long) (.186)")]
+	public unsafe static void inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_186(void* dst, sbyte value, long count)
 	{
-		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_184.Invoke(dst, value, count);
+		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_186.Invoke(dst, value, count);
 	}
 
 	public unsafe static void bcopy(void* src, void* dst, long count)
@@ -27058,7 +27058,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayIhLm3EEixEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned char, 3ul>::operator[](unsigned long)")]
-	public unsafe static void* cpp_array_unsigned_char_3ul_operator_unsigned_long(cpp_array_cdhstp* @this, long Index)
+	public unsafe static void* cpp_array_unsigned_char_3ul_operator_unsigned_long(cpp_array_txpwtz* @this, long Index)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_unsigned_char_3ul_operator_unsigned_long.Invoke(@this, Index);
 	}
@@ -27382,14 +27382,14 @@ public static partial class LibC
 	[DemangledName("__libc_current_sigrtmin")]
 	public static int libc_current_sigrtmin()
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.libc_current_sigrtmin.Invoke();
+		return LlvmLibC.Intrinsics.Implemented.libc_current_sigrtmin.Invoke();
 	}
 
 	[MangledName("__libc_current_sigrtmax")]
 	[DemangledName("__libc_current_sigrtmax")]
 	public static int libc_current_sigrtmax()
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.libc_current_sigrtmax.Invoke();
+		return LlvmLibC.Intrinsics.Implemented.libc_current_sigrtmax.Invoke();
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_15IntegerToStringIiNS_7details3FmtILh10ELb0ELb0ELb0ELm1EEEE11buffer_sizeEv")]
@@ -27443,42 +27443,42 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_15IntegerToStringIiNS_7details3FmtILh10ELb0ELb0ELb0ELm1EEEEC2Ei")]
 	[DemangledName("__llvm_libc_20_1_2_::IntegerToString<int, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::IntegerToString(int)")]
-	public unsafe static void IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerToString_int(IntegerToString_exzmu4* @this, int value)
+	public unsafe static void IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerToString_int(IntegerToString_bz5c8a* @this, int value)
 	{
 		LlvmLibC.GlobalFunctions.IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerToString_int.Invoke(@this, value);
 	}
 
 	[MangledName("_ZNKR19__llvm_libc_20_1_2_15IntegerToStringIiNS_7details3FmtILh10ELb0ELb0ELb0ELm1EEEE4viewEv")]
 	[DemangledName("__llvm_libc_20_1_2_::IntegerToString<int, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::view() const &")]
-	public unsafe static Struct_kqhe8i IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_view_const(IntegerToString_exzmu4* @this)
+	public unsafe static Struct_kqhe8i IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_view_const(IntegerToString_bz5c8a* @this)
 	{
 		return LlvmLibC.GlobalFunctions.IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_view_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayIcLm11EE4dataEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<char, 11ul>::data() const")]
-	public unsafe static void* cpp_array_char_11ul_data_const(cpp_array_be88n4* @this)
+	public unsafe static void* cpp_array_char_11ul_data_const(cpp_array_sbzi9g* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_char_11ul_data_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp5arrayIcLm11EE4sizeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<char, 11ul>::size() const")]
-	public unsafe static long cpp_array_char_11ul_size_const(cpp_array_be88n4* @this)
+	public unsafe static long cpp_array_char_11ul_size_const(cpp_array_sbzi9g* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_char_11ul_size_const.Invoke(@this);
 	}
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_15IntegerToStringIiNS_7details3FmtILh10ELb0ELb0ELb0ELm1EEEE4sizeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::IntegerToString<int, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::size() const")]
-	public unsafe static long IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_size_const(IntegerToString_exzmu4* @this)
+	public unsafe static long IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_size_const(IntegerToString_bz5c8a* @this)
 	{
 		return LlvmLibC.GlobalFunctions.IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_size_const.Invoke(@this);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp4spanIcEC2IcLm11ETnNS0_9enable_ifIX15is_compatible_vIT_EEbE4typeELb1EEERNS0_5arrayIS5_XT0_EEE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::span<char>::span<char, 11ul, true>(__llvm_libc_20_1_2_::cpp::array<char, 11ul>&)")]
-	public unsafe static void cpp_span_char_span_char_11ul_true_cpp_array_char_11ul(cpp_string_view* @this, cpp_array_be88n4* arr)
+	public unsafe static void cpp_span_char_span_char_11ul_true_cpp_array_char_11ul(cpp_string_view* @this, cpp_array_sbzi9g* arr)
 	{
 		LlvmLibC.GlobalFunctions.cpp_span_char_span_char_11ul_true_cpp_array_char_11ul.Invoke(@this, arr);
 	}
@@ -27511,11 +27511,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.IntegerToString_int_details_Fmt_unsigned_char_10_false_false_false_1ul_IntegerWriter_digit_char_unsigned_char.Invoke(digit);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15int_to_b36_charEi.187")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::int_to_b36_char(int) (.187)")]
-	public static int internal_int_to_b36_char_int_187(int num)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15int_to_b36_charEi.189")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::int_to_b36_char(int) (.189)")]
+	public static int internal_int_to_b36_char_int_189(int num)
 	{
-		return LlvmLibC.GlobalFunctions.internal_int_to_b36_char_int_187.Invoke(num);
+		return LlvmLibC.GlobalFunctions.internal_int_to_b36_char_int_189.Invoke(num);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8bit_castIjiEENS0_9enable_ifIXaaaaaaeqstT_stT0_sr3cpp26is_trivially_constructibleIS3_EE5valuesr3cpp21is_trivially_copyableIS3_EE5valuesr3cpp21is_trivially_copyableIS4_EE5valueES3_E4typeERKS4_")]
@@ -27527,7 +27527,7 @@ public static partial class LibC
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp5arrayIcLm11EE4dataEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<char, 11ul>::data()")]
-	public unsafe static void* cpp_array_char_11ul_data(cpp_array_be88n4* @this)
+	public unsafe static void* cpp_array_char_11ul_data(cpp_array_sbzi9g* @this)
 	{
 		return LlvmLibC.GlobalFunctions.cpp_array_char_11ul_data.Invoke(@this);
 	}
@@ -27550,7 +27550,7 @@ public static partial class LibC
 	[DemangledName("llvm.threadlocal.address.p0")]
 	public unsafe static void* llvm_threadlocal_address_p0(void* parameter_0)
 	{
-		return LlvmLibC.Intrinsics.Unimplemented.llvm_threadlocal_address_p0.Invoke(parameter_0);
+		return LlvmLibC.Intrinsics.Implemented.llvm_threadlocal_address_p0.Invoke(parameter_0);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_17get_signal_stringEiNS_3cpp4spanIcEE")]
@@ -27562,9 +27562,9 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_13MessageMapperILm32ELm487EE7get_strEi")]
 	[DemangledName("__llvm_libc_20_1_2_::MessageMapper<32ul, 487ul>::get_str(int) const")]
-	public unsafe static cpp_optional_q73pcj MessageMapper_32ul_487ul_get_str_int_const(MessageMapper_f6bdqy* @this, int num)
+	public unsafe static cpp_optional_bnt67x MessageMapper_32ul_487ul_get_str_int_const(MessageMapper_f6bdqy* @this, int num)
 	{
-		cpp_optional_q73pcj result = default(cpp_optional_q73pcj);
+		cpp_optional_bnt67x result = default(cpp_optional_bnt67x);
 		LlvmLibC.GlobalFunctions.MessageMapper_32ul_487ul_get_str_int_const.Invoke(&result, @this, num);
 		return result;
 	}
@@ -27649,11 +27649,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.strrchr.Invoke(src, c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL22strrchr_implementationEPKci.190")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::strrchr_implementation(char const*, int) (.190)")]
-	public unsafe static void* internal_strrchr_implementation_char_const_int_190(void* src, int c)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL22strrchr_implementationEPKci.192")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::strrchr_implementation(char const*, int) (.192)")]
+	public unsafe static void* internal_strrchr_implementation_char_const_int_192(void* src, int c)
 	{
-		return LlvmLibC.GlobalFunctions.internal_strrchr_implementation_char_const_int_190.Invoke(src, c);
+		return LlvmLibC.GlobalFunctions.internal_strrchr_implementation_char_const_int_192.Invoke(src, c);
 	}
 
 	public unsafe static void* strpbrk(void* src, void* breakset)
@@ -27839,18 +27839,18 @@ public static partial class LibC
 
 	[MangledName("_ZNK19__llvm_libc_20_1_2_13MessageMapperILm134ELm3113EE7get_strEi")]
 	[DemangledName("__llvm_libc_20_1_2_::MessageMapper<134ul, 3113ul>::get_str(int) const")]
-	public unsafe static cpp_optional_q73pcj MessageMapper_134ul_3113ul_get_str_int_const(MessageMapper_76ei55* @this, int num)
+	public unsafe static cpp_optional_bnt67x MessageMapper_134ul_3113ul_get_str_int_const(MessageMapper_8a2hs7* @this, int num)
 	{
-		cpp_optional_q73pcj result = default(cpp_optional_q73pcj);
+		cpp_optional_bnt67x result = default(cpp_optional_bnt67x);
 		LlvmLibC.GlobalFunctions.MessageMapper_134ul_3113ul_get_str_int_const.Invoke(&result, @this, num);
 		return result;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_18try_get_errno_nameEi")]
 	[DemangledName("__llvm_libc_20_1_2_::try_get_errno_name(int)")]
-	public unsafe static cpp_optional_q73pcj try_get_errno_name_int(int err_num)
+	public unsafe static cpp_optional_bnt67x try_get_errno_name_int(int err_num)
 	{
-		cpp_optional_q73pcj result = default(cpp_optional_q73pcj);
+		cpp_optional_bnt67x result = default(cpp_optional_bnt67x);
 		LlvmLibC.GlobalFunctions.try_get_errno_name_int.Invoke(&result, err_num);
 		return result;
 	}
@@ -27918,11 +27918,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.strchr.Invoke(src, c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL21strchr_implementationILb1EEEPcPKci.198")]
-	[DemangledName("char* __llvm_libc_20_1_2_::internal::strchr_implementation<true>(char const*, int) (.198)")]
-	public unsafe static void* char_internal_strchr_implementation_true_char_const_int_198(void* src, int c)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL21strchr_implementationILb1EEEPcPKci.200")]
+	[DemangledName("char* __llvm_libc_20_1_2_::internal::strchr_implementation<true>(char const*, int) (.200)")]
+	public unsafe static void* char_internal_strchr_implementation_true_char_const_int_200(void* src, int c)
 	{
-		return LlvmLibC.GlobalFunctions.char_internal_strchr_implementation_true_char_const_int_198.Invoke(src, c);
+		return LlvmLibC.GlobalFunctions.char_internal_strchr_implementation_true_char_const_int_200.Invoke(src, c);
 	}
 
 	public unsafe static void* strcat(void* dest, void* src)
@@ -27956,11 +27956,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.strcasestr_impl_char_const_char_const_0_operator_char_char_const.Invoke(@this, a, b);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.199")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.199)")]
-	public static int internal_tolower_int_199(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.201")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.201)")]
+	public static int internal_tolower_int_201(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_tolower_int_199.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_tolower_int_201.Invoke(ch);
 	}
 
 	public unsafe static void* stpncpy(void* dest, void* src, long n)
@@ -27968,42 +27968,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.stpncpy.Invoke(dest, src, n);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L12inline_bzeroEPvm.200")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_bzero(void*, unsigned long) (.200)")]
-	public unsafe static void inline_bzero_void_unsigned_long_200(void* dst, long count)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L12inline_bzeroEPvm.202")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_bzero(void*, unsigned long) (.202)")]
+	public unsafe static void inline_bzero_void_unsigned_long_202(void* dst, long count)
 	{
-		LlvmLibC.GlobalFunctions.inline_bzero_void_unsigned_long_200.Invoke(dst, count);
+		LlvmLibC.GlobalFunctions.inline_bzero_void_unsigned_long_202.Invoke(dst, count);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_L12inline_bzeroEPNS_3cpp4byteEm.201")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_bzero(__llvm_libc_20_1_2_::cpp::byte*, unsigned long) (.201)")]
-	public unsafe static void inline_bzero_cpp_byte_unsigned_long_201(void* dst, long count)
+	[MangledName("_ZN19__llvm_libc_20_1_2_L12inline_bzeroEPNS_3cpp4byteEm.203")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_bzero(__llvm_libc_20_1_2_::cpp::byte*, unsigned long) (.203)")]
+	public unsafe static void inline_bzero_cpp_byte_unsigned_long_203(void* dst, long count)
 	{
-		LlvmLibC.GlobalFunctions.inline_bzero_cpp_byte_unsigned_long_201.Invoke(dst, count);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.202")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_memset(void*, unsigned char, unsigned long) (.202)")]
-	public unsafe static void inline_memset_void_unsigned_char_unsigned_long_202(void* dst, sbyte value, long count)
-	{
-		LlvmLibC.GlobalFunctions.inline_memset_void_unsigned_char_unsigned_long_202.Invoke(dst, value, count);
-	}
-
-	[MangledName("_ZN19__llvm_libc_20_1_2_L17inline_memset_x86EPNS_3cpp4byteEhm.203")]
-	[DemangledName("__llvm_libc_20_1_2_::inline_memset_x86(__llvm_libc_20_1_2_::cpp::byte*, unsigned char, unsigned long) (.203)")]
-	public unsafe static void inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_203(void* dst, sbyte value, long count)
-	{
-		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_203.Invoke(dst, value, count);
-	}
-
-	public unsafe static void* stpcpy(void* dest, void* src)
-	{
-		return LlvmLibC.GlobalFunctions.stpcpy.Invoke(dest, src);
-	}
-
-	public unsafe static void* memset_explicit(void* dst, int value, long count)
-	{
-		return LlvmLibC.GlobalFunctions.memset_explicit.Invoke(dst, value, count);
+		LlvmLibC.GlobalFunctions.inline_bzero_cpp_byte_unsigned_long_203.Invoke(dst, count);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.204")]
@@ -28020,9 +27996,14 @@ public static partial class LibC
 		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_205.Invoke(dst, value, count);
 	}
 
-	public unsafe static void* memset(void* dst, int value, long count)
+	public unsafe static void* stpcpy(void* dest, void* src)
 	{
-		return LlvmLibC.GlobalFunctions.memset.Invoke(dst, value, count);
+		return LlvmLibC.GlobalFunctions.stpcpy.Invoke(dest, src);
+	}
+
+	public unsafe static void* memset_explicit(void* dst, int value, long count)
+	{
+		return LlvmLibC.GlobalFunctions.memset_explicit.Invoke(dst, value, count);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.206")]
@@ -28037,6 +28018,25 @@ public static partial class LibC
 	public unsafe static void inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_207(void* dst, sbyte value, long count)
 	{
 		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_207.Invoke(dst, value, count);
+	}
+
+	public unsafe static void* memset(void* dst, int value, long count)
+	{
+		return LlvmLibC.GlobalFunctions.memset.Invoke(dst, value, count);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_L13inline_memsetEPvhm.208")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_memset(void*, unsigned char, unsigned long) (.208)")]
+	public unsafe static void inline_memset_void_unsigned_char_unsigned_long_208(void* dst, sbyte value, long count)
+	{
+		LlvmLibC.GlobalFunctions.inline_memset_void_unsigned_char_unsigned_long_208.Invoke(dst, value, count);
+	}
+
+	[MangledName("_ZN19__llvm_libc_20_1_2_L17inline_memset_x86EPNS_3cpp4byteEhm.209")]
+	[DemangledName("__llvm_libc_20_1_2_::inline_memset_x86(__llvm_libc_20_1_2_::cpp::byte*, unsigned char, unsigned long) (.209)")]
+	public unsafe static void inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_209(void* dst, sbyte value, long count)
+	{
+		LlvmLibC.GlobalFunctions.inline_memset_x86_cpp_byte_unsigned_char_unsigned_long_209.Invoke(dst, value, count);
 	}
 
 	public unsafe static void* memrchr(void* src, int c, long n)
@@ -28589,11 +28589,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.toupper.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7toupperEi.219")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::toupper(int) (.219)")]
-	public static int internal_toupper_int_219(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7toupperEi.221")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::toupper(int) (.221)")]
+	public static int internal_toupper_int_221(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_toupper_int_219.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_toupper_int_221.Invoke(ch);
 	}
 
 	public static int tolower(int c)
@@ -28601,11 +28601,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.tolower.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.220")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.220)")]
-	public static int internal_tolower_int_220(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7tolowerEi.222")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::tolower(int) (.222)")]
+	public static int internal_tolower_int_222(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_tolower_int_220.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_tolower_int_222.Invoke(ch);
 	}
 
 	public static int toascii(int c)
@@ -28618,18 +28618,18 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.isxdigit.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.221")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.221)")]
-	public static bool internal_isalnum_int_221(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.223")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.223)")]
+	public static bool internal_isalnum_int_223(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_221.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_223.Invoke(ch);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.222")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.222)")]
-	public static int internal_b36_char_to_int_int_222(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL15b36_char_to_intEi.224")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::b36_char_to_int(int) (.224)")]
+	public static int internal_b36_char_to_int_int_224(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_222.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_b36_char_to_int_int_224.Invoke(ch);
 	}
 
 	public static int isupper(int c)
@@ -28637,11 +28637,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.isupper.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isupperEi.223")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isupper(int) (.223)")]
-	public static bool internal_isupper_int_223(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isupperEi.225")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isupper(int) (.225)")]
+	public static bool internal_isupper_int_225(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isupper_int_223.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isupper_int_225.Invoke(ch);
 	}
 
 	public static int isspace(int c)
@@ -28649,11 +28649,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.isspace.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isspaceEi.224")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isspace(int) (.224)")]
-	public static bool internal_isspace_int_224(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isspaceEi.226")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isspace(int) (.226)")]
+	public static bool internal_isspace_int_226(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isspace_int_224.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isspace_int_226.Invoke(ch);
 	}
 
 	public static int ispunct(int c)
@@ -28661,11 +28661,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.ispunct.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.225")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.225)")]
-	public static bool internal_isalnum_int_225(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.227")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.227)")]
+	public static bool internal_isalnum_int_227(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_225.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_227.Invoke(ch);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isgraphEi")]
@@ -28685,11 +28685,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.islower.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7islowerEi.226")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::islower(int) (.226)")]
-	public static bool internal_islower_int_226(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7islowerEi.228")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::islower(int) (.228)")]
+	public static bool internal_islower_int_228(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_islower_int_226.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_islower_int_228.Invoke(ch);
 	}
 
 	public static int isgraph(int c)
@@ -28697,11 +28697,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.isgraph.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isgraphEi.227")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isgraph(int) (.227)")]
-	public static bool internal_isgraph_int_227(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isgraphEi.229")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isgraph(int) (.229)")]
+	public static bool internal_isgraph_int_229(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isgraph_int_227.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isgraph_int_229.Invoke(ch);
 	}
 
 	public static int isdigit(int c)
@@ -28709,11 +28709,11 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.isdigit.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.228")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.228)")]
-	public static bool internal_isdigit_int_228(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isdigitEi.230")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isdigit(int) (.230)")]
+	public static bool internal_isdigit_int_230(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isdigit_int_228.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isdigit_int_230.Invoke(ch);
 	}
 
 	public static int iscntrl(int c)
@@ -28748,10 +28748,10 @@ public static partial class LibC
 		return LlvmLibC.GlobalFunctions.isalnum.Invoke(c);
 	}
 
-	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.229")]
-	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.229)")]
-	public static bool internal_isalnum_int_229(int ch)
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internalL7isalnumEi.231")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::isalnum(int) (.231)")]
+	public static bool internal_isalnum_int_231(int ch)
 	{
-		return LlvmLibC.GlobalFunctions.internal_isalnum_int_229.Invoke(ch);
+		return LlvmLibC.GlobalFunctions.internal_isalnum_int_231.Invoke(ch);
 	}
 }

@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 16)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_11printf_core6WriterE")]
 [MangledName("class.__llvm_libc_20_1_2_::printf_core::Writer")]
 [DemangledName("__llvm_libc_20_1_2_::printf_core::Writer")]
 public partial struct printf_core_Writer

@@ -9,6 +9,6 @@ internal static partial class StrToNumResult_long_double_operator_long_double
 {
 	public unsafe static double Invoke(void* @this)
 	{
-		return unchecked((StrToNumResult_6sg7zz*)@this)->value;
+		return unchecked((StrToNumResult_uytq62*)@this)->value;
 	}
 }

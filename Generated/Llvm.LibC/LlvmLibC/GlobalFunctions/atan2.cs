@@ -202,7 +202,7 @@ internal static partial class atan2
 					*(double*)(&numberPair9) = double.NaN;
 					((double*)(&numberPair9))[1] = double.NaN;
 					llvm_memcpy_p0_p0_i64.Invoke(&numberPair9, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref Unsafe.AddByteOffset(ref Unsafe.AddByteOffset(ref inlineArray3_InlineArray3_InlineArray2_NumberPair, (nint)(uint)num10 * (nint)sizeof(InlineArray3_InlineArray2_NumberPair)), (nint)(uint)num9 * (nint)sizeof(InlineArray2_NumberPair)), (((b & 1) == 1) ? ((nint)1) : ((nint)0)) * (nint)sizeof(NumberPair))), 16L, isVolatile: false);
-					result = fputil_multiply_add_double_double_double.Invoke(Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (((b2 & 1) == 1) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double))), numberPair9.hi, Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (((b2 & 1) == 1) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double))) * numberPair9.lo);
+					result = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (((b2 & 1) == 1) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double))), numberPair9.hi, Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (((b2 & 1) == 1) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double))) * numberPair9.lo);
 					num23 = 1;
 					llvm_lifetime_end_p0.Invoke(16L, &numberPair9);
 				}
@@ -263,7 +263,7 @@ internal static partial class atan2
 			num12 = num6 - num5;
 			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num12 > 54u, expected: false))
 			{
-				result = fputil_multiply_add_double_double_double.Invoke(num11, numberPair10.hi, num11 * (numberPair10.lo + num7 / num8));
+				result = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num11, numberPair10.hi, num11 * (numberPair10.lo + num7 / num8));
 			}
 			else
 			{

@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [CleanName("BigInt_64ul_false_unsigned_long_operator_unsigned_long")]
 internal static partial class BigInt_64ul_false_unsigned_long_operator_unsigned_long_d49ii6
 {
-	public unsafe static BigInt_nx6qdt* Invoke(BigInt_nx6qdt* @this, long s)
+	public unsafe static BigInt_555ggs* Invoke(BigInt_555ggs* @this, long s)
 	{
 		cpp_array_rpgxvv cpp_array_rpgxvv2 = default(cpp_array_rpgxvv);
 		cpp_array_rpgxvv cpp_array_rpgxvv3 = default(cpp_array_rpgxvv);

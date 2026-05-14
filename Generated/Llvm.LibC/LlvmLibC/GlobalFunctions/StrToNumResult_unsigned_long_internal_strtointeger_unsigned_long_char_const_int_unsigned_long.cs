@@ -10,7 +10,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::StrToNumResult<unsigned long> __llvm_libc_20_1_2_::internal::strtointeger<unsigned long>(char const*, int, unsigned long)")]
 internal static partial class StrToNumResult_unsigned_long_internal_strtointeger_unsigned_long_char_const_int_unsigned_long
 {
-	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_aztiru* agg_result, void* src, int @base, long src_len)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_gbeb3a* agg_result, void* src, int @base, long src_len)
 	{
 		long num = 0L;
 		sbyte b = 0;

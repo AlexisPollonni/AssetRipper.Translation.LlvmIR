@@ -1,5 +1,4 @@
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
-using LlvmLibC.Intrinsics.Unimplemented;
 
 namespace LlvmLibC.GlobalFunctions;
 
@@ -9,6 +8,6 @@ internal static partial class double_fputil_fma_double_double_double_double_doub
 {
 	public static double Invoke(double x, double y, double z)
 	{
-		return llvm_fma_f64.Invoke(x, y, z);
+		return cpp_enable_if_cpp_is_floating_point_v_double_cpp_is_floating_point_v_double_sizeof_double_sizeof_double_double_type_fputil_generic_fma_double_double_double_double_double.Invoke(x, y, z);
 	}
 }

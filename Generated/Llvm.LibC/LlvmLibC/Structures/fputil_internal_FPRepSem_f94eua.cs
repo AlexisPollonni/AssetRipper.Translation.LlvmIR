@@ -4,6 +4,7 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 16)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE3ENS0_6FPBitsIgEEEE")]
 [MangledName("struct.__llvm_libc_20_1_2_::fputil::internal::FPRepSem")]
 [DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem")]
 [CleanName("fputil_internal_FPRepSem")]

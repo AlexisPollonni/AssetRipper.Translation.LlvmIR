@@ -11,8 +11,8 @@ internal static partial class cpp_optional_cpp_string_view_optional_cpp_string_v
 	{
 		unchecked
 		{
-			cpp_optional_cpp_string_view_OptionalStorage_cpp_string_view_false_OptionalStorage_cpp_string_view_cpp_in_place_t_cpp_string_view.Invoke(&((cpp_optional_q73pcj*)@this)->storage, cpp_remove_reference_cpp_string_view_type_cpp_move_cpp_string_view_cpp_string_view.Invoke(t));
-			((cpp_optional_q73pcj*)@this)->storage.in_use = 1;
+			cpp_optional_cpp_string_view_OptionalStorage_cpp_string_view_false_OptionalStorage_cpp_string_view_cpp_in_place_t_cpp_string_view.Invoke(&((cpp_optional_bnt67x*)@this)->storage, cpp_remove_reference_cpp_string_view_type_cpp_move_cpp_string_view_cpp_string_view.Invoke(t));
+			((cpp_optional_bnt67x*)@this)->storage.in_use = 1;
 		}
 	}
 }

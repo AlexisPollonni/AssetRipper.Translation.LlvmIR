@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 144)]
+[MangledName("_ZTS4stat")]
 [MangledName("struct.stat")]
 public partial struct stat
 {

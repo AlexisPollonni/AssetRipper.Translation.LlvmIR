@@ -11,7 +11,7 @@ internal static partial class fputil_ExceptValues_float_6ul_lookup_unsigned_int_
 {
 	public unsafe static long Invoke(void* @this, int x_bits)
 	{
-		cpp_optional_89h55j cpp_optional_89h55j2 = default(cpp_optional_89h55j);
+		cpp_optional_xmxtsi cpp_optional_xmxtsi2 = default(cpp_optional_xmxtsi);
 		long num = 0L;
 		int num2 = 0;
 		float num3 = 0f;
@@ -28,27 +28,27 @@ internal static partial class fputil_ExceptValues_float_6ul_lookup_unsigned_int_
 					num4 = 2;
 					break;
 				}
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(x_bits == ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_x9e5i2*)@this)->values))[num].input, expected: false))
+				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(x_bits == ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_7xi2jk*)@this)->values))[num].input, expected: false))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &num2);
-					num2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_x9e5i2*)@this)->values))[num].rnd_towardzero_result;
+					num2 = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_7xi2jk*)@this)->values))[num].rnd_towardzero_result;
 					switch (fputil_quick_get_round.Invoke())
 					{
 					case 2048:
 					{
-						int rnd_upward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_x9e5i2*)@this)->values))[num].rnd_upward_offset;
+						int rnd_upward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_7xi2jk*)@this)->values))[num].rnd_upward_offset;
 						num2 += rnd_upward_offset;
 						break;
 					}
 					case 1024:
 					{
-						int rnd_downward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_x9e5i2*)@this)->values))[num].rnd_downward_offset;
+						int rnd_downward_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_7xi2jk*)@this)->values))[num].rnd_downward_offset;
 						num2 += rnd_downward_offset;
 						break;
 					}
 					case 0:
 					{
-						int rnd_tonearest_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_x9e5i2*)@this)->values))[num].rnd_tonearest_offset;
+						int rnd_tonearest_offset = ((fputil_ExceptValues_float_6_Mapping*)(&((fputil_ExceptValues_7xi2jk*)@this)->values))[num].rnd_tonearest_offset;
 						num2 += rnd_tonearest_offset;
 						break;
 					}
@@ -57,7 +57,7 @@ internal static partial class fputil_ExceptValues_float_6ul_lookup_unsigned_int_
 					llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 					fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs2, num2);
 					num3 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2);
-					cpp_optional_float_optional_float.Invoke(&cpp_optional_89h55j2, &num3);
+					cpp_optional_float_optional_float.Invoke(&cpp_optional_xmxtsi2, &num3);
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 					llvm_lifetime_end_p0.Invoke(4L, &num3);
 					num4 = 1;
@@ -77,9 +77,9 @@ internal static partial class fputil_ExceptValues_float_6ul_lookup_unsigned_int_
 			}
 			else
 			{
-				cpp_optional_float_optional_cpp_nullopt_t.Invoke(&cpp_optional_89h55j2);
+				cpp_optional_float_optional_cpp_nullopt_t.Invoke(&cpp_optional_xmxtsi2);
 			}
-			return *(long*)(&cpp_optional_89h55j2.storage);
+			return *(long*)(&cpp_optional_xmxtsi2.storage);
 		}
 	}
 }

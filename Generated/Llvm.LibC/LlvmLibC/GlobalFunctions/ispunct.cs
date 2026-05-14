@@ -9,7 +9,7 @@ internal static partial class ispunct
 		int ch = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &ch);
 		ch = c;
-		bool result = !internal_isalnum_int_225.Invoke(ch) && internal_isgraph_int.Invoke(ch);
+		bool result = !internal_isalnum_int_227.Invoke(ch) && internal_isgraph_int.Invoke(ch);
 		llvm_lifetime_end_p0.Invoke(4L, &ch);
 		return result ? 1 : 0;
 	}

@@ -10,7 +10,7 @@ internal static partial class cpp_optional_BigInt_16512ul_false_unsigned_long_Op
 {
 	public unsafe static void Invoke(cpp_optional_BigInt_16512_false_OptionalStorage* @this, void* args)
 	{
-		llvm_memcpy_p0_p0_i64.Invoke(&@this->field, BigInt_16512ul_false_unsigned_long_cpp_forward_BigInt_16512ul_false_unsigned_long_cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type.Invoke(unchecked((BigInt_k36xhe*)args)), 2064L, isVolatile: false);
+		llvm_memcpy_p0_p0_i64.Invoke(&@this->field, BigInt_16512ul_false_unsigned_long_cpp_forward_BigInt_16512ul_false_unsigned_long_cpp_remove_reference_BigInt_16512ul_false_unsigned_long_type.Invoke(unchecked((BigInt_q8g275*)args)), 2064L, isVolatile: false);
 		@this->in_use = 0;
 	}
 }

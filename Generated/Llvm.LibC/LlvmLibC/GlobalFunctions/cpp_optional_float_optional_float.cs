@@ -7,7 +7,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::cpp::optional<float>::optional(float&&)")]
 internal static partial class cpp_optional_float_optional_float
 {
-	public unsafe static void Invoke(cpp_optional_89h55j* @this, void* t)
+	public unsafe static void Invoke(cpp_optional_xmxtsi* @this, void* t)
 	{
 		cpp_optional_float_OptionalStorage_float_false_OptionalStorage_float_cpp_in_place_t_float.Invoke(&@this->storage, cpp_remove_reference_float_type_cpp_move_float_float.Invoke(t));
 		@this->storage.in_use = 1;

@@ -32,7 +32,7 @@ internal static partial class anonymous_namespace_exp10_f128_double_double_int_i
 		fputil_DyadicFloat_kt2kd4 fputil_DyadicFloat_kt2kd20 = default(fputil_DyadicFloat_kt2kd4);
 		fputil_DyadicFloat_kt2kd4 fputil_DyadicFloat_kt2kd21 = default(fputil_DyadicFloat_kt2kd4);
 		llvm_lifetime_start_p0.Invoke(8L, &x2);
-		x2 = fputil_multiply_add_double_double_double.Invoke(kd, -7.349365128561658E-05, x);
+		x2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(kd, -7.349365128561658E-05, x);
 		llvm_lifetime_start_p0.Invoke(8L, &x3);
 		x3 = kd * 4.649201285808973E-16;
 		llvm_lifetime_start_p0.Invoke(8L, &x4);

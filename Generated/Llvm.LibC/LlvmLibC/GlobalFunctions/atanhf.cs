@@ -79,7 +79,7 @@ internal static partial class atanhf
 					x2 = num2 * num2;
 					llvm_lifetime_start_p0.Invoke(8L, &y);
 					y = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double_double_double_double_double_double_double.Invoke(x2, 0.0, 1.0 / 3.0, 0.2, 1.0 / 7.0, 1.0 / 9.0, 1.0 / 11.0);
-					result = (float)fputil_multiply_add_double_double_double.Invoke(num2, y, num2);
+					result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, y, num2);
 					llvm_lifetime_end_p0.Invoke(8L, &y);
 					llvm_lifetime_end_p0.Invoke(8L, &x2);
 					llvm_lifetime_end_p0.Invoke(8L, &num2);

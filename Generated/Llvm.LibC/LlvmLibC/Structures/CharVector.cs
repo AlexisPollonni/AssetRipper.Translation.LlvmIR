@@ -5,6 +5,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 88)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_10CharVectorE")]
 [MangledName("class.__llvm_libc_20_1_2_::CharVector")]
 [DemangledName("__llvm_libc_20_1_2_::CharVector")]
 public partial struct CharVector

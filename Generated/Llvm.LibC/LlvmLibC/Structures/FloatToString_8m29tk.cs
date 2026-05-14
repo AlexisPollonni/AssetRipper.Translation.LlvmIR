@@ -6,6 +6,7 @@ using LlvmLibC.InlineArrays;
 namespace LlvmLibC.Structures;
 
 [StructLayout(LayoutKind.Explicit, Size = 4320)]
+[MangledName("_ZTSN19__llvm_libc_20_1_2_13FloatToStringIeLi0EEE")]
 [MangledName("class.__llvm_libc_20_1_2_::FloatToString")]
 [DemangledName("__llvm_libc_20_1_2_::FloatToString")]
 [CleanName("FloatToString")]
@@ -24,7 +25,7 @@ public partial struct FloatToString_8m29tk
 	public Int128 mantissa;
 
 	[FieldOffset(48)]
-	public BigInt_k36xhe float_as_fixed;
+	public BigInt_q8g275 float_as_fixed;
 
 	[FieldOffset(2112)]
 	public int int_block_index;

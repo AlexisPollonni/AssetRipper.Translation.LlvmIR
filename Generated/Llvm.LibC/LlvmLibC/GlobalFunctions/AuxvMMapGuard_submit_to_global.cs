@@ -28,8 +28,8 @@ internal static partial class AuxvMMapGuard_submit_to_global
 			}
 			else
 			{
-				auxv.Value = ((anon_589mcc*)@this)->field_0;
-				((anon_589mcc*)@this)->field_0 = (void*)ulong.MaxValue;
+				auxv.Value = ((anon_5uk363*)@this)->field_0;
+				((anon_5uk363*)@this)->field_0 = (void*)ulong.MaxValue;
 				num3 = 0;
 			}
 			llvm_lifetime_end_p0.Invoke(4L, &num);

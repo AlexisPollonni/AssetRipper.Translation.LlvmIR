@@ -9,7 +9,7 @@ namespace LlvmLibC.GlobalFunctions;
 [DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::is_zero() const")]
 internal static partial class BigInt_32ul_false_unsigned_int_is_zero_const
 {
-	public unsafe static bool Invoke(BigInt_fzjdu3* @this)
+	public unsafe static bool Invoke(BigInt_vtm4cw* @this)
 	{
 		bool result = false;
 		void* ptr = null;
@@ -22,9 +22,9 @@ internal static partial class BigInt_32ul_false_unsigned_int_is_zero_const
 			ptr = (void*)12297829382473034410uL;
 			ptr = &@this->val;
 			llvm_lifetime_start_p0.Invoke(8L, &ptr2);
-			ptr2 = cpp_array_unsigned_int_1ul_begin_const.Invoke((cpp_array_aj48id*)ptr);
+			ptr2 = cpp_array_unsigned_int_1ul_begin_const.Invoke((cpp_array_2v7m9i*)ptr);
 			llvm_lifetime_start_p0.Invoke(8L, &ptr3);
-			ptr3 = cpp_array_unsigned_int_1ul_end_const.Invoke((cpp_array_aj48id*)ptr);
+			ptr3 = cpp_array_unsigned_int_1ul_end_const.Invoke((cpp_array_2v7m9i*)ptr);
 			int num2;
 			while (true)
 			{
