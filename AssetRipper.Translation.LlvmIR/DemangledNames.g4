@@ -1,7 +1,11 @@
 grammar DemangledNames;
 
 function
-    : functionPrefix functionReturnType CallingConvention functionDeclaringScope functionName LeftParen functionParameters RightParen functionSuffix
+    : functionPrefix functionReturnType callingConvention functionDeclaringScope functionName LeftParen functionParameters RightParen functionSuffix
+    ;
+
+callingConvention
+    : CallingConvention?
     ;
 
 functionPrefix
@@ -9,7 +13,7 @@ functionPrefix
     ;
 
 functionSuffix
-    : Const?
+    : Const? (And | AndAnd)? (LeftParen Dot Number RightParen)?
     ;
 
 functionReturnType
@@ -21,23 +25,55 @@ functionDeclaringScope
     ;
 
 functionParameter
-    : type Const? And?
+    : type (Const | Restrict)* (And | AndAnd | Star)*
     ;
 
 functionParameters
     : functionParameter (Comma functionParameter)*
-    | 
+    |
     ;
 
 templateParameter
-    : type Const? And?
-    | Number
+    : LeftParen parenBoolExpr RightParen  // parenthesized condition: (sizeof(T) > 8ul)
+    | boolTemplateExpr
+    | Minus? Number
+    | LeftParen type RightParen Minus? Number  // C-style cast: (unsigned char)0
+    ;
+
+// Used inside parens: allows bare > (no template-close ambiguity)
+parenBoolExpr
+    : parenAtomExpr ((AndAnd | PipePipe) parenAtomExpr)*
+    ;
+
+parenAtomExpr
+    : Exclamation? simpleTemplateArg (relationalOperator simpleTemplateArg)?
+    ;
+
+boolTemplateExpr
+    : templateAtomExpr ((AndAnd | PipePipe) templateAtomExpr)*
+    ;
+
+templateAtomExpr
+    : Exclamation? simpleTemplateArg (templateRelationalOperator simpleTemplateArg)?
+    ;
+
+templateRelationalOperator
+    : Less Equals?
+    | Greater Equals  // >= only; bare > would conflict with template closing >
+    | Equals Equals
+    | Exclamation Equals
+    ;
+
+simpleTemplateArg
+    : Sizeof LeftParen type RightParen
+    | Minus? Number
+    | type Const? (And | Star)*
     ;
 
 template
     : Less templateParameter (Comma templateParameter)* Greater
     | Less Greater
-    | 
+    |
     ;
 
 templateNotNull
@@ -54,8 +90,12 @@ functionName
 identifier
     : Identifier
     | EscapedString
+    | SingleQuoteString
     | AccessModifier
+    | Auto
     | CallingConvention
+    | Complex
+    | Double
     | NewOrDelete
     | TypeKeyword
     | Bool
@@ -64,14 +104,18 @@ identifier
     | Float
     | Int
     | Int64
+    | Int128
     | Long
     | Operator
+    | Restrict
     | Short
     | Signed
     | Static
     | Unsigned
+    | Vector
     | Virtual
     | Void
+    | AnonymousNamespace
     ;
 
 functionIdentifier
@@ -81,17 +125,22 @@ functionIdentifier
     ;
 
 type
-    : TypeKeyword? qualifiedTypeIdentifier Const? (Star | And)*
+    : TypeKeyword? qualifiedTypeIdentifier Const? (Star | And | AndAnd)*
+    | TypeKeyword? qualifiedTypeIdentifier Const? (Star | And | AndAnd)* Vector LeftBracket Number RightBracket (Const | Star | And)*  // SIMD vector: T vector[N]
     | type LeftParen Star Const RightParen LeftBracket Number RightBracket // constant array reference
     | type LeftParen And RightParen LeftBracket Number RightBracket // mutable array reference
     | type LeftBracket Number RightBracket // array type
-    | type LeftParen CallingConvention Star RightParen LeftParen functionParameters RightParen // function pointer type
+    | type Vector LeftBracket Number RightBracket // recursive SIMD vector: cpp::array<T,N> vector[M]
+    | type LeftParen CallingConvention? Star Const? RightParen LeftParen functionParameters RightParen // function pointer type
+    | type LeftParen CallingConvention? And RightParen LeftParen functionParameters RightParen // function reference type
     ;
 
 typeIdentifier
     : Void
+    | Auto
     | DeclTypeAuto
     | numericType
+    | AnonymousNamespace
     | identifier+ template
     | Less identifier+ Greater
     | Less identifier (Minus identifier)* Greater
@@ -99,12 +148,16 @@ typeIdentifier
 
 qualifiedTypeIdentifier
     : qualifiedTypeIdentifier Colon Colon typeIdentifier
+    | qualifiedTypeIdentifier Colon Colon SingleQuoteString LeftParen functionParameters RightParen  // lambda type scope: ::'lambda'(params)
+    | qualifiedTypeIdentifier Colon Colon typeIdentifier LeftParen functionParameters RightParen     // function-call scope with optional template: ::funcname<T>(params)
     | typeIdentifier
     ;
 
 numericType
     : Bool
-    | Float
+    | Float Complex?
+    | Double Complex?
+    | Long Double Complex?
     | Unsigned integerType
     | Signed integerType
     | integerType
@@ -115,6 +168,7 @@ integerType
     | Short
     | Int
     | Int64
+    | Int128
     | Long Long
     | Long
     ;
@@ -126,7 +180,7 @@ operator
 operatorName
     : NewOrDelete LeftBracket RightBracket
     | NewOrDelete
-    | numericType
+    | type  // conversion operators (handles operator T, operator T<T>, etc.)
     | shiftOperator Equals?
     | arithmeticOperator Equals?
     | logicalOperator Equals?
@@ -135,8 +189,11 @@ operatorName
     | Equals
     | Plus Plus
     | Minus Minus
+    | Minus Greater Star  // ->* dereference
+    | Minus Greater       // -> arrow operator
     | LeftBracket RightBracket
     | LeftParen RightParen
+    | DoubleQuote DoubleQuote identifier  // user-defined literal: operator"" _suffix
     ;
 
 arithmeticOperator
@@ -155,7 +212,9 @@ relationalOperator
     ;
 
 logicalOperator
-    : And
+    : AndAnd
+    | And
+    | PipePipe
     | Pipe
     | Caret
     | Tilde
@@ -170,10 +229,18 @@ EscapedString
     : '`' ~[']* '\''
     ;
 
+SingleQuoteString
+    : '\'' ~[']+ '\''
+    ;
+
 AccessModifier
     : 'public'
     | 'protected'
     | 'private'
+    ;
+
+Auto
+    : 'auto'
     ;
 
 CallingConvention
@@ -185,9 +252,18 @@ CallingConvention
     | '__vectorcall'
     ;
 
+Complex
+    : 'complex'
+    | '_Complex'
+    ;
+
 NewOrDelete
     : 'new'
     | 'delete'
+    ;
+
+Sizeof
+    : 'sizeof'
     ;
 
 TypeKeyword
@@ -213,6 +289,10 @@ DeclTypeAuto
     : 'decltype(auto)'
     ;
 
+Double
+    : 'double'
+    ;
+
 Float
     : 'float'
     ;
@@ -225,12 +305,20 @@ Int64
     : '__int64'
     ;
 
+Int128
+    : '__int128'
+    ;
+
 Long
     : 'long'
     ;
 
 Operator
     : 'operator'
+    ;
+
+Restrict
+    : 'restrict'
     ;
 
 Short
@@ -249,12 +337,28 @@ Unsigned
     : 'unsigned'
     ;
 
+Vector
+    : 'vector'
+    ;
+
 Virtual
     : 'virtual'
     ;
 
 Void
     : 'void'
+    ;
+
+AnonymousNamespace
+    : '(anonymous namespace)'
+    ;
+
+AndAnd
+    : '&&'
+    ;
+
+PipePipe
+    : '||'
     ;
 
 LeftParen
@@ -325,6 +429,10 @@ Comma
     : ','
     ;
 
+Dot
+    : '.'
+    ;
+
 BackTick
     : '`'
     ;
@@ -358,8 +466,17 @@ Identifier
     ;
 
 Number
-    : NonZeroDigit (Digit)*
-    | '0'
+    : NonZeroDigit Digit* IntSuffix?
+    | '0' HexNumber? IntSuffix?
+    ;
+
+fragment HexNumber
+    : ('x' | 'X') HexadecimalDigit+
+    ;
+
+fragment IntSuffix
+    : [uU] [lL]? [lL]?   // u, ul, ull
+    | [lL] [lL]? [uU]?   // l, ll, lu, llu
     ;
 
 fragment IdentifierNondigit
@@ -369,7 +486,7 @@ fragment IdentifierNondigit
     ;
 
 fragment Nondigit
-    : [a-zA-Z_]
+    : [a-zA-Z_$]
     ;
 
 fragment Digit

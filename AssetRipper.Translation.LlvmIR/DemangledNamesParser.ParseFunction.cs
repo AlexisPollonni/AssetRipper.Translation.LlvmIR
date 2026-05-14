@@ -17,6 +17,27 @@ public partial class DemangledNamesParser
 		return parser.function();
 	}
 
+	/// <summary>
+	/// Returns true if the given demangled name is a known unstructured LLVM pseudo-name
+	/// that cannot be expressed as a C++ function signature (e.g. TLS wrapper stubs).
+	/// </summary>
+	private static bool IsKnownUnparseable(string input)
+	{
+		// e.g. "thread-local wrapper routine for __llvm_libc_20_1_2_::internal::signal_buffer"
+		if (input.StartsWith("thread-local ", StringComparison.Ordinal))
+			return true;
+		// e.g. "non-virtual thunk to Foo::bar()"
+		if (input.StartsWith("non-virtual thunk to ", StringComparison.Ordinal))
+			return true;
+		// e.g. "virtual thunk to Foo::bar()"
+		if (input.StartsWith("virtual thunk to ", StringComparison.Ordinal))
+			return true;
+		// e.g. "covariant return thunk to Foo::bar()"
+		if (input.StartsWith("covariant return thunk to ", StringComparison.Ordinal))
+			return true;
+		return false;
+	}
+
 	public static bool ParseFunction(
 		string input,
 		out string? returnType,
@@ -28,6 +49,19 @@ public partial class DemangledNamesParser
 		[NotNullWhen(true)] out string[]? normalParameters
 	)
 	{
+		// Short-circuit for well-known patterns that are not C++ function signatures.
+		if (IsKnownUnparseable(input))
+		{
+			returnType = null;
+			@namespace = null;
+			typeName = null;
+			functionIdentifier = null;
+			functionName = null;
+			templateParameters = null;
+			normalParameters = null;
+			return false;
+		}
+
 		IParseTree tree = ParseFunction(input);
 
 		if (

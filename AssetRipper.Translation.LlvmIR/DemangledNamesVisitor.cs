@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from e:/repos/AssetRipper.Translation.LlvmIR/AssetRipper.Translation.LlvmIR/DemangledNames.g4 by ANTLR 4.13.1
+// Generated from DemangledNames.g4 by ANTLR 4.13.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -38,6 +38,12 @@ public interface IDemangledNamesVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitFunction([NotNull] DemangledNamesParser.FunctionContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DemangledNamesParser.callingConvention"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitCallingConvention([NotNull] DemangledNamesParser.CallingConventionContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DemangledNamesParser.functionPrefix"/>.
 	/// </summary>
@@ -80,6 +86,42 @@ public interface IDemangledNamesVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitTemplateParameter([NotNull] DemangledNamesParser.TemplateParameterContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DemangledNamesParser.parenBoolExpr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitParenBoolExpr([NotNull] DemangledNamesParser.ParenBoolExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DemangledNamesParser.parenAtomExpr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitParenAtomExpr([NotNull] DemangledNamesParser.ParenAtomExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DemangledNamesParser.boolTemplateExpr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBoolTemplateExpr([NotNull] DemangledNamesParser.BoolTemplateExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DemangledNamesParser.templateAtomExpr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTemplateAtomExpr([NotNull] DemangledNamesParser.TemplateAtomExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DemangledNamesParser.templateRelationalOperator"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTemplateRelationalOperator([NotNull] DemangledNamesParser.TemplateRelationalOperatorContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="DemangledNamesParser.simpleTemplateArg"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitSimpleTemplateArg([NotNull] DemangledNamesParser.SimpleTemplateArgContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="DemangledNamesParser.template"/>.
 	/// </summary>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from e:/repos/AssetRipper.Translation.LlvmIR/AssetRipper.Translation.LlvmIR/DemangledNames.g4 by ANTLR 4.13.1
+// Generated from DemangledNames.g4 by ANTLR 4.13.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -37,49 +37,58 @@ public partial class DemangledNamesParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		T__0=1, EscapedString=2, AccessModifier=3, CallingConvention=4, NewOrDelete=5, 
-		TypeKeyword=6, Bool=7, Char=8, Const=9, DeclTypeAuto=10, Float=11, Int=12, 
-		Int64=13, Long=14, Operator=15, Short=16, Signed=17, Static=18, Unsigned=19, 
-		Virtual=20, Void=21, LeftParen=22, RightParen=23, Less=24, Greater=25, 
-		Equals=26, Plus=27, Minus=28, Star=29, Slash=30, Modulo=31, And=32, Pipe=33, 
-		Caret=34, Tilde=35, Exclamation=36, Colon=37, Comma=38, BackTick=39, SingleQuote=40, 
-		DoubleQuote=41, LeftBrace=42, RightBrace=43, LeftBracket=44, RightBracket=45, 
-		Identifier=46, Number=47, Whitespace=48, Newline=49;
+		T__0=1, EscapedString=2, SingleQuoteString=3, AccessModifier=4, Auto=5, 
+		CallingConvention=6, Complex=7, NewOrDelete=8, Sizeof=9, TypeKeyword=10, 
+		Bool=11, Char=12, Const=13, DeclTypeAuto=14, Double=15, Float=16, Int=17, 
+		Int64=18, Int128=19, Long=20, Operator=21, Restrict=22, Short=23, Signed=24, 
+		Static=25, Unsigned=26, Vector=27, Virtual=28, Void=29, AnonymousNamespace=30, 
+		AndAnd=31, PipePipe=32, LeftParen=33, RightParen=34, Less=35, Greater=36, 
+		Equals=37, Plus=38, Minus=39, Star=40, Slash=41, Modulo=42, And=43, Pipe=44, 
+		Caret=45, Tilde=46, Exclamation=47, Colon=48, Comma=49, Dot=50, BackTick=51, 
+		SingleQuote=52, DoubleQuote=53, LeftBrace=54, RightBrace=55, LeftBracket=56, 
+		RightBracket=57, Identifier=58, Number=59, Whitespace=60, Newline=61;
 	public const int
-		RULE_function = 0, RULE_functionPrefix = 1, RULE_functionSuffix = 2, RULE_functionReturnType = 3, 
-		RULE_functionDeclaringScope = 4, RULE_functionParameter = 5, RULE_functionParameters = 6, 
-		RULE_templateParameter = 7, RULE_template = 8, RULE_templateNotNull = 9, 
-		RULE_functionName = 10, RULE_identifier = 11, RULE_functionIdentifier = 12, 
-		RULE_type = 13, RULE_typeIdentifier = 14, RULE_qualifiedTypeIdentifier = 15, 
-		RULE_numericType = 16, RULE_integerType = 17, RULE_operator = 18, RULE_operatorName = 19, 
-		RULE_arithmeticOperator = 20, RULE_relationalOperator = 21, RULE_logicalOperator = 22, 
-		RULE_shiftOperator = 23;
+		RULE_function = 0, RULE_callingConvention = 1, RULE_functionPrefix = 2, 
+		RULE_functionSuffix = 3, RULE_functionReturnType = 4, RULE_functionDeclaringScope = 5, 
+		RULE_functionParameter = 6, RULE_functionParameters = 7, RULE_templateParameter = 8, 
+		RULE_parenBoolExpr = 9, RULE_parenAtomExpr = 10, RULE_boolTemplateExpr = 11, 
+		RULE_templateAtomExpr = 12, RULE_templateRelationalOperator = 13, RULE_simpleTemplateArg = 14, 
+		RULE_template = 15, RULE_templateNotNull = 16, RULE_functionName = 17, 
+		RULE_identifier = 18, RULE_functionIdentifier = 19, RULE_type = 20, RULE_typeIdentifier = 21, 
+		RULE_qualifiedTypeIdentifier = 22, RULE_numericType = 23, RULE_integerType = 24, 
+		RULE_operator = 25, RULE_operatorName = 26, RULE_arithmeticOperator = 27, 
+		RULE_relationalOperator = 28, RULE_logicalOperator = 29, RULE_shiftOperator = 30;
 	public static readonly string[] ruleNames = {
-		"function", "functionPrefix", "functionSuffix", "functionReturnType", 
+		"function", "callingConvention", "functionPrefix", "functionSuffix", "functionReturnType", 
 		"functionDeclaringScope", "functionParameter", "functionParameters", "templateParameter", 
-		"template", "templateNotNull", "functionName", "identifier", "functionIdentifier", 
-		"type", "typeIdentifier", "qualifiedTypeIdentifier", "numericType", "integerType", 
-		"operator", "operatorName", "arithmeticOperator", "relationalOperator", 
-		"logicalOperator", "shiftOperator"
+		"parenBoolExpr", "parenAtomExpr", "boolTemplateExpr", "templateAtomExpr", 
+		"templateRelationalOperator", "simpleTemplateArg", "template", "templateNotNull", 
+		"functionName", "identifier", "functionIdentifier", "type", "typeIdentifier", 
+		"qualifiedTypeIdentifier", "numericType", "integerType", "operator", "operatorName", 
+		"arithmeticOperator", "relationalOperator", "logicalOperator", "shiftOperator"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'_Static'", null, null, null, null, null, "'bool'", "'char'", "'const'", 
-		"'decltype(auto)'", "'float'", "'int'", "'__int64'", "'long'", "'operator'", 
-		"'short'", "'signed'", "'static'", "'unsigned'", "'virtual'", "'void'", 
-		"'('", "')'", "'<'", "'>'", "'='", "'+'", "'-'", "'*'", "'/'", "'%'", 
-		"'&'", "'|'", "'^'", "'~'", "'!'", "':'", "','", "'`'", "'''", "'\"'", 
-		"'{'", "'}'", "'['", "']'"
+		null, "'_Static'", null, null, null, "'auto'", null, null, null, "'sizeof'", 
+		null, "'bool'", "'char'", "'const'", "'decltype(auto)'", "'double'", "'float'", 
+		"'int'", "'__int64'", "'__int128'", "'long'", "'operator'", "'restrict'", 
+		"'short'", "'signed'", "'static'", "'unsigned'", "'vector'", "'virtual'", 
+		"'void'", "'(anonymous namespace)'", "'&&'", "'||'", "'('", "')'", "'<'", 
+		"'>'", "'='", "'+'", "'-'", "'*'", "'/'", "'%'", "'&'", "'|'", "'^'", 
+		"'~'", "'!'", "':'", "','", "'.'", "'`'", "'''", "'\"'", "'{'", "'}'", 
+		"'['", "']'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, "EscapedString", "AccessModifier", "CallingConvention", "NewOrDelete", 
-		"TypeKeyword", "Bool", "Char", "Const", "DeclTypeAuto", "Float", "Int", 
-		"Int64", "Long", "Operator", "Short", "Signed", "Static", "Unsigned", 
-		"Virtual", "Void", "LeftParen", "RightParen", "Less", "Greater", "Equals", 
-		"Plus", "Minus", "Star", "Slash", "Modulo", "And", "Pipe", "Caret", "Tilde", 
-		"Exclamation", "Colon", "Comma", "BackTick", "SingleQuote", "DoubleQuote", 
-		"LeftBrace", "RightBrace", "LeftBracket", "RightBracket", "Identifier", 
-		"Number", "Whitespace", "Newline"
+		null, null, "EscapedString", "SingleQuoteString", "AccessModifier", "Auto", 
+		"CallingConvention", "Complex", "NewOrDelete", "Sizeof", "TypeKeyword", 
+		"Bool", "Char", "Const", "DeclTypeAuto", "Double", "Float", "Int", "Int64", 
+		"Int128", "Long", "Operator", "Restrict", "Short", "Signed", "Static", 
+		"Unsigned", "Vector", "Virtual", "Void", "AnonymousNamespace", "AndAnd", 
+		"PipePipe", "LeftParen", "RightParen", "Less", "Greater", "Equals", "Plus", 
+		"Minus", "Star", "Slash", "Modulo", "And", "Pipe", "Caret", "Tilde", "Exclamation", 
+		"Colon", "Comma", "Dot", "BackTick", "SingleQuote", "DoubleQuote", "LeftBrace", 
+		"RightBrace", "LeftBracket", "RightBracket", "Identifier", "Number", "Whitespace", 
+		"Newline"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -120,7 +129,9 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public FunctionReturnTypeContext functionReturnType() {
 			return GetRuleContext<FunctionReturnTypeContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CallingConvention() { return GetToken(DemangledNamesParser.CallingConvention, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public CallingConventionContext callingConvention() {
+			return GetRuleContext<CallingConventionContext>(0);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public FunctionDeclaringScopeContext functionDeclaringScope() {
 			return GetRuleContext<FunctionDeclaringScopeContext>(0);
 		}
@@ -165,24 +176,79 @@ public partial class DemangledNamesParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 48;
+			State = 62;
 			functionPrefix();
-			State = 49;
+			State = 63;
 			functionReturnType();
-			State = 50;
-			Match(CallingConvention);
-			State = 51;
+			State = 64;
+			callingConvention();
+			State = 65;
 			functionDeclaringScope();
-			State = 52;
+			State = 66;
 			functionName();
-			State = 53;
+			State = 67;
 			Match(LeftParen);
-			State = 54;
+			State = 68;
 			functionParameters();
-			State = 55;
+			State = 69;
 			Match(RightParen);
-			State = 56;
+			State = 70;
 			functionSuffix();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class CallingConventionContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CallingConvention() { return GetToken(DemangledNamesParser.CallingConvention, 0); }
+		public CallingConventionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_callingConvention; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.EnterCallingConvention(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.ExitCallingConvention(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDemangledNamesVisitor<TResult> typedVisitor = visitor as IDemangledNamesVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCallingConvention(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public CallingConventionContext callingConvention() {
+		CallingConventionContext _localctx = new CallingConventionContext(Context, State);
+		EnterRule(_localctx, 2, RULE_callingConvention);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 73;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,0,Context) ) {
+			case 1:
+				{
+				State = 72;
+				Match(CallingConvention);
+				}
+				break;
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -227,29 +293,29 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionPrefixContext functionPrefix() {
 		FunctionPrefixContext _localctx = new FunctionPrefixContext(Context, State);
-		EnterRule(_localctx, 2, RULE_functionPrefix);
+		EnterRule(_localctx, 4, RULE_functionPrefix);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 60;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,0,Context) ) {
-			case 1:
-				{
-				State = 58;
-				Match(AccessModifier);
-				State = 59;
-				Match(Colon);
-				}
-				break;
-			}
-			State = 63;
+			State = 77;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,1,Context) ) {
 			case 1:
 				{
-				State = 62;
+				State = 75;
+				Match(AccessModifier);
+				State = 76;
+				Match(Colon);
+				}
+				break;
+			}
+			State = 80;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,2,Context) ) {
+			case 1:
+				{
+				State = 79;
 				_la = TokenStream.LA(1);
 				if ( !(_la==Static || _la==Virtual) ) {
 				ErrorHandler.RecoverInline(this);
@@ -276,6 +342,12 @@ public partial class DemangledNamesParser : Parser {
 
 	public partial class FunctionSuffixContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Const() { return GetToken(DemangledNamesParser.Const, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftParen() { return GetToken(DemangledNamesParser.LeftParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Dot() { return GetToken(DemangledNamesParser.Dot, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Number() { return GetToken(DemangledNamesParser.Number, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightParen() { return GetToken(DemangledNamesParser.RightParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode And() { return GetToken(DemangledNamesParser.And, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AndAnd() { return GetToken(DemangledNamesParser.AndAnd, 0); }
 		public FunctionSuffixContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -302,18 +374,51 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionSuffixContext functionSuffix() {
 		FunctionSuffixContext _localctx = new FunctionSuffixContext(Context, State);
-		EnterRule(_localctx, 4, RULE_functionSuffix);
+		EnterRule(_localctx, 6, RULE_functionSuffix);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 66;
+			State = 83;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==Const) {
 				{
-				State = 65;
+				State = 82;
 				Match(Const);
+				}
+			}
+
+			State = 86;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==AndAnd || _la==And) {
+				{
+				State = 85;
+				_la = TokenStream.LA(1);
+				if ( !(_la==AndAnd || _la==And) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				}
+			}
+
+			State = 92;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==LeftParen) {
+				{
+				State = 88;
+				Match(LeftParen);
+				State = 89;
+				Match(Dot);
+				State = 90;
+				Match(Number);
+				State = 91;
+				Match(RightParen);
 				}
 			}
 
@@ -360,16 +465,16 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionReturnTypeContext functionReturnType() {
 		FunctionReturnTypeContext _localctx = new FunctionReturnTypeContext(Context, State);
-		EnterRule(_localctx, 6, RULE_functionReturnType);
+		EnterRule(_localctx, 8, RULE_functionReturnType);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 69;
+			State = 95;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,3,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,6,Context) ) {
 			case 1:
 				{
-				State = 68;
+				State = 94;
 				type(0);
 				}
 				break;
@@ -421,20 +526,20 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionDeclaringScopeContext functionDeclaringScope() {
 		FunctionDeclaringScopeContext _localctx = new FunctionDeclaringScopeContext(Context, State);
-		EnterRule(_localctx, 8, RULE_functionDeclaringScope);
+		EnterRule(_localctx, 10, RULE_functionDeclaringScope);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 75;
+			State = 101;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,4,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,7,Context) ) {
 			case 1:
 				{
-				State = 71;
+				State = 97;
 				qualifiedTypeIdentifier(0);
-				State = 72;
+				State = 98;
 				Match(Colon);
-				State = 73;
+				State = 99;
 				Match(Colon);
 				}
 				break;
@@ -456,8 +561,26 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Const() { return GetToken(DemangledNamesParser.Const, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode And() { return GetToken(DemangledNamesParser.And, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Const() { return GetTokens(DemangledNamesParser.Const); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Const(int i) {
+			return GetToken(DemangledNamesParser.Const, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Restrict() { return GetTokens(DemangledNamesParser.Restrict); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Restrict(int i) {
+			return GetToken(DemangledNamesParser.Restrict, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] And() { return GetTokens(DemangledNamesParser.And); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode And(int i) {
+			return GetToken(DemangledNamesParser.And, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AndAnd() { return GetTokens(DemangledNamesParser.AndAnd); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AndAnd(int i) {
+			return GetToken(DemangledNamesParser.AndAnd, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Star() { return GetTokens(DemangledNamesParser.Star); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Star(int i) {
+			return GetToken(DemangledNamesParser.Star, i);
+		}
 		public FunctionParameterContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -484,33 +607,55 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionParameterContext functionParameter() {
 		FunctionParameterContext _localctx = new FunctionParameterContext(Context, State);
-		EnterRule(_localctx, 10, RULE_functionParameter);
+		EnterRule(_localctx, 12, RULE_functionParameter);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 77;
+			State = 103;
 			type(0);
-			State = 79;
+			State = 107;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if (_la==Const) {
+			while (_la==Const || _la==Restrict) {
 				{
-				State = 78;
-				Match(Const);
+				{
+				State = 104;
+				_la = TokenStream.LA(1);
+				if ( !(_la==Const || _la==Restrict) ) {
+				ErrorHandler.RecoverInline(this);
 				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				}
+				}
+				State = 109;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
 			}
-
-			State = 82;
+			State = 113;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if (_la==And) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9897752133632L) != 0)) {
 				{
-				State = 81;
-				Match(And);
+				{
+				State = 110;
+				_la = TokenStream.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9897752133632L) != 0)) ) {
+				ErrorHandler.RecoverInline(this);
 				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				}
+				}
+				State = 115;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
 			}
-
 			}
 		}
 		catch (RecognitionException re) {
@@ -561,51 +706,59 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionParametersContext functionParameters() {
 		FunctionParametersContext _localctx = new FunctionParametersContext(Context, State);
-		EnterRule(_localctx, 12, RULE_functionParameters);
+		EnterRule(_localctx, 14, RULE_functionParameters);
 		int _la;
 		try {
-			State = 93;
+			State = 125;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case EscapedString:
+			case SingleQuoteString:
 			case AccessModifier:
+			case Auto:
 			case CallingConvention:
+			case Complex:
 			case NewOrDelete:
 			case TypeKeyword:
 			case Bool:
 			case Char:
 			case Const:
 			case DeclTypeAuto:
+			case Double:
 			case Float:
 			case Int:
 			case Int64:
+			case Int128:
 			case Long:
 			case Operator:
+			case Restrict:
 			case Short:
 			case Signed:
 			case Static:
 			case Unsigned:
+			case Vector:
 			case Virtual:
 			case Void:
+			case AnonymousNamespace:
 			case Less:
 			case Identifier:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 84;
+				State = 116;
 				functionParameter();
-				State = 89;
+				State = 121;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==Comma) {
 					{
 					{
-					State = 85;
+					State = 117;
 					Match(Comma);
-					State = 86;
+					State = 118;
 					functionParameter();
 					}
 					}
-					State = 91;
+					State = 123;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
@@ -632,12 +785,19 @@ public partial class DemangledNamesParser : Parser {
 	}
 
 	public partial class TemplateParameterContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftParen() { return GetToken(DemangledNamesParser.LeftParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ParenBoolExprContext parenBoolExpr() {
+			return GetRuleContext<ParenBoolExprContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightParen() { return GetToken(DemangledNamesParser.RightParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public BoolTemplateExprContext boolTemplateExpr() {
+			return GetRuleContext<BoolTemplateExprContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Number() { return GetToken(DemangledNamesParser.Number, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Minus() { return GetToken(DemangledNamesParser.Minus, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Const() { return GetToken(DemangledNamesParser.Const, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode And() { return GetToken(DemangledNamesParser.And, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Number() { return GetToken(DemangledNamesParser.Number, 0); }
 		public TemplateParameterContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -664,65 +824,654 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public TemplateParameterContext templateParameter() {
 		TemplateParameterContext _localctx = new TemplateParameterContext(Context, State);
-		EnterRule(_localctx, 14, RULE_templateParameter);
+		EnterRule(_localctx, 16, RULE_templateParameter);
 		int _la;
 		try {
-			State = 103;
+			State = 144;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,14,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 127;
+				Match(LeftParen);
+				State = 128;
+				parenBoolExpr();
+				State = 129;
+				Match(RightParen);
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 131;
+				boolTemplateExpr();
+				}
+				break;
+			case 3:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 133;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==Minus) {
+					{
+					State = 132;
+					Match(Minus);
+					}
+				}
+
+				State = 135;
+				Match(Number);
+				}
+				break;
+			case 4:
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 136;
+				Match(LeftParen);
+				State = 137;
+				type(0);
+				State = 138;
+				Match(RightParen);
+				State = 140;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==Minus) {
+					{
+					State = 139;
+					Match(Minus);
+					}
+				}
+
+				State = 142;
+				Match(Number);
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ParenBoolExprContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ParenAtomExprContext[] parenAtomExpr() {
+			return GetRuleContexts<ParenAtomExprContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ParenAtomExprContext parenAtomExpr(int i) {
+			return GetRuleContext<ParenAtomExprContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AndAnd() { return GetTokens(DemangledNamesParser.AndAnd); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AndAnd(int i) {
+			return GetToken(DemangledNamesParser.AndAnd, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] PipePipe() { return GetTokens(DemangledNamesParser.PipePipe); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PipePipe(int i) {
+			return GetToken(DemangledNamesParser.PipePipe, i);
+		}
+		public ParenBoolExprContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_parenBoolExpr; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.EnterParenBoolExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.ExitParenBoolExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDemangledNamesVisitor<TResult> typedVisitor = visitor as IDemangledNamesVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParenBoolExpr(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ParenBoolExprContext parenBoolExpr() {
+		ParenBoolExprContext _localctx = new ParenBoolExprContext(Context, State);
+		EnterRule(_localctx, 18, RULE_parenBoolExpr);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 146;
+			parenAtomExpr();
+			State = 151;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			while (_la==AndAnd || _la==PipePipe) {
+				{
+				{
+				State = 147;
+				_la = TokenStream.LA(1);
+				if ( !(_la==AndAnd || _la==PipePipe) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 148;
+				parenAtomExpr();
+				}
+				}
+				State = 153;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ParenAtomExprContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public SimpleTemplateArgContext[] simpleTemplateArg() {
+			return GetRuleContexts<SimpleTemplateArgContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public SimpleTemplateArgContext simpleTemplateArg(int i) {
+			return GetRuleContext<SimpleTemplateArgContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Exclamation() { return GetToken(DemangledNamesParser.Exclamation, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public RelationalOperatorContext relationalOperator() {
+			return GetRuleContext<RelationalOperatorContext>(0);
+		}
+		public ParenAtomExprContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_parenAtomExpr; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.EnterParenAtomExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.ExitParenAtomExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDemangledNamesVisitor<TResult> typedVisitor = visitor as IDemangledNamesVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParenAtomExpr(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ParenAtomExprContext parenAtomExpr() {
+		ParenAtomExprContext _localctx = new ParenAtomExprContext(Context, State);
+		EnterRule(_localctx, 20, RULE_parenAtomExpr);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 155;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==Exclamation) {
+				{
+				State = 154;
+				Match(Exclamation);
+				}
+			}
+
+			State = 157;
+			simpleTemplateArg();
+			State = 161;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 140978006523904L) != 0)) {
+				{
+				State = 158;
+				relationalOperator();
+				State = 159;
+				simpleTemplateArg();
+				}
+			}
+
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BoolTemplateExprContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public TemplateAtomExprContext[] templateAtomExpr() {
+			return GetRuleContexts<TemplateAtomExprContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public TemplateAtomExprContext templateAtomExpr(int i) {
+			return GetRuleContext<TemplateAtomExprContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AndAnd() { return GetTokens(DemangledNamesParser.AndAnd); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AndAnd(int i) {
+			return GetToken(DemangledNamesParser.AndAnd, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] PipePipe() { return GetTokens(DemangledNamesParser.PipePipe); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PipePipe(int i) {
+			return GetToken(DemangledNamesParser.PipePipe, i);
+		}
+		public BoolTemplateExprContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_boolTemplateExpr; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.EnterBoolTemplateExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.ExitBoolTemplateExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDemangledNamesVisitor<TResult> typedVisitor = visitor as IDemangledNamesVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBoolTemplateExpr(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BoolTemplateExprContext boolTemplateExpr() {
+		BoolTemplateExprContext _localctx = new BoolTemplateExprContext(Context, State);
+		EnterRule(_localctx, 22, RULE_boolTemplateExpr);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 163;
+			templateAtomExpr();
+			State = 168;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			while (_la==AndAnd || _la==PipePipe) {
+				{
+				{
+				State = 164;
+				_la = TokenStream.LA(1);
+				if ( !(_la==AndAnd || _la==PipePipe) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 165;
+				templateAtomExpr();
+				}
+				}
+				State = 170;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class TemplateAtomExprContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public SimpleTemplateArgContext[] simpleTemplateArg() {
+			return GetRuleContexts<SimpleTemplateArgContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public SimpleTemplateArgContext simpleTemplateArg(int i) {
+			return GetRuleContext<SimpleTemplateArgContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Exclamation() { return GetToken(DemangledNamesParser.Exclamation, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public TemplateRelationalOperatorContext templateRelationalOperator() {
+			return GetRuleContext<TemplateRelationalOperatorContext>(0);
+		}
+		public TemplateAtomExprContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_templateAtomExpr; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.EnterTemplateAtomExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.ExitTemplateAtomExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDemangledNamesVisitor<TResult> typedVisitor = visitor as IDemangledNamesVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateAtomExpr(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public TemplateAtomExprContext templateAtomExpr() {
+		TemplateAtomExprContext _localctx = new TemplateAtomExprContext(Context, State);
+		EnterRule(_localctx, 24, RULE_templateAtomExpr);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 172;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==Exclamation) {
+				{
+				State = 171;
+				Match(Exclamation);
+				}
+			}
+
+			State = 174;
+			simpleTemplateArg();
+			State = 178;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
+			case 1:
+				{
+				State = 175;
+				templateRelationalOperator();
+				State = 176;
+				simpleTemplateArg();
+				}
+				break;
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class TemplateRelationalOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Less() { return GetToken(DemangledNamesParser.Less, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Equals() { return GetTokens(DemangledNamesParser.Equals); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Equals(int i) {
+			return GetToken(DemangledNamesParser.Equals, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Greater() { return GetToken(DemangledNamesParser.Greater, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Exclamation() { return GetToken(DemangledNamesParser.Exclamation, 0); }
+		public TemplateRelationalOperatorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_templateRelationalOperator; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.EnterTemplateRelationalOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.ExitTemplateRelationalOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDemangledNamesVisitor<TResult> typedVisitor = visitor as IDemangledNamesVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateRelationalOperator(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public TemplateRelationalOperatorContext templateRelationalOperator() {
+		TemplateRelationalOperatorContext _localctx = new TemplateRelationalOperatorContext(Context, State);
+		EnterRule(_localctx, 26, RULE_templateRelationalOperator);
+		int _la;
+		try {
+			State = 190;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
+			case Less:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 180;
+				Match(Less);
+				State = 182;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==Equals) {
+					{
+					State = 181;
+					Match(Equals);
+					}
+				}
+
+				}
+				break;
+			case Greater:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 184;
+				Match(Greater);
+				State = 185;
+				Match(Equals);
+				}
+				break;
+			case Equals:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 186;
+				Match(Equals);
+				State = 187;
+				Match(Equals);
+				}
+				break;
+			case Exclamation:
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 188;
+				Match(Exclamation);
+				State = 189;
+				Match(Equals);
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class SimpleTemplateArgContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Sizeof() { return GetToken(DemangledNamesParser.Sizeof, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftParen() { return GetToken(DemangledNamesParser.LeftParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public TypeContext type() {
+			return GetRuleContext<TypeContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightParen() { return GetToken(DemangledNamesParser.RightParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Number() { return GetToken(DemangledNamesParser.Number, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Minus() { return GetToken(DemangledNamesParser.Minus, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Const() { return GetToken(DemangledNamesParser.Const, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] And() { return GetTokens(DemangledNamesParser.And); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode And(int i) {
+			return GetToken(DemangledNamesParser.And, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Star() { return GetTokens(DemangledNamesParser.Star); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Star(int i) {
+			return GetToken(DemangledNamesParser.Star, i);
+		}
+		public SimpleTemplateArgContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_simpleTemplateArg; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.EnterSimpleTemplateArg(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IDemangledNamesListener typedListener = listener as IDemangledNamesListener;
+			if (typedListener != null) typedListener.ExitSimpleTemplateArg(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IDemangledNamesVisitor<TResult> typedVisitor = visitor as IDemangledNamesVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSimpleTemplateArg(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public SimpleTemplateArgContext simpleTemplateArg() {
+		SimpleTemplateArgContext _localctx = new SimpleTemplateArgContext(Context, State);
+		EnterRule(_localctx, 28, RULE_simpleTemplateArg);
+		int _la;
+		try {
+			State = 211;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case Sizeof:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 192;
+				Match(Sizeof);
+				State = 193;
+				Match(LeftParen);
+				State = 194;
+				type(0);
+				State = 195;
+				Match(RightParen);
+				}
+				break;
+			case Minus:
+			case Number:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 198;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==Minus) {
+					{
+					State = 197;
+					Match(Minus);
+					}
+				}
+
+				State = 200;
+				Match(Number);
+				}
+				break;
 			case EscapedString:
+			case SingleQuoteString:
 			case AccessModifier:
+			case Auto:
 			case CallingConvention:
+			case Complex:
 			case NewOrDelete:
 			case TypeKeyword:
 			case Bool:
 			case Char:
 			case Const:
 			case DeclTypeAuto:
+			case Double:
 			case Float:
 			case Int:
 			case Int64:
+			case Int128:
 			case Long:
 			case Operator:
+			case Restrict:
 			case Short:
 			case Signed:
 			case Static:
 			case Unsigned:
+			case Vector:
 			case Virtual:
 			case Void:
+			case AnonymousNamespace:
 			case Less:
 			case Identifier:
-				EnterOuterAlt(_localctx, 1);
+				EnterOuterAlt(_localctx, 3);
 				{
-				State = 95;
+				State = 201;
 				type(0);
-				State = 97;
+				State = 203;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==Const) {
 					{
-					State = 96;
+					State = 202;
 					Match(Const);
 					}
 				}
 
-				State = 100;
+				State = 208;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-				if (_la==And) {
+				while (_la==Star || _la==And) {
 					{
-					State = 99;
-					Match(And);
+					{
+					State = 205;
+					_la = TokenStream.LA(1);
+					if ( !(_la==Star || _la==And) ) {
+					ErrorHandler.RecoverInline(this);
 					}
+					else {
+						ErrorHandler.ReportMatch(this);
+					    Consume();
+					}
+					}
+					}
+					State = 210;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
 				}
-
-				}
-				break;
-			case Number:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 102;
-				Match(Number);
 				}
 				break;
 			default:
@@ -779,45 +1528,45 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public TemplateContext template() {
 		TemplateContext _localctx = new TemplateContext(Context, State);
-		EnterRule(_localctx, 16, RULE_template);
+		EnterRule(_localctx, 30, RULE_template);
 		int _la;
 		try {
-			State = 119;
+			State = 227;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,13,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,28,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 105;
+				State = 213;
 				Match(Less);
-				State = 106;
+				State = 214;
 				templateParameter();
-				State = 111;
+				State = 219;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==Comma) {
 					{
 					{
-					State = 107;
+					State = 215;
 					Match(Comma);
-					State = 108;
+					State = 216;
 					templateParameter();
 					}
 					}
-					State = 113;
+					State = 221;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 114;
+				State = 222;
 				Match(Greater);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 116;
+				State = 224;
 				Match(Less);
-				State = 117;
+				State = 225;
 				Match(Greater);
 				}
 				break;
@@ -878,45 +1627,45 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public TemplateNotNullContext templateNotNull() {
 		TemplateNotNullContext _localctx = new TemplateNotNullContext(Context, State);
-		EnterRule(_localctx, 18, RULE_templateNotNull);
+		EnterRule(_localctx, 32, RULE_templateNotNull);
 		int _la;
 		try {
-			State = 134;
+			State = 242;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,30,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 121;
+				State = 229;
 				Match(Less);
-				State = 122;
+				State = 230;
 				templateParameter();
-				State = 127;
+				State = 235;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==Comma) {
 					{
 					{
-					State = 123;
+					State = 231;
 					Match(Comma);
-					State = 124;
+					State = 232;
 					templateParameter();
 					}
 					}
-					State = 129;
+					State = 237;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 130;
+				State = 238;
 				Match(Greater);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 132;
+				State = 240;
 				Match(Less);
-				State = 133;
+				State = 241;
 				Match(Greater);
 				}
 				break;
@@ -974,22 +1723,22 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionNameContext functionName() {
 		FunctionNameContext _localctx = new FunctionNameContext(Context, State);
-		EnterRule(_localctx, 20, RULE_functionName);
+		EnterRule(_localctx, 34, RULE_functionName);
 		try {
-			State = 148;
+			State = 256;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,16,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,31,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 136;
+				State = 244;
 				functionIdentifier();
-				State = 137;
+				State = 245;
 				template();
 				{
-				State = 138;
+				State = 246;
 				Match(LeftBracket);
-				State = 139;
+				State = 247;
 				Match(RightBracket);
 				}
 				}
@@ -997,20 +1746,20 @@ public partial class DemangledNamesParser : Parser {
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 141;
+				State = 249;
 				functionIdentifier();
-				State = 142;
+				State = 250;
 				templateNotNull();
-				State = 143;
+				State = 251;
 				templateNotNull();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 145;
+				State = 253;
 				functionIdentifier();
-				State = 146;
+				State = 254;
 				template();
 				}
 				break;
@@ -1030,8 +1779,12 @@ public partial class DemangledNamesParser : Parser {
 	public partial class IdentifierContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Identifier() { return GetToken(DemangledNamesParser.Identifier, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EscapedString() { return GetToken(DemangledNamesParser.EscapedString, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SingleQuoteString() { return GetToken(DemangledNamesParser.SingleQuoteString, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AccessModifier() { return GetToken(DemangledNamesParser.AccessModifier, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Auto() { return GetToken(DemangledNamesParser.Auto, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CallingConvention() { return GetToken(DemangledNamesParser.CallingConvention, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Complex() { return GetToken(DemangledNamesParser.Complex, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Double() { return GetToken(DemangledNamesParser.Double, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NewOrDelete() { return GetToken(DemangledNamesParser.NewOrDelete, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TypeKeyword() { return GetToken(DemangledNamesParser.TypeKeyword, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Bool() { return GetToken(DemangledNamesParser.Bool, 0); }
@@ -1040,14 +1793,18 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Float() { return GetToken(DemangledNamesParser.Float, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Int() { return GetToken(DemangledNamesParser.Int, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Int64() { return GetToken(DemangledNamesParser.Int64, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Int128() { return GetToken(DemangledNamesParser.Int128, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Long() { return GetToken(DemangledNamesParser.Long, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Operator() { return GetToken(DemangledNamesParser.Operator, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Restrict() { return GetToken(DemangledNamesParser.Restrict, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Short() { return GetToken(DemangledNamesParser.Short, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Signed() { return GetToken(DemangledNamesParser.Signed, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Static() { return GetToken(DemangledNamesParser.Static, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Unsigned() { return GetToken(DemangledNamesParser.Unsigned, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Vector() { return GetToken(DemangledNamesParser.Vector, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Virtual() { return GetToken(DemangledNamesParser.Virtual, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Void() { return GetToken(DemangledNamesParser.Void, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AnonymousNamespace() { return GetToken(DemangledNamesParser.AnonymousNamespace, 0); }
 		public IdentifierContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1074,14 +1831,14 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public IdentifierContext identifier() {
 		IdentifierContext _localctx = new IdentifierContext(Context, State);
-		EnterRule(_localctx, 22, RULE_identifier);
+		EnterRule(_localctx, 36, RULE_identifier);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 150;
+			State = 258;
 			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 70368748370940L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 288230378299178492L) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -1142,56 +1899,56 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public FunctionIdentifierContext functionIdentifier() {
 		FunctionIdentifierContext _localctx = new FunctionIdentifierContext(Context, State);
-		EnterRule(_localctx, 24, RULE_functionIdentifier);
+		EnterRule(_localctx, 38, RULE_functionIdentifier);
 		int _la;
 		try {
-			State = 164;
+			State = 272;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,19,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,34,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 152;
+				State = 260;
 				@operator();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 154;
+				State = 262;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==Tilde) {
 					{
-					State = 153;
+					State = 261;
 					Match(Tilde);
 					}
 				}
 
-				State = 157;
+				State = 265;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				do {
 					{
 					{
-					State = 156;
+					State = 264;
 					identifier();
 					}
 					}
-					State = 159;
+					State = 267;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
-				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 70368748370940L) != 0) );
+				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 288230378299178492L) != 0) );
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 161;
+				State = 269;
 				Match(T__0);
-				State = 162;
+				State = 270;
 				Match(SingleQuote);
-				State = 163;
+				State = 271;
 				Match(SingleQuote);
 				}
 				break;
@@ -1213,7 +1970,10 @@ public partial class DemangledNamesParser : Parser {
 			return GetRuleContext<QualifiedTypeIdentifierContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TypeKeyword() { return GetToken(DemangledNamesParser.TypeKeyword, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Const() { return GetToken(DemangledNamesParser.Const, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Const() { return GetTokens(DemangledNamesParser.Const); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Const(int i) {
+			return GetToken(DemangledNamesParser.Const, i);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Star() { return GetTokens(DemangledNamesParser.Star); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Star(int i) {
 			return GetToken(DemangledNamesParser.Star, i);
@@ -1222,6 +1982,14 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode And(int i) {
 			return GetToken(DemangledNamesParser.And, i);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AndAnd() { return GetTokens(DemangledNamesParser.AndAnd); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AndAnd(int i) {
+			return GetToken(DemangledNamesParser.AndAnd, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Vector() { return GetToken(DemangledNamesParser.Vector, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftBracket() { return GetToken(DemangledNamesParser.LeftBracket, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Number() { return GetToken(DemangledNamesParser.Number, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightBracket() { return GetToken(DemangledNamesParser.RightBracket, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
@@ -1233,13 +2001,10 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightParen(int i) {
 			return GetToken(DemangledNamesParser.RightParen, i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftBracket() { return GetToken(DemangledNamesParser.LeftBracket, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Number() { return GetToken(DemangledNamesParser.Number, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightBracket() { return GetToken(DemangledNamesParser.RightBracket, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CallingConvention() { return GetToken(DemangledNamesParser.CallingConvention, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public FunctionParametersContext functionParameters() {
 			return GetRuleContext<FunctionParametersContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CallingConvention() { return GetToken(DemangledNamesParser.CallingConvention, 0); }
 		public TypeContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1273,46 +2038,98 @@ public partial class DemangledNamesParser : Parser {
 		int _parentState = State;
 		TypeContext _localctx = new TypeContext(Context, _parentState);
 		TypeContext _prevctx = _localctx;
-		int _startState = 26;
-		EnterRecursionRule(_localctx, 26, RULE_type, _p);
+		int _startState = 40;
+		EnterRecursionRule(_localctx, 40, RULE_type, _p);
 		int _la;
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			{
-			State = 168;
+			State = 311;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,42,Context) ) {
 			case 1:
 				{
-				State = 167;
-				Match(TypeKeyword);
+				State = 276;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,35,Context) ) {
+				case 1:
+					{
+					State = 275;
+					Match(TypeKeyword);
+					}
+					break;
+				}
+				State = 278;
+				qualifiedTypeIdentifier(0);
+				State = 280;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,36,Context) ) {
+				case 1:
+					{
+					State = 279;
+					Match(Const);
+					}
+					break;
+				}
+				State = 285;
+				ErrorHandler.Sync(this);
+				_alt = Interpreter.AdaptivePredict(TokenStream,37,Context);
+				while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
+					if ( _alt==1 ) {
+						{
+						{
+						State = 282;
+						_la = TokenStream.LA(1);
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9897752133632L) != 0)) ) {
+						ErrorHandler.RecoverInline(this);
+						}
+						else {
+							ErrorHandler.ReportMatch(this);
+						    Consume();
+						}
+						}
+						} 
+					}
+					State = 287;
+					ErrorHandler.Sync(this);
+					_alt = Interpreter.AdaptivePredict(TokenStream,37,Context);
+				}
 				}
 				break;
-			}
-			State = 170;
-			qualifiedTypeIdentifier(0);
-			State = 172;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,21,Context) ) {
-			case 1:
+			case 2:
 				{
-				State = 171;
-				Match(Const);
+				State = 289;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,38,Context) ) {
+				case 1:
+					{
+					State = 288;
+					Match(TypeKeyword);
+					}
+					break;
 				}
-				break;
-			}
-			State = 177;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
+				State = 291;
+				qualifiedTypeIdentifier(0);
+				State = 293;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==Const) {
+					{
+					State = 292;
+					Match(Const);
+					}
+				}
+
+				State = 298;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9897752133632L) != 0)) {
 					{
 					{
-					State = 174;
+					State = 295;
 					_la = TokenStream.LA(1);
-					if ( !(_la==Star || _la==And) ) {
+					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9897752133632L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
 					}
 					else {
@@ -1320,45 +2137,77 @@ public partial class DemangledNamesParser : Parser {
 					    Consume();
 					}
 					}
-					} 
+					}
+					State = 300;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
 				}
-				State = 179;
+				State = 301;
+				Match(Vector);
+				State = 302;
+				Match(LeftBracket);
+				State = 303;
+				Match(Number);
+				State = 304;
+				Match(RightBracket);
+				State = 308;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
-			}
+				_alt = Interpreter.AdaptivePredict(TokenStream,41,Context);
+				while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
+					if ( _alt==1 ) {
+						{
+						{
+						State = 305;
+						_la = TokenStream.LA(1);
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9895604658176L) != 0)) ) {
+						ErrorHandler.RecoverInline(this);
+						}
+						else {
+							ErrorHandler.ReportMatch(this);
+						    Consume();
+						}
+						}
+						} 
+					}
+					State = 310;
+					ErrorHandler.Sync(this);
+					_alt = Interpreter.AdaptivePredict(TokenStream,41,Context);
+				}
+				}
+				break;
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 210;
+			State = 364;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,47,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
 						TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 208;
+					State = 362;
 					ErrorHandler.Sync(this);
-					switch ( Interpreter.AdaptivePredict(TokenStream,23,Context) ) {
+					switch ( Interpreter.AdaptivePredict(TokenStream,46,Context) ) {
 					case 1:
 						{
 						_localctx = new TypeContext(_parentctx, _parentState);
 						PushNewRecursionContext(_localctx, _startState, RULE_type);
-						State = 180;
-						if (!(Precpred(Context, 4))) throw new FailedPredicateException(this, "Precpred(Context, 4)");
-						State = 181;
+						State = 313;
+						if (!(Precpred(Context, 6))) throw new FailedPredicateException(this, "Precpred(Context, 6)");
+						State = 314;
 						Match(LeftParen);
-						State = 182;
+						State = 315;
 						Match(Star);
-						State = 183;
+						State = 316;
 						Match(Const);
-						State = 184;
+						State = 317;
 						Match(RightParen);
-						State = 185;
+						State = 318;
 						Match(LeftBracket);
-						State = 186;
+						State = 319;
 						Match(Number);
-						State = 187;
+						State = 320;
 						Match(RightBracket);
 						}
 						break;
@@ -1366,19 +2215,19 @@ public partial class DemangledNamesParser : Parser {
 						{
 						_localctx = new TypeContext(_parentctx, _parentState);
 						PushNewRecursionContext(_localctx, _startState, RULE_type);
-						State = 188;
-						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
-						State = 189;
+						State = 321;
+						if (!(Precpred(Context, 5))) throw new FailedPredicateException(this, "Precpred(Context, 5)");
+						State = 322;
 						Match(LeftParen);
-						State = 190;
+						State = 323;
 						Match(And);
-						State = 191;
+						State = 324;
 						Match(RightParen);
-						State = 192;
+						State = 325;
 						Match(LeftBracket);
-						State = 193;
+						State = 326;
 						Match(Number);
-						State = 194;
+						State = 327;
 						Match(RightBracket);
 						}
 						break;
@@ -1386,13 +2235,13 @@ public partial class DemangledNamesParser : Parser {
 						{
 						_localctx = new TypeContext(_parentctx, _parentState);
 						PushNewRecursionContext(_localctx, _startState, RULE_type);
-						State = 195;
-						if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
-						State = 196;
+						State = 328;
+						if (!(Precpred(Context, 4))) throw new FailedPredicateException(this, "Precpred(Context, 4)");
+						State = 329;
 						Match(LeftBracket);
-						State = 197;
+						State = 330;
 						Match(Number);
-						State = 198;
+						State = 331;
 						Match(RightBracket);
 						}
 						break;
@@ -1400,30 +2249,94 @@ public partial class DemangledNamesParser : Parser {
 						{
 						_localctx = new TypeContext(_parentctx, _parentState);
 						PushNewRecursionContext(_localctx, _startState, RULE_type);
-						State = 199;
-						if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-						State = 200;
+						State = 332;
+						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
+						State = 333;
+						Match(Vector);
+						State = 334;
+						Match(LeftBracket);
+						State = 335;
+						Match(Number);
+						State = 336;
+						Match(RightBracket);
+						}
+						break;
+					case 5:
+						{
+						_localctx = new TypeContext(_parentctx, _parentState);
+						PushNewRecursionContext(_localctx, _startState, RULE_type);
+						State = 337;
+						if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
+						State = 338;
 						Match(LeftParen);
-						State = 201;
-						Match(CallingConvention);
-						State = 202;
+						State = 340;
+						ErrorHandler.Sync(this);
+						_la = TokenStream.LA(1);
+						if (_la==CallingConvention) {
+							{
+							State = 339;
+							Match(CallingConvention);
+							}
+						}
+
+						State = 342;
 						Match(Star);
-						State = 203;
+						State = 344;
+						ErrorHandler.Sync(this);
+						_la = TokenStream.LA(1);
+						if (_la==Const) {
+							{
+							State = 343;
+							Match(Const);
+							}
+						}
+
+						State = 346;
 						Match(RightParen);
-						State = 204;
+						State = 347;
 						Match(LeftParen);
-						State = 205;
+						State = 348;
 						functionParameters();
-						State = 206;
+						State = 349;
+						Match(RightParen);
+						}
+						break;
+					case 6:
+						{
+						_localctx = new TypeContext(_parentctx, _parentState);
+						PushNewRecursionContext(_localctx, _startState, RULE_type);
+						State = 351;
+						if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
+						State = 352;
+						Match(LeftParen);
+						State = 354;
+						ErrorHandler.Sync(this);
+						_la = TokenStream.LA(1);
+						if (_la==CallingConvention) {
+							{
+							State = 353;
+							Match(CallingConvention);
+							}
+						}
+
+						State = 356;
+						Match(And);
+						State = 357;
+						Match(RightParen);
+						State = 358;
+						Match(LeftParen);
+						State = 359;
+						functionParameters();
+						State = 360;
 						Match(RightParen);
 						}
 						break;
 					}
 					} 
 				}
-				State = 212;
+				State = 366;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,47,Context);
 			}
 			}
 		}
@@ -1440,10 +2353,12 @@ public partial class DemangledNamesParser : Parser {
 
 	public partial class TypeIdentifierContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Void() { return GetToken(DemangledNamesParser.Void, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Auto() { return GetToken(DemangledNamesParser.Auto, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DeclTypeAuto() { return GetToken(DemangledNamesParser.DeclTypeAuto, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public NumericTypeContext numericType() {
 			return GetRuleContext<NumericTypeContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AnonymousNamespace() { return GetToken(DemangledNamesParser.AnonymousNamespace, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public TemplateContext template() {
 			return GetRuleContext<TemplateContext>(0);
 		}
@@ -1485,38 +2400,52 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public TypeIdentifierContext typeIdentifier() {
 		TypeIdentifierContext _localctx = new TypeIdentifierContext(Context, State);
-		EnterRule(_localctx, 28, RULE_typeIdentifier);
+		EnterRule(_localctx, 42, RULE_typeIdentifier);
 		int _la;
 		try {
 			int _alt;
-			State = 242;
+			State = 398;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,28,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,51,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 213;
+				State = 367;
 				Match(Void);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 214;
-				Match(DeclTypeAuto);
+				State = 368;
+				Match(Auto);
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 215;
-				numericType();
+				State = 369;
+				Match(DeclTypeAuto);
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 217;
+				State = 370;
+				numericType();
+				}
+				break;
+			case 5:
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 371;
+				Match(AnonymousNamespace);
+				}
+				break;
+			case 6:
+				EnterOuterAlt(_localctx, 6);
+				{
+				State = 373;
 				ErrorHandler.Sync(this);
 				_alt = 1;
 				do {
@@ -1524,7 +2453,7 @@ public partial class DemangledNamesParser : Parser {
 					case 1:
 						{
 						{
-						State = 216;
+						State = 372;
 						identifier();
 						}
 						}
@@ -1532,61 +2461,61 @@ public partial class DemangledNamesParser : Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					State = 219;
+					State = 375;
 					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
+					_alt = Interpreter.AdaptivePredict(TokenStream,48,Context);
 				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 221;
+				State = 377;
 				template();
 				}
 				break;
-			case 5:
-				EnterOuterAlt(_localctx, 5);
+			case 7:
+				EnterOuterAlt(_localctx, 7);
 				{
-				State = 223;
+				State = 379;
 				Match(Less);
-				State = 225;
+				State = 381;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				do {
 					{
 					{
-					State = 224;
+					State = 380;
 					identifier();
 					}
 					}
-					State = 227;
+					State = 383;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
-				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 70368748370940L) != 0) );
-				State = 229;
+				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 288230378299178492L) != 0) );
+				State = 385;
 				Match(Greater);
 				}
 				break;
-			case 6:
-				EnterOuterAlt(_localctx, 6);
+			case 8:
+				EnterOuterAlt(_localctx, 8);
 				{
-				State = 231;
+				State = 387;
 				Match(Less);
-				State = 232;
+				State = 388;
 				identifier();
-				State = 237;
+				State = 393;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==Minus) {
 					{
 					{
-					State = 233;
+					State = 389;
 					Match(Minus);
-					State = 234;
+					State = 390;
 					identifier();
 					}
 					}
-					State = 239;
+					State = 395;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
-				State = 240;
+				State = 396;
 				Match(Greater);
 				}
 				break;
@@ -1614,6 +2543,12 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Colon(int i) {
 			return GetToken(DemangledNamesParser.Colon, i);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SingleQuoteString() { return GetToken(DemangledNamesParser.SingleQuoteString, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftParen() { return GetToken(DemangledNamesParser.LeftParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public FunctionParametersContext functionParameters() {
+			return GetRuleContext<FunctionParametersContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightParen() { return GetToken(DemangledNamesParser.RightParen, 0); }
 		public QualifiedTypeIdentifierContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1647,43 +2582,89 @@ public partial class DemangledNamesParser : Parser {
 		int _parentState = State;
 		QualifiedTypeIdentifierContext _localctx = new QualifiedTypeIdentifierContext(Context, _parentState);
 		QualifiedTypeIdentifierContext _prevctx = _localctx;
-		int _startState = 30;
-		EnterRecursionRule(_localctx, 30, RULE_qualifiedTypeIdentifier, _p);
+		int _startState = 44;
+		EnterRecursionRule(_localctx, 44, RULE_qualifiedTypeIdentifier, _p);
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 245;
+			State = 401;
 			typeIdentifier();
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 253;
+			State = 425;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,53,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
 						TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					{
-					_localctx = new QualifiedTypeIdentifierContext(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_qualifiedTypeIdentifier);
-					State = 247;
-					if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
-					State = 248;
-					Match(Colon);
-					State = 249;
-					Match(Colon);
-					State = 250;
-					typeIdentifier();
+					State = 423;
+					ErrorHandler.Sync(this);
+					switch ( Interpreter.AdaptivePredict(TokenStream,52,Context) ) {
+					case 1:
+						{
+						_localctx = new QualifiedTypeIdentifierContext(_parentctx, _parentState);
+						PushNewRecursionContext(_localctx, _startState, RULE_qualifiedTypeIdentifier);
+						State = 403;
+						if (!(Precpred(Context, 4))) throw new FailedPredicateException(this, "Precpred(Context, 4)");
+						State = 404;
+						Match(Colon);
+						State = 405;
+						Match(Colon);
+						State = 406;
+						typeIdentifier();
+						}
+						break;
+					case 2:
+						{
+						_localctx = new QualifiedTypeIdentifierContext(_parentctx, _parentState);
+						PushNewRecursionContext(_localctx, _startState, RULE_qualifiedTypeIdentifier);
+						State = 407;
+						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
+						State = 408;
+						Match(Colon);
+						State = 409;
+						Match(Colon);
+						State = 410;
+						Match(SingleQuoteString);
+						State = 411;
+						Match(LeftParen);
+						State = 412;
+						functionParameters();
+						State = 413;
+						Match(RightParen);
+						}
+						break;
+					case 3:
+						{
+						_localctx = new QualifiedTypeIdentifierContext(_parentctx, _parentState);
+						PushNewRecursionContext(_localctx, _startState, RULE_qualifiedTypeIdentifier);
+						State = 415;
+						if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
+						State = 416;
+						Match(Colon);
+						State = 417;
+						Match(Colon);
+						State = 418;
+						typeIdentifier();
+						State = 419;
+						Match(LeftParen);
+						State = 420;
+						functionParameters();
+						State = 421;
+						Match(RightParen);
+						}
+						break;
 					}
 					} 
 				}
-				State = 255;
+				State = 427;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,53,Context);
 			}
 			}
 		}
@@ -1701,6 +2682,9 @@ public partial class DemangledNamesParser : Parser {
 	public partial class NumericTypeContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Bool() { return GetToken(DemangledNamesParser.Bool, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Float() { return GetToken(DemangledNamesParser.Float, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Complex() { return GetToken(DemangledNamesParser.Complex, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Double() { return GetToken(DemangledNamesParser.Double, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Long() { return GetToken(DemangledNamesParser.Long, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Unsigned() { return GetToken(DemangledNamesParser.Unsigned, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public IntegerTypeContext integerType() {
 			return GetRuleContext<IntegerTypeContext>(0);
@@ -1732,56 +2716,96 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public NumericTypeContext numericType() {
 		NumericTypeContext _localctx = new NumericTypeContext(Context, State);
-		EnterRule(_localctx, 32, RULE_numericType);
+		EnterRule(_localctx, 46, RULE_numericType);
 		try {
-			State = 263;
+			State = 447;
 			ErrorHandler.Sync(this);
-			switch (TokenStream.LA(1)) {
-			case Bool:
+			switch ( Interpreter.AdaptivePredict(TokenStream,57,Context) ) {
+			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 256;
+				State = 428;
 				Match(Bool);
 				}
 				break;
-			case Float:
+			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 257;
+				State = 429;
 				Match(Float);
+				State = 431;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,54,Context) ) {
+				case 1:
+					{
+					State = 430;
+					Match(Complex);
+					}
+					break;
+				}
 				}
 				break;
-			case Unsigned:
+			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 258;
-				Match(Unsigned);
-				State = 259;
-				integerType();
+				State = 433;
+				Match(Double);
+				State = 435;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,55,Context) ) {
+				case 1:
+					{
+					State = 434;
+					Match(Complex);
+					}
+					break;
+				}
 				}
 				break;
-			case Signed:
+			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 260;
-				Match(Signed);
-				State = 261;
-				integerType();
+				State = 437;
+				Match(Long);
+				State = 438;
+				Match(Double);
+				State = 440;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,56,Context) ) {
+				case 1:
+					{
+					State = 439;
+					Match(Complex);
+					}
+					break;
+				}
 				}
 				break;
-			case Char:
-			case Int:
-			case Int64:
-			case Long:
-			case Short:
+			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 262;
+				State = 442;
+				Match(Unsigned);
+				State = 443;
 				integerType();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+			case 6:
+				EnterOuterAlt(_localctx, 6);
+				{
+				State = 444;
+				Match(Signed);
+				State = 445;
+				integerType();
+				}
+				break;
+			case 7:
+				EnterOuterAlt(_localctx, 7);
+				{
+				State = 446;
+				integerType();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -1800,6 +2824,7 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Short() { return GetToken(DemangledNamesParser.Short, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Int() { return GetToken(DemangledNamesParser.Int, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Int64() { return GetToken(DemangledNamesParser.Int64, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Int128() { return GetToken(DemangledNamesParser.Int128, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] Long() { return GetTokens(DemangledNamesParser.Long); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Long(int i) {
 			return GetToken(DemangledNamesParser.Long, i);
@@ -1830,52 +2855,59 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public IntegerTypeContext integerType() {
 		IntegerTypeContext _localctx = new IntegerTypeContext(Context, State);
-		EnterRule(_localctx, 34, RULE_integerType);
+		EnterRule(_localctx, 48, RULE_integerType);
 		try {
-			State = 272;
+			State = 457;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,31,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,58,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 265;
+				State = 449;
 				Match(Char);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 266;
+				State = 450;
 				Match(Short);
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 267;
+				State = 451;
 				Match(Int);
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 268;
+				State = 452;
 				Match(Int64);
 				}
 				break;
 			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 269;
-				Match(Long);
-				State = 270;
-				Match(Long);
+				State = 453;
+				Match(Int128);
 				}
 				break;
 			case 6:
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 271;
+				State = 454;
+				Match(Long);
+				State = 455;
+				Match(Long);
+				}
+				break;
+			case 7:
+				EnterOuterAlt(_localctx, 7);
+				{
+				State = 456;
 				Match(Long);
 				}
 				break;
@@ -1923,13 +2955,13 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public OperatorContext @operator() {
 		OperatorContext _localctx = new OperatorContext(Context, State);
-		EnterRule(_localctx, 36, RULE_operator);
+		EnterRule(_localctx, 50, RULE_operator);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 274;
+			State = 459;
 			Match(Operator);
-			State = 275;
+			State = 460;
 			operatorName();
 			}
 		}
@@ -1948,8 +2980,8 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NewOrDelete() { return GetToken(DemangledNamesParser.NewOrDelete, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftBracket() { return GetToken(DemangledNamesParser.LeftBracket, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightBracket() { return GetToken(DemangledNamesParser.RightBracket, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public NumericTypeContext numericType() {
-			return GetRuleContext<NumericTypeContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public TypeContext type() {
+			return GetRuleContext<TypeContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ShiftOperatorContext shiftOperator() {
 			return GetRuleContext<ShiftOperatorContext>(0);
@@ -1973,8 +3005,17 @@ public partial class DemangledNamesParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Minus(int i) {
 			return GetToken(DemangledNamesParser.Minus, i);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Greater() { return GetToken(DemangledNamesParser.Greater, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Star() { return GetToken(DemangledNamesParser.Star, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LeftParen() { return GetToken(DemangledNamesParser.LeftParen, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RightParen() { return GetToken(DemangledNamesParser.RightParen, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DoubleQuote() { return GetTokens(DemangledNamesParser.DoubleQuote); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DoubleQuote(int i) {
+			return GetToken(DemangledNamesParser.DoubleQuote, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
 		public OperatorNameContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2001,48 +3042,48 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public OperatorNameContext operatorName() {
 		OperatorNameContext _localctx = new OperatorNameContext(Context, State);
-		EnterRule(_localctx, 38, RULE_operatorName);
+		EnterRule(_localctx, 52, RULE_operatorName);
 		int _la;
 		try {
-			State = 305;
+			State = 498;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,35,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,62,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 277;
+				State = 462;
 				Match(NewOrDelete);
-				State = 278;
+				State = 463;
 				Match(LeftBracket);
-				State = 279;
+				State = 464;
 				Match(RightBracket);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 280;
+				State = 465;
 				Match(NewOrDelete);
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 281;
-				numericType();
+				State = 466;
+				type(0);
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 282;
+				State = 467;
 				shiftOperator();
-				State = 284;
+				State = 469;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==Equals) {
 					{
-					State = 283;
+					State = 468;
 					Match(Equals);
 					}
 				}
@@ -2052,14 +3093,14 @@ public partial class DemangledNamesParser : Parser {
 			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 286;
+				State = 471;
 				arithmeticOperator();
-				State = 288;
+				State = 473;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==Equals) {
 					{
-					State = 287;
+					State = 472;
 					Match(Equals);
 					}
 				}
@@ -2069,14 +3110,14 @@ public partial class DemangledNamesParser : Parser {
 			case 6:
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 290;
+				State = 475;
 				logicalOperator();
-				State = 292;
+				State = 477;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==Equals) {
 					{
-					State = 291;
+					State = 476;
 					Match(Equals);
 					}
 				}
@@ -2086,58 +3127,89 @@ public partial class DemangledNamesParser : Parser {
 			case 7:
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 294;
+				State = 479;
 				relationalOperator();
 				}
 				break;
 			case 8:
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 295;
+				State = 480;
 				Match(Exclamation);
 				}
 				break;
 			case 9:
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 296;
+				State = 481;
 				Match(Equals);
 				}
 				break;
 			case 10:
 				EnterOuterAlt(_localctx, 10);
 				{
-				State = 297;
+				State = 482;
 				Match(Plus);
-				State = 298;
+				State = 483;
 				Match(Plus);
 				}
 				break;
 			case 11:
 				EnterOuterAlt(_localctx, 11);
 				{
-				State = 299;
+				State = 484;
 				Match(Minus);
-				State = 300;
+				State = 485;
 				Match(Minus);
 				}
 				break;
 			case 12:
 				EnterOuterAlt(_localctx, 12);
 				{
-				State = 301;
-				Match(LeftBracket);
-				State = 302;
-				Match(RightBracket);
+				State = 486;
+				Match(Minus);
+				State = 487;
+				Match(Greater);
+				State = 488;
+				Match(Star);
 				}
 				break;
 			case 13:
 				EnterOuterAlt(_localctx, 13);
 				{
-				State = 303;
+				State = 489;
+				Match(Minus);
+				State = 490;
+				Match(Greater);
+				}
+				break;
+			case 14:
+				EnterOuterAlt(_localctx, 14);
+				{
+				State = 491;
+				Match(LeftBracket);
+				State = 492;
+				Match(RightBracket);
+				}
+				break;
+			case 15:
+				EnterOuterAlt(_localctx, 15);
+				{
+				State = 493;
 				Match(LeftParen);
-				State = 304;
+				State = 494;
 				Match(RightParen);
+				}
+				break;
+			case 16:
+				EnterOuterAlt(_localctx, 16);
+				{
+				State = 495;
+				Match(DoubleQuote);
+				State = 496;
+				Match(DoubleQuote);
+				State = 497;
+				identifier();
 				}
 				break;
 			}
@@ -2185,14 +3257,14 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public ArithmeticOperatorContext arithmeticOperator() {
 		ArithmeticOperatorContext _localctx = new ArithmeticOperatorContext(Context, State);
-		EnterRule(_localctx, 40, RULE_arithmeticOperator);
+		EnterRule(_localctx, 54, RULE_arithmeticOperator);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 307;
+			State = 500;
 			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 4160749568L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 8521215115264L) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -2246,23 +3318,23 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public RelationalOperatorContext relationalOperator() {
 		RelationalOperatorContext _localctx = new RelationalOperatorContext(Context, State);
-		EnterRule(_localctx, 42, RULE_relationalOperator);
+		EnterRule(_localctx, 56, RULE_relationalOperator);
 		int _la;
 		try {
-			State = 321;
+			State = 514;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case Less:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 309;
+				State = 502;
 				Match(Less);
-				State = 311;
+				State = 504;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==Equals) {
 					{
-					State = 310;
+					State = 503;
 					Match(Equals);
 					}
 				}
@@ -2272,14 +3344,14 @@ public partial class DemangledNamesParser : Parser {
 			case Greater:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 313;
+				State = 506;
 				Match(Greater);
-				State = 315;
+				State = 508;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==Equals) {
 					{
-					State = 314;
+					State = 507;
 					Match(Equals);
 					}
 				}
@@ -2289,18 +3361,18 @@ public partial class DemangledNamesParser : Parser {
 			case Equals:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 317;
+				State = 510;
 				Match(Equals);
-				State = 318;
+				State = 511;
 				Match(Equals);
 				}
 				break;
 			case Exclamation:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 319;
+				State = 512;
 				Match(Exclamation);
-				State = 320;
+				State = 513;
 				Match(Equals);
 				}
 				break;
@@ -2320,7 +3392,9 @@ public partial class DemangledNamesParser : Parser {
 	}
 
 	public partial class LogicalOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AndAnd() { return GetToken(DemangledNamesParser.AndAnd, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode And() { return GetToken(DemangledNamesParser.And, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PipePipe() { return GetToken(DemangledNamesParser.PipePipe, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Pipe() { return GetToken(DemangledNamesParser.Pipe, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Caret() { return GetToken(DemangledNamesParser.Caret, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Tilde() { return GetToken(DemangledNamesParser.Tilde, 0); }
@@ -2350,14 +3424,14 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public LogicalOperatorContext logicalOperator() {
 		LogicalOperatorContext _localctx = new LogicalOperatorContext(Context, State);
-		EnterRule(_localctx, 44, RULE_logicalOperator);
+		EnterRule(_localctx, 58, RULE_logicalOperator);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 323;
+			State = 516;
 			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 64424509440L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 131947837784064L) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -2412,26 +3486,26 @@ public partial class DemangledNamesParser : Parser {
 	[RuleVersion(0)]
 	public ShiftOperatorContext shiftOperator() {
 		ShiftOperatorContext _localctx = new ShiftOperatorContext(Context, State);
-		EnterRule(_localctx, 46, RULE_shiftOperator);
+		EnterRule(_localctx, 60, RULE_shiftOperator);
 		try {
-			State = 329;
+			State = 522;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case Less:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 325;
+				State = 518;
 				Match(Less);
-				State = 326;
+				State = 519;
 				Match(Less);
 				}
 				break;
 			case Greater:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 327;
+				State = 520;
 				Match(Greater);
-				State = 328;
+				State = 521;
 				Match(Greater);
 				}
 				break;
@@ -2452,143 +3526,219 @@ public partial class DemangledNamesParser : Parser {
 
 	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 13: return type_sempred((TypeContext)_localctx, predIndex);
-		case 15: return qualifiedTypeIdentifier_sempred((QualifiedTypeIdentifierContext)_localctx, predIndex);
+		case 20: return type_sempred((TypeContext)_localctx, predIndex);
+		case 22: return qualifiedTypeIdentifier_sempred((QualifiedTypeIdentifierContext)_localctx, predIndex);
 		}
 		return true;
 	}
 	private bool type_sempred(TypeContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return Precpred(Context, 4);
-		case 1: return Precpred(Context, 3);
-		case 2: return Precpred(Context, 2);
-		case 3: return Precpred(Context, 1);
+		case 0: return Precpred(Context, 6);
+		case 1: return Precpred(Context, 5);
+		case 2: return Precpred(Context, 4);
+		case 3: return Precpred(Context, 3);
+		case 4: return Precpred(Context, 2);
+		case 5: return Precpred(Context, 1);
 		}
 		return true;
 	}
 	private bool qualifiedTypeIdentifier_sempred(QualifiedTypeIdentifierContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 4: return Precpred(Context, 2);
+		case 6: return Precpred(Context, 4);
+		case 7: return Precpred(Context, 3);
+		case 8: return Precpred(Context, 2);
 		}
 		return true;
 	}
 
 	private static int[] _serializedATN = {
-		4,1,49,332,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+		4,1,61,525,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
 		7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
 		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
-		2,22,7,22,2,23,7,23,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,3,
-		1,61,8,1,1,1,3,1,64,8,1,1,2,3,2,67,8,2,1,3,3,3,70,8,3,1,4,1,4,1,4,1,4,
-		3,4,76,8,4,1,5,1,5,3,5,80,8,5,1,5,3,5,83,8,5,1,6,1,6,1,6,5,6,88,8,6,10,
-		6,12,6,91,9,6,1,6,3,6,94,8,6,1,7,1,7,3,7,98,8,7,1,7,3,7,101,8,7,1,7,3,
-		7,104,8,7,1,8,1,8,1,8,1,8,5,8,110,8,8,10,8,12,8,113,9,8,1,8,1,8,1,8,1,
-		8,1,8,3,8,120,8,8,1,9,1,9,1,9,1,9,5,9,126,8,9,10,9,12,9,129,9,9,1,9,1,
-		9,1,9,1,9,3,9,135,8,9,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,
-		1,10,1,10,3,10,149,8,10,1,11,1,11,1,12,1,12,3,12,155,8,12,1,12,4,12,158,
-		8,12,11,12,12,12,159,1,12,1,12,1,12,3,12,165,8,12,1,13,1,13,3,13,169,8,
-		13,1,13,1,13,3,13,173,8,13,1,13,5,13,176,8,13,10,13,12,13,179,9,13,1,13,
-		1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,
-		1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,5,13,
-		209,8,13,10,13,12,13,212,9,13,1,14,1,14,1,14,1,14,4,14,218,8,14,11,14,
-		12,14,219,1,14,1,14,1,14,1,14,4,14,226,8,14,11,14,12,14,227,1,14,1,14,
-		1,14,1,14,1,14,1,14,5,14,236,8,14,10,14,12,14,239,9,14,1,14,1,14,3,14,
-		243,8,14,1,15,1,15,1,15,1,15,1,15,1,15,1,15,5,15,252,8,15,10,15,12,15,
-		255,9,15,1,16,1,16,1,16,1,16,1,16,1,16,1,16,3,16,264,8,16,1,17,1,17,1,
-		17,1,17,1,17,1,17,1,17,3,17,273,8,17,1,18,1,18,1,18,1,19,1,19,1,19,1,19,
-		1,19,1,19,1,19,3,19,285,8,19,1,19,1,19,3,19,289,8,19,1,19,1,19,3,19,293,
-		8,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,3,19,306,8,
-		19,1,20,1,20,1,21,1,21,3,21,312,8,21,1,21,1,21,3,21,316,8,21,1,21,1,21,
-		1,21,1,21,3,21,322,8,21,1,22,1,22,1,23,1,23,1,23,1,23,3,23,330,8,23,1,
-		23,0,2,26,30,24,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,
-		40,42,44,46,0,5,2,0,18,18,20,20,3,0,2,9,11,21,46,46,2,0,29,29,32,32,1,
-		0,27,31,1,0,32,35,376,0,48,1,0,0,0,2,60,1,0,0,0,4,66,1,0,0,0,6,69,1,0,
-		0,0,8,75,1,0,0,0,10,77,1,0,0,0,12,93,1,0,0,0,14,103,1,0,0,0,16,119,1,0,
-		0,0,18,134,1,0,0,0,20,148,1,0,0,0,22,150,1,0,0,0,24,164,1,0,0,0,26,166,
-		1,0,0,0,28,242,1,0,0,0,30,244,1,0,0,0,32,263,1,0,0,0,34,272,1,0,0,0,36,
-		274,1,0,0,0,38,305,1,0,0,0,40,307,1,0,0,0,42,321,1,0,0,0,44,323,1,0,0,
-		0,46,329,1,0,0,0,48,49,3,2,1,0,49,50,3,6,3,0,50,51,5,4,0,0,51,52,3,8,4,
-		0,52,53,3,20,10,0,53,54,5,22,0,0,54,55,3,12,6,0,55,56,5,23,0,0,56,57,3,
-		4,2,0,57,1,1,0,0,0,58,59,5,3,0,0,59,61,5,37,0,0,60,58,1,0,0,0,60,61,1,
-		0,0,0,61,63,1,0,0,0,62,64,7,0,0,0,63,62,1,0,0,0,63,64,1,0,0,0,64,3,1,0,
-		0,0,65,67,5,9,0,0,66,65,1,0,0,0,66,67,1,0,0,0,67,5,1,0,0,0,68,70,3,26,
-		13,0,69,68,1,0,0,0,69,70,1,0,0,0,70,7,1,0,0,0,71,72,3,30,15,0,72,73,5,
-		37,0,0,73,74,5,37,0,0,74,76,1,0,0,0,75,71,1,0,0,0,75,76,1,0,0,0,76,9,1,
-		0,0,0,77,79,3,26,13,0,78,80,5,9,0,0,79,78,1,0,0,0,79,80,1,0,0,0,80,82,
-		1,0,0,0,81,83,5,32,0,0,82,81,1,0,0,0,82,83,1,0,0,0,83,11,1,0,0,0,84,89,
-		3,10,5,0,85,86,5,38,0,0,86,88,3,10,5,0,87,85,1,0,0,0,88,91,1,0,0,0,89,
-		87,1,0,0,0,89,90,1,0,0,0,90,94,1,0,0,0,91,89,1,0,0,0,92,94,1,0,0,0,93,
-		84,1,0,0,0,93,92,1,0,0,0,94,13,1,0,0,0,95,97,3,26,13,0,96,98,5,9,0,0,97,
-		96,1,0,0,0,97,98,1,0,0,0,98,100,1,0,0,0,99,101,5,32,0,0,100,99,1,0,0,0,
-		100,101,1,0,0,0,101,104,1,0,0,0,102,104,5,47,0,0,103,95,1,0,0,0,103,102,
-		1,0,0,0,104,15,1,0,0,0,105,106,5,24,0,0,106,111,3,14,7,0,107,108,5,38,
-		0,0,108,110,3,14,7,0,109,107,1,0,0,0,110,113,1,0,0,0,111,109,1,0,0,0,111,
-		112,1,0,0,0,112,114,1,0,0,0,113,111,1,0,0,0,114,115,5,25,0,0,115,120,1,
-		0,0,0,116,117,5,24,0,0,117,120,5,25,0,0,118,120,1,0,0,0,119,105,1,0,0,
-		0,119,116,1,0,0,0,119,118,1,0,0,0,120,17,1,0,0,0,121,122,5,24,0,0,122,
-		127,3,14,7,0,123,124,5,38,0,0,124,126,3,14,7,0,125,123,1,0,0,0,126,129,
-		1,0,0,0,127,125,1,0,0,0,127,128,1,0,0,0,128,130,1,0,0,0,129,127,1,0,0,
-		0,130,131,5,25,0,0,131,135,1,0,0,0,132,133,5,24,0,0,133,135,5,25,0,0,134,
-		121,1,0,0,0,134,132,1,0,0,0,135,19,1,0,0,0,136,137,3,24,12,0,137,138,3,
-		16,8,0,138,139,5,44,0,0,139,140,5,45,0,0,140,149,1,0,0,0,141,142,3,24,
-		12,0,142,143,3,18,9,0,143,144,3,18,9,0,144,149,1,0,0,0,145,146,3,24,12,
-		0,146,147,3,16,8,0,147,149,1,0,0,0,148,136,1,0,0,0,148,141,1,0,0,0,148,
-		145,1,0,0,0,149,21,1,0,0,0,150,151,7,1,0,0,151,23,1,0,0,0,152,165,3,36,
-		18,0,153,155,5,35,0,0,154,153,1,0,0,0,154,155,1,0,0,0,155,157,1,0,0,0,
-		156,158,3,22,11,0,157,156,1,0,0,0,158,159,1,0,0,0,159,157,1,0,0,0,159,
-		160,1,0,0,0,160,165,1,0,0,0,161,162,5,1,0,0,162,163,5,40,0,0,163,165,5,
-		40,0,0,164,152,1,0,0,0,164,154,1,0,0,0,164,161,1,0,0,0,165,25,1,0,0,0,
-		166,168,6,13,-1,0,167,169,5,6,0,0,168,167,1,0,0,0,168,169,1,0,0,0,169,
-		170,1,0,0,0,170,172,3,30,15,0,171,173,5,9,0,0,172,171,1,0,0,0,172,173,
-		1,0,0,0,173,177,1,0,0,0,174,176,7,2,0,0,175,174,1,0,0,0,176,179,1,0,0,
-		0,177,175,1,0,0,0,177,178,1,0,0,0,178,210,1,0,0,0,179,177,1,0,0,0,180,
-		181,10,4,0,0,181,182,5,22,0,0,182,183,5,29,0,0,183,184,5,9,0,0,184,185,
-		5,23,0,0,185,186,5,44,0,0,186,187,5,47,0,0,187,209,5,45,0,0,188,189,10,
-		3,0,0,189,190,5,22,0,0,190,191,5,32,0,0,191,192,5,23,0,0,192,193,5,44,
-		0,0,193,194,5,47,0,0,194,209,5,45,0,0,195,196,10,2,0,0,196,197,5,44,0,
-		0,197,198,5,47,0,0,198,209,5,45,0,0,199,200,10,1,0,0,200,201,5,22,0,0,
-		201,202,5,4,0,0,202,203,5,29,0,0,203,204,5,23,0,0,204,205,5,22,0,0,205,
-		206,3,12,6,0,206,207,5,23,0,0,207,209,1,0,0,0,208,180,1,0,0,0,208,188,
-		1,0,0,0,208,195,1,0,0,0,208,199,1,0,0,0,209,212,1,0,0,0,210,208,1,0,0,
-		0,210,211,1,0,0,0,211,27,1,0,0,0,212,210,1,0,0,0,213,243,5,21,0,0,214,
-		243,5,10,0,0,215,243,3,32,16,0,216,218,3,22,11,0,217,216,1,0,0,0,218,219,
-		1,0,0,0,219,217,1,0,0,0,219,220,1,0,0,0,220,221,1,0,0,0,221,222,3,16,8,
-		0,222,243,1,0,0,0,223,225,5,24,0,0,224,226,3,22,11,0,225,224,1,0,0,0,226,
-		227,1,0,0,0,227,225,1,0,0,0,227,228,1,0,0,0,228,229,1,0,0,0,229,230,5,
-		25,0,0,230,243,1,0,0,0,231,232,5,24,0,0,232,237,3,22,11,0,233,234,5,28,
-		0,0,234,236,3,22,11,0,235,233,1,0,0,0,236,239,1,0,0,0,237,235,1,0,0,0,
-		237,238,1,0,0,0,238,240,1,0,0,0,239,237,1,0,0,0,240,241,5,25,0,0,241,243,
-		1,0,0,0,242,213,1,0,0,0,242,214,1,0,0,0,242,215,1,0,0,0,242,217,1,0,0,
-		0,242,223,1,0,0,0,242,231,1,0,0,0,243,29,1,0,0,0,244,245,6,15,-1,0,245,
-		246,3,28,14,0,246,253,1,0,0,0,247,248,10,2,0,0,248,249,5,37,0,0,249,250,
-		5,37,0,0,250,252,3,28,14,0,251,247,1,0,0,0,252,255,1,0,0,0,253,251,1,0,
-		0,0,253,254,1,0,0,0,254,31,1,0,0,0,255,253,1,0,0,0,256,264,5,7,0,0,257,
-		264,5,11,0,0,258,259,5,19,0,0,259,264,3,34,17,0,260,261,5,17,0,0,261,264,
-		3,34,17,0,262,264,3,34,17,0,263,256,1,0,0,0,263,257,1,0,0,0,263,258,1,
-		0,0,0,263,260,1,0,0,0,263,262,1,0,0,0,264,33,1,0,0,0,265,273,5,8,0,0,266,
-		273,5,16,0,0,267,273,5,12,0,0,268,273,5,13,0,0,269,270,5,14,0,0,270,273,
-		5,14,0,0,271,273,5,14,0,0,272,265,1,0,0,0,272,266,1,0,0,0,272,267,1,0,
-		0,0,272,268,1,0,0,0,272,269,1,0,0,0,272,271,1,0,0,0,273,35,1,0,0,0,274,
-		275,5,15,0,0,275,276,3,38,19,0,276,37,1,0,0,0,277,278,5,5,0,0,278,279,
-		5,44,0,0,279,306,5,45,0,0,280,306,5,5,0,0,281,306,3,32,16,0,282,284,3,
-		46,23,0,283,285,5,26,0,0,284,283,1,0,0,0,284,285,1,0,0,0,285,306,1,0,0,
-		0,286,288,3,40,20,0,287,289,5,26,0,0,288,287,1,0,0,0,288,289,1,0,0,0,289,
-		306,1,0,0,0,290,292,3,44,22,0,291,293,5,26,0,0,292,291,1,0,0,0,292,293,
-		1,0,0,0,293,306,1,0,0,0,294,306,3,42,21,0,295,306,5,36,0,0,296,306,5,26,
-		0,0,297,298,5,27,0,0,298,306,5,27,0,0,299,300,5,28,0,0,300,306,5,28,0,
-		0,301,302,5,44,0,0,302,306,5,45,0,0,303,304,5,22,0,0,304,306,5,23,0,0,
-		305,277,1,0,0,0,305,280,1,0,0,0,305,281,1,0,0,0,305,282,1,0,0,0,305,286,
-		1,0,0,0,305,290,1,0,0,0,305,294,1,0,0,0,305,295,1,0,0,0,305,296,1,0,0,
-		0,305,297,1,0,0,0,305,299,1,0,0,0,305,301,1,0,0,0,305,303,1,0,0,0,306,
-		39,1,0,0,0,307,308,7,3,0,0,308,41,1,0,0,0,309,311,5,24,0,0,310,312,5,26,
-		0,0,311,310,1,0,0,0,311,312,1,0,0,0,312,322,1,0,0,0,313,315,5,25,0,0,314,
-		316,5,26,0,0,315,314,1,0,0,0,315,316,1,0,0,0,316,322,1,0,0,0,317,318,5,
-		26,0,0,318,322,5,26,0,0,319,320,5,36,0,0,320,322,5,26,0,0,321,309,1,0,
-		0,0,321,313,1,0,0,0,321,317,1,0,0,0,321,319,1,0,0,0,322,43,1,0,0,0,323,
-		324,7,4,0,0,324,45,1,0,0,0,325,326,5,24,0,0,326,330,5,24,0,0,327,328,5,
-		25,0,0,328,330,5,25,0,0,329,325,1,0,0,0,329,327,1,0,0,0,330,47,1,0,0,0,
-		40,60,63,66,69,75,79,82,89,93,97,100,103,111,119,127,134,148,154,159,164,
-		168,172,177,208,210,219,227,237,242,253,263,272,284,288,292,305,311,315,
-		321,329
+		2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,
+		2,29,7,29,2,30,7,30,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1,3,1,74,
+		8,1,1,2,1,2,3,2,78,8,2,1,2,3,2,81,8,2,1,3,3,3,84,8,3,1,3,3,3,87,8,3,1,
+		3,1,3,1,3,1,3,3,3,93,8,3,1,4,3,4,96,8,4,1,5,1,5,1,5,1,5,3,5,102,8,5,1,
+		6,1,6,5,6,106,8,6,10,6,12,6,109,9,6,1,6,5,6,112,8,6,10,6,12,6,115,9,6,
+		1,7,1,7,1,7,5,7,120,8,7,10,7,12,7,123,9,7,1,7,3,7,126,8,7,1,8,1,8,1,8,
+		1,8,1,8,1,8,3,8,134,8,8,1,8,1,8,1,8,1,8,1,8,3,8,141,8,8,1,8,1,8,3,8,145,
+		8,8,1,9,1,9,1,9,5,9,150,8,9,10,9,12,9,153,9,9,1,10,3,10,156,8,10,1,10,
+		1,10,1,10,1,10,3,10,162,8,10,1,11,1,11,1,11,5,11,167,8,11,10,11,12,11,
+		170,9,11,1,12,3,12,173,8,12,1,12,1,12,1,12,1,12,3,12,179,8,12,1,13,1,13,
+		3,13,183,8,13,1,13,1,13,1,13,1,13,1,13,1,13,3,13,191,8,13,1,14,1,14,1,
+		14,1,14,1,14,1,14,3,14,199,8,14,1,14,1,14,1,14,3,14,204,8,14,1,14,5,14,
+		207,8,14,10,14,12,14,210,9,14,3,14,212,8,14,1,15,1,15,1,15,1,15,5,15,218,
+		8,15,10,15,12,15,221,9,15,1,15,1,15,1,15,1,15,1,15,3,15,228,8,15,1,16,
+		1,16,1,16,1,16,5,16,234,8,16,10,16,12,16,237,9,16,1,16,1,16,1,16,1,16,
+		3,16,243,8,16,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,
+		17,3,17,257,8,17,1,18,1,18,1,19,1,19,3,19,263,8,19,1,19,4,19,266,8,19,
+		11,19,12,19,267,1,19,1,19,1,19,3,19,273,8,19,1,20,1,20,3,20,277,8,20,1,
+		20,1,20,3,20,281,8,20,1,20,5,20,284,8,20,10,20,12,20,287,9,20,1,20,3,20,
+		290,8,20,1,20,1,20,3,20,294,8,20,1,20,5,20,297,8,20,10,20,12,20,300,9,
+		20,1,20,1,20,1,20,1,20,1,20,5,20,307,8,20,10,20,12,20,310,9,20,3,20,312,
+		8,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,
+		1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,
+		3,20,341,8,20,1,20,1,20,3,20,345,8,20,1,20,1,20,1,20,1,20,1,20,1,20,1,
+		20,1,20,3,20,355,8,20,1,20,1,20,1,20,1,20,1,20,1,20,5,20,363,8,20,10,20,
+		12,20,366,9,20,1,21,1,21,1,21,1,21,1,21,1,21,4,21,374,8,21,11,21,12,21,
+		375,1,21,1,21,1,21,1,21,4,21,382,8,21,11,21,12,21,383,1,21,1,21,1,21,1,
+		21,1,21,1,21,5,21,392,8,21,10,21,12,21,395,9,21,1,21,1,21,3,21,399,8,21,
+		1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,
+		1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,5,22,424,8,22,10,22,12,22,
+		427,9,22,1,23,1,23,1,23,3,23,432,8,23,1,23,1,23,3,23,436,8,23,1,23,1,23,
+		1,23,3,23,441,8,23,1,23,1,23,1,23,1,23,1,23,3,23,448,8,23,1,24,1,24,1,
+		24,1,24,1,24,1,24,1,24,1,24,3,24,458,8,24,1,25,1,25,1,25,1,26,1,26,1,26,
+		1,26,1,26,1,26,1,26,3,26,470,8,26,1,26,1,26,3,26,474,8,26,1,26,1,26,3,
+		26,478,8,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,
+		1,26,1,26,1,26,1,26,1,26,1,26,1,26,3,26,499,8,26,1,27,1,27,1,28,1,28,3,
+		28,505,8,28,1,28,1,28,3,28,509,8,28,1,28,1,28,1,28,1,28,3,28,515,8,28,
+		1,29,1,29,1,30,1,30,1,30,1,30,3,30,523,8,30,1,30,0,2,40,44,31,0,2,4,6,
+		8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,
+		56,58,60,0,10,2,0,25,25,28,28,2,0,31,31,43,43,2,0,13,13,22,22,3,0,31,31,
+		40,40,43,43,1,0,31,32,2,0,40,40,43,43,4,0,2,8,10,13,15,30,58,58,3,0,13,
+		13,40,40,43,43,1,0,38,42,2,0,31,32,43,46,605,0,62,1,0,0,0,2,73,1,0,0,0,
+		4,77,1,0,0,0,6,83,1,0,0,0,8,95,1,0,0,0,10,101,1,0,0,0,12,103,1,0,0,0,14,
+		125,1,0,0,0,16,144,1,0,0,0,18,146,1,0,0,0,20,155,1,0,0,0,22,163,1,0,0,
+		0,24,172,1,0,0,0,26,190,1,0,0,0,28,211,1,0,0,0,30,227,1,0,0,0,32,242,1,
+		0,0,0,34,256,1,0,0,0,36,258,1,0,0,0,38,272,1,0,0,0,40,311,1,0,0,0,42,398,
+		1,0,0,0,44,400,1,0,0,0,46,447,1,0,0,0,48,457,1,0,0,0,50,459,1,0,0,0,52,
+		498,1,0,0,0,54,500,1,0,0,0,56,514,1,0,0,0,58,516,1,0,0,0,60,522,1,0,0,
+		0,62,63,3,4,2,0,63,64,3,8,4,0,64,65,3,2,1,0,65,66,3,10,5,0,66,67,3,34,
+		17,0,67,68,5,33,0,0,68,69,3,14,7,0,69,70,5,34,0,0,70,71,3,6,3,0,71,1,1,
+		0,0,0,72,74,5,6,0,0,73,72,1,0,0,0,73,74,1,0,0,0,74,3,1,0,0,0,75,76,5,4,
+		0,0,76,78,5,48,0,0,77,75,1,0,0,0,77,78,1,0,0,0,78,80,1,0,0,0,79,81,7,0,
+		0,0,80,79,1,0,0,0,80,81,1,0,0,0,81,5,1,0,0,0,82,84,5,13,0,0,83,82,1,0,
+		0,0,83,84,1,0,0,0,84,86,1,0,0,0,85,87,7,1,0,0,86,85,1,0,0,0,86,87,1,0,
+		0,0,87,92,1,0,0,0,88,89,5,33,0,0,89,90,5,50,0,0,90,91,5,59,0,0,91,93,5,
+		34,0,0,92,88,1,0,0,0,92,93,1,0,0,0,93,7,1,0,0,0,94,96,3,40,20,0,95,94,
+		1,0,0,0,95,96,1,0,0,0,96,9,1,0,0,0,97,98,3,44,22,0,98,99,5,48,0,0,99,100,
+		5,48,0,0,100,102,1,0,0,0,101,97,1,0,0,0,101,102,1,0,0,0,102,11,1,0,0,0,
+		103,107,3,40,20,0,104,106,7,2,0,0,105,104,1,0,0,0,106,109,1,0,0,0,107,
+		105,1,0,0,0,107,108,1,0,0,0,108,113,1,0,0,0,109,107,1,0,0,0,110,112,7,
+		3,0,0,111,110,1,0,0,0,112,115,1,0,0,0,113,111,1,0,0,0,113,114,1,0,0,0,
+		114,13,1,0,0,0,115,113,1,0,0,0,116,121,3,12,6,0,117,118,5,49,0,0,118,120,
+		3,12,6,0,119,117,1,0,0,0,120,123,1,0,0,0,121,119,1,0,0,0,121,122,1,0,0,
+		0,122,126,1,0,0,0,123,121,1,0,0,0,124,126,1,0,0,0,125,116,1,0,0,0,125,
+		124,1,0,0,0,126,15,1,0,0,0,127,128,5,33,0,0,128,129,3,18,9,0,129,130,5,
+		34,0,0,130,145,1,0,0,0,131,145,3,22,11,0,132,134,5,39,0,0,133,132,1,0,
+		0,0,133,134,1,0,0,0,134,135,1,0,0,0,135,145,5,59,0,0,136,137,5,33,0,0,
+		137,138,3,40,20,0,138,140,5,34,0,0,139,141,5,39,0,0,140,139,1,0,0,0,140,
+		141,1,0,0,0,141,142,1,0,0,0,142,143,5,59,0,0,143,145,1,0,0,0,144,127,1,
+		0,0,0,144,131,1,0,0,0,144,133,1,0,0,0,144,136,1,0,0,0,145,17,1,0,0,0,146,
+		151,3,20,10,0,147,148,7,4,0,0,148,150,3,20,10,0,149,147,1,0,0,0,150,153,
+		1,0,0,0,151,149,1,0,0,0,151,152,1,0,0,0,152,19,1,0,0,0,153,151,1,0,0,0,
+		154,156,5,47,0,0,155,154,1,0,0,0,155,156,1,0,0,0,156,157,1,0,0,0,157,161,
+		3,28,14,0,158,159,3,56,28,0,159,160,3,28,14,0,160,162,1,0,0,0,161,158,
+		1,0,0,0,161,162,1,0,0,0,162,21,1,0,0,0,163,168,3,24,12,0,164,165,7,4,0,
+		0,165,167,3,24,12,0,166,164,1,0,0,0,167,170,1,0,0,0,168,166,1,0,0,0,168,
+		169,1,0,0,0,169,23,1,0,0,0,170,168,1,0,0,0,171,173,5,47,0,0,172,171,1,
+		0,0,0,172,173,1,0,0,0,173,174,1,0,0,0,174,178,3,28,14,0,175,176,3,26,13,
+		0,176,177,3,28,14,0,177,179,1,0,0,0,178,175,1,0,0,0,178,179,1,0,0,0,179,
+		25,1,0,0,0,180,182,5,35,0,0,181,183,5,37,0,0,182,181,1,0,0,0,182,183,1,
+		0,0,0,183,191,1,0,0,0,184,185,5,36,0,0,185,191,5,37,0,0,186,187,5,37,0,
+		0,187,191,5,37,0,0,188,189,5,47,0,0,189,191,5,37,0,0,190,180,1,0,0,0,190,
+		184,1,0,0,0,190,186,1,0,0,0,190,188,1,0,0,0,191,27,1,0,0,0,192,193,5,9,
+		0,0,193,194,5,33,0,0,194,195,3,40,20,0,195,196,5,34,0,0,196,212,1,0,0,
+		0,197,199,5,39,0,0,198,197,1,0,0,0,198,199,1,0,0,0,199,200,1,0,0,0,200,
+		212,5,59,0,0,201,203,3,40,20,0,202,204,5,13,0,0,203,202,1,0,0,0,203,204,
+		1,0,0,0,204,208,1,0,0,0,205,207,7,5,0,0,206,205,1,0,0,0,207,210,1,0,0,
+		0,208,206,1,0,0,0,208,209,1,0,0,0,209,212,1,0,0,0,210,208,1,0,0,0,211,
+		192,1,0,0,0,211,198,1,0,0,0,211,201,1,0,0,0,212,29,1,0,0,0,213,214,5,35,
+		0,0,214,219,3,16,8,0,215,216,5,49,0,0,216,218,3,16,8,0,217,215,1,0,0,0,
+		218,221,1,0,0,0,219,217,1,0,0,0,219,220,1,0,0,0,220,222,1,0,0,0,221,219,
+		1,0,0,0,222,223,5,36,0,0,223,228,1,0,0,0,224,225,5,35,0,0,225,228,5,36,
+		0,0,226,228,1,0,0,0,227,213,1,0,0,0,227,224,1,0,0,0,227,226,1,0,0,0,228,
+		31,1,0,0,0,229,230,5,35,0,0,230,235,3,16,8,0,231,232,5,49,0,0,232,234,
+		3,16,8,0,233,231,1,0,0,0,234,237,1,0,0,0,235,233,1,0,0,0,235,236,1,0,0,
+		0,236,238,1,0,0,0,237,235,1,0,0,0,238,239,5,36,0,0,239,243,1,0,0,0,240,
+		241,5,35,0,0,241,243,5,36,0,0,242,229,1,0,0,0,242,240,1,0,0,0,243,33,1,
+		0,0,0,244,245,3,38,19,0,245,246,3,30,15,0,246,247,5,56,0,0,247,248,5,57,
+		0,0,248,257,1,0,0,0,249,250,3,38,19,0,250,251,3,32,16,0,251,252,3,32,16,
+		0,252,257,1,0,0,0,253,254,3,38,19,0,254,255,3,30,15,0,255,257,1,0,0,0,
+		256,244,1,0,0,0,256,249,1,0,0,0,256,253,1,0,0,0,257,35,1,0,0,0,258,259,
+		7,6,0,0,259,37,1,0,0,0,260,273,3,50,25,0,261,263,5,46,0,0,262,261,1,0,
+		0,0,262,263,1,0,0,0,263,265,1,0,0,0,264,266,3,36,18,0,265,264,1,0,0,0,
+		266,267,1,0,0,0,267,265,1,0,0,0,267,268,1,0,0,0,268,273,1,0,0,0,269,270,
+		5,1,0,0,270,271,5,52,0,0,271,273,5,52,0,0,272,260,1,0,0,0,272,262,1,0,
+		0,0,272,269,1,0,0,0,273,39,1,0,0,0,274,276,6,20,-1,0,275,277,5,10,0,0,
+		276,275,1,0,0,0,276,277,1,0,0,0,277,278,1,0,0,0,278,280,3,44,22,0,279,
+		281,5,13,0,0,280,279,1,0,0,0,280,281,1,0,0,0,281,285,1,0,0,0,282,284,7,
+		3,0,0,283,282,1,0,0,0,284,287,1,0,0,0,285,283,1,0,0,0,285,286,1,0,0,0,
+		286,312,1,0,0,0,287,285,1,0,0,0,288,290,5,10,0,0,289,288,1,0,0,0,289,290,
+		1,0,0,0,290,291,1,0,0,0,291,293,3,44,22,0,292,294,5,13,0,0,293,292,1,0,
+		0,0,293,294,1,0,0,0,294,298,1,0,0,0,295,297,7,3,0,0,296,295,1,0,0,0,297,
+		300,1,0,0,0,298,296,1,0,0,0,298,299,1,0,0,0,299,301,1,0,0,0,300,298,1,
+		0,0,0,301,302,5,27,0,0,302,303,5,56,0,0,303,304,5,59,0,0,304,308,5,57,
+		0,0,305,307,7,7,0,0,306,305,1,0,0,0,307,310,1,0,0,0,308,306,1,0,0,0,308,
+		309,1,0,0,0,309,312,1,0,0,0,310,308,1,0,0,0,311,274,1,0,0,0,311,289,1,
+		0,0,0,312,364,1,0,0,0,313,314,10,6,0,0,314,315,5,33,0,0,315,316,5,40,0,
+		0,316,317,5,13,0,0,317,318,5,34,0,0,318,319,5,56,0,0,319,320,5,59,0,0,
+		320,363,5,57,0,0,321,322,10,5,0,0,322,323,5,33,0,0,323,324,5,43,0,0,324,
+		325,5,34,0,0,325,326,5,56,0,0,326,327,5,59,0,0,327,363,5,57,0,0,328,329,
+		10,4,0,0,329,330,5,56,0,0,330,331,5,59,0,0,331,363,5,57,0,0,332,333,10,
+		3,0,0,333,334,5,27,0,0,334,335,5,56,0,0,335,336,5,59,0,0,336,363,5,57,
+		0,0,337,338,10,2,0,0,338,340,5,33,0,0,339,341,5,6,0,0,340,339,1,0,0,0,
+		340,341,1,0,0,0,341,342,1,0,0,0,342,344,5,40,0,0,343,345,5,13,0,0,344,
+		343,1,0,0,0,344,345,1,0,0,0,345,346,1,0,0,0,346,347,5,34,0,0,347,348,5,
+		33,0,0,348,349,3,14,7,0,349,350,5,34,0,0,350,363,1,0,0,0,351,352,10,1,
+		0,0,352,354,5,33,0,0,353,355,5,6,0,0,354,353,1,0,0,0,354,355,1,0,0,0,355,
+		356,1,0,0,0,356,357,5,43,0,0,357,358,5,34,0,0,358,359,5,33,0,0,359,360,
+		3,14,7,0,360,361,5,34,0,0,361,363,1,0,0,0,362,313,1,0,0,0,362,321,1,0,
+		0,0,362,328,1,0,0,0,362,332,1,0,0,0,362,337,1,0,0,0,362,351,1,0,0,0,363,
+		366,1,0,0,0,364,362,1,0,0,0,364,365,1,0,0,0,365,41,1,0,0,0,366,364,1,0,
+		0,0,367,399,5,29,0,0,368,399,5,5,0,0,369,399,5,14,0,0,370,399,3,46,23,
+		0,371,399,5,30,0,0,372,374,3,36,18,0,373,372,1,0,0,0,374,375,1,0,0,0,375,
+		373,1,0,0,0,375,376,1,0,0,0,376,377,1,0,0,0,377,378,3,30,15,0,378,399,
+		1,0,0,0,379,381,5,35,0,0,380,382,3,36,18,0,381,380,1,0,0,0,382,383,1,0,
+		0,0,383,381,1,0,0,0,383,384,1,0,0,0,384,385,1,0,0,0,385,386,5,36,0,0,386,
+		399,1,0,0,0,387,388,5,35,0,0,388,393,3,36,18,0,389,390,5,39,0,0,390,392,
+		3,36,18,0,391,389,1,0,0,0,392,395,1,0,0,0,393,391,1,0,0,0,393,394,1,0,
+		0,0,394,396,1,0,0,0,395,393,1,0,0,0,396,397,5,36,0,0,397,399,1,0,0,0,398,
+		367,1,0,0,0,398,368,1,0,0,0,398,369,1,0,0,0,398,370,1,0,0,0,398,371,1,
+		0,0,0,398,373,1,0,0,0,398,379,1,0,0,0,398,387,1,0,0,0,399,43,1,0,0,0,400,
+		401,6,22,-1,0,401,402,3,42,21,0,402,425,1,0,0,0,403,404,10,4,0,0,404,405,
+		5,48,0,0,405,406,5,48,0,0,406,424,3,42,21,0,407,408,10,3,0,0,408,409,5,
+		48,0,0,409,410,5,48,0,0,410,411,5,3,0,0,411,412,5,33,0,0,412,413,3,14,
+		7,0,413,414,5,34,0,0,414,424,1,0,0,0,415,416,10,2,0,0,416,417,5,48,0,0,
+		417,418,5,48,0,0,418,419,3,42,21,0,419,420,5,33,0,0,420,421,3,14,7,0,421,
+		422,5,34,0,0,422,424,1,0,0,0,423,403,1,0,0,0,423,407,1,0,0,0,423,415,1,
+		0,0,0,424,427,1,0,0,0,425,423,1,0,0,0,425,426,1,0,0,0,426,45,1,0,0,0,427,
+		425,1,0,0,0,428,448,5,11,0,0,429,431,5,16,0,0,430,432,5,7,0,0,431,430,
+		1,0,0,0,431,432,1,0,0,0,432,448,1,0,0,0,433,435,5,15,0,0,434,436,5,7,0,
+		0,435,434,1,0,0,0,435,436,1,0,0,0,436,448,1,0,0,0,437,438,5,20,0,0,438,
+		440,5,15,0,0,439,441,5,7,0,0,440,439,1,0,0,0,440,441,1,0,0,0,441,448,1,
+		0,0,0,442,443,5,26,0,0,443,448,3,48,24,0,444,445,5,24,0,0,445,448,3,48,
+		24,0,446,448,3,48,24,0,447,428,1,0,0,0,447,429,1,0,0,0,447,433,1,0,0,0,
+		447,437,1,0,0,0,447,442,1,0,0,0,447,444,1,0,0,0,447,446,1,0,0,0,448,47,
+		1,0,0,0,449,458,5,12,0,0,450,458,5,23,0,0,451,458,5,17,0,0,452,458,5,18,
+		0,0,453,458,5,19,0,0,454,455,5,20,0,0,455,458,5,20,0,0,456,458,5,20,0,
+		0,457,449,1,0,0,0,457,450,1,0,0,0,457,451,1,0,0,0,457,452,1,0,0,0,457,
+		453,1,0,0,0,457,454,1,0,0,0,457,456,1,0,0,0,458,49,1,0,0,0,459,460,5,21,
+		0,0,460,461,3,52,26,0,461,51,1,0,0,0,462,463,5,8,0,0,463,464,5,56,0,0,
+		464,499,5,57,0,0,465,499,5,8,0,0,466,499,3,40,20,0,467,469,3,60,30,0,468,
+		470,5,37,0,0,469,468,1,0,0,0,469,470,1,0,0,0,470,499,1,0,0,0,471,473,3,
+		54,27,0,472,474,5,37,0,0,473,472,1,0,0,0,473,474,1,0,0,0,474,499,1,0,0,
+		0,475,477,3,58,29,0,476,478,5,37,0,0,477,476,1,0,0,0,477,478,1,0,0,0,478,
+		499,1,0,0,0,479,499,3,56,28,0,480,499,5,47,0,0,481,499,5,37,0,0,482,483,
+		5,38,0,0,483,499,5,38,0,0,484,485,5,39,0,0,485,499,5,39,0,0,486,487,5,
+		39,0,0,487,488,5,36,0,0,488,499,5,40,0,0,489,490,5,39,0,0,490,499,5,36,
+		0,0,491,492,5,56,0,0,492,499,5,57,0,0,493,494,5,33,0,0,494,499,5,34,0,
+		0,495,496,5,53,0,0,496,497,5,53,0,0,497,499,3,36,18,0,498,462,1,0,0,0,
+		498,465,1,0,0,0,498,466,1,0,0,0,498,467,1,0,0,0,498,471,1,0,0,0,498,475,
+		1,0,0,0,498,479,1,0,0,0,498,480,1,0,0,0,498,481,1,0,0,0,498,482,1,0,0,
+		0,498,484,1,0,0,0,498,486,1,0,0,0,498,489,1,0,0,0,498,491,1,0,0,0,498,
+		493,1,0,0,0,498,495,1,0,0,0,499,53,1,0,0,0,500,501,7,8,0,0,501,55,1,0,
+		0,0,502,504,5,35,0,0,503,505,5,37,0,0,504,503,1,0,0,0,504,505,1,0,0,0,
+		505,515,1,0,0,0,506,508,5,36,0,0,507,509,5,37,0,0,508,507,1,0,0,0,508,
+		509,1,0,0,0,509,515,1,0,0,0,510,511,5,37,0,0,511,515,5,37,0,0,512,513,
+		5,47,0,0,513,515,5,37,0,0,514,502,1,0,0,0,514,506,1,0,0,0,514,510,1,0,
+		0,0,514,512,1,0,0,0,515,57,1,0,0,0,516,517,7,9,0,0,517,59,1,0,0,0,518,
+		519,5,35,0,0,519,523,5,35,0,0,520,521,5,36,0,0,521,523,5,36,0,0,522,518,
+		1,0,0,0,522,520,1,0,0,0,523,61,1,0,0,0,67,73,77,80,83,86,92,95,101,107,
+		113,121,125,133,140,144,151,155,161,168,172,178,182,190,198,203,208,211,
+		219,227,235,242,256,262,267,272,276,280,285,289,293,298,308,311,340,344,
+		354,362,364,375,383,393,398,423,425,431,435,440,447,457,469,473,477,498,
+		504,508,514,522
 	};
 
 	public static readonly ATN _ATN =
