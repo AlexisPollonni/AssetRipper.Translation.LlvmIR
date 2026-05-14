@@ -97,6 +97,12 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 			("Ceil", "Ceiling", "IFloatingPoint<T>"),
 			("Floor", null, "IFloatingPoint<T>"),
 			("Round", null, "IFloatingPoint<T>"),
+			// llvm.trunc.* — truncate toward zero (remove fractional part)
+			("Trunc", "Truncate", "IFloatingPoint<T>"),
+			// llvm.roundeven.* — round to nearest even (banker's rounding); T.Round uses ToEven by default
+			("RoundEven", "Round", "IFloatingPoint<T>"),
+			// llvm.rint.* — round using current FP mode; approximate with ToEven (closest managed equivalent)
+			("Rint", "Round", "IFloatingPoint<T>"),
 			("CtLz", "LeadingZeroCount", "IBinaryInteger<T>"),
 			("CtTz", "TrailingZeroCount", "IBinaryInteger<T>"),
 		];
@@ -105,13 +111,27 @@ public partial class NumericGenerator() : IncrementalGenerator(nameof(NumericGen
 		string LlvmName,
 		string? DotNetName,
 		string? RequiredInterfaces
-	)> BinaryInterfaceOperations => [("Pow", null, "IPowerFunctions<T>")];
+	)> BinaryInterfaceOperations =>
+		[
+			("Pow", null, "IPowerFunctions<T>"),
+			// llvm.copysign.* — copy sign bit from y to x
+			("CopySign", null, "IFloatingPointIeee754<T>"),
+			// llvm.maxnum.* — IEEE maxNum (returns non-NaN when one operand is NaN)
+			("MaxNum", "MaxNumber", "IFloatingPointIeee754<T>"),
+			// llvm.minnum.* — IEEE minNum (returns non-NaN when one operand is NaN)
+			("MinNum", "MinNumber", "IFloatingPointIeee754<T>"),
+		];
 
 	private static IEnumerable<(
 		string LlvmName,
 		string? DotNetName,
 		string? RequiredInterfaces
-	)> TertiaryInterfaceOperations => [("FMulAdd", "FusedMultiplyAdd", "IFloatingPointIeee754<T>")];
+	)> TertiaryInterfaceOperations =>
+		[
+			("FMulAdd", "FusedMultiplyAdd", "IFloatingPointIeee754<T>"),
+			// llvm.fma.* — strict fused multiply-add (same semantics as FMulAdd, different LLVM intrinsic name)
+			("Fma", "FusedMultiplyAdd", "IFloatingPointIeee754<T>"),
+		];
 
 	public override void OnInitialize(SgfInitializationContext context)
 	{

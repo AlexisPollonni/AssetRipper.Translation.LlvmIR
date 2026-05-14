@@ -196,7 +196,42 @@ public static unsafe partial class IntrinsicFunctions
 
 	[MangledName("fgetc")]
 	[MangledName("getc")]
-	public static int FGetc(void* file) => file == StandardInput ? Console.Read() : -1;
+	public static int FGetc(void* file)
+	{
+		if (file != StandardInput)
+			return -1;
+		// Check thread-local one-char push-back buffer first.
+		int pushed = _ungetcBuffer;
+		if (pushed >= 0)
+		{
+			_ungetcBuffer = -1;
+			return pushed;
+		}
+		return Console.Read();
+	}
+
+	// Thread-local one-character push-back buffer; -1 = empty (matches EOF sentinel).
+	[ThreadStatic]
+	private static int _ungetcBuffer;
+
+	[MangledName("ungetc")]
+	public static int ungetc(int c, void* file)
+	{
+		// https://en.cppreference.com/w/c/io/ungetc
+		// Pushes one character back to the stream. Returns the pushed character on
+		// success, EOF (-1) if c is EOF or the stream doesn't support push-back.
+		if (c == -1)
+			return -1; // cannot push EOF
+		if (file == StandardInput)
+		{
+			// Only one push-back character is guaranteed by the standard.
+			// Store in thread-local buffer; next FGetc call will drain it.
+			_ungetcBuffer = c & 0xFF;
+			return _ungetcBuffer;
+		}
+		// For stdout/stderr or unknown streams: report success but don't buffer.
+		return c & 0xFF;
+	}
 
 	[MangledName("perror")]
 	public static void Perror(byte* s)
@@ -1247,6 +1282,7 @@ public static unsafe partial class IntrinsicFunctions
 	}
 
 	[MangledName("llvm.memcpy.p0.p0.i64")]
+	[MangledName("llvm.memcpy.inline.p0.p0.i64")]
 	public static void llvm_memcpy_p0_p0_i64(
 		void* destination,
 		void* source,
@@ -1346,5 +1382,111 @@ public static unsafe partial class IntrinsicFunctions
 
 		public override string? GetMessage() => Message;
 	}
+
+	// ── Pointer masking ───────────────────────────────────────────────────────
+	// llvm.ptrmask.p0.i64 — mask out low bits of a pointer (e.g. for alignment)
+
+	[MangledName("llvm.ptrmask.p0.i64")]
+	public static void* llvm_ptrmask_p0_i64(void* ptr, long mask) =>
+		(void*)((ulong)(nuint)ptr & unchecked((ulong)mask));
+
+	// ── FP class testing ─────────────────────────────────────────────────────
+	// llvm.is.fpclass.f32/f64/f80 — test floating-point value against a bitmask
+	// Bitmask layout (LLVM LangRef):
+	//   Bit 0: SNaN  Bit 1: QNaN  Bit 2: -Inf   Bit 3: -Normal
+	//   Bit 4: -Sub  Bit 5: -Zero Bit 6: +Zero  Bit 7: +Sub
+	//   Bit 8: +Normal  Bit 9: +Inf
+	// Note: .NET does not distinguish SNaN/QNaN; both bits 0 and 1 check IsNaN.
+
+	[MangledName("llvm.is.fpclass.f32")]
+	public static bool llvm_is_fpclass_f32(float x, int mask)
+	{
+		if ((mask & 0x003) != 0 && float.IsNaN(x))
+			return true;
+		if ((mask & 0x004) != 0 && float.IsNegativeInfinity(x))
+			return true;
+		if ((mask & 0x008) != 0 && float.IsNormal(x) && float.IsNegative(x))
+			return true;
+		if ((mask & 0x010) != 0 && float.IsSubnormal(x) && float.IsNegative(x))
+			return true;
+		if ((mask & 0x020) != 0 && x == 0f && float.IsNegative(x))
+			return true;
+		if ((mask & 0x040) != 0 && x == 0f && !float.IsNegative(x))
+			return true;
+		if ((mask & 0x080) != 0 && float.IsSubnormal(x) && !float.IsNegative(x))
+			return true;
+		if ((mask & 0x100) != 0 && float.IsNormal(x) && !float.IsNegative(x))
+			return true;
+		if ((mask & 0x200) != 0 && float.IsPositiveInfinity(x))
+			return true;
+		return false;
+	}
+
+	[MangledName("llvm.is.fpclass.f64")]
+	public static bool llvm_is_fpclass_f64(double x, int mask)
+	{
+		if ((mask & 0x003) != 0 && double.IsNaN(x))
+			return true;
+		if ((mask & 0x004) != 0 && double.IsNegativeInfinity(x))
+			return true;
+		if ((mask & 0x008) != 0 && double.IsNormal(x) && double.IsNegative(x))
+			return true;
+		if ((mask & 0x010) != 0 && double.IsSubnormal(x) && double.IsNegative(x))
+			return true;
+		if ((mask & 0x020) != 0 && x == 0d && double.IsNegative(x))
+			return true;
+		if ((mask & 0x040) != 0 && x == 0d && !double.IsNegative(x))
+			return true;
+		if ((mask & 0x080) != 0 && double.IsSubnormal(x) && !double.IsNegative(x))
+			return true;
+		if ((mask & 0x100) != 0 && double.IsNormal(x) && !double.IsNegative(x))
+			return true;
+		if ((mask & 0x200) != 0 && double.IsPositiveInfinity(x))
+			return true;
+		return false;
+	}
+
+	// x86_fp80 is approximated as double throughout the translator.
+	[MangledName("llvm.is.fpclass.f80")]
+	public static bool llvm_is_fpclass_f80(double x, int mask) => llvm_is_fpclass_f64(x, mask);
+
+	// ── Fixed-point arithmetic ────────────────────────────────────────────────
+	// llvm.smul.fix / llvm.umul.fix / llvm.udiv.fix
+	// All non-saturating variants; scale is the number of fractional bits.
+
+	// Signed multiply: ((wide)a * (wide)b) >> scale, truncated
+	[MangledName("llvm.smul.fix.i16")]
+	public static short llvm_smul_fix_i16(short a, short b, int scale) =>
+		unchecked((short)(((int)a * (int)b) >> scale));
+
+	[MangledName("llvm.smul.fix.i32")]
+	public static int llvm_smul_fix_i32(int a, int b, int scale) =>
+		unchecked((int)(((long)a * (long)b) >> scale));
+
+	// Unsigned multiply: treat bit patterns as unsigned, multiply, shift, reinterpret
+	[MangledName("llvm.umul.fix.i8")]
+	public static sbyte llvm_umul_fix_i8(sbyte a, sbyte b, int scale) =>
+		unchecked((sbyte)(byte)((ushort)((byte)a * (byte)b) >> scale));
+
+	[MangledName("llvm.umul.fix.i16")]
+	public static short llvm_umul_fix_i16(short a, short b, int scale) =>
+		unchecked((short)(ushort)((uint)((ushort)a * (ushort)b) >> scale));
+
+	[MangledName("llvm.umul.fix.i32")]
+	public static int llvm_umul_fix_i32(int a, int b, int scale) =>
+		unchecked((int)(uint)((ulong)((uint)a * (uint)b) >> scale));
+
+	// Unsigned divide: ((wide)a << scale) / (wide)b, truncated
+	[MangledName("llvm.udiv.fix.i8")]
+	public static sbyte llvm_udiv_fix_i8(sbyte a, sbyte b, int scale) =>
+		unchecked((sbyte)(byte)(((ushort)(byte)a << scale) / (byte)b));
+
+	[MangledName("llvm.udiv.fix.i16")]
+	public static short llvm_udiv_fix_i16(short a, short b, int scale) =>
+		unchecked((short)(ushort)(((uint)(ushort)a << scale) / (ushort)b));
+
+	[MangledName("llvm.udiv.fix.i32")]
+	public static int llvm_udiv_fix_i32(int a, int b, int scale) =>
+		unchecked((int)(uint)(((ulong)(uint)a << scale) / (uint)b));
 }
 #pragma warning restore IDE0060 // Remove unused parameter

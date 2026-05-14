@@ -121,6 +121,77 @@ public static unsafe partial class IntrinsicFunctions
 		return encoded.Length;
 	}
 
+	// ── POSIX stdio unlocked variants ────────────────────────────────────────
+	// The "unlocked" variants skip per-stream mutex acquisition.  In our managed
+	// environment there is no native FILE* mutex to skip, so these simply delegate
+	// to the same logic as their locked counterparts.
+
+	/// <summary>
+	/// Returns non-zero if the error indicator for <paramref name="file"/> is set.
+	/// Our stream model does not track error flags, so this always returns 0.
+	/// </summary>
+	[MangledName("ferror_unlocked")]
+	public static int ferror_unlocked(void* file) => 0;
+
+	/// <summary>
+	/// Acquires the internal lock of the given <paramref name="file"/> stream.
+	/// No-op in managed code; .NET stream types are already thread-safe.
+	/// </summary>
+	[MangledName("flockfile")]
+	public static void flockfile(
+		void* file
+	) { /* no-op */
+	}
+
+	/// <summary>
+	/// Releases the internal lock of the given <paramref name="file"/> stream.
+	/// No-op in managed code; counterpart to <see cref="flockfile"/>.
+	/// </summary>
+	[MangledName("funlockfile")]
+	public static void funlockfile(
+		void* file
+	) { /* no-op */
+	}
+
+	/// <summary>
+	/// Writes <paramref name="count"/> elements of <paramref name="size"/> bytes
+	/// each from <paramref name="buf"/> to <paramref name="file"/>, without
+	/// acquiring the per-stream lock.  Returns the number of elements written.
+	/// </summary>
+	[MangledName("fwrite_unlocked")]
+	public static long fwrite_unlocked(void* buf, long size, long count, void* file)
+	{
+		if (buf == null || size <= 0 || count <= 0)
+			return 0;
+		long totalBytes = size * count;
+		var bytes = new ReadOnlySpan<byte>((byte*)buf, (int)totalBytes);
+		if (file == StandardOutput)
+			Console.Write(System.Text.Encoding.UTF8.GetString(bytes));
+		else if (file == StandardError)
+			Console.Error.Write(System.Text.Encoding.UTF8.GetString(bytes));
+		else
+			return 0;
+		return count;
+	}
+
+	// ── Linux real-time signal range ─────────────────────────────────────────
+	// On Linux with NPTL, glibc/musl reserve RT signals 32 and 33 for internal
+	// use, so the first signal available to applications is 34 and the last is 64.
+
+	/// <summary>
+	/// Returns the lowest available real-time signal number (POSIX SIGRTMIN).
+	/// On Linux with NPTL this is 34 (glibc/libc reserve 32–33 for pthreads).
+	/// </summary>
+	[MangledName("__libc_current_sigrtmin")]
+	public static int LibcCurrentSigRtMin() => 34;
+
+	/// <summary>
+	/// Returns the highest available real-time signal number (POSIX SIGRTMAX).
+	/// On Linux this is 64 (_NSIG - 1).
+	/// </summary>
+	[MangledName("__libc_current_sigrtmax")]
+	public static int LibcCurrentSigRtMax() => 64;
+
 	// ── Termination ──────────────────────────────────────────────────────────
 
 	[DoesNotReturn]
