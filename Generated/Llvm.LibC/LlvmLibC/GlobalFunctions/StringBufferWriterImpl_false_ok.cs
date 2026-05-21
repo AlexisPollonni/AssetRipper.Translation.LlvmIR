@@ -7,8 +7,8 @@ internal static partial class StringBufferWriterImpl_false_ok
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_7details22StringBufferWriterImplILb0EE2okEv")]
 	[DemangledName("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>::ok() const")]
-	public unsafe static bool Invoke(details_StringBufferWriterImpl* @this)
+	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_details_StringBufferWriterImpl* This)
 	{
-		return unchecked((byte)((((@this->out_of_range & 1) == 1) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return unchecked((byte)((((This->Out_of_range & 1) == 1) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
 	}
 }

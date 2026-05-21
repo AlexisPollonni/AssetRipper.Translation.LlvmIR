@@ -8,10 +8,10 @@ internal static partial class StrToNumResult_Float16_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIDF16_EC2EDF16_li")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<_Float16>::StrToNumResult(_Float16, long, int)")]
-	public unsafe static void Invoke(StrToNumResult_stcih6* @this, [NativeType("_Float16")] Half value, [NativeType("long")] long parsed_len, [NativeType("int")] int error)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_StrToNumResult_stcih6* This, [MangledName("value")][NativeType("_Float16")] Half Value, [MangledName("parsed_len")][NativeType("long")] long Parsed_len, [MangledName("error")][NativeType("int")] int Error)
 	{
-		@this->value = value;
-		@this->error = error;
-		@this->parsed_len = parsed_len;
+		This->Value = Value;
+		This->Error = Error;
+		This->Parsed_len = Parsed_len;
 	}
 }

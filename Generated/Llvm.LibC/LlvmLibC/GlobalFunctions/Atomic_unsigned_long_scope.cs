@@ -7,8 +7,8 @@ internal static partial class Atomic_unsigned_long_scope
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp6AtomicImE5scopeENS0_11MemoryScopeE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned long>::scope(__llvm_libc_20_1_2_::cpp::MemoryScope)")]
-	public static int Invoke([NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope mem_scope)
+	public static int Invoke([MangledName("mem_scope")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope Mem_scope)
 	{
-		return unchecked((int)mem_scope);
+		return unchecked((int)Mem_scope);
 	}
 }

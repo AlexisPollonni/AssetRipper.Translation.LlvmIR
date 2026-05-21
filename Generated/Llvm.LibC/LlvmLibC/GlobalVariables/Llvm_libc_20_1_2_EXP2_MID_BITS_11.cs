@@ -1,0 +1,38 @@
+using System.Runtime.CompilerServices;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.InlineArrays;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalVariables;
+
+[MangledName("_ZN19__llvm_libc_20_1_2_L13EXP2_MID_BITSE.11")]
+[DemangledName("__llvm_libc_20_1_2_::EXP2_MID_BITS (.11)")]
+internal static partial class Llvm_libc_20_1_2_EXP2_MID_BITS_11
+{
+	[FixedAddressValueType]
+	private static Llvm_libc_20_1_2_cpp_array_wwfw4y __value;
+
+	public unsafe static Llvm_libc_20_1_2_cpp_array_wwfw4y* Pointer => unchecked((Llvm_libc_20_1_2_cpp_array_wwfw4y*)Unsafe.AsPointer(ref __value));
+
+	public static Llvm_libc_20_1_2_cpp_array_wwfw4y Value
+	{
+		get
+		{
+			return __value;
+		}
+		set
+		{
+			__value = value;
+		}
+	}
+
+	unsafe static Llvm_libc_20_1_2_EXP2_MID_BITS_11()
+	{
+		Value = new Llvm_libc_20_1_2_cpp_array_wwfw4y
+		{
+			Data = InlineArrayHelper.Create<InlineArray8_Int32, int>(new int[8] { 1065353216, 1066112450, 1066940400, 1067843287, 1068827891, 1069901610, 1071072509, 1072349383 })
+		};
+		PointerIndices.Register(Pointer);
+	}
+}

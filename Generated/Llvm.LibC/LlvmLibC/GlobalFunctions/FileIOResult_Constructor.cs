@@ -7,17 +7,17 @@ internal static partial class FileIOResult_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_12FileIOResultC2Em")]
 	[DemangledName("__llvm_libc_20_1_2_::FileIOResult::FileIOResult(unsigned long)")]
-	public unsafe static void Invoke(FileIOResult* @this, [NativeType("unsigned long")] long val)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_FileIOResult* This, [MangledName("val")][NativeType("unsigned long")] long Val)
 	{
-		@this->value = val;
-		@this->error = 0;
+		This->Value = Val;
+		This->Error = 0;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_12FileIOResultC2Emi")]
 	[DemangledName("__llvm_libc_20_1_2_::FileIOResult::FileIOResult(unsigned long, int)")]
-	public unsafe static void Invoke(FileIOResult* @this, [NativeType("unsigned long")] long val, [NativeType("int")] int error)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_FileIOResult* This, [MangledName("val")][NativeType("unsigned long")] long Val, [MangledName("error")][NativeType("int")] int Error)
 	{
-		@this->value = val;
-		@this->error = error;
+		This->Value = Val;
+		This->Error = Error;
 	}
 }

@@ -1,0 +1,28 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class Internal_btowc
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_8internal5btowcEi")]
+	[DemangledName("__llvm_libc_20_1_2_::internal::btowc(int)")]
+	public unsafe static long Invoke([MangledName("c")][NativeType("int")] int C)
+	{
+		Llvm_libc_20_1_2_cpp_optional_g66fk4 llvm_libc_20_1_2_cpp_optional_g66fk = default(Llvm_libc_20_1_2_cpp_optional_g66fk4);
+		int num = 0;
+		if (C > 127 || C < 0)
+		{
+			Optional_unsigned_int_Constructor_d3whqv.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk);
+		}
+		else
+		{
+			Llvm_lifetime_start_p0.Invoke(4L, &num);
+			num = C;
+			Optional_unsigned_int_Constructor_sqgrhj.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk, &num);
+			Llvm_lifetime_end_p0.Invoke(4L, &num);
+		}
+		return *unchecked((long*)(&llvm_libc_20_1_2_cpp_optional_g66fk.Storage));
+	}
+}

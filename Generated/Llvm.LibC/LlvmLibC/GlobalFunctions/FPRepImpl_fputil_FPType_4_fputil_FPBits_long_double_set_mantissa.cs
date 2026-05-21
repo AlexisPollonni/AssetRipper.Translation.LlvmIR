@@ -8,16 +8,16 @@ internal static partial class FPRepImpl_fputil_FPType_4_fputil_FPBits_long_doubl
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPRepImplILNS0_6FPTypeE4ENS0_6FPBitsIeEEE12set_mantissaEo")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)4, __llvm_libc_20_1_2_::fputil::FPBits<long double>>::set_mantissa(unsigned __int128)")]
-	public unsafe static void Invoke(void* @this, [MangledName("mantVal.coerce0")] long mantVal, [MangledName("mantVal.coerce1")] long mantVal_coerce1)
+	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("mantVal.coerce0")] long MantVal, [MangledName("mantVal.coerce1")] long MantVal_coerce1)
 	{
 		Int128 @int = default(Int128);
 		Int128 field_ = default(Int128);
 		unchecked
 		{
-			*(long*)(&@int) = mantVal;
-			((long*)(&@int))[1] = mantVal_coerce1;
+			*(long*)(&@int) = MantVal;
+			((long*)(&@int))[1] = MantVal_coerce1;
 			Int128 int2 = @int;
-			Int128 field_2 = ((fputil_internal_FPStorage_w3h7gw*)@this)->field_0;
+			Int128 field_2 = ((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0;
 			long a = *(long*)(&field_2);
 			long b = ((long*)(&field_2))[1];
 			Int128 int3 = int2;
@@ -31,7 +31,7 @@ internal static partial class FPRepImpl_fputil_FPType_4_fputil_FPBits_long_doubl
 			byte* num2 = (byte*)(&field_) + 8u;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			*(long*)num2 = struct_fiz2nb3.field_1;
-			((fputil_internal_FPStorage_w3h7gw*)@this)->field_0 = field_;
+			((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
 		}
 	}
 }

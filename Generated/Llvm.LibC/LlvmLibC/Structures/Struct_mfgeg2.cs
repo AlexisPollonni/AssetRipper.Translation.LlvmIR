@@ -9,8 +9,8 @@ namespace LlvmLibC.Structures;
 public partial struct Struct_mfgeg2
 {
 	[FieldOffset(0)]
-	public InlineArray188_fputil_DyadicFloat_kt2kd4 field_0;
+	public InlineArray188_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 field_0;
 
 	[FieldOffset(4512)]
-	public InlineArray10_fputil_DyadicFloat_kt2kd4 field_1;
+	public InlineArray10_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 field_1;
 }

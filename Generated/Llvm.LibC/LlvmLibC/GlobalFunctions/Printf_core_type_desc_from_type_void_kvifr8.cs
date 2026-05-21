@@ -1,0 +1,22 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.Enumerations;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class Printf_core_type_desc_from_type_void_kvifr8
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core19type_desc_from_typeIvEENS0_8TypeDescEv")]
+	[DemangledName("__llvm_libc_20_1_2_::printf_core::TypeDesc __llvm_libc_20_1_2_::printf_core::type_desc_from_type<void>()")]
+	[CleanName("Printf_core_type_desc_from_type_void")]
+	[return: NativeType("__llvm_libc_20_1_2_::printf_core::TypeDesc")]
+	public unsafe static short Invoke()
+	{
+		Llvm_libc_20_1_2_printf_core_TypeDesc llvm_libc_20_1_2_printf_core_TypeDesc = new Llvm_libc_20_1_2_printf_core_TypeDesc
+		{
+			Size = 0,
+			Primary_type = PrimaryType.Unknown
+		};
+		return *unchecked((short*)(&llvm_libc_20_1_2_printf_core_TypeDesc));
+	}
+}

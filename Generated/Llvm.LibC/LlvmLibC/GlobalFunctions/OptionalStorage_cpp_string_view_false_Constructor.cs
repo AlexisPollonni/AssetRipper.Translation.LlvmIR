@@ -7,12 +7,12 @@ internal static partial class OptionalStorage_cpp_string_view_false_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalINS0_11string_viewEE15OptionalStorageIS2_Lb0EEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::string_view>::OptionalStorage<__llvm_libc_20_1_2_::cpp::string_view, false>::OptionalStorage()")]
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
 		unchecked
 		{
-			*(sbyte*)(&((cpp_optional_cpp_string_view_OptionalStorage*)@this)->field) = 0;
-			((cpp_optional_cpp_string_view_OptionalStorage*)@this)->in_use = 0;
+			*(sbyte*)(&((Llvm_libc_20_1_2_cpp_optional_cpp_string_view_OptionalStorage*)This)->field) = 0;
+			((Llvm_libc_20_1_2_cpp_optional_cpp_string_view_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 }

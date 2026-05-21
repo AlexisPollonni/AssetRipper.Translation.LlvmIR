@@ -7,8 +7,8 @@ internal static partial class StrToNumResult_float_ToSingle
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIfEcvfEv")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<float>::operator float()")]
-	public unsafe static float Invoke(void* @this)
+	public unsafe static float Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((StrToNumResult_cqc3yy*)@this)->value;
+		return unchecked((Llvm_libc_20_1_2_StrToNumResult_cqc3yy*)This)->Value;
 	}
 }

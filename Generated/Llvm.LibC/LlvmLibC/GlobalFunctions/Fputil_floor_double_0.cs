@@ -1,0 +1,25 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class Fputil_floor_double_0
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil5floorIdTnNS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT_EEiE4typeELi0EEES4_S4_")]
+	[DemangledName("double __llvm_libc_20_1_2_::fputil::floor<double, 0>(double)")]
+	[return: NativeType("double")]
+	public unsafe static double Invoke([MangledName("x")][NativeType("double")] double X)
+	{
+		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+		Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+		unchecked
+		{
+			*(long*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm) = -6148914691236517206L;
+			FPBits_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm, X);
+			double result = ((!FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm))) ? Fputil_trunc_double_0.Invoke(X) : (0.0 - Fputil_ceil_double_0.Invoke(0.0 - X)));
+			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+			return result;
+		}
+	}
+}

@@ -9,13 +9,13 @@ internal static partial class FloatToString_long_double_0_grab_digits_128ul
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIeLi0EE11grab_digitsILm128EEEjRNS_6BigIntIXT_ELb0ENS_8internal16WordTypeSelectorIXT_EE4typeEEE")]
 	[DemangledName("unsigned int __llvm_libc_20_1_2_::FloatToString<long double, 0>::grab_digits<128ul>(__llvm_libc_20_1_2_::BigInt<128ul, false, __llvm_libc_20_1_2_::internal::WordTypeSelector<128ul>::type>&)")]
 	[return: NativeType("unsigned int")]
-	public unsafe static int Invoke([NativeType("__llvm_libc_20_1_2_::BigInt<128ul, false, __llvm_libc_20_1_2_::internal::WordTypeSelector<128ul>::type>&")] anon_izyfb7* int_num)
+	public unsafe static int Invoke([MangledName("int_num")][NativeType("__llvm_libc_20_1_2_::BigInt<128ul, false, __llvm_libc_20_1_2_::internal::WordTypeSelector<128ul>::type>&")] Anon_izyfb7* Int_num)
 	{
-		cpp_optional_neprgb cpp_optional_neprgb2 = default(cpp_optional_neprgb);
-		llvm_lifetime_start_p0.Invoke(24L, &cpp_optional_neprgb2);
+		Llvm_libc_20_1_2_cpp_optional_neprgb llvm_libc_20_1_2_cpp_optional_neprgb = default(Llvm_libc_20_1_2_cpp_optional_neprgb);
+		Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_cpp_optional_neprgb);
 		unchecked
 		{
-			sbyte* ptr = (sbyte*)(&cpp_optional_neprgb2);
+			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_cpp_optional_neprgb);
 			sbyte* ptr2 = ptr;
 			*(long*)ptr2 = -6148914691236517206L;
 			((long*)ptr2)[1] = -6148914691236517206L;
@@ -28,9 +28,9 @@ internal static partial class FloatToString_long_double_0_grab_digits_128ul
 			ptr3[4] = -86;
 			ptr3[5] = -86;
 			ptr3[6] = -86;
-			BigInt_128ul_false_unsigned_long_div_uint_half_times_pow_2.Invoke(&cpp_optional_neprgb2, int_num, 1953125, 9L);
-			int result = BigInt_128ul_false_unsigned_long_unsigned_int_unsigned_int.Invoke(optional_BigInt_128ul_false_unsigned_long_value.Invoke(&cpp_optional_neprgb2));
-			llvm_lifetime_end_p0.Invoke(24L, &cpp_optional_neprgb2);
+			BigInt_128ul_false_unsigned_long_div_uint_half_times_pow_2.Invoke(&llvm_libc_20_1_2_cpp_optional_neprgb, Int_num, 1953125, 9L);
+			int result = BigInt_128ul_false_unsigned_long_Unsigned_int_unsigned_int.Invoke(Optional_BigInt_128ul_false_unsigned_long_value.Invoke(&llvm_libc_20_1_2_cpp_optional_neprgb));
+			Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_cpp_optional_neprgb);
 			return result;
 		}
 	}

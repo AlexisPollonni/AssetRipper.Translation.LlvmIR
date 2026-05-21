@@ -7,11 +7,11 @@ internal static partial class FloatConvertReturn_double_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal18FloatConvertReturnIdEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn<double>::FloatConvertReturn()")]
-	public unsafe static void Invoke(internal_FloatConvertReturn_g92bm8* @this)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_FloatConvertReturn_g92bm8* This)
 	{
-		internal_ExpandedFloat_k68bhv* num = &@this->num;
-		num->mantissa = 0L;
-		num->exponent = 0;
-		@this->error = 0;
+		Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv* num = &This->Num;
+		num->Mantissa = 0L;
+		num->Exponent = 0;
+		This->Error = 0;
 	}
 }

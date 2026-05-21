@@ -8,16 +8,16 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp6AtomicIjE23compare_exchange_strongERjjNS0_11MemoryOrderENS0_11MemoryScopeE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned int>::compare_exchange_strong(unsigned int&, unsigned int, __llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryScope)")]
-	public unsafe static bool Invoke(void* @this, [NativeType("unsigned int&")] void* expected, [NativeType("unsigned int")] int desired, [NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder mem_ord, [NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope mem_scope)
+	public unsafe static bool Invoke([MangledName("this")] void* This, [MangledName("expected")][NativeType("unsigned int&")] void* Expected, [MangledName("desired")][NativeType("unsigned int")] int Desired, [MangledName("mem_ord")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder Mem_ord, [MangledName("mem_scope")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope Mem_scope)
 	{
-		int num = desired;
+		int num = Desired;
 		unchecked
 		{
-			Atomic_unsigned_int_addressof.Invoke(&((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0);
-			int num2 = Atomic_unsigned_int_order.Invoke(mem_ord);
-			void* ptr = Atomic_unsigned_int_addressof.Invoke(expected);
+			Atomic_unsigned_int_addressof.Invoke(&((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
+			int num2 = Atomic_unsigned_int_order.Invoke(Mem_ord);
+			void* ptr = Atomic_unsigned_int_addressof.Invoke(Expected);
 			void* ptr2 = Atomic_unsigned_int_addressof.Invoke(&num);
-			int num3 = Atomic_unsigned_int_order.Invoke(mem_ord);
+			int num3 = Atomic_unsigned_int_order.Invoke(Mem_ord);
 			sbyte b;
 			switch (num2)
 			{

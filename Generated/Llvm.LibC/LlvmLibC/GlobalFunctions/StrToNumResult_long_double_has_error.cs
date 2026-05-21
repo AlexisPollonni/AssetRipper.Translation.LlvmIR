@@ -7,8 +7,8 @@ internal static partial class StrToNumResult_long_double_has_error
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIeE9has_errorEv")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long double>::has_error()")]
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((StrToNumResult_uytq62*)@this)->error != 0;
+		return unchecked((Llvm_libc_20_1_2_StrToNumResult_uytq62*)This)->Error != 0;
 	}
 }

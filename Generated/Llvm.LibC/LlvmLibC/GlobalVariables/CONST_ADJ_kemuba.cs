@@ -13,11 +13,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class CONST_ADJ_kemuba
 {
 	[FixedAddressValueType]
-	private static InlineArray2_InlineArray2_InlineArray2_NumberPair __value;
+	private static InlineArray2_InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair __value;
 
-	public unsafe static InlineArray2_InlineArray2_InlineArray2_NumberPair* Pointer => unchecked((InlineArray2_InlineArray2_InlineArray2_NumberPair*)Unsafe.AsPointer(ref __value));
+	public unsafe static InlineArray2_InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair* Pointer => unchecked((InlineArray2_InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair*)Unsafe.AsPointer(ref __value));
 
-	public static InlineArray2_InlineArray2_InlineArray2_NumberPair Value
+	public static InlineArray2_InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair Value
 	{
 		get
 		{
@@ -31,59 +31,59 @@ internal static partial class CONST_ADJ_kemuba
 
 	unsafe static CONST_ADJ_kemuba()
 	{
-		Value = new InlineArrayBuilder<InlineArray2_InlineArray2_InlineArray2_NumberPair, InlineArray2_InlineArray2_NumberPair>
+		Value = new InlineArrayBuilder<InlineArray2_InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair, InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair>
 		{
-			new InlineArrayBuilder<InlineArray2_InlineArray2_NumberPair, InlineArray2_NumberPair>
+			new InlineArrayBuilder<InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair, InlineArray2_Llvm_libc_20_1_2_NumberPair>
 			{
-				new InlineArrayBuilder<InlineArray2_NumberPair, NumberPair>
+				new InlineArrayBuilder<InlineArray2_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
 				{
-					default(NumberPair),
-					new NumberPair
+					default(Llvm_libc_20_1_2_NumberPair),
+					new Llvm_libc_20_1_2_NumberPair
 					{
-						lo = -6.123233995736766E-17,
-						hi = -Math.PI / 2.0
+						Lo = -6.123233995736766E-17,
+						Hi = -Math.PI / 2.0
 					}
 				},
-				new InlineArrayBuilder<InlineArray2_NumberPair, NumberPair>
+				new InlineArrayBuilder<InlineArray2_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
 				{
-					new NumberPair
+					new Llvm_libc_20_1_2_NumberPair
 					{
-						lo = -0.0,
-						hi = -0.0
+						Lo = -0.0,
+						Hi = -0.0
 					},
-					new NumberPair
+					new Llvm_libc_20_1_2_NumberPair
 					{
-						lo = -6.123233995736766E-17,
-						hi = -Math.PI / 2.0
+						Lo = -6.123233995736766E-17,
+						Hi = -Math.PI / 2.0
 					}
 				}
 			},
-			new InlineArrayBuilder<InlineArray2_InlineArray2_NumberPair, InlineArray2_NumberPair>
+			new InlineArrayBuilder<InlineArray2_InlineArray2_Llvm_libc_20_1_2_NumberPair, InlineArray2_Llvm_libc_20_1_2_NumberPair>
 			{
-				new InlineArrayBuilder<InlineArray2_NumberPair, NumberPair>
+				new InlineArrayBuilder<InlineArray2_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
 				{
-					new NumberPair
+					new Llvm_libc_20_1_2_NumberPair
 					{
-						lo = -1.2246467991473532E-16,
-						hi = -Math.PI
+						Lo = -1.2246467991473532E-16,
+						Hi = -Math.PI
 					},
-					new NumberPair
+					new Llvm_libc_20_1_2_NumberPair
 					{
-						lo = 6.123233995736766E-17,
-						hi = Math.PI / 2.0
+						Lo = 6.123233995736766E-17,
+						Hi = Math.PI / 2.0
 					}
 				},
-				new InlineArrayBuilder<InlineArray2_NumberPair, NumberPair>
+				new InlineArrayBuilder<InlineArray2_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
 				{
-					new NumberPair
+					new Llvm_libc_20_1_2_NumberPair
 					{
-						lo = -1.2246467991473532E-16,
-						hi = -Math.PI
+						Lo = -1.2246467991473532E-16,
+						Hi = -Math.PI
 					},
-					new NumberPair
+					new Llvm_libc_20_1_2_NumberPair
 					{
-						lo = 6.123233995736766E-17,
-						hi = Math.PI / 2.0
+						Lo = 6.123233995736766E-17,
+						Hi = Math.PI / 2.0
 					}
 				}
 			}

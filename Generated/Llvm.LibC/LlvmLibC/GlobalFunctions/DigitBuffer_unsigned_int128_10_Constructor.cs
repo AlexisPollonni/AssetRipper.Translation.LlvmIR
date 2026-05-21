@@ -9,10 +9,10 @@ internal static partial class DigitBuffer_unsigned_int128_10_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal11DigitBufferIoLi10EEC2EPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::DigitBuffer<unsigned __int128, 10>::DigitBuffer(char const*)")]
-	public unsafe static void Invoke(internal_DigitBuffer_wha8ym* @this, [NativeType("char const*")] void* str)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_DigitBuffer_wha8ym* This, [MangledName("str")][NativeType("char const*")] void* Str)
 	{
-		void* ptr = str;
-		InlineArray42_SByte* digits = &@this->digits;
+		void* ptr = Str;
+		InlineArray42_SByte* digits = &This->Digits;
 		unchecked
 		{
 			sbyte* ptr2 = (sbyte*)digits + 42;
@@ -28,10 +28,10 @@ internal static partial class DigitBuffer_unsigned_int128_10_Constructor
 				}
 				intPtr = (nint)ptr4;
 			}
-			@this->size = 0L;
+			This->Size = 0L;
 			for (; *(sbyte*)ptr != 0; ptr = (byte*)ptr + 1)
 			{
-				DigitBuffer_unsigned_int128_10_push.Invoke(@this, *(sbyte*)ptr);
+				DigitBuffer_unsigned_int128_10_push.Invoke(This, *(sbyte*)ptr);
 			}
 		}
 	}

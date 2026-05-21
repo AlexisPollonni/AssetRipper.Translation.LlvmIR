@@ -10,8 +10,8 @@ internal static partial class Significand_bits_all_ones_pwguf3
 	[CleanName("Significand_bits_all_ones")]
 	public unsafe static short Invoke()
 	{
-		fputil_internal_FPRepSem_i7nz4h fputil_internal_FPRepSem_i7nz4h2 = default(fputil_internal_FPRepSem_i7nz4h);
-		Significand_Constructor_n44wpn.Invoke(&fputil_internal_FPRepSem_i7nz4h2, 1023);
-		return fputil_internal_FPRepSem_i7nz4h2.FPStorage.field_0;
+		Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h = default(Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h);
+		Significand_Constructor_n44wpn.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h, 1023);
+		return llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h.FPStorage.field_0;
 	}
 }

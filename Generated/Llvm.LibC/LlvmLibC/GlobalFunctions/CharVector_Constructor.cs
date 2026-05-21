@@ -7,10 +7,10 @@ internal static partial class CharVector_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_10CharVectorC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::CharVector::CharVector()")]
-	public unsafe static void Invoke(CharVector* @this)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_CharVector* This)
 	{
-		@this->cur_str = &@this->local_buffer;
-		@this->cur_buff_size = 64L;
-		@this->index = 0L;
+		This->Cur_str = &This->Local_buffer;
+		This->Cur_buff_size = 64L;
+		This->Index = 0L;
 	}
 }

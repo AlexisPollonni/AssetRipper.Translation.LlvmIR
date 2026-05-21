@@ -1,9 +1,0 @@
-namespace LlvmLibC.GlobalFunctions;
-
-internal static partial class fminimum_mag
-{
-	public static double Invoke(double x, double y)
-	{
-		return fputil_fminimum_mag_double_0.Invoke(x, y);
-	}
-}

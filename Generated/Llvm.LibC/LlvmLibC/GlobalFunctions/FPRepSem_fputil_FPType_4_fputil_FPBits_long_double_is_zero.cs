@@ -9,10 +9,10 @@ internal static partial class FPRepSem_fputil_FPType_4_fputil_FPBits_long_double
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE4ENS0_6FPBitsIeEEE7is_zeroEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)4, __llvm_libc_20_1_2_::fputil::FPBits<long double>>::is_zero() const")]
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
 		Int128 x = default(Int128);
-		Struct_fiz2nb struct_fiz2nb = FPStorage_fputil_FPType_4_exp_sig_bits.Invoke(@this);
+		Struct_fiz2nb struct_fiz2nb = FPStorage_fputil_FPType_4_exp_sig_bits.Invoke(This);
 		Int128* num = &x;
 		Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 		unchecked

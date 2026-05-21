@@ -12,26 +12,26 @@ internal static partial class HighPrecisionDecimal_round_to_integer_type_unsigne
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal21round_to_integer_typeIoEET_NS0_14RoundDirectionE")]
 	[DemangledName("unsigned __int128 __llvm_libc_20_1_2_::internal::HighPrecisionDecimal::round_to_integer_type<unsigned __int128>(__llvm_libc_20_1_2_::internal::RoundDirection)")]
 	[return: NativeType("unsigned __int128")]
-	public unsafe static Struct_fiz2nb Invoke(internal_HighPrecisionDecimal* @this, [NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy round)
+	public unsafe static Struct_fiz2nb Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
 	{
 		Int128 x = default(Int128);
 		int i = 0;
-		llvm_lifetime_start_p0.Invoke(16L, &x);
+		Llvm_lifetime_start_p0.Invoke(16L, &x);
 		x = 0L;
-		llvm_lifetime_start_p0.Invoke(4L, &i);
+		Llvm_lifetime_start_p0.Invoke(4L, &i);
 		unchecked
 		{
-			for (i = 0; i < @this->decimal_point && (uint)i < (uint)@this->num_digits; i++)
+			for (i = 0; i < This->Decimal_point && (uint)i < (uint)This->Num_digits; i++)
 			{
-				x = NumericHelper.Add(NumericHelper.Multiply(x, 10L), (Int128)(UInt128)(byte)((sbyte*)(&@this->digits))[(uint)i]);
+				x = NumericHelper.Add(NumericHelper.Multiply(x, 10L), (Int128)(UInt128)(byte)((sbyte*)(&This->Digits))[(uint)i]);
 			}
-			for (; i < @this->decimal_point; i++)
+			for (; i < This->Decimal_point; i++)
 			{
 				x = NumericHelper.Multiply(x, 10L);
 			}
-			Int128 @int = NumericHelper.Add(x, (Int128)(UInt128)(HighPrecisionDecimal_should_round_up.Invoke(@this, @this->decimal_point, round) ? 1u : 0u));
-			llvm_lifetime_end_p0.Invoke(4L, &i);
-			llvm_lifetime_end_p0.Invoke(16L, &x);
+			Int128 @int = NumericHelper.Add(x, (Int128)(UInt128)(HighPrecisionDecimal_should_round_up.Invoke(This, This->Decimal_point, Round) ? 1u : 0u));
+			Llvm_lifetime_end_p0.Invoke(4L, &i);
+			Llvm_lifetime_end_p0.Invoke(16L, &x);
 			return *(Struct_fiz2nb*)(&@int);
 		}
 	}

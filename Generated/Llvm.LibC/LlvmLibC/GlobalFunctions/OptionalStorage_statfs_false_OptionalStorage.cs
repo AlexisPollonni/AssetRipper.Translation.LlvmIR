@@ -8,9 +8,9 @@ internal static partial class OptionalStorage_statfs_false_OptionalStorage
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalI6statfsE15OptionalStorageIS2_Lb0EEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<statfs>::OptionalStorage<statfs, false>::OptionalStorage()")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::optional")]
-	public unsafe static void Invoke(cpp_optional_statfs_OptionalStorage* @this)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_cpp_optional_statfs_OptionalStorage* This)
 	{
-		*unchecked((sbyte*)(&@this->field)) = 0;
-		@this->in_use = 0;
+		*unchecked((sbyte*)(&This->field)) = 0;
+		This->In_use = 0;
 	}
 }

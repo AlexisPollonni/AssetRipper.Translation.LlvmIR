@@ -7,8 +7,8 @@ internal static partial class AuxvFdGuard_valid
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_11AuxvFdGuard5validEv")]
 	[DemangledName("__llvm_libc_20_1_2_::AuxvFdGuard::valid() const")]
-	public unsafe static bool Invoke(void* @this)
+	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0 != -1;
+		return unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 != -1;
 	}
 }

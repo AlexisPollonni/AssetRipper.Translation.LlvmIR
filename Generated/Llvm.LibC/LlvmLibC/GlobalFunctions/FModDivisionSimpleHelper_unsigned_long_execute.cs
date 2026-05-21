@@ -6,15 +6,15 @@ internal static partial class FModDivisionSimpleHelper_unsigned_long_execute
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil7generic24FModDivisionSimpleHelperImE7executeEiimm")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::generic::FModDivisionSimpleHelper<unsigned long>::execute(int, int, unsigned long, unsigned long)")]
-	public static long Invoke([NativeType("int")] int exp_diff, [NativeType("int")] int sides_zeroes_count, [NativeType("unsigned long")] long m_x, [NativeType("unsigned long")] long m_y)
+	public static long Invoke([MangledName("exp_diff")][NativeType("int")] int Exp_diff, [MangledName("sides_zeroes_count")][NativeType("int")] int Sides_zeroes_count, [MangledName("m_x")][NativeType("unsigned long")] long M_x, [MangledName("m_y")][NativeType("unsigned long")] long M_y)
 	{
-		int num = exp_diff;
-		long num2 = m_x;
-		while (num > sides_zeroes_count)
+		int num = Exp_diff;
+		long num2 = M_x;
+		while (num > Sides_zeroes_count)
 		{
-			num -= sides_zeroes_count;
-			num2 = unchecked((long)((ulong)(num2 << (int)(uint)sides_zeroes_count) % (ulong)m_y));
+			num -= Sides_zeroes_count;
+			num2 = unchecked((long)((ulong)(num2 << (int)(uint)Sides_zeroes_count) % (ulong)M_y));
 		}
-		return unchecked((long)((ulong)(num2 << (int)(uint)num) % (ulong)m_y));
+		return unchecked((long)((ulong)(num2 << (int)(uint)num) % (ulong)M_y));
 	}
 }

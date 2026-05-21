@@ -8,16 +8,16 @@ internal static partial class IntegerWriter_write_gqfnqc
 	[MangledName("_ZN19__llvm_libc_20_1_2_15IntegerToStringIiNS_7details3FmtILh10ELb0ELb0ELb0ELm1EEEE13IntegerWriter5writeEiRNS1_22StringBufferWriterImplILb0EEE")]
 	[DemangledName("__llvm_libc_20_1_2_::IntegerToString<int, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::IntegerWriter::write(int, __llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>&)")]
 	[CleanName("IntegerWriter_write")]
-	public unsafe static void Invoke([NativeType("int")] int value, [NativeType("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>&")] details_StringBufferWriterImpl* sink)
+	public unsafe static void Invoke([MangledName("value")][NativeType("int")] int Value, [MangledName("sink")][NativeType("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>&")] Llvm_libc_20_1_2_details_StringBufferWriterImpl* Sink)
 	{
-		IntegerWriter_write_unsigned_number_cxrqng.Invoke(IntegerWriter_abs_hawne3.Invoke(value), sink);
-		while (StringBufferWriterImpl_false_ok.Invoke(sink) && unchecked((ulong)StringBufferWriterImpl_false_size.Invoke(sink)) < 1uL)
+		IntegerWriter_write_unsigned_number_cxrqng.Invoke(IntegerWriter_abs_hawne3.Invoke(Value), Sink);
+		while (StringBufferWriterImpl_false_ok.Invoke(Sink) && unchecked((ulong)StringBufferWriterImpl_false_size.Invoke(Sink)) < 1uL)
 		{
-			StringBufferWriterImpl_false_push.Invoke(sink, 48);
+			StringBufferWriterImpl_false_push.Invoke(Sink, 48);
 		}
-		if (value < 0)
+		if (Value < 0)
 		{
-			StringBufferWriterImpl_false_push.Invoke(sink, 45);
+			StringBufferWriterImpl_false_push.Invoke(Sink, 45);
 		}
 	}
 }

@@ -9,16 +9,16 @@ internal static partial class FloatToString_long_double_0_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIeLi0EEC2Ee")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<long double, 0>::FloatToString(long double)")]
-	public unsafe static void Invoke(FloatToString_8m29tk* @this, [NativeType("long double")] double init_float)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_FloatToString_8m29tk* This, [MangledName("init_float")][NativeType("long double")] double Init_float)
 	{
 		Int128 mantissa = default(Int128);
-		FPBits_long_double_Constructor.Invoke(&@this->float_bits, init_float);
-		@this->is_negative = 0;
-		@this->exponent = 0;
-		@this->mantissa = 0L;
-		BigInt_16512ul_false_unsigned_long_BigInt_int_void.Invoke(&@this->float_as_fixed, 0);
-		@this->int_block_index = 0;
-		InlineArray549_Int32* block_buffer = &@this->block_buffer;
+		FPBits_long_double_Constructor.Invoke(&This->Float_bits, Init_float);
+		This->Is_negative = 0;
+		This->Exponent = 0;
+		This->Mantissa = 0L;
+		BigInt_16512ul_false_unsigned_long_BigInt_int_void.Invoke(&This->Float_as_fixed, 0);
+		This->Int_block_index = 0;
+		InlineArray549_Int32* block_buffer = &This->Block_buffer;
 		unchecked
 		{
 			*(int*)block_buffer = 0;
@@ -35,20 +35,20 @@ internal static partial class FloatToString_long_double_0_Constructor
 				}
 				num = (nint)ptr3;
 			}
-			@this->block_buffer_valid = 0L;
-			bool num2 = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_neg.Invoke(&@this->float_bits);
-			@this->is_negative = (num2 ? ((sbyte)1) : ((sbyte)0));
-			@this->exponent = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_exponent.Invoke(&@this->float_bits);
-			Struct_fiz2nb struct_fiz2nb = FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_mantissa.Invoke(&@this->float_bits);
+			This->Block_buffer_valid = 0L;
+			bool num2 = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_neg.Invoke(&This->Float_bits);
+			This->Is_negative = (num2 ? ((sbyte)1) : ((sbyte)0));
+			This->Exponent = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_exponent.Invoke(&This->Float_bits);
+			Struct_fiz2nb struct_fiz2nb = FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_mantissa.Invoke(&This->Float_bits);
 			Int128* num3 = &mantissa;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num3 = struct_fiz2nb2.field_0;
 			byte* num4 = (byte*)(&mantissa) + 8u;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			*(long*)num4 = struct_fiz2nb3.field_1;
-			@this->mantissa = mantissa;
+			This->Mantissa = mantissa;
 		}
-		@this->exponent -= 63;
-		FloatToString_long_double_0_init_convert.Invoke(@this);
+		This->Exponent -= 63;
+		FloatToString_long_double_0_init_convert.Invoke(This);
 	}
 }

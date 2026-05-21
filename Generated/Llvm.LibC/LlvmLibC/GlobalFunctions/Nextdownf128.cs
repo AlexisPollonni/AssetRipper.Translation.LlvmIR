@@ -1,0 +1,13 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class Nextdownf128
+{
+	[MangledName("nextdownf128")]
+	[DemangledName("nextdownf128")]
+	public static double Invoke([MangledName("x")] double X)
+	{
+		return Fputil_nextupdown_true_float128_0.Invoke(X);
+	}
+}

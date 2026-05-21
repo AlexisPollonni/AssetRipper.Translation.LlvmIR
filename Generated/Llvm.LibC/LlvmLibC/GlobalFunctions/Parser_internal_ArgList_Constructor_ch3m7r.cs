@@ -8,12 +8,12 @@ internal static partial class Parser_internal_ArgList_Constructor_ch3m7r
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core6ParserINS_8internal7ArgListEEC2EPKcRS3_")]
 	[DemangledName("__llvm_libc_20_1_2_::scanf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::Parser(char const*, __llvm_libc_20_1_2_::internal::ArgList&)")]
 	[CleanName("Parser_internal_ArgList_Constructor")]
-	public unsafe static void Invoke(scanf_core_Parser* @this, [NativeType("char const*")] void* new_str, [NativeType("__llvm_libc_20_1_2_::internal::ArgList&")] internal_ArgList* args)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_scanf_core_Parser* This, [MangledName("new_str")][NativeType("char const*")] void* New_str, [MangledName("args")][NativeType("__llvm_libc_20_1_2_::internal::ArgList&")] Llvm_libc_20_1_2_internal_ArgList* Args)
 	{
-		@this->str = new_str;
-		@this->cur_pos = 0L;
-		ArgList_Constructor_z4jw9r.Invoke(&@this->args_cur, args);
-		ArgList_Constructor_z4jw9r.Invoke(&@this->args_start, args);
-		@this->args_index = 1L;
+		This->Str = New_str;
+		This->Cur_pos = 0L;
+		ArgList_Constructor_z4jw9r.Invoke(&This->Args_cur, Args);
+		ArgList_Constructor_z4jw9r.Invoke(&This->Args_start, Args);
+		This->Args_index = 1L;
 	}
 }

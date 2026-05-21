@@ -7,24 +7,24 @@ internal static partial class StringBufferWriterImpl_false_push
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_7details22StringBufferWriterImplILb0EE4pushEc")]
 	[DemangledName("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>::push(char)")]
-	public unsafe static details_StringBufferWriterImpl* Invoke(details_StringBufferWriterImpl* @this, [NativeType("char")] sbyte c)
+	public unsafe static Llvm_libc_20_1_2_details_StringBufferWriterImpl* Invoke([MangledName("this")] Llvm_libc_20_1_2_details_StringBufferWriterImpl* This, [MangledName("c")][NativeType("char")] sbyte C)
 	{
-		sbyte b = c;
+		sbyte b = C;
 		unchecked
 		{
-			if (StringBufferWriterImpl_false_ok.Invoke(@this))
+			if (StringBufferWriterImpl_false_ok.Invoke(This))
 			{
-				if (!StringBufferWriterImpl_false_full.Invoke(@this))
+				if (!StringBufferWriterImpl_false_full.Invoke(This))
 				{
-					*(sbyte*)span_char_Index.Invoke(&@this->buffer, StringBufferWriterImpl_false_location.Invoke(@this)) = b;
-					@this->index++;
+					*(sbyte*)Span_char_Index.Invoke(&This->Buffer, StringBufferWriterImpl_false_location.Invoke(This)) = b;
+					This->Index++;
 				}
 				else
 				{
-					@this->out_of_range = 1;
+					This->Out_of_range = 1;
 				}
 			}
-			return @this;
+			return This;
 		}
 	}
 }

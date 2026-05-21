@@ -8,17 +8,17 @@ internal static partial class FloatWriter_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11FloatWriterC2EPNS0_6WriterEbRKNS0_13PaddingWriterE")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::FloatWriter(__llvm_libc_20_1_2_::printf_core::Writer*, bool, __llvm_libc_20_1_2_::printf_core::PaddingWriter const&)")]
-	public unsafe static void Invoke(printf_core_FloatWriter* @this, [NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] printf_core_Writer* init_writer, [NativeType("bool")] bool init_has_decimal_point, [NativeType("__llvm_libc_20_1_2_::printf_core::PaddingWriter const&")] printf_core_PaddingWriter* init_padding_writer)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_FloatWriter* This, [MangledName("init_writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Llvm_libc_20_1_2_printf_core_Writer* Init_writer, [MangledName("init_has_decimal_point")][NativeType("bool")] bool Init_has_decimal_point, [MangledName("init_padding_writer")][NativeType("__llvm_libc_20_1_2_::printf_core::PaddingWriter const&")] Llvm_libc_20_1_2_printf_core_PaddingWriter* Init_padding_writer)
 	{
-		sbyte b = (init_has_decimal_point ? ((sbyte)1) : ((sbyte)0));
-		@this->buffered_digits = 0L;
-		@this->has_written = 0;
-		@this->max_block_count = 0L;
-		@this->total_digits = 0L;
-		@this->digits_before_decimal = 0L;
-		@this->total_digits_written = 0L;
-		@this->has_decimal_point = (((b & 1) == 1) ? ((sbyte)1) : ((sbyte)0));
-		@this->writer = init_writer;
-		llvm_memcpy_p0_p0_i64.Invoke(&@this->padding_writer, init_padding_writer, 16L, isVolatile: false);
+		sbyte b = (Init_has_decimal_point ? ((sbyte)1) : ((sbyte)0));
+		This->Buffered_digits = 0L;
+		This->Has_written = 0;
+		This->Max_block_count = 0L;
+		This->Total_digits = 0L;
+		This->Digits_before_decimal = 0L;
+		This->Total_digits_written = 0L;
+		This->Has_decimal_point = (((b & 1) == 1) ? ((sbyte)1) : ((sbyte)0));
+		This->Writer = Init_writer;
+		Llvm_memcpy_p0_p0_i64.Invoke(&This->Padding_writer, Init_padding_writer, 16L, isVolatile: false);
 	}
 }

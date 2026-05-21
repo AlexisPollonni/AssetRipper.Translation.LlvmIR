@@ -1,0 +1,15 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.GlobalVariables;
+using LlvmLibC.Intrinsics.Implemented;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class Thread_local_wrapper_routine_for_internal_signal_buffer
+{
+	[MangledName("_ZTWN19__llvm_libc_20_1_2_8internal13signal_bufferE")]
+	[DemangledName("thread-local wrapper routine for __llvm_libc_20_1_2_::internal::signal_buffer")]
+	public unsafe static void* Invoke()
+	{
+		return Llvm_threadlocal_address_p0.Invoke(Llvm_libc_20_1_2_internal_signal_buffer.Pointer);
+	}
+}

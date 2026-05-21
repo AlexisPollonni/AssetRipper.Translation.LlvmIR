@@ -7,17 +7,17 @@ internal static partial class HighPrecisionDecimal_trim_trailing_zeroes
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal20trim_trailing_zeroesEv")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::trim_trailing_zeroes()")]
-	public unsafe static void Invoke(internal_HighPrecisionDecimal* @this)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This)
 	{
 		unchecked
 		{
-			while (@this->num_digits != 0 && (byte)((sbyte*)(&@this->digits))[(uint)(@this->num_digits - 1)] == 0)
+			while (This->Num_digits != 0 && (byte)((sbyte*)(&This->Digits))[(uint)(This->Num_digits - 1)] == 0)
 			{
-				@this->num_digits += -1;
+				This->Num_digits += -1;
 			}
-			if (@this->num_digits == 0)
+			if (This->Num_digits == 0)
 			{
-				@this->decimal_point = 0;
+				This->Decimal_point = 0;
 			}
 		}
 	}

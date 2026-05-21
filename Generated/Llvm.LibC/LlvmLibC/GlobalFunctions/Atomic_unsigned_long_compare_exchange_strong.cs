@@ -8,14 +8,14 @@ internal static partial class Atomic_unsigned_long_compare_exchange_strong
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp6AtomicImE23compare_exchange_strongERmmNS0_11MemoryOrderES4_NS0_11MemoryScopeE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned long>::compare_exchange_strong(unsigned long&, unsigned long, __llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryScope)")]
-	public unsafe static bool Invoke(fputil_internal_FPStorage_v3nexn* @this, [NativeType("unsigned long&")] void* expected, [NativeType("unsigned long")] long desired, [NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder success_order, [NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder failure_order, [NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope mem_scope)
+	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn* This, [MangledName("expected")][NativeType("unsigned long&")] void* Expected, [MangledName("desired")][NativeType("unsigned long")] long Desired, [MangledName("success_order")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder Success_order, [MangledName("failure_order")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder Failure_order, [MangledName("mem_scope")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope Mem_scope)
 	{
-		long num = desired;
-		Atomic_unsigned_long_addressof.Invoke(&@this->val);
-		int num2 = Atomic_unsigned_long_order.Invoke(success_order);
-		void* ptr = Atomic_unsigned_long_addressof.Invoke(expected);
+		long num = Desired;
+		Atomic_unsigned_long_addressof.Invoke(&This->Val);
+		int num2 = Atomic_unsigned_long_order.Invoke(Success_order);
+		void* ptr = Atomic_unsigned_long_addressof.Invoke(Expected);
 		void* ptr2 = Atomic_unsigned_long_addressof.Invoke(&num);
-		int num3 = Atomic_unsigned_long_order.Invoke(failure_order);
+		int num3 = Atomic_unsigned_long_order.Invoke(Failure_order);
 		unchecked
 		{
 			sbyte b;

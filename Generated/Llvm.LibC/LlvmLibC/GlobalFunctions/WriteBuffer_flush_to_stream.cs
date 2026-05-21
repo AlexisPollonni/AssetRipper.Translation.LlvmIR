@@ -9,25 +9,25 @@ internal static partial class WriteBuffer_flush_to_stream
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11WriteBuffer15flush_to_streamENS_3cpp11string_viewE")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::WriteBuffer::flush_to_stream(__llvm_libc_20_1_2_::cpp::string_view)")]
-	public unsafe static int Invoke(printf_core_WriteBuffer* @this, [MangledName("new_str.coerce0")] void* new_str, [MangledName("new_str.coerce1")] long retval)
+	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_WriteBuffer* This, [MangledName("new_str.coerce0")] void* New_str, [MangledName("new_str.coerce1")] long Retval)
 	{
 		int result = 0;
-		cpp_string_view cpp_string_view2 = default(cpp_string_view);
+		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
 		int num = 0;
-		cpp_string_view cpp_string_view3 = default(cpp_string_view);
+		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view2 = default(Llvm_libc_20_1_2_cpp_string_view);
 		int num2 = 0;
-		cpp_string_view cpp_string_view4 = default(cpp_string_view);
+		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view3 = default(Llvm_libc_20_1_2_cpp_string_view);
 		unchecked
 		{
-			*(void**)(&cpp_string_view2) = new_str;
-			((long*)(&cpp_string_view2))[1] = retval;
-			if ((ulong)@this->buff_cur > 0uL)
+			*(void**)(&llvm_libc_20_1_2_cpp_string_view) = New_str;
+			((long*)(&llvm_libc_20_1_2_cpp_string_view))[1] = Retval;
+			if ((ulong)This->Buff_cur > 0uL)
 			{
-				llvm_lifetime_start_p0.Invoke(4L, &num);
-				void* stream_writer = @this->stream_writer;
-				string_view_Constructor.Invoke(&cpp_string_view3, @this->buff, @this->buff_cur);
-				void* output_target = @this->output_target;
-				num = ((delegate*<void*, long, void*, int>)stream_writer)(*(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1], output_target);
+				Llvm_lifetime_start_p0.Invoke(4L, &num);
+				void* stream_writer = This->Stream_writer;
+				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view2, This->Buff, This->Buff_cur);
+				void* output_target = This->Output_target;
+				num = ((delegate*<void*, long, void*, int>)stream_writer)(*(void**)(&llvm_libc_20_1_2_cpp_string_view2), ((long*)(&llvm_libc_20_1_2_cpp_string_view2))[1], output_target);
 				int num3;
 				if (num < 0)
 				{
@@ -38,7 +38,7 @@ internal static partial class WriteBuffer_flush_to_stream
 				{
 					num3 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(4L, &num);
+				Llvm_lifetime_end_p0.Invoke(4L, &num);
 				switch (num3)
 				{
 				case 0:
@@ -49,13 +49,13 @@ internal static partial class WriteBuffer_flush_to_stream
 					goto IL_018c;
 				}
 			}
-			if ((ulong)string_view_size.Invoke(&cpp_string_view2) > 0uL)
+			if ((ulong)String_view_size.Invoke(&llvm_libc_20_1_2_cpp_string_view) > 0uL)
 			{
-				llvm_lifetime_start_p0.Invoke(4L, &num2);
-				void* stream_writer2 = @this->stream_writer;
-				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view4, &cpp_string_view2, 16L, isVolatile: false);
-				void* output_target2 = @this->output_target;
-				num2 = ((delegate*<void*, long, void*, int>)stream_writer2)(*(void**)(&cpp_string_view4), ((long*)(&cpp_string_view4))[1], output_target2);
+				Llvm_lifetime_start_p0.Invoke(4L, &num2);
+				void* stream_writer2 = This->Stream_writer;
+				Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_string_view3, &llvm_libc_20_1_2_cpp_string_view, 16L, isVolatile: false);
+				void* output_target2 = This->Output_target;
+				num2 = ((delegate*<void*, long, void*, int>)stream_writer2)(*(void**)(&llvm_libc_20_1_2_cpp_string_view3), ((long*)(&llvm_libc_20_1_2_cpp_string_view3))[1], output_target2);
 				int num3;
 				if (num2 < 0)
 				{
@@ -66,7 +66,7 @@ internal static partial class WriteBuffer_flush_to_stream
 				{
 					num3 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(4L, &num2);
+				Llvm_lifetime_end_p0.Invoke(4L, &num2);
 				switch (num3)
 				{
 				case 0:
@@ -77,7 +77,7 @@ internal static partial class WriteBuffer_flush_to_stream
 					goto IL_018c;
 				}
 			}
-			@this->buff_cur = 0L;
+			This->Buff_cur = 0L;
 			result = 0;
 			goto IL_018a;
 		}

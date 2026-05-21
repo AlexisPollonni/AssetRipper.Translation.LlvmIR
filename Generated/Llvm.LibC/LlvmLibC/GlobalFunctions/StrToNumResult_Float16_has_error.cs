@@ -7,8 +7,8 @@ internal static partial class StrToNumResult_Float16_has_error
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIDF16_E9has_errorEv")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<_Float16>::has_error()")]
-	public unsafe static bool Invoke(StrToNumResult_stcih6* @this)
+	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_StrToNumResult_stcih6* This)
 	{
-		return @this->error != 0;
+		return This->Error != 0;
 	}
 }

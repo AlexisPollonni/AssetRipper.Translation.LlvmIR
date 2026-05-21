@@ -10,25 +10,25 @@ internal static partial class Parser_internal_ArgList_Constructor_hus89e
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core6ParserINS_8internal7ArgListEEC2EPKcRS3_")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::Parser(char const*, __llvm_libc_20_1_2_::internal::ArgList&)")]
 	[CleanName("Parser_internal_ArgList_Constructor")]
-	public unsafe static void Invoke(printf_core_Parser* @this, [NativeType("char const*")] void* new_str, [NativeType("__llvm_libc_20_1_2_::internal::ArgList&")] internal_ArgList* args)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_Parser* This, [MangledName("new_str")][NativeType("char const*")] void* New_str, [MangledName("args")][NativeType("__llvm_libc_20_1_2_::internal::ArgList&")] Llvm_libc_20_1_2_internal_ArgList* Args)
 	{
-		@this->str = new_str;
-		@this->cur_pos = 0L;
-		ArgList_Constructor_z4jw9r.Invoke(&@this->args_cur, args);
-		ArgList_Constructor_z4jw9r.Invoke(&@this->args_start, args);
-		@this->args_index = 1L;
-		InlineArray128_printf_core_TypeDesc* desc_arr = &@this->desc_arr;
+		This->Str = New_str;
+		This->Cur_pos = 0L;
+		ArgList_Constructor_z4jw9r.Invoke(&This->Args_cur, Args);
+		ArgList_Constructor_z4jw9r.Invoke(&This->Args_start, Args);
+		This->Args_index = 1L;
+		InlineArray128_Llvm_libc_20_1_2_printf_core_TypeDesc* desc_arr = &This->Desc_arr;
 		unchecked
 		{
-			*(short*)desc_arr = printf_core_type_desc_from_type_void_kvifr8.Invoke();
-			nint num = (nint)((byte*)desc_arr + sizeof(printf_core_TypeDesc));
-			printf_core_TypeDesc* ptr = (printf_core_TypeDesc*)desc_arr + 128L;
+			*(short*)desc_arr = Printf_core_type_desc_from_type_void_kvifr8.Invoke();
+			nint num = (nint)((byte*)desc_arr + sizeof(Llvm_libc_20_1_2_printf_core_TypeDesc));
+			Llvm_libc_20_1_2_printf_core_TypeDesc* ptr = (Llvm_libc_20_1_2_printf_core_TypeDesc*)desc_arr + 128L;
 			while (true)
 			{
 				void* ptr2 = (void*)num;
-				((printf_core_TypeDesc*)ptr2)->size = 0;
-				((printf_core_TypeDesc*)ptr2)->primary_type = PrimaryType.Unknown;
-				printf_core_TypeDesc* ptr3 = (printf_core_TypeDesc*)ptr2 + 1;
+				((Llvm_libc_20_1_2_printf_core_TypeDesc*)ptr2)->Size = 0;
+				((Llvm_libc_20_1_2_printf_core_TypeDesc*)ptr2)->Primary_type = PrimaryType.Unknown;
+				Llvm_libc_20_1_2_printf_core_TypeDesc* ptr3 = (Llvm_libc_20_1_2_printf_core_TypeDesc*)ptr2 + 1;
 				if (ptr3 != ptr)
 				{
 					num = (nint)ptr3;

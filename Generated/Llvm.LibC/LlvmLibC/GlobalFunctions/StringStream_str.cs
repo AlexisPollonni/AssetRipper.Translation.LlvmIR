@@ -7,13 +7,13 @@ internal static partial class StringStream_str
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp12StringStream3strEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::StringStream::str() const")]
-	public unsafe static Struct_kqhe8i Invoke(void* @this)
+	public unsafe static Struct_kqhe8i Invoke([MangledName("this")] void* This)
 	{
-		cpp_string_view cpp_string_view2 = default(cpp_string_view);
+		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
 		unchecked
 		{
-			string_view_Constructor.Invoke(&cpp_string_view2, span_char_data.Invoke(&((details_StringBufferWriterImpl*)@this)->buffer), ((details_StringBufferWriterImpl*)@this)->index);
-			return *(Struct_kqhe8i*)(&cpp_string_view2);
+			String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, Span_char_data.Invoke(&((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Buffer), ((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index);
+			return *(Struct_kqhe8i*)(&llvm_libc_20_1_2_cpp_string_view);
 		}
 	}
 }

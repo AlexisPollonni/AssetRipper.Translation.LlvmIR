@@ -8,24 +8,24 @@ internal static partial class Reader_getc
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core6Reader4getcEv")]
 	[DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader::getc()")]
-	public unsafe static sbyte Invoke(scanf_core_Reader* @this)
+	public unsafe static sbyte Invoke([MangledName("this")] Llvm_libc_20_1_2_scanf_core_Reader* This)
 	{
 		sbyte b = 0;
 		unchecked
 		{
-			@this->cur_chars_read++;
+			This->Cur_chars_read++;
 			sbyte result;
-			if (@this->rb != null)
+			if (This->Rb != null)
 			{
-				llvm_lifetime_start_p0.Invoke(1L, &b);
-				b = ((sbyte*)@this->rb->buffer)[@this->rb->buff_cur];
-				@this->rb->buff_cur++;
+				Llvm_lifetime_start_p0.Invoke(1L, &b);
+				b = ((sbyte*)This->Rb->Buffer)[This->Rb->Buff_cur];
+				This->Rb->Buff_cur++;
 				result = b;
-				llvm_lifetime_end_p0.Invoke(1L, &b);
+				Llvm_lifetime_end_p0.Invoke(1L, &b);
 			}
 			else
 			{
-				result = (sbyte)((delegate*<void*, int>)@this->stream_getc)(@this->input_stream);
+				result = (sbyte)((delegate*<void*, int>)This->Stream_getc)(This->Input_stream);
 			}
 			return result;
 		}

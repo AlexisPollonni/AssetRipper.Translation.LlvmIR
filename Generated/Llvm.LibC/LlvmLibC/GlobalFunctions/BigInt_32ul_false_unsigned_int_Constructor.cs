@@ -8,16 +8,16 @@ internal static partial class BigInt_32ul_false_unsigned_int_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEC2ERKNS_3cpp5arrayIjLm1EEE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::BigInt(__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
-	public unsafe static void Invoke(BigInt_vtm4cw* @this, [NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&")] cpp_array_2v7m9i* words)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_vtm4cw* This, [MangledName("words")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&")] Llvm_libc_20_1_2_cpp_array_2v7m9i* Words)
 	{
-		llvm_memset_p0_i64.Invoke(&@this->val.Data, 0, 4L, isVolatile: false);
-		llvm_memcpy_p0_p0_i64.Invoke(&@this->val, words, 4L, isVolatile: false);
+		Llvm_memset_p0_i64.Invoke(&This->Val.Data, 0, 4L, isVolatile: false);
+		Llvm_memcpy_p0_p0_i64.Invoke(&This->Val, Words, 4L, isVolatile: false);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm32ELb0EjEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::BigInt()")]
-	public unsafe static void Invoke(BigInt_vtm4cw* @this)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_vtm4cw* This)
 	{
-		llvm_memset_p0_i64.Invoke(&@this->val.Data, 0, 4L, isVolatile: false);
+		Llvm_memset_p0_i64.Invoke(&This->Val.Data, 0, 4L, isVolatile: false);
 	}
 }

@@ -7,8 +7,8 @@ internal static partial class Errno_ToInt32
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_5ErrnocviEv")]
 	[DemangledName("__llvm_libc_20_1_2_::Errno::operator int()")]
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke([MangledName("this")] void* This)
 	{
-		return *unchecked((int*)errno_location.Invoke());
+		return *unchecked((int*)Errno_location.Invoke());
 	}
 }

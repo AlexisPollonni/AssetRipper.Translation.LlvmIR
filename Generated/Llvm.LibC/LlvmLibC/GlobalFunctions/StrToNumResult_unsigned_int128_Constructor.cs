@@ -8,16 +8,16 @@ internal static partial class StrToNumResult_unsigned_int128_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_14StrToNumResultIoEC2Eoli")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<unsigned __int128>::StrToNumResult(unsigned __int128, long, int)")]
-	public unsafe static void Invoke(void* @this, [MangledName("value.coerce0")] long value, [MangledName("value.coerce1")] long parsed_len, [MangledName("parsed_len")][CleanName("error")] long error_hm8b8a, [MangledName("error")][CleanName("error")] int error_xz3rmz)
+	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("value.coerce0")] long Value, [MangledName("value.coerce1")] long Parsed_len, [MangledName("parsed_len")][CleanName("Error")] long Error_hm8b8a, [MangledName("error")][CleanName("Error")] int Error_xz3rmz)
 	{
-		Int128 value2 = default(Int128);
+		Int128 value = default(Int128);
 		unchecked
 		{
-			*(long*)(&value2) = value;
-			((long*)(&value2))[1] = parsed_len;
-			((StrToNumResult_i4jxtt*)@this)->value = value2;
-			((StrToNumResult_i4jxtt*)@this)->error = error_xz3rmz;
-			((StrToNumResult_i4jxtt*)@this)->parsed_len = error_hm8b8a;
+			*(long*)(&value) = Value;
+			((long*)(&value))[1] = Parsed_len;
+			((Llvm_libc_20_1_2_StrToNumResult_i4jxtt*)This)->Value = value;
+			((Llvm_libc_20_1_2_StrToNumResult_i4jxtt*)This)->Error = Error_xz3rmz;
+			((Llvm_libc_20_1_2_StrToNumResult_i4jxtt*)This)->Parsed_len = Error_hm8b8a;
 		}
 	}
 }

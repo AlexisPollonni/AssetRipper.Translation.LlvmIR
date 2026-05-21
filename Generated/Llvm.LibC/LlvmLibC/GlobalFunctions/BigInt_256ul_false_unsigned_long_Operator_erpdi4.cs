@@ -8,9 +8,9 @@ internal static partial class BigInt_256ul_false_unsigned_long_Operator_erpdi4
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm256ELb0EmEpLERKS1_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>::operator+=(__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long> const&)")]
 	[CleanName("BigInt_256ul_false_unsigned_long_Operator")]
-	public unsafe static BigInt_x9dsed* Invoke(BigInt_x9dsed* @this, [NativeType("__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long> const&")] BigInt_x9dsed* other)
+	public unsafe static Llvm_libc_20_1_2_BigInt_x9dsed* Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_x9dsed* This, [MangledName("other")][NativeType("__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long> const&")] Llvm_libc_20_1_2_BigInt_x9dsed* Other)
 	{
-		BigInt_256ul_false_unsigned_long_add_overflow.Invoke(@this, other);
-		return @this;
+		BigInt_256ul_false_unsigned_long_add_overflow.Invoke(This, Other);
+		return This;
 	}
 }

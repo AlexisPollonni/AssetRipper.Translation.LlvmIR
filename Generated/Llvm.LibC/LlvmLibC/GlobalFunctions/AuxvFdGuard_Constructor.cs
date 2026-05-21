@@ -9,11 +9,11 @@ internal static partial class AuxvFdGuard_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11AuxvFdGuardC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::AuxvFdGuard::AuxvFdGuard()")]
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
 		unchecked
 		{
-			((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0 = ((delegate*<InlineArray16_SByte*, int, int>)open.__pointer)(str_103.Pointer, 524288);
+			((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 = ((delegate*<InlineArray16_SByte*, int, int>)Open.__pointer)(Str_103.Pointer, 524288);
 		}
 	}
 }

@@ -9,17 +9,17 @@ internal static partial class Accumulator_unsigned_long_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword11AccumulatorImEC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::multiword::Accumulator<unsigned long>::Accumulator()")]
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		cpp_array_i3937k cpp_array_i3937k2 = default(cpp_array_i3937k);
-		llvm_lifetime_start_p0.Invoke(16L, &cpp_array_i3937k2);
-		InlineArray2_Int64* ptr = &cpp_array_i3937k2.Data;
+		Llvm_libc_20_1_2_cpp_array_i3937k llvm_libc_20_1_2_cpp_array_i3937k = default(Llvm_libc_20_1_2_cpp_array_i3937k);
+		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_array_i3937k);
+		InlineArray2_Int64* ptr = &llvm_libc_20_1_2_cpp_array_i3937k.Data;
 		unchecked
 		{
 			*(long*)ptr = 0L;
 			((long*)ptr)[1] = 0L;
-			llvm_memcpy_p0_p0_i64.Invoke(@this, &cpp_array_i3937k2, 16L, isVolatile: false);
-			llvm_lifetime_end_p0.Invoke(16L, &cpp_array_i3937k2);
+			Llvm_memcpy_p0_p0_i64.Invoke(This, &llvm_libc_20_1_2_cpp_array_i3937k, 16L, isVolatile: false);
+			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_array_i3937k);
 		}
 	}
 }

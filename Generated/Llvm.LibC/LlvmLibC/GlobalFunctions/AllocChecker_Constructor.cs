@@ -7,8 +7,8 @@ internal static partial class AllocChecker_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_12AllocCheckerC2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::AllocChecker::AllocChecker()")]
-	public unsafe static void Invoke(void* @this)
+	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		unchecked((anon_izyfb7*)@this)->val = 0;
+		unchecked((Anon_izyfb7*)This)->Val = 0;
 	}
 }

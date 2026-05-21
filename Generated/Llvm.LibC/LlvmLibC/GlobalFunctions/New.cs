@@ -6,8 +6,8 @@ internal static partial class New
 {
 	[MangledName("_ZnwmRN19__llvm_libc_20_1_2_12AllocCheckerE")]
 	[DemangledName("operator new(unsigned long, __llvm_libc_20_1_2_::AllocChecker&)")]
-	public unsafe static void* Invoke([NativeType("unsigned long")] long size, [NativeType("__llvm_libc_20_1_2_::AllocChecker&")] void* ac)
+	public unsafe static void* Invoke([MangledName("size")][NativeType("unsigned long")] long Size, [MangledName("ac")][NativeType("__llvm_libc_20_1_2_::AllocChecker&")] void* Ac)
 	{
-		return AllocChecker_alloc.Invoke(size, ac);
+		return AllocChecker_alloc.Invoke(Size, Ac);
 	}
 }

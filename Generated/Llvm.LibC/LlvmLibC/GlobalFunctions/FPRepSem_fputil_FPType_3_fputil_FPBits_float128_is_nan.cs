@@ -9,14 +9,14 @@ internal static partial class FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE3ENS0_6FPBitsIgEEE6is_nanEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::is_nan() const")]
-	public unsafe static bool Invoke(fputil_internal_FPRepSem_f94eua* @this)
+	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua* This)
 	{
 		Int128 @int = default(Int128);
-		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
-		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
-		fputil_internal_FPRepSem_f94eua fputil_internal_FPRepSem_f94eua2 = default(fputil_internal_FPRepSem_f94eua);
+		Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent = default(Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua = default(Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua);
 		Int128 y = default(Int128);
-		Struct_fiz2nb struct_fiz2nb = FPStorage_fputil_FPType_3_exp_sig_bits.Invoke(@this);
+		Struct_fiz2nb struct_fiz2nb = FPStorage_fputil_FPType_3_exp_sig_bits.Invoke(This);
 		Int128* num = &@int;
 		Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 		unchecked
@@ -27,15 +27,15 @@ internal static partial class FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is
 			*(long*)num2 = struct_fiz2nb3.field_1;
 			Int128 x = @int;
 			int field_ = Exponent_inf_c5a3cy.Invoke();
-			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0 = field_;
-			BiasedExponent_Constructor_gqzf6e.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0);
+			llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0 = field_;
+			BiasedExponent_Constructor_gqzf6e.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent, llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0);
 			Struct_fiz2nb struct_fiz2nb4 = Significand_zero_3z6a9p.Invoke();
-			Int128* ptr = &fputil_internal_FPRepSem_f94eua2.FPStorage.field_0;
+			Int128* ptr = &llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua.FPStorage.field_0;
 			Struct_fiz2nb struct_fiz2nb5 = struct_fiz2nb4;
 			((Struct_fiz2nb*)ptr)->field_0 = struct_fiz2nb5.field_0;
 			Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
 			((Struct_fiz2nb*)ptr)->field_1 = struct_fiz2nb6.field_1;
-			Struct_fiz2nb struct_fiz2nb7 = FPStorage_fputil_FPType_3_encode.Invoke(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0, *(long*)(&fputil_internal_FPRepSem_f94eua2), ((long*)(&fputil_internal_FPRepSem_f94eua2))[1]);
+			Struct_fiz2nb struct_fiz2nb7 = FPStorage_fputil_FPType_3_encode.Invoke(llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent.field_0.field_0, *(long*)(&llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua), ((long*)(&llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua))[1]);
 			Int128* num3 = &y;
 			Struct_fiz2nb struct_fiz2nb8 = struct_fiz2nb7;
 			*(long*)num3 = struct_fiz2nb8.field_0;

@@ -7,8 +7,8 @@ internal static partial class StrictIntegralType_int_ToInt32
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_18StrictIntegralTypeIiEcviEv")]
 	[DemangledName("__llvm_libc_20_1_2_::StrictIntegralType<int>::operator int() const")]
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke([MangledName("this")] void* This)
 	{
-		return cpp_bit_cast_int_int.Invoke(&unchecked((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0);
+		return Cpp_bit_cast_int_int.Invoke(&unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
 	}
 }

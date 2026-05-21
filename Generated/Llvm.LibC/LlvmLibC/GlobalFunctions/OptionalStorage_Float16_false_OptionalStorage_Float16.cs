@@ -9,13 +9,13 @@ internal static partial class OptionalStorage_Float16_false_OptionalStorage_Floa
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8optionalIDF16_E15OptionalStorageIDF16_Lb0EEC2IJDF16_EEENS0_10in_place_tEDpOT_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<_Float16>::OptionalStorage<_Float16, false>::OptionalStorage<_Float16>(__llvm_libc_20_1_2_::cpp::in_place_t, _Float16&&)")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::optional")]
-	public unsafe static void Invoke([NativeType("__llvm_libc_20_1_2_::cpp::in_place_t")] cpp_optional_Float16_OptionalStorage* @this, [NativeType("_Float16&&")] void* args)
+	public unsafe static void Invoke([MangledName("this")][NativeType("__llvm_libc_20_1_2_::cpp::in_place_t")] Llvm_libc_20_1_2_cpp_optional_Float16_OptionalStorage* This, [MangledName("args")][NativeType("_Float16&&")] void* Args)
 	{
-		anon_juyca8* field = &@this->field;
+		Anon_juyca8* field = &This->field;
 		unchecked
 		{
-			*(Half*)field = *(Half*)cpp_forward_Float16.Invoke(args);
-			@this->in_use = 0;
+			*(Half*)field = *(Half*)Cpp_forward_Float16.Invoke(Args);
+			This->In_use = 0;
 		}
 	}
 }

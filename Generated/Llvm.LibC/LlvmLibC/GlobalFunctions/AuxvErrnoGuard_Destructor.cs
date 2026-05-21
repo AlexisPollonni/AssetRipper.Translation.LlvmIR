@@ -8,8 +8,8 @@ internal static partial class AuxvErrnoGuard_Destructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_14AuxvErrnoGuardD2Ev")]
 	[DemangledName("__llvm_libc_20_1_2_::AuxvErrnoGuard::~AuxvErrnoGuard()")]
-	public unsafe static void Invoke(AuxvErrnoGuard* @this)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_AuxvErrnoGuard* This)
 	{
-		Errno_Assignment.Invoke(a: ((@this->failure & 1) != 1) ? @this->saved : 2, @this: libc_errno.Pointer);
+		Errno_Assignment.Invoke(A: ((This->Failure & 1) != 1) ? This->Saved : 2, This: Llvm_libc_20_1_2_libc_errno.Pointer);
 	}
 }

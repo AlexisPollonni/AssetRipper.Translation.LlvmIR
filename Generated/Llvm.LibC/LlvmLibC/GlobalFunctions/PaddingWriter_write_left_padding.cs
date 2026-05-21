@@ -9,7 +9,7 @@ internal static partial class PaddingWriter_write_left_padding
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core13PaddingWriter18write_left_paddingEPNS0_6WriterEm")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::PaddingWriter::write_left_padding(__llvm_libc_20_1_2_::printf_core::Writer*, unsigned long)")]
-	public unsafe static int Invoke(printf_core_PaddingWriter* @this, [NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] printf_core_Writer* writer, [NativeType("unsigned long")] long total_digits)
+	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_PaddingWriter* This, [MangledName("writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Llvm_libc_20_1_2_printf_core_Writer* Writer, [MangledName("total_digits")][NativeType("unsigned long")] long Total_digits)
 	{
 		int result = 0;
 		int num = 0;
@@ -17,14 +17,14 @@ internal static partial class PaddingWriter_write_left_padding
 		int num3 = 0;
 		int num4 = 0;
 		int num5 = 0;
-		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = unchecked((int)(@this->min_width - total_digits - InstructionHelper.Select(@this->sign_char > 0, 1, 0)));
-		if ((@this->left_justified & 1) == 1 || num < 0)
+		Llvm_lifetime_start_p0.Invoke(4L, &num);
+		num = unchecked((int)(This->Min_width - Total_digits - InstructionHelper.Select(This->Sign_char > 0, 1, 0)));
+		if ((This->Left_justified & 1) == 1 || num < 0)
 		{
-			if (@this->sign_char > 0)
+			if (This->Sign_char > 0)
 			{
-				llvm_lifetime_start_p0.Invoke(4L, &num2);
-				num2 = Writer_write.Invoke(writer, @this->sign_char);
+				Llvm_lifetime_start_p0.Invoke(4L, &num2);
+				num2 = Writer_write.Invoke(Writer, This->Sign_char);
 				int num6;
 				if (num2 < 0)
 				{
@@ -35,7 +35,7 @@ internal static partial class PaddingWriter_write_left_padding
 				{
 					num6 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(4L, &num2);
+				Llvm_lifetime_end_p0.Invoke(4L, &num2);
 				switch (num6)
 				{
 				case 0:
@@ -48,10 +48,10 @@ internal static partial class PaddingWriter_write_left_padding
 		}
 		else
 		{
-			if ((@this->leading_zeroes & 1) != 1)
+			if ((This->Leading_zeroes & 1) != 1)
 			{
-				llvm_lifetime_start_p0.Invoke(4L, &num3);
-				num3 = Writer_write.Invoke(writer, 32, num);
+				Llvm_lifetime_start_p0.Invoke(4L, &num3);
+				num3 = Writer_write.Invoke(Writer, 32, num);
 				int num6;
 				if (num3 < 0)
 				{
@@ -62,7 +62,7 @@ internal static partial class PaddingWriter_write_left_padding
 				{
 					num6 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(4L, &num3);
+				Llvm_lifetime_end_p0.Invoke(4L, &num3);
 				switch (num6)
 				{
 				case 0:
@@ -71,10 +71,10 @@ internal static partial class PaddingWriter_write_left_padding
 					goto IL_0205;
 				}
 			}
-			if (@this->sign_char > 0)
+			if (This->Sign_char > 0)
 			{
-				llvm_lifetime_start_p0.Invoke(4L, &num4);
-				num4 = Writer_write.Invoke(writer, @this->sign_char);
+				Llvm_lifetime_start_p0.Invoke(4L, &num4);
+				num4 = Writer_write.Invoke(Writer, This->Sign_char);
 				int num6;
 				if (num4 < 0)
 				{
@@ -85,7 +85,7 @@ internal static partial class PaddingWriter_write_left_padding
 				{
 					num6 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(4L, &num4);
+				Llvm_lifetime_end_p0.Invoke(4L, &num4);
 				switch (num6)
 				{
 				case 0:
@@ -94,10 +94,10 @@ internal static partial class PaddingWriter_write_left_padding
 					goto IL_0205;
 				}
 			}
-			if ((@this->leading_zeroes & 1) == 1)
+			if ((This->Leading_zeroes & 1) == 1)
 			{
-				llvm_lifetime_start_p0.Invoke(4L, &num5);
-				num5 = Writer_write.Invoke(writer, 48, num);
+				Llvm_lifetime_start_p0.Invoke(4L, &num5);
+				num5 = Writer_write.Invoke(Writer, 48, num);
 				int num6;
 				if (num5 < 0)
 				{
@@ -108,7 +108,7 @@ internal static partial class PaddingWriter_write_left_padding
 				{
 					num6 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(4L, &num5);
+				Llvm_lifetime_end_p0.Invoke(4L, &num5);
 				switch (num6)
 				{
 				case 0:
@@ -121,7 +121,7 @@ internal static partial class PaddingWriter_write_left_padding
 		}
 		goto IL_0205;
 		IL_0205:
-		llvm_lifetime_end_p0.Invoke(4L, &num);
+		Llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;
 	}
 }

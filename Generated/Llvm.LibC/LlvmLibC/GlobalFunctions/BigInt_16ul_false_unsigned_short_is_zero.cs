@@ -9,22 +9,22 @@ internal static partial class BigInt_16ul_false_unsigned_short_is_zero
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm16ELb0EtE7is_zeroEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<16ul, false, unsigned short>::is_zero() const")]
-	public unsafe static bool Invoke(BigInt_ys7s55* @this)
+	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_ys7s55* This)
 	{
 		bool result = false;
 		void* ptr = null;
 		void* ptr2 = null;
 		void* ptr3 = null;
 		short num = 0;
-		llvm_lifetime_start_p0.Invoke(8L, &ptr);
+		Llvm_lifetime_start_p0.Invoke(8L, &ptr);
 		unchecked
 		{
 			ptr = (void*)12297829382473034410uL;
-			ptr = &@this->val;
-			llvm_lifetime_start_p0.Invoke(8L, &ptr2);
-			ptr2 = array_unsigned_short_1ul_begin.Invoke((cpp_array_knh6hw*)ptr);
-			llvm_lifetime_start_p0.Invoke(8L, &ptr3);
-			ptr3 = array_unsigned_short_1ul_end.Invoke((cpp_array_knh6hw*)ptr);
+			ptr = &This->Val;
+			Llvm_lifetime_start_p0.Invoke(8L, &ptr2);
+			ptr2 = Array_unsigned_short_1ul_begin.Invoke((Llvm_libc_20_1_2_cpp_array_knh6hw*)ptr);
+			Llvm_lifetime_start_p0.Invoke(8L, &ptr3);
+			ptr3 = Array_unsigned_short_1ul_end.Invoke((Llvm_libc_20_1_2_cpp_array_knh6hw*)ptr);
 			int num2;
 			while (true)
 			{
@@ -33,7 +33,7 @@ internal static partial class BigInt_16ul_false_unsigned_short_is_zero
 					num2 = 2;
 					break;
 				}
-				llvm_lifetime_start_p0.Invoke(2L, &num);
+				Llvm_lifetime_start_p0.Invoke(2L, &num);
 				num = *(short*)ptr2;
 				if ((ushort)num != 0)
 				{
@@ -44,7 +44,7 @@ internal static partial class BigInt_16ul_false_unsigned_short_is_zero
 				{
 					num2 = 0;
 				}
-				llvm_lifetime_end_p0.Invoke(2L, &num);
+				Llvm_lifetime_end_p0.Invoke(2L, &num);
 				switch (num2)
 				{
 				case 0:
@@ -54,9 +54,9 @@ internal static partial class BigInt_16ul_false_unsigned_short_is_zero
 				IL_00c0:
 				ptr2 = (byte*)ptr2 + 2;
 			}
-			llvm_lifetime_end_p0.Invoke(8L, &ptr3);
-			llvm_lifetime_end_p0.Invoke(8L, &ptr2);
-			llvm_lifetime_end_p0.Invoke(8L, &ptr);
+			Llvm_lifetime_end_p0.Invoke(8L, &ptr3);
+			Llvm_lifetime_end_p0.Invoke(8L, &ptr2);
+			Llvm_lifetime_end_p0.Invoke(8L, &ptr);
 			int num3 = num2;
 			if (num3 != 2)
 			{

@@ -8,8 +8,8 @@ internal static partial class TypedInt_int_ToInt32_cib7hi
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE0EE8TypedIntIiEcviEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)0>::TypedInt<int>::operator int() const")]
 	[CleanName("TypedInt_int_ToInt32")]
-	public unsafe static int Invoke(void* @this)
+	public unsafe static int Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)@this)->field_0;
+		return unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0;
 	}
 }

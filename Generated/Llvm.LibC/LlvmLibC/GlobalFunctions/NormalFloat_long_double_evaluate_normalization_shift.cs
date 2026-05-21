@@ -9,16 +9,16 @@ internal static partial class NormalFloat_long_double_evaluate_normalization_shi
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIeE28evaluate_normalization_shiftEo")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<long double>::evaluate_normalization_shift(unsigned __int128)")]
-	public unsafe static int Invoke(void* @this, [MangledName("m.coerce0")] long m, [MangledName("m.coerce1")] long shift)
+	public unsafe static int Invoke([MangledName("this")] void* This, [MangledName("m.coerce0")] long M, [MangledName("m.coerce1")] long Shift)
 	{
 		Int128 @int = default(Int128);
 		int num = 0;
 		unchecked
 		{
-			*(long*)(&@int) = m;
-			((long*)(&@int))[1] = shift;
+			*(long*)(&@int) = M;
+			((long*)(&@int))[1] = Shift;
 			Int128 int2 = @int;
-			llvm_lifetime_start_p0.Invoke(4L, &num);
+			Llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = 0;
 			while (NumericHelper.IntCmpEq(NumericHelper.BitwiseAnd(long.MinValue, int2), 0L) && (uint)num < 63u)
 			{
@@ -26,7 +26,7 @@ internal static partial class NormalFloat_long_double_evaluate_normalization_shi
 				num++;
 			}
 			int result = num;
-			llvm_lifetime_end_p0.Invoke(4L, &num);
+			Llvm_lifetime_end_p0.Invoke(4L, &num);
 			return result;
 		}
 	}

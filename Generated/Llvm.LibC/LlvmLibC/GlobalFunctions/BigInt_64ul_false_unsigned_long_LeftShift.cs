@@ -8,20 +8,20 @@ internal static partial class BigInt_64ul_false_unsigned_long_LeftShift
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmElsEm")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::operator<<(unsigned long) const")]
-	public unsafe static long Invoke(BigInt_555ggs* @this, [NativeType("unsigned long")] long s)
+	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_555ggs* This, [MangledName("s")][NativeType("unsigned long")] long S)
 	{
-		BigInt_555ggs bigInt_555ggs = default(BigInt_555ggs);
-		cpp_array_rpgxvv cpp_array_rpgxvv2 = default(cpp_array_rpgxvv);
-		cpp_array_rpgxvv cpp_array_rpgxvv3 = default(cpp_array_rpgxvv);
-		llvm_lifetime_start_p0.Invoke(8L, &cpp_array_rpgxvv2);
-		llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_rpgxvv3, &@this->val, 8L, isVolatile: false);
+		Llvm_libc_20_1_2_BigInt_555ggs llvm_libc_20_1_2_BigInt_555ggs = default(Llvm_libc_20_1_2_BigInt_555ggs);
+		Llvm_libc_20_1_2_cpp_array_rpgxvv llvm_libc_20_1_2_cpp_array_rpgxvv = default(Llvm_libc_20_1_2_cpp_array_rpgxvv);
+		Llvm_libc_20_1_2_cpp_array_rpgxvv llvm_libc_20_1_2_cpp_array_rpgxvv2 = default(Llvm_libc_20_1_2_cpp_array_rpgxvv);
+		Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_array_rpgxvv);
+		Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_array_rpgxvv2, &This->Val, 8L, isVolatile: false);
 		unchecked
 		{
-			long data = multiword_shift_multiword_Direction_0_false_unsigned_long_1ul.Invoke(*(long*)(&cpp_array_rpgxvv3.Data), s);
-			*(long*)(&cpp_array_rpgxvv2.Data) = data;
-			BigInt_64ul_false_unsigned_long_Constructor.Invoke(&bigInt_555ggs, &cpp_array_rpgxvv2);
-			llvm_lifetime_end_p0.Invoke(8L, &cpp_array_rpgxvv2);
-			return *(long*)(&bigInt_555ggs.val.Data);
+			long data = Multiword_shift_multiword_Direction_0_false_unsigned_long_1ul.Invoke(*(long*)(&llvm_libc_20_1_2_cpp_array_rpgxvv2.Data), S);
+			*(long*)(&llvm_libc_20_1_2_cpp_array_rpgxvv.Data) = data;
+			BigInt_64ul_false_unsigned_long_Constructor.Invoke(&llvm_libc_20_1_2_BigInt_555ggs, &llvm_libc_20_1_2_cpp_array_rpgxvv);
+			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_array_rpgxvv);
+			return *(long*)(&llvm_libc_20_1_2_BigInt_555ggs.Val.Data);
 		}
 	}
 }

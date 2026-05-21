@@ -8,19 +8,19 @@ internal static partial class FPStorage_fputil_FPType_0_set_sign
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil8internal9FPStorageILNS0_6FPTypeE0EE8set_signENS_4SignE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)0>::set_sign(__llvm_libc_20_1_2_::Sign)")]
-	public unsafe static void Invoke(void* @this, [MangledName("signVal.coerce")][NativeType("__llvm_libc_20_1_2_::Sign")] sbyte signVal)
+	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("signVal.coerce")][NativeType("__llvm_libc_20_1_2_::Sign")] sbyte SignVal)
 	{
-		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
-		anon_izyfb7 anon_izyfb9 = default(anon_izyfb7);
-		anon_izyfb7 anon_izyfb10 = default(anon_izyfb7);
-		anon_izyfb8.val = signVal;
-		anon_izyfb9.val = FPStorage_fputil_FPType_0_sign.Invoke(@this);
-		llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb10, &anon_izyfb8, 1L, isVolatile: false);
+		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
+		Anon_izyfb7 anon_izyfb2 = default(Anon_izyfb7);
+		Anon_izyfb7 anon_izyfb3 = default(Anon_izyfb7);
+		anon_izyfb.Val = SignVal;
+		anon_izyfb2.Val = FPStorage_fputil_FPType_0_sign.Invoke(This);
+		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb3, &anon_izyfb, 1L, isVolatile: false);
 		unchecked
 		{
-			if (NotEquals_rpctvi.Invoke(anon_izyfb9.val, anon_izyfb10.val))
+			if (Llvm_libc_20_1_2_NotEquals_rpctvi.Invoke(anon_izyfb2.Val, anon_izyfb3.Val))
 			{
-				short* field_ = &((fputil_internal_FPStorage_za9n4f*)@this)->field_0;
+				short* field_ = &((Llvm_libc_20_1_2_fputil_internal_FPStorage_za9n4f*)This)->field_0;
 				*field_ = (short)((ushort)(*field_) ^ 0x8000);
 			}
 		}

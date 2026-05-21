@@ -8,11 +8,11 @@ internal static partial class NormalFloat_float_evaluate_normalization_shift
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIfE28evaluate_normalization_shiftEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::evaluate_normalization_shift(unsigned int)")]
-	public unsafe static int Invoke(fputil_NormalFloat_phu2qv* @this, [NativeType("unsigned int")] int m)
+	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_phu2qv* This, [MangledName("m")][NativeType("unsigned int")] int M)
 	{
 		int num = 0;
-		int num2 = m;
-		llvm_lifetime_start_p0.Invoke(4L, &num);
+		int num2 = M;
+		Llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = 0;
 		unchecked
 		{
@@ -22,7 +22,7 @@ internal static partial class NormalFloat_float_evaluate_normalization_shift
 				num++;
 			}
 			int result = num;
-			llvm_lifetime_end_p0.Invoke(4L, &num);
+			Llvm_lifetime_end_p0.Invoke(4L, &num);
 			return result;
 		}
 	}

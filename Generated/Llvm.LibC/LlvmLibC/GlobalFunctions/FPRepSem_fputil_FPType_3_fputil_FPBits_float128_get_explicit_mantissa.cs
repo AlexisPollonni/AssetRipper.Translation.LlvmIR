@@ -9,16 +9,16 @@ internal static partial class FPRepSem_fputil_FPType_3_fputil_FPBits_float128_ge
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE3ENS0_6FPBitsIgEEE21get_explicit_mantissaEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::get_explicit_mantissa() const")]
-	public unsafe static Struct_fiz2nb Invoke(fputil_internal_FPRepSem_f94eua* @this)
+	public unsafe static Struct_fiz2nb Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua* This)
 	{
 		Int128 @int = default(Int128);
 		Int128 int2 = default(Int128);
 		unchecked
 		{
 			Int128 int3;
-			if (FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal.Invoke(@this))
+			if (FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_subnormal.Invoke(This))
 			{
-				Struct_fiz2nb struct_fiz2nb = FPStorage_fputil_FPType_3_sig_bits.Invoke(@this);
+				Struct_fiz2nb struct_fiz2nb = FPStorage_fputil_FPType_3_sig_bits.Invoke(This);
 				Int128* num = &@int;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 				*(long*)num = struct_fiz2nb2.field_0;
@@ -29,7 +29,7 @@ internal static partial class FPRepSem_fputil_FPType_3_fputil_FPBits_float128_ge
 			}
 			else
 			{
-				Struct_fiz2nb struct_fiz2nb4 = FPStorage_fputil_FPType_3_sig_bits.Invoke(@this);
+				Struct_fiz2nb struct_fiz2nb4 = FPStorage_fputil_FPType_3_sig_bits.Invoke(This);
 				Int128* num3 = &int2;
 				Struct_fiz2nb struct_fiz2nb5 = struct_fiz2nb4;
 				*(long*)num3 = struct_fiz2nb5.field_0;

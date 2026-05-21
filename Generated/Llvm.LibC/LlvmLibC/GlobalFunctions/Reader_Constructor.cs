@@ -7,23 +7,23 @@ internal static partial class Reader_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core6ReaderC2EPNS0_10ReadBufferE")]
 	[DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader::Reader(__llvm_libc_20_1_2_::scanf_core::ReadBuffer*)")]
-	public unsafe static void Invoke(scanf_core_Reader* @this, [NativeType("__llvm_libc_20_1_2_::scanf_core::ReadBuffer*")] scanf_core_ReadBuffer* string_buffer)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_scanf_core_Reader* This, [MangledName("string_buffer")][NativeType("__llvm_libc_20_1_2_::scanf_core::ReadBuffer*")] Llvm_libc_20_1_2_scanf_core_ReadBuffer* String_buffer)
 	{
-		@this->rb = string_buffer;
-		@this->input_stream = null;
-		@this->stream_getc = null;
-		@this->stream_ungetc = null;
-		@this->cur_chars_read = 0L;
+		This->Rb = String_buffer;
+		This->Input_stream = null;
+		This->Stream_getc = null;
+		This->Stream_ungetc = null;
+		This->Cur_chars_read = 0L;
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core6ReaderC2EPvPFiS2_EPFviS2_EPNS0_10ReadBufferE")]
 	[DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader::Reader(void*, int (*)(void*), void (*)(int, void*), __llvm_libc_20_1_2_::scanf_core::ReadBuffer*)")]
-	public unsafe static void Invoke(scanf_core_Reader* @this, [NativeType("void*")] void* stream, [NativeType("int (*)(void*)")] void* stream_getc_in, [NativeType("void (*)(int, void*)")] void* stream_ungetc_in, [NativeType("__llvm_libc_20_1_2_::scanf_core::ReadBuffer*")] scanf_core_ReadBuffer* stream_buffer)
+	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_scanf_core_Reader* This, [MangledName("stream")][NativeType("void*")] void* Stream, [MangledName("stream_getc_in")][NativeType("int (*)(void*)")] void* Stream_getc_in, [MangledName("stream_ungetc_in")][NativeType("void (*)(int, void*)")] void* Stream_ungetc_in, [MangledName("stream_buffer")][NativeType("__llvm_libc_20_1_2_::scanf_core::ReadBuffer*")] Llvm_libc_20_1_2_scanf_core_ReadBuffer* Stream_buffer)
 	{
-		@this->rb = stream_buffer;
-		@this->input_stream = stream;
-		@this->stream_getc = stream_getc_in;
-		@this->stream_ungetc = stream_ungetc_in;
-		@this->cur_chars_read = 0L;
+		This->Rb = Stream_buffer;
+		This->Input_stream = Stream;
+		This->Stream_getc = Stream_getc_in;
+		This->Stream_ungetc = Stream_ungetc_in;
+		This->Cur_chars_read = 0L;
 	}
 }

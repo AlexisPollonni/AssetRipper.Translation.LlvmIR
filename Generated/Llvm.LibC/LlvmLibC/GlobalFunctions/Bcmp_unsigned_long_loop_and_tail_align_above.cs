@@ -8,36 +8,36 @@ internal static partial class Bcmp_unsigned_long_loop_and_tail_align_above
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_7generic4BcmpImE25loop_and_tail_align_aboveEmPKNS_3cpp4byteES6_m")]
 	[DemangledName("__llvm_libc_20_1_2_::generic::Bcmp<unsigned long>::loop_and_tail_align_above(unsigned long, __llvm_libc_20_1_2_::cpp::byte const*, __llvm_libc_20_1_2_::cpp::byte const*, unsigned long)")]
-	public unsafe static int Invoke([NativeType("unsigned long")] long threshold, [NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* p1, [NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* p2, [NativeType("unsigned long")] long count)
+	public unsafe static int Invoke([MangledName("threshold")][NativeType("unsigned long")] long Threshold, [MangledName("p1")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* P1, [MangledName("p2")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* P2, [MangledName("count")][NativeType("unsigned long")] long Count)
 	{
-		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt);
+		Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt = default(Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt);
 		void* ptr = null;
-		void* p3 = null;
+		void* p = null;
 		long num = 0L;
-		fputil_internal_FPStorage_v3nexn fputil_internal_FPStorage_v3nexn2 = default(fputil_internal_FPStorage_v3nexn);
-		ptr = p1;
-		p3 = p2;
-		num = count;
-		llvm_lifetime_start_p0.Invoke(8L, &fputil_internal_FPStorage_v3nexn2);
+		Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn = default(Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn);
+		ptr = P1;
+		p = P2;
+		num = Count;
+		Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn);
 		unchecked
 		{
-			*(long*)(&fputil_internal_FPStorage_v3nexn2) = -6148914691236517206L;
-			AlignHelper_8ul_Constructor.Invoke(&fputil_internal_FPStorage_v3nexn2, ptr);
-			if (details_expects_bool_condition_bool.Invoke((ulong)num >= (ulong)threshold, expected: false) && AlignHelper_8ul_not_aligned.Invoke(&fputil_internal_FPStorage_v3nexn2))
+			*(long*)(&llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn) = -6148914691236517206L;
+			AlignHelper_8ul_Constructor.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn, ptr);
+			if (Details_expects_bool_condition_bool.Invoke((ulong)num >= (ulong)Threshold, Expected: false) && AlignHelper_8ul_not_aligned.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn))
 			{
-				*(int*)(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2) = -1431655766;
-				fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2.field_0 = Bcmp_unsigned_long_block.Invoke(ptr, p3);
-				if (StrictIntegralType_unsigned_int_ToBoolean.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2))
+				*(int*)(&llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt) = -1431655766;
+				llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt.field_0 = Bcmp_unsigned_long_block.Invoke(ptr, p);
+				if (StrictIntegralType_unsigned_int_ToBoolean.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt))
 				{
 					goto IL_00bd;
 				}
-				adjust_cpp_byte_const_cpp_byte_const.Invoke(fputil_internal_FPStorage_v3nexn2.val, &ptr, &p3, &num);
+				Llvm_libc_20_1_2_adjust_cpp_byte_const_cpp_byte_const.Invoke(llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn.Val, &ptr, &p, &num);
 			}
-			fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2.field_0 = Bcmp_unsigned_long_loop_and_tail.Invoke(ptr, p3, num);
+			llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt.field_0 = Bcmp_unsigned_long_loop_and_tail.Invoke(ptr, p, num);
 			goto IL_00bd;
 		}
 		IL_00bd:
-		llvm_lifetime_end_p0.Invoke(8L, &fputil_internal_FPStorage_v3nexn2);
-		return fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2.field_0;
+		Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn);
+		return llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt.field_0;
 	}
 }

@@ -8,29 +8,29 @@ internal static partial class StringStream_write
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp12StringStream5writeEPKcm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::StringStream::write(char const*, unsigned long)")]
-	public unsafe static void Invoke(void* @this, [NativeType("char const*")] void* bytes, [NativeType("unsigned long")] long size)
+	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("bytes")][NativeType("char const*")] void* Bytes, [MangledName("size")][NativeType("unsigned long")] long Size)
 	{
 		long num = 0L;
 		long num2 = 0L;
-		llvm_lifetime_start_p0.Invoke(8L, &num);
+		Llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = 0L;
-		llvm_lifetime_start_p0.Invoke(8L, &num2);
+		Llvm_lifetime_start_p0.Invoke(8L, &num2);
 		unchecked
 		{
-			num2 = span_char_size.Invoke(&((details_StringBufferWriterImpl*)@this)->buffer);
-			while ((ulong)((details_StringBufferWriterImpl*)@this)->index < (ulong)num2 && (ulong)num < (ulong)size)
+			num2 = Span_char_size.Invoke(&((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Buffer);
+			while ((ulong)((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index < (ulong)num2 && (ulong)num < (ulong)Size)
 			{
-				sbyte b = ((sbyte*)bytes)[num];
-				*(sbyte*)span_char_Index.Invoke(&((details_StringBufferWriterImpl*)@this)->buffer, ((details_StringBufferWriterImpl*)@this)->index) = b;
+				sbyte b = ((sbyte*)Bytes)[num];
+				*(sbyte*)Span_char_Index.Invoke(&((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Buffer, ((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index) = b;
 				num++;
-				((details_StringBufferWriterImpl*)@this)->index++;
+				((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index++;
 			}
-			if ((ulong)num < (ulong)size)
+			if ((ulong)num < (ulong)Size)
 			{
-				((details_StringBufferWriterImpl*)@this)->out_of_range = 1;
+				((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Out_of_range = 1;
 			}
-			llvm_lifetime_end_p0.Invoke(8L, &num2);
-			llvm_lifetime_end_p0.Invoke(8L, &num);
+			Llvm_lifetime_end_p0.Invoke(8L, &num2);
+			Llvm_lifetime_end_p0.Invoke(8L, &num);
 		}
 	}
 }
