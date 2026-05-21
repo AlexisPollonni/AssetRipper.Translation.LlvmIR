@@ -33,7 +33,7 @@ public partial struct InlineArray6_InlineArray4_Int32 : IEquatable<InlineArray6_
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray6_InlineArray4_Int32)
 		{

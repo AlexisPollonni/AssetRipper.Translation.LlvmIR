@@ -30,7 +30,7 @@ public partial struct InlineArray11_Llvm_libc_20_1_2_fputil_ExceptValues_float_6
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray11_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping)
 		{

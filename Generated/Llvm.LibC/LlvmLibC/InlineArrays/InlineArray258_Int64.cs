@@ -29,7 +29,7 @@ public partial struct InlineArray258_Int64 : IEquatable<InlineArray258_Int64>, I
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray258_Int64)
 		{

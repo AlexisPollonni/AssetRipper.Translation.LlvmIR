@@ -29,7 +29,7 @@ public partial struct InlineArray7_Byte : IEquatable<InlineArray7_Byte>, IEquali
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray7_Byte)
 		{

@@ -33,7 +33,7 @@ public partial struct InlineArray1224_InlineArray3_Int64 : IEquatable<InlineArra
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray1224_InlineArray3_Int64)
 		{

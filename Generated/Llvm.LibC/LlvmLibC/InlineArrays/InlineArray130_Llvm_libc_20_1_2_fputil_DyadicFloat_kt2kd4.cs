@@ -30,7 +30,7 @@ public partial struct InlineArray130_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray130_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4)
 		{

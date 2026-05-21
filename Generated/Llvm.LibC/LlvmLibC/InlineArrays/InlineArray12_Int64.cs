@@ -29,7 +29,7 @@ public partial struct InlineArray12_Int64 : IEquatable<InlineArray12_Int64>, IEq
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray12_Int64)
 		{

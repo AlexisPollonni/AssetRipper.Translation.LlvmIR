@@ -29,7 +29,7 @@ public partial struct InlineArray5_Double : IEquatable<InlineArray5_Double>, IEq
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray5_Double)
 		{

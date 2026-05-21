@@ -30,7 +30,7 @@ public partial struct InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry :
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry)
 		{

@@ -32,7 +32,7 @@ public partial struct InlineArray3_InlineArray3_InlineArray2_Llvm_libc_20_1_2_Nu
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray3_InlineArray3_InlineArray2_Llvm_libc_20_1_2_NumberPair)
 		{

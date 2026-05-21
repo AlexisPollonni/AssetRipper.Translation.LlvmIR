@@ -35,7 +35,7 @@ public partial struct InlineArray12_InlineArray2_Int16 : IEquatable<InlineArray1
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray12_InlineArray2_Int16)
 		{

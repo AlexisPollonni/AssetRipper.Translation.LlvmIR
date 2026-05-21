@@ -29,7 +29,7 @@ public partial struct InlineArray4_Single : IEquatable<InlineArray4_Single>, IEq
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray4_Single)
 		{

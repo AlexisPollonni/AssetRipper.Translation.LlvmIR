@@ -30,7 +30,7 @@ public partial struct InlineArray65_Llvm_libc_20_1_2_NumberPair : IEquatable<Inl
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray65_Llvm_libc_20_1_2_NumberPair)
 		{

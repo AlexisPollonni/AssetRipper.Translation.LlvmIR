@@ -29,7 +29,7 @@ public partial struct InlineArray8_Int16 : IEquatable<InlineArray8_Int16>, IEqua
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray8_Int16)
 		{

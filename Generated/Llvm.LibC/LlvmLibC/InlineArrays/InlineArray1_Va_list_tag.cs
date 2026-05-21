@@ -30,7 +30,7 @@ public partial struct InlineArray1_Va_list_tag : IEquatable<InlineArray1_Va_list
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray1_Va_list_tag)
 		{

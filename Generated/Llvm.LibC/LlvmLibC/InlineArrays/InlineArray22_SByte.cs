@@ -29,7 +29,7 @@ public partial struct InlineArray22_SByte : IEquatable<InlineArray22_SByte>, IEq
 		return this == other;
 	}
 
-	public override bool Equals(object other)
+	public override bool Equals(object? other)
 	{
 		if (other is InlineArray22_SByte)
 		{
