@@ -77,8 +77,8 @@ internal static class GitStage
 			WorkingDirectory = workingDir,
 			UseShellExecute = false,
 		};
-		using Process proc =
-			Process.Start(psi) ?? throw new InvalidOperationException($"Failed to start '{exe}'.");
+		using Process proc = Process.Start(psi)
+			?? throw new InvalidOperationException($"Failed to start '{exe}'.");
 		proc.WaitForExit();
 		if (proc.ExitCode != 0)
 		{
@@ -88,3 +88,4 @@ internal static class GitStage
 		}
 	}
 }
+

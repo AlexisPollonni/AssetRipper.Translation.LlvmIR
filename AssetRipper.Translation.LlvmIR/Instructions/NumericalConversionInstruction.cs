@@ -134,7 +134,10 @@ internal sealed record class NumericalConversionInstruction : Instruction
 				// SextToBytes takes an extra int sourceBits argument
 				instructions.Add(CilOpCodes.Ldc_I4, InlineArraySourceBits);
 			}
-			instructions.Add(CilOpCodes.Call, InlineArrayConversionMethod);
+			instructions.Add(
+				CilOpCodes.Call,
+				InlineArrayConversionMethod
+			);
 			return;
 		}
 

@@ -159,9 +159,7 @@ public static class NumericalComparison
 			}
 			return new CallInstruction(
 				module
-					.ImportRuntimeMethod(
-						module.NumericHelperType.Methods.First(m => m.Name == methodName)
-					)
+					.ImportRuntimeMethod(module.NumericHelperType.Methods.First(m => m.Name == methodName))
 					.MakeGenericInstanceMethod(type)
 			);
 		}

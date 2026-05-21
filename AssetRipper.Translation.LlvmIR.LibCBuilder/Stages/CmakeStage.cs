@@ -39,6 +39,12 @@ internal static class CmakeStage
 
 		// These flags make clang emit LLVM bitcode objects (not native code) while preserving
 		// all DWARF information that would otherwise be eliminated during LTO optimisation.
+		// -march=x86-64 constrains the compiler optimizer to baseline x86-64 (SSE2 only),
+		// preventing Clang from emitting SSE4.1/AVX instructions via the optimizer.
+		// LIBC_CPU_FEATURES=SSE2 is the authoritative llvm-libc control: when SSE4_2 is absent
+		// from that variable, LLVMLibCFlagRules.cmake sets SKIP_FLAG_EXPANSION_ROUND_OPT=TRUE
+		// which prevents the per-translation-unit -msse4.2 injection that causes
+		// llvm.x86.sse41.round_sd/ss intrinsics to appear in the bitcode.
 		const string dwarf =
 			"-march=x86-64 "
 			+ "-flto=thin "

@@ -138,20 +138,14 @@ public static unsafe partial class IntrinsicFunctions
 	/// No-op in managed code; .NET stream types are already thread-safe.
 	/// </summary>
 	[MangledName("flockfile")]
-	public static void flockfile(
-		void* file
-	) { /* no-op */
-	}
+	public static void flockfile(void* file) { /* no-op */ }
 
 	/// <summary>
 	/// Releases the internal lock of the given <paramref name="file"/> stream.
 	/// No-op in managed code; counterpart to <see cref="flockfile"/>.
 	/// </summary>
 	[MangledName("funlockfile")]
-	public static void funlockfile(
-		void* file
-	) { /* no-op */
-	}
+	public static void funlockfile(void* file) { /* no-op */ }
 
 	/// <summary>
 	/// Writes <paramref name="count"/> elements of <paramref name="size"/> bytes

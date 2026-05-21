@@ -6,9 +6,9 @@ using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AsmResolver.PE.DotNet.Metadata.Tables;
-using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Variables;
 using LLVMSharp.Interop;
 
@@ -1741,17 +1741,18 @@ internal readonly unsafe struct InstructionLifter
 						// Non-standard integer width (e.g., i40) represented as an inline byte array.
 						// Load as i64 and truncate to the inline array size.
 						LoadVariable(basicBlock, new ConstantI8(integer, module.Definition));
-						IMethodDescriptor convMethod = module
-							.ImportRuntimeMethod(
-								module.NumericHelperType.Methods.First(m =>
+							IMethodDescriptor convMethod = module
+								.ImportRuntimeMethod(module.NumericHelperType.Methods.First(m =>
 									m.Name == nameof(NumericHelper.TruncOrZextToBytes)
-								)
-							)
-							.MakeGenericInstanceMethod(
-								module.Definition.CorLibTypeFactory.Int64,
-								typeSignature
+								))
+								.MakeGenericInstanceMethod(
+									module.Definition.CorLibTypeFactory.Int64,
+									typeSignature
+								);
+							Call(
+								basicBlock,
+								convMethod
 							);
-						Call(basicBlock, convMethod);
 					}
 					else
 					{

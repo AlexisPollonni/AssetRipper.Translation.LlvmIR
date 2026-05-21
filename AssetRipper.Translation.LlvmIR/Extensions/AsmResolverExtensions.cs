@@ -17,10 +17,9 @@ internal static class AsmResolverExtensions
 	public static void ThrowNotImplementedException(this CilInstructionCollection instructions)
 	{
 		ModuleDefinition module = instructions.Owner.Owner.DeclaringType!.DeclaringModule!;
-		IMethodDefOrRef ctor = (IMethodDefOrRef)
-			module.DefaultImporter.ImportMethod(
-				typeof(NotImplementedException).GetConstructor(Type.EmptyTypes)!
-			);
+		IMethodDefOrRef ctor = (IMethodDefOrRef)module.DefaultImporter.ImportMethod(
+			typeof(NotImplementedException).GetConstructor(Type.EmptyTypes)!
+		);
 		instructions.Add(CilOpCodes.Newobj, ctor);
 		instructions.Add(CilOpCodes.Throw);
 	}
@@ -34,10 +33,9 @@ internal static class AsmResolverExtensions
 	)
 	{
 		ModuleDefinition module = instructions.Owner.Owner.DeclaringType!.DeclaringModule!;
-		IMethodDefOrRef ctor = (IMethodDefOrRef)
-			module.DefaultImporter.ImportMethod(
-				typeof(NotImplementedException).GetConstructor([typeof(string)])!
-			);
+		IMethodDefOrRef ctor = (IMethodDefOrRef)module.DefaultImporter.ImportMethod(
+			typeof(NotImplementedException).GetConstructor([typeof(string)])!
+		);
 		instructions.Add(CilOpCodes.Ldstr, message);
 		instructions.Add(CilOpCodes.Newobj, ctor);
 		instructions.Add(CilOpCodes.Throw);

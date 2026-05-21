@@ -16,9 +16,7 @@ internal static class Program
 		ReadOnlySpan<string> newNames = args.NewNames;
 		if (mangledNames.Length != newNames.Length)
 		{
-			Console.WriteLine(
-				"The number of mangled names must be the same as the number of new names"
-			);
+			Console.WriteLine("The number of mangled names must be the same as the number of new names");
 			return;
 		}
 
@@ -54,11 +52,7 @@ internal static class Program
 				Directory.Delete(args.DecompileDirectory, true);
 			}
 			Directory.CreateDirectory(args.DecompileDirectory);
-			new TranslationProjectDecompiler().DecompileProject(
-				moduleDefinition,
-				args.DecompileDirectory,
-				TextWriter.Null
-			);
+			new TranslationProjectDecompiler().DecompileProject(moduleDefinition, args.DecompileDirectory, TextWriter.Null);
 		}
 		Console.WriteLine("Done!");
 	}

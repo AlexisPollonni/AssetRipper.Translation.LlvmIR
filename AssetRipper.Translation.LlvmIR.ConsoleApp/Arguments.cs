@@ -60,8 +60,6 @@ sealed partial class Arguments
 	public bool PrecomputeInitializers { get; set; }
 
 	[CommandLineArgument("strip-prefix")]
-	[Description(
-		"One or more clean-name prefixes to strip from the start of generated identifiers (e.g. 'llvm_libc_22_1_4_'). Applied after name sanitization."
-	)]
+	[Description("One or more clean-name prefixes to strip from the start of generated identifiers (e.g. 'llvm_libc_22_1_4_'). Applied after name sanitization.")]
 	public string[]? StripPrefixes { get; set; }
 }

@@ -8,15 +8,11 @@ using AssetRipper.Translation.LlvmIR.Runtime;
 
 namespace AssetRipper.Translation.LlvmIR.Instructions;
 
-internal sealed record class ReturnIfExceptionInfoNotNullInstruction(
-	TypeSignature ReturnType,
-	IFieldDescriptor Field
-) : Instruction
+internal sealed record class ReturnIfExceptionInfoNotNullInstruction(TypeSignature ReturnType, IFieldDescriptor Field) : Instruction
 {
 	public override bool StackHeightDependent => true;
 	public override int PopCount => 0;
 	public override int PushCount => 0;
-
 	public override void AddInstructions(CilInstructionCollection instructions)
 	{
 		CilInstructionLabel defaultLabel = new();
@@ -32,15 +28,9 @@ internal sealed record class ReturnIfExceptionInfoNotNullInstruction(
 		defaultLabel.Instruction = instructions.Add(CilOpCodes.Nop);
 	}
 
-	public static ReturnIfExceptionInfoNotNullInstruction Create(
-		TypeSignature returnType,
-		ModuleContext module
-	)
+	public static ReturnIfExceptionInfoNotNullInstruction Create(TypeSignature returnType, ModuleContext module)
 	{
-		FieldDefinition sourcefield =
-			module
-				.InjectedTypes[typeof(ExceptionInfo)]
-				.GetFieldByName(nameof(ExceptionInfo.Current))
+		FieldDefinition sourcefield = module.InjectedTypes[typeof(ExceptionInfo)].GetFieldByName(nameof(ExceptionInfo.Current))
 			?? throw new NullReferenceException(nameof(sourcefield));
 		IFieldDescriptor field = module.ImportRuntimeField(sourcefield);
 		return new ReturnIfExceptionInfoNotNullInstruction(returnType, field);
@@ -52,15 +42,11 @@ internal sealed record class ReturnIfExceptionInfoNotNullInstruction(
 		{
 			return false;
 		}
-		return SignatureComparer.Default.Equals(ReturnType, other.ReturnType)
-			&& SignatureComparer.Default.Equals(Field, other.Field);
+		return SignatureComparer.Default.Equals(ReturnType, other.ReturnType) && SignatureComparer.Default.Equals(Field, other.Field);
 	}
 
 	public override int GetHashCode()
 	{
-		return HashCode.Combine(
-			SignatureComparer.Default.GetHashCode(ReturnType),
-			SignatureComparer.Default.GetHashCode(Field)
-		);
+		return HashCode.Combine(SignatureComparer.Default.GetHashCode(ReturnType), SignatureComparer.Default.GetHashCode(Field));
 	}
 }

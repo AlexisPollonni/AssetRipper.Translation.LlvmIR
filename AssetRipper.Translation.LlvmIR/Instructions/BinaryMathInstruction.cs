@@ -76,9 +76,9 @@ internal static class BinaryMathInstruction
 					typeParameter = resultTypeSignature;
 				}
 
-				IMethodDescriptor methodDescriptor = Module
-					.ImportRuntimeMethod(method)
-					.MakeGenericInstanceMethod(typeParameter);
+				IMethodDescriptor methodDescriptor = Module.ImportRuntimeMethod(method).MakeGenericInstanceMethod(
+					typeParameter
+				);
 
 				return new CallInstruction(methodDescriptor);
 			}

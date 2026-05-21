@@ -13,7 +13,12 @@ namespace AssetRipper.Translation.LlvmIR.LibCBuilder.Stages;
 [SupportedOSPlatform("linux")]
 internal static class TranslateStage
 {
-	public static void Run(string bcPath, string outputDir, ToolchainInfo toolchain, bool clean)
+	public static void Run(
+		string bcPath,
+		string outputDir,
+		ToolchainInfo toolchain,
+		bool clean
+	)
 	{
 		if (!clean && Directory.Exists(outputDir))
 		{
