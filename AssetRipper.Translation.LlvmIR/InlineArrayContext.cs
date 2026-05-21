@@ -213,7 +213,7 @@ internal sealed class InlineArrayContext : IHasName
 			equalsMethod.Parameters[0].GetOrCreateDefinition().Name = "other";
 		}
 
-		//Equals(object)
+		//Equals(object?)
 		{
 			// return other is InlineArray array && Equals(array);
 			MethodDefinition method = new(
@@ -239,7 +239,19 @@ internal sealed class InlineArrayContext : IHasName
 			instructions.Add(CilOpCodes.Ret);
 			arrayType.Methods.Add(method);
 
-			method.Parameters[0].GetOrCreateDefinition().Name = "other";
+			ParameterDefinition otherParamDef = method.Parameters[0].GetOrCreateDefinition();
+			otherParamDef.Name = "other";
+			// Mark the parameter as nullable (object? other) to match object.Equals(object?) signature
+			{
+				System.Reflection.ConstructorInfo nullableCtor = typeof(NullableAttribute)
+					.GetConstructors()
+					.First(c => c.GetParameters() is [{ ParameterType.Name: "Byte" }]);
+				IMethodDescriptor importedCtor = module.Definition.DefaultImporter.ImportMethod(nullableCtor);
+				CustomAttributeArgument nullableArg = new(module.Definition.CorLibTypeFactory.Byte, (byte)2);
+				otherParamDef.CustomAttributes.Add(
+					new CustomAttribute((ICustomAttributeType)importedCtor, new CustomAttributeSignature(nullableArg))
+				);
+			}
 		}
 
 		//GetHashCode
