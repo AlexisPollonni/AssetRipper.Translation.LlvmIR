@@ -33,6 +33,10 @@ internal static partial class NameGenerator
 		{
 			return $"_{uniformSpacing}";
 		}
+		else if (char.IsLower(uniformSpacing[0]))
+		{
+			return char.ToUpperInvariant(uniformSpacing[0]) + uniformSpacing[1..];
+		}
 		else
 		{
 			return uniformSpacing;

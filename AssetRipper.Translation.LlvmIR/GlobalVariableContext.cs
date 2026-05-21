@@ -54,6 +54,13 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 	private MethodDefinition DataGetMethod { get; set; } = null!;
 	private MethodDefinition DataSetMethod { get; set; } = null!;
 
+	/// <summary>
+	/// Returns <paramref name="preferredName"/> unless it would equal the enclosing type's
+	/// <see cref="Name"/>, in which case it appends <c>"Data"</c> to avoid CS0542.
+	/// </summary>
+	private string SafeMemberName(string preferredName) =>
+		Name == preferredName ? preferredName + "Data" : preferredName;
+
 	public void CreateProperties()
 	{
 		TypeSignature underlyingType = Module.GetTypeSignature(Type);
@@ -83,15 +90,16 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 
 		// Data property
 		{
+			string valueName = SafeMemberName("Value");
 			PropertyDefinition property = new(
-				"Value",
+				valueName,
 				PropertyAttributes.None,
 				PropertySignature.CreateStatic(underlyingType)
 			);
 			DeclaringType.Properties.Add(property);
 
 			DataGetMethod = new MethodDefinition(
-				"get_Value",
+				"get_" + valueName,
 				MethodAttributes.Public
 					| MethodAttributes.Static
 					| MethodAttributes.HideBySig
@@ -101,7 +109,7 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 			DeclaringType.Methods.Add(DataGetMethod);
 
 			DataSetMethod = new MethodDefinition(
-				"set_Value",
+				"set_" + valueName,
 				MethodAttributes.Public
 					| MethodAttributes.Static
 					| MethodAttributes.HideBySig
@@ -212,14 +220,15 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 		if (PointerMethod is null)
 		{
 			TypeSignature returnType = PointerType;
+			string pointerName = SafeMemberName("Pointer");
 			PropertyDefinition property = new(
-				"Pointer",
+				pointerName,
 				PropertyAttributes.None,
 				PropertySignature.CreateStatic(returnType)
 			);
 			DeclaringType.Properties.Insert(0, property); // Prefer to have Pointer property first
 			PointerMethod = new MethodDefinition(
-				"get_Pointer",
+				"get_" + pointerName,
 				MethodAttributes.Public
 					| MethodAttributes.Static
 					| MethodAttributes.HideBySig

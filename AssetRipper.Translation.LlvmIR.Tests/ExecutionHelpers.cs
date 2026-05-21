@@ -39,7 +39,7 @@ internal static class ExecutionHelpers
 	public static MethodInfo GetMethod(Assembly assembly, string name)
 	{
 		Type type = assembly.GetType("GlobalMembers") ?? throw new NullReferenceException(nameof(type));
-		MethodInfo method = type.GetMethod(name, BindingFlags.Public | BindingFlags.Static) ?? throw new NullReferenceException(nameof(method));
+		MethodInfo method = type.GetMethod(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase) ?? throw new NullReferenceException(nameof(method));
 		return method;
 	}
 
