@@ -24,22 +24,22 @@ internal static partial class strdup
 			ptr2[4] = -86;
 			ptr2[5] = -86;
 			ptr2[6] = -86;
-			Struct_yx4nca struct_yx4nca = internal_strdup_char_const.Invoke(src);
+			Struct_yx4nca struct_yx4nca = internal_strdup.Invoke(src);
 			cpp_optional_char_OptionalStorage* ptr3 = &cpp_optional_77yu8f2.storage;
 			Struct_yx4nca struct_yx4nca2 = struct_yx4nca;
 			((Struct_yx4nca*)ptr3)->field_0 = struct_yx4nca2.field_0;
 			Struct_yx4nca struct_yx4nca3 = struct_yx4nca;
 			((Struct_yx4nca*)ptr3)->field_1 = struct_yx4nca3.field_1;
 			void* result;
-			if (cpp_optional_char_operator_bool_const.Invoke(&cpp_optional_77yu8f2))
+			if (optional_char_ToBoolean.Invoke(&cpp_optional_77yu8f2))
 			{
-				result = *(void**)cpp_optional_char_operator.Invoke(&cpp_optional_77yu8f2);
+				result = *(void**)optional_char_Multiply.Invoke(&cpp_optional_77yu8f2);
 			}
 			else
 			{
 				if (src != null)
 				{
-					Errno_operator_int_dntwiy.Invoke(libc_errno.Pointer, 12);
+					Errno_Assignment.Invoke(libc_errno.Pointer, 12);
 				}
 				result = null;
 			}

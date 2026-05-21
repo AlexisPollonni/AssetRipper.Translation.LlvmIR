@@ -5,6 +5,6 @@ internal static partial class ulrbits
 	public unsafe static int Invoke(int x)
 	{
 		int num = x;
-		return cpp_enable_if_sizeof_unsigned_long_Fract_sizeof_unsigned_int_cpp_is_trivially_constructible_unsigned_long_Fract_value_cpp_is_trivially_copyable_unsigned_long_Fract_value_cpp_is_trivially_copyable_unsigned_int_value_unsigned_long_Fract_type_cpp_bit_cast_unsigned_long_Fract_unsigned_int_unsigned_int_const.Invoke(&num);
+		return cpp_bit_cast_unsigned_long_Fract_unsigned_int.Invoke(&num);
 	}
 }

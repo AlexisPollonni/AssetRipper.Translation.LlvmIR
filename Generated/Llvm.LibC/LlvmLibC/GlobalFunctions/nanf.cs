@@ -15,7 +15,7 @@ internal static partial class nanf
 			*(float*)(&strToNumResult_cqc3yy) = float.NaN;
 			((int*)(&strToNumResult_cqc3yy))[1] = -1431655766;
 			((long*)(&strToNumResult_cqc3yy))[1] = -6148914691236517206L;
-			Struct_fiz2nb struct_fiz2nb = StrToNumResult_float_internal_strtonan_float_char_const.Invoke(arg);
+			Struct_fiz2nb struct_fiz2nb = internal_strtonan_float.Invoke(arg);
 			StrToNumResult_cqc3yy* num = &strToNumResult_cqc3yy;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num = struct_fiz2nb2.field_0;
@@ -24,7 +24,7 @@ internal static partial class nanf
 			*(long*)num2 = struct_fiz2nb3.field_1;
 			if (StrToNumResult_float_has_error.Invoke(&strToNumResult_cqc3yy))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_cqc3yy.error, @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: strToNumResult_cqc3yy.error, @this: libc_errno.Pointer);
 			}
 			float value = strToNumResult_cqc3yy.value;
 			llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_cqc3yy);

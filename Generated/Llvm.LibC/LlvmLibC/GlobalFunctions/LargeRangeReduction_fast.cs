@@ -1,0 +1,145 @@
+using System;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.GlobalVariables;
+using LlvmLibC.InlineArrays;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class LargeRangeReduction_fast
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_19LargeRangeReduction4fastEdRNS_10NumberPairIdEE")]
+	[DemangledName("__llvm_libc_20_1_2_::LargeRangeReduction::fast(double, __llvm_libc_20_1_2_::NumberPair<double>&)")]
+	public unsafe static int Invoke(LargeRangeReduction* @this, [NativeType("double")] double x, [NativeType("__llvm_libc_20_1_2_::NumberPair<double>&")] NumberPair* u)
+	{
+		fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(fputil_FPBits_wjhbrm);
+		int num = 0;
+		NumberPair numberPair = default(NumberPair);
+		NumberPair numberPair2 = default(NumberPair);
+		NumberPair numberPair3 = default(NumberPair);
+		NumberPair numberPair4 = default(NumberPair);
+		double x2 = 0.0;
+		double num2 = 0.0;
+		NumberPair numberPair5 = default(NumberPair);
+		double num3 = 0.0;
+		NumberPair numberPair6 = default(NumberPair);
+		NumberPair numberPair7 = default(NumberPair);
+		NumberPair numberPair8 = default(NumberPair);
+		llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
+		*unchecked((long*)(&fputil_FPBits_wjhbrm2)) = -6148914691236517206L;
+		FPBits_double_Constructor.Invoke(&fputil_FPBits_wjhbrm2, x);
+		llvm_lifetime_start_p0.Invoke(4L, &num);
+		num = unchecked((ushort)FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_biased_exponent.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2))) - 1085;
+		@this->idx = (num >> 4) + 3;
+		FPRepImpl_fputil_FPType_2_fputil_FPBits_double_set_biased_exponent.Invoke(unchecked((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)), (num & 0xF) + 1023 + 62);
+		@this->x_reduced = FPBits_double_get_val.Invoke(&fputil_FPBits_wjhbrm2);
+		llvm_lifetime_start_p0.Invoke(16L, &numberPair);
+		unchecked
+		{
+			*(double*)(&numberPair) = double.NaN;
+			((double*)(&numberPair))[1] = double.NaN;
+			Struct_4ydhja struct_4ydhja = fputil_split_27ul.Invoke(@this->x_reduced);
+			NumberPair* num4 = &numberPair;
+			Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
+			*(double*)num4 = struct_4ydhja2.field_0;
+			byte* num5 = (byte*)(&numberPair) + 8u;
+			Struct_4ydhja struct_4ydhja3 = struct_4ydhja;
+			*(double*)num5 = struct_4ydhja3.field_1;
+			llvm_lifetime_start_p0.Invoke(16L, &numberPair2);
+			*(double*)(&numberPair2) = double.NaN;
+			((double*)(&numberPair2))[1] = double.NaN;
+			double x_reduced = @this->x_reduced;
+			long num6 = (uint)@this->idx;
+			Struct_4ydhja struct_4ydhja4 = fputil_exact_mult_28ul.Invoke(&numberPair, x_reduced, *(double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num6 * sizeof(InlineArray4_Double)));
+			NumberPair* num7 = &numberPair2;
+			Struct_4ydhja struct_4ydhja5 = struct_4ydhja4;
+			*(double*)num7 = struct_4ydhja5.field_0;
+			byte* num8 = (byte*)(&numberPair2) + 8u;
+			Struct_4ydhja struct_4ydhja6 = struct_4ydhja4;
+			*(double*)num8 = struct_4ydhja6.field_1;
+			llvm_lifetime_start_p0.Invoke(16L, &numberPair3);
+			*(double*)(&numberPair3) = double.NaN;
+			((double*)(&numberPair3))[1] = double.NaN;
+			double x_reduced2 = @this->x_reduced;
+			long num9 = (uint)@this->idx;
+			Struct_4ydhja struct_4ydhja7 = fputil_exact_mult_28ul.Invoke(&numberPair, x_reduced2, ((double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num9 * sizeof(InlineArray4_Double)))[1]);
+			NumberPair* num10 = &numberPair3;
+			Struct_4ydhja struct_4ydhja8 = struct_4ydhja7;
+			*(double*)num10 = struct_4ydhja8.field_0;
+			byte* num11 = (byte*)(&numberPair3) + 8u;
+			Struct_4ydhja struct_4ydhja9 = struct_4ydhja7;
+			*(double*)num11 = struct_4ydhja9.field_1;
+			llvm_lifetime_start_p0.Invoke(16L, &numberPair4);
+			*(double*)(&numberPair4) = double.NaN;
+			((double*)(&numberPair4))[1] = double.NaN;
+			double x_reduced3 = @this->x_reduced;
+			long num12 = (uint)@this->idx;
+			Struct_4ydhja struct_4ydhja10 = fputil_exact_mult_28ul.Invoke(&numberPair, x_reduced3, ((double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num12 * sizeof(InlineArray4_Double)))[2L]);
+			NumberPair* num13 = &numberPair4;
+			Struct_4ydhja struct_4ydhja11 = struct_4ydhja10;
+			*(double*)num13 = struct_4ydhja11.field_0;
+			byte* num14 = (byte*)(&numberPair4) + 8u;
+			Struct_4ydhja struct_4ydhja12 = struct_4ydhja10;
+			*(double*)num14 = struct_4ydhja12.field_1;
+			llvm_lifetime_start_p0.Invoke(8L, &x2);
+			x2 = numberPair2.lo + numberPair3.hi;
+			llvm_lifetime_start_p0.Invoke(8L, &num2);
+			num2 = fputil_nearest_integer.Invoke(x2);
+			@this->y_hi = numberPair2.lo - num2 + numberPair3.hi;
+			llvm_lifetime_start_p0.Invoke(16L, &numberPair5);
+			Struct_4ydhja struct_4ydhja13 = fputil_exact_add_true.Invoke(numberPair3.lo, numberPair4.hi);
+			NumberPair* num15 = &numberPair5;
+			Struct_4ydhja struct_4ydhja14 = struct_4ydhja13;
+			*(double*)num15 = struct_4ydhja14.field_0;
+			byte* num16 = (byte*)(&numberPair5) + 8u;
+			Struct_4ydhja struct_4ydhja15 = struct_4ydhja13;
+			*(double*)num16 = struct_4ydhja15.field_1;
+			llvm_memcpy_p0_p0_i64.Invoke(&@this->y_mid, &numberPair5, 16L, isVolatile: false);
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair5);
+			@this->y_lo = numberPair4.lo;
+			llvm_lifetime_start_p0.Invoke(8L, &num3);
+			double x_reduced4 = @this->x_reduced;
+			long num17 = (uint)@this->idx;
+			num3 = fputil_multiply_add_double.Invoke(x_reduced4, ((double*)((byte*)ONE_TWENTY_EIGHT_OVER_PI.Pointer + (nint)num17 * sizeof(InlineArray4_Double)))[3L], @this->y_lo);
+			llvm_lifetime_start_p0.Invoke(16L, &numberPair6);
+			*(double*)(&numberPair6) = double.NaN;
+			((double*)(&numberPair6))[1] = double.NaN;
+			Struct_4ydhja struct_4ydhja16 = fputil_exact_add_true.Invoke(@this->y_hi, @this->y_mid.hi);
+			NumberPair* num18 = &numberPair6;
+			Struct_4ydhja struct_4ydhja17 = struct_4ydhja16;
+			*(double*)num18 = struct_4ydhja17.field_0;
+			byte* num19 = (byte*)(&numberPair6) + 8u;
+			Struct_4ydhja struct_4ydhja18 = struct_4ydhja16;
+			*(double*)num19 = struct_4ydhja18.field_1;
+			double num20 = @this->y_mid.lo + num3;
+			numberPair6.lo += num20;
+			llvm_lifetime_start_p0.Invoke(16L, &numberPair7);
+			*(double*)(&numberPair7) = 9.567553118338697E-19;
+			((double*)(&numberPair7))[1] = Math.PI / 128.0;
+			llvm_lifetime_start_p0.Invoke(16L, &numberPair8);
+			Struct_4ydhja struct_4ydhja19 = fputil_quick_mult_28ul.Invoke(&numberPair6, &numberPair7);
+			NumberPair* num21 = &numberPair8;
+			Struct_4ydhja struct_4ydhja20 = struct_4ydhja19;
+			*(double*)num21 = struct_4ydhja20.field_0;
+			byte* num22 = (byte*)(&numberPair8) + 8u;
+			Struct_4ydhja struct_4ydhja21 = struct_4ydhja19;
+			*(double*)num22 = struct_4ydhja21.field_1;
+			llvm_memcpy_p0_p0_i64.Invoke(u, &numberPair8, 16L, isVolatile: false);
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair8);
+			int result = (int)(long)num2;
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair7);
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair6);
+			llvm_lifetime_end_p0.Invoke(8L, &num3);
+			llvm_lifetime_end_p0.Invoke(8L, &num2);
+			llvm_lifetime_end_p0.Invoke(8L, &x2);
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair4);
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair3);
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair2);
+			llvm_lifetime_end_p0.Invoke(16L, &numberPair);
+			llvm_lifetime_end_p0.Invoke(4L, &num);
+			llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm2);
+			return result;
+		}
+	}
+}

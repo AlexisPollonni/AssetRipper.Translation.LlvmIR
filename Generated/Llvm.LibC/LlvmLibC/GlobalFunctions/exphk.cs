@@ -18,13 +18,13 @@ internal static partial class exphk
 		unchecked
 		{
 			short result;
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num6 >= 712, expected: false))
+			if (details_expects_bool_condition_bool.Invoke(num6 >= 712, expected: false))
 			{
-				result = fixed_point_FXRep_short_Accum_MAX.Invoke();
+				result = FXRep_short_Accum_MAX.Invoke();
 			}
-			else if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num6 <= -710, expected: false))
+			else if (details_expects_bool_condition_bool.Invoke(num6 <= -710, expected: false))
 			{
-				result = fixed_point_FXRep_short_Accum_ZERO.Invoke();
+				result = FXRep_short_Accum_ZERO.Invoke();
 			}
 			else
 			{
@@ -37,7 +37,7 @@ internal static partial class exphk
 				llvm_lifetime_start_p0.Invoke(2L, &num4);
 				llvm_lifetime_start_p0.Invoke(2L, &num5);
 				num5 = (short)(num2 + 704 >> 4);
-				short num7 = cpp_enable_if_sizeof_unsigned_short_sizeof_short_Accum_cpp_is_trivially_constructible_unsigned_short_value_cpp_is_trivially_copyable_unsigned_short_value_cpp_is_trivially_copyable_short_Accum_value_unsigned_short_type_cpp_bit_cast_unsigned_short_short_Accum_short_Accum_const.Invoke(&num5);
+				short num7 = cpp_bit_cast_unsigned_short_short_Accum.Invoke(&num5);
 				llvm_lifetime_end_p0.Invoke(2L, &num5);
 				num4 = num7;
 				llvm_lifetime_start_p0.Invoke(2L, &a);

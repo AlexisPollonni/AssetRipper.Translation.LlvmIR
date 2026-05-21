@@ -25,9 +25,9 @@ internal static partial class cosf16
 		unchecked
 		{
 			*(short*)(&fputil_FPBits_2fahva2) = -21846;
-			fputil_FPBits_Float16_FPBits_Float16_Float16.Invoke(&fputil_FPBits_2fahva2, x);
+			FPBits_Float16_Constructor.Invoke(&fputil_FPBits_2fahva2, x);
 			llvm_lifetime_start_p0.Invoke(2L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2));
+			num = FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2));
 			llvm_lifetime_start_p0.Invoke(2L, &num2);
 			num2 = (short)((ushort)num & 0x7FFF);
 			llvm_lifetime_start_p0.Invoke(4L, &xf);
@@ -37,12 +37,12 @@ internal static partial class cosf16
 			*(Half*)ptr = default(Half);
 			ptr[2] = -86;
 			ptr[3] = -86;
-			int storage = fputil_ExceptValues_Float16_4ul_lookup_unsigned_short_const.Invoke(x_bits: num2, @this: COSF16_EXCEPTS.Pointer);
+			int storage = ExceptValues_Float16_4ul_lookup.Invoke(x_bits: num2, @this: COSF16_EXCEPTS.Pointer);
 			*(int*)(&cpp_optional_aq7wey2.storage) = storage;
 			int num5;
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(cpp_optional_Float16_has_value_const.Invoke(&cpp_optional_aq7wey2), expected: false))
+			if (details_expects_bool_condition_bool.Invoke(optional_Float16_has_value.Invoke(&cpp_optional_aq7wey2), expected: false))
 			{
-				result = *(Half*)cpp_optional_Float16_value.Invoke(&cpp_optional_aq7wey2);
+				result = *(Half*)optional_Float16_value.Invoke(&cpp_optional_aq7wey2);
 				num5 = 1;
 			}
 			else
@@ -53,23 +53,23 @@ internal static partial class cosf16
 			switch (num5)
 			{
 			case 0:
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((ushort)num2 == 0, expected: false))
+				if (details_expects_bool_condition_bool.Invoke((ushort)num2 == 0, expected: false))
 				{
-					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(1f);
+					result = fputil_cast_Float16_float.Invoke(1f);
 				}
-				else if (fputil_internal_FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_inf_or_nan_const.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)))
+				else if (FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_inf_or_nan.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)))
 				{
-					if (fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf_const.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
+					if (FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_inf.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2)))
 					{
-						fputil_set_errno_if_required_int.Invoke(33);
-						fputil_raise_except_if_required_int.Invoke(1);
+						fputil_set_errno_if_required.Invoke(33);
+						fputil_raise_except_if_required.Invoke(1);
 					}
 					float num6 = (float)x;
 					llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
-					short field_ = fputil_internal_FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_quiet_nan_Sign_unsigned_short.Invoke(anon_izyfb8.val, 0);
+					short field_ = FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_quiet_nan.Invoke(anon_izyfb8.val, 0);
 					fputil_FPBits_2fahva3.FPRepImpl.FPRepSem.FPStorage.field_0 = field_;
-					result = (Half)(num6 + (float)fputil_FPBits_Float16_get_val_const.Invoke(&fputil_FPBits_2fahva3));
+					result = (Half)(num6 + (float)FPBits_Float16_get_val.Invoke(&fputil_FPBits_2fahva3));
 					llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva3);
 				}
 				else
@@ -82,8 +82,8 @@ internal static partial class cosf16
 					y = float.NaN;
 					llvm_lifetime_start_p0.Invoke(4L, &y2);
 					y2 = float.NaN;
-					sincosf16_eval_float_float_float_float_float.Invoke(xf, &num3, &num4, &y, &y2);
-					result = cpp_enable_if_cpp_is_floating_point_v_Float16_cpp_is_floating_point_v_float_Float16_type_fputil_cast_Float16_float_float.Invoke(cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num4, y2, cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(0f - num3, y, num4)));
+					sincosf16_eval.Invoke(xf, &num3, &num4, &y, &y2);
+					result = fputil_cast_Float16_float.Invoke(fputil_multiply_add_float.Invoke(num4, y2, fputil_multiply_add_float.Invoke(0f - num3, y, num4)));
 					llvm_lifetime_end_p0.Invoke(4L, &y2);
 					llvm_lifetime_end_p0.Invoke(4L, &y);
 					llvm_lifetime_end_p0.Invoke(4L, &num4);

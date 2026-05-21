@@ -36,7 +36,7 @@ internal static partial class tcsetattr
 				goto IL_00a9;
 			default:
 				{
-					Errno_operator_int_dntwiy.Invoke(libc_errno.Pointer, 22);
+					Errno_Assignment.Invoke(libc_errno.Pointer, 22);
 					result = -1;
 					break;
 				}
@@ -64,10 +64,10 @@ internal static partial class tcsetattr
 					llvm_lifetime_end_p0.Invoke(8L, &num3);
 				}
 				llvm_lifetime_start_p0.Invoke(4L, &num4);
-				num4 = int_syscall_impl_int_int_long_kernel_termios_long_int_long_kernel_termios.Invoke(16L, fd, ts_76xnpk, &kernel_termios2);
+				num4 = syscall_impl_int_int_long_kernel_termios.Invoke(16L, fd, ts_76xnpk, &kernel_termios2);
 				if (num4 < 0)
 				{
-					Errno_operator_int_dntwiy.Invoke(a: checked(-num4), @this: libc_errno.Pointer);
+					Errno_Assignment.Invoke(a: checked(-num4), @this: libc_errno.Pointer);
 					result = -1;
 				}
 				else

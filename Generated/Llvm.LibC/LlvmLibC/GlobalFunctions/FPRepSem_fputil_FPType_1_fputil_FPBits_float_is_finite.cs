@@ -1,0 +1,20 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_finite
+{
+	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE1ENS0_6FPBitsIfEEE9is_finiteEv")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)1, __llvm_libc_20_1_2_::fputil::FPBits<float>>::is_finite() const")]
+	public unsafe static bool Invoke(void* @this)
+	{
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		int num = FPStorage_fputil_FPType_1_exp_bits.Invoke(@this);
+		int field_ = Exponent_inf_jjc7xf.Invoke();
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0 = field_;
+		BiasedExponent_Constructor_f8cgks.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent3.field_0.field_0);
+		return num != FPStorage_fputil_FPType_1_encode_tuzdh3.Invoke(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent2.field_0.field_0);
+	}
+}

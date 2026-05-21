@@ -17,7 +17,7 @@ internal static partial class sysconf
 		}
 		else if (num < 0L)
 		{
-			Errno_operator_int_dntwiy.Invoke(libc_errno.Pointer, 22);
+			Errno_Assignment.Invoke(libc_errno.Pointer, 22);
 			result = -1L;
 		}
 		else

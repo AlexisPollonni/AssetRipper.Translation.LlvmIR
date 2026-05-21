@@ -6,6 +6,6 @@ internal static partial class fileno
 {
 	public unsafe static int Invoke(void* stream)
 	{
-		return Get_fileno_File.Invoke(unchecked((File_sjnxn4*)stream));
+		return Get_fileno.Invoke(unchecked((File_sjnxn4*)stream));
 	}
 }

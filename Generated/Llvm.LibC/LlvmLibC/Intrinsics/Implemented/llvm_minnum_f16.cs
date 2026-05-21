@@ -5,11 +5,11 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace LlvmLibC.Intrinsics.Implemented;
 
-[MangledName("llvm.minnum.f16")]
-[DemangledName("llvm.minnum.f16")]
 internal static partial class llvm_minnum_f16
 {
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	[MangledName("llvm.minnum.f16")]
+	[DemangledName("llvm.minnum.f16")]
 	public static Half Invoke(Half parameter_0, Half parameter_1)
 	{
 		return NumericHelper.MinNum(parameter_0, parameter_1);

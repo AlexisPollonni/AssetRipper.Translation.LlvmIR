@@ -11,8 +11,8 @@ internal static partial class strcpy
 	{
 		long count = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &count);
-		count = unchecked(unsigned_long_internal_string_length_char_char_const.Invoke(src) + 1L);
-		inline_memcpy_void_void_const_unsigned_long.Invoke(dest, src, count);
+		count = unchecked(internal_string_length_char.Invoke(src) + 1L);
+		inline_memcpy.Invoke(dest, src, count);
 		llvm_lifetime_end_p0.Invoke(8L, &count);
 		return dest;
 	}

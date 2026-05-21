@@ -21,7 +21,7 @@ internal static partial class cprojf16
 			Half* ptr = &struct_zwcg3.field_1;
 			struct_zwcg3.field_0 = field_;
 			*ptr = field_2;
-			*(InlineArray2_Half*)(&struct_zwcg4) = Float16_complex_project_Float16_complex_Float16_complex.Invoke(*(InlineArray2_Half*)(&struct_zwcg3));
+			*(InlineArray2_Half*)(&struct_zwcg4) = project_Float16_complex.Invoke(*(InlineArray2_Half*)(&struct_zwcg3));
 			Half field_3 = struct_zwcg4.field_0;
 			Half field_4 = struct_zwcg4.field_1;
 			Half* ptr2 = &struct_zwcg.field_1;

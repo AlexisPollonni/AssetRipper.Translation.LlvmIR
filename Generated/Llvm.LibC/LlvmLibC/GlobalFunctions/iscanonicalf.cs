@@ -10,7 +10,7 @@ internal static partial class iscanonicalf
 		float num2 = x;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = float.NaN;
-		bool result = int_fputil_canonicalize_float_0_float_float_const.Invoke(&num, &num2) == 0;
+		bool result = fputil_canonicalize_float_0.Invoke(&num, &num2) == 0;
 		llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result ? 1 : 0;
 	}

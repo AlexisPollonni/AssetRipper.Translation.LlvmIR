@@ -12,7 +12,7 @@ internal static partial class strsep
 			{
 				return null;
 			}
-			return char_internal_string_token_false_char_char_const_char.Invoke(*(void**)stringp, delim, stringp);
+			return internal_string_token_false.Invoke(*(void**)stringp, delim, stringp);
 		}
 	}
 }

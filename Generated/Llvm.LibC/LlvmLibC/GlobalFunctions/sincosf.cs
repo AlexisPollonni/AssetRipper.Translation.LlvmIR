@@ -31,15 +31,15 @@ internal static partial class sincosf
 		unchecked
 		{
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
-			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
+			FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) & 0x7FFFFFFF;
+			num = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)) & 0x7FFFFFFF;
 			llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = x;
 			int num8;
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num < 964689920u, expected: false))
+			if (details_expects_bool_condition_bool.Invoke((uint)num < 964689920u, expected: false))
 			{
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num == 0, expected: false))
+				if (details_expects_bool_condition_bool.Invoke(num == 0, expected: false))
 				{
 					*(float*)sinp = x;
 					*(float*)cosp = 1f;
@@ -47,26 +47,26 @@ internal static partial class sincosf
 				}
 				else
 				{
-					*(float*)sinp = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, -2.980232238769531E-08, num2);
+					*(float*)sinp = (float)fputil_multiply_add_double.Invoke(num2, -2.980232238769531E-08, num2);
 					llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
-					fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs3, num);
-					*(float*)cosp = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs3), -2.980232238769531E-08, 1.0);
+					FPBits_float_FPBits_unsigned_int.Invoke(&fputil_FPBits_5nkvcs3, num);
+					*(float*)cosp = (float)fputil_multiply_add_double.Invoke(FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs3), -2.980232238769531E-08, 1.0);
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 					num8 = 1;
 				}
 			}
-			else if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num >= 2139095040u, expected: false))
+			else if (details_expects_bool_condition_bool.Invoke((uint)num >= 2139095040u, expected: false))
 			{
 				if (num == 2139095040)
 				{
-					fputil_set_errno_if_required_int.Invoke(33);
-					fputil_raise_except_if_required_int.Invoke(1);
+					fputil_set_errno_if_required.Invoke(33);
+					fputil_raise_except_if_required.Invoke(1);
 				}
 				llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
-				int field_ = fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_quiet_nan_Sign_unsigned_int.Invoke(anon_izyfb8.val, 0);
+				int field_ = FPRepSem_fputil_FPType_1_fputil_FPBits_float_quiet_nan.Invoke(anon_izyfb8.val, 0);
 				fputil_FPBits_5nkvcs4.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-				*(float*)sinp = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs4);
+				*(float*)sinp = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs4);
 				llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
 				*(float*)cosp = *(float*)sinp;
 				num8 = 1;
@@ -84,7 +84,7 @@ internal static partial class sincosf
 					}
 					int num9 = num;
 					long num10 = num3;
-					if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num9 == ((int*)EXCEPT_INPUTS.Pointer)[num10], expected: false))
+					if (details_expects_bool_condition_bool.Invoke(num9 == ((int*)EXCEPT_INPUTS.Pointer)[num10], expected: false))
 					{
 						llvm_lifetime_start_p0.Invoke(4L, &num4);
 						long num11 = num3;
@@ -151,20 +151,20 @@ internal static partial class sincosf
 						float num28;
 						if (num27)
 						{
-							fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs5, num4);
-							num28 = 0f - fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs5);
+							FPBits_float_FPBits_unsigned_int.Invoke(&fputil_FPBits_5nkvcs5, num4);
+							num28 = 0f - FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs5);
 						}
 						else
 						{
-							fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs6, num4);
-							num28 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs6);
+							FPBits_float_FPBits_unsigned_int.Invoke(&fputil_FPBits_5nkvcs6, num4);
+							num28 = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs6);
 						}
 						*(float*)sinp = num28;
 						llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs6);
 						llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
 						llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs7);
-						fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs7, num5);
-						*(float*)cosp = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs7);
+						FPBits_float_FPBits_unsigned_int.Invoke(&fputil_FPBits_5nkvcs7, num5);
+						*(float*)cosp = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs7);
 						llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs7);
 						num8 = 1;
 						llvm_lifetime_end_p0.Invoke(1L, &b);
@@ -185,9 +185,9 @@ internal static partial class sincosf
 					x2 = double.NaN;
 					llvm_lifetime_start_p0.Invoke(8L, &x3);
 					x3 = double.NaN;
-					sincosf_eval_double_unsigned_int_double_double_double_double.Invoke(num2, num, &num6, &num7, &x2, &x3);
-					*(float*)sinp = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, num7, cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, num6, num6));
-					*(float*)cosp = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, 0.0 - num6, cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, num7, num7));
+					sincosf_eval.Invoke(num2, num, &num6, &num7, &x2, &x3);
+					*(float*)sinp = (float)fputil_multiply_add_double.Invoke(x2, num7, fputil_multiply_add_double.Invoke(x3, num6, num6));
+					*(float*)cosp = (float)fputil_multiply_add_double.Invoke(x2, 0.0 - num6, fputil_multiply_add_double.Invoke(x3, num7, num7));
 					llvm_lifetime_end_p0.Invoke(8L, &x3);
 					llvm_lifetime_end_p0.Invoke(8L, &x2);
 					llvm_lifetime_end_p0.Invoke(8L, &num7);

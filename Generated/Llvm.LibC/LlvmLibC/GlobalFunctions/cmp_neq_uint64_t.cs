@@ -1,0 +1,17 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class cmp_neq_uint64_t
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_16cmp_neq_uint64_tEmm")]
+	[DemangledName("__llvm_libc_20_1_2_::cmp_neq_uint64_t(unsigned long, unsigned long)")]
+	public unsafe static int Invoke([NativeType("unsigned long")] long a, [NativeType("unsigned long")] long b)
+	{
+		fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2 = default(fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt);
+		StrictIntegralType_int_StrictIntegralType_int_false.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2, InstructionHelper.Select(unchecked((ulong)a < (ulong)b), -5, 5));
+		return fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2.field_0;
+	}
+}

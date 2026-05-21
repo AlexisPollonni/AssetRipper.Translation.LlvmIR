@@ -15,7 +15,7 @@ internal static partial class strtof
 			*(float*)(&strToNumResult_cqc3yy) = float.NaN;
 			((int*)(&strToNumResult_cqc3yy))[1] = -1431655766;
 			((long*)(&strToNumResult_cqc3yy))[1] = -6148914691236517206L;
-			Struct_fiz2nb struct_fiz2nb = StrToNumResult_float_internal_strtofloatingpoint_float_char_const.Invoke(str);
+			Struct_fiz2nb struct_fiz2nb = internal_strtofloatingpoint_float.Invoke(str);
 			StrToNumResult_cqc3yy* num = &strToNumResult_cqc3yy;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num = struct_fiz2nb2.field_0;
@@ -24,7 +24,7 @@ internal static partial class strtof
 			*(long*)num2 = struct_fiz2nb3.field_1;
 			if (StrToNumResult_float_has_error.Invoke(&strToNumResult_cqc3yy))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_cqc3yy.error, @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: strToNumResult_cqc3yy.error, @this: libc_errno.Pointer);
 			}
 			if (str_end != null)
 			{

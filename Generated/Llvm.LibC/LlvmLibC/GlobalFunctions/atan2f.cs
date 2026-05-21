@@ -76,44 +76,44 @@ internal static partial class atan2f
 			llvm_memcpy_p0_p0_i64.Invoke(&inlineArray2_InlineArray2_InlineArray2_NumberPair, CONST_ADJ_kemuba.Pointer, 128L, isVolatile: false);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
-			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
+			FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
 			*(int*)(&fputil_FPBits_5nkvcs3) = -1431655766;
-			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs3, y);
+			FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs3, y);
 			llvm_lifetime_start_p0.Invoke(1L, &b);
 			llvm_lifetime_start_p0.Invoke(1L, &anon_izyfb8);
-			anon_izyfb8.val = fputil_internal_FPStorage_fputil_FPType_1_sign_const.Invoke(&fputil_FPBits_5nkvcs2);
-			bool num28 = Sign_is_neg_const.Invoke(&anon_izyfb8);
+			anon_izyfb8.val = FPStorage_fputil_FPType_1_sign.Invoke(&fputil_FPBits_5nkvcs2);
+			bool num28 = Sign_is_neg.Invoke(&anon_izyfb8);
 			llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb8);
 			b = (num28 ? ((sbyte)1) : ((sbyte)0));
 			llvm_lifetime_start_p0.Invoke(1L, &b2);
 			llvm_lifetime_start_p0.Invoke(1L, &anon_izyfb9);
-			anon_izyfb9.val = fputil_internal_FPStorage_fputil_FPType_1_sign_const.Invoke(&fputil_FPBits_5nkvcs3);
-			bool num29 = Sign_is_neg_const.Invoke(&anon_izyfb9);
+			anon_izyfb9.val = FPStorage_fputil_FPType_1_sign.Invoke(&fputil_FPBits_5nkvcs3);
+			bool num29 = Sign_is_neg.Invoke(&anon_izyfb9);
 			llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb9);
 			b2 = (num29 ? ((sbyte)1) : ((sbyte)0));
 			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb10, Sign_POS.Pointer, 1L, isVolatile: false);
-			fputil_internal_FPStorage_fputil_FPType_1_set_sign_Sign.Invoke(&fputil_FPBits_5nkvcs2, anon_izyfb10.val);
+			FPStorage_fputil_FPType_1_set_sign.Invoke(&fputil_FPBits_5nkvcs2, anon_izyfb10.val);
 			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb11, Sign_POS.Pointer, 1L, isVolatile: false);
-			fputil_internal_FPStorage_fputil_FPType_1_set_sign_Sign.Invoke(&fputil_FPBits_5nkvcs3, anon_izyfb11.val);
+			FPStorage_fputil_FPType_1_set_sign.Invoke(&fputil_FPBits_5nkvcs3, anon_izyfb11.val);
 			llvm_lifetime_start_p0.Invoke(4L, &num6);
-			num6 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
+			num6 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
 			llvm_lifetime_start_p0.Invoke(4L, &num7);
-			num7 = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
+			num7 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs3));
 			llvm_lifetime_start_p0.Invoke(4L, &num8);
 			num8 = (((uint)num6 <= (uint)num7) ? num7 : num6);
 			llvm_lifetime_start_p0.Invoke(4L, &x2);
 			x2 = (((uint)num6 > (uint)num7) ? num7 : num6);
 			llvm_lifetime_start_p0.Invoke(4L, &num9);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
-			fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs4, x2);
-			float num30 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs4);
+			FPBits_float_FPBits_unsigned_int.Invoke(&fputil_FPBits_5nkvcs4, x2);
+			float num30 = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs4);
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs4);
 			num9 = num30;
 			llvm_lifetime_start_p0.Invoke(4L, &num10);
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
-			fputil_FPBits_float_FPBits_unsigned_int_unsigned_int.Invoke(&fputil_FPBits_5nkvcs5, num8);
-			float num31 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs5);
+			FPBits_float_FPBits_unsigned_int.Invoke(&fputil_FPBits_5nkvcs5, num8);
+			float num31 = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs5);
 			llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs5);
 			num10 = num31;
 			llvm_lifetime_start_p0.Invoke(8L, &num11);
@@ -121,15 +121,15 @@ internal static partial class atan2f
 			llvm_lifetime_start_p0.Invoke(8L, &num12);
 			num12 = num10;
 			float result;
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(((uint)num8 < 2139095040u) ? (num11 == 0.0) : true, expected: false))
+			if (details_expects_bool_condition_bool.Invoke(((uint)num8 < 2139095040u) ? (num11 == 0.0) : true, expected: false))
 			{
-				if (fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan_const.Invoke(&fputil_FPBits_5nkvcs2) || fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan_const.Invoke(&fputil_FPBits_5nkvcs3))
+				if (FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&fputil_FPBits_5nkvcs2) || FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&fputil_FPBits_5nkvcs3))
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs6);
 					llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb12, Sign_POS.Pointer, 1L, isVolatile: false);
-					int field_ = fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_quiet_nan_Sign_unsigned_int.Invoke(anon_izyfb12.val, 0);
+					int field_ = FPRepSem_fputil_FPType_1_fputil_FPBits_float_quiet_nan.Invoke(anon_izyfb12.val, 0);
 					fputil_FPBits_5nkvcs6.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-					result = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs6);
+					result = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs6);
 					llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs6);
 				}
 				else
@@ -168,20 +168,20 @@ internal static partial class atan2f
 				llvm_lifetime_start_p0.Invoke(8L, &num19);
 				num19 = num11 / num12;
 				llvm_lifetime_start_p0.Invoke(8L, &num20);
-				num20 = fputil_nearest_integer_double.Invoke(num19 * 16.0);
+				num20 = fputil_nearest_integer.Invoke(num19 * 16.0);
 				llvm_lifetime_start_p0.Invoke(4L, &num21);
 				num21 = (int)num20;
 				llvm_lifetime_start_p0.Invoke(8L, &num22);
 				num22 = double.NaN;
-				num19 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num20, -0.0625, num19);
+				num19 = fputil_multiply_add_double.Invoke(num20, -0.0625, num19);
 				llvm_lifetime_start_p0.Invoke(8L, &num23);
-				num23 = atan_eval_double_unsigned_int_60.Invoke(num19, num21);
+				num23 = atan_eval_gjyy9x.Invoke(num19, num21);
 				double num32 = num18;
 				double x3 = num19;
 				double y2 = num23;
 				double hi = numberPair.hi;
 				long num33 = num21;
-				num22 = num32 * cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, y2, hi + *(double*)((byte*)ATAN_COEFFS.Pointer + (nint)num33 * sizeof(InlineArray9_Double)));
+				num22 = num32 * fputil_multiply_add_double.Invoke(x3, y2, hi + *(double*)((byte*)ATAN_COEFFS.Pointer + (nint)num33 * sizeof(InlineArray9_Double)));
 				llvm_lifetime_start_p0.Invoke(4L, &num24);
 				num24 = 4;
 				llvm_lifetime_start_p0.Invoke(4L, &num25);
@@ -189,8 +189,8 @@ internal static partial class atan2f
 				llvm_lifetime_start_p0.Invoke(4L, &num26);
 				num26 = 268435451;
 				llvm_lifetime_start_p0.Invoke(4L, &num27);
-				num27 = (int)cpp_enable_if_sizeof_unsigned_long_sizeof_double_cpp_is_trivially_constructible_unsigned_long_value_cpp_is_trivially_copyable_unsigned_long_value_cpp_is_trivially_copyable_double_value_unsigned_long_type_cpp_bit_cast_unsigned_long_double_double_const.Invoke(&num22) & 0xFFFFFFF;
-				result = ((!bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num27 > 4u && (uint)num27 < 268435451u, expected: true)) ? anonymous_namespace_atan2f_double_double_double_double_double_int_double_double_NumberPair_double_const.Invoke(num11, num12, num19, num21, num20, num18, &numberPair) : ((float)num22));
+				num27 = (int)cpp_bit_cast_unsigned_long_double.Invoke(&num22) & 0xFFFFFFF;
+				result = ((!details_expects_bool_condition_bool.Invoke((uint)num27 > 4u && (uint)num27 < 268435451u, expected: true)) ? anonymous_namespace_atan2f_double_double.Invoke(num11, num12, num19, num21, num20, num18, &numberPair) : ((float)num22));
 				llvm_lifetime_end_p0.Invoke(4L, &num27);
 				llvm_lifetime_end_p0.Invoke(4L, &num26);
 				llvm_lifetime_end_p0.Invoke(4L, &num25);

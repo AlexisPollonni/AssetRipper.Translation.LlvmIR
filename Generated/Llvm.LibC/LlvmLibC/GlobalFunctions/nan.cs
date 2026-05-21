@@ -20,10 +20,10 @@ internal static partial class nan
 			ptr[2] = -86;
 			ptr[3] = -86;
 			((long*)(&strToNumResult_k826n))[2] = -6148914691236517206L;
-			StrToNumResult_double_internal_strtonan_double_char_const.Invoke(&strToNumResult_k826n, arg);
+			internal_strtonan_double.Invoke(&strToNumResult_k826n, arg);
 			if (StrToNumResult_double_has_error.Invoke(&strToNumResult_k826n))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_k826n.error, @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: strToNumResult_k826n.error, @this: libc_errno.Pointer);
 			}
 			double value = strToNumResult_k826n.value;
 			llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_k826n);

@@ -5,6 +5,6 @@ internal static partial class uhrbits
 	public unsafe static sbyte Invoke(sbyte x)
 	{
 		sbyte b = x;
-		return cpp_enable_if_sizeof_unsigned_short_Fract_sizeof_unsigned_char_cpp_is_trivially_constructible_unsigned_short_Fract_value_cpp_is_trivially_copyable_unsigned_short_Fract_value_cpp_is_trivially_copyable_unsigned_char_value_unsigned_short_Fract_type_cpp_bit_cast_unsigned_short_Fract_unsigned_char_unsigned_char_const.Invoke(&b);
+		return cpp_bit_cast_unsigned_short_Fract_unsigned_char.Invoke(&b);
 	}
 }

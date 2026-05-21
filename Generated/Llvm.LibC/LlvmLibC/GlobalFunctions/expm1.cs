@@ -50,22 +50,22 @@ internal static partial class expm1
 		unchecked
 		{
 			*(long*)(&fputil_FPBits_wjhbrm2) = -6148914691236517206L;
-			fputil_FPBits_double_FPBits_double_double.Invoke(&fputil_FPBits_wjhbrm2, x);
+			FPBits_double_Constructor.Invoke(&fputil_FPBits_wjhbrm2, x);
 			llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = (fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)) ? ((sbyte)1) : ((sbyte)0));
+			b = (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2)) ? ((sbyte)1) : ((sbyte)0));
 			llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval_const.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
+			num = FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke((fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm2));
 			double result;
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(((ulong)num >= 13853836650999914722uL) ? true : (((ulong)num > 13591863675404156928uL || (ulong)num < 4649454530587146736uL) ? ((ulong)num <= 4368491638549381120uL) : true), expected: false))
+			if (details_expects_bool_condition_bool.Invoke(((ulong)num >= 13853836650999914722uL) ? true : (((ulong)num > 13591863675404156928uL || (ulong)num < 4649454530587146736uL) ? ((ulong)num <= 4368491638549381120uL) : true), expected: false))
 			{
-				result = anonymous_namespace_set_exceptional_double.Invoke(x);
+				result = anonymous_namespace_set_exceptional_icmnd6.Invoke(x);
 			}
 			else
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
-				num2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x, 1.4426950408889634, 3145728.0001220703);
+				num2 = fputil_multiply_add_double.Invoke(x, 1.4426950408889634, 3145728.0001220703);
 				llvm_lifetime_start_p0.Invoke(4L, &num3);
-				num3 = (int)(cpp_enable_if_sizeof_unsigned_long_sizeof_double_cpp_is_trivially_constructible_unsigned_long_value_cpp_is_trivially_copyable_unsigned_long_value_cpp_is_trivially_copyable_double_value_unsigned_long_type_cpp_bit_cast_unsigned_long_double_double_const.Invoke(&num2) >>> 19);
+				num3 = (int)(cpp_bit_cast_unsigned_long_double.Invoke(&num2) >>> 19);
 				llvm_lifetime_start_p0.Invoke(8L, &num4);
 				num4 = num3;
 				llvm_lifetime_start_p0.Invoke(4L, &num5);
@@ -91,7 +91,7 @@ internal static partial class expm1
 				llvm_lifetime_start_p0.Invoke(16L, &numberPair3);
 				*(double*)(&numberPair3) = double.NaN;
 				((double*)(&numberPair3))[1] = double.NaN;
-				Struct_4ydhja struct_4ydhja = NumberPair_double_fputil_quick_mult_27ul_NumberPair_double_const_NumberPair_double_const.Invoke(&numberPair, &numberPair2);
+				Struct_4ydhja struct_4ydhja = fputil_quick_mult_27ul.Invoke(&numberPair, &numberPair2);
 				NumberPair* num30 = &numberPair3;
 				Struct_4ydhja struct_4ydhja2 = struct_4ydhja;
 				*(double*)num30 = struct_4ydhja2.field_0;
@@ -101,9 +101,9 @@ internal static partial class expm1
 				llvm_lifetime_start_p0.Invoke(8L, &num8);
 				llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_NEG.Pointer, 1L, isVolatile: false);
-				long val = fputil_internal_FPRepImpl_fputil_FPType_2_fputil_FPBits_double_create_value_Sign_unsigned_long_unsigned_long.Invoke(biased_exp: checked(1023 - num7), sign: anon_izyfb8.val, mantissa: 0L);
+				long val = FPRepImpl_fputil_FPType_2_fputil_FPBits_double_create_value.Invoke(biased_exp: checked(1023 - num7), sign: anon_izyfb8.val, mantissa: 0L);
 				fputil_FPBits_wjhbrm3.FPRepImpl.FPRepSem.FPStorage.val = val;
-				double num32 = fputil_FPBits_double_get_val_const.Invoke(&fputil_FPBits_wjhbrm3);
+				double num32 = FPBits_double_get_val.Invoke(&fputil_FPBits_wjhbrm3);
 				llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm3);
 				num8 = num32;
 				llvm_lifetime_start_p0.Invoke(16L, &numberPair4);
@@ -111,7 +111,7 @@ internal static partial class expm1
 				((double*)(&numberPair4))[1] = double.NaN;
 				if ((b & 1) == 1)
 				{
-					Struct_4ydhja struct_4ydhja4 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(num8, numberPair3.hi);
+					Struct_4ydhja struct_4ydhja4 = fputil_exact_add_true.Invoke(num8, numberPair3.hi);
 					NumberPair* num33 = &numberPair4;
 					Struct_4ydhja struct_4ydhja5 = struct_4ydhja4;
 					*(double*)num33 = struct_4ydhja5.field_0;
@@ -121,7 +121,7 @@ internal static partial class expm1
 				}
 				else
 				{
-					Struct_4ydhja struct_4ydhja7 = NumberPair_double_fputil_exact_add_true_double_double.Invoke(numberPair3.hi, num8);
+					Struct_4ydhja struct_4ydhja7 = fputil_exact_add_true.Invoke(numberPair3.hi, num8);
 					NumberPair* num35 = &numberPair4;
 					Struct_4ydhja struct_4ydhja8 = struct_4ydhja7;
 					*(double*)num35 = struct_4ydhja8.field_0;
@@ -132,35 +132,35 @@ internal static partial class expm1
 				double lo = numberPair3.lo;
 				numberPair4.lo += lo;
 				llvm_lifetime_start_p0.Invoke(8L, &z);
-				z = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, -0.00016922538588914904, x);
+				z = fputil_multiply_add_double.Invoke(num4, -0.00016922538588914904, x);
 				llvm_lifetime_start_p0.Invoke(8L, &num9);
-				num9 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, 1.0256140314162804E-14, z);
+				num9 = fputil_multiply_add_double.Invoke(num4, 1.0256140314162804E-14, z);
 				llvm_lifetime_start_p0.Invoke(8L, &y);
 				y = num9 * numberPair3.hi;
 				llvm_lifetime_start_p0.Invoke(8L, &x2);
-				x2 = anonymous_namespace_poly_approx_d_double.Invoke(num9);
+				x2 = anonymous_namespace_poly_approx_d_ymtez3.Invoke(num9);
 				llvm_lifetime_start_p0.Invoke(8L, &num10);
-				num10 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x2, y, numberPair4.lo);
+				num10 = fputil_multiply_add_double.Invoke(x2, y, numberPair4.lo);
 				llvm_lifetime_start_p0.Invoke(8L, &num11);
 				num11 = (((b & 1) != 1) ? 0L : ((long)checked(-num7) << 52));
 				llvm_lifetime_start_p0.Invoke(8L, &num12);
 				llvm_lifetime_start_p0.Invoke(8L, &num13);
 				num13 = 4325707442089361408L + num11;
-				double num37 = cpp_enable_if_sizeof_double_sizeof_unsigned_long_cpp_is_trivially_constructible_double_value_cpp_is_trivially_copyable_double_value_cpp_is_trivially_copyable_unsigned_long_value_double_type_cpp_bit_cast_double_unsigned_long_unsigned_long_const.Invoke(&num13);
+				double num37 = cpp_bit_cast_double_unsigned_long.Invoke(&num13);
 				llvm_lifetime_end_p0.Invoke(8L, &num13);
 				num12 = num37;
 				llvm_lifetime_start_p0.Invoke(8L, &num14);
 				num14 = numberPair4.hi + (num10 + num12);
 				llvm_lifetime_start_p0.Invoke(8L, &num15);
 				num15 = numberPair4.hi + (num10 - num12);
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num14 == num15, expected: true))
+				if (details_expects_bool_condition_bool.Invoke(num14 == num15, expected: true))
 				{
 					llvm_lifetime_start_p0.Invoke(8L, &num16);
 					num16 = (long)num7 << 52;
 					llvm_lifetime_start_p0.Invoke(8L, &num17);
 					llvm_lifetime_start_p0.Invoke(8L, &num18);
-					num18 = checked(num16 + cpp_enable_if_sizeof_long_sizeof_double_cpp_is_trivially_constructible_long_value_cpp_is_trivially_copyable_long_value_cpp_is_trivially_copyable_double_value_long_type_cpp_bit_cast_long_double_double_const.Invoke(&num14));
-					double num38 = cpp_enable_if_sizeof_double_sizeof_long_cpp_is_trivially_constructible_double_value_cpp_is_trivially_copyable_double_value_cpp_is_trivially_copyable_long_value_double_type_cpp_bit_cast_double_long_long_const.Invoke(&num18);
+					num18 = checked(num16 + cpp_bit_cast_long_double.Invoke(&num14));
+					double num38 = cpp_bit_cast_double_long.Invoke(&num18);
 					llvm_lifetime_end_p0.Invoke(8L, &num18);
 					num17 = num38;
 					result = num17;
@@ -172,7 +172,7 @@ internal static partial class expm1
 					llvm_lifetime_start_p0.Invoke(16L, &numberPair5);
 					*(double*)(&numberPair5) = double.NaN;
 					((double*)(&numberPair5))[1] = double.NaN;
-					Struct_4ydhja struct_4ydhja10 = anonymous_namespace_exp_double_double_double_double_NumberPair_double_const_NumberPair_double_const.Invoke(x, num4, &numberPair3, &numberPair4);
+					Struct_4ydhja struct_4ydhja10 = anonymous_namespace_exp_double_double.Invoke(x, num4, &numberPair3, &numberPair4);
 					NumberPair* num39 = &numberPair5;
 					Struct_4ydhja struct_4ydhja11 = struct_4ydhja10;
 					*(double*)num39 = struct_4ydhja11.field_0;
@@ -182,21 +182,21 @@ internal static partial class expm1
 					llvm_lifetime_start_p0.Invoke(8L, &num19);
 					llvm_lifetime_start_p0.Invoke(8L, &num20);
 					num20 = 4161326055690338304L + num11;
-					double num41 = cpp_enable_if_sizeof_double_sizeof_unsigned_long_cpp_is_trivially_constructible_double_value_cpp_is_trivially_copyable_double_value_cpp_is_trivially_copyable_unsigned_long_value_double_type_cpp_bit_cast_double_unsigned_long_unsigned_long_const.Invoke(&num20);
+					double num41 = cpp_bit_cast_double_unsigned_long.Invoke(&num20);
 					llvm_lifetime_end_p0.Invoke(8L, &num20);
 					num19 = num41;
 					llvm_lifetime_start_p0.Invoke(8L, &num21);
 					num21 = numberPair5.hi + (numberPair5.lo + num19);
 					llvm_lifetime_start_p0.Invoke(8L, &num22);
 					num22 = numberPair5.hi + (numberPair5.lo - num19);
-					if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num21 == num22, expected: true))
+					if (details_expects_bool_condition_bool.Invoke(num21 == num22, expected: true))
 					{
 						llvm_lifetime_start_p0.Invoke(8L, &num23);
 						num23 = (long)num7 << 52;
 						llvm_lifetime_start_p0.Invoke(8L, &num24);
 						llvm_lifetime_start_p0.Invoke(8L, &num25);
-						num25 = checked(num23 + cpp_enable_if_sizeof_long_sizeof_double_cpp_is_trivially_constructible_long_value_cpp_is_trivially_copyable_long_value_cpp_is_trivially_copyable_double_value_long_type_cpp_bit_cast_long_double_double_const.Invoke(&num21));
-						double num42 = cpp_enable_if_sizeof_double_sizeof_long_cpp_is_trivially_constructible_double_value_cpp_is_trivially_copyable_double_value_cpp_is_trivially_copyable_long_value_double_type_cpp_bit_cast_double_long_long_const.Invoke(&num25);
+						num25 = checked(num23 + cpp_bit_cast_long_double.Invoke(&num21));
+						double num42 = cpp_bit_cast_double_long.Invoke(&num25);
 						llvm_lifetime_end_p0.Invoke(8L, &num25);
 						num24 = num42;
 						result = num24;
@@ -215,8 +215,8 @@ internal static partial class expm1
 						sbyte* ptr2 = (sbyte*)(&fputil_DyadicFloat_kt2kd5) + 8;
 						*(long*)ptr2 = -6148914691236517206L;
 						((long*)ptr2)[1] = -6148914691236517206L;
-						anonymous_namespace_expm1_f128_double_double_int_int.Invoke(&fputil_DyadicFloat_kt2kd5, x, num4, num5, num6);
-						result = fputil_DyadicFloat_128ul_operator_double_double_void_const.Invoke(&fputil_DyadicFloat_kt2kd5);
+						anonymous_namespace_expm1_f128.Invoke(&fputil_DyadicFloat_kt2kd5, x, num4, num5, num6);
+						result = DyadicFloat_128ul_double_double_void.Invoke(&fputil_DyadicFloat_kt2kd5);
 						llvm_lifetime_end_p0.Invoke(24L, &fputil_DyadicFloat_kt2kd5);
 					}
 					llvm_lifetime_end_p0.Invoke(8L, &num22);

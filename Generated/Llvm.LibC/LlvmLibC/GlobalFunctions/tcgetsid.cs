@@ -12,11 +12,11 @@ internal static partial class tcgetsid
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = -1431655766;
 		llvm_lifetime_start_p0.Invoke(4L, &num2);
-		num2 = int_syscall_impl_int_int_int_int_long_int_int_int_zzjp7j.Invoke(16L, fd, 21545, &num);
+		num2 = syscall_impl_int_int_int_int.Invoke(16L, fd, 21545, &num);
 		int result;
 		if (num2 < 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num2, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num2, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

@@ -10,11 +10,11 @@ internal static partial class fstat
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = statx_int_char_const_int_stat.Invoke(fd, str_110.Pointer, 4096, statbuf);
+		num = statx.Invoke(fd, str_110.Pointer, 4096, statbuf);
 		int result;
 		if (num != 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

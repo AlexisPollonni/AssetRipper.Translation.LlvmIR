@@ -14,7 +14,7 @@ internal static partial class cfsetospeed
 		int result;
 		if (t == null || (speed & -4112) != 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(libc_errno.Pointer, 22);
+			Errno_Assignment.Invoke(libc_errno.Pointer, 22);
 			result = -1;
 		}
 		else

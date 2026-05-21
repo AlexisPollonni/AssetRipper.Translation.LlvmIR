@@ -19,7 +19,7 @@ internal static partial class nanf16
 			ptr[1] = -86;
 			((int*)(&strToNumResult_stcih))[1] = -1431655766;
 			((long*)(&strToNumResult_stcih))[1] = -6148914691236517206L;
-			Struct_fiz2nb struct_fiz2nb = StrToNumResult_Float16_internal_strtonan_Float16_char_const.Invoke(arg);
+			Struct_fiz2nb struct_fiz2nb = internal_strtonan_Float16.Invoke(arg);
 			StrToNumResult_stcih6* num = &strToNumResult_stcih;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num = struct_fiz2nb2.field_0;
@@ -28,7 +28,7 @@ internal static partial class nanf16
 			*(long*)num2 = struct_fiz2nb3.field_1;
 			if (StrToNumResult_Float16_has_error.Invoke(&strToNumResult_stcih))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_stcih.error, @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: strToNumResult_stcih.error, @this: libc_errno.Pointer);
 			}
 			Half value = strToNumResult_stcih.value;
 			llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_stcih);

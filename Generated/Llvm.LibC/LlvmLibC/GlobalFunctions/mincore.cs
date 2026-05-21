@@ -11,11 +11,11 @@ internal static partial class mincore
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
-			num = syscall_impl_long_long_long_long.Invoke(27L, (long)addr, len, (long)vec);
+			num = syscall_impl.Invoke(27L, (long)addr, len, (long)vec);
 			int result;
 			if (num < 0L)
 			{
-				Errno_operator_int_dntwiy.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
 				result = -1;
 			}
 			else

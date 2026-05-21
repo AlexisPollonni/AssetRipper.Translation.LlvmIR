@@ -20,16 +20,16 @@ internal static partial class wait4
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
-			*(InlineArray5_Byte*)(&cpp_optional_int_OptionalStorage2) = NumericHelper.TruncOrZextToBytes<long, InlineArray5_Byte>(internal_wait4impl_int_int_int_rusage.Invoke(pid, wait_status, options, usage));
+			*(InlineArray5_Byte*)(&cpp_optional_int_OptionalStorage2) = NumericHelper.TruncOrZextToBytes<long, InlineArray5_Byte>(internal_wait4impl.Invoke(pid, wait_status, options, usage));
 			int result;
-			if (!cpp_expected_int_int_has_value_const.Invoke(&cpp_optional_int_OptionalStorage2))
+			if (!expected_int_int_has_value.Invoke(&cpp_optional_int_OptionalStorage2))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: *(int*)cpp_expected_int_int_error.Invoke(&cpp_optional_int_OptionalStorage2), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: *(int*)expected_int_int_error.Invoke(&cpp_optional_int_OptionalStorage2), @this: libc_errno.Pointer);
 				result = -1;
 			}
 			else
 			{
-				result = *(int*)cpp_expected_int_int_value.Invoke(&cpp_optional_int_OptionalStorage2);
+				result = *(int*)expected_int_int_value.Invoke(&cpp_optional_int_OptionalStorage2);
 			}
 			llvm_lifetime_end_p0.Invoke(8L, &cpp_optional_int_OptionalStorage2);
 			return result;

@@ -4,10 +4,10 @@ using LlvmLibC.Intrinsics.Implemented;
 
 namespace LlvmLibC.GlobalFunctions;
 
-[MangledName("_ZN19__llvm_libc_20_1_2_6fputil18fenv_is_round_downEv")]
-[DemangledName("__llvm_libc_20_1_2_::fputil::fenv_is_round_down()")]
 internal static partial class fputil_fenv_is_round_down
 {
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil18fenv_is_round_downEv")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::fenv_is_round_down()")]
 	public unsafe static bool Invoke()
 	{
 		float num = 0f;

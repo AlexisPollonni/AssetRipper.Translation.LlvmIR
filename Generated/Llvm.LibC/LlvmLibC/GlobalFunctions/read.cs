@@ -12,13 +12,13 @@ internal static partial class read
 	{
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
-		num = long_syscall_impl_long_int_void_unsigned_long_long_int_void_unsigned_long.Invoke(0L, fd, buf, count);
+		num = syscall_impl_long_int_void_unsigned_long.Invoke(0L, fd, buf, count);
 		unchecked
 		{
 			long result;
 			if (num < 0L)
 			{
-				Errno_operator_int_dntwiy.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
 				result = -1L;
 			}
 			else

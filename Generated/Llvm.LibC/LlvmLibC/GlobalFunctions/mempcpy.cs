@@ -8,7 +8,7 @@ internal static partial class mempcpy
 
 	public unsafe static void* Invoke(void* dst, void* src, long count)
 	{
-		inline_memcpy_void_void_const_unsigned_long.Invoke(dst, src, count);
+		inline_memcpy.Invoke(dst, src, count);
 		return unchecked((byte*)dst) + count;
 	}
 }

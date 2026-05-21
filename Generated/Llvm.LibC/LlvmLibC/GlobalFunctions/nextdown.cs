@@ -4,6 +4,6 @@ internal static partial class nextdown
 {
 	public static double Invoke(double x)
 	{
-		return double_fputil_nextupdown_true_double_0_double.Invoke(x);
+		return fputil_nextupdown_true_double_0.Invoke(x);
 	}
 }

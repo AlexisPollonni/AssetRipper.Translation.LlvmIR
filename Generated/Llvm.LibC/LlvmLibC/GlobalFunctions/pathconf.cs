@@ -12,11 +12,11 @@ internal static partial class pathconf
 		cpp_optional_qbe95b cpp_optional_qbe95b2 = default(cpp_optional_qbe95b);
 		llvm_lifetime_start_p0.Invoke(128L, &cpp_optional_qbe95b2);
 		llvm_memset_p0_i64.Invoke(&cpp_optional_qbe95b2, -86, 128L, isVolatile: false);
-		statfs_utils_linux_statfs_char_const.Invoke(&cpp_optional_qbe95b2, path);
+		statfs_utils_linux_statfs.Invoke(&cpp_optional_qbe95b2, path);
 		int num;
-		if (cpp_optional_statfs_operator_bool_const.Invoke(&cpp_optional_qbe95b2))
+		if (optional_statfs_ToBoolean.Invoke(&cpp_optional_qbe95b2))
 		{
-			result = pathconfig_statfs_const_int.Invoke(cpp_optional_statfs_value.Invoke(&cpp_optional_qbe95b2), name);
+			result = pathconfig.Invoke(optional_statfs_value.Invoke(&cpp_optional_qbe95b2), name);
 			num = 1;
 		}
 		else

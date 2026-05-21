@@ -47,7 +47,7 @@ internal static partial class openat
 				llvm_lifetime_end_p0.Invoke(24L, &inlineArray1_va_list_tag);
 			}
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = int_syscall_impl_int_int_char_const_int_unsigned_int_long_int_char_const_int_unsigned_int.Invoke(257L, dfd, path, flags, ts_784yyq);
+			num = syscall_impl_int_int_char_const_int_unsigned_int.Invoke(257L, dfd, path, flags, ts_784yyq);
 		}
 		int result;
 		if (num > 0)
@@ -56,7 +56,7 @@ internal static partial class openat
 		}
 		else
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		llvm_lifetime_end_p0.Invoke(4L, &num);

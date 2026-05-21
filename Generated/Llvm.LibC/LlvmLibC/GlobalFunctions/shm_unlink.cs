@@ -13,14 +13,14 @@ internal static partial class shm_unlink
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		llvm_lifetime_start_p0.Invoke(266L, &cpp_optional_hnriuf2);
 		llvm_memset_p0_i64.Invoke(&cpp_optional_hnriuf2, -86, 266L, isVolatile: false);
-		cpp_string_view_string_view_char_const.Invoke(&cpp_string_view2, name);
+		string_view_Constructor.Invoke(&cpp_string_view2, name);
 		unchecked
 		{
-			shm_common_translate_name_cpp_string_view.Invoke(&cpp_optional_hnriuf2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
+			shm_common_translate_name.Invoke(&cpp_optional_hnriuf2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 			int num;
-			if (cpp_optional_cpp_array_char_265ul_operator_bool_const.Invoke(&cpp_optional_hnriuf2))
+			if (optional_cpp_array_char_265ul_ToBoolean.Invoke(&cpp_optional_hnriuf2))
 			{
-				result = ((delegate*<void*, int>)unlink.__pointer)(cpp_array_char_265ul_data.Invoke(cpp_optional_cpp_array_char_265ul_operator.Invoke(&cpp_optional_hnriuf2)));
+				result = ((delegate*<void*, int>)unlink.__pointer)(array_char_265ul_data.Invoke(optional_cpp_array_char_265ul_PointerDereference.Invoke(&cpp_optional_hnriuf2)));
 				num = 1;
 			}
 			else

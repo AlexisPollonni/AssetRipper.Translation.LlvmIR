@@ -21,12 +21,12 @@ internal static partial class strspn
 			((long*)ptr4)[1] = -6148914691236517206L;
 			((long*)ptr4)[2] = -6148914691236517206L;
 			((long*)ptr4)[3] = -6148914691236517206L;
-			cpp_bitset_256ul_bitset.Invoke(&cpp_array_jgy3xh2);
+			bitset_256ul_Constructor.Invoke(&cpp_array_jgy3xh2);
 			for (; *(bool*)ptr3; ptr3 = (byte*)ptr3 + 1)
 			{
-				cpp_bitset_256ul_set_unsigned_long.Invoke(&cpp_array_jgy3xh2, (byte)(*(sbyte*)ptr3));
+				bitset_256ul_set.Invoke(&cpp_array_jgy3xh2, (byte)(*(sbyte*)ptr3));
 			}
-			for (; *(bool*)ptr2 && cpp_bitset_256ul_test_unsigned_long_const.Invoke(&cpp_array_jgy3xh2, (byte)(*(sbyte*)ptr2)); ptr2 = (byte*)ptr2 + 1)
+			for (; *(bool*)ptr2 && bitset_256ul_test.Invoke(&cpp_array_jgy3xh2, (byte)(*(sbyte*)ptr2)); ptr2 = (byte*)ptr2 + 1)
 			{
 			}
 			long result = (long)ptr2 - (long)ptr;

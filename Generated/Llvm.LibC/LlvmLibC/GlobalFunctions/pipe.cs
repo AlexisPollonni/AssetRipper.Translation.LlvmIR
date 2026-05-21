@@ -9,11 +9,11 @@ internal static partial class pipe
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_long_long_long.Invoke(22L, unchecked((long)pipefd));
+		num = syscall_impl_int_long.Invoke(22L, unchecked((long)pipefd));
 		int result;
 		if (num < 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

@@ -20,10 +20,10 @@ internal static partial class strtod
 			ptr[2] = -86;
 			ptr[3] = -86;
 			((long*)(&strToNumResult_k826n))[2] = -6148914691236517206L;
-			StrToNumResult_double_internal_strtofloatingpoint_double_char_const.Invoke(&strToNumResult_k826n, str);
+			internal_strtofloatingpoint_double.Invoke(&strToNumResult_k826n, str);
 			if (StrToNumResult_double_has_error.Invoke(&strToNumResult_k826n))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_k826n.error, @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: strToNumResult_k826n.error, @this: libc_errno.Pointer);
 			}
 			if (str_end != null)
 			{

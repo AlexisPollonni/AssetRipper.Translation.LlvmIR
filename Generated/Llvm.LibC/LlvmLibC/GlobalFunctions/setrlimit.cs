@@ -9,11 +9,11 @@ internal static partial class setrlimit
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_int_int_rlimit_const_std_nullptr_t_long_int_int_rlimit_const_std_nullptr_t.Invoke(302L, 0, res, limits, null);
+		num = syscall_impl_int_int_int_rlimit_const_std_nullptr_t.Invoke(302L, 0, res, limits, null);
 		int result;
 		if (num < 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

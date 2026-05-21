@@ -11,7 +11,7 @@ internal static partial class stpcpy
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
-			num = unsigned_long_internal_string_length_char_char_const.Invoke(src) + 1L;
+			num = internal_string_length_char.Invoke(src) + 1L;
 			llvm_lifetime_start_p0.Invoke(8L, &ptr);
 			ptr = ((delegate*<void*, void*, long, void*>)mempcpy.__pointer)(dest, src, num);
 			void* result = ((ptr == null) ? null : ((byte*)ptr + -1));

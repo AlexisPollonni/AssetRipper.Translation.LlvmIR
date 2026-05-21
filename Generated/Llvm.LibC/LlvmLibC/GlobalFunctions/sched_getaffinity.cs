@@ -11,11 +11,11 @@ internal static partial class sched_getaffinity
 		void* ptr = null;
 		long num2 = 0L;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_int_unsigned_long_cpu_set_t_long_int_unsigned_long_cpu_set_t.Invoke(204L, tid, cpuset_size, mask);
+		num = syscall_impl_int_int_unsigned_long_cpu_set_t.Invoke(204L, tid, cpuset_size, mask);
 		int result;
 		if (num < 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

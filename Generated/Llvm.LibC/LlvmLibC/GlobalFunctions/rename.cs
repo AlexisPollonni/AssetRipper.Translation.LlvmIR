@@ -9,7 +9,7 @@ internal static partial class rename
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_int_char_const_int_char_const_int_long_int_char_const_int_char_const_int.Invoke(316L, -100, oldpath, -100, newpath, 0);
+		num = syscall_impl_int_int_char_const_int_char_const_int.Invoke(316L, -100, oldpath, -100, newpath, 0);
 		int result;
 		if (num >= 0)
 		{
@@ -17,7 +17,7 @@ internal static partial class rename
 		}
 		else
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		llvm_lifetime_end_p0.Invoke(4L, &num);

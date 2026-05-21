@@ -7,12 +7,12 @@ using LlvmLibC.Structures;
 
 namespace LlvmLibC.GlobalFunctions;
 
-[MangledName("_ZN19__llvm_libc_20_1_2_L20initialize_auxv_onceEv")]
-[DemangledName("__llvm_libc_20_1_2_::initialize_auxv_once()")]
 internal static partial class initialize_auxv_once
 {
 	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<void>)(&Invoke));
 
+	[MangledName("_ZN19__llvm_libc_20_1_2_L20initialize_auxv_onceEv")]
+	[DemangledName("__llvm_libc_20_1_2_::initialize_auxv_once()")]
 	public unsafe static void Invoke()
 	{
 		anon_5uk363 anon_5uk364 = default(anon_5uk363);
@@ -33,14 +33,14 @@ internal static partial class initialize_auxv_once
 		unchecked
 		{
 			*(IntPtr*)(&anon_5uk364) = unchecked((nint)(-6148914691236517206L));
-			AuxvMMapGuard_AuxvMMapGuard_6sti8k.Invoke(&anon_5uk364);
-			if (!AuxvMMapGuard_allocated_const.Invoke(&anon_5uk364))
+			AuxvMMapGuard_Constructor.Invoke(&anon_5uk364);
+			if (!AuxvMMapGuard_allocated.Invoke(&anon_5uk364))
 			{
 				num4 = 1;
 				goto IL_02a8;
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &ptr);
-			ptr = AuxvMMapGuard_get_const.Invoke(&anon_5uk364);
+			ptr = AuxvMMapGuard_get.Invoke(&anon_5uk364);
 			llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = 1016L;
 			llvm_lifetime_start_p0.Invoke(4L, &num2);
@@ -55,24 +55,24 @@ internal static partial class initialize_auxv_once
 			}
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
 			*(int*)(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2) = -1431655766;
-			AuxvFdGuard_AuxvFdGuard_pkv6db.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
-			if (!AuxvFdGuard_valid_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2))
+			AuxvFdGuard_Constructor.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
+			if (!AuxvFdGuard_valid.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2))
 			{
 				num4 = 1;
 				goto IL_025d;
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &ptr2);
 			ptr2 = ptr;
-			Errno_operator_int_dntwiy.Invoke(libc_errno.Pointer, 0);
+			Errno_Assignment.Invoke(libc_errno.Pointer, 0);
 			llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = 0;
 			while (num != 0L)
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num3);
-				num3 = ((delegate*<int, void*, long, long>)read.__pointer)(AuxvFdGuard_get_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2), ptr2, num);
+				num3 = ((delegate*<int, void*, long, long>)read.__pointer)(AuxvFdGuard_get.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2), ptr2, num);
 				if (num3 <= 0L)
 				{
-					if (Errno_operator_int_exthys.Invoke(libc_errno.Pointer) == 4)
+					if (Errno_ToInt32.Invoke(libc_errno.Pointer) == 4)
 					{
 						num4 = 2;
 					}
@@ -113,7 +113,7 @@ internal static partial class initialize_auxv_once
 		num4 = 0;
 		goto IL_025d;
 		IL_025d:
-		AuxvFdGuard_AuxvFdGuard_jzbs6x.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
+		AuxvFdGuard_Destructor.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
 		llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
 		goto IL_0276;
 		IL_0276:
@@ -122,7 +122,7 @@ internal static partial class initialize_auxv_once
 		llvm_lifetime_end_p0.Invoke(8L, &ptr);
 		goto IL_02a8;
 		IL_02a8:
-		AuxvMMapGuard_AuxvMMapGuard_zmckj4.Invoke(&anon_5uk364);
+		AuxvMMapGuard_Destructor.Invoke(&anon_5uk364);
 		llvm_lifetime_end_p0.Invoke(8L, &anon_5uk364);
 		switch (num4)
 		{

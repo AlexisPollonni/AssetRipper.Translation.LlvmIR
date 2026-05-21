@@ -18,11 +18,11 @@ internal static partial class vasprintf
 			((int*)ptr)[1] = -1431655766;
 			*(IntPtr*)((byte*)ptr + 8) = unchecked((nint)(-6148914691236517206L));
 			*(IntPtr*)((byte*)ptr + 16) = unchecked((nint)(-6148914691236517206L));
-			internal_ArgList_ArgList_va_list_tag.Invoke(&internal_ArgList2, vlist);
-			internal_ArgList_ArgList_internal_ArgList.Invoke(&internal_ArgList3, &internal_ArgList2);
-			int result = printf_core_vasprintf_internal_char_char_const_internal_ArgList.Invoke(ret, format, &internal_ArgList3);
-			internal_ArgList_ArgList.Invoke(&internal_ArgList3);
-			internal_ArgList_ArgList.Invoke(&internal_ArgList2);
+			ArgList_Constructor_7zbjxz.Invoke(&internal_ArgList2, vlist);
+			ArgList_Constructor_z4jw9r.Invoke(&internal_ArgList3, &internal_ArgList2);
+			int result = printf_core_vasprintf_internal.Invoke(ret, format, &internal_ArgList3);
+			ArgList_Destructor.Invoke(&internal_ArgList3);
+			ArgList_Destructor.Invoke(&internal_ArgList2);
 			llvm_lifetime_end_p0.Invoke(24L, &internal_ArgList2);
 			return result;
 		}

@@ -1,0 +1,64 @@
+using System;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class fputil_intlogb_long_Float16
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil7intlogbIlDF16_EENS_3cpp9enable_ifIXsr3cppE19is_floating_point_vIT0_EET_E4typeES4_")]
+	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<_Float16>, long>::type __llvm_libc_20_1_2_::fputil::intlogb<long, _Float16>(_Float16)")]
+	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<_Float16>, long>::type")]
+	public unsafe static long Invoke([NativeType("_Float16")] Half x)
+	{
+		fputil_FPBits_2fahva fputil_FPBits_2fahva2 = default(fputil_FPBits_2fahva);
+		fputil_DyadicFloat_jvghxm fputil_DyadicFloat_jvghxm2 = default(fputil_DyadicFloat_jvghxm);
+		int num = 0;
+		llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
+		unchecked
+		{
+			*(short*)(&fputil_FPBits_2fahva2) = -21846;
+			FPBits_Float16_Constructor.Invoke(&fputil_FPBits_2fahva2, x);
+			long result;
+			if (details_expects_bool_condition_bool.Invoke((!FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2))) ? FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_is_inf_or_nan.Invoke((fputil_internal_FPRepImpl_7z3gh9*)(&fputil_FPBits_2fahva2)) : true, expected: false))
+			{
+				fputil_set_errno_if_required.Invoke(33);
+				fputil_raise_except_if_required.Invoke(1);
+				result = ((!FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2))) ? ((!FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan.Invoke((fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva2))) ? long.MaxValue : (-2147483648L)) : (-2147483648L));
+			}
+			else
+			{
+				llvm_lifetime_start_p0.Invoke(12L, &fputil_DyadicFloat_jvghxm2);
+				*(sbyte*)(&fputil_DyadicFloat_jvghxm2) = -86;
+				sbyte* ptr = (sbyte*)(&fputil_DyadicFloat_jvghxm2) + 1;
+				*ptr = -86;
+				ptr[1] = -86;
+				ptr[2] = -86;
+				((int*)(&fputil_DyadicFloat_jvghxm2))[1] = -1431655766;
+				((short*)(&fputil_DyadicFloat_jvghxm2))[4] = -21846;
+				sbyte* ptr2 = (sbyte*)(&fputil_DyadicFloat_jvghxm2) + 10;
+				*ptr2 = -86;
+				ptr2[1] = -86;
+				DyadicFloat_16ul_DyadicFloat_Float16_0.Invoke(&fputil_DyadicFloat_jvghxm2, FPBits_Float16_get_val.Invoke(&fputil_FPBits_2fahva2));
+				llvm_lifetime_start_p0.Invoke(4L, &num);
+				num = DyadicFloat_16ul_get_unbiased_exponent.Invoke(&fputil_DyadicFloat_jvghxm2);
+				if (details_expects_bool_condition_bool.Invoke((num <= long.MaxValue) ? (num < long.MinValue) : true, expected: false))
+				{
+					fputil_set_errno_if_required.Invoke(34);
+					fputil_raise_except_if_required.Invoke(1);
+					result = InstructionHelper.Select(num > 0, long.MaxValue, long.MinValue);
+				}
+				else
+				{
+					result = num;
+				}
+				llvm_lifetime_end_p0.Invoke(4L, &num);
+				llvm_lifetime_end_p0.Invoke(12L, &fputil_DyadicFloat_jvghxm2);
+			}
+			llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva2);
+			return result;
+		}
+	}
+}

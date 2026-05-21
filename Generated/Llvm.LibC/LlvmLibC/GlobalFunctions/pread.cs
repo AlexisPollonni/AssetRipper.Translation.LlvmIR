@@ -10,13 +10,13 @@ internal static partial class pread
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = -6148914691236517206L;
-		num = long_syscall_impl_long_int_void_unsigned_long_long_long_int_void_unsigned_long_long.Invoke(17L, fd, buf, count, offset);
+		num = syscall_impl_long_int_void_unsigned_long_long.Invoke(17L, fd, buf, count, offset);
 		unchecked
 		{
 			long result;
 			if (num < 0L)
 			{
-				Errno_operator_int_dntwiy.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
 				result = -1L;
 			}
 			else

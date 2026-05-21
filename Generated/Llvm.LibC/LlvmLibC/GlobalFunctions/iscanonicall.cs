@@ -10,7 +10,7 @@ internal static partial class iscanonicall
 		double num2 = x;
 		llvm_lifetime_start_p0.Invoke(16L, &num);
 		num = double.NaN;
-		bool result = int_fputil_canonicalize_long_double_0_long_double_long_double_const.Invoke(&num, &num2) == 0;
+		bool result = fputil_canonicalize_long_double_0.Invoke(&num, &num2) == 0;
 		llvm_lifetime_end_p0.Invoke(16L, &num);
 		return result ? 1 : 0;
 	}

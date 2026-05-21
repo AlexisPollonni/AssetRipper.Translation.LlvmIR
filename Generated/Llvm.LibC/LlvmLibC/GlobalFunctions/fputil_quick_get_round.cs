@@ -5,10 +5,10 @@ using LlvmLibC.Intrinsics.Implemented;
 
 namespace LlvmLibC.GlobalFunctions;
 
-[MangledName("_ZN19__llvm_libc_20_1_2_6fputil15quick_get_roundEv")]
-[DemangledName("__llvm_libc_20_1_2_::fputil::quick_get_round()")]
 internal static partial class fputil_quick_get_round
 {
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil15quick_get_roundEv")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::quick_get_round()")]
 	public unsafe static int Invoke()
 	{
 		float num = 0f;

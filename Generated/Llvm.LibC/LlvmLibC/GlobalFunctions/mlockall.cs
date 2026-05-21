@@ -9,13 +9,13 @@ internal static partial class mlockall
 	{
 		long num = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
-		num = syscall_impl_long_long.Invoke(151L, flags);
+		num = syscall_impl.Invoke(151L, flags);
 		unchecked
 		{
 			int result;
 			if (num < 0L)
 			{
-				Errno_operator_int_dntwiy.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
 				result = -1;
 			}
 			else

@@ -4,11 +4,11 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace LlvmLibC.Intrinsics.Implemented;
 
-[MangledName("llvm.trap")]
-[DemangledName("llvm.trap")]
 internal static partial class llvm_trap
 {
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	[MangledName("llvm.trap")]
+	[DemangledName("llvm.trap")]
 	public static void Invoke()
 	{
 		IntrinsicFunctions.Terminate();

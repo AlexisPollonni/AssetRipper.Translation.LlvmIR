@@ -13,7 +13,7 @@ internal static partial class creall
 		{
 			*(double*)(&complex_p54sq) = double.NaN;
 			((double*)(&complex_p54sq))[2] = double.NaN;
-			cpp_enable_if_sizeof_Complex_long_double_sizeof_long_double_complex_cpp_is_trivially_constructible_Complex_long_double_value_cpp_is_trivially_copyable_Complex_long_double_value_cpp_is_trivially_copyable_long_double_complex_value_Complex_long_double_type_cpp_bit_cast_Complex_long_double_long_double_complex_long_double_complex_const.Invoke(&complex_p54sq, x);
+			cpp_bit_cast_Complex_long_double_long_double_complex.Invoke(&complex_p54sq, x);
 			double real = complex_p54sq.real;
 			llvm_lifetime_end_p0.Invoke(32L, &complex_p54sq);
 			return real;

@@ -4,11 +4,11 @@ using LlvmLibC.Structures;
 
 namespace LlvmLibC.Intrinsics.Implemented;
 
-[MangledName("llvm.uadd.with.overflow.i64")]
-[DemangledName("llvm.uadd.with.overflow.i64")]
 internal static partial class llvm_uadd_with_overflow_i64
 {
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	[MangledName("llvm.uadd.with.overflow.i64")]
+	[DemangledName("llvm.uadd.with.overflow.i64")]
 	public static Struct_u6p3uf Invoke(long parameter_0, long parameter_1)
 	{
 		return unchecked(new Struct_u6p3uf

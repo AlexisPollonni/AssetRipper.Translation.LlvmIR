@@ -49,37 +49,37 @@ internal static partial class atanf
 			((double*)(&inlineArray2_Double2))[1] = -Math.PI / 2.0;
 			llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 			*(int*)(&fputil_FPBits_5nkvcs2) = -1431655766;
-			fputil_FPBits_float_FPBits_float_float.Invoke(&fputil_FPBits_5nkvcs2, x);
+			FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs2, x);
 			llvm_lifetime_start_p0.Invoke(1L, &anon_izyfb8);
 			*(sbyte*)(&anon_izyfb8) = -86;
-			anon_izyfb8.val = fputil_internal_FPStorage_fputil_FPType_1_sign_const.Invoke(&fputil_FPBits_5nkvcs2);
+			anon_izyfb8.val = FPStorage_fputil_FPType_1_sign.Invoke(&fputil_FPBits_5nkvcs2);
 			llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb9, Sign_POS.Pointer, 1L, isVolatile: false);
-			fputil_internal_FPStorage_fputil_FPType_1_set_sign_Sign.Invoke(&fputil_FPBits_5nkvcs2, anon_izyfb9.val);
+			FPStorage_fputil_FPType_1_set_sign.Invoke(&fputil_FPBits_5nkvcs2, anon_izyfb9.val);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = fputil_internal_FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval_const.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(((uint)num > 1031798784u) ? ((uint)num >= 1098907648u) : true, expected: false))
+			num = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
+			if (details_expects_bool_condition_bool.Invoke(((uint)num > 1031798784u) ? ((uint)num >= 1098907648u) : true, expected: false))
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num2);
 				num2 = x;
 				llvm_lifetime_start_p0.Invoke(8L, &z);
 				z = 0.0;
-				if (!bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num >= 1098907648u, expected: false))
+				if (!details_expects_bool_condition_bool.Invoke((uint)num >= 1098907648u, expected: false))
 				{
 					goto IL_02ff;
 				}
-				if (fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_inf_const.Invoke(&fputil_FPBits_5nkvcs2))
+				if (FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_inf.Invoke(&fputil_FPBits_5nkvcs2))
 				{
 					llvm_lifetime_start_p0.Invoke(8L, &num3);
-					num3 = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double2, (Sign_is_neg_const.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
+					num3 = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double2, (Sign_is_neg.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
 					result = (float)num3;
 					llvm_lifetime_end_p0.Invoke(8L, &num3);
 				}
 				else
 				{
-					if (!fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan_const.Invoke(&fputil_FPBits_5nkvcs2))
+					if (!FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&fputil_FPBits_5nkvcs2))
 					{
 						num2 = -1.0 / num2;
-						z = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double2, (Sign_is_neg_const.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
+						z = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double2, (Sign_is_neg.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
 						goto IL_02ff;
 					}
 					result = x;
@@ -96,32 +96,32 @@ internal static partial class atanf
 			num9 = -1431655766;
 			if ((uint)num > 1065353216u)
 			{
-				num7 = 1.0 / (double)fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2);
+				num7 = 1.0 / (double)FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs2);
 				llvm_lifetime_start_p0.Invoke(8L, &num10);
-				num10 = fputil_nearest_integer_double.Invoke(num7 * 16.0);
-				num7 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num10, -0.0625, num7);
+				num10 = fputil_nearest_integer.Invoke(num7 * 16.0);
+				num7 = fputil_multiply_add_double.Invoke(num10, -0.0625, num7);
 				num9 = (int)num10;
-				num8 = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (Sign_is_pos_const.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
+				num8 = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (Sign_is_pos.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
 				double x3 = num8;
 				long num14 = num9;
-				z2 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(x3, *(double*)((byte*)ATAN_COEFFS.Pointer + (nint)num14 * sizeof(InlineArray9_Double)), Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double2, (Sign_is_neg_const.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double))));
+				z2 = fputil_multiply_add_double.Invoke(x3, *(double*)((byte*)ATAN_COEFFS.Pointer + (nint)num14 * sizeof(InlineArray9_Double)), Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double2, (Sign_is_neg.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double))));
 				llvm_lifetime_end_p0.Invoke(8L, &num10);
 			}
 			else
 			{
-				if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(num == 1032678179, expected: false))
+				if (details_expects_bool_condition_bool.Invoke(num == 1032678179, expected: false))
 				{
-					result = ((!Sign_is_pos_const.Invoke(&anon_izyfb8)) ? float_fputil_round_result_slightly_up_float_float.Invoke(-0.06894257f) : float_fputil_round_result_slightly_down_float_float.Invoke(0.06894257f));
+					result = ((!Sign_is_pos.Invoke(&anon_izyfb8)) ? fputil_round_result_slightly_up_float.Invoke(-0.06894257f) : fputil_round_result_slightly_down_float.Invoke(0.06894257f));
 					goto IL_084a;
 				}
 				llvm_lifetime_start_p0.Invoke(4L, &num11);
-				num11 = fputil_FPBits_float_get_val_const.Invoke(&fputil_FPBits_5nkvcs2);
+				num11 = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs2);
 				llvm_lifetime_start_p0.Invoke(4L, &num12);
-				num12 = fputil_nearest_integer_float.Invoke(num11 * 16f);
-				num11 = cpp_enable_if_sizeof_float_8ul_float_type_fputil_multiply_add_float_float_float_float.Invoke(num12, -0.0625f, num11);
+				num12 = fputil_nearest_integer.Invoke(num11 * 16f);
+				num11 = fputil_multiply_add_float.Invoke(num12, -0.0625f, num11);
 				num7 = num11;
 				num9 = (int)num12;
-				num8 = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (Sign_is_neg_const.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
+				num8 = Unsafe.As<InlineArray2_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray2_Double, (Sign_is_neg.Invoke(&anon_izyfb8) ? ((nint)1) : ((nint)0)) * (nint)sizeof(double)));
 				double num15 = num8;
 				long num16 = num9;
 				z2 = num15 * *(double*)((byte*)ATAN_COEFFS.Pointer + (nint)num16 * sizeof(InlineArray9_Double));
@@ -129,9 +129,9 @@ internal static partial class atanf
 				llvm_lifetime_end_p0.Invoke(4L, &num11);
 			}
 			llvm_lifetime_start_p0.Invoke(8L, &y2);
-			y2 = atan_eval_double_unsigned_int.Invoke(num7, num9);
+			y2 = atan_eval_kp87ny.Invoke(num7, num9);
 			llvm_lifetime_start_p0.Invoke(8L, &num13);
-			num13 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num8 * num7, y2, z2);
+			num13 = fputil_multiply_add_double.Invoke(num8 * num7, y2, z2);
 			result = (float)num13;
 			llvm_lifetime_end_p0.Invoke(8L, &num13);
 			llvm_lifetime_end_p0.Invoke(8L, &y2);
@@ -153,15 +153,15 @@ internal static partial class atanf
 		IL_02ff:
 		unchecked
 		{
-			if (bool_details_expects_bool_condition_bool_bool_bool.Invoke(fputil_internal_FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_zero_const.Invoke(&fputil_FPBits_5nkvcs2), expected: false))
+			if (details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_zero.Invoke(&fputil_FPBits_5nkvcs2), expected: false))
 			{
 				result = x;
 			}
-			else if (bool_details_expects_bool_condition_bool_bool_bool.Invoke((uint)num < 964689920u, expected: false))
+			else if (details_expects_bool_condition_bool.Invoke((uint)num < 964689920u, expected: false))
 			{
 				llvm_lifetime_start_p0.Invoke(8L, &num4);
 				num4 = x;
-				result = (float)cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num4, -2.980232238769531E-08, num4);
+				result = (float)fputil_multiply_add_double.Invoke(num4, -2.980232238769531E-08, num4);
 				llvm_lifetime_end_p0.Invoke(8L, &num4);
 			}
 			else
@@ -179,15 +179,15 @@ internal static partial class atanf
 				llvm_lifetime_start_p0.Invoke(8L, &x2);
 				x2 = num5 * num5;
 				llvm_lifetime_start_p0.Invoke(8L, &a);
-				a = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num5, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, sizeof(double))), *(double*)(&inlineArray6_Double));
+				a = fputil_multiply_add_double.Invoke(num5, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, sizeof(double))), *(double*)(&inlineArray6_Double));
 				llvm_lifetime_start_p0.Invoke(8L, &a_yc74sk);
-				a_yc74sk = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num5, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)3 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)2 * sizeof(double))));
+				a_yc74sk = fputil_multiply_add_double.Invoke(num5, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)3 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)2 * sizeof(double))));
 				llvm_lifetime_start_p0.Invoke(8L, &a_ijazrn);
-				a_ijazrn = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num5, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)5 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)4 * sizeof(double))));
+				a_ijazrn = fputil_multiply_add_double.Invoke(num5, Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)5 * sizeof(double))), Unsafe.As<InlineArray6_Double, double>(ref Unsafe.AddByteOffset(ref inlineArray6_Double, (nint)4 * sizeof(double))));
 				llvm_lifetime_start_p0.Invoke(8L, &y);
-				y = cpp_enable_if_sizeof_double_8ul_double_type_fputil_polyeval_double_double_double_double_double_double_double.Invoke(x2, a, a_yc74sk, a_ijazrn);
+				y = fputil_polyeval_double_double_double.Invoke(x2, a, a_yc74sk, a_ijazrn);
 				llvm_lifetime_start_p0.Invoke(8L, &num6);
-				num6 = cpp_enable_if_sizeof_double_8ul_double_type_fputil_multiply_add_double_double_double_double.Invoke(num2, y, z);
+				num6 = fputil_multiply_add_double.Invoke(num2, y, z);
 				result = (float)num6;
 				llvm_lifetime_end_p0.Invoke(8L, &num6);
 				llvm_lifetime_end_p0.Invoke(8L, &y);

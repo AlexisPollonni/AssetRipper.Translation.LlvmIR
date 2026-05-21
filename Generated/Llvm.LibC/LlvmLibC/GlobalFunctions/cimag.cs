@@ -17,7 +17,7 @@ internal static partial class cimag
 		{
 			*(double*)(&numberPair) = double.NaN;
 			((double*)(&numberPair))[1] = double.NaN;
-			Struct_4ydhja struct_4ydhja2 = cpp_enable_if_sizeof_Complex_double_sizeof_double_complex_cpp_is_trivially_constructible_Complex_double_value_cpp_is_trivially_copyable_Complex_double_value_cpp_is_trivially_copyable_double_complex_value_Complex_double_type_cpp_bit_cast_Complex_double_double_complex_double_complex_const.Invoke(&struct_4ydhja);
+			Struct_4ydhja struct_4ydhja2 = cpp_bit_cast_Complex_double_double_complex.Invoke(&struct_4ydhja);
 			NumberPair* num = &numberPair;
 			Struct_4ydhja struct_4ydhja3 = struct_4ydhja2;
 			*(double*)num = struct_4ydhja3.field_0;

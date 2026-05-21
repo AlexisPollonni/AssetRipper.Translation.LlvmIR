@@ -1,0 +1,29 @@
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class NormalFloat_float_evaluate_normalization_shift
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIfE28evaluate_normalization_shiftEj")]
+	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::evaluate_normalization_shift(unsigned int)")]
+	public unsafe static int Invoke(fputil_NormalFloat_phu2qv* @this, [NativeType("unsigned int")] int m)
+	{
+		int num = 0;
+		int num2 = m;
+		llvm_lifetime_start_p0.Invoke(4L, &num);
+		num = 0;
+		unchecked
+		{
+			while ((0x800000 & num2) == 0 && (uint)num < 23u)
+			{
+				num2 <<= 1;
+				num++;
+			}
+			int result = num;
+			llvm_lifetime_end_p0.Invoke(4L, &num);
+			return result;
+		}
+	}
+}

@@ -20,11 +20,11 @@ internal static partial class mmap
 		llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
-			num = syscall_impl_long_long_long_long_long_long_long.Invoke(number, (long)addr, size, prot, flags, fd, arg);
+			num = syscall_impl.Invoke(number, (long)addr, size, prot, flags, fd, arg);
 			void* result;
 			if (num < 0L && num > -4096L)
 			{
-				Errno_operator_int_dntwiy.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: (int)checked(-num), @this: libc_errno.Pointer);
 				result = (void*)ulong.MaxValue;
 			}
 			else

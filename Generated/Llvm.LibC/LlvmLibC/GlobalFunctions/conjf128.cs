@@ -18,7 +18,7 @@ internal static partial class conjf128
 			double* ptr = &struct_unhbb2.field_1;
 			struct_unhbb2.field_0 = field_;
 			*ptr = field_2;
-			float128_complex_conjugate_float128_complex_float128_complex.Invoke(&struct_unhbb, &struct_unhbb2);
+			conjugate_float128_complex.Invoke(&struct_unhbb, &struct_unhbb2);
 			double field_3 = struct_unhbb.field_0;
 			double field_4 = struct_unhbb.field_1;
 			llvm_lifetime_end_p0.Invoke(32L, &struct_unhbb2);

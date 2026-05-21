@@ -6,7 +6,7 @@ internal static partial class fegetexceptflag
 	{
 		unchecked
 		{
-			*(short*)flagp = (short)(fputil_test_except_int.Invoke(61) & excepts);
+			*(short*)flagp = (short)(fputil_test_except.Invoke(61) & excepts);
 			return 0;
 		}
 	}

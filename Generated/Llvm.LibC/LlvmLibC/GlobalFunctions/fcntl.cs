@@ -41,7 +41,7 @@ internal static partial class fcntl
 				num2 = (nint)ptr3;
 			}
 			parameter_ = *(void**)num2;
-			int result = internal_fcntl_int_int_void.Invoke(fd, cmd, parameter_);
+			int result = internal_fcntl.Invoke(fd, cmd, parameter_);
 			llvm_lifetime_end_p0.Invoke(24L, &inlineArray1_va_list_tag);
 			llvm_lifetime_end_p0.Invoke(8L, &parameter_);
 			return result;

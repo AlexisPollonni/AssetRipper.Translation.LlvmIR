@@ -26,23 +26,23 @@ internal static partial class getauxval
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
-			AuxvErrnoGuard_AuxvErrnoGuard_532n53.Invoke(&auxvErrnoGuard);
+			AuxvErrnoGuard_Constructor.Invoke(&auxvErrnoGuard);
 			llvm_lifetime_start_p0.Invoke(8L, &anon_5uk364);
 			*(IntPtr*)(&anon_5uk364) = unchecked((nint)(-6148914691236517206L));
 			anon_5uk364.field_0 = &auxvErrnoGuard;
 			if (app.Pointer != null)
 			{
-				result = getauxval_impl_unsigned_long_0_operator_AuxEntry_unsigned_long_const.Invoke(&anon_5uk364, app.Pointer->auxv_ptr, id);
+				result = _0_Invoke_qwsr2x.Invoke(&anon_5uk364, app.Pointer->auxv_ptr, id);
 			}
 			else
 			{
-				callonce_Futex_void.Invoke(getauxval_impl_unsigned_long_once_flag.Pointer, initialize_auxv_once.__pointer);
+				callonce.Invoke(getauxval_impl_unsigned_long_once_flag.Pointer, initialize_auxv_once.__pointer);
 				if (auxv.Value == null)
 				{
 					llvm_lifetime_start_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
 					*(int*)(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2) = -1431655766;
-					AuxvFdGuard_AuxvFdGuard_pkv6db.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
-					if (AuxvFdGuard_valid_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2))
+					AuxvFdGuard_Constructor.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
+					if (AuxvFdGuard_valid.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2))
 					{
 						int num4;
 						do
@@ -50,7 +50,7 @@ internal static partial class getauxval
 							llvm_lifetime_start_p0.Invoke(16L, &auxEntry);
 							*(long*)(&auxEntry) = -6148914691236517206L;
 							((long*)(&auxEntry))[1] = -6148914691236517206L;
-							Struct_fiz2nb struct_fiz2nb = read_entry_int.Invoke(AuxvFdGuard_get_const.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2));
+							Struct_fiz2nb struct_fiz2nb = read_entry.Invoke(AuxvFdGuard_get.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2));
 							AuxEntry* num = &auxEntry;
 							Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 							*(long*)num = struct_fiz2nb2.field_0;
@@ -84,17 +84,17 @@ internal static partial class getauxval
 					result = 0L;
 					goto IL_0201;
 				}
-				result = getauxval_impl_unsigned_long_0_operator_AuxEntry_unsigned_long_const.Invoke(&anon_5uk364, auxv.Value, id);
+				result = _0_Invoke_qwsr2x.Invoke(&anon_5uk364, auxv.Value, id);
 			}
 			goto IL_021a;
 		}
 		IL_021a:
 		llvm_lifetime_end_p0.Invoke(8L, &anon_5uk364);
-		AuxvErrnoGuard_AuxvErrnoGuard_6mcd53.Invoke(&auxvErrnoGuard);
+		AuxvErrnoGuard_Destructor.Invoke(&auxvErrnoGuard);
 		llvm_lifetime_end_p0.Invoke(8L, &auxvErrnoGuard);
 		return result;
 		IL_0201:
-		AuxvFdGuard_AuxvFdGuard_jzbs6x.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
+		AuxvFdGuard_Destructor.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
 		llvm_lifetime_end_p0.Invoke(4L, &fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt2);
 		goto IL_021a;
 	}

@@ -9,9 +9,9 @@ internal static partial class strcat
 		long num = 0L;
 		long num2 = 0L;
 		llvm_lifetime_start_p0.Invoke(8L, &num);
-		num = unsigned_long_internal_string_length_char_char_const.Invoke(dest);
+		num = internal_string_length_char.Invoke(dest);
 		llvm_lifetime_start_p0.Invoke(8L, &num2);
-		num2 = unsigned_long_internal_string_length_char_char_const.Invoke(src);
+		num2 = internal_string_length_char.Invoke(src);
 		unchecked
 		{
 			((delegate*<sbyte*, void*, void*>)strcpy.__pointer)((sbyte*)dest + num, src);

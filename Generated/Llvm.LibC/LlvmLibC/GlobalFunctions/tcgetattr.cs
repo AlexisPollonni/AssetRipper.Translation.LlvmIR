@@ -18,11 +18,11 @@ internal static partial class tcgetattr
 		llvm_lifetime_start_p0.Invoke(36L, &kernel_termios2);
 		llvm_memset_p0_i64.Invoke(&kernel_termios2, -86, 36L, isVolatile: false);
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_int_int_kernel_termios_long_int_int_kernel_termios.Invoke(16L, fd, 21505, &kernel_termios2);
+		num = syscall_impl_int_int_int_kernel_termios.Invoke(16L, fd, 21505, &kernel_termios2);
 		int result;
 		if (num < 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

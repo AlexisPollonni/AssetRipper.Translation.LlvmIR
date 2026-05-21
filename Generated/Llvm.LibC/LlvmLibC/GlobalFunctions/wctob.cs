@@ -18,9 +18,9 @@ internal static partial class wctob
 			*ptr2 = -86;
 			ptr2[1] = -86;
 			ptr2[2] = -86;
-			long storage = internal_wctob_unsigned_int.Invoke(c);
+			long storage = internal_wctob.Invoke(c);
 			*(long*)(&cpp_optional_g66fk5.storage) = storage;
-			int result = ((!cpp_optional_int_has_value_const.Invoke(&cpp_optional_g66fk5)) ? (-1) : (*(int*)cpp_optional_int_value.Invoke(&cpp_optional_g66fk5)));
+			int result = ((!optional_int_has_value.Invoke(&cpp_optional_g66fk5)) ? (-1) : (*(int*)optional_int_value.Invoke(&cpp_optional_g66fk5)));
 			llvm_lifetime_end_p0.Invoke(8L, &cpp_optional_g66fk5);
 			return result;
 		}

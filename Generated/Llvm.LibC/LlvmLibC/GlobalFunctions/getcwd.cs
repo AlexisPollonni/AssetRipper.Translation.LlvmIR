@@ -19,7 +19,7 @@ internal static partial class getcwd
 			{
 				llvm_lifetime_start_p0.Invoke(4096L, &inlineArray4096_SByte);
 				llvm_memset_p0_i64.Invoke(&inlineArray4096_SByte, -86, 4096L, isVolatile: false);
-				if (!anonymous_namespace_getcwd_syscall_char_unsigned_long.Invoke(&inlineArray4096_SByte, 4096L))
+				if (!anonymous_namespace_getcwd_syscall.Invoke(&inlineArray4096_SByte, 4096L))
 				{
 					result = null;
 				}
@@ -37,20 +37,20 @@ internal static partial class getcwd
 					ptr2[4] = -86;
 					ptr2[5] = -86;
 					ptr2[6] = -86;
-					Struct_yx4nca struct_yx4nca = internal_strdup_char_const.Invoke(&inlineArray4096_SByte);
+					Struct_yx4nca struct_yx4nca = internal_strdup.Invoke(&inlineArray4096_SByte);
 					cpp_optional_char_OptionalStorage* ptr3 = &cpp_optional_77yu8f2.storage;
 					Struct_yx4nca struct_yx4nca2 = struct_yx4nca;
 					((Struct_yx4nca*)ptr3)->field_0 = struct_yx4nca2.field_0;
 					Struct_yx4nca struct_yx4nca3 = struct_yx4nca;
 					((Struct_yx4nca*)ptr3)->field_1 = struct_yx4nca3.field_1;
-					if (!cpp_optional_char_operator_bool_const.Invoke(&cpp_optional_77yu8f2))
+					if (!optional_char_ToBoolean.Invoke(&cpp_optional_77yu8f2))
 					{
-						Errno_operator_int_dntwiy.Invoke(libc_errno.Pointer, 12);
+						Errno_Assignment.Invoke(libc_errno.Pointer, 12);
 						result = null;
 					}
 					else
 					{
-						result = *(void**)cpp_optional_char_operator.Invoke(&cpp_optional_77yu8f2);
+						result = *(void**)optional_char_Multiply.Invoke(&cpp_optional_77yu8f2);
 					}
 					llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_77yu8f2);
 				}
@@ -58,12 +58,12 @@ internal static partial class getcwd
 			}
 			else if (size == 0L)
 			{
-				Errno_operator_int_dntwiy.Invoke(libc_errno.Pointer, 22);
+				Errno_Assignment.Invoke(libc_errno.Pointer, 22);
 				result = null;
 			}
 			else
 			{
-				result = (anonymous_namespace_getcwd_syscall_char_unsigned_long.Invoke(buf, size) ? buf : null);
+				result = (anonymous_namespace_getcwd_syscall.Invoke(buf, size) ? buf : null);
 			}
 			return result;
 		}

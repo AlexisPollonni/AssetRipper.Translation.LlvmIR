@@ -9,11 +9,11 @@ internal static partial class execve
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_char_const_char_const_char_const_long_char_const_char_const_char_const.Invoke(59L, path, argv, envp);
+		num = syscall_impl_int_char_const_char_const_char_const.Invoke(59L, path, argv, envp);
 		int result;
 		if (num < 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

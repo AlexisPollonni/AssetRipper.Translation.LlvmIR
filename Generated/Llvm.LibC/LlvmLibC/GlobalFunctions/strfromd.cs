@@ -15,12 +15,12 @@ internal static partial class strfromd
 		cpp_string_view cpp_string_view2 = default(cpp_string_view);
 		llvm_lifetime_start_p0.Invoke(80L, &printf_core_FormatSection2);
 		llvm_memset_p0_i64.Invoke(&printf_core_FormatSection2, -86, 80L, isVolatile: false);
-		printf_core_FormatSection_internal_parse_format_string_double_char_const_double.Invoke(&printf_core_FormatSection2, format, fp);
+		internal_parse_format_string_double.Invoke(&printf_core_FormatSection2, format, fp);
 		llvm_lifetime_start_p0.Invoke(56L, &printf_core_WriteBuffer2);
 		llvm_memset_p0_i64.Invoke(&printf_core_WriteBuffer2, -86, 56L, isVolatile: false);
 		unchecked
 		{
-			printf_core_WriteBuffer_WriteBuffer_char_unsigned_long.Invoke(&printf_core_WriteBuffer2, s, ((ulong)n <= 0uL) ? 0L : (n - 1L));
+			WriteBuffer_Constructor.Invoke(&printf_core_WriteBuffer2, s, ((ulong)n <= 0uL) ? 0L : (n - 1L));
 			llvm_lifetime_start_p0.Invoke(16L, &printf_core_Writer2);
 			*(IntPtr*)(&printf_core_Writer2) = unchecked((nint)(-6148914691236517206L));
 			((int*)(&printf_core_Writer2))[2] = -1431655766;
@@ -29,17 +29,17 @@ internal static partial class strfromd
 			ptr[1] = -86;
 			ptr[2] = -86;
 			ptr[3] = -86;
-			printf_core_Writer_Writer_printf_core_WriteBuffer.Invoke(&printf_core_Writer2, &printf_core_WriteBuffer2);
+			Writer_Constructor.Invoke(&printf_core_Writer2, &printf_core_WriteBuffer2);
 			llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = 0;
 			if ((printf_core_FormatSection2.has_conv & 1) == 1)
 			{
-				num = int_internal_strfromfloat_convert_double_printf_core_Writer_printf_core_FormatSection_const.Invoke(&printf_core_Writer2, &printf_core_FormatSection2);
+				num = internal_strfromfloat_convert_double.Invoke(&printf_core_Writer2, &printf_core_FormatSection2);
 			}
 			else
 			{
 				llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view2, &printf_core_FormatSection2.raw_string, 16L, isVolatile: false);
-				num = printf_core_Writer_write_cpp_string_view.Invoke(&printf_core_Writer2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
+				num = Writer_write.Invoke(&printf_core_Writer2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 			}
 			int result;
 			if (num < 0)
@@ -52,7 +52,7 @@ internal static partial class strfromd
 				{
 					((sbyte*)printf_core_WriteBuffer2.buff)[printf_core_WriteBuffer2.buff_cur] = 0;
 				}
-				result = printf_core_Writer_get_chars_written.Invoke(&printf_core_Writer2);
+				result = Writer_get_chars_written.Invoke(&printf_core_Writer2);
 			}
 			llvm_lifetime_end_p0.Invoke(4L, &num);
 			llvm_lifetime_end_p0.Invoke(16L, &printf_core_Writer2);

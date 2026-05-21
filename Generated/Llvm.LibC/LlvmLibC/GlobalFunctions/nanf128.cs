@@ -20,10 +20,10 @@ internal static partial class nanf128
 			ptr[2] = -86;
 			ptr[3] = -86;
 			((long*)(&strToNumResult_c5b6ms))[3] = -6148914691236517206L;
-			StrToNumResult_float128_internal_strtonan_float128_char_const.Invoke(&strToNumResult_c5b6ms, arg);
+			internal_strtonan_float128.Invoke(&strToNumResult_c5b6ms, arg);
 			if (StrToNumResult_float128_has_error.Invoke(&strToNumResult_c5b6ms))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_c5b6ms.error, @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: strToNumResult_c5b6ms.error, @this: libc_errno.Pointer);
 			}
 			double value = strToNumResult_c5b6ms.value;
 			llvm_lifetime_end_p0.Invoke(32L, &strToNumResult_c5b6ms);

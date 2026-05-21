@@ -23,17 +23,17 @@ internal static partial class fdopen
 			ptr[4] = -86;
 			ptr[5] = -86;
 			ptr[6] = -86;
-			Struct_yx4nca struct_yx4nca = create_file_from_fd_int_char_const.Invoke(fd, mode);
+			Struct_yx4nca struct_yx4nca = create_file_from_fd.Invoke(fd, mode);
 			llvm_memcpy_p0_p0_i64.Invoke(&cpp_optional_char_OptionalStorage2, &struct_yx4nca, 9L, isVolatile: false);
 			void* result;
-			if (!cpp_expected_LinuxFile_int_has_value_const.Invoke(&cpp_optional_char_OptionalStorage2))
+			if (!expected_LinuxFile_int_has_value.Invoke(&cpp_optional_char_OptionalStorage2))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: *(int*)cpp_expected_LinuxFile_int_error.Invoke(&cpp_optional_char_OptionalStorage2), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: *(int*)expected_LinuxFile_int_error.Invoke(&cpp_optional_char_OptionalStorage2), @this: libc_errno.Pointer);
 				result = null;
 			}
 			else
 			{
-				result = *cpp_expected_LinuxFile_int_value.Invoke(&cpp_optional_char_OptionalStorage2);
+				result = *expected_LinuxFile_int_value.Invoke(&cpp_optional_char_OptionalStorage2);
 			}
 			llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_char_OptionalStorage2);
 			return result;

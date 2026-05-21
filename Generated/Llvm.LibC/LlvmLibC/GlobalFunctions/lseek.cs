@@ -22,17 +22,17 @@ internal static partial class lseek
 			ptr[4] = -86;
 			ptr[5] = -86;
 			ptr[6] = -86;
-			Struct_8myw6y struct_8myw6y = internal_lseekimpl_int_long_int.Invoke(fd, offset, whence);
+			Struct_8myw6y struct_8myw6y = internal_lseekimpl.Invoke(fd, offset, whence);
 			llvm_memcpy_p0_p0_i64.Invoke(&cpp_expected2, &struct_8myw6y, 9L, isVolatile: false);
 			long result;
-			if (!cpp_expected_long_int_has_value_const.Invoke(&cpp_expected2))
+			if (!expected_long_int_has_value.Invoke(&cpp_expected2))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: *(int*)cpp_expected_long_int_error.Invoke(&cpp_expected2), @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: *(int*)expected_long_int_error.Invoke(&cpp_expected2), @this: libc_errno.Pointer);
 				result = -1L;
 			}
 			else
 			{
-				result = *(long*)cpp_expected_long_int_value.Invoke(&cpp_expected2);
+				result = *(long*)expected_long_int_value.Invoke(&cpp_expected2);
 			}
 			llvm_lifetime_end_p0.Invoke(16L, &cpp_expected2);
 			return result;

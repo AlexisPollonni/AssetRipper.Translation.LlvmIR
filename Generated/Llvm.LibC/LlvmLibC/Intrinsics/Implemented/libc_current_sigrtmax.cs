@@ -4,11 +4,11 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace LlvmLibC.Intrinsics.Implemented;
 
-[MangledName("__libc_current_sigrtmax")]
-[DemangledName("__libc_current_sigrtmax")]
 internal static partial class libc_current_sigrtmax
 {
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	[MangledName("__libc_current_sigrtmax")]
+	[DemangledName("__libc_current_sigrtmax")]
 	public static int Invoke()
 	{
 		return IntrinsicFunctions.LibcCurrentSigRtMax();

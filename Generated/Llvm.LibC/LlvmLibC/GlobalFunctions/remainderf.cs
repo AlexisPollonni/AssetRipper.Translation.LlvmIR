@@ -9,7 +9,7 @@ internal static partial class remainderf
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = -1431655766;
-		float result = float_fputil_remquo_float_0_float_float_int.Invoke(x, y, &num);
+		float result = fputil_remquo_float_0.Invoke(x, y, &num);
 		llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;
 	}

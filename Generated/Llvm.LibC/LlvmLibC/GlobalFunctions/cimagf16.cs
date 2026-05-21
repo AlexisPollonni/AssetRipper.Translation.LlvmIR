@@ -18,7 +18,7 @@ internal static partial class cimagf16
 			llvm_lifetime_start_p0.Invoke(4L, &complex_mify6x);
 			*(Half*)(&complex_mify6x) = default(Half);
 			*(Half*)((byte*)(&complex_mify6x) + 2) = default(Half);
-			*(InlineArray2_Half*)(&complex_mify6x) = cpp_enable_if_sizeof_Complex_Float16_sizeof_Float16_complex_cpp_is_trivially_constructible_Complex_Float16_value_cpp_is_trivially_copyable_Complex_Float16_value_cpp_is_trivially_copyable_Float16_complex_value_Complex_Float16_type_cpp_bit_cast_Complex_Float16_Float16_complex_Float16_complex_const.Invoke(&struct_zwcg);
+			*(InlineArray2_Half*)(&complex_mify6x) = cpp_bit_cast_Complex_Float16_Float16_complex.Invoke(&struct_zwcg);
 			Half imag = complex_mify6x.imag;
 			llvm_lifetime_end_p0.Invoke(4L, &complex_mify6x);
 			return imag;

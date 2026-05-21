@@ -1,0 +1,82 @@
+using System;
+using AssetRipper.Translation.LlvmIR.Runtime;
+using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
+using LlvmLibC.GlobalVariables;
+using LlvmLibC.Intrinsics.Implemented;
+using LlvmLibC.Structures;
+
+namespace LlvmLibC.GlobalFunctions;
+
+internal static partial class project_long_double_complex
+{
+	[MangledName("_ZN19__llvm_libc_20_1_2_7projectICeEET_S2_")]
+	[DemangledName("long double complex __llvm_libc_20_1_2_::project<long double complex>(long double complex)")]
+	[return: NativeType("long double complex")]
+	public unsafe static Struct_29m54m Invoke([NativeType("long double complex")] void* c)
+	{
+		Struct_29m54m result = default(Struct_29m54m);
+		Complex_p54sq8 complex_p54sq = default(Complex_p54sq8);
+		fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi3 = default(fputil_FPBits_ubgsi2);
+		fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi4 = default(fputil_FPBits_ubgsi2);
+		Complex_p54sq8 complex_p54sq2 = default(Complex_p54sq8);
+		fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi5 = default(fputil_FPBits_ubgsi2);
+		anon_izyfb7 anon_izyfb8 = default(anon_izyfb7);
+		llvm_lifetime_start_p0.Invoke(32L, &complex_p54sq);
+		unchecked
+		{
+			*(double*)(&complex_p54sq) = double.NaN;
+			((double*)(&complex_p54sq))[2] = double.NaN;
+			cpp_bit_cast_Complex_long_double_long_double_complex.Invoke(&complex_p54sq, c);
+			llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi3);
+			FPBits_long_double_Constructor.Invoke(&fputil_FPBits_ubgsi3, complex_p54sq.real);
+			bool num = FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_inf.Invoke(&fputil_FPBits_ubgsi3);
+			llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
+			int num2;
+			if (num)
+			{
+				num2 = -1;
+			}
+			else
+			{
+				FPBits_long_double_Constructor.Invoke(&fputil_FPBits_ubgsi4, complex_p54sq.imag);
+				num2 = (FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_inf.Invoke(&fputil_FPBits_ubgsi4) ? 1 : 0);
+			}
+			llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi4);
+			llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi3);
+			if (num2 != 0)
+			{
+				llvm_lifetime_start_p0.Invoke(32L, &complex_p54sq2);
+				llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi5);
+				llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb8, Sign_POS.Pointer, 1L, isVolatile: false);
+				Struct_fiz2nb struct_fiz2nb = FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_inf.Invoke(anon_izyfb8.val);
+				Int128* ptr = &fputil_FPBits_ubgsi5.val.Data.FPStorage.field_0;
+				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
+				((Struct_fiz2nb*)ptr)->field_0 = struct_fiz2nb2.field_0;
+				Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
+				((Struct_fiz2nb*)ptr)->field_1 = struct_fiz2nb3.field_1;
+				complex_p54sq2.real = FPBits_long_double_get_val.Invoke(&fputil_FPBits_ubgsi5);
+				complex_p54sq2.imag = InstructionHelper.Select(complex_p54sq.imag > 0.0, 0.0, -0.0);
+				Struct_29m54m struct_29m54m = cpp_bit_cast_long_double_complex_Complex_long_double.Invoke(&complex_p54sq2);
+				Struct_29m54m struct_29m54m2 = struct_29m54m;
+				double field_ = struct_29m54m2.field_0;
+				Struct_29m54m struct_29m54m3 = struct_29m54m;
+				double field_2 = struct_29m54m3.field_1;
+				double* ptr2 = &result.field_1;
+				result.field_0 = field_;
+				*ptr2 = field_2;
+				llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi5);
+				llvm_lifetime_end_p0.Invoke(32L, &complex_p54sq2);
+			}
+			else
+			{
+				double field_3 = ((Struct_29m54m*)c)->field_0;
+				double field_4 = ((Struct_29m54m*)c)->field_1;
+				double* ptr3 = &result.field_1;
+				result.field_0 = field_3;
+				*ptr3 = field_4;
+			}
+			llvm_lifetime_end_p0.Invoke(32L, &complex_p54sq);
+			return result;
+		}
+	}
+}

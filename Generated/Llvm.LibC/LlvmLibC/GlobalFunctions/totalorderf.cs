@@ -4,6 +4,6 @@ internal static partial class totalorderf
 {
 	public unsafe static int Invoke(void* x, void* y)
 	{
-		return unchecked(cpp_enable_if_cpp_is_floating_point_v_float_bool_type_fputil_totalorder_float_float_float.Invoke(*(float*)x, *(float*)y)) ? 1 : 0;
+		return unchecked(fputil_totalorder_float.Invoke(*(float*)x, *(float*)y)) ? 1 : 0;
 	}
 }

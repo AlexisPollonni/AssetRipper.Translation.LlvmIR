@@ -20,16 +20,16 @@ internal static partial class strtoul
 			ptr[2] = -86;
 			ptr[3] = -86;
 			((long*)(&strToNumResult_gbeb3a))[2] = -6148914691236517206L;
-			StrToNumResult_unsigned_long_internal_strtointeger_unsigned_long_char_const_int_unsigned_long.Invoke(&strToNumResult_gbeb3a, str, @base, cpp_internal_integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
+			internal_strtointeger_unsigned_long.Invoke(&strToNumResult_gbeb3a, str, @base, integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
 			if (StrToNumResult_unsigned_long_has_error.Invoke(&strToNumResult_gbeb3a))
 			{
-				Errno_operator_int_dntwiy.Invoke(a: strToNumResult_gbeb3a.error, @this: libc_errno.Pointer);
+				Errno_Assignment.Invoke(a: strToNumResult_gbeb3a.error, @this: libc_errno.Pointer);
 			}
 			if (str_end != null)
 			{
 				*(byte**)str_end = (byte*)str + strToNumResult_gbeb3a.parsed_len;
 			}
-			long result = StrToNumResult_unsigned_long_operator_unsigned_long.Invoke(&strToNumResult_gbeb3a);
+			long result = StrToNumResult_unsigned_long_unsigned_long.Invoke(&strToNumResult_gbeb3a);
 			llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_gbeb3a);
 			return result;
 		}

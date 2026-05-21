@@ -3,11 +3,11 @@ using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace LlvmLibC.Intrinsics.Implemented;
 
-[MangledName("llvm.lifetime.end.p0")]
-[DemangledName("llvm.lifetime.end.p0")]
 internal static partial class llvm_lifetime_end_p0
 {
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	[MangledName("llvm.lifetime.end.p0")]
+	[DemangledName("llvm.lifetime.end.p0")]
 	public unsafe static void Invoke(long parameter_0, void* parameter_1)
 	{
 	}

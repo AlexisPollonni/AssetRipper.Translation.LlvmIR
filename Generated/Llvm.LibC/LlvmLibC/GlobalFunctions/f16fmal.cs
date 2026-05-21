@@ -6,6 +6,6 @@ internal static partial class f16fmal
 {
 	public static Half Invoke(double x, double y, double z)
 	{
-		return Float16_fputil_fma_Float16_long_double_long_double_long_double_long_double.Invoke(x, y, z);
+		return fputil_fma_Float16_long_double.Invoke(x, y, z);
 	}
 }

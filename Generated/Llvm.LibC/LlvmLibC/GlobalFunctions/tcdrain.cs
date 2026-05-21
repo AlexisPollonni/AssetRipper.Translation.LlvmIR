@@ -9,11 +9,11 @@ internal static partial class tcdrain
 	{
 		int num = 0;
 		llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = int_syscall_impl_int_int_int_int_long_int_int_int_qknfsf.Invoke(16L, fd, 21513, 1);
+		num = syscall_impl_int_int_int_int.Invoke(16L, fd, 21513, 1);
 		int result;
 		if (num < 0)
 		{
-			Errno_operator_int_dntwiy.Invoke(a: -num, @this: libc_errno.Pointer);
+			Errno_Assignment.Invoke(a: -num, @this: libc_errno.Pointer);
 			result = -1;
 		}
 		else

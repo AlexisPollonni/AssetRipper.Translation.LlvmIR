@@ -4,11 +4,11 @@ using LlvmLibC.Structures;
 
 namespace LlvmLibC.Intrinsics.Implemented;
 
-[MangledName("llvm.usub.with.overflow.i16")]
-[DemangledName("llvm.usub.with.overflow.i16")]
 internal static partial class llvm_usub_with_overflow_i16
 {
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	[MangledName("llvm.usub.with.overflow.i16")]
+	[DemangledName("llvm.usub.with.overflow.i16")]
 	public static Struct_yzqsj9 Invoke(short parameter_0, short parameter_1)
 	{
 		return unchecked(new Struct_yzqsj9

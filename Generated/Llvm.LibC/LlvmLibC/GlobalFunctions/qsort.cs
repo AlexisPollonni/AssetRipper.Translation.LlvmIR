@@ -12,7 +12,7 @@ internal static partial class qsort
 		llvm_lifetime_start_p0.Invoke(8L, &anon_5uk364);
 		*unchecked((IntPtr*)(&anon_5uk364)) = unchecked((nint)(-6148914691236517206L));
 		anon_5uk364.field_0 = compare;
-		void_internal_unstable_sort_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_void_unsigned_long_unsigned_long_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0_const.Invoke(array, array_size, elem_size, &anon_5uk364);
+		internal_unstable_sort_qsort_impl_void_unsigned_long_unsigned_long_int_void_const_void_const_0.Invoke(array, array_size, elem_size, &anon_5uk364);
 		llvm_lifetime_end_p0.Invoke(8L, &anon_5uk364);
 	}
 }

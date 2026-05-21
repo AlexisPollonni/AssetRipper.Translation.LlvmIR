@@ -18,7 +18,7 @@ internal static partial class stpncpy
 			}
 			if ((ulong)n > (ulong)num)
 			{
-				inline_bzero_void_unsigned_long_202.Invoke((byte*)dest + num, n - num);
+				inline_bzero_s6t36y.Invoke((byte*)dest + num, n - num);
 			}
 			byte* result = (byte*)dest + num;
 			llvm_lifetime_end_p0.Invoke(8L, &num);
