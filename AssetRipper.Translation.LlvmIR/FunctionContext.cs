@@ -143,12 +143,33 @@ internal sealed class FunctionContext : IHasName
 		else if (
 			string.IsNullOrEmpty(returnType)
 			&& !string.IsNullOrEmpty(typeName)
-			&& functionName == typeName
+			&& (
+				functionName == typeName
+				// Catch constructors of templated types where the template args appear on the
+				// declaring type but not on the function name itself.
+				// e.g. FPBits<float>::FPBits(float): functionName="FPBits", typeName="FPBits<float>".
+				|| (
+					functionName == functionIdentifier
+					&& typeName.StartsWith(functionIdentifier + "<", StringComparison.Ordinal)
+				)
+			)
 		)
 		{
 			result = NameGenerator.CleanName(typeName, "Type") + "_Constructor";
 		}
-		else if (string.IsNullOrEmpty(returnType) && functionName == $"~{typeName}")
+		else if (
+			string.IsNullOrEmpty(returnType)
+			&& (
+				functionName == $"~{typeName}"
+				// Catch destructors of templated types where typeName includes template args.
+				// e.g. ~FPBits for FPBits<float>: functionIdentifier="~FPBits", typeName="FPBits<float>".
+				|| (
+					!string.IsNullOrEmpty(typeName)
+					&& functionIdentifier.StartsWith("~", StringComparison.Ordinal)
+					&& typeName.StartsWith(functionIdentifier[1..], StringComparison.Ordinal)
+				)
+			)
+		)
 		{
 			result = NameGenerator.CleanName(typeName ?? "", "Type") + "_Destructor";
 		}
@@ -210,7 +231,20 @@ internal sealed class FunctionContext : IHasName
 		}
 		else
 		{
-			result = NameGenerator.CleanName(functionIdentifier, "Function");
+			// For member functions, include the innermost type name so that template
+			// specialisations become distinguishable without a random hash.
+			// e.g. Endian<1234u>::to_big_endian<unsigned long>
+			//      → "Endian_1234u_to_big_endian_unsigned_long"
+			// For free functions use the full function name (including template args).
+			// e.g. multiply_add<double> → "multiply_add_double"
+			if (!string.IsNullOrEmpty(typeName))
+			{
+				result = NameGenerator.CleanName($"{typeName}_{functionName}", "Function");
+			}
+			else
+			{
+				result = NameGenerator.CleanName(functionName, "Function");
+			}
 		}
 
 		CleanName = module.Options.StripNamePrefix(result).CapitalizeGetOrSet();
@@ -309,7 +343,7 @@ internal sealed class FunctionContext : IHasName
 	public TypeDefinition? LocalVariablesType { get; set; }
 	public CilLocalVariable? StackFrameVariable { get; set; }
 	public CilLocalVariable? LocalVariablesPointer { get; set; }
-	private FieldDefinition PointerField { get; set; } = null!;
+	internal FieldDefinition PointerField { get; set; } = null!;
 	private bool IsPointerFieldUsed { get; set; } = false;
 
 	/// <summary>
@@ -360,7 +394,14 @@ internal sealed class FunctionContext : IHasName
 		{
 			MethodDefinition staticConstructor = DeclaringType.GetOrCreateStaticConstructor();
 			CilInstructionCollection instructions = staticConstructor.CilMethodBody!.Instructions;
-			instructions.Clear();
+
+			// When multiple functions share a merged declaring type, each adds its own
+			// __pointer field initialisation.  Remove any trailing Ret left by a previous
+			// call so we can append this field's init block, then re-add a single Ret.
+			if (instructions.Count > 0 && instructions[^1].OpCode == CilOpCodes.Ret)
+			{
+				instructions.RemoveAt(instructions.Count - 1);
+			}
 
 			instructions.Add(CilOpCodes.Ldftn, Definition);
 			instructions.Add(

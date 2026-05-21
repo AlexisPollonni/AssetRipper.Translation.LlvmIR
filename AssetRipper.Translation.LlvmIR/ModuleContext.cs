@@ -166,11 +166,159 @@ internal sealed partial class ModuleContext
 
 	public void AssignMemberNames()
 	{
-		Methods.Values.Concat<IHasName>(GlobalVariables.Values).AssignNames();
-		foreach (FunctionContext functionContext in Methods.Values)
+		// Assign names for global variables independently so that functions and globals
+		// no longer compete for the same name pool.  Types live in separate namespaces
+		// (GlobalFunctions vs GlobalVariables) so same short names never conflict.
+		GlobalVariables.Values.AssignNames();
+		AssignFunctionNames();
+	}
+
+	/// <summary>
+	/// Assigns names to all functions and merges the declaring types of non-intrinsic
+	/// functions that share the same clean name (i.e. template specialisations of the
+	/// same function) into a single <see cref="AsmResolver.DotNet.TypeDefinition"/> so
+	/// all their <c>Invoke</c> overloads live in one class.
+	/// </summary>
+	private void AssignFunctionNames()
+	{
+		// Split into intrinsics (never merged) and non-intrinsics (candidates for merging).
+		List<FunctionContext> intrinsics = [];
+		List<FunctionContext> nonIntrinsics = [];
+		foreach (FunctionContext fc in Methods.Values)
 		{
-			functionContext.DeclaringType.Name = functionContext.Name;
+			(fc.IsIntrinsic ? intrinsics : nonIntrinsics).Add(fc);
 		}
+
+		// Intrinsics keep the original hash-suffix collision resolution.
+		intrinsics.AssignNames();
+
+		// Non-intrinsics: when all functions in a CleanName group have distinct mangled
+		// names they are template specialisations that should share one declaring type.
+		List<List<FunctionContext>> pendingMerges = [];
+
+		foreach (IGrouping<string, FunctionContext> cleanGroup in nonIntrinsics.GroupBy(f => f.CleanName))
+		{
+			string cleanName = cleanGroup.Key;
+			List<FunctionContext> functions = [.. cleanGroup];
+
+			if (functions.Count == 1)
+			{
+				functions[0].Name = cleanName;
+			}
+			else if (functions.Select(f => f.MangledName).Distinct().Count() != functions.Count)
+			{
+				// Duplicate mangled names → cannot merge reliably → use hash+index fallback.
+				for (int i = 0; i < functions.Count; i++)
+				{
+					functions[i].Name = NameGenerator.GenerateName(
+						cleanName,
+						functions[i].MangledName,
+						i
+					);
+				}
+			}
+			else
+			{
+				// All distinct mangled names → assign the same clean name to every variant.
+				// They will be merged into a single declaring type below.
+				//
+				// Additional guard: only merge if all Invoke methods would have distinct
+				// CIL parameter signatures. When signatures are identical (e.g. multiple
+				// specialisations of "TypedInt<int>::operator int()" that all map to
+				// "int Invoke(void*)"), the overloads cannot be distinguished in CIL and
+				// the merged class would fail to compile → fall back to hash suffixes.
+				bool allDistinctSignatures = functions
+					.Select(f => GetMethodSignatureKey(f.Definition))
+					.ToHashSet(StringComparer.Ordinal)
+					.Count == functions.Count;
+
+				if (!allDistinctSignatures)
+				{
+					for (int i = 0; i < functions.Count; i++)
+					{
+						functions[i].Name = NameGenerator.GenerateName(
+							cleanName,
+							functions[i].MangledName,
+							i
+						);
+					}
+				}
+				else
+				{
+					foreach (FunctionContext fc in functions)
+					{
+						fc.Name = cleanName;
+					}
+
+					// Sort by mangled name for deterministic canonical ordering.
+					pendingMerges.Add(
+						[.. functions.OrderBy(f => f.MangledName, StringComparer.Ordinal)]
+					);
+				}
+			}
+		}
+
+		// Perform type merges: move all Invoke overloads into group[0]'s declaring type.
+		foreach (List<FunctionContext> group in pendingMerges)
+		{
+			TypeDefinition canonicalType = group[0].DeclaringType;
+
+			// Rename every __pointer field now so they are all unique within the merged type.
+			foreach (FunctionContext fc in group)
+			{
+				if (fc.PointerField is not null)
+				{
+					fc.PointerField.Name = NameGenerator.GenerateName("__pointer", fc.MangledName);
+				}
+			}
+
+			// Move functions[1..n] into the canonical type and delete their empty shells.
+			for (int i = 1; i < group.Count; i++)
+			{
+				FunctionContext other = group[i];
+				TypeDefinition otherType = other.DeclaringType;
+
+				// Move the Invoke method (AsmResolver auto-updates Definition.DeclaringType).
+				otherType.Methods.Remove(other.Definition);
+				canonicalType.Methods.Add(other.Definition);
+
+				// Move the __pointer field if it was created.
+				if (other.PointerField is not null)
+				{
+					otherType.Fields.Remove(other.PointerField);
+					canonicalType.Fields.Add(other.PointerField);
+				}
+
+				// Remove the now-empty shell type from the module.
+				Definition.TopLevelTypes.Remove(otherType);
+			}
+		}
+
+		// Stamp every function's declaring type with the final assigned name.
+		// For merged groups all functions share the canonical type so this is idempotent.
+		foreach (FunctionContext fc in Methods.Values)
+		{
+			fc.DeclaringType.Name = fc.Name;
+		}
+	}
+
+	/// <summary>
+	/// Produces a string key that uniquely represents the CIL parameter and return-type
+	/// signature of <paramref name="method"/> for use in duplicate-overload detection.
+	/// Two methods with the same key cannot coexist as overloads in the same type.
+	/// </summary>
+	private static string GetMethodSignatureKey(MethodDefinition method)
+	{
+		var sig = method.Signature;
+		if (sig is null)
+			return string.Empty;
+
+		static string TypeKey(TypeSignature t) =>
+			t.FullName ?? t.ToString() ?? "?";
+
+		var parts = new List<string>(sig.ParameterTypes.Count + 1) { TypeKey(sig.ReturnType) };
+		parts.AddRange(sig.ParameterTypes.Select(TypeKey));
+		return string.Join(",", parts);
 	}
 
 	public void AssignStructNames()

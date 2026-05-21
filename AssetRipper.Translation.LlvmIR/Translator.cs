@@ -107,8 +107,12 @@ public static unsafe class Translator
 		int functionIndex = 1;
 		foreach (FunctionContext functionContext in moduleContext.Methods.Values)
 		{
-			functionContext.AddNameAttributes(functionContext.DeclaringType);
-			functionContext.AddTypeAttribute(functionContext.Definition);
+			// Add [MangledName], [DemangledName] and [NativeType(returnType)] directly to the
+			// internal Invoke method definition, not to the declaring type class.
+			// Before the template-specialisation merge, each function had its own class so
+			// stamping the class was equivalent. Now that multiple overloads can share a class,
+			// per-function attributes must live on the method so they don't pile up on the class.
+			functionContext.AddNameAndTypeAttributes(functionContext.Definition);
 			functionContext.AddPublicImplementation();
 
 			if (IntrinsicFunctionImplementer.TryHandleIntrinsicFunction(functionContext))
@@ -519,7 +523,7 @@ public static unsafe class Translator
 
 			// Emit the DWARF _ZTS... identifier as an additional [MangledName] attribute on
 			// struct TypeDefinitions so that TranslatedAssemblyDependency.BuildTypeIndex can
-			// index them when this module is later used as a dependency.
+			// index them when this module is later used as a dependency (Phase 4 type sharing).
 			if (moduleContext.Options.EmitNameAttributes)
 			{
 				IMethodDefOrRef mangledNameCtor = (IMethodDefOrRef)
@@ -527,7 +531,9 @@ public static unsafe class Translator
 						typeof(MangledNameAttribute).GetConstructor([typeof(string)])!
 					);
 				int emittedDwarfAttrs = 0;
-				foreach ((StructContext structCtx, List<LLVMMetadataRef> list) in validMetadata)
+				foreach (
+					(StructContext structCtx, List<LLVMMetadataRef> list) in validMetadata
+				)
 				{
 					if (list.Count == 0)
 						continue;
@@ -539,7 +545,9 @@ public static unsafe class Translator
 					attrSig.FixedArguments.Add(
 						new(moduleContext.Definition.CorLibTypeFactory.String, dwarfId)
 					);
-					structCtx.Definition.CustomAttributes.Add(new(mangledNameCtor, attrSig));
+					structCtx.Definition.CustomAttributes.Add(
+						new(mangledNameCtor, attrSig)
+					);
 					emittedDwarfAttrs++;
 				}
 				Console.WriteLine(

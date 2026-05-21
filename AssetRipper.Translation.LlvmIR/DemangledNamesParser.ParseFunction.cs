@@ -121,6 +121,89 @@ public partial class DemangledNamesParser
 				normalParameters = [];
 			}
 
+			// ── Post-processing: fix known grammar misparse patterns ──────────────────
+			//
+			// Post-process 1: Operator conversion misparse.
+			// The grammar can greedily consume "Foo::operator [modifiers]" in the
+			// functionReturnType because "operator", "unsigned", "long", etc. are all
+			// valid identifier tokens.  The remaining final type word (e.g. "int") is
+			// then left as the functionIdentifier.
+			//
+			// Patterns detected (suffix of returnType after the last occurrence of
+			// "::operator" or a solo "operator" prefix):
+			//   suffix=""              → fi="int"/"bool"/etc.   → operator int/bool
+			//   suffix=" unsigned"     → fi="int"/"long"/"short" → operator unsigned int/…
+			//   suffix=" long"         → fi="long"               → operator long long
+			//   suffix=" unsigned long"→ fi="long"               → operator unsigned long long
+			{
+				const string operatorMarker = "::operator";
+				int colonOpIdx = returnType?.LastIndexOf(
+					operatorMarker,
+					StringComparison.Ordinal
+				) ?? -1;
+				bool standalone =
+					colonOpIdx < 0
+					&& returnType is not null
+					&& (
+						returnType == "operator"
+						|| returnType.StartsWith("operator ", StringComparison.Ordinal)
+					);
+
+				string modifiers = "";
+				string scopeBeforeOp = "";
+				bool isOperatorMisparse = false;
+
+				if (colonOpIdx >= 0)
+				{
+					modifiers = returnType![(colonOpIdx + operatorMarker.Length)..].Trim();
+					isOperatorMisparse = IsTypeModifierOnlyString(modifiers);
+					scopeBeforeOp = returnType[..colonOpIdx];
+				}
+				else if (standalone)
+				{
+					modifiers = returnType!["operator".Length..].Trim();
+					isOperatorMisparse = IsTypeModifierOnlyString(modifiers);
+					scopeBeforeOp = "";
+				}
+
+				if (isOperatorMisparse)
+				{
+					// Reconstruct the full operator type from the modifiers captured
+					// in returnType and the final word left as functionName.
+					string opType =
+						modifiers.Length > 0 ? modifiers + " " + functionName : functionName;
+					functionIdentifier = "operator " + opType;
+					functionName = functionIdentifier;
+					typeName = string.IsNullOrEmpty(scopeBeforeOp)
+						? null
+						: ExtractInnermostTypeName(scopeBeforeOp);
+					returnType = null;
+				}
+			}
+			// Post-process 2: Constructor/destructor/member function with a templated
+			// declaring scope.
+			// The grammar sometimes puts the class base name in returnType and only the
+			// template arguments in typeName, e.g. for FPBits<float>::FPBits(float):
+			//   returnType = "...::FPBits", typeName = "<float>", fi = "FPBits"
+			// Detect by typeName consisting solely of template arguments (starts with '<',
+			// ends with '>') when there is a non-empty returnType to steal from.
+			// Skip if post-process 1 already fired (returnType was nulled out).
+			if (
+				returnType is not null
+				&& typeName is not null
+				&& typeName.StartsWith("<", StringComparison.Ordinal)
+				&& typeName.EndsWith(">", StringComparison.Ordinal)
+			)
+			{
+				// Prepend the last component of returnType (the misparsed class name) to
+				// the template-args-only typeName to reconstruct the full type name.
+				string lastComponent = ExtractInnermostTypeName(returnType);
+				typeName = lastComponent + typeName; // e.g. "FPBits" + "<float>" = "FPBits<float>"
+				// We cannot recover the true return type from this broken parse; null it
+				// out so constructor/destructor detection downstream can work correctly.
+				returnType = null;
+			}
+
 			return true;
 		}
 		catch (Exception exception)
@@ -135,6 +218,41 @@ public partial class DemangledNamesParser
 			normalParameters = null;
 			return false;
 		}
+	}
+
+	private static bool IsTypeModifierOnlyString(string text)
+	{
+		if (string.IsNullOrEmpty(text))
+			return true;
+		foreach (string word in text.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+		{
+			if (word is not ("unsigned" or "signed" or "long" or "short"))
+				return false;
+		}
+		return true;
+	}
+
+	/// <summary>
+	/// Returns the last identifier component (possibly including template arguments)
+	/// of a qualified C++ scope string by scanning backwards for the last <c>::</c>
+	/// that is not nested inside angle brackets.
+	/// <example>
+	/// <c>"__llvm_libc::Errno"</c> → <c>"Errno"</c><br/>
+	/// <c>"FPStorage&lt;T&gt;::TypedInt&lt;int&gt;"</c> → <c>"TypedInt&lt;int&gt;"</c>
+	/// </example>
+	/// </summary>
+	private static string ExtractInnermostTypeName(string scope)
+	{
+		int depth = 0;
+		for (int i = scope.Length - 1; i >= 1; i--)
+		{
+			char c = scope[i];
+			if (c == '>') depth++;
+			else if (c == '<') depth--;
+			else if (depth == 0 && c == ':' && scope[i - 1] == ':')
+				return scope[(i + 1)..];
+		}
+		return scope; // no '::' at depth 0 — return the whole string
 	}
 
 	private static string[] ParseParameterList(IParseTree parameterListNode, string input)
