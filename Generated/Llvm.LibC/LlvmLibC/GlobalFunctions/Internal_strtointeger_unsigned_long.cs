@@ -130,7 +130,7 @@ internal static partial class Internal_strtointeger_unsigned_long
 				parsed_len = (((b & 1) != 1) ? 0L : num2);
 				if (num3 == 34)
 				{
-					if ((b4 & 1) == 1 || uint.MaxValue != 0)
+					if ((b4 & 1) == 1 || true)
 					{
 						StrToNumResult_unsigned_long_Constructor.Invoke(Agg_result, Integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke(), parsed_len, num3);
 					}

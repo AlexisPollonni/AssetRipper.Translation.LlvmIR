@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Intrinsics.Implemented;
@@ -170,15 +171,15 @@ internal static partial class DyadicFloat_256ul_fast_as_double_true_void
 					Llvm_lifetime_start_p0.Invoke(1L, &b2);
 					Llvm_lifetime_start_p0.Invoke(32L, &llvm_libc_20_1_2_BigInt_x9dsed6);
 					Llvm_libc_20_1_2_BitwiseAnd.Invoke(&llvm_libc_20_1_2_BigInt_x9dsed6, &This->Mantissa, &llvm_libc_20_1_2_BigInt_x9dsed2);
-					int num21 = (BigInt_256ul_false_unsigned_long_is_zero.Invoke(&llvm_libc_20_1_2_BigInt_x9dsed6) ? 1 : 0) ^ -1;
+					bool num21 = InstructionHelper.BooleanXor(BigInt_256ul_false_unsigned_long_is_zero.Invoke(&llvm_libc_20_1_2_BigInt_x9dsed6), right: true);
 					Llvm_lifetime_end_p0.Invoke(32L, &llvm_libc_20_1_2_BigInt_x9dsed6);
-					b2 = (sbyte)(byte)num21;
+					b2 = (num21 ? ((sbyte)1) : ((sbyte)0));
 					Llvm_lifetime_start_p0.Invoke(1L, &b3);
 					Llvm_lifetime_start_p0.Invoke(32L, &llvm_libc_20_1_2_BigInt_x9dsed7);
 					Llvm_libc_20_1_2_BitwiseAnd.Invoke(&llvm_libc_20_1_2_BigInt_x9dsed7, &This->Mantissa, &llvm_libc_20_1_2_BigInt_x9dsed4);
-					int num22 = (BigInt_256ul_false_unsigned_long_is_zero.Invoke(&llvm_libc_20_1_2_BigInt_x9dsed7) ? 1 : 0) ^ -1;
+					bool num22 = InstructionHelper.BooleanXor(BigInt_256ul_false_unsigned_long_is_zero.Invoke(&llvm_libc_20_1_2_BigInt_x9dsed7), right: true);
 					Llvm_lifetime_end_p0.Invoke(32L, &llvm_libc_20_1_2_BigInt_x9dsed7);
-					b3 = (sbyte)(byte)num22;
+					b3 = (num22 ? ((sbyte)1) : ((sbyte)0));
 					Llvm_lifetime_start_p0.Invoke(4L, &num10);
 					num10 = checked((((b2 & 1) == 1) ? 1 : 0) * 2 + (((b3 & 1) == 1) ? 1 : 0));
 					Llvm_lifetime_start_p0.Invoke(8L, &x);

@@ -35,7 +35,7 @@ internal static partial class Llvm_libc_20_1_2_inline_memcpy_x86
 				Memcpy_4ul_head_tail.Invoke(Dst, Src, num2);
 				break;
 			default:
-				if (uint.MaxValue != 0)
+				if (true)
 				{
 					if ((ulong)num2 < 16uL)
 					{

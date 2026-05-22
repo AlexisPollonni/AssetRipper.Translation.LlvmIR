@@ -50,7 +50,7 @@ internal static partial class Exp
 			FPBits_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm, X);
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm));
-			if (Details_expects_bool_condition_bool.Invoke(((ulong)num >= 13873137513782915154uL) ? true : (((ulong)num >= 13591863675404156928uL || (ulong)num < 4649454530587146736uL) ? ((ulong)num < 4368491638549381120uL) : true), Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((ulong)num >= 13873137513782915154uL || ((ulong)num < 13591863675404156928uL && (ulong)num >= 4649454530587146736uL) || (ulong)num < 4368491638549381120uL, Expected: false))
 			{
 				result = Anonymous_namespace_set_exceptional_gmsn85.Invoke(X);
 				goto IL_0aa7;

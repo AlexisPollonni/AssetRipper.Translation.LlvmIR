@@ -45,7 +45,7 @@ internal static partial class Llvm_libc_20_1_2_inline_memmove_small_size_x86
 				break;
 			default:
 				{
-					if (uint.MaxValue != 0)
+					if (true)
 					{
 						if ((ulong)num2 < 16uL)
 						{

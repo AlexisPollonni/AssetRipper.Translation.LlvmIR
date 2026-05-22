@@ -43,7 +43,7 @@ internal static partial class Expf
 			}
 			else
 			{
-				if (!Details_expects_bool_condition_bool.Invoke(((uint)num2 < 1118961664u) ? ((uint)num2 <= 847249408u) : true, Expected: false))
+				if (!Details_expects_bool_condition_bool.Invoke((uint)num2 >= 1118961664u || (uint)num2 <= 847249408u, Expected: false))
 				{
 					goto IL_03ab;
 				}

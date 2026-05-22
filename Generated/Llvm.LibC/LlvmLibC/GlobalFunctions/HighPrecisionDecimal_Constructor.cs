@@ -27,7 +27,7 @@ internal static partial class HighPrecisionDecimal_Constructor
 		num2 = 0;
 		unchecked
 		{
-			while ((ulong)num < (ulong)Num_len && ((!Internal_isdigit_u2vjuj.Invoke(((sbyte*)Num_string)[num])) ? (((sbyte*)Num_string)[num] == 46) : true))
+			while ((ulong)num < (ulong)Num_len && (Internal_isdigit_u2vjuj.Invoke(((sbyte*)Num_string)[num]) || ((sbyte*)Num_string)[num] == 46))
 			{
 				if (((sbyte*)Num_string)[num] == 46)
 				{

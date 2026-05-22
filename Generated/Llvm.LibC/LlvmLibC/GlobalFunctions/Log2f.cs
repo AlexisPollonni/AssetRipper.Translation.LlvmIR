@@ -61,7 +61,7 @@ internal static partial class Log2f
 				int value;
 				if (num8)
 				{
-					value = -1;
+					value = 1;
 				}
 				else
 				{

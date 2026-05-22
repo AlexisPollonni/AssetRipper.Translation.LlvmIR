@@ -91,7 +91,7 @@ internal static partial class Internal_binary_exp_to_float_double
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = (((num & num7) != 0L) ? ((sbyte)1) : ((sbyte)0));
 			Llvm_lifetime_start_p0.Invoke(1L, &b2);
-			b2 = (sbyte)(byte)(((num & num8) == 0L) ? (((b4 & 1) == 1) ? 1 : 0) : (-1));
+			b2 = (((num & num8) != 0L || (b4 & 1) == 1) ? ((sbyte)1) : ((sbyte)0));
 			if ((uint)num6 < 64u)
 			{
 				num >>>= (int)(uint)num6;

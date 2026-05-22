@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace LlvmLibC.GlobalFunctions;
@@ -9,6 +10,6 @@ internal static partial class Generic_neq_unsigned_long
 	[return: NativeType("unsigned int")]
 	public unsafe static int Invoke([MangledName("p1")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* P1, [MangledName("p2")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* P2, [MangledName("offset")][NativeType("unsigned long")] long Offset)
 	{
-		return unchecked((byte)((Generic_eq_unsigned_long.Invoke(P1, P2, Offset) ? 1 : 0) ^ -1));
+		return InstructionHelper.BooleanXor(Generic_eq_unsigned_long.Invoke(P1, P2, Offset), right: true) ? 1 : 0;
 	}
 }

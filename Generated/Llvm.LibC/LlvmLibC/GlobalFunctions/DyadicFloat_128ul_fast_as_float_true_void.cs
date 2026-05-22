@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.InlineArrays;
@@ -185,9 +186,9 @@ internal static partial class DyadicFloat_128ul_fast_as_float_true_void
 					((Struct_fiz2nb*)ptr7)->field_0 = struct_fiz2nb11.field_0;
 					Struct_fiz2nb struct_fiz2nb12 = struct_fiz2nb10;
 					((Struct_fiz2nb*)ptr7)->field_1 = struct_fiz2nb12.field_1;
-					int num21 = (BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh6)) ? 1 : 0) ^ -1;
+					bool num21 = InstructionHelper.BooleanXor(BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh6)), right: true);
 					Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh6);
-					b2 = (sbyte)(byte)num21;
+					b2 = (num21 ? ((sbyte)1) : ((sbyte)0));
 					Llvm_lifetime_start_p0.Invoke(1L, &b3);
 					Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh7);
 					Struct_fiz2nb struct_fiz2nb13 = Llvm_libc_20_1_2_BitwiseAnd.Invoke((Anon_izyfb7*)(&This->Mantissa), (Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh4));
@@ -196,9 +197,9 @@ internal static partial class DyadicFloat_128ul_fast_as_float_true_void
 					((Struct_fiz2nb*)ptr8)->field_0 = struct_fiz2nb14.field_0;
 					Struct_fiz2nb struct_fiz2nb15 = struct_fiz2nb13;
 					((Struct_fiz2nb*)ptr8)->field_1 = struct_fiz2nb15.field_1;
-					int num22 = (BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh7)) ? 1 : 0) ^ -1;
+					bool num22 = InstructionHelper.BooleanXor(BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh7)), right: true);
 					Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh7);
-					b3 = (sbyte)(byte)num22;
+					b3 = (num22 ? ((sbyte)1) : ((sbyte)0));
 					Llvm_lifetime_start_p0.Invoke(4L, &num10);
 				}
 				num10 = (((b2 & 1) == 1) ? 1 : 0) * 2 + (((b3 & 1) == 1) ? 1 : 0);

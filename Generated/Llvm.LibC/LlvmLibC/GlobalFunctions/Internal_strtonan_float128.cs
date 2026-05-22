@@ -36,7 +36,7 @@ internal static partial class Internal_strtonan_float128
 			Llvm_lifetime_start_p0.Invoke(16L, &@int);
 			@int = 0L;
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
-			for (num = 0L; (!Internal_isalnum_r2dwwj.Invoke(((sbyte*)Arg)[num])) ? (((sbyte*)Arg)[num] == 95) : true; num = checked(num + 1L))
+			for (num = 0L; Internal_isalnum_r2dwwj.Invoke(((sbyte*)Arg)[num]) || ((sbyte*)Arg)[num] == 95; num = checked(num + 1L))
 			{
 			}
 			if (((sbyte*)Arg)[num] == 0)

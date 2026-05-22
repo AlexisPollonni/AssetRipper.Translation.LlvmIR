@@ -237,7 +237,7 @@ internal static partial class Powf
 						result = num41;
 					}
 				}
-				else if (Details_expects_bool_condition_bool.Invoke((num41 != 0f) ? (num == -8388608) : true, Expected: false))
+				else if (Details_expects_bool_condition_bool.Invoke(num41 == 0f || num == -8388608, Expected: false))
 				{
 					result = num41 * num41;
 				}
@@ -473,7 +473,7 @@ internal static partial class Powf
 		num13 = 0L;
 		unchecked
 		{
-			if (!Details_expects_bool_condition_bool.Invoke(((num & -2145386497) == 0) ? true : (((uint)num < 2139095040u) ? ((uint)num < 8388608u) : true), Expected: false))
+			if (!Details_expects_bool_condition_bool.Invoke((num & -2145386497) == 0 || (uint)num >= 2139095040u || (uint)num < 8388608u, Expected: false))
 			{
 				goto IL_0ca4;
 			}

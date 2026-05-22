@@ -158,11 +158,11 @@ internal static partial class Pow
 			int value;
 			if (num27)
 			{
-				value = -1;
+				value = 1;
 			}
 			else if ((ulong)num5 > 4888456257178775634uL)
 			{
-				value = -1;
+				value = 1;
 			}
 			else
 			{
@@ -172,7 +172,7 @@ internal static partial class Pow
 				llvm_libc_20_1_2_fputil_FPBits_wjhbrm5.FPRepImpl.FPRepSem.FPStorage.Val = val3;
 				if (num28 == FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm5)))
 				{
-					value = -1;
+					value = 1;
 				}
 				else
 				{
@@ -182,7 +182,7 @@ internal static partial class Pow
 					llvm_libc_20_1_2_fputil_FPBits_wjhbrm6.FPRepImpl.FPRepSem.FPStorage.Val = val4;
 					if ((ulong)num29 >= (ulong)FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm6)))
 					{
-						value = -1;
+						value = 1;
 					}
 					else
 					{
@@ -396,7 +396,7 @@ internal static partial class Pow
 					int value2;
 					if (num43)
 					{
-						value2 = -1;
+						value2 = 1;
 					}
 					else
 					{

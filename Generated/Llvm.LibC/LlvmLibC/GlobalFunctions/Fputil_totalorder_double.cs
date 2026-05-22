@@ -30,13 +30,13 @@ internal static partial class Fputil_totalorder_double
 			num2 = FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm2));
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = ((((num | num2) & long.MinValue) != 0L) ? ((sbyte)1) : ((sbyte)0));
-			int result = ((num != num2) ? (((ulong)num < (ulong)num2 != ((b & 1) == 1)) ? 1 : 0) : (-1));
+			bool result = num == num2 || (ulong)num < (ulong)num2 != ((b & 1) == 1);
 			Llvm_lifetime_end_p0.Invoke(1L, &b);
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
 			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm2);
 			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-			return (byte)result != 0;
+			return result;
 		}
 	}
 }

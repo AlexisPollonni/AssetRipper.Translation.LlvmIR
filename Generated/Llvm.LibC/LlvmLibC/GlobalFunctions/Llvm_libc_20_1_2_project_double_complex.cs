@@ -42,7 +42,7 @@ internal static partial class Llvm_libc_20_1_2_project_double_complex
 			int num4;
 			if (num3)
 			{
-				num4 = -1;
+				num4 = 1;
 			}
 			else
 			{

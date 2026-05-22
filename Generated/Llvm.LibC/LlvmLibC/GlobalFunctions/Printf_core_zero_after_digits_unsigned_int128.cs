@@ -26,7 +26,7 @@ internal static partial class Printf_core_zero_after_digits_unsigned_int128
 			int num2;
 			if (num <= 0)
 			{
-				num2 = -1;
+				num2 = 1;
 			}
 			else if (num >= checked(Required_twos + 8))
 			{

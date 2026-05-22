@@ -82,25 +82,8 @@ internal static partial class Internal_simple_decimal_conversion_long_double
 				HighPrecisionDecimal_shift.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal, -num);
 				Llvm_lifetime_end_p0.Invoke(4L, &num);
 			}
-			while (true)
+			while (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) < 0 || (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) == 0 && unchecked((byte)(*(sbyte*)HighPrecisionDecimal_get_digits.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal))) < 5))
 			{
-				int num4;
-				if (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) < 0)
-				{
-					num4 = -1;
-				}
-				else
-				{
-					if (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) != 0)
-					{
-						break;
-					}
-					num4 = ((unchecked((byte)(*(sbyte*)HighPrecisionDecimal_get_digits.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal))) < 5) ? 1 : 0);
-				}
-				if (num4 == 0)
-				{
-					break;
-				}
 				Llvm_lifetime_start_p0.Invoke(4L, &num2);
 				num2 = 0;
 				if (-HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) >= 19)
@@ -109,8 +92,8 @@ internal static partial class Internal_simple_decimal_conversion_long_double
 				}
 				else if (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) != 0)
 				{
-					long num5 = -HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal);
-					num2 = unchecked((byte)((sbyte*)Llvm_libc_20_1_2_internal_POWERS_OF_TWO.Pointer)[num5]);
+					long num4 = -HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal);
+					num2 = unchecked((byte)((sbyte*)Llvm_libc_20_1_2_internal_POWERS_OF_TWO.Pointer)[num4]);
 				}
 				else
 				{
@@ -138,14 +121,14 @@ internal static partial class Internal_simple_decimal_conversion_long_double
 				HighPrecisionDecimal_shift.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal, 63);
 				Llvm_lifetime_start_p0.Invoke(16L, &@int);
 				Struct_fiz2nb struct_fiz2nb = HighPrecisionDecimal_round_to_integer_type_unsigned_int128.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal, RoundDirection_b3pcwy.Nearest);
-				Int128* num6 = &int2;
+				Int128* num5 = &int2;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 				unchecked
 				{
-					*(long*)num6 = struct_fiz2nb2.field_0;
-					byte* num7 = (byte*)(&int2) + 8u;
+					*(long*)num5 = struct_fiz2nb2.field_0;
+					byte* num6 = (byte*)(&int2) + 8u;
 					Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
-					*(long*)num7 = struct_fiz2nb3.field_1;
+					*(long*)num6 = struct_fiz2nb3.field_1;
 					@int = int2;
 				}
 				if (i <= 0)
@@ -156,14 +139,14 @@ internal static partial class Internal_simple_decimal_conversion_long_double
 					}
 					HighPrecisionDecimal_shift.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal, -1);
 					Struct_fiz2nb struct_fiz2nb4 = HighPrecisionDecimal_round_to_integer_type_unsigned_int128.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal, Round);
-					Int128* num8 = &int3;
+					Int128* num7 = &int3;
 					Struct_fiz2nb struct_fiz2nb5 = struct_fiz2nb4;
 					unchecked
 					{
-						*(long*)num8 = struct_fiz2nb5.field_0;
-						byte* num9 = (byte*)(&int3) + 8u;
+						*(long*)num7 = struct_fiz2nb5.field_0;
+						byte* num8 = (byte*)(&int3) + 8u;
 						Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
-						*(long*)num9 = struct_fiz2nb6.field_1;
+						*(long*)num8 = struct_fiz2nb6.field_1;
 						@int = int3;
 					}
 					if (NumericHelper.IntCmpNe(NumericHelper.ShiftRightLogical(@int, 63L), 0L))

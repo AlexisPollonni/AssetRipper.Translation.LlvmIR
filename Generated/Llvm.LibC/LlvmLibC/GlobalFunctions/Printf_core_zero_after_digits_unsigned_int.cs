@@ -15,13 +15,10 @@ internal static partial class Printf_core_zero_after_digits_unsigned_int
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = -Base_2_exp - Digits_after_point - 1;
 		Llvm_lifetime_start_p0.Invoke(1L, &b);
-		unchecked
-		{
-			b = (sbyte)(byte)((num <= 0) ? (-1) : ((num < checked(Mant_width + 8) && Printf_core_multiple_of_power_of_2_unsigned_int.Invoke(Mantissa, num)) ? 1 : 0));
-			bool result = (b & 1) == 1;
-			Llvm_lifetime_end_p0.Invoke(1L, &b);
-			Llvm_lifetime_end_p0.Invoke(4L, &num);
-			return result;
-		}
+		b = ((num <= 0 || (num < Mant_width + 8 && Printf_core_multiple_of_power_of_2_unsigned_int.Invoke(Mantissa, num))) ? ((sbyte)1) : ((sbyte)0));
+		bool result = (b & 1) == 1;
+		Llvm_lifetime_end_p0.Invoke(1L, &b);
+		Llvm_lifetime_end_p0.Invoke(4L, &num);
+		return result;
 	}
 }

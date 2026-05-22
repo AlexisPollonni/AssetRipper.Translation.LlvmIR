@@ -8,6 +8,6 @@ internal static partial class Isblank
 	[DemangledName("isblank")]
 	public static int Invoke([MangledName("c")] int C)
 	{
-		return unchecked((byte)((C != 32) ? ((C == 9) ? 1 : 0) : (-1)));
+		return (C == 32 || C == 9) ? 1 : 0;
 	}
 }

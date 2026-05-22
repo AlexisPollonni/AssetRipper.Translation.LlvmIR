@@ -71,7 +71,7 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 			Llvm_lifetime_start_p0.Invoke(4L, &num3);
 			num3 = ((To_conv->Precision >= 0) ? To_conv->Precision : 6);
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = (sbyte)(byte)((num3 == 0) ? ((((byte)To_conv->Flags & 8) != 0) ? 1 : 0) : (-1));
+			b = ((num3 != 0 || ((byte)To_conv->Flags & 8) != 0) ? ((sbyte)1) : ((sbyte)0));
 			Llvm_lifetime_start_p0.Invoke(1L, &b2);
 			b2 = 0;
 			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_printf_core_PaddingWriter);
@@ -167,7 +167,7 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 			Llvm_lifetime_end_p0.Invoke(4L, &num5);
 			if (num21 != 2)
 			{
-				goto IL_09e1;
+				goto IL_09e5;
 			}
 			if ((b2 & 1) != 1)
 			{
@@ -200,7 +200,7 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 					case 0:
 						break;
 					default:
-						goto IL_0908;
+						goto IL_090c;
 					}
 				}
 				else if ((ulong)(uint)num10 < (ulong)FloatToString_float_0_zero_blocks_after_point.Invoke(&llvm_libc_20_1_2_FloatToString_vnf))
@@ -223,7 +223,7 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 					case 0:
 						break;
 					default:
-						goto IL_0908;
+						goto IL_090c;
 					}
 				}
 				while (true)
@@ -299,7 +299,7 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 								Llvm_lifetime_start_p0.Invoke(4L, &round);
 								round = -1431655766;
 								Llvm_lifetime_start_p0.Invoke(1L, &b3);
-								b3 = (sbyte)(byte)((Printf_core_zero_after_digits_unsigned_int.Invoke(checked(num2 - 23), num3, FPRepSem_fputil_FPType_1_fputil_FPBits_float_get_explicit_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), 23) ? 1 : 0) ^ -1);
+								b3 = (InstructionHelper.BooleanXor(Printf_core_zero_after_digits_unsigned_int.Invoke(checked(num2 - 23), num3, FPRepSem_fputil_FPType_1_fputil_FPBits_float_get_explicit_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), 23), right: true) ? ((sbyte)1) : ((sbyte)0));
 								int last_digit = num17;
 								bool truncated = (b3 & 1) == 1;
 								anon_izyfb.Val = FPStorage_fputil_FPType_1_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
@@ -343,7 +343,7 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 					num21 = 0;
 					break;
 				}
-				goto IL_0908;
+				goto IL_090c;
 			}
 			Llvm_lifetime_start_p0.Invoke(4L, &num19);
 			num19 = FloatWriter_write_zeroes.Invoke(&llvm_libc_20_1_2_printf_core_FloatWriter, num3);
@@ -362,11 +362,11 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 			case 0:
 				break;
 			default:
-				goto IL_09e1;
+				goto IL_09e5;
 			}
-			goto IL_098e;
+			goto IL_0992;
 		}
-		IL_098e:
+		IL_0992:
 		Llvm_lifetime_start_p0.Invoke(4L, &num20);
 		num20 = FloatWriter_right_pad.Invoke(&llvm_libc_20_1_2_printf_core_FloatWriter);
 		if (num20 < 0)
@@ -385,8 +385,8 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 			result = 0;
 			break;
 		}
-		goto IL_09e1;
-		IL_09e1:
+		goto IL_09e5;
+		IL_09e5:
 		Llvm_lifetime_end_p0.Invoke(8L, &num4);
 		Llvm_lifetime_end_p0.Invoke(32L, &llvm_libc_20_1_2_FloatToString_vnf);
 		Llvm_lifetime_end_p0.Invoke(96L, &llvm_libc_20_1_2_printf_core_FloatWriter);
@@ -398,7 +398,7 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 		Llvm_lifetime_end_p0.Invoke(4L, &num2);
 		Llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;
-		IL_0908:
+		IL_090c:
 		Llvm_lifetime_end_p0.Invoke(4L, &num10);
 		Llvm_lifetime_end_p0.Invoke(4L, &num9);
 		switch (num21)
@@ -406,8 +406,8 @@ internal static partial class Printf_core_convert_float_decimal_typed_float_0
 		case 0:
 			break;
 		default:
-			goto IL_09e1;
+			goto IL_09e5;
 		}
-		goto IL_098e;
+		goto IL_0992;
 	}
 }

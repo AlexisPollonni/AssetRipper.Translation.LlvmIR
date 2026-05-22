@@ -22,7 +22,7 @@ internal static partial class Fputil_intlogb_int_float128
 			*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = -6148914691236517206L;
 			FPBits_float128_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, X);
 			int result;
-			if (Details_expects_bool_condition_bool.Invoke((!FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi))) ? FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_inf_or_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi)) || FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_inf_or_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi), Expected: false))
 			{
 				Fputil_set_errno_if_required.Invoke(33);
 				Fputil_raise_except_if_required.Invoke(1);
@@ -43,7 +43,7 @@ internal static partial class Fputil_intlogb_int_float128
 				DyadicFloat_128ul_DyadicFloat_float128_0.Invoke(&llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd, FPBits_float128_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi));
 				Llvm_lifetime_start_p0.Invoke(4L, &num);
 				num = DyadicFloat_128ul_get_unbiased_exponent.Invoke(&llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd);
-				if (Details_expects_bool_condition_bool.Invoke((num <= int.MaxValue) ? (num < int.MinValue) : true, Expected: false))
+				if (Details_expects_bool_condition_bool.Invoke(num > int.MaxValue || num < int.MinValue, Expected: false))
 				{
 					Fputil_set_errno_if_required.Invoke(34);
 					Fputil_raise_except_if_required.Invoke(1);

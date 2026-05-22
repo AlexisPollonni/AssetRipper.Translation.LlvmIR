@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Structures;
 
@@ -9,6 +10,6 @@ internal static partial class FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_i
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::is_inf_or_nan() const")]
 	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((byte)((FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_finite.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)This) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return InstructionHelper.BooleanXor(FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_finite.Invoke(unchecked((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)This)), right: true);
 	}
 }

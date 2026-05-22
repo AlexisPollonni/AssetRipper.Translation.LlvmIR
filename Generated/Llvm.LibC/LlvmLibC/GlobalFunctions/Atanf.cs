@@ -60,7 +60,7 @@ internal static partial class Atanf
 			FPStorage_fputil_FPType_1_set_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, anon_izyfb2.Val);
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs));
-			if (Details_expects_bool_condition_bool.Invoke(((uint)num > 1031798784u) ? ((uint)num >= 1098907648u) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((uint)num <= 1031798784u || (uint)num >= 1098907648u, Expected: false))
 			{
 				Llvm_lifetime_start_p0.Invoke(8L, &num2);
 				num2 = X;

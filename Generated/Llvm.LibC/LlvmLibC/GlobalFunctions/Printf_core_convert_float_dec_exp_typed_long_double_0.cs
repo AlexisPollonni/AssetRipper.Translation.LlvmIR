@@ -85,7 +85,7 @@ internal static partial class Printf_core_convert_float_dec_exp_typed_long_doubl
 			Llvm_lifetime_start_p0.Invoke(4L, &num3);
 			num3 = ((To_conv->Precision >= 0) ? To_conv->Precision : 6);
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = (sbyte)(byte)((num3 == 0) ? ((((byte)To_conv->Flags & 8) != 0) ? 1 : 0) : (-1));
+			b = ((num3 != 0 || ((byte)To_conv->Flags & 8) != 0) ? ((sbyte)1) : ((sbyte)0));
 			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_printf_core_PaddingWriter);
 			*(sbyte*)(&llvm_libc_20_1_2_printf_core_PaddingWriter) = -86;
 			((sbyte*)(&llvm_libc_20_1_2_printf_core_PaddingWriter))[1] = -86;
@@ -262,7 +262,7 @@ internal static partial class Printf_core_convert_float_dec_exp_typed_long_doubl
 								Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
 								*(long*)num25 = struct_fiz2nb6.field_1;
 								int3 = int2;
-								b2 = (sbyte)(byte)((Printf_core_zero_after_digits_unsigned_int128.Invoke(base_2_exp, digits_after_point, *(long*)(&int3), ((long*)(&int3))[1], 63) ? 1 : 0) ^ -1);
+								b2 = (InstructionHelper.BooleanXor(Printf_core_zero_after_digits_unsigned_int128.Invoke(base_2_exp, digits_after_point, *(long*)(&int3), ((long*)(&int3))[1], 63), right: true) ? ((sbyte)1) : ((sbyte)0));
 							}
 						}
 					}

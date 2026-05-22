@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Intrinsics.Unimplemented;
@@ -28,7 +29,7 @@ internal static partial class Printf_core_printf_main
 		int num2;
 		while (true)
 		{
-			if (((String_view_empty.Invoke(&llvm_libc_20_1_2_printf_core_FormatSection.Raw_string) ? 1u : 0u) ^ 0xFFFFFFFFu) == 0)
+			if (!InstructionHelper.BooleanXor(String_view_empty.Invoke(&llvm_libc_20_1_2_printf_core_FormatSection.Raw_string), right: true))
 			{
 				num2 = 2;
 				break;

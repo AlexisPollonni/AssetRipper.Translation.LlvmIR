@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -29,7 +30,7 @@ internal static partial class Internal_complementary_span
 			{
 				Bitset_256ul_set.Invoke(&llvm_libc_20_1_2_cpp_array_jgy3xh, (byte)(*(sbyte*)ptr3));
 			}
-			for (; *(bool*)ptr2 && ((Bitset_256ul_test.Invoke(&llvm_libc_20_1_2_cpp_array_jgy3xh, (byte)(*(sbyte*)ptr2)) ? 1u : 0u) ^ 0xFFFFFFFFu) != 0; ptr2 = (byte*)ptr2 + 1)
+			for (; *(bool*)ptr2 && InstructionHelper.BooleanXor(Bitset_256ul_test.Invoke(&llvm_libc_20_1_2_cpp_array_jgy3xh, (byte)(*(sbyte*)ptr2)), right: true); ptr2 = (byte*)ptr2 + 1)
 			{
 			}
 			long result = (long)ptr2 - (long)ptr;

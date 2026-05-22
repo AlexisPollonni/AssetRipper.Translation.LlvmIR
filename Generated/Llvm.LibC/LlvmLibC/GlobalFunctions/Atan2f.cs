@@ -124,7 +124,7 @@ internal static partial class Atan2f
 			Llvm_lifetime_start_p0.Invoke(8L, &num12);
 			num12 = num10;
 			float result;
-			if (Details_expects_bool_condition_bool.Invoke(((uint)num8 < 2139095040u) ? (num11 == 0.0) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((uint)num8 >= 2139095040u || num11 == 0.0, Expected: false))
 			{
 				if (FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs) || FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs2))
 				{

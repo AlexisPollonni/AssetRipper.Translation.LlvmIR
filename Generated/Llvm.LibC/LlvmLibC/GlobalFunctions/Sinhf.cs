@@ -37,7 +37,7 @@ internal static partial class Sinhf
 			int num4 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs2));
 			Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
 			num = num4;
-			if (Details_expects_bool_condition_bool.Invoke(((uint)num < 1119092736u) ? ((uint)num <= 1033895936u) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((uint)num >= 1119092736u || (uint)num <= 1033895936u, Expected: false))
 			{
 				if ((uint)num <= 1033895936u)
 				{
@@ -75,7 +75,7 @@ internal static partial class Sinhf
 						num3 = Fputil_quick_get_round.Invoke();
 						if (FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs)))
 						{
-							if (!Details_expects_bool_condition_bool.Invoke((num3 != 2048) ? (num3 == 3072) : true, Expected: false))
+							if (!Details_expects_bool_condition_bool.Invoke(num3 == 2048 || num3 == 3072, Expected: false))
 							{
 								goto IL_03bd;
 							}
@@ -88,7 +88,7 @@ internal static partial class Sinhf
 						}
 						else
 						{
-							if (!Details_expects_bool_condition_bool.Invoke((num3 != 1024) ? (num3 == 3072) : true, Expected: false))
+							if (!Details_expects_bool_condition_bool.Invoke(num3 == 1024 || num3 == 3072, Expected: false))
 							{
 								goto IL_03bd;
 							}

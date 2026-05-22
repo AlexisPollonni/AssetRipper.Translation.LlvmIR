@@ -57,7 +57,7 @@ internal static partial class Tanhf
 			Llvm_lifetime_start_p0.Invoke(4L, &num2);
 			num2 = InstructionHelper.Select(FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs)), 1, 0);
 			float result;
-			if (Details_expects_bool_condition_bool.Invoke(((uint)num < 1097859072u) ? ((uint)num <= 1033895936u) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((uint)num >= 1097859072u || (uint)num <= 1033895936u, Expected: false))
 			{
 				if ((uint)num <= 1033895936u)
 				{

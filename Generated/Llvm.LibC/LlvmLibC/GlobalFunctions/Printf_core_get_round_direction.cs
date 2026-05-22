@@ -25,7 +25,7 @@ internal static partial class Printf_core_get_round_direction
 				{
 					return (RoundDirection_zvveyk)InstructionHelper.Select(Last_digit > 5, 0, 1);
 				}
-				return (RoundDirection_zvveyk)InstructionHelper.Select((byte)((((b & 1) == 1) ? 1u : 0u) ^ 0xFFFFFFFFu) != 0, 2, 0);
+				return (RoundDirection_zvveyk)InstructionHelper.Select(InstructionHelper.BooleanXor((b & 1) == 1, right: true), 2, 0);
 			case 1024:
 				if (Sign_is_neg.Invoke(&anon_izyfb) && ((b & 1) == 1 || Last_digit > 0))
 				{

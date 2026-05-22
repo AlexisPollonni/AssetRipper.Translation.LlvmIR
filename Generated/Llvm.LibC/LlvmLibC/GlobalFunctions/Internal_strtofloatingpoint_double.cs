@@ -138,7 +138,7 @@ internal static partial class Internal_strtofloatingpoint_double
 					{
 						Llvm_lifetime_start_p0.Invoke(8L, &num4);
 						num4 = num;
-						for (num = checked(num + 1L); (!Internal_isalnum_eh69hd.Invoke(((sbyte*)Src)[num])) ? (((sbyte*)Src)[num] == 95) : true; num = checked(num + 1L))
+						for (num = checked(num + 1L); Internal_isalnum_eh69hd.Invoke(((sbyte*)Src)[num]) || ((sbyte*)Src)[num] == 95; num = checked(num + 1L))
 						{
 						}
 						if (((sbyte*)Src)[num] == 41)

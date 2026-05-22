@@ -34,7 +34,7 @@ internal static partial class Llvm_libc_20_1_2_project_float128_complex
 			int num2;
 			if (num)
 			{
-				num2 = -1;
+				num2 = 1;
 			}
 			else
 			{

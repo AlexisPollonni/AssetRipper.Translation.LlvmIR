@@ -44,7 +44,7 @@ internal static partial class FPRepSem_fputil_FPType_4_fputil_FPBits_long_double
 			*(long*)num4 = struct_fiz2nb6.field_1;
 			if (NumericHelper.IntCmpEq(x, y))
 			{
-				return (byte)((FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_inf.Invoke(This) ? 1u : 0u) ^ 0xFFFFFFFFu) != 0;
+				return InstructionHelper.BooleanXor(FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_inf.Invoke(This), right: true);
 			}
 			Struct_fiz2nb struct_fiz2nb7 = FPStorage_fputil_FPType_4_exp_bits.Invoke(This);
 			Int128* num5 = &int2;

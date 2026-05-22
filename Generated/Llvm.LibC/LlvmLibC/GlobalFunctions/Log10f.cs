@@ -199,7 +199,7 @@ internal static partial class Log10f
 			int value;
 			if (num11)
 			{
-				value = -1;
+				value = 1;
 			}
 			else
 			{

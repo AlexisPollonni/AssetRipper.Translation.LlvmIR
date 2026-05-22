@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace LlvmLibC.GlobalFunctions;
@@ -13,7 +14,7 @@ internal static partial class Llvm_libc_20_1_2_inline_strcmp_strcmp_impl_char_co
 		void* ptr2 = Right;
 		unchecked
 		{
-			while (*(bool*)ptr && (((_0_Invoke_r59jtm.Invoke(Comp, *(sbyte*)ptr, *(sbyte*)ptr2) != 0) ? 1u : 0u) ^ 0xFFFFFFFFu) != 0)
+			while (*(bool*)ptr && InstructionHelper.BooleanXor(_0_Invoke_r59jtm.Invoke(Comp, *(sbyte*)ptr, *(sbyte*)ptr2) != 0, right: true))
 			{
 				ptr = (byte*)ptr + 1;
 				ptr2 = (byte*)ptr2 + 1;

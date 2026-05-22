@@ -42,7 +42,7 @@ internal static partial class Exp10m1f16
 			num = FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_7z3gh9*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva));
 			Llvm_lifetime_start_p0.Invoke(2L, &num2);
 			num2 = (short)((ushort)num & 0x7FFF);
-			if (!Details_expects_bool_condition_bool.Invoke(((uint)(ushort)num2 > 12288u) ? ((uint)(ushort)num2 >= 17055u) : true, Expected: false))
+			if (!Details_expects_bool_condition_bool.Invoke((uint)(ushort)num2 <= 12288u || (uint)(ushort)num2 >= 17055u, Expected: false))
 			{
 				goto IL_05c2;
 			}

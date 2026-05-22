@@ -33,7 +33,7 @@ internal static partial class Coshf
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs));
 			float result;
-			if (Details_expects_bool_condition_bool.Invoke(((uint)num < 1119092736u) ? ((uint)num <= 847249408u) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((uint)num >= 1119092736u || (uint)num <= 847249408u, Expected: false))
 			{
 				if ((uint)num <= 847249408u)
 				{
@@ -53,7 +53,7 @@ internal static partial class Coshf
 				{
 					Llvm_lifetime_start_p0.Invoke(4L, &num2);
 					num2 = Fputil_quick_get_round.Invoke();
-					if (Details_expects_bool_condition_bool.Invoke((num2 != 1024) ? (num2 == 3072) : true, Expected: false))
+					if (Details_expects_bool_condition_bool.Invoke(num2 == 1024 || num2 == 3072, Expected: false))
 					{
 						Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs3);
 						Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb3, Llvm_libc_20_1_2_Sign_POS.Pointer, 1L, isVolatile: false);

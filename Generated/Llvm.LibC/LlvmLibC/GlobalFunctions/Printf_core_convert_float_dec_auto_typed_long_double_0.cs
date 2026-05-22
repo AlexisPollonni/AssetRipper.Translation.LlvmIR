@@ -205,7 +205,7 @@ internal static partial class Printf_core_convert_float_dec_auto_typed_long_doub
 						Llvm_lifetime_start_p0.Invoke(4L, &num13);
 						num13 = num7;
 						Llvm_lifetime_start_p0.Invoke(4L, &num14);
-						for (num14 = (int)((uint)num13 % 10u); num13 != 0 && ((num14 != 9) ? (num14 == 0) : true) && (uint)num13 % 10u == (uint)num14; num13 = (int)((uint)num13 / 10u))
+						for (num14 = (int)((uint)num13 % 10u); num13 != 0 && (num14 == 9 || num14 == 0) && (uint)num13 % 10u == (uint)num14; num13 = (int)((uint)num13 / 10u))
 						{
 							switch (num14)
 							{
@@ -384,7 +384,7 @@ internal static partial class Printf_core_convert_float_dec_auto_typed_long_doub
 								Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
 								*(long*)num38 = struct_fiz2nb6.field_1;
 								int3 = int2;
-								b = (sbyte)(byte)((Printf_core_zero_after_digits_unsigned_int128.Invoke(base_2_exp, digits_after_point, *(long*)(&int3), ((long*)(&int3))[1], 63) ? 1 : 0) ^ -1);
+								b = (InstructionHelper.BooleanXor(Printf_core_zero_after_digits_unsigned_int128.Invoke(base_2_exp, digits_after_point, *(long*)(&int3), ((long*)(&int3))[1], 63), right: true) ? ((sbyte)1) : ((sbyte)0));
 							}
 						}
 					}

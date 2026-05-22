@@ -48,7 +48,7 @@ internal static partial class Cbrtf
 			Llvm_lifetime_start_p0.Invoke(4L, &num2);
 			num2 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs)) >>> 31 << 11;
 			float result;
-			if (Details_expects_bool_condition_bool.Invoke((X != 0f) ? ((uint)num >= 2139095040u) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke(X == 0f || (uint)num >= 2139095040u, Expected: false))
 			{
 				result = X + X;
 			}

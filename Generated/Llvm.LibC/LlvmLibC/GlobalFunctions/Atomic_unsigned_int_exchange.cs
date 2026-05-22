@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Enumerations;
 using LlvmLibC.Intrinsics.Implemented;
@@ -17,7 +18,7 @@ internal static partial class Atomic_unsigned_int_exchange
 		num = -1431655766;
 		unchecked
 		{
-			Atomic_unsigned_int_addressof.Invoke(&((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
+			void* location = Atomic_unsigned_int_addressof.Invoke(&((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
 			int num3 = Atomic_unsigned_int_order.Invoke(Mem_ord);
 			int num4 = Atomic_unsigned_int_scope.Invoke(Mem_scope);
 			void* ptr = Atomic_unsigned_int_addressof.Invoke(&num2);
@@ -35,31 +36,26 @@ internal static partial class Atomic_unsigned_int_exchange
 						{
 							if (num6 != 4)
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 							else
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 						}
 						else
 						{
-							_ = *(int*)ptr;
-							*(int*)ptr2 = 0;
+							*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 						}
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						*(int*)ptr2 = 0;
+						*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					*(int*)ptr2 = 0;
+					*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 				}
 				break;
 			}
@@ -75,31 +71,26 @@ internal static partial class Atomic_unsigned_int_exchange
 						{
 							if (num7 != 4)
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 							else
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 						}
 						else
 						{
-							_ = *(int*)ptr;
-							*(int*)ptr2 = 0;
+							*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 						}
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						*(int*)ptr2 = 0;
+						*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					*(int*)ptr2 = 0;
+					*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 				}
 				break;
 			}
@@ -114,31 +105,26 @@ internal static partial class Atomic_unsigned_int_exchange
 						{
 							if (num9 != 4)
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 							else
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 						}
 						else
 						{
-							_ = *(int*)ptr;
-							*(int*)ptr2 = 0;
+							*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 						}
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						*(int*)ptr2 = 0;
+						*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					*(int*)ptr2 = 0;
+					*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 				}
 				break;
 			}
@@ -153,31 +139,26 @@ internal static partial class Atomic_unsigned_int_exchange
 						{
 							if (num8 != 4)
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 							else
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 						}
 						else
 						{
-							_ = *(int*)ptr;
-							*(int*)ptr2 = 0;
+							*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 						}
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						*(int*)ptr2 = 0;
+						*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					*(int*)ptr2 = 0;
+					*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 				}
 				break;
 			}
@@ -192,31 +173,26 @@ internal static partial class Atomic_unsigned_int_exchange
 						{
 							if (num5 != 4)
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 							else
 							{
-								_ = *(int*)ptr;
-								*(int*)ptr2 = 0;
+								*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 							}
 						}
 						else
 						{
-							_ = *(int*)ptr;
-							*(int*)ptr2 = 0;
+							*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 						}
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						*(int*)ptr2 = 0;
+						*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					*(int*)ptr2 = 0;
+					*(int*)ptr2 = InstructionHelper.AtomicExchangeInt32(location, *(int*)ptr);
 				}
 				break;
 			}

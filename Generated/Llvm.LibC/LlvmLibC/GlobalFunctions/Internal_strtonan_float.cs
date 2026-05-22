@@ -34,7 +34,7 @@ internal static partial class Internal_strtonan_float
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = 0;
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
-			for (num2 = 0L; (!Internal_isalnum_sgcu77.Invoke(((sbyte*)Arg)[num2])) ? (((sbyte*)Arg)[num2] == 95) : true; num2 = checked(num2 + 1L))
+			for (num2 = 0L; Internal_isalnum_sgcu77.Invoke(((sbyte*)Arg)[num2]) || ((sbyte*)Arg)[num2] == 95; num2 = checked(num2 + 1L))
 			{
 			}
 			if (((sbyte*)Arg)[num2] == 0)

@@ -90,25 +90,8 @@ internal static partial class Internal_simple_decimal_conversion_double
 				HighPrecisionDecimal_shift.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal, -num);
 				Llvm_lifetime_end_p0.Invoke(4L, &num);
 			}
-			while (true)
+			while (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) < 0 || (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) == 0 && unchecked((byte)(*(sbyte*)HighPrecisionDecimal_get_digits.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal))) < 5))
 			{
-				int num5;
-				if (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) < 0)
-				{
-					num5 = -1;
-				}
-				else
-				{
-					if (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) != 0)
-					{
-						break;
-					}
-					num5 = ((unchecked((byte)(*(sbyte*)HighPrecisionDecimal_get_digits.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal))) < 5) ? 1 : 0);
-				}
-				if (num5 == 0)
-				{
-					break;
-				}
 				Llvm_lifetime_start_p0.Invoke(4L, &num2);
 				num2 = 0;
 				if (-HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) >= 19)
@@ -117,8 +100,8 @@ internal static partial class Internal_simple_decimal_conversion_double
 				}
 				else if (HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal) != 0)
 				{
-					long num6 = -HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal);
-					num2 = unchecked((byte)((sbyte*)Llvm_libc_20_1_2_internal_POWERS_OF_TWO.Pointer)[num6]);
+					long num5 = -HighPrecisionDecimal_get_decimal_point.Invoke(&llvm_libc_20_1_2_internal_HighPrecisionDecimal);
+					num2 = unchecked((byte)((sbyte*)Llvm_libc_20_1_2_internal_POWERS_OF_TWO.Pointer)[num5]);
 				}
 				else
 				{

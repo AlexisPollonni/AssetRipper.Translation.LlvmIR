@@ -12,8 +12,8 @@ internal static partial class Iscntrl
 		int num = 0;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = C;
-		byte result = unchecked((byte)(((uint)num >= 32u) ? ((num == 127) ? 1 : 0) : (-1)));
+		bool result = unchecked((uint)num) < 32u || num == 127;
 		Llvm_lifetime_end_p0.Invoke(4L, &num);
-		return result;
+		return result ? 1 : 0;
 	}
 }

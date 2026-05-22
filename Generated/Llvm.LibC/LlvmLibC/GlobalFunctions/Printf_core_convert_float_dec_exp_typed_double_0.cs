@@ -74,7 +74,7 @@ internal static partial class Printf_core_convert_float_dec_exp_typed_double_0
 			Llvm_lifetime_start_p0.Invoke(4L, &num3);
 			num3 = ((To_conv->Precision >= 0) ? To_conv->Precision : 6);
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
-			b = (sbyte)(byte)((num3 == 0) ? ((((byte)To_conv->Flags & 8) != 0) ? 1 : 0) : (-1));
+			b = ((num3 != 0 || ((byte)To_conv->Flags & 8) != 0) ? ((sbyte)1) : ((sbyte)0));
 			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_printf_core_PaddingWriter);
 			*(sbyte*)(&llvm_libc_20_1_2_printf_core_PaddingWriter) = -86;
 			((sbyte*)(&llvm_libc_20_1_2_printf_core_PaddingWriter))[1] = -86;
@@ -212,9 +212,11 @@ internal static partial class Printf_core_convert_float_dec_exp_typed_double_0
 				}
 				Llvm_lifetime_start_p0.Invoke(4L, &round);
 				round = -1431655766;
-				if ((b2 & 1) != 1)
+				int last_digit;
+				bool truncated;
+				checked
 				{
-					checked
+					if ((b2 & 1) != 1)
 					{
 						if (num6 >= 0)
 						{
@@ -242,15 +244,15 @@ internal static partial class Printf_core_convert_float_dec_exp_typed_double_0
 							}
 							Llvm_lifetime_end_p0.Invoke(4L, &j);
 						}
+						if ((b2 & 1) != 1 && num2 - 52 < 0)
+						{
+							b2 = (InstructionHelper.BooleanXor(Printf_core_zero_after_digits_unsigned_long.Invoke(num2 - 52, unchecked(num3 - num5), FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa.Invoke(unchecked((Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm))), 52), right: true) ? ((sbyte)1) : ((sbyte)0));
+						}
 					}
-					if ((b2 & 1) != 1 && checked(num2 - 52) < 0)
-					{
-						b2 = (sbyte)(byte)((Printf_core_zero_after_digits_unsigned_long.Invoke(checked(num2 - 52), num3 - num5, FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm)), 52) ? 1 : 0) ^ -1);
-					}
+					last_digit = num14;
+					truncated = (b2 & 1) == 1;
+					anon_izyfb.Val = FPStorage_fputil_FPType_2_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
 				}
-				int last_digit = num14;
-				bool truncated = (b2 & 1) == 1;
-				anon_izyfb.Val = FPStorage_fputil_FPType_2_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
 				round = (int)Printf_core_get_round_direction.Invoke(last_digit, truncated, anon_izyfb.Val);
 				Llvm_lifetime_start_p0.Invoke(4L, &num17);
 				num17 = FloatWriter_write_last_block.Invoke(&llvm_libc_20_1_2_printf_core_FloatWriter, num7, num13, (RoundDirection_zvveyk)round, num5, InstructionHelper.Select(Internal_islower_p5hwic.Invoke(To_conv->Conv_name), (sbyte)101, (sbyte)69));

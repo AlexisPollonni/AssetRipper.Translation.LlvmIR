@@ -48,13 +48,13 @@ internal static partial class Fputil_totalorder_long_double
 			y = int2;
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = (NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(NumericHelper.BitwiseOr(x, y), 0L), 0L) ? ((sbyte)1) : ((sbyte)0));
-			int result = ((!NumericHelper.IntCmpEq(x, y)) ? ((NumericHelper.IntCmpUlt(x, y) != ((b & 1) == 1)) ? 1 : 0) : (-1));
+			bool result = NumericHelper.IntCmpEq(x, y) || NumericHelper.IntCmpUlt(x, y) != ((b & 1) == 1);
 			Llvm_lifetime_end_p0.Invoke(1L, &b);
 			Llvm_lifetime_end_p0.Invoke(16L, &y);
 			Llvm_lifetime_end_p0.Invoke(16L, &x);
 			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
 			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
-			return (byte)result != 0;
+			return result;
 		}
 	}
 }

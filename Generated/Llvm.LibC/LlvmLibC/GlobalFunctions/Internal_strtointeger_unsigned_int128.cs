@@ -148,7 +148,7 @@ internal static partial class Internal_strtointeger_unsigned_int128
 				num4 = (((b & 1) != 1) ? 0L : num);
 				if (num2 == 34)
 				{
-					if ((b4 & 1) == 1 || uint.MaxValue != 0)
+					if ((b4 & 1) == 1 || true)
 					{
 						Struct_fiz2nb struct_fiz2nb4 = Integer_impl_unsigned_int128_unsigned_int128_0_unsigned_int128_340282366920938463463374607431768211455_max.Invoke();
 						Int128* num9 = &int6;

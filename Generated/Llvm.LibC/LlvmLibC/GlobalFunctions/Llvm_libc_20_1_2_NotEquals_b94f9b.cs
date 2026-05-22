@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Structures;
 
@@ -10,6 +11,6 @@ internal static partial class Llvm_libc_20_1_2_NotEquals_b94f9b
 	[CleanName("Llvm_libc_20_1_2_NotEquals")]
 	public unsafe static bool Invoke([MangledName("lhs")][NativeType("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&")] Llvm_libc_20_1_2_BigInt_555ggs* Lhs, [MangledName("rhs")][NativeType("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long> const&")] Llvm_libc_20_1_2_BigInt_555ggs* Rhs)
 	{
-		return unchecked((byte)((Llvm_libc_20_1_2_Equals_tpd9hp.Invoke(Lhs, Rhs) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return InstructionHelper.BooleanXor(Llvm_libc_20_1_2_Equals_tpd9hp.Invoke(Lhs, Rhs), right: true);
 	}
 }

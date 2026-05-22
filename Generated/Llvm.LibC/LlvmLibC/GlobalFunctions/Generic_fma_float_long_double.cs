@@ -96,7 +96,7 @@ internal static partial class Generic_fma_float_long_double
 			*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi3) = -6148914691236517206L;
 			FPBits_long_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi3, num13);
 			float result;
-			if (Details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) ? true : ((!FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2)) ? FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi3) : true), Expected: false) && (FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) || FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2)))
+			if (Details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) || FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2) || FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi3), Expected: false) && (FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) || FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2)))
 			{
 				if (FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_signaling_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) || FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_signaling_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2) || FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_is_signaling_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi3))
 				{
@@ -172,7 +172,7 @@ internal static partial class Generic_fma_float_long_double
 					Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs4);
 				}
 			}
-			else if (Details_expects_bool_condition_bool.Invoke((num11 == 0.0) ? true : ((num12 != 0.0) ? (num13 == 0.0) : true), Expected: false))
+			else if (Details_expects_bool_condition_bool.Invoke(num11 == 0.0 || num12 == 0.0 || num13 == 0.0, Expected: false))
 			{
 				result = Fputil_cast_float_long_double.Invoke(Llvm_fmuladd_f80.Invoke(num11, num12, num13));
 			}
@@ -244,7 +244,7 @@ internal static partial class Generic_fma_float_long_double
 				num5 = checked(num5 + num24);
 				int num25 = (ushort)FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_get_biased_exponent.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi3);
 				num6 = checked(num6 + num25);
-				if (Details_expects_bool_condition_bool.Invoke((num4 == 32767) ? true : ((num5 != 32767) ? (num6 == 32767) : true), Expected: false))
+				if (Details_expects_bool_condition_bool.Invoke(num4 == 32767 || num5 == 32767 || num6 == 32767, Expected: false))
 				{
 					result = Fputil_cast_float_long_double.Invoke(Llvm_fmuladd_f80.Invoke(num11, num12, num13));
 				}

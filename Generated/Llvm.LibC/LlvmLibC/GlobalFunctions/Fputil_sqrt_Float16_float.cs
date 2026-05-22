@@ -45,10 +45,10 @@ internal static partial class Fputil_sqrt_Float16_float
 			int field_ = FPRepSem_fputil_FPType_1_fputil_FPBits_float_inf.Invoke(anon_izyfb.Val);
 			llvm_libc_20_1_2_fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
 			Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm2, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2, 4L, isVolatile: false);
-			int num9 = (Internal_Equals_wuhucm.Invoke(llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm.FPRepSem.field_0.field_0, llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm2.FPRepSem.field_0.field_0) ? (-1) : ((!FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_zero.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs)) ? (FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs) ? 1 : 0) : (-1)));
+			bool num9 = Internal_Equals_wuhucm.Invoke(llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm.FPRepSem.field_0.field_0, llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm2.FPRepSem.field_0.field_0) || FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_zero.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs) || FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
 			Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
 			Half result;
-			if (num9 != 0)
+			if (num9)
 			{
 				result = Fputil_cast_Float16_float.Invoke(X);
 			}

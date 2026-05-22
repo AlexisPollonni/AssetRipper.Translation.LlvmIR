@@ -84,7 +84,7 @@ internal static partial class Log2
 				int value;
 				if (num17)
 				{
-					value = -1;
+					value = 1;
 				}
 				else
 				{

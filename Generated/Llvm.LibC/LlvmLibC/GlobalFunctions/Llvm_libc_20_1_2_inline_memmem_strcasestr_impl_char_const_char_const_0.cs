@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Intrinsics.Implemented;
 
@@ -42,7 +43,7 @@ internal static partial class Llvm_libc_20_1_2_inline_memmem_strcasestr_impl_cha
 						break;
 					}
 					Llvm_lifetime_start_p0.Invoke(8L, &num2);
-					for (num2 = 0L; (ulong)num2 < (ulong)Needle_len && (((_0_Invoke_w5uwa2.Invoke(Comp, ((sbyte*)ptr)[num + num2], ((sbyte*)ptr2)[num2]) != 0) ? 1u : 0u) ^ 0xFFFFFFFFu) != 0; num2++)
+					for (num2 = 0L; (ulong)num2 < (ulong)Needle_len && InstructionHelper.BooleanXor(_0_Invoke_w5uwa2.Invoke(Comp, ((sbyte*)ptr)[num + num2], ((sbyte*)ptr2)[num2]) != 0, right: true); num2++)
 					{
 					}
 					if (num2 == Needle_len)
@@ -58,10 +59,10 @@ internal static partial class Llvm_libc_20_1_2_inline_memmem_strcasestr_impl_cha
 					switch (num3)
 					{
 					case 0:
-						goto IL_0131;
+						goto IL_0135;
 					}
 					break;
-					IL_0131:
+					IL_0135:
 					num++;
 				}
 				Llvm_lifetime_end_p0.Invoke(8L, &num);

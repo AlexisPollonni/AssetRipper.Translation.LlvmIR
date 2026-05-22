@@ -236,9 +236,9 @@ internal static partial class DyadicFloat_128ul_fast_as_long_double_true_void
 					((Struct_fiz2nb*)ptr10)->field_0 = struct_fiz2nb23.field_0;
 					Struct_fiz2nb struct_fiz2nb24 = struct_fiz2nb22;
 					((Struct_fiz2nb*)ptr10)->field_1 = struct_fiz2nb24.field_1;
-					int num24 = (BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh6)) ? 1 : 0) ^ -1;
+					bool num24 = InstructionHelper.BooleanXor(BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh6)), right: true);
 					Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh6);
-					b2 = (sbyte)(byte)num24;
+					b2 = (num24 ? ((sbyte)1) : ((sbyte)0));
 					Llvm_lifetime_start_p0.Invoke(1L, &b3);
 					Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh7);
 					Struct_fiz2nb struct_fiz2nb25 = Llvm_libc_20_1_2_BitwiseAnd.Invoke((Anon_izyfb7*)(&This->Mantissa), (Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh4));
@@ -247,9 +247,9 @@ internal static partial class DyadicFloat_128ul_fast_as_long_double_true_void
 					((Struct_fiz2nb*)ptr11)->field_0 = struct_fiz2nb26.field_0;
 					Struct_fiz2nb struct_fiz2nb27 = struct_fiz2nb25;
 					((Struct_fiz2nb*)ptr11)->field_1 = struct_fiz2nb27.field_1;
-					int num25 = (BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh7)) ? 1 : 0) ^ -1;
+					bool num25 = InstructionHelper.BooleanXor(BigInt_128ul_false_unsigned_long_is_zero.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh7)), right: true);
 					Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh7);
-					b3 = (sbyte)(byte)num25;
+					b3 = (num25 ? ((sbyte)1) : ((sbyte)0));
 					Llvm_lifetime_start_p0.Invoke(4L, &num9);
 					num9 = checked((((b2 & 1) == 1) ? 1 : 0) * 2 + (((b3 & 1) == 1) ? 1 : 0));
 					Llvm_lifetime_start_p0.Invoke(16L, &num10);

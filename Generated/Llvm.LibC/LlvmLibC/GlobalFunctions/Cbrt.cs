@@ -133,7 +133,7 @@ internal static partial class Cbrt
 			int value;
 			if (num23)
 			{
-				value = -1;
+				value = 1;
 			}
 			else
 			{
@@ -153,7 +153,7 @@ internal static partial class Cbrt
 				int num27;
 				if (num26)
 				{
-					num27 = -1;
+					num27 = 1;
 				}
 				else
 				{
@@ -499,7 +499,7 @@ internal static partial class Cbrt
 					int num54;
 					if (num53)
 					{
-						num54 = -1;
+						num54 = 1;
 					}
 					else
 					{

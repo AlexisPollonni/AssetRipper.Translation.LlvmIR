@@ -42,7 +42,7 @@ internal static partial class Log10f16
 			FPBits_Float16_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva, X);
 			Llvm_lifetime_start_p0.Invoke(2L, &num);
 			num = FPRepImpl_fputil_FPType_0_fputil_FPBits_Float16_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_7z3gh9*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva));
-			if (Details_expects_bool_condition_bool.Invoke(((ushort)num == 0) ? true : (((ushort)num != 15360) ? ((uint)(ushort)num >= 31744u) : true), Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((ushort)num == 0 || (ushort)num == 15360 || (uint)(ushort)num >= 31744u, Expected: false))
 			{
 				if (FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva)))
 				{

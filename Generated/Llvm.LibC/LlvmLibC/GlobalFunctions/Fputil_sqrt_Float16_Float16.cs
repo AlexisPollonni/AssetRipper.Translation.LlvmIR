@@ -45,10 +45,10 @@ internal static partial class Fputil_sqrt_Float16_Float16
 			short field_ = FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_inf.Invoke(anon_izyfb.Val);
 			llvm_libc_20_1_2_fputil_FPBits_2fahva2.FPRepImpl.FPRepSem.FPStorage.field_0 = field_;
 			Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepImpl_7z3gh2, &llvm_libc_20_1_2_fputil_FPBits_2fahva2, 2L, isVolatile: false);
-			int num9 = (Internal_Equals_9g7dhj.Invoke(llvm_libc_20_1_2_fputil_internal_FPRepImpl_7z3gh.FPRepSem.FPStorage.field_0, llvm_libc_20_1_2_fputil_internal_FPRepImpl_7z3gh2.FPRepSem.FPStorage.field_0) ? (-1) : ((!FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva))) ? (FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva)) ? 1 : 0) : (-1)));
+			bool num9 = Internal_Equals_9g7dhj.Invoke(llvm_libc_20_1_2_fputil_internal_FPRepImpl_7z3gh.FPRepSem.FPStorage.field_0, llvm_libc_20_1_2_fputil_internal_FPRepImpl_7z3gh2.FPRepSem.FPStorage.field_0) || FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_zero.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva)) || FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva));
 			Llvm_lifetime_end_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva2);
 			Half result;
-			if (num9 != 0)
+			if (num9)
 			{
 				result = Fputil_cast_Float16_Float16.Invoke(X);
 			}

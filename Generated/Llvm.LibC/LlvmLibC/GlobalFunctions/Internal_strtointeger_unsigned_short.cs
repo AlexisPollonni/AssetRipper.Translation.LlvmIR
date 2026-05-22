@@ -131,7 +131,7 @@ internal static partial class Internal_strtointeger_unsigned_short
 				parsed_len = (((b & 1) != 1) ? 0L : num2);
 				if (num3 == 34)
 				{
-					if ((b4 & 1) == 1 || uint.MaxValue != 0)
+					if ((b4 & 1) == 1 || true)
 					{
 						StrToNumResult_unsigned_short_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_wwcts, Integer_impl_unsigned_short_unsigned_short_0_unsigned_short_65535_max.Invoke(), parsed_len, num3);
 					}

@@ -82,7 +82,7 @@ internal static partial class Internal_binary_exp_to_float_long_double
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = (NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(@int, int2), 0L) ? ((sbyte)1) : ((sbyte)0));
 			Llvm_lifetime_start_p0.Invoke(1L, &b2);
-			b2 = (sbyte)(byte)((!NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(@int, y), 0L)) ? (((b4 & 1) == 1) ? 1 : 0) : (-1));
+			b2 = ((NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(@int, y), 0L) || (b4 & 1) == 1) ? ((sbyte)1) : ((sbyte)0));
 			if ((uint)num5 < 128u)
 			{
 				@int = NumericHelper.ShiftRightLogical(@int, (Int128)(UInt128)(uint)num5);

@@ -205,7 +205,7 @@ internal static partial class Printf_core_convert_float_dec_auto_typed_float_0
 						Llvm_lifetime_start_p0.Invoke(4L, &num13);
 						num13 = num7;
 						Llvm_lifetime_start_p0.Invoke(4L, &num14);
-						for (num14 = (int)((uint)num13 % 10u); num13 != 0 && ((num14 != 9) ? (num14 == 0) : true) && (uint)num13 % 10u == (uint)num14; num13 = (int)((uint)num13 / 10u))
+						for (num14 = (int)((uint)num13 % 10u); num13 != 0 && (num14 == 9 || num14 == 0) && (uint)num13 % 10u == (uint)num14; num13 = (int)((uint)num13 / 10u))
 						{
 							switch (num14)
 							{
@@ -337,9 +337,11 @@ internal static partial class Printf_core_convert_float_dec_auto_typed_float_0
 				}
 				Llvm_lifetime_start_p0.Invoke(4L, &num22);
 				num22 = -1431655766;
-				if ((b & 1) != 1)
+				int last_digit;
+				bool truncated;
+				checked
 				{
-					checked
+					if ((b & 1) != 1)
 					{
 						if (num6 >= 0)
 						{
@@ -368,15 +370,15 @@ internal static partial class Printf_core_convert_float_dec_auto_typed_float_0
 							}
 							Llvm_lifetime_end_p0.Invoke(4L, &k);
 						}
+						if ((b & 1) != 1 && num2 - 23 < 0)
+						{
+							b = (InstructionHelper.BooleanXor(Printf_core_zero_after_digits_unsigned_int.Invoke(num2 - 23, unchecked(num5 - num4), FPRepSem_fputil_FPType_1_fputil_FPBits_float_get_explicit_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), 23), right: true) ? ((sbyte)1) : ((sbyte)0));
+						}
 					}
-					if ((b & 1) != 1 && checked(num2 - 23) < 0)
-					{
-						b = (sbyte)(byte)((Printf_core_zero_after_digits_unsigned_int.Invoke(checked(num2 - 23), num5 - num4, FPRepSem_fputil_FPType_1_fputil_FPBits_float_get_explicit_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), 23) ? 1 : 0) ^ -1);
-					}
+					last_digit = num20;
+					truncated = (b & 1) == 1;
+					anon_izyfb.Val = FPStorage_fputil_FPType_1_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
 				}
-				int last_digit = num20;
-				bool truncated = (b & 1) == 1;
-				anon_izyfb.Val = FPStorage_fputil_FPType_1_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
 				num22 = (int)Printf_core_get_round_direction.Invoke(last_digit, truncated, anon_izyfb.Val);
 				Llvm_lifetime_start_p0.Invoke(1L, &b2);
 				b2 = -86;

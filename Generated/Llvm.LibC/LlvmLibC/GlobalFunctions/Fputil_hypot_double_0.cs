@@ -171,7 +171,7 @@ internal static partial class Fputil_hypot_double_0
 			{
 				if (num7 == 9007199254740992L)
 				{
-					b2 = (sbyte)(byte)(((b2 & 1) != 1) ? (NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(int2, 3L), 0L) ? 1 : 0) : (-1));
+					b2 = (((b2 & 1) == 1 || NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(int2, 3L), 0L)) ? ((sbyte)1) : ((sbyte)0));
 					int2 = NumericHelper.ShiftRightLogical(int2, 2L);
 					num3++;
 					if ((ulong)num3 >= 2047uL)

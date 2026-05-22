@@ -41,7 +41,7 @@ internal static partial class Fputil_nextupdown_false_float_0
 			int num2;
 			if (num)
 			{
-				num2 = -1;
+				num2 = 1;
 			}
 			else
 			{
@@ -52,7 +52,7 @@ internal static partial class Fputil_nextupdown_false_float_0
 				Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm2, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2, 4L, isVolatile: false);
 				if (Internal_Equals_wuhucm.Invoke(llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm.FPRepSem.field_0.field_0, llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm2.FPRepSem.field_0.field_0))
 				{
-					num2 = -1;
+					num2 = 1;
 				}
 				else
 				{

@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Structures;
 
@@ -9,6 +10,6 @@ internal static partial class Sign_is_pos
 	[DemangledName("__llvm_libc_20_1_2_::Sign::is_pos() const")]
 	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((byte)((((((Anon_izyfb7*)This)->Val & 1) == 1) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return InstructionHelper.BooleanXor((unchecked((Anon_izyfb7*)This)->Val & 1) == 1, right: true);
 	}
 }

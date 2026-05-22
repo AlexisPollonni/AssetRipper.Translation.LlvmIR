@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Intrinsics.Implemented;
 using LlvmLibC.Structures;
@@ -19,6 +20,6 @@ internal static partial class Llvm_libc_20_1_2_NotEquals_rpctvi
 		anon_izyfb2.Val = B;
 		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb3, &anon_izyfb, 1L, isVolatile: false);
 		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb4, &anon_izyfb2, 1L, isVolatile: false);
-		return unchecked((byte)((Llvm_libc_20_1_2_Equals_fy8fvt.Invoke(anon_izyfb3.Val, anon_izyfb4.Val) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return InstructionHelper.BooleanXor(Llvm_libc_20_1_2_Equals_fy8fvt.Invoke(anon_izyfb3.Val, anon_izyfb4.Val), right: true);
 	}
 }

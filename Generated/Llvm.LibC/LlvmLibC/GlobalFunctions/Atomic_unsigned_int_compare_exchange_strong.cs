@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Enumerations;
 using LlvmLibC.Structures;
@@ -13,7 +15,7 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 		int num = Desired;
 		unchecked
 		{
-			Atomic_unsigned_int_addressof.Invoke(&((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
+			void* location = Atomic_unsigned_int_addressof.Invoke(&((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
 			int num2 = Atomic_unsigned_int_order.Invoke(Mem_ord);
 			void* ptr = Atomic_unsigned_int_addressof.Invoke(Expected);
 			void* ptr2 = Atomic_unsigned_int_addressof.Invoke(&num);
@@ -28,49 +30,61 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 				{
 					if (num6 != 5)
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi19 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi20 = struct_ycs3bi19;
-						int field_13 = struct_ycs3bi20.field_0;
-						Struct_ycs3bi struct_ycs3bi21 = struct_ycs3bi19;
-						bool field_14 = struct_ycs3bi21.field_1;
-						if (!field_14)
+						Unsafe.SkipInit(out bool field_26);
+						int field_25 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_26);
+						Struct_ycs3bi struct_ycs3bi19 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_13;
+							field_0 = field_25,
+							field_1 = field_26
+						};
+						Struct_ycs3bi struct_ycs3bi20 = struct_ycs3bi19;
+						int field_27 = struct_ycs3bi20.field_0;
+						Struct_ycs3bi struct_ycs3bi21 = struct_ycs3bi19;
+						bool field_28 = struct_ycs3bi21.field_1;
+						if (!field_28)
+						{
+							*(int*)ptr = field_27;
 						}
-						b = (field_14 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_28 ? ((sbyte)1) : ((sbyte)0));
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi22 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi23 = struct_ycs3bi22;
-						int field_15 = struct_ycs3bi23.field_0;
-						Struct_ycs3bi struct_ycs3bi24 = struct_ycs3bi22;
-						bool field_16 = struct_ycs3bi24.field_1;
-						if (!field_16)
+						Unsafe.SkipInit(out bool field_30);
+						int field_29 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_30);
+						Struct_ycs3bi struct_ycs3bi22 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_15;
+							field_0 = field_29,
+							field_1 = field_30
+						};
+						Struct_ycs3bi struct_ycs3bi23 = struct_ycs3bi22;
+						int field_31 = struct_ycs3bi23.field_0;
+						Struct_ycs3bi struct_ycs3bi24 = struct_ycs3bi22;
+						bool field_32 = struct_ycs3bi24.field_1;
+						if (!field_32)
+						{
+							*(int*)ptr = field_31;
 						}
-						b = (field_16 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_32 ? ((sbyte)1) : ((sbyte)0));
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					_ = *(int*)ptr2;
-					Struct_ycs3bi struct_ycs3bi25 = default(Struct_ycs3bi);
-					Struct_ycs3bi struct_ycs3bi26 = struct_ycs3bi25;
-					int field_17 = struct_ycs3bi26.field_0;
-					Struct_ycs3bi struct_ycs3bi27 = struct_ycs3bi25;
-					bool field_18 = struct_ycs3bi27.field_1;
-					if (!field_18)
+					Unsafe.SkipInit(out bool field_34);
+					int field_33 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_34);
+					Struct_ycs3bi struct_ycs3bi25 = new Struct_ycs3bi
 					{
-						*(int*)ptr = field_17;
+						field_0 = field_33,
+						field_1 = field_34
+					};
+					Struct_ycs3bi struct_ycs3bi26 = struct_ycs3bi25;
+					int field_35 = struct_ycs3bi26.field_0;
+					Struct_ycs3bi struct_ycs3bi27 = struct_ycs3bi25;
+					bool field_36 = struct_ycs3bi27.field_1;
+					if (!field_36)
+					{
+						*(int*)ptr = field_35;
 					}
-					b = (field_18 ? ((sbyte)1) : ((sbyte)0));
+					b = (field_36 ? ((sbyte)1) : ((sbyte)0));
 				}
 				break;
 			}
@@ -82,49 +96,61 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 				{
 					if (num8 != 5)
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi37 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi38 = struct_ycs3bi37;
-						int field_25 = struct_ycs3bi38.field_0;
-						Struct_ycs3bi struct_ycs3bi39 = struct_ycs3bi37;
-						bool field_26 = struct_ycs3bi39.field_1;
-						if (!field_26)
+						Unsafe.SkipInit(out bool field_50);
+						int field_49 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_50);
+						Struct_ycs3bi struct_ycs3bi37 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_25;
+							field_0 = field_49,
+							field_1 = field_50
+						};
+						Struct_ycs3bi struct_ycs3bi38 = struct_ycs3bi37;
+						int field_51 = struct_ycs3bi38.field_0;
+						Struct_ycs3bi struct_ycs3bi39 = struct_ycs3bi37;
+						bool field_52 = struct_ycs3bi39.field_1;
+						if (!field_52)
+						{
+							*(int*)ptr = field_51;
 						}
-						b = (field_26 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_52 ? ((sbyte)1) : ((sbyte)0));
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi40 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi41 = struct_ycs3bi40;
-						int field_27 = struct_ycs3bi41.field_0;
-						Struct_ycs3bi struct_ycs3bi42 = struct_ycs3bi40;
-						bool field_28 = struct_ycs3bi42.field_1;
-						if (!field_28)
+						Unsafe.SkipInit(out bool field_54);
+						int field_53 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_54);
+						Struct_ycs3bi struct_ycs3bi40 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_27;
+							field_0 = field_53,
+							field_1 = field_54
+						};
+						Struct_ycs3bi struct_ycs3bi41 = struct_ycs3bi40;
+						int field_55 = struct_ycs3bi41.field_0;
+						Struct_ycs3bi struct_ycs3bi42 = struct_ycs3bi40;
+						bool field_56 = struct_ycs3bi42.field_1;
+						if (!field_56)
+						{
+							*(int*)ptr = field_55;
 						}
-						b = (field_28 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_56 ? ((sbyte)1) : ((sbyte)0));
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					_ = *(int*)ptr2;
-					Struct_ycs3bi struct_ycs3bi43 = default(Struct_ycs3bi);
-					Struct_ycs3bi struct_ycs3bi44 = struct_ycs3bi43;
-					int field_29 = struct_ycs3bi44.field_0;
-					Struct_ycs3bi struct_ycs3bi45 = struct_ycs3bi43;
-					bool field_30 = struct_ycs3bi45.field_1;
-					if (!field_30)
+					Unsafe.SkipInit(out bool field_58);
+					int field_57 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_58);
+					Struct_ycs3bi struct_ycs3bi43 = new Struct_ycs3bi
 					{
-						*(int*)ptr = field_29;
+						field_0 = field_57,
+						field_1 = field_58
+					};
+					Struct_ycs3bi struct_ycs3bi44 = struct_ycs3bi43;
+					int field_59 = struct_ycs3bi44.field_0;
+					Struct_ycs3bi struct_ycs3bi45 = struct_ycs3bi43;
+					bool field_60 = struct_ycs3bi45.field_1;
+					if (!field_60)
+					{
+						*(int*)ptr = field_59;
 					}
-					b = (field_30 ? ((sbyte)1) : ((sbyte)0));
+					b = (field_60 ? ((sbyte)1) : ((sbyte)0));
 				}
 				break;
 			}
@@ -135,49 +161,61 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 				{
 					if (num5 != 5)
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi10 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi11 = struct_ycs3bi10;
-						int field_7 = struct_ycs3bi11.field_0;
-						Struct_ycs3bi struct_ycs3bi12 = struct_ycs3bi10;
-						bool field_8 = struct_ycs3bi12.field_1;
-						if (!field_8)
+						Unsafe.SkipInit(out bool field_14);
+						int field_13 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_14);
+						Struct_ycs3bi struct_ycs3bi10 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_7;
+							field_0 = field_13,
+							field_1 = field_14
+						};
+						Struct_ycs3bi struct_ycs3bi11 = struct_ycs3bi10;
+						int field_15 = struct_ycs3bi11.field_0;
+						Struct_ycs3bi struct_ycs3bi12 = struct_ycs3bi10;
+						bool field_16 = struct_ycs3bi12.field_1;
+						if (!field_16)
+						{
+							*(int*)ptr = field_15;
 						}
-						b = (field_8 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_16 ? ((sbyte)1) : ((sbyte)0));
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi13 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi14 = struct_ycs3bi13;
-						int field_9 = struct_ycs3bi14.field_0;
-						Struct_ycs3bi struct_ycs3bi15 = struct_ycs3bi13;
-						bool field_10 = struct_ycs3bi15.field_1;
-						if (!field_10)
+						Unsafe.SkipInit(out bool field_18);
+						int field_17 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_18);
+						Struct_ycs3bi struct_ycs3bi13 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_9;
+							field_0 = field_17,
+							field_1 = field_18
+						};
+						Struct_ycs3bi struct_ycs3bi14 = struct_ycs3bi13;
+						int field_19 = struct_ycs3bi14.field_0;
+						Struct_ycs3bi struct_ycs3bi15 = struct_ycs3bi13;
+						bool field_20 = struct_ycs3bi15.field_1;
+						if (!field_20)
+						{
+							*(int*)ptr = field_19;
 						}
-						b = (field_10 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_20 ? ((sbyte)1) : ((sbyte)0));
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					_ = *(int*)ptr2;
-					Struct_ycs3bi struct_ycs3bi16 = default(Struct_ycs3bi);
-					Struct_ycs3bi struct_ycs3bi17 = struct_ycs3bi16;
-					int field_11 = struct_ycs3bi17.field_0;
-					Struct_ycs3bi struct_ycs3bi18 = struct_ycs3bi16;
-					bool field_12 = struct_ycs3bi18.field_1;
-					if (!field_12)
+					Unsafe.SkipInit(out bool field_22);
+					int field_21 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_22);
+					Struct_ycs3bi struct_ycs3bi16 = new Struct_ycs3bi
 					{
-						*(int*)ptr = field_11;
+						field_0 = field_21,
+						field_1 = field_22
+					};
+					Struct_ycs3bi struct_ycs3bi17 = struct_ycs3bi16;
+					int field_23 = struct_ycs3bi17.field_0;
+					Struct_ycs3bi struct_ycs3bi18 = struct_ycs3bi16;
+					bool field_24 = struct_ycs3bi18.field_1;
+					if (!field_24)
+					{
+						*(int*)ptr = field_23;
 					}
-					b = (field_12 ? ((sbyte)1) : ((sbyte)0));
+					b = (field_24 ? ((sbyte)1) : ((sbyte)0));
 				}
 				break;
 			}
@@ -188,49 +226,61 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 				{
 					if (num7 != 5)
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi28 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi29 = struct_ycs3bi28;
-						int field_19 = struct_ycs3bi29.field_0;
-						Struct_ycs3bi struct_ycs3bi30 = struct_ycs3bi28;
-						bool field_20 = struct_ycs3bi30.field_1;
-						if (!field_20)
+						Unsafe.SkipInit(out bool field_38);
+						int field_37 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_38);
+						Struct_ycs3bi struct_ycs3bi28 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_19;
+							field_0 = field_37,
+							field_1 = field_38
+						};
+						Struct_ycs3bi struct_ycs3bi29 = struct_ycs3bi28;
+						int field_39 = struct_ycs3bi29.field_0;
+						Struct_ycs3bi struct_ycs3bi30 = struct_ycs3bi28;
+						bool field_40 = struct_ycs3bi30.field_1;
+						if (!field_40)
+						{
+							*(int*)ptr = field_39;
 						}
-						b = (field_20 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_40 ? ((sbyte)1) : ((sbyte)0));
 					}
 					else
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi31 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi32 = struct_ycs3bi31;
-						int field_21 = struct_ycs3bi32.field_0;
-						Struct_ycs3bi struct_ycs3bi33 = struct_ycs3bi31;
-						bool field_22 = struct_ycs3bi33.field_1;
-						if (!field_22)
+						Unsafe.SkipInit(out bool field_42);
+						int field_41 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_42);
+						Struct_ycs3bi struct_ycs3bi31 = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_21;
+							field_0 = field_41,
+							field_1 = field_42
+						};
+						Struct_ycs3bi struct_ycs3bi32 = struct_ycs3bi31;
+						int field_43 = struct_ycs3bi32.field_0;
+						Struct_ycs3bi struct_ycs3bi33 = struct_ycs3bi31;
+						bool field_44 = struct_ycs3bi33.field_1;
+						if (!field_44)
+						{
+							*(int*)ptr = field_43;
 						}
-						b = (field_22 ? ((sbyte)1) : ((sbyte)0));
+						b = (field_44 ? ((sbyte)1) : ((sbyte)0));
 					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					_ = *(int*)ptr2;
-					Struct_ycs3bi struct_ycs3bi34 = default(Struct_ycs3bi);
-					Struct_ycs3bi struct_ycs3bi35 = struct_ycs3bi34;
-					int field_23 = struct_ycs3bi35.field_0;
-					Struct_ycs3bi struct_ycs3bi36 = struct_ycs3bi34;
-					bool field_24 = struct_ycs3bi36.field_1;
-					if (!field_24)
+					Unsafe.SkipInit(out bool field_46);
+					int field_45 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_46);
+					Struct_ycs3bi struct_ycs3bi34 = new Struct_ycs3bi
 					{
-						*(int*)ptr = field_23;
+						field_0 = field_45,
+						field_1 = field_46
+					};
+					Struct_ycs3bi struct_ycs3bi35 = struct_ycs3bi34;
+					int field_47 = struct_ycs3bi35.field_0;
+					Struct_ycs3bi struct_ycs3bi36 = struct_ycs3bi34;
+					bool field_48 = struct_ycs3bi36.field_1;
+					if (!field_48)
+					{
+						*(int*)ptr = field_47;
 					}
-					b = (field_24 ? ((sbyte)1) : ((sbyte)0));
+					b = (field_48 ? ((sbyte)1) : ((sbyte)0));
 				}
 				break;
 			}
@@ -241,49 +291,61 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 				{
 					if (num4 != 5)
 					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi2 = struct_ycs3bi;
-						int field_ = struct_ycs3bi2.field_0;
-						Struct_ycs3bi struct_ycs3bi3 = struct_ycs3bi;
-						bool field_2 = struct_ycs3bi3.field_1;
-						if (!field_2)
+						Unsafe.SkipInit(out bool field_2);
+						int field_ = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_2);
+						Struct_ycs3bi struct_ycs3bi = new Struct_ycs3bi
 						{
-							*(int*)ptr = field_;
-						}
-						b = (field_2 ? ((sbyte)1) : ((sbyte)0));
-					}
-					else
-					{
-						_ = *(int*)ptr;
-						_ = *(int*)ptr2;
-						Struct_ycs3bi struct_ycs3bi4 = default(Struct_ycs3bi);
-						Struct_ycs3bi struct_ycs3bi5 = struct_ycs3bi4;
-						int field_3 = struct_ycs3bi5.field_0;
-						Struct_ycs3bi struct_ycs3bi6 = struct_ycs3bi4;
-						bool field_4 = struct_ycs3bi6.field_1;
+							field_0 = field_,
+							field_1 = field_2
+						};
+						Struct_ycs3bi struct_ycs3bi2 = struct_ycs3bi;
+						int field_3 = struct_ycs3bi2.field_0;
+						Struct_ycs3bi struct_ycs3bi3 = struct_ycs3bi;
+						bool field_4 = struct_ycs3bi3.field_1;
 						if (!field_4)
 						{
 							*(int*)ptr = field_3;
 						}
 						b = (field_4 ? ((sbyte)1) : ((sbyte)0));
 					}
+					else
+					{
+						Unsafe.SkipInit(out bool field_6);
+						int field_5 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_6);
+						Struct_ycs3bi struct_ycs3bi4 = new Struct_ycs3bi
+						{
+							field_0 = field_5,
+							field_1 = field_6
+						};
+						Struct_ycs3bi struct_ycs3bi5 = struct_ycs3bi4;
+						int field_7 = struct_ycs3bi5.field_0;
+						Struct_ycs3bi struct_ycs3bi6 = struct_ycs3bi4;
+						bool field_8 = struct_ycs3bi6.field_1;
+						if (!field_8)
+						{
+							*(int*)ptr = field_7;
+						}
+						b = (field_8 ? ((sbyte)1) : ((sbyte)0));
+					}
 				}
 				else
 				{
-					_ = *(int*)ptr;
-					_ = *(int*)ptr2;
-					Struct_ycs3bi struct_ycs3bi7 = default(Struct_ycs3bi);
-					Struct_ycs3bi struct_ycs3bi8 = struct_ycs3bi7;
-					int field_5 = struct_ycs3bi8.field_0;
-					Struct_ycs3bi struct_ycs3bi9 = struct_ycs3bi7;
-					bool field_6 = struct_ycs3bi9.field_1;
-					if (!field_6)
+					Unsafe.SkipInit(out bool field_10);
+					int field_9 = InstructionHelper.AtomicCompareExchangeInt32(comparand: *(int*)ptr, location: location, value: *(int*)ptr2, exchanged: &field_10);
+					Struct_ycs3bi struct_ycs3bi7 = new Struct_ycs3bi
 					{
-						*(int*)ptr = field_5;
+						field_0 = field_9,
+						field_1 = field_10
+					};
+					Struct_ycs3bi struct_ycs3bi8 = struct_ycs3bi7;
+					int field_11 = struct_ycs3bi8.field_0;
+					Struct_ycs3bi struct_ycs3bi9 = struct_ycs3bi7;
+					bool field_12 = struct_ycs3bi9.field_1;
+					if (!field_12)
+					{
+						*(int*)ptr = field_11;
 					}
-					b = (field_6 ? ((sbyte)1) : ((sbyte)0));
+					b = (field_12 ? ((sbyte)1) : ((sbyte)0));
 				}
 				break;
 			}

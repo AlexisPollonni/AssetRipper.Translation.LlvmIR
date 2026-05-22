@@ -308,7 +308,7 @@ internal static partial class Printf_core_convert_float_hex_exp
 				num13 = To_conv->Precision - (num10 - 1L);
 			}
 			Llvm_lifetime_start_p0.Invoke(1L, &b7);
-			b7 = (sbyte)(byte)(((ulong)num10 <= 1uL) ? ((((byte)To_conv->Flags & 8) == 8) ? 1 : 0) : (-1));
+			b7 = (((ulong)num10 > 1uL || ((byte)To_conv->Flags & 8) == 8) ? ((sbyte)1) : ((sbyte)0));
 			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view2);
 			*(InlineArray2_SByte**)(&llvm_libc_20_1_2_cpp_string_view2) = Str_4_162.Pointer;
 			((long*)(&llvm_libc_20_1_2_cpp_string_view2))[1] = 1L;

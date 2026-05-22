@@ -154,7 +154,7 @@ internal static partial class Atan2
 			double num18 = FPBits_double_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm6);
 			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm6);
 			num8 = num18;
-			if (Details_expects_bool_condition_bool.Invoke(((uint)num6 <= 1919u) ? ((uint)num5 < 128u) : true, Expected: false))
+			if (Details_expects_bool_condition_bool.Invoke((uint)num6 > 1919u || (uint)num5 < 128u, Expected: false))
 			{
 				if (FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm)) || FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm2)))
 				{

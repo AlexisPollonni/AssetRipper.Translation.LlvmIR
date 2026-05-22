@@ -1,3 +1,4 @@
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Structures;
 
@@ -11,6 +12,6 @@ internal static partial class Lambda_Invoke_hxaia2
 	[return: NativeType("void")]
 	public unsafe static bool Invoke([MangledName("this")] void* This, [MangledName("a")][NativeType("void const*")] void* A, [MangledName("b")][NativeType("void const*")] void* B)
 	{
-		return unchecked((byte)((_0_Invoke_kq6gnz.Invoke(&((Anon_e6q534*)This)->field_0, B, A) ? 1u : 0u) ^ 0xFFFFFFFFu)) != 0;
+		return InstructionHelper.BooleanXor(_0_Invoke_kq6gnz.Invoke(&unchecked((Anon_e6q534*)This)->field_0, B, A), right: true);
 	}
 }
