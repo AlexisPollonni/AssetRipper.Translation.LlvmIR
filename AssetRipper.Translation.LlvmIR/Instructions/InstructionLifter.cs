@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -16,6 +17,9 @@ namespace AssetRipper.Translation.LlvmIR.Instructions;
 
 internal readonly unsafe struct InstructionLifter
 {
+	//TODO: do not like this, should remove or replace with another solution
+	private static readonly ConcurrentDictionary<string, byte> atomicRmwWarnings = new();
+
 	private readonly Dictionary<LLVMBasicBlockRef, BasicBlock> basicBlocks = new();
 	private readonly Dictionary<BasicBlock, LLVMBasicBlockRef> basicBlockRefs = new();
 
@@ -1258,26 +1262,121 @@ internal readonly unsafe struct InstructionLifter
 				break;
 			case LLVMOpcode.LLVMAtomicRMW:
 				{
-					// These are not currently supported.
-					// https://llvm.org/docs/LangRef.html#atomicrmw-instruction
-					TypeSignature type = module.GetTypeSignature(instruction);
-					LoadVariable(basicBlock, ConstantVariable.CreateDefault(type));
+					Debug.Assert(operands.Length == 2, "AtomicRMW instruction should have exactly two operands");
+
+					LLVMValueRef pointerOperand = operands[0];
+					LLVMValueRef valueOperand = operands[1];
+					TypeSignature valueType = module.GetTypeSignature(valueOperand);
+					LLVMAtomicRMWBinOp operation = instruction.AtomicRMWBinOp;
+
+					MethodDefinition? helper = ResolveAtomicRmwHelper(operation, valueType);
+					if (helper is null)
+					{
+						WarnUnsupportedAtomicRmw(operation, valueType);
+						throw new NotSupportedException(
+							$"Unsupported LLVM atomicrmw operation {operation} for type {valueType} in {function?.Name}."
+						);
+					}
+
+					LoadValue(basicBlock, pointerOperand);
+					LoadValue(basicBlock, valueOperand);
+					Call(basicBlock, helper);
 					StoreResult(basicBlock, instruction);
-					Console.WriteLine(
-						$"Warning: LLVM AtomicRMW instruction is not currently supported; it is being ignored inside {function?.Name}."
-					);
 				}
 				break;
 			case LLVMOpcode.LLVMAtomicCmpXchg:
 				{
-					// These are not currently supported.
-					// https://llvm.org/docs/LangRef.html#cmpxchg-instruction
-					TypeSignature type = module.GetTypeSignature(instruction);
-					LoadVariable(basicBlock, ConstantVariable.CreateDefault(type));
+					Debug.Assert(operands.Length == 3, "CmpXchg instruction should have exactly three operands");
+
+					LLVMValueRef pointerOperand = operands[0];
+					LLVMValueRef expectedOperand = operands[1];
+					LLVMValueRef newValueOperand = operands[2];
+					TypeSignature valueType = module.GetTypeSignature(expectedOperand);
+
+					MethodDefinition? helper = valueType switch
+					{
+						CorLibTypeSignature
+						{
+							ElementType:
+								ElementType.Boolean
+								or ElementType.Char
+								or ElementType.I1
+								or ElementType.U1
+								or ElementType.I2
+								or ElementType.U2
+								or ElementType.I4
+								or ElementType.U4
+						} => module.InstructionHelperType.GetMethodByName(
+							nameof(InstructionHelper.AtomicCompareExchangeInt32)
+						),
+						CorLibTypeSignature { ElementType: ElementType.I8 or ElementType.U8 } =>
+							module.InstructionHelperType.GetMethodByName(
+								nameof(InstructionHelper.AtomicCompareExchangeInt64)
+							),
+						CorLibTypeSignature { ElementType: ElementType.I or ElementType.U }
+							or PointerTypeSignature => module.InstructionHelperType.GetMethodByName(
+								nameof(InstructionHelper.AtomicCompareExchangeIntPtr)
+							),
+						_ => null,
+					};
+
+					if (helper is null)
+					{
+						TypeSignature unsupportedType = module.GetTypeSignature(instruction);
+						LoadVariable(basicBlock, ConstantVariable.CreateDefault(unsupportedType));
+						StoreResult(basicBlock, instruction);
+						Console.WriteLine(
+							$"Warning: LLVM CmpXchg type {valueType} is not currently supported; it is being ignored inside {function?.Name}."
+						);
+						break;
+					}
+
+					TypeSignature pointerType = module.GetTypeSignature(pointerOperand);
+					LocalVariable pointerLocal = new(pointerType);
+					LoadValue(basicBlock, pointerOperand);
+					basicBlock.Add(new StoreVariableInstruction(pointerLocal));
+
+					CorLibTypeSignature boolType = module.Definition.CorLibTypeFactory.Boolean;
+					LocalVariable exchangedLocal = new(boolType);
+
+					TypeSignature oldValueType = helper.Signature!.ReturnType;
+					LocalVariable oldValueLocal = new(oldValueType);
+
+					LoadVariable(basicBlock, pointerLocal);
+					LoadValue(basicBlock, newValueOperand);
+					LoadValue(basicBlock, expectedOperand);
+					basicBlock.Add(new AddressOfInstruction(exchangedLocal));
+					Call(basicBlock, helper);
+					basicBlock.Add(new StoreVariableInstruction(oldValueLocal));
+
+					TypeSignature resultType = module.GetTypeSignature(instruction);
+					LoadVariable(basicBlock, ConstantVariable.CreateDefault(resultType));
+					LocalVariable resultLocal = new(resultType);
+					basicBlock.Add(new StoreVariableInstruction(resultLocal));
+
+					TypeDefinition? resultTypeDefinition = resultType.Resolve();
+					if (resultTypeDefinition is null || resultTypeDefinition.Fields.Count < 2)
+					{
+						LoadVariable(basicBlock, resultLocal);
+						StoreResult(basicBlock, instruction);
+						break;
+					}
+
+					FieldDefinition oldField = resultTypeDefinition.GetInstanceField(0);
+					FieldDefinition exchangedField = resultTypeDefinition.GetInstanceField(1);
+
+					basicBlock.Add(new AddressOfInstruction(resultLocal));
+					basicBlock.Add(new LoadFieldAddressInstruction(oldField));
+					LoadVariable(basicBlock, oldValueLocal);
+					basicBlock.Add(new StoreIndirectInstruction(oldField.Signature!.FieldType));
+
+					basicBlock.Add(new AddressOfInstruction(resultLocal));
+					basicBlock.Add(new LoadFieldAddressInstruction(exchangedField));
+					LoadVariable(basicBlock, exchangedLocal);
+					basicBlock.Add(new StoreIndirectInstruction(exchangedField.Signature!.FieldType));
+
+					LoadVariable(basicBlock, resultLocal);
 					StoreResult(basicBlock, instruction);
-					Console.WriteLine(
-						$"Warning: LLVM CmpXchg instruction is not currently supported; it is being ignored inside {function?.Name}."
-					);
 				}
 				break;
 			case LLVMOpcode.LLVMLandingPad:
@@ -1702,8 +1801,12 @@ internal readonly unsafe struct InstructionLifter
 			case LLVMValueKind.LLVMConstantIntValueKind:
 				{
 					const int BitsPerByte = 8;
-					long integer = value.ConstIntSExt;
 					LLVMTypeRef operandType = value.TypeOf;
+					long integer = operandType.IntWidth switch
+					{
+						1 => value.ConstIntZExt == 0 ? 0 : 1,
+						_ => value.ConstIntSExt,
+					};
 					TypeSignature typeSignature = module.GetTypeSignature(operandType);
 					if (
 						integer is <= int.MaxValue and >= int.MinValue
@@ -2174,6 +2277,109 @@ internal readonly unsafe struct InstructionLifter
 	private static void Call(BasicBlock instructions, IMethodDescriptor method)
 	{
 		instructions.Add(new CallInstruction(method));
+	}
+
+	private MethodDefinition? ResolveAtomicRmwHelper(
+		LLVMAtomicRMWBinOp operation,
+		TypeSignature valueType
+	)
+	{
+		string? methodName = operation switch
+		{
+			LLVMAtomicRMWBinOp.LLVMAtomicRMWBinOpXchg => valueType switch
+			{
+				CorLibTypeSignature
+				{
+					ElementType:
+						ElementType.Boolean
+						or ElementType.Char
+						or ElementType.I1
+						or ElementType.U1
+						or ElementType.I2
+						or ElementType.U2
+						or ElementType.I4
+						or ElementType.U4
+				} => nameof(InstructionHelper.AtomicExchangeInt32),
+				CorLibTypeSignature { ElementType: ElementType.I8 or ElementType.U8 } =>
+					nameof(InstructionHelper.AtomicExchangeInt64),
+				CorLibTypeSignature { ElementType: ElementType.I or ElementType.U }
+					or PointerTypeSignature => nameof(InstructionHelper.AtomicExchangeIntPtr),
+				_ => null,
+			},
+			LLVMAtomicRMWBinOp.LLVMAtomicRMWBinOpAdd => GetAtomicIntHelperName(
+				valueType,
+				nameof(InstructionHelper.AtomicAddInt32),
+				nameof(InstructionHelper.AtomicAddInt64),
+				nameof(InstructionHelper.AtomicAddIntPtr)
+			),
+			LLVMAtomicRMWBinOp.LLVMAtomicRMWBinOpSub => GetAtomicIntHelperName(
+				valueType,
+				nameof(InstructionHelper.AtomicSubInt32),
+				nameof(InstructionHelper.AtomicSubInt64),
+				nameof(InstructionHelper.AtomicSubIntPtr)
+			),
+			LLVMAtomicRMWBinOp.LLVMAtomicRMWBinOpAnd => GetAtomicIntHelperName(
+				valueType,
+				nameof(InstructionHelper.AtomicAndInt32),
+				nameof(InstructionHelper.AtomicAndInt64),
+				nameof(InstructionHelper.AtomicAndIntPtr)
+			),
+			LLVMAtomicRMWBinOp.LLVMAtomicRMWBinOpOr => GetAtomicIntHelperName(
+				valueType,
+				nameof(InstructionHelper.AtomicOrInt32),
+				nameof(InstructionHelper.AtomicOrInt64),
+				nameof(InstructionHelper.AtomicOrIntPtr)
+			),
+			LLVMAtomicRMWBinOp.LLVMAtomicRMWBinOpXor => GetAtomicIntHelperName(
+				valueType,
+				nameof(InstructionHelper.AtomicXorInt32),
+				nameof(InstructionHelper.AtomicXorInt64),
+				nameof(InstructionHelper.AtomicXorIntPtr)
+			),
+			_ => null,
+		};
+
+		return methodName is null ? null : module.InstructionHelperType.GetMethodByName(methodName);
+	}
+
+	private static string? GetAtomicIntHelperName(
+		TypeSignature valueType,
+		string int32Method,
+		string int64Method,
+		string intPtrMethod
+	)
+	{
+		return valueType switch
+		{
+			CorLibTypeSignature
+			{
+				ElementType:
+					ElementType.Boolean
+					or ElementType.Char
+					or ElementType.I1
+					or ElementType.U1
+					or ElementType.I2
+					or ElementType.U2
+					or ElementType.I4
+					or ElementType.U4
+			} => int32Method,
+			CorLibTypeSignature { ElementType: ElementType.I8 or ElementType.U8 } => int64Method,
+			CorLibTypeSignature { ElementType: ElementType.I or ElementType.U }
+				or PointerTypeSignature => intPtrMethod,
+			_ => null,
+		};
+	}
+
+	private void WarnUnsupportedAtomicRmw(LLVMAtomicRMWBinOp operation, TypeSignature valueType)
+	{
+		string functionName = function?.Name ?? "<unknown>";
+		string key = $"{functionName}|{operation}|{valueType}";
+		if (atomicRmwWarnings.TryAdd(key, 0))
+		{
+			Console.WriteLine(
+				$"Warning: LLVM AtomicRMW operation {operation} with type {valueType} is not currently supported inside {functionName}."
+			);
+		}
 	}
 
 	/// <summary>

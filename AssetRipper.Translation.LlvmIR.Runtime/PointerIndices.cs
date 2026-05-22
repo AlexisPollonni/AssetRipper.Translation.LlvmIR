@@ -2,19 +2,30 @@
 
 namespace AssetRipper.Translation.LlvmIR.Runtime;
 
+[Obsolete("Windows targets are getting dropped in favor of POSIX linux-x64")]
 public static unsafe class PointerIndices
 {
 	private static readonly Dictionary<int, IntPtr> IndexToPointer = new();
 	private static readonly Dictionary<IntPtr, int> PointerToIndex = new();
+	private static readonly object SyncRoot = new();
+	private static int NextIndex = 1;
 
 	public static void* Register(void* ptr)
 	{
 		ThrowIfNull(ptr);
 
-		int index = IndexToPointer.Count + 1; // Start from 1
+		IntPtr address = (IntPtr)ptr;
+		lock (SyncRoot)
+		{
+			if (PointerToIndex.ContainsKey(address))
+			{
+				return ptr;
+			}
 
-		IndexToPointer.Add(index, (IntPtr)ptr);
-		PointerToIndex.Add((IntPtr)ptr, index);
+			int index = NextIndex++;
+			IndexToPointer[index] = address;
+			PointerToIndex[address] = index;
+		}
 
 		return ptr;
 
@@ -37,7 +48,10 @@ public static unsafe class PointerIndices
 			return 0;
 		}
 
-		return PointerToIndex[(IntPtr)ptr];
+		lock (SyncRoot)
+		{
+			return PointerToIndex.TryGetValue((IntPtr)ptr, out int index) ? index : 0;
+		}
 	}
 
 	public static void* GetPointer(int index)
@@ -47,6 +61,9 @@ public static unsafe class PointerIndices
 			return null;
 		}
 
-		return (void*)IndexToPointer[index];
+		lock (SyncRoot)
+		{
+			return IndexToPointer.TryGetValue(index, out IntPtr ptr) ? (void*)ptr : null;
+		}
 	}
 }

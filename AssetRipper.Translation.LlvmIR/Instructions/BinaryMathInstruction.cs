@@ -2,6 +2,7 @@
 using AsmResolver.DotNet;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
+using AsmResolver.PE.DotNet.Metadata.Tables;
 using AssetRipper.Translation.LlvmIR.Extensions;
 using AssetRipper.Translation.LlvmIR.Runtime;
 using LLVMSharp.Interop;
@@ -18,6 +19,23 @@ internal static class BinaryMathInstruction
 		TypeSignature resultTypeSignature = Module.GetTypeSignature(instruction);
 		bool noSignedWrap = instruction.HasNoSignedWrap;
 		bool noUnsignedWrap = instruction.HasNoUnsignedWrap;
+
+		if (resultTypeSignature is CorLibTypeSignature { ElementType: ElementType.Boolean })
+		{
+			string? helperName = opcode switch
+			{
+				LLVMOpcode.LLVMAnd => nameof(InstructionHelper.BooleanAnd),
+				LLVMOpcode.LLVMOr => nameof(InstructionHelper.BooleanOr),
+				LLVMOpcode.LLVMXor => nameof(InstructionHelper.BooleanXor),
+				_ => null,
+			};
+
+			if (helperName is not null)
+			{
+				MethodDefinition method = Module.InstructionHelperType.GetMethodByName(helperName);
+				return new CallInstruction(Module.ImportRuntimeMethod(method));
+			}
+		}
 
 		if (resultTypeSignature is CorLibTypeSignature)
 		{
