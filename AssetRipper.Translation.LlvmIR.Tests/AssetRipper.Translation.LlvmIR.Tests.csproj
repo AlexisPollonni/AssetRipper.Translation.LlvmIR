@@ -14,4 +14,8 @@
 		<ProjectReference Include="..\AssetRipper.Translation.LlvmIR\AssetRipper.Translation.LlvmIR.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\Generated\Llvm.LibC\Llvm.LibC.csproj" />
+	</ItemGroup>
+
 </Project>
