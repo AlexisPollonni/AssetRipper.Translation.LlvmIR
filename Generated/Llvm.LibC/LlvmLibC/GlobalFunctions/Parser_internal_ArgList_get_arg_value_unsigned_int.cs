@@ -10,11 +10,11 @@ internal static partial class Parser_internal_ArgList_get_arg_value_unsigned_int
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core6ParserINS_8internal7ArgListEE13get_arg_valueIjEENS_3cpp8optionalIT_EEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<unsigned int> __llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::get_arg_value<unsigned int>(unsigned long)")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::optional<unsigned int>")]
-	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_Parser* This, [MangledName("index")][NativeType("unsigned long")] long Index)
+	public unsafe static long Invoke([MangledName("this")] Printf_core_Parser* This, [MangledName("index")][NativeType("unsigned long")] long Index)
 	{
-		Llvm_libc_20_1_2_cpp_optional_g66fk4 llvm_libc_20_1_2_cpp_optional_g66fk = default(Llvm_libc_20_1_2_cpp_optional_g66fk4);
+		Cpp_optional_g66fk4 cpp_optional_g66fk = default(Cpp_optional_g66fk4);
 		sbyte b = 0;
-		Llvm_libc_20_1_2_printf_core_TypeDesc llvm_libc_20_1_2_printf_core_TypeDesc = default(Llvm_libc_20_1_2_printf_core_TypeDesc);
+		Printf_core_TypeDesc printf_core_TypeDesc = default(Printf_core_TypeDesc);
 		int num = 0;
 		if (Index != 0L && Index != This->Args_index)
 		{
@@ -23,8 +23,8 @@ internal static partial class Parser_internal_ArgList_get_arg_value_unsigned_int
 			int num2;
 			if ((b & 1) != 1)
 			{
-				Llvm_memset_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk, 0, 8L, isVolatile: false);
-				Optional_unsigned_int_Constructor_uavk26.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk);
+				Llvm_memset_p0_i64.Invoke(&cpp_optional_g66fk, 0, 8L, isVolatile: false);
+				Optional_unsigned_int_Constructor_uavk26.Invoke(&cpp_optional_g66fk);
 				num2 = 1;
 			}
 			else
@@ -44,16 +44,16 @@ internal static partial class Parser_internal_ArgList_get_arg_value_unsigned_int
 		}
 		unchecked
 		{
-			*(short*)(&llvm_libc_20_1_2_printf_core_TypeDesc) = Printf_core_type_desc_from_type_unsigned_int.Invoke();
-			Parser_internal_ArgList_set_type_desc.Invoke(This, Index, *(short*)(&llvm_libc_20_1_2_printf_core_TypeDesc));
+			*(short*)(&printf_core_TypeDesc) = Printf_core_type_desc_from_type_unsigned_int.Invoke();
+			Parser_internal_ArgList_set_type_desc.Invoke(This, Index, *(short*)(&printf_core_TypeDesc));
 			This->Args_index++;
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = Parser_internal_ArgList_get_next_arg_value_unsigned_int.Invoke(This);
-			Optional_unsigned_int_Constructor_sqgrhj.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk, &num);
+			Optional_unsigned_int_Constructor_sqgrhj.Invoke(&cpp_optional_g66fk, &num);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
 			goto IL_011b;
 		}
 		IL_011b:
-		return *unchecked((long*)(&llvm_libc_20_1_2_cpp_optional_g66fk.Storage));
+		return *unchecked((long*)(&cpp_optional_g66fk.Storage));
 	}
 }

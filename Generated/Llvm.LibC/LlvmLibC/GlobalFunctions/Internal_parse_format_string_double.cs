@@ -10,14 +10,14 @@ internal static partial class Internal_parse_format_string_double
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal19parse_format_stringIdEENS_11printf_core13FormatSectionEPKcT_")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::FormatSection __llvm_libc_20_1_2_::internal::parse_format_string<double>(char const*, double)")]
 	[return: NativeType("__llvm_libc_20_1_2_::printf_core::FormatSection")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_printf_core_FormatSection* Agg_result, [MangledName("format")][NativeType("char const*")] void* Format, [MangledName("fp")][NativeType("double")] double Fp)
+	public unsafe static void Invoke([MangledName("agg.result")] Printf_core_FormatSection* Agg_result, [MangledName("format")][NativeType("char const*")] void* Format, [MangledName("fp")][NativeType("double")] double Fp)
 	{
 		double num = 0.0;
 		long num2 = 0L;
 		double num3 = 0.0;
 		sbyte b = 0;
-		Llvm_libc_20_1_2_StrToNumResult_imtnam llvm_libc_20_1_2_StrToNumResult_imtnam = default(Llvm_libc_20_1_2_StrToNumResult_imtnam);
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		num = Fp;
 		Llvm_memset_p0_i64.Invoke(Agg_result, -86, 80L, isVolatile: false);
 		FormatSection_Constructor_fn7xv9.Invoke(Agg_result);
@@ -44,26 +44,26 @@ internal static partial class Internal_parse_format_string_double
 					Agg_result->Precision = 0;
 					if (Internal_isdigit_rkg48r.Invoke(((sbyte*)Format)[num2]))
 					{
-						Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_imtnam);
-						*(int*)(&llvm_libc_20_1_2_StrToNumResult_imtnam) = -1431655766;
-						((int*)(&llvm_libc_20_1_2_StrToNumResult_imtnam))[1] = -1431655766;
-						((long*)(&llvm_libc_20_1_2_StrToNumResult_imtnam))[1] = -6148914691236517206L;
+						Llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_imtnam);
+						*(int*)(&strToNumResult_imtnam) = -1431655766;
+						((int*)(&strToNumResult_imtnam))[1] = -1431655766;
+						((long*)(&strToNumResult_imtnam))[1] = -6148914691236517206L;
 						Struct_fiz2nb struct_fiz2nb = Internal_strtointeger_int.Invoke((byte*)Format + num2, 10, Integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
-						Llvm_libc_20_1_2_StrToNumResult_imtnam* num4 = &llvm_libc_20_1_2_StrToNumResult_imtnam;
+						StrToNumResult_imtnam* num4 = &strToNumResult_imtnam;
 						Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 						*(long*)num4 = struct_fiz2nb2.field_0;
-						byte* num5 = (byte*)(&llvm_libc_20_1_2_StrToNumResult_imtnam) + 8u;
+						byte* num5 = (byte*)(&strToNumResult_imtnam) + 8u;
 						Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 						*(long*)num5 = struct_fiz2nb3.field_1;
-						int value = llvm_libc_20_1_2_StrToNumResult_imtnam.Value;
+						int value = strToNumResult_imtnam.Value;
 						long parsed_len;
 						checked
 						{
 							Agg_result->Precision += value;
-							parsed_len = llvm_libc_20_1_2_StrToNumResult_imtnam.Parsed_len;
+							parsed_len = strToNumResult_imtnam.Parsed_len;
 						}
 						num2 += parsed_len;
-						Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_imtnam);
+						Llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_imtnam);
 					}
 				}
 				Agg_result->Conv_name = ((sbyte*)Format)[num2];
@@ -107,10 +107,10 @@ internal static partial class Internal_parse_format_string_double
 				{
 				}
 			}
-			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
-			String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, Format, num2);
-			Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Raw_string, &llvm_libc_20_1_2_cpp_string_view, 16L, isVolatile: false);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
+			Llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view);
+			String_view_Constructor.Invoke(&cpp_string_view, Format, num2);
+			Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Raw_string, &cpp_string_view, 16L, isVolatile: false);
+			Llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view);
 			Llvm_lifetime_end_p0.Invoke(1L, &b);
 			Llvm_lifetime_end_p0.Invoke(8L, &num3);
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);

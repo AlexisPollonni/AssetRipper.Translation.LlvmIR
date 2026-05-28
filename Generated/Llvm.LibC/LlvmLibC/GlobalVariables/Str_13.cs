@@ -29,6 +29,6 @@ internal static partial class Str_13
 	unsafe static Str_13()
 	{
 		Value = InlineArrayHelper.Create<InlineArray9_SByte, byte>("48828125\0"u8);
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

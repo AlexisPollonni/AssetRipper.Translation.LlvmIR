@@ -11,8 +11,8 @@ internal static partial class ArrayGenericSize_reset_bounds
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buffer = ArrayGenericSize_get_internal.Invoke(This, I);
-			((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buff_len = S;
+			((Scanf_core_ReadBuffer*)This)->Buffer = ArrayGenericSize_get_internal.Invoke(This, I);
+			((Scanf_core_ReadBuffer*)This)->Buff_len = S;
 		}
 	}
 }

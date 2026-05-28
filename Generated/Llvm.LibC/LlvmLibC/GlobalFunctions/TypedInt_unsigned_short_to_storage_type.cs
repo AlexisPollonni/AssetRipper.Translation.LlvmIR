@@ -9,6 +9,6 @@ internal static partial class TypedInt_unsigned_short_to_storage_type
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)0>::TypedInt<unsigned short>::to_storage_type() const")]
 	public unsafe static short Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_za9n4f*)This)->field_0;
+		return unchecked((Fputil_internal_FPStorage_za9n4f*)This)->field_0;
 	}
 }

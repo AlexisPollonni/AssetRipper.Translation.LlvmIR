@@ -11,8 +11,8 @@ internal static partial class Optional_cpp_string_view_Constructor
 	{
 		unchecked
 		{
-			OptionalStorage_cpp_string_view_false_OptionalStorage_cpp_string_view.Invoke(&((Llvm_libc_20_1_2_cpp_optional_bnt67x*)This)->Storage, Cpp_move_cpp_string_view.Invoke(T));
-			((Llvm_libc_20_1_2_cpp_optional_bnt67x*)This)->Storage.In_use = 1;
+			OptionalStorage_cpp_string_view_false_OptionalStorage_cpp_string_view.Invoke(&((Cpp_optional_bnt67x*)This)->Storage, Cpp_move_cpp_string_view.Invoke(T));
+			((Cpp_optional_bnt67x*)This)->Storage.In_use = 1;
 		}
 	}
 
@@ -20,6 +20,6 @@ internal static partial class Optional_cpp_string_view_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::string_view>::optional()")]
 	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		OptionalStorage_cpp_string_view_false_Constructor.Invoke(&unchecked((Llvm_libc_20_1_2_cpp_optional_bnt67x*)This)->Storage);
+		OptionalStorage_cpp_string_view_false_Constructor.Invoke(&unchecked((Cpp_optional_bnt67x*)This)->Storage);
 	}
 }

@@ -9,7 +9,7 @@ internal static partial class Multiword_countl_zero_unsigned_long_4ul
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword11countl_zeroImLm4EEEiRKNS_3cpp5arrayIT_XT0_EEE")]
 	[DemangledName("int __llvm_libc_20_1_2_::multiword::countl_zero<unsigned long, 4ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 4ul> const&)")]
 	[return: NativeType("int")]
-	public unsafe static int Invoke([MangledName("val")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 4ul> const&")] Llvm_libc_20_1_2_cpp_array_jgy3xh* Val)
+	public unsafe static int Invoke([MangledName("val")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 4ul> const&")] Cpp_array_jgy3xh* Val)
 	{
 		int num = 0;
 		long num2 = 0L;

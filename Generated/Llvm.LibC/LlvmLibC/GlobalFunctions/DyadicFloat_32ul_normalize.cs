@@ -13,15 +13,15 @@ internal static partial class DyadicFloat_32ul_normalize
 		int num = 0;
 		unchecked
 		{
-			if (!BigInt_32ul_false_unsigned_int_is_zero.Invoke(&((Llvm_libc_20_1_2_fputil_DyadicFloat_cs3nhs*)This)->Mantissa))
+			if (!BigInt_32ul_false_unsigned_int_is_zero.Invoke(&((Fputil_DyadicFloat_cs3nhs*)This)->Mantissa))
 			{
 				Llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = Cpp_countl_zero_BigInt_32ul_false_unsigned_int.Invoke(&((Llvm_libc_20_1_2_fputil_DyadicFloat_cs3nhs*)This)->Mantissa);
+				num = Cpp_countl_zero_BigInt_32ul_false_unsigned_int.Invoke(&((Fputil_DyadicFloat_cs3nhs*)This)->Mantissa);
 				checked
 				{
-					unchecked((Llvm_libc_20_1_2_fputil_DyadicFloat_cs3nhs*)This)->Exponent -= num;
+					unchecked((Fputil_DyadicFloat_cs3nhs*)This)->Exponent -= num;
 				}
-				BigInt_32ul_false_unsigned_int_Operator.Invoke(&((Llvm_libc_20_1_2_fputil_DyadicFloat_cs3nhs*)This)->Mantissa, num);
+				BigInt_32ul_false_unsigned_int_Operator.Invoke(&((Fputil_DyadicFloat_cs3nhs*)This)->Mantissa, num);
 				Llvm_lifetime_end_p0.Invoke(4L, &num);
 			}
 			return This;

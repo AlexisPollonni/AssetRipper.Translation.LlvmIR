@@ -11,7 +11,7 @@ internal static partial class Internal_hexadecimal_string_to_float_float
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal27hexadecimal_string_to_floatIfEENS_14StrToNumResultINS0_13ExpandedFloatIT_EEEEPKccNS0_14RoundDirectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<__llvm_libc_20_1_2_::internal::ExpandedFloat<float>> __llvm_libc_20_1_2_::internal::hexadecimal_string_to_float<float>(char const*, char, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 	[return: NativeType("__llvm_libc_20_1_2_::StrToNumResult<__llvm_libc_20_1_2_::internal::ExpandedFloat<float>>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_StrToNumResult_kkgahp* Agg_result, [MangledName("src")][NativeType("char const*")] void* Src, [NativeType("char")] sbyte DECIMAL_POINT, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_kkgahp* Agg_result, [MangledName("src")][NativeType("char const*")] void* Src, [NativeType("char")] sbyte DECIMAL_POINT, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
 	{
 		int num = 0;
 		sbyte b = 0;
@@ -21,15 +21,15 @@ internal static partial class Internal_hexadecimal_string_to_float_float
 		int num2 = 0;
 		int num3 = 0;
 		long num4 = 0L;
-		Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up = default(Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up);
+		Internal_ExpandedFloat_i7t5up internal_ExpandedFloat_i7t5up = default(Internal_ExpandedFloat_i7t5up);
 		int num5 = 0;
 		int num6 = 0;
 		sbyte b5 = 0;
-		Llvm_libc_20_1_2_StrToNumResult_imtnam llvm_libc_20_1_2_StrToNumResult_imtnam = default(Llvm_libc_20_1_2_StrToNumResult_imtnam);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		int num7 = 0;
 		long num8 = 0L;
-		Llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er = default(Llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er);
-		Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up2 = default(Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up);
+		Internal_FloatConvertReturn_a8f9er internal_FloatConvertReturn_a8f9er = default(Internal_FloatConvertReturn_a8f9er);
+		Internal_ExpandedFloat_i7t5up internal_ExpandedFloat_i7t5up2 = default(Internal_ExpandedFloat_i7t5up);
 		Struct_3driym struct_3driym = default(Struct_3driym);
 		sbyte b6 = DECIMAL_POINT;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
@@ -59,9 +59,9 @@ internal static partial class Internal_hexadecimal_string_to_float_float
 			ptr[2] = -86;
 			ptr[3] = -86;
 			((long*)Agg_result)[2] = -6148914691236517206L;
-			llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up.Mantissa = 0;
-			llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up.Exponent = 0;
-			StrToNumResult_internal_ExpandedFloat_float_Constructor.Invoke(Agg_result, *(long*)(&llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up));
+			internal_ExpandedFloat_i7t5up.Mantissa = 0;
+			internal_ExpandedFloat_i7t5up.Exponent = 0;
+			StrToNumResult_internal_ExpandedFloat_float_Constructor.Invoke(Agg_result, *(long*)(&internal_ExpandedFloat_i7t5up));
 			Llvm_lifetime_start_p0.Invoke(4L, &num5);
 			num5 = 268435455;
 			while (true)
@@ -133,24 +133,24 @@ internal static partial class Internal_hexadecimal_string_to_float_float
 					if (Internal_isdigit_u2vjuj.Invoke(((sbyte*)Src)[num4 + 1L + (((b5 & 1) == 1) ? 1L : 0L)]))
 					{
 						num4++;
-						Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_imtnam);
-						*(int*)(&llvm_libc_20_1_2_StrToNumResult_imtnam) = -1431655766;
-						((int*)(&llvm_libc_20_1_2_StrToNumResult_imtnam))[1] = -1431655766;
-						((long*)(&llvm_libc_20_1_2_StrToNumResult_imtnam))[1] = -6148914691236517206L;
+						Llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_imtnam);
+						*(int*)(&strToNumResult_imtnam) = -1431655766;
+						((int*)(&strToNumResult_imtnam))[1] = -1431655766;
+						((long*)(&strToNumResult_imtnam))[1] = -6148914691236517206L;
 						Struct_fiz2nb struct_fiz2nb = Internal_strtointeger_int.Invoke((byte*)Src + num4, 10, Integer_impl_unsigned_long_0ul_18446744073709551615ul_max.Invoke());
-						Llvm_libc_20_1_2_StrToNumResult_imtnam* num10 = &llvm_libc_20_1_2_StrToNumResult_imtnam;
+						StrToNumResult_imtnam* num10 = &strToNumResult_imtnam;
 						Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 						*(long*)num10 = struct_fiz2nb2.field_0;
-						byte* num11 = (byte*)(&llvm_libc_20_1_2_StrToNumResult_imtnam) + 8u;
+						byte* num11 = (byte*)(&strToNumResult_imtnam) + 8u;
 						Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 						*(long*)num11 = struct_fiz2nb3.field_1;
-						if (StrToNumResult_int_has_error.Invoke(&llvm_libc_20_1_2_StrToNumResult_imtnam))
+						if (StrToNumResult_int_has_error.Invoke(&strToNumResult_imtnam))
 						{
-							Agg_result->Error = llvm_libc_20_1_2_StrToNumResult_imtnam.Error;
+							Agg_result->Error = strToNumResult_imtnam.Error;
 						}
 						Llvm_lifetime_start_p0.Invoke(4L, &num7);
-						num7 = llvm_libc_20_1_2_StrToNumResult_imtnam.Value;
-						long parsed_len = llvm_libc_20_1_2_StrToNumResult_imtnam.Parsed_len;
+						num7 = strToNumResult_imtnam.Value;
+						long parsed_len = strToNumResult_imtnam.Parsed_len;
 						num4 += parsed_len;
 						Llvm_lifetime_start_p0.Invoke(8L, &num8);
 						checked
@@ -160,7 +160,7 @@ internal static partial class Internal_hexadecimal_string_to_float_float
 						num3 = (int)((num8 <= 255L) ? ((num8 >= -255L) ? num8 : (-255)) : 255);
 						Llvm_lifetime_end_p0.Invoke(8L, &num8);
 						Llvm_lifetime_end_p0.Invoke(4L, &num7);
-						Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_imtnam);
+						Llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_imtnam);
 					}
 					Llvm_lifetime_end_p0.Invoke(1L, &b5);
 				}
@@ -172,18 +172,18 @@ internal static partial class Internal_hexadecimal_string_to_float_float
 				}
 				else
 				{
-					Llvm_lifetime_start_p0.Invoke(12L, &llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er);
-					sbyte* ptr2 = (sbyte*)(&llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er);
+					Llvm_lifetime_start_p0.Invoke(12L, &internal_FloatConvertReturn_a8f9er);
+					sbyte* ptr2 = (sbyte*)(&internal_FloatConvertReturn_a8f9er);
 					*(int*)ptr2 = -1431655766;
 					((int*)ptr2)[1] = -1431655766;
-					((int*)(&llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er))[2] = -1431655766;
-					llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up2.Mantissa = num2;
-					llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up2.Exponent = num3;
-					struct_3driym = Internal_binary_exp_to_float_float.Invoke(Truncated: (b2 & 1) == 1, Init_num: *(long*)(&llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up2), Round: Round);
-					Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er, &struct_3driym, 12L, isVolatile: false);
-					Agg_result->Error = llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er.Error;
-					Llvm_memcpy_p0_p0_i64.Invoke(source: &llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er.Num, destination: &Agg_result->Value, length: 8L, isVolatile: false);
-					Llvm_lifetime_end_p0.Invoke(12L, &llvm_libc_20_1_2_internal_FloatConvertReturn_a8f9er);
+					((int*)(&internal_FloatConvertReturn_a8f9er))[2] = -1431655766;
+					internal_ExpandedFloat_i7t5up2.Mantissa = num2;
+					internal_ExpandedFloat_i7t5up2.Exponent = num3;
+					struct_3driym = Internal_binary_exp_to_float_float.Invoke(Truncated: (b2 & 1) == 1, Init_num: *(long*)(&internal_ExpandedFloat_i7t5up2), Round: Round);
+					Llvm_memcpy_p0_p0_i64.Invoke(&internal_FloatConvertReturn_a8f9er, &struct_3driym, 12L, isVolatile: false);
+					Agg_result->Error = internal_FloatConvertReturn_a8f9er.Error;
+					Llvm_memcpy_p0_p0_i64.Invoke(source: &internal_FloatConvertReturn_a8f9er.Num, destination: &Agg_result->Value, length: 8L, isVolatile: false);
+					Llvm_lifetime_end_p0.Invoke(12L, &internal_FloatConvertReturn_a8f9er);
 				}
 			}
 			Llvm_lifetime_end_p0.Invoke(4L, &num5);

@@ -11,29 +11,29 @@ internal static partial class Strtod
 	[DemangledName("strtod")]
 	public unsafe static double Invoke([MangledName("str")] void* Str, [MangledName("str_end")] void* Str_end)
 	{
-		Llvm_libc_20_1_2_StrToNumResult_k826n6 llvm_libc_20_1_2_StrToNumResult_k826n = default(Llvm_libc_20_1_2_StrToNumResult_k826n6);
-		Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_k826n);
+		StrToNumResult_k826n6 strToNumResult_k826n = default(StrToNumResult_k826n6);
+		Llvm_lifetime_start_p0.Invoke(24L, &strToNumResult_k826n);
 		unchecked
 		{
-			*(double*)(&llvm_libc_20_1_2_StrToNumResult_k826n) = double.NaN;
-			((int*)(&llvm_libc_20_1_2_StrToNumResult_k826n))[2] = -1431655766;
-			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_StrToNumResult_k826n) + 12;
+			*(double*)(&strToNumResult_k826n) = double.NaN;
+			((int*)(&strToNumResult_k826n))[2] = -1431655766;
+			sbyte* ptr = (sbyte*)(&strToNumResult_k826n) + 12;
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
 			ptr[3] = -86;
-			((long*)(&llvm_libc_20_1_2_StrToNumResult_k826n))[2] = -6148914691236517206L;
-			Internal_strtofloatingpoint_double.Invoke(&llvm_libc_20_1_2_StrToNumResult_k826n, Str);
-			if (StrToNumResult_double_has_error.Invoke(&llvm_libc_20_1_2_StrToNumResult_k826n))
+			((long*)(&strToNumResult_k826n))[2] = -6148914691236517206L;
+			Internal_strtofloatingpoint_double.Invoke(&strToNumResult_k826n, Str);
+			if (StrToNumResult_double_has_error.Invoke(&strToNumResult_k826n))
 			{
-				Errno_Assignment.Invoke(A: llvm_libc_20_1_2_StrToNumResult_k826n.Error, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: strToNumResult_k826n.Error, This: Libc_errno.Pointer);
 			}
 			if (Str_end != null)
 			{
-				*(byte**)Str_end = (byte*)Str + llvm_libc_20_1_2_StrToNumResult_k826n.Parsed_len;
+				*(byte**)Str_end = (byte*)Str + strToNumResult_k826n.Parsed_len;
 			}
-			double value = llvm_libc_20_1_2_StrToNumResult_k826n.Value;
-			Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_k826n);
+			double value = strToNumResult_k826n.Value;
+			Llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_k826n);
 			return value;
 		}
 	}

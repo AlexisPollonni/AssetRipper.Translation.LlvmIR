@@ -10,6 +10,6 @@ internal static partial class Optional_unsigned_int_Constructor_uavk26
 	[CleanName("Optional_unsigned_int_Constructor")]
 	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		OptionalStorage_unsigned_int_false_OptionalStorage.Invoke(&unchecked((Llvm_libc_20_1_2_cpp_optional_g66fk4*)This)->Storage);
+		OptionalStorage_unsigned_int_false_OptionalStorage.Invoke(&unchecked((Cpp_optional_g66fk4*)This)->Storage);
 	}
 }

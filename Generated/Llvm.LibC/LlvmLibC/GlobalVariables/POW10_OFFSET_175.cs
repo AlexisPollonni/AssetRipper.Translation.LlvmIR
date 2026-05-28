@@ -38,6 +38,6 @@ internal static partial class POW10_OFFSET_175
 			769, 798, 828, 858, 889, 920, 952, 984, 1017, 1050,
 			1084, 1118, 1153, 1188
 		});
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

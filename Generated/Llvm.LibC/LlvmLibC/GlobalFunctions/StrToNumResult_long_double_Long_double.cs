@@ -9,6 +9,6 @@ internal static partial class StrToNumResult_long_double_Long_double
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long double>::operator long double()")]
 	public unsafe static double Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_StrToNumResult_uytq62*)This)->Value;
+		return unchecked((StrToNumResult_uytq62*)This)->Value;
 	}
 }

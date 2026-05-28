@@ -22,7 +22,7 @@ internal static partial class BigInt_128ul_false_unsigned_long_extend
 			for (num2 = Index; (ulong)num2 < 2uL; num2++)
 			{
 				long num3 = num;
-				*(long*)Array_unsigned_long_2ul_Index_6dk93t.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, num2) = num3;
+				*(long*)Array_unsigned_long_2ul_Index_6dk93t.Invoke(&((BigInt_qdkjbh*)This)->Val, num2) = num3;
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);

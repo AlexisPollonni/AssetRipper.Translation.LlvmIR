@@ -14,7 +14,7 @@ internal static partial class Internal_eisel_lemire_long_double
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal12eisel_lemireIeEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>> __llvm_libc_20_1_2_::internal::eisel_lemire<long double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_cpp_optional_q5jaj8* Agg_result, [MangledName("init_num")][NativeType("__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>")] void* Init_num, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
+	public unsafe static void Invoke([MangledName("agg.result")] Cpp_optional_q5jaj8* Agg_result, [MangledName("init_num")][NativeType("__llvm_libc_20_1_2_::internal::ExpandedFloat<long double>")] void* Init_num, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
 	{
 		Int128 @int = default(Int128);
 		int num = 0;
@@ -32,13 +32,13 @@ internal static partial class Internal_eisel_lemire_long_double
 		Int128 int5 = default(Int128);
 		int num4 = 0;
 		Int128 int6 = default(Int128);
-		Llvm_libc_20_1_2_internal_ExpandedFloat_9jummq llvm_libc_20_1_2_internal_ExpandedFloat_9jummq = default(Llvm_libc_20_1_2_internal_ExpandedFloat_9jummq);
+		Internal_ExpandedFloat_9jummq internal_ExpandedFloat_9jummq = default(Internal_ExpandedFloat_9jummq);
 		Llvm_lifetime_start_p0.Invoke(16L, &@int);
 		unchecked
 		{
-			@int = ((Llvm_libc_20_1_2_internal_ExpandedFloat_9jummq*)Init_num)->Mantissa;
+			@int = ((Internal_ExpandedFloat_9jummq*)Init_num)->Mantissa;
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = ((Llvm_libc_20_1_2_internal_ExpandedFloat_9jummq*)Init_num)->Exponent;
+			num = ((Internal_ExpandedFloat_9jummq*)Init_num)->Exponent;
 			if (num < -348 || num > 347)
 			{
 				Optional_internal_ExpandedFloat_long_double_Constructor_bp9437.Invoke(Agg_result);
@@ -52,7 +52,7 @@ internal static partial class Internal_eisel_lemire_long_double
 			num3 = checked(Internal_exp10_to_exp2.Invoke(num) + 128 + 16383) - num2;
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr);
 			long num5 = checked(num - -348);
-			ptr = (byte*)Llvm_libc_20_1_2_internal_DETAILED_POWERS_OF_TEN.Pointer + (nint)num5 * sizeof(InlineArray2_Int64);
+			ptr = (byte*)Internal_DETAILED_POWERS_OF_TEN.Pointer + (nint)num5 * sizeof(InlineArray2_Int64);
 			Llvm_lifetime_start_p0.Invoke(16L, &x);
 			x = NumericHelper.Multiply((Int128)(UInt128)(ulong)Internal_high64.Invoke(&@int), (Int128)(UInt128)((ulong*)ptr)[1]);
 			Llvm_lifetime_start_p0.Invoke(16L, &int3);
@@ -106,12 +106,12 @@ internal static partial class Internal_eisel_lemire_long_double
 		}
 		else
 		{
-			Llvm_lifetime_start_p0.Invoke(32L, &llvm_libc_20_1_2_internal_ExpandedFloat_9jummq);
+			Llvm_lifetime_start_p0.Invoke(32L, &internal_ExpandedFloat_9jummq);
 			unchecked
 			{
-				*(Int128*)(&llvm_libc_20_1_2_internal_ExpandedFloat_9jummq) = -6148914691236517206L;
-				((int*)(&llvm_libc_20_1_2_internal_ExpandedFloat_9jummq))[4] = -1431655766;
-				sbyte* ptr2 = (sbyte*)(&llvm_libc_20_1_2_internal_ExpandedFloat_9jummq) + 20;
+				*(Int128*)(&internal_ExpandedFloat_9jummq) = -6148914691236517206L;
+				((int*)(&internal_ExpandedFloat_9jummq))[4] = -1431655766;
+				sbyte* ptr2 = (sbyte*)(&internal_ExpandedFloat_9jummq) + 20;
 				*ptr2 = -86;
 				ptr2[1] = -86;
 				ptr2[2] = -86;
@@ -124,10 +124,10 @@ internal static partial class Internal_eisel_lemire_long_double
 				ptr2[9] = -86;
 				ptr2[10] = -86;
 				ptr2[11] = -86;
-				llvm_libc_20_1_2_internal_ExpandedFloat_9jummq.Mantissa = int6;
-				llvm_libc_20_1_2_internal_ExpandedFloat_9jummq.Exponent = num3;
-				Optional_internal_ExpandedFloat_long_double_Constructor_crcz7y.Invoke(Agg_result, &llvm_libc_20_1_2_internal_ExpandedFloat_9jummq);
-				Llvm_lifetime_end_p0.Invoke(32L, &llvm_libc_20_1_2_internal_ExpandedFloat_9jummq);
+				internal_ExpandedFloat_9jummq.Mantissa = int6;
+				internal_ExpandedFloat_9jummq.Exponent = num3;
+				Optional_internal_ExpandedFloat_long_double_Constructor_crcz7y.Invoke(Agg_result, &internal_ExpandedFloat_9jummq);
+				Llvm_lifetime_end_p0.Invoke(32L, &internal_ExpandedFloat_9jummq);
 			}
 		}
 		goto IL_0662;

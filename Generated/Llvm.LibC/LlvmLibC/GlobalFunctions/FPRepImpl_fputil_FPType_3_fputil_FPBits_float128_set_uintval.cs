@@ -16,7 +16,7 @@ internal static partial class FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_s
 		{
 			*(long*)(&x) = Value;
 			((long*)(&x))[1] = Value_coerce1;
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = NumericHelper.BitwiseAnd(x, -1L);
+			((Fputil_internal_FPStorage_w3h7gw*)This)->field_0 = NumericHelper.BitwiseAnd(x, -1L);
 		}
 	}
 }

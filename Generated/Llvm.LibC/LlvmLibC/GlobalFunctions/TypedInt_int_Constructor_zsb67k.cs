@@ -10,6 +10,6 @@ internal static partial class TypedInt_int_Constructor_zsb67k
 	[CleanName("TypedInt_int_Constructor")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("value")][NativeType("int")] int Value)
 	{
-		unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 = Value;
+		unchecked((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 = Value;
 	}
 }

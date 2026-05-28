@@ -9,7 +9,7 @@ internal static partial class Memset_explicit
 	[DemangledName("memset_explicit")]
 	public unsafe static void* Invoke([MangledName("dst")] void* Dst, [MangledName("value")] int Value, [MangledName("count")] long Count)
 	{
-		Llvm_libc_20_1_2_inline_memset_rivytf.Invoke(Dst, unchecked((sbyte)Value), Count);
+		Inline_memset_rivytf.Invoke(Dst, unchecked((sbyte)Value), Count);
 		IntrinsicFunctions.AsmMemoryBarrierPtr(Dst);
 		return Dst;
 	}

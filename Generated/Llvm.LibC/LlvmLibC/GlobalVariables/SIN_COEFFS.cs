@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class SIN_COEFFS
 {
 	[FixedAddressValueType]
-	private static InlineArray7_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 __value;
+	private static InlineArray7_Fputil_DyadicFloat_kt2kd4 __value;
 
-	public unsafe static InlineArray7_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4* Pointer => unchecked((InlineArray7_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4*)Unsafe.AsPointer(ref __value));
+	public unsafe static InlineArray7_Fputil_DyadicFloat_kt2kd4* Pointer => unchecked((InlineArray7_Fputil_DyadicFloat_kt2kd4*)Unsafe.AsPointer(ref __value));
 
-	public static InlineArray7_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 Value
+	public static InlineArray7_Fputil_DyadicFloat_kt2kd4 Value
 	{
 		get
 		{
@@ -29,102 +29,102 @@ internal static partial class SIN_COEFFS
 
 	unsafe static SIN_COEFFS()
 	{
-		Value = new InlineArrayBuilder<InlineArray7_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4>
+		Value = new InlineArrayBuilder<InlineArray7_Fputil_DyadicFloat_kt2kd4, Fputil_DyadicFloat_kt2kd4>
 		{
-			new Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4
+			new Fputil_DyadicFloat_kt2kd4
 			{
 				Sign = default(Anon_izyfb7),
 				Exponent = -127,
-				Mantissa = new Llvm_libc_20_1_2_BigInt_qdkjbh
+				Mantissa = new BigInt_qdkjbh
 				{
-					Val = new Llvm_libc_20_1_2_cpp_array_i3937k
+					Val = new Cpp_array_i3937k
 					{
 						Data = InlineArrayHelper.Create<InlineArray2_Int64, long>(new long[2] { 0L, -9223372036854775808L })
 					}
 				}
 			},
-			new Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4
+			new Fputil_DyadicFloat_kt2kd4
 			{
 				Sign = new Anon_izyfb7
 				{
 					Val = 1
 				},
 				Exponent = -130,
-				Mantissa = new Llvm_libc_20_1_2_BigInt_qdkjbh
+				Mantissa = new BigInt_qdkjbh
 				{
-					Val = new Llvm_libc_20_1_2_cpp_array_i3937k
+					Val = new Cpp_array_i3937k
 					{
 						Data = InlineArrayHelper.Create<InlineArray2_Int64, long>(new long[2] { -6148914691236517205L, -6148914691236517206L })
 					}
 				}
 			},
-			new Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4
+			new Fputil_DyadicFloat_kt2kd4
 			{
 				Sign = default(Anon_izyfb7),
 				Exponent = -134,
-				Mantissa = new Llvm_libc_20_1_2_BigInt_qdkjbh
+				Mantissa = new BigInt_qdkjbh
 				{
-					Val = new Llvm_libc_20_1_2_cpp_array_i3937k
+					Val = new Cpp_array_i3937k
 					{
 						Data = InlineArrayHelper.Create<InlineArray2_Int64, long>(new long[2] { -8608480567731124087L, -8608480567731124088L })
 					}
 				}
 			},
-			new Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4
+			new Fputil_DyadicFloat_kt2kd4
 			{
 				Sign = new Anon_izyfb7
 				{
 					Val = 1
 				},
 				Exponent = -140,
-				Mantissa = new Llvm_libc_20_1_2_BigInt_qdkjbh
+				Mantissa = new BigInt_qdkjbh
 				{
-					Val = new Llvm_libc_20_1_2_cpp_array_i3937k
+					Val = new Cpp_array_i3937k
 					{
 						Data = InlineArrayHelper.Create<InlineArray2_Int64, long>(new long[2] { 58561092297490640L, -3455104445551947763L })
 					}
 				}
 			},
-			new Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4
+			new Fputil_DyadicFloat_kt2kd4
 			{
 				Sign = default(Anon_izyfb7),
 				Exponent = -146,
-				Mantissa = new Llvm_libc_20_1_2_BigInt_qdkjbh
+				Mantissa = new BigInt_qdkjbh
 				{
-					Val = new Llvm_libc_20_1_2_cpp_array_i3937k
+					Val = new Cpp_array_i3937k
 					{
 						Data = InlineArrayHelper.Create<InlineArray2_Int64, long>(new long[2] { 6200968995500953330L, -5120842182013903747L })
 					}
 				}
 			},
-			new Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4
+			new Fputil_DyadicFloat_kt2kd4
 			{
 				Sign = new Anon_izyfb7
 				{
 					Val = 1
 				},
 				Exponent = -153,
-				Mantissa = new Llvm_libc_20_1_2_BigInt_qdkjbh
+				Mantissa = new BigInt_qdkjbh
 				{
-					Val = new Llvm_libc_20_1_2_cpp_array_i3937k
+					Val = new Cpp_array_i3937k
 					{
 						Data = InlineArrayHelper.Create<InlineArray2_Int64, long>(new long[2] { 4197114891794091792L, -2940240054281888641L })
 					}
 				}
 			},
-			new Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4
+			new Fputil_DyadicFloat_kt2kd4
 			{
 				Sign = default(Anon_izyfb7),
 				Exponent = -160,
-				Mantissa = new Llvm_libc_20_1_2_BigInt_qdkjbh
+				Mantissa = new BigInt_qdkjbh
 				{
-					Val = new Llvm_libc_20_1_2_cpp_array_i3937k
+					Val = new Cpp_array_i3937k
 					{
 						Data = InlineArrayHelper.Create<InlineArray2_Int64, long>(new long[2] { 2024806264520058526L, -5723458724435571739L })
 					}
 				}
 			}
 		};
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

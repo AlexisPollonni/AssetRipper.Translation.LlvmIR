@@ -9,7 +9,7 @@ internal static partial class FloatToString_long_double_0_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIeLi0EEC2Ee")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<long double, 0>::FloatToString(long double)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_FloatToString_8m29tk* This, [MangledName("init_float")][NativeType("long double")] double Init_float)
+	public unsafe static void Invoke([MangledName("this")] FloatToString_8m29tk* This, [MangledName("init_float")][NativeType("long double")] double Init_float)
 	{
 		Int128 mantissa = default(Int128);
 		FPBits_long_double_Constructor.Invoke(&This->Float_bits, Init_float);

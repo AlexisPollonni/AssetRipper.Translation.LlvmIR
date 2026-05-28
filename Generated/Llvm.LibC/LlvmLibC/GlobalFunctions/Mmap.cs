@@ -1,4 +1,3 @@
-using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Intrinsics.Implemented;
@@ -7,7 +6,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class Mmap
 {
-	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<void*, long, int, int, int, long, void*>)(&Invoke));
+	public unsafe static readonly void* __pointer = (delegate*<void*, long, int, int, int, long, void*>)(&Invoke);
 
 	[MangledName("mmap")]
 	[DemangledName("mmap")]
@@ -23,11 +22,11 @@ internal static partial class Mmap
 		Llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
-			num = Llvm_libc_20_1_2_syscall_impl.Invoke(number, (long)Addr, Size, Prot, Flags, Fd, arg);
+			num = Syscall_impl.Invoke(number, (long)Addr, Size, Prot, Flags, Fd, arg);
 			void* result;
 			if (num < 0L && num > -4096L)
 			{
-				Errno_Assignment.Invoke(A: (int)checked(-num), This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: (int)checked(-num), This: Libc_errno.Pointer);
 				result = (void*)ulong.MaxValue;
 			}
 			else

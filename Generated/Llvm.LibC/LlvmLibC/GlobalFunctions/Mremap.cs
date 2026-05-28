@@ -51,11 +51,11 @@ internal static partial class Mremap
 				ts_4jbuhx = *(void**)num3;
 				Llvm_lifetime_end_p0.Invoke(24L, &inlineArray1_Va_list_tag);
 			}
-			num = Llvm_libc_20_1_2_syscall_impl_long_void_unsigned_long_unsigned_long_int_void.Invoke(25L, Old_address, Old_size, New_size, Flags, ts_4jbuhx);
+			num = Syscall_impl_long_void_unsigned_long_unsigned_long_int_void.Invoke(25L, Old_address, Old_size, New_size, Flags, ts_4jbuhx);
 			void* result;
 			if (num < 0L && num > -4096L)
 			{
-				Errno_Assignment.Invoke(A: (int)checked(-num), This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: (int)checked(-num), This: Libc_errno.Pointer);
 				result = (void*)ulong.MaxValue;
 			}
 			else

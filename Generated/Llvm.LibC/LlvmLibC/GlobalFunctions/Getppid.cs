@@ -8,6 +8,6 @@ internal static partial class Getppid
 	[DemangledName("getppid")]
 	public static int Invoke()
 	{
-		return Llvm_libc_20_1_2_syscall_impl_int.Invoke(110L);
+		return Syscall_impl_int.Invoke(110L);
 	}
 }

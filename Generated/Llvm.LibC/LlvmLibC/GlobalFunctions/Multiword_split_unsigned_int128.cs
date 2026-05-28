@@ -12,15 +12,15 @@ internal static partial class Multiword_split_unsigned_int128
 	[return: NativeType("auto")]
 	public unsafe static Struct_fiz2nb Invoke([MangledName("value.coerce0")] long Value, [MangledName("value.coerce1")][NativeType("unsigned __int128")] long Value_coerce1)
 	{
-		Llvm_libc_20_1_2_BigInt_qdkjbh llvm_libc_20_1_2_BigInt_qdkjbh = default(Llvm_libc_20_1_2_BigInt_qdkjbh);
+		BigInt_qdkjbh bigInt_qdkjbh = default(BigInt_qdkjbh);
 		Int128 @int = default(Int128);
 		unchecked
 		{
 			*(long*)(&@int) = Value;
 			((long*)(&@int))[1] = Value_coerce1;
 			Int128 int2 = @int;
-			DoubleWide_unsigned_long_Constructor.Invoke(&llvm_libc_20_1_2_BigInt_qdkjbh, (long)int2, (long)NumericHelper.ShiftRightLogical(int2, 64L));
-			return *(Struct_fiz2nb*)(&llvm_libc_20_1_2_BigInt_qdkjbh.Val.Data);
+			DoubleWide_unsigned_long_Constructor.Invoke(&bigInt_qdkjbh, (long)int2, (long)NumericHelper.ShiftRightLogical(int2, 64L));
+			return *(Struct_fiz2nb*)(&bigInt_qdkjbh.Val.Data);
 		}
 	}
 }

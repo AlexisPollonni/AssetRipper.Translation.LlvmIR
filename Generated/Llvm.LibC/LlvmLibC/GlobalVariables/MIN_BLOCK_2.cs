@@ -37,6 +37,6 @@ internal static partial class MIN_BLOCK_2
 			24, 25, 26, 26, 27, 27, 28, 28, 29, 29,
 			30, 30, 31, 31, 32, 32, 33, 34, 0
 		});
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

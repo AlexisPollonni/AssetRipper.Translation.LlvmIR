@@ -7,7 +7,7 @@ internal static partial class StringBufferWriterImpl_false_push
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_7details22StringBufferWriterImplILb0EE4pushEc")]
 	[DemangledName("__llvm_libc_20_1_2_::details::StringBufferWriterImpl<false>::push(char)")]
-	public unsafe static Llvm_libc_20_1_2_details_StringBufferWriterImpl* Invoke([MangledName("this")] Llvm_libc_20_1_2_details_StringBufferWriterImpl* This, [MangledName("c")][NativeType("char")] sbyte C)
+	public unsafe static Details_StringBufferWriterImpl* Invoke([MangledName("this")] Details_StringBufferWriterImpl* This, [MangledName("c")][NativeType("char")] sbyte C)
 	{
 		sbyte b = C;
 		unchecked

@@ -10,8 +10,8 @@ internal static partial class Internal_exit
 	{
 		while (true)
 		{
-			Llvm_libc_20_1_2_syscall_impl_long_int.Invoke(231L, Status);
-			Llvm_libc_20_1_2_syscall_impl_long_int.Invoke(60L, Status);
+			Syscall_impl_long_int.Invoke(231L, Status);
+			Syscall_impl_long_int.Invoke(60L, Status);
 		}
 	}
 }

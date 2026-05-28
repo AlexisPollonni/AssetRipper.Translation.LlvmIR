@@ -28,7 +28,7 @@ internal static partial class AuxvMMapGuard_submit_to_global
 			}
 			else
 			{
-				Llvm_libc_20_1_2_auxv.Value = ((Anon_5uk363*)This)->field_0;
+				Auxv.Value = ((Anon_5uk363*)This)->field_0;
 				((Anon_5uk363*)This)->field_0 = (void*)ulong.MaxValue;
 				num3 = 0;
 			}

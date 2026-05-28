@@ -13,7 +13,7 @@ internal static partial class TypedInt_unsigned_int128_to_storage_type_b7v9xe
 	{
 		unchecked
 		{
-			Int128 field_ = ((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0;
+			Int128 field_ = ((Fputil_internal_FPStorage_w3h7gw*)This)->field_0;
 			return *(Struct_fiz2nb*)(&field_);
 		}
 	}

@@ -20,14 +20,14 @@ internal static partial class BigInt_128ul_false_unsigned_long_increment
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>::increment()")]
 	public unsafe static void Invoke([MangledName("this")] Anon_izyfb7* This)
 	{
-		Llvm_libc_20_1_2_cpp_array_rpgxvv llvm_libc_20_1_2_cpp_array_rpgxvv = default(Llvm_libc_20_1_2_cpp_array_rpgxvv);
+		Cpp_array_rpgxvv cpp_array_rpgxvv = default(Cpp_array_rpgxvv);
 		unchecked
 		{
-			Llvm_libc_20_1_2_cpp_array_i3937k* val = &((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val;
-			Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_array_rpgxvv);
-			*(long*)(&llvm_libc_20_1_2_cpp_array_rpgxvv.Data) = 1L;
-			Multiword_add_with_carry_unsigned_long_2ul_1ul.Invoke(val, &llvm_libc_20_1_2_cpp_array_rpgxvv);
-			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_array_rpgxvv);
+			Cpp_array_i3937k* val = &((BigInt_qdkjbh*)This)->Val;
+			Llvm_lifetime_start_p0.Invoke(8L, &cpp_array_rpgxvv);
+			*(long*)(&cpp_array_rpgxvv.Data) = 1L;
+			Multiword_add_with_carry_unsigned_long_2ul_1ul.Invoke(val, &cpp_array_rpgxvv);
+			Llvm_lifetime_end_p0.Invoke(8L, &cpp_array_rpgxvv);
 		}
 	}
 }

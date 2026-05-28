@@ -8,7 +8,7 @@ internal static partial class ArgList_next_var_char
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal7ArgList8next_varIPcEET_v")]
 	[DemangledName("char* __llvm_libc_20_1_2_::internal::ArgList::next_var<char*>()")]
 	[return: NativeType("char*")]
-	public unsafe static void* Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_ArgList* This)
+	public unsafe static void* Invoke([MangledName("this")] Internal_ArgList* This)
 	{
 		unchecked
 		{

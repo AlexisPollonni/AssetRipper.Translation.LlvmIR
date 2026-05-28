@@ -13,28 +13,28 @@ internal static partial class Waitpid
 	[DemangledName("waitpid")]
 	public unsafe static int Invoke([MangledName("pid")] int Pid, [MangledName("wait_status")] void* Wait_status, [MangledName("options")] int Options)
 	{
-		Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage llvm_libc_20_1_2_cpp_optional_int_OptionalStorage = default(Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage);
-		Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_optional_int_OptionalStorage);
+		Cpp_optional_int_OptionalStorage cpp_optional_int_OptionalStorage = default(Cpp_optional_int_OptionalStorage);
+		Llvm_lifetime_start_p0.Invoke(8L, &cpp_optional_int_OptionalStorage);
 		unchecked
 		{
-			*(int*)(&llvm_libc_20_1_2_cpp_optional_int_OptionalStorage) = -1431655766;
-			((sbyte*)(&llvm_libc_20_1_2_cpp_optional_int_OptionalStorage))[4] = -86;
-			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_cpp_optional_int_OptionalStorage) + 5;
+			*(int*)(&cpp_optional_int_OptionalStorage) = -1431655766;
+			((sbyte*)(&cpp_optional_int_OptionalStorage))[4] = -86;
+			sbyte* ptr = (sbyte*)(&cpp_optional_int_OptionalStorage) + 5;
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
-			*(InlineArray5_Byte*)(&llvm_libc_20_1_2_cpp_optional_int_OptionalStorage) = NumericHelper.TruncOrZextToBytes<long, InlineArray5_Byte>(Internal_wait4impl.Invoke(Pid, Wait_status, Options, null));
+			*(InlineArray5_Byte*)(&cpp_optional_int_OptionalStorage) = NumericHelper.TruncOrZextToBytes<long, InlineArray5_Byte>(Internal_wait4impl.Invoke(Pid, Wait_status, Options, null));
 			int result;
-			if (!Expected_int_int_has_value.Invoke(&llvm_libc_20_1_2_cpp_optional_int_OptionalStorage))
+			if (!Expected_int_int_has_value.Invoke(&cpp_optional_int_OptionalStorage))
 			{
-				Errno_Assignment.Invoke(A: *(int*)Expected_int_int_error.Invoke(&llvm_libc_20_1_2_cpp_optional_int_OptionalStorage), This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: *(int*)Expected_int_int_error.Invoke(&cpp_optional_int_OptionalStorage), This: Libc_errno.Pointer);
 				result = -1;
 			}
 			else
 			{
-				result = *(int*)Expected_int_int_value.Invoke(&llvm_libc_20_1_2_cpp_optional_int_OptionalStorage);
+				result = *(int*)Expected_int_int_value.Invoke(&cpp_optional_int_OptionalStorage);
 			}
-			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_optional_int_OptionalStorage);
+			Llvm_lifetime_end_p0.Invoke(8L, &cpp_optional_int_OptionalStorage);
 			return result;
 		}
 	}

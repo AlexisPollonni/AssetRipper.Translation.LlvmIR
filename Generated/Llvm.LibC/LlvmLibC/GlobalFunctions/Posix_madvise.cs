@@ -18,7 +18,7 @@ internal static partial class Posix_madvise
 		else
 		{
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = Llvm_libc_20_1_2_syscall_impl_int_long_unsigned_long_int.Invoke(28L, unchecked((long)Addr), Size, Advice);
+			num = Syscall_impl_int_long_unsigned_long_int.Invoke(28L, unchecked((long)Addr), Size, Advice);
 			result = ((num < 0) ? (-num) : 0);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
 		}

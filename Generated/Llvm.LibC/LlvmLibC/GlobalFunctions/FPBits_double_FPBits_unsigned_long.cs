@@ -11,8 +11,8 @@ internal static partial class FPBits_double_FPBits_unsigned_long
 	{
 		unchecked
 		{
-			FPRepImpl_fputil_FPType_2_fputil_FPBits_double_Constructor.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)This);
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn*)This)->Val = X;
+			FPRepImpl_fputil_FPType_2_fputil_FPBits_double_Constructor.Invoke((Fputil_internal_FPRepImpl_ucubaq*)This);
+			((Fputil_internal_FPStorage_v3nexn*)This)->Val = X;
 		}
 	}
 }

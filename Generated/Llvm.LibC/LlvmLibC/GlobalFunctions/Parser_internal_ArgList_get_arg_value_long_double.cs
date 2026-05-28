@@ -10,10 +10,10 @@ internal static partial class Parser_internal_ArgList_get_arg_value_long_double
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core6ParserINS_8internal7ArgListEE13get_arg_valueIeEENS_3cpp8optionalIT_EEm")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<long double> __llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::get_arg_value<long double>(unsigned long)")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::optional<long double>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_cpp_optional_59q3zq* Agg_result, [MangledName("this")] Llvm_libc_20_1_2_printf_core_Parser* This, [MangledName("index")] long Index)
+	public unsafe static void Invoke([MangledName("agg.result")] Cpp_optional_59q3zq* Agg_result, [MangledName("this")] Printf_core_Parser* This, [MangledName("index")] long Index)
 	{
 		sbyte b = 0;
-		Llvm_libc_20_1_2_printf_core_TypeDesc llvm_libc_20_1_2_printf_core_TypeDesc = default(Llvm_libc_20_1_2_printf_core_TypeDesc);
+		Printf_core_TypeDesc printf_core_TypeDesc = default(Printf_core_TypeDesc);
 		double num = 0.0;
 		if (Index != 0L && Index != This->Args_index)
 		{
@@ -43,8 +43,8 @@ internal static partial class Parser_internal_ArgList_get_arg_value_long_double
 		}
 		unchecked
 		{
-			*(short*)(&llvm_libc_20_1_2_printf_core_TypeDesc) = Printf_core_type_desc_from_type_long_double.Invoke();
-			Parser_internal_ArgList_set_type_desc.Invoke(This, Index, *(short*)(&llvm_libc_20_1_2_printf_core_TypeDesc));
+			*(short*)(&printf_core_TypeDesc) = Printf_core_type_desc_from_type_long_double.Invoke();
+			Parser_internal_ArgList_set_type_desc.Invoke(This, Index, *(short*)(&printf_core_TypeDesc));
 			This->Args_index++;
 			Llvm_lifetime_start_p0.Invoke(16L, &num);
 			num = Parser_internal_ArgList_get_next_arg_value_long_double.Invoke(This);

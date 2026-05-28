@@ -9,6 +9,6 @@ internal static partial class FPBits_float128_get_val
 	[DemangledName("__llvm_libc_20_1_2_::fputil::FPBits<__float128>::get_val() const")]
 	public unsafe static double Invoke([MangledName("this")] void* This)
 	{
-		return Cpp_bit_cast_float128_unsigned_int128.Invoke(&unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0);
+		return Cpp_bit_cast_float128_unsigned_int128.Invoke(&unchecked((Fputil_internal_FPStorage_w3h7gw*)This)->field_0);
 	}
 }

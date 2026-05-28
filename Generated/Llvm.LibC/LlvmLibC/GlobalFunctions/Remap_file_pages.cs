@@ -12,11 +12,11 @@ internal static partial class Remap_file_pages
 	{
 		int num = 0;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = Llvm_libc_20_1_2_syscall_impl_int_long_unsigned_long_int_unsigned_long_int.Invoke(216L, unchecked((long)Addr), Size, Prot, Pgoff, Flags);
+		num = Syscall_impl_int_long_unsigned_long_int_unsigned_long_int.Invoke(216L, unchecked((long)Addr), Size, Prot, Pgoff, Flags);
 		int result;
 		if (num < 0)
 		{
-			Errno_Assignment.Invoke(A: -num, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+			Errno_Assignment.Invoke(A: -num, This: Libc_errno.Pointer);
 			result = -1;
 		}
 		else

@@ -39,7 +39,7 @@ internal static partial class Strndup
 				}
 				else
 				{
-					Llvm_libc_20_1_2_inline_memcpy.Invoke(ptr, Src, num + 1L);
+					Inline_memcpy.Invoke(ptr, Src, num + 1L);
 					((sbyte*)ptr)[num] = 0;
 					result = ptr;
 				}

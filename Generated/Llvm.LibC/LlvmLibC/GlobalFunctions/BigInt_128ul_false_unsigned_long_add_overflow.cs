@@ -9,6 +9,6 @@ internal static partial class BigInt_128ul_false_unsigned_long_add_overflow
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>::add_overflow(__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long> const&)")]
 	public unsafe static long Invoke([MangledName("this")] Anon_izyfb7* This, [MangledName("rhs")][NativeType("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long> const&")] Anon_izyfb7* Rhs)
 	{
-		return unchecked(Multiword_add_with_carry_unsigned_long_2ul_2ul.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, &((Llvm_libc_20_1_2_BigInt_qdkjbh*)Rhs)->Val));
+		return unchecked(Multiword_add_with_carry_unsigned_long_2ul_2ul.Invoke(&((BigInt_qdkjbh*)This)->Val, &((BigInt_qdkjbh*)Rhs)->Val));
 	}
 }

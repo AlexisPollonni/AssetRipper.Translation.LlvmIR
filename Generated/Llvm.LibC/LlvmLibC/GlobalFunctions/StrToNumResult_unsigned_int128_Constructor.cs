@@ -15,9 +15,9 @@ internal static partial class StrToNumResult_unsigned_int128_Constructor
 		{
 			*(long*)(&value) = Value;
 			((long*)(&value))[1] = Parsed_len;
-			((Llvm_libc_20_1_2_StrToNumResult_i4jxtt*)This)->Value = value;
-			((Llvm_libc_20_1_2_StrToNumResult_i4jxtt*)This)->Error = Error_xz3rmz;
-			((Llvm_libc_20_1_2_StrToNumResult_i4jxtt*)This)->Parsed_len = Error_hm8b8a;
+			((StrToNumResult_i4jxtt*)This)->Value = value;
+			((StrToNumResult_i4jxtt*)This)->Error = Error_xz3rmz;
+			((StrToNumResult_i4jxtt*)This)->Parsed_len = Error_hm8b8a;
 		}
 	}
 }

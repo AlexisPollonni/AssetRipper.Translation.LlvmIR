@@ -12,8 +12,8 @@ internal static partial class Optional_int_Constructor_952vg9
 	{
 		unchecked
 		{
-			OptionalStorage_int_false_OptionalStorage_int.Invoke(&((Llvm_libc_20_1_2_cpp_optional_g66fk4*)This)->Storage, Cpp_move_int.Invoke(T));
-			((Llvm_libc_20_1_2_cpp_optional_g66fk4*)This)->Storage.In_use = 1;
+			OptionalStorage_int_false_OptionalStorage_int.Invoke(&((Cpp_optional_g66fk4*)This)->Storage, Cpp_move_int.Invoke(T));
+			((Cpp_optional_g66fk4*)This)->Storage.In_use = 1;
 		}
 	}
 }

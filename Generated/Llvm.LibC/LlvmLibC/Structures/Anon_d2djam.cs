@@ -10,5 +10,5 @@ namespace LlvmLibC.Structures;
 public partial struct Anon_d2djam
 {
 	[FieldOffset(0)]
-	public Llvm_libc_20_1_2_cpp_array_knc3mr field_0;
+	public Cpp_array_knc3mr field_0;
 }

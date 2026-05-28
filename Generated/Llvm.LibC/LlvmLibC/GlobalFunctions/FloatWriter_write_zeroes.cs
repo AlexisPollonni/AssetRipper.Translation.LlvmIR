@@ -9,7 +9,7 @@ internal static partial class FloatWriter_write_zeroes
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11FloatWriter12write_zeroesEj")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::write_zeroes(unsigned int)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_FloatWriter* This, [MangledName("num_zeroes")][NativeType("unsigned int")] int Num_zeroes)
+	public unsafe static int Invoke([MangledName("this")] Printf_core_FloatWriter* This, [MangledName("num_zeroes")][NativeType("unsigned int")] int Num_zeroes)
 	{
 		int result = 0;
 		int num = 0;

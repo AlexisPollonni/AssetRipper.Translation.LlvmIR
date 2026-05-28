@@ -8,9 +8,9 @@ internal static partial class DyadicFloat_128ul_shift_right
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm128EE11shift_rightEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<128ul>::shift_right(unsigned int)")]
-	public unsafe static Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4* Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4* This, [MangledName("shift_length")][NativeType("unsigned int")] int Shift_length)
+	public unsafe static Fputil_DyadicFloat_kt2kd4* Invoke([MangledName("this")] Fputil_DyadicFloat_kt2kd4* This, [MangledName("shift_length")][NativeType("unsigned int")] int Shift_length)
 	{
-		Llvm_libc_20_1_2_BigInt_qdkjbh llvm_libc_20_1_2_BigInt_qdkjbh = default(Llvm_libc_20_1_2_BigInt_qdkjbh);
+		BigInt_qdkjbh bigInt_qdkjbh = default(BigInt_qdkjbh);
 		unchecked
 		{
 			if ((ulong)(uint)Shift_length < 128uL)
@@ -24,10 +24,10 @@ internal static partial class DyadicFloat_128ul_shift_right
 			else
 			{
 				This->Exponent = 0;
-				Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh);
-				BigInt_128ul_false_unsigned_long_BigInt_int_void.Invoke((Anon_izyfb7*)(&llvm_libc_20_1_2_BigInt_qdkjbh), 0);
-				Llvm_memcpy_p0_p0_i64.Invoke(&This->Mantissa, &llvm_libc_20_1_2_BigInt_qdkjbh, 16L, isVolatile: false);
-				Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_BigInt_qdkjbh);
+				Llvm_lifetime_start_p0.Invoke(16L, &bigInt_qdkjbh);
+				BigInt_128ul_false_unsigned_long_BigInt_int_void.Invoke((Anon_izyfb7*)(&bigInt_qdkjbh), 0);
+				Llvm_memcpy_p0_p0_i64.Invoke(&This->Mantissa, &bigInt_qdkjbh, 16L, isVolatile: false);
+				Llvm_lifetime_end_p0.Invoke(16L, &bigInt_qdkjbh);
 			}
 			return This;
 		}

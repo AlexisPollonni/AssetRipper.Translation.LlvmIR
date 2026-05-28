@@ -29,6 +29,6 @@ internal static partial class Str_187
 	unsafe static Str_187()
 	{
 		Value = InlineArrayHelper.Create<InlineArray17_SByte, byte>("Real-time signal\0"u8);
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

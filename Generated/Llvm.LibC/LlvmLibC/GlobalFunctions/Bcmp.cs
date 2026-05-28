@@ -8,6 +8,6 @@ internal static partial class Bcmp
 	[DemangledName("bcmp")]
 	public unsafe static int Invoke([MangledName("lhs")] void* Lhs, [MangledName("rhs")] void* Rhs, [MangledName("count")] long Count)
 	{
-		return Llvm_libc_20_1_2_inline_bcmp.Invoke(Lhs, Rhs, Count);
+		return Inline_bcmp.Invoke(Lhs, Rhs, Count);
 	}
 }

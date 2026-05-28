@@ -12,8 +12,8 @@ internal static partial class OptionalStorage_BigInt_128ul_false_unsigned_long_f
 	{
 		unchecked
 		{
-			Llvm_memcpy_p0_p0_i64.Invoke(&((Llvm_libc_20_1_2_cpp_optional_BigInt_128_false_OptionalStorage*)This)->field, Cpp_forward_BigInt_128ul_false_unsigned_long.Invoke((Anon_izyfb7*)Args), 16L, isVolatile: false);
-			((Llvm_libc_20_1_2_cpp_optional_BigInt_128_false_OptionalStorage*)This)->In_use = 0;
+			Llvm_memcpy_p0_p0_i64.Invoke(&((Cpp_optional_BigInt_128_false_OptionalStorage*)This)->field, Cpp_forward_BigInt_128ul_false_unsigned_long.Invoke((Anon_izyfb7*)Args), 16L, isVolatile: false);
+			((Cpp_optional_BigInt_128_false_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 }

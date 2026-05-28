@@ -11,8 +11,8 @@ internal static partial class Optional_long_Constructor
 	{
 		unchecked
 		{
-			OptionalStorage_long_false_OptionalStorage_long.Invoke(&((Llvm_libc_20_1_2_cpp_optional_d6hvji*)This)->Storage, Cpp_move_long.Invoke(T));
-			((Llvm_libc_20_1_2_cpp_optional_d6hvji*)This)->Storage.In_use = 1;
+			OptionalStorage_long_false_OptionalStorage_long.Invoke(&((Cpp_optional_d6hvji*)This)->Storage, Cpp_move_long.Invoke(T));
+			((Cpp_optional_d6hvji*)This)->Storage.In_use = 1;
 		}
 	}
 
@@ -20,6 +20,6 @@ internal static partial class Optional_long_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<long>::optional()")]
 	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		OptionalStorage_long_false_OptionalStorage.Invoke(&unchecked((Llvm_libc_20_1_2_cpp_optional_d6hvji*)This)->Storage);
+		OptionalStorage_long_false_OptionalStorage.Invoke(&unchecked((Cpp_optional_d6hvji*)This)->Storage);
 	}
 }

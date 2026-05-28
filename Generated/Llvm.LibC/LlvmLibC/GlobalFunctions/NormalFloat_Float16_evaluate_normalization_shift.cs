@@ -8,7 +8,7 @@ internal static partial class NormalFloat_Float16_evaluate_normalization_shift
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIDF16_E28evaluate_normalization_shiftEt")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<_Float16>::evaluate_normalization_shift(unsigned short)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_epbrnk* This, [MangledName("m")][NativeType("unsigned short")] short M)
+	public unsafe static int Invoke([MangledName("this")] Fputil_NormalFloat_epbrnk* This, [MangledName("m")][NativeType("unsigned short")] short M)
 	{
 		int num = 0;
 		short num2 = M;

@@ -12,9 +12,9 @@ internal static partial class OptionalStorage_long_double_false_OptionalStorage_
 	{
 		unchecked
 		{
-			Anon_mbc8w5* field = &((Llvm_libc_20_1_2_cpp_optional_long_double_OptionalStorage*)This)->field;
+			Anon_mbc8w5* field = &((Cpp_optional_long_double_OptionalStorage*)This)->field;
 			*(double*)field = *(double*)Cpp_forward_long_double.Invoke(Args);
-			((Llvm_libc_20_1_2_cpp_optional_long_double_OptionalStorage*)This)->field_1 = 0;
+			((Cpp_optional_long_double_OptionalStorage*)This)->field_1 = 0;
 		}
 	}
 }

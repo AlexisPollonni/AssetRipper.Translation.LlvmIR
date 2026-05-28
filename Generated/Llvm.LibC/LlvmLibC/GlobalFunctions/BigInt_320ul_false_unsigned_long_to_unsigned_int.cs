@@ -9,7 +9,7 @@ internal static partial class BigInt_320ul_false_unsigned_long_to_unsigned_int
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm320ELb0EmE2toIjEENS_3cpp9enable_ifIXaasr3cppE13is_integral_vIT_Entsr3cppE9is_same_vIS5_bEES5_E4typeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned int> && !cpp::is_same_v<unsigned int, bool>, unsigned int>::type __llvm_libc_20_1_2_::BigInt<320ul, false, unsigned long>::to<unsigned int>() const")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_integral_v<unsigned int> && !cpp::is_same_v<unsigned int, bool>, unsigned int>::type")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_76gxx6* This)
+	public unsafe static int Invoke([MangledName("this")] BigInt_76gxx6* This)
 	{
 		long num = 0L;
 		int num2 = 0;

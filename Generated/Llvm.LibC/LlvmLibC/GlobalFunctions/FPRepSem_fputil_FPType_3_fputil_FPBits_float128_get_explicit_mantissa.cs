@@ -9,7 +9,7 @@ internal static partial class FPRepSem_fputil_FPType_3_fputil_FPBits_float128_ge
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil8internal8FPRepSemILNS0_6FPTypeE3ENS0_6FPBitsIgEEE21get_explicit_mantissaEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::get_explicit_mantissa() const")]
-	public unsafe static Struct_fiz2nb Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua* This)
+	public unsafe static Struct_fiz2nb Invoke([MangledName("this")] Fputil_internal_FPRepSem_f94eua* This)
 	{
 		Int128 @int = default(Int128);
 		Int128 int2 = default(Int128);

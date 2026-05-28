@@ -10,5 +10,5 @@ namespace LlvmLibC.Structures;
 public partial struct Anon_t8muxx
 {
 	[FieldOffset(0)]
-	public Llvm_libc_20_1_2_internal_AbsTimeout field_0;
+	public Internal_AbsTimeout field_0;
 }

@@ -10,7 +10,7 @@ internal static partial class Memcpy_3ul_block_offset
 	{
 		unchecked
 		{
-			Llvm_libc_20_1_2_memcpy_inline_3ul.Invoke((byte*)Dst + Offset, (byte*)Src + Offset);
+			Memcpy_inline_3ul.Invoke((byte*)Dst + Offset, (byte*)Src + Offset);
 		}
 	}
 }

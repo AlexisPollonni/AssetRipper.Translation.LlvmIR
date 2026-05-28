@@ -12,9 +12,9 @@ internal static partial class OptionalStorage_unsigned_long_false_OptionalStorag
 	{
 		unchecked
 		{
-			Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn* field = &((Llvm_libc_20_1_2_cpp_expected*)This)->field;
+			Fputil_internal_FPStorage_v3nexn* field = &((Cpp_expected*)This)->field;
 			*(long*)field = *(long*)Cpp_forward_unsigned_long.Invoke(Args);
-			((Llvm_libc_20_1_2_cpp_expected*)This)->In_use = 0;
+			((Cpp_expected*)This)->In_use = 0;
 		}
 	}
 }

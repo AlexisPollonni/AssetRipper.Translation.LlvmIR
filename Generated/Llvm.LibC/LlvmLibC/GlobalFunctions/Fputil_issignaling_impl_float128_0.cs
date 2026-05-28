@@ -12,14 +12,14 @@ internal static partial class Fputil_issignaling_impl_float128_0
 	[return: NativeType("int")]
 	public unsafe static int Invoke([MangledName("x")][NativeType("__float128 const&")] void* X)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
+		Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 		unchecked
 		{
-			*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = -6148914691236517206L;
-			FPBits_float128_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, *(double*)X);
-			bool result = FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_signaling_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi));
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+			*(Int128*)(&fputil_FPBits_ubgsi) = -6148914691236517206L;
+			FPBits_float128_Constructor.Invoke(&fputil_FPBits_ubgsi, *(double*)X);
+			bool result = FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_signaling_nan.Invoke((Fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi));
+			Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 			return result ? 1 : 0;
 		}
 	}

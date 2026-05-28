@@ -46,10 +46,10 @@ internal static partial class Expk
 				num4 = num6;
 				Llvm_lifetime_start_p0.Invoke(4L, &a);
 				long num7 = (uint)(num4 >>> 4);
-				a = ((int*)Llvm_libc_20_1_2_anonymous_namespace_EXP_HI.Pointer)[num7];
+				a = ((int*)Anonymous_namespace_EXP_HI.Pointer)[num7];
 				Llvm_lifetime_start_p0.Invoke(4L, &a2);
 				long num8 = (uint)(num4 & 0xF);
-				a2 = ((int*)Llvm_libc_20_1_2_anonymous_namespace_EXP_MID.Pointer)[num8];
+				a2 = ((int*)Anonymous_namespace_EXP_MID.Pointer)[num8];
 				Llvm_lifetime_start_p0.Invoke(4L, &b);
 				b = 32768 + (num3 >> 1);
 				Llvm_lifetime_start_p0.Invoke(4L, &b2);

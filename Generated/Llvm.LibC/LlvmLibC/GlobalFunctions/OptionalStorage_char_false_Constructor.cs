@@ -11,8 +11,8 @@ internal static partial class OptionalStorage_char_false_Constructor
 	{
 		unchecked
 		{
-			*(sbyte*)(&((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->field) = 0;
-			((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->In_use = 0;
+			*(sbyte*)(&((Cpp_optional_char_OptionalStorage*)This)->field) = 0;
+			((Cpp_optional_char_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 }

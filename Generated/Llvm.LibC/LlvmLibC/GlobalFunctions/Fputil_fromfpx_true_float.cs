@@ -13,18 +13,18 @@ internal static partial class Fputil_fromfpx_true_float
 	public unsafe static float Invoke([MangledName("x")][NativeType("float")] float X, [MangledName("rnd")][NativeType("int")] int Rnd, [MangledName("width")][NativeType("unsigned int")] int Width)
 	{
 		float num = 0f;
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs = default(Fputil_FPBits_5nkvcs);
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
 		num = Fputil_fromfp_true_float.Invoke(X, Rnd, Width);
-		Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
-		*unchecked((int*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs)) = -1431655766;
-		FPBits_float_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, num);
-		if (!FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs) && NumericHelper.IsUnorderedOrNotEquals(num, X))
+		Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
+		*unchecked((int*)(&fputil_FPBits_5nkvcs)) = -1431655766;
+		FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs, num);
+		if (!FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&fputil_FPBits_5nkvcs) && NumericHelper.IsUnorderedOrNotEquals(num, X))
 		{
 			Fputil_raise_except_if_required.Invoke(32);
 		}
 		float result = num;
-		Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
 		Llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;
 	}

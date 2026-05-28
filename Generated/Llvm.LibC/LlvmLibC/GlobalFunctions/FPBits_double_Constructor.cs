@@ -9,7 +9,7 @@ internal static partial class FPBits_double_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::fputil::FPBits<double>::FPBits()")]
 	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		FPRepImpl_fputil_FPType_2_fputil_FPBits_double_Constructor.Invoke(unchecked((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)This));
+		FPRepImpl_fputil_FPType_2_fputil_FPBits_double_Constructor.Invoke(unchecked((Fputil_internal_FPRepImpl_ucubaq*)This));
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil6FPBitsIdEC2IdEET_")]
@@ -19,8 +19,8 @@ internal static partial class FPBits_double_Constructor
 		double num = X;
 		unchecked
 		{
-			FPRepImpl_fputil_FPType_2_fputil_FPBits_double_Constructor.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)This);
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn*)This)->Val = Cpp_bit_cast_unsigned_long_double.Invoke(&num);
+			FPRepImpl_fputil_FPType_2_fputil_FPBits_double_Constructor.Invoke((Fputil_internal_FPRepImpl_ucubaq*)This);
+			((Fputil_internal_FPStorage_v3nexn*)This)->Val = Cpp_bit_cast_unsigned_long_double.Invoke(&num);
 		}
 	}
 }

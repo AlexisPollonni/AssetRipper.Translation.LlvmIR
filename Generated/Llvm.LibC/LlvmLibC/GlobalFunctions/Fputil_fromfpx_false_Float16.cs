@@ -14,20 +14,20 @@ internal static partial class Fputil_fromfpx_false_Float16
 	public unsafe static Half Invoke([MangledName("x")][NativeType("_Float16")] Half X, [MangledName("rnd")][NativeType("int")] int Rnd, [MangledName("width")][NativeType("unsigned int")] int Width)
 	{
 		Half half = default(Half);
-		Llvm_libc_20_1_2_fputil_FPBits_2fahva llvm_libc_20_1_2_fputil_FPBits_2fahva = default(Llvm_libc_20_1_2_fputil_FPBits_2fahva);
+		Fputil_FPBits_2fahva fputil_FPBits_2fahva = default(Fputil_FPBits_2fahva);
 		Llvm_lifetime_start_p0.Invoke(2L, &half);
 		half = Fputil_fromfp_false_Float16.Invoke(X, Rnd, Width);
-		Llvm_lifetime_start_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva);
+		Llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva);
 		unchecked
 		{
-			*(short*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva) = -21846;
-			FPBits_Float16_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva, half);
-			if (!FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva)) && NumericHelper.IsUnorderedOrNotEquals(half, X))
+			*(short*)(&fputil_FPBits_2fahva) = -21846;
+			FPBits_Float16_Constructor.Invoke(&fputil_FPBits_2fahva, half);
+			if (!FPRepSem_fputil_FPType_0_fputil_FPBits_Float16_is_nan.Invoke((Fputil_internal_FPRepSem_i7nz4h*)(&fputil_FPBits_2fahva)) && NumericHelper.IsUnorderedOrNotEquals(half, X))
 			{
 				Fputil_raise_except_if_required.Invoke(32);
 			}
 			Half result = half;
-			Llvm_lifetime_end_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva);
+			Llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva);
 			Llvm_lifetime_end_p0.Invoke(2L, &half);
 			return result;
 		}

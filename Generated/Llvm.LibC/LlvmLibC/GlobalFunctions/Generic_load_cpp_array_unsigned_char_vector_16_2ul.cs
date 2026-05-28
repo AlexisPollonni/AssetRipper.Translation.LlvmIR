@@ -11,7 +11,7 @@ internal static partial class Generic_load_cpp_array_unsigned_char_vector_16_2ul
 	[MangledName("_ZN19__llvm_libc_20_1_2_7generic4loadINS_3cpp5arrayIDv16_hLm2EEEEET_PKNS2_4byteE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned char vector[16], 2ul> __llvm_libc_20_1_2_::generic::load<__llvm_libc_20_1_2_::cpp::array<unsigned char vector[16], 2ul>>(__llvm_libc_20_1_2_::cpp::byte const*)")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned char vector[16], 2ul>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_cpp_array_ueviby* Agg_result, [MangledName("src")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* Src)
+	public unsafe static void Invoke([MangledName("agg.result")] Cpp_array_ueviby* Agg_result, [MangledName("src")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* Src)
 	{
 		long num = 0L;
 		unchecked

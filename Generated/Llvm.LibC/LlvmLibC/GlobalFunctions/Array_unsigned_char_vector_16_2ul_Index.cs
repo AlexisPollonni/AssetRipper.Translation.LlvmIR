@@ -10,6 +10,6 @@ internal static partial class Array_unsigned_char_vector_16_2ul_Index
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned char vector[16], 2ul>::operator[](unsigned long)")]
 	public unsafe static void* Invoke([MangledName("this")] void* This, [NativeType("unsigned long")] long Index)
 	{
-		return unchecked((byte*)(&((Llvm_libc_20_1_2_cpp_array_ueviby*)This)->Data) + (nint)Index * sizeof(InlineArray16_SByte));
+		return unchecked((byte*)(&((Cpp_array_ueviby*)This)->Data) + (nint)Index * sizeof(InlineArray16_SByte));
 	}
 }

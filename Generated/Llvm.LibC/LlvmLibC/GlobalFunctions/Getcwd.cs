@@ -14,7 +14,7 @@ internal static partial class Getcwd
 	public unsafe static void* Invoke([MangledName("buf")] void* Buf, [MangledName("size")] long Size)
 	{
 		InlineArray4096_SByte inlineArray4096_SByte = default(InlineArray4096_SByte);
-		Llvm_libc_20_1_2_cpp_optional_77yu8f llvm_libc_20_1_2_cpp_optional_77yu8f = default(Llvm_libc_20_1_2_cpp_optional_77yu8f);
+		Cpp_optional_77yu8f cpp_optional_77yu8f = default(Cpp_optional_77yu8f);
 		unchecked
 		{
 			void* result;
@@ -28,8 +28,8 @@ internal static partial class Getcwd
 				}
 				else
 				{
-					Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_optional_77yu8f);
-					sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_cpp_optional_77yu8f);
+					Llvm_lifetime_start_p0.Invoke(16L, &cpp_optional_77yu8f);
+					sbyte* ptr = (sbyte*)(&cpp_optional_77yu8f);
 					*(IntPtr*)ptr = unchecked((nint)(-6148914691236517206L));
 					ptr[8] = -86;
 					sbyte* ptr2 = ptr + 9;
@@ -41,27 +41,27 @@ internal static partial class Getcwd
 					ptr2[5] = -86;
 					ptr2[6] = -86;
 					Struct_yx4nca struct_yx4nca = Internal_strdup.Invoke(&inlineArray4096_SByte);
-					Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage* ptr3 = &llvm_libc_20_1_2_cpp_optional_77yu8f.Storage;
+					Cpp_optional_char_OptionalStorage* ptr3 = &cpp_optional_77yu8f.Storage;
 					Struct_yx4nca struct_yx4nca2 = struct_yx4nca;
 					((Struct_yx4nca*)ptr3)->field_0 = struct_yx4nca2.field_0;
 					Struct_yx4nca struct_yx4nca3 = struct_yx4nca;
 					((Struct_yx4nca*)ptr3)->field_1 = struct_yx4nca3.field_1;
-					if (!Optional_char_ToBoolean.Invoke(&llvm_libc_20_1_2_cpp_optional_77yu8f))
+					if (!Optional_char_ToBoolean.Invoke(&cpp_optional_77yu8f))
 					{
-						Errno_Assignment.Invoke(Llvm_libc_20_1_2_libc_errno.Pointer, 12);
+						Errno_Assignment.Invoke(Libc_errno.Pointer, 12);
 						result = null;
 					}
 					else
 					{
-						result = *(void**)Optional_char_Multiply.Invoke(&llvm_libc_20_1_2_cpp_optional_77yu8f);
+						result = *(void**)Optional_char_Multiply.Invoke(&cpp_optional_77yu8f);
 					}
-					Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_optional_77yu8f);
+					Llvm_lifetime_end_p0.Invoke(16L, &cpp_optional_77yu8f);
 				}
 				Llvm_lifetime_end_p0.Invoke(4096L, &inlineArray4096_SByte);
 			}
 			else if (Size == 0L)
 			{
-				Errno_Assignment.Invoke(Llvm_libc_20_1_2_libc_errno.Pointer, 22);
+				Errno_Assignment.Invoke(Libc_errno.Pointer, 22);
 				result = null;
 			}
 			else

@@ -8,7 +8,7 @@ internal static partial class NormalFloat_float_evaluate_normalization_shift
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIfE28evaluate_normalization_shiftEj")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<float>::evaluate_normalization_shift(unsigned int)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_phu2qv* This, [MangledName("m")][NativeType("unsigned int")] int M)
+	public unsafe static int Invoke([MangledName("this")] Fputil_NormalFloat_phu2qv* This, [MangledName("m")][NativeType("unsigned int")] int M)
 	{
 		int num = 0;
 		int num2 = M;

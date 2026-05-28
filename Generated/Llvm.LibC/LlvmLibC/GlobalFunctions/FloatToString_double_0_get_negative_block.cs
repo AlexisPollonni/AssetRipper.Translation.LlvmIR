@@ -14,27 +14,27 @@ internal static partial class FloatToString_double_0_get_negative_block
 	public unsafe static int Invoke([MangledName("this")] void* This, [MangledName("block_index")][NativeType("int")] int Block_index)
 	{
 		int num = 0;
-		Llvm_libc_20_1_2_BigInt_khh67p llvm_libc_20_1_2_BigInt_khh67p = default(Llvm_libc_20_1_2_BigInt_khh67p);
+		BigInt_khh67p bigInt_khh67p = default(BigInt_khh67p);
 		int num2 = 0;
 		int num3 = 0;
 		int num4 = 0;
-		Llvm_libc_20_1_2_BigInt_khh67p llvm_libc_20_1_2_BigInt_khh67p2 = default(Llvm_libc_20_1_2_BigInt_khh67p);
+		BigInt_khh67p bigInt_khh67p2 = default(BigInt_khh67p);
 		int num5 = 0;
 		int num6 = 0;
 		Int128 @int = default(Int128);
 		unchecked
 		{
 			int result;
-			if (((Llvm_libc_20_1_2_FloatToString_rwjwy3*)This)->field_1 < 0)
+			if (((FloatToString_rwjwy3*)This)->field_1 < 0)
 			{
 				Llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = (int)((ulong)checked(-unchecked((Llvm_libc_20_1_2_FloatToString_rwjwy3*)This)->field_1) / 16uL);
-				Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_BigInt_khh67p);
-				sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_BigInt_khh67p);
+				num = (int)((ulong)checked(-unchecked((FloatToString_rwjwy3*)This)->field_1) / 16uL);
+				Llvm_lifetime_start_p0.Invoke(24L, &bigInt_khh67p);
+				sbyte* ptr = (sbyte*)(&bigInt_khh67p);
 				*(long*)ptr = -6148914691236517206L;
 				((long*)ptr)[1] = -6148914691236517206L;
 				((long*)ptr)[2] = -6148914691236517206L;
-				BigInt_192ul_false_unsigned_long_Constructor.Invoke(&llvm_libc_20_1_2_BigInt_khh67p);
+				BigInt_192ul_false_unsigned_long_Constructor.Invoke(&bigInt_khh67p);
 				Llvm_lifetime_start_p0.Invoke(4L, &num2);
 				num2 = (int)(num * 16L);
 				Llvm_lifetime_start_p0.Invoke(4L, &num3);
@@ -64,21 +64,21 @@ internal static partial class FloatToString_double_0_get_negative_block
 					}
 					else
 					{
-						Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_BigInt_khh67p2);
+						Llvm_lifetime_start_p0.Invoke(24L, &bigInt_khh67p2);
 						long num13 = (uint)num4;
-						BigInt_192ul_false_unsigned_long_BigInt_3ul.Invoke(&llvm_libc_20_1_2_BigInt_khh67p2, (byte*)POW10_SPLIT_2_174.Pointer + (nint)num13 * sizeof(InlineArray3_Int64));
-						Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_BigInt_khh67p, &llvm_libc_20_1_2_BigInt_khh67p2, 24L, isVolatile: false);
-						Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_BigInt_khh67p2);
+						BigInt_192ul_false_unsigned_long_BigInt_3ul.Invoke(&bigInt_khh67p2, (byte*)POW10_SPLIT_2_174.Pointer + (nint)num13 * sizeof(InlineArray3_Int64));
+						Llvm_memcpy_p0_p0_i64.Invoke(&bigInt_khh67p, &bigInt_khh67p2, 24L, isVolatile: false);
+						Llvm_lifetime_end_p0.Invoke(24L, &bigInt_khh67p2);
 						Llvm_lifetime_start_p0.Invoke(4L, &num5);
 						checked
 						{
-							num5 = 120 + (-unchecked((Llvm_libc_20_1_2_FloatToString_rwjwy3*)This)->field_1 - num2);
+							num5 = 120 + (-unchecked((FloatToString_rwjwy3*)This)->field_1 - num2);
 							Llvm_lifetime_start_p0.Invoke(4L, &num6);
 						}
-						Int128 mantissa = ((Llvm_libc_20_1_2_FloatToString_rwjwy3*)This)->Mantissa;
+						Int128 mantissa = ((FloatToString_rwjwy3*)This)->Mantissa;
 						int val = num5;
 						@int = mantissa;
-						num6 = Internal_mul_shift_mod_1e9.Invoke(*(long*)(&@int), ((long*)(&@int))[1], &llvm_libc_20_1_2_BigInt_khh67p, val);
+						num6 = Internal_mul_shift_mod_1e9.Invoke(*(long*)(&@int), ((long*)(&@int))[1], &bigInt_khh67p, val);
 						result = num6;
 						Llvm_lifetime_end_p0.Invoke(4L, &num6);
 						Llvm_lifetime_end_p0.Invoke(4L, &num5);
@@ -87,7 +87,7 @@ internal static partial class FloatToString_double_0_get_negative_block
 				}
 				Llvm_lifetime_end_p0.Invoke(4L, &num3);
 				Llvm_lifetime_end_p0.Invoke(4L, &num2);
-				Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_BigInt_khh67p);
+				Llvm_lifetime_end_p0.Invoke(24L, &bigInt_khh67p);
 				Llvm_lifetime_end_p0.Invoke(4L, &num);
 			}
 			else

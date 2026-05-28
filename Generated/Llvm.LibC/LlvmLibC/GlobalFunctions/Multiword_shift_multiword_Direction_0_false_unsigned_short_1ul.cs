@@ -12,8 +12,8 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned short, 1ul>")]
 	public unsafe static short Invoke([MangledName("array.coerce")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned short, 1ul>")] short Array, [MangledName("offset")][NativeType("unsigned long")] long Offset)
 	{
-		Llvm_libc_20_1_2_cpp_array_knh6hw llvm_libc_20_1_2_cpp_array_knh6hw = default(Llvm_libc_20_1_2_cpp_array_knh6hw);
-		Llvm_libc_20_1_2_cpp_array_knh6hw llvm_libc_20_1_2_cpp_array_knh6hw2 = default(Llvm_libc_20_1_2_cpp_array_knh6hw);
+		Cpp_array_knh6hw cpp_array_knh6hw = default(Cpp_array_knh6hw);
+		Cpp_array_knh6hw cpp_array_knh6hw2 = default(Cpp_array_knh6hw);
 		long num = 0L;
 		long num2 = 0L;
 		sbyte b = 0;
@@ -27,14 +27,14 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 		void* ptr = null;
 		unchecked
 		{
-			*(short*)(&llvm_libc_20_1_2_cpp_array_knh6hw2.Data) = Array;
+			*(short*)(&cpp_array_knh6hw2.Data) = Array;
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = 16L;
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = 16L;
 			if (Details_expects_bool_condition_bool.Invoke(Offset == 0L, Expected: false))
 			{
-				Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_array_knh6hw, &llvm_libc_20_1_2_cpp_array_knh6hw2, 2L, isVolatile: false);
+				Llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_knh6hw, &cpp_array_knh6hw2, 2L, isVolatile: false);
 			}
 			else
 			{
@@ -45,13 +45,13 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 				*(IntPtr*)(&anon_6je4un) = unchecked((nint)(-6148914691236517206L));
 				*(IntPtr*)((byte*)(&anon_6je4un) + 8) = unchecked((nint)(-6148914691236517206L));
 				anon_6je4un.field_0 = &anon_izyfb;
-				anon_6je4un.field_1 = &llvm_libc_20_1_2_cpp_array_knh6hw2;
+				anon_6je4un.field_1 = &cpp_array_knh6hw2;
 				Llvm_lifetime_start_p0.Invoke(8L, &num3);
 				num3 = (long)((ulong)Offset / 16uL);
 				Llvm_lifetime_start_p0.Invoke(8L, &num4);
 				num4 = (long)((ulong)Offset % 16uL);
 				Llvm_assume.Invoke((ulong)num3 < 1uL);
-				Llvm_memset_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_array_knh6hw, 0, 2L, isVolatile: false);
+				Llvm_memset_p0_i64.Invoke(&cpp_array_knh6hw, 0, 2L, isVolatile: false);
 				Llvm_lifetime_start_p0.Invoke(8L, &num5);
 				for (num5 = 0L; (ulong)num5 < 1uL; num5++)
 				{
@@ -61,7 +61,7 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 					num7 = Lambda0_Invoke_2axa5k.Invoke(&anon_6je4un, num5 + num3 + 1L);
 					Llvm_lifetime_start_p0.Invoke(8L, &ptr);
 					ptr = (void*)12297829382473034410uL;
-					ptr = Array_unsigned_short_1ul_Index_yq9pn3.Invoke(&llvm_libc_20_1_2_cpp_array_knh6hw, Lambda_Invoke_x5ppib.Invoke(&anon_izyfb, num5));
+					ptr = Array_unsigned_short_1ul_Index_yq9pn3.Invoke(&cpp_array_knh6hw, Lambda_Invoke_x5ppib.Invoke(&anon_izyfb, num5));
 					if (num4 == 0L)
 					{
 						*(short*)ptr = num6;
@@ -83,7 +83,7 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
-			return *(short*)(&llvm_libc_20_1_2_cpp_array_knh6hw.Data);
+			return *(short*)(&cpp_array_knh6hw.Data);
 		}
 	}
 }

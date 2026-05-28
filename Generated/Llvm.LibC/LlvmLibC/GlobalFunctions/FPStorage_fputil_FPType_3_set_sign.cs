@@ -18,9 +18,9 @@ internal static partial class FPStorage_fputil_FPType_3_set_sign
 		anon_izyfb.Val = SignVal;
 		anon_izyfb2.Val = FPStorage_fputil_FPType_3_sign.Invoke(This);
 		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb3, &anon_izyfb, 1L, isVolatile: false);
-		if (Llvm_libc_20_1_2_NotEquals_rpctvi.Invoke(anon_izyfb2.Val, anon_izyfb3.Val))
+		if (NotEquals_rpctvi.Invoke(anon_izyfb2.Val, anon_izyfb3.Val))
 		{
-			Int128* field_ = &unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0;
+			Int128* field_ = &unchecked((Fputil_internal_FPStorage_w3h7gw*)This)->field_0;
 			*field_ = NumericHelper.BitwiseXor(*field_, 0L);
 		}
 	}

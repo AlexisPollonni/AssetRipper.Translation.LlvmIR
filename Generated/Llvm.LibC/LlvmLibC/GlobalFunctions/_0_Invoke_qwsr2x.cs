@@ -21,18 +21,18 @@ internal static partial class _0_Invoke_qwsr2x
 			int num;
 			while (true)
 			{
-				if (((Llvm_libc_20_1_2_AuxEntry*)ptr)->Tv_sec == 0L)
+				if (((AuxEntry*)ptr)->Tv_sec == 0L)
 				{
 					num = 2;
 					break;
 				}
-				if (((Llvm_libc_20_1_2_AuxEntry*)ptr)->Tv_sec == Id)
+				if (((AuxEntry*)ptr)->Tv_sec == Id)
 				{
-					result = ((Llvm_libc_20_1_2_AuxEntry*)ptr)->Tv_nsec;
+					result = ((AuxEntry*)ptr)->Tv_nsec;
 					num = 1;
 					break;
 				}
-				ptr = (byte*)ptr + sizeof(Llvm_libc_20_1_2_AuxEntry);
+				ptr = (byte*)ptr + sizeof(AuxEntry);
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &ptr);
 			int num2 = num;
@@ -45,7 +45,7 @@ internal static partial class _0_Invoke_qwsr2x
 			}
 			else
 			{
-				AuxvErrnoGuard_mark_failure.Invoke((Llvm_libc_20_1_2_AuxvErrnoGuard*)((Anon_5uk363*)This)->field_0);
+				AuxvErrnoGuard_mark_failure.Invoke((AuxvErrnoGuard*)((Anon_5uk363*)This)->field_0);
 				result = 0L;
 			}
 			return result;

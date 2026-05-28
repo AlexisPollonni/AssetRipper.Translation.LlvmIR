@@ -8,7 +8,7 @@ internal static partial class HighPrecisionDecimal_should_round_up
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal15should_round_upEiNS0_14RoundDirectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::should_round_up(int, __llvm_libc_20_1_2_::internal::RoundDirection)")]
-	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This, [MangledName("round_to_digit")][NativeType("int")] int Round_to_digit, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
+	public unsafe static bool Invoke([MangledName("this")] Internal_HighPrecisionDecimal* This, [MangledName("round_to_digit")][NativeType("int")] int Round_to_digit, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
 	{
 		unchecked
 		{

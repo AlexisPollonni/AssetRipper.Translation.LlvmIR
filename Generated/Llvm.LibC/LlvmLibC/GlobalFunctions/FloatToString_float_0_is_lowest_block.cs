@@ -9,7 +9,7 @@ internal static partial class FloatToString_float_0_is_lowest_block
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE15is_lowest_blockEm")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::is_lowest_block(unsigned long)")]
-	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_FloatToString_vnf553* This, [MangledName("negative_block_index")][NativeType("unsigned long")] long Negative_block_index)
+	public unsafe static bool Invoke([MangledName("this")] FloatToString_vnf553* This, [MangledName("negative_block_index")][NativeType("unsigned long")] long Negative_block_index)
 	{
 		int num = 0;
 		long num2 = 0L;

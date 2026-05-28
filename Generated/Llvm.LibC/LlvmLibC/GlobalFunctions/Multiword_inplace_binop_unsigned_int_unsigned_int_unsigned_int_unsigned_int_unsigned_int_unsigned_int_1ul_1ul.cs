@@ -9,7 +9,7 @@ internal static partial class Multiword_inplace_binop_unsigned_int_unsigned_int_
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword13inplace_binopIPFjjjjRjEjLm1ELm1EEET0_T_RNS_3cpp5arrayIS5_XT1_EEERKNS8_IS5_XT2_EEE")]
 	[DemangledName("unsigned int __llvm_libc_20_1_2_::multiword::inplace_binop<unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&), unsigned int, 1ul, 1ul>(unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&), __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&)")]
 	[return: NativeType("unsigned int")]
-	public unsafe static int Invoke([MangledName("op_with_carry")][NativeType("unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&)")] void* Op_with_carry, [MangledName("dst")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>&")] Llvm_libc_20_1_2_cpp_array_2v7m9i* Dst, [MangledName("rhs")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&")] Llvm_libc_20_1_2_cpp_array_2v7m9i* Rhs)
+	public unsafe static int Invoke([MangledName("op_with_carry")][NativeType("unsigned int (*)(unsigned int, unsigned int, unsigned int, unsigned int&)")] void* Op_with_carry, [MangledName("dst")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul>&")] Cpp_array_2v7m9i* Dst, [MangledName("rhs")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned int, 1ul> const&")] Cpp_array_2v7m9i* Rhs)
 	{
 		int num = 0;
 		long num2 = 0L;

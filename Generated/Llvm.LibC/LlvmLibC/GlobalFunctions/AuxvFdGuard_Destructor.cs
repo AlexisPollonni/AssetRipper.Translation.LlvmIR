@@ -11,9 +11,9 @@ internal static partial class AuxvFdGuard_Destructor
 	{
 		unchecked
 		{
-			if (((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 != -1)
+			if (((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 != -1)
 			{
-				((delegate*<int, int>)Close.__pointer)(((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
+				((delegate*<int, int>)Close.__pointer)(((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
 			}
 		}
 	}

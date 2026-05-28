@@ -83,6 +83,6 @@ internal static partial class EXCEPTS_a88r76
 				})
 			}
 		};
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

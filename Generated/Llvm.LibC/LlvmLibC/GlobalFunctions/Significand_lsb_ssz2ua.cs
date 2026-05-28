@@ -11,12 +11,12 @@ internal static partial class Significand_lsb_ssz2ua
 	[CleanName("Significand_lsb")]
 	public unsafe static Struct_fiz2nb Invoke()
 	{
-		Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua = default(Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua);
+		Fputil_internal_FPRepSem_f94eua fputil_internal_FPRepSem_f94eua = default(Fputil_internal_FPRepSem_f94eua);
 		Int128 @int = 1L;
 		unchecked
 		{
-			Significand_Constructor_j3ersh.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua, *(long*)(&@int), ((long*)(&@int))[1]);
-			return *(Struct_fiz2nb*)(&llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua.FPStorage.field_0);
+			Significand_Constructor_j3ersh.Invoke(&fputil_internal_FPRepSem_f94eua, *(long*)(&@int), ((long*)(&@int))[1]);
+			return *(Struct_fiz2nb*)(&fputil_internal_FPRepSem_f94eua.FPStorage.field_0);
 		}
 	}
 }

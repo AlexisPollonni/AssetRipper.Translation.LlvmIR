@@ -8,6 +8,6 @@ internal static partial class Stdc_first_leading_zero_us
 	[DemangledName("stdc_first_leading_zero_us")]
 	public static int Invoke([MangledName("value")] short Value)
 	{
-		return Llvm_libc_20_1_2_first_leading_zero_unsigned_short.Invoke(Value);
+		return First_leading_zero_unsigned_short.Invoke(Value);
 	}
 }

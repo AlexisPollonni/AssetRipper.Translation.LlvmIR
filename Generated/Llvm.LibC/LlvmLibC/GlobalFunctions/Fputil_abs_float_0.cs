@@ -11,16 +11,16 @@ internal static partial class Fputil_abs_float_0
 	[return: NativeType("float")]
 	public unsafe static float Invoke([MangledName("x")][NativeType("float")] float X)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs2 = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
-		Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
-		Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
-		FPBits_float_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs2, X);
-		int field_ = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs.Invoke(unchecked((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs2)));
-		llvm_libc_20_1_2_fputil_FPBits_5nkvcs.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-		float result = FPBits_float_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
-		Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
-		Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs = default(Fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs2 = default(Fputil_FPBits_5nkvcs);
+		Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
+		Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
+		FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs2, X);
+		int field_ = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs.Invoke(unchecked((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2)));
+		fputil_FPBits_5nkvcs.FPRepImpl.FPRepSem.field_0.field_0 = field_;
+		float result = FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs);
+		Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
+		Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
 		return result;
 	}
 }

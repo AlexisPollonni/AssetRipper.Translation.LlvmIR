@@ -7,7 +7,7 @@ internal static partial class PaddingWriter_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core13PaddingWriterC2ERKNS0_13FormatSectionEc")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::PaddingWriter::PaddingWriter(__llvm_libc_20_1_2_::printf_core::FormatSection const&, char)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_PaddingWriter* This, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::printf_core::FormatSection const&")] Llvm_libc_20_1_2_printf_core_FormatSection* To_conv, [MangledName("init_sign_char")][NativeType("char")] sbyte Init_sign_char)
+	public unsafe static void Invoke([MangledName("this")] Printf_core_PaddingWriter* This, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::printf_core::FormatSection const&")] Printf_core_FormatSection* To_conv, [MangledName("init_sign_char")][NativeType("char")] sbyte Init_sign_char)
 	{
 		sbyte sign_char = Init_sign_char;
 		unchecked

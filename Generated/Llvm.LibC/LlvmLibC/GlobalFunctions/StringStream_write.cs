@@ -17,17 +17,17 @@ internal static partial class StringStream_write
 		Llvm_lifetime_start_p0.Invoke(8L, &num2);
 		unchecked
 		{
-			num2 = Span_char_size.Invoke(&((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Buffer);
-			while ((ulong)((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index < (ulong)num2 && (ulong)num < (ulong)Size)
+			num2 = Span_char_size.Invoke(&((Details_StringBufferWriterImpl*)This)->Buffer);
+			while ((ulong)((Details_StringBufferWriterImpl*)This)->Index < (ulong)num2 && (ulong)num < (ulong)Size)
 			{
 				sbyte b = ((sbyte*)Bytes)[num];
-				*(sbyte*)Span_char_Index.Invoke(&((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Buffer, ((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index) = b;
+				*(sbyte*)Span_char_Index.Invoke(&((Details_StringBufferWriterImpl*)This)->Buffer, ((Details_StringBufferWriterImpl*)This)->Index) = b;
 				num++;
-				((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index++;
+				((Details_StringBufferWriterImpl*)This)->Index++;
 			}
 			if ((ulong)num < (ulong)Size)
 			{
-				((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Out_of_range = 1;
+				((Details_StringBufferWriterImpl*)This)->Out_of_range = 1;
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);

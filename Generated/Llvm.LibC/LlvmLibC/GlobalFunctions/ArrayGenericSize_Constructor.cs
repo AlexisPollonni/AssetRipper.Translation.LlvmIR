@@ -11,9 +11,9 @@ internal static partial class ArrayGenericSize_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buffer = A;
-			((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buff_len = S;
-			((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buff_cur = E;
+			((Scanf_core_ReadBuffer*)This)->Buffer = A;
+			((Scanf_core_ReadBuffer*)This)->Buff_len = S;
+			((Scanf_core_ReadBuffer*)This)->Buff_cur = E;
 		}
 	}
 }

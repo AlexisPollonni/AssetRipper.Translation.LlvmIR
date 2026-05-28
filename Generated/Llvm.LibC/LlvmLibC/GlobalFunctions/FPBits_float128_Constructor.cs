@@ -29,7 +29,7 @@ internal static partial class FPBits_float128_Constructor
 			byte* num3 = (byte*)(&field_) + 8u;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			*(long*)num3 = struct_fiz2nb3.field_1;
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
+			((Fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
 		}
 	}
 }

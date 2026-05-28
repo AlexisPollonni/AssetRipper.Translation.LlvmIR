@@ -45,10 +45,10 @@ internal static partial class Exphk
 				num4 = num7;
 				Llvm_lifetime_start_p0.Invoke(2L, &a);
 				long num8 = (ushort)num4 >> 3;
-				a = ((short*)Llvm_libc_20_1_2_anonymous_namespace_EXP_HI_1.Pointer)[num8];
+				a = ((short*)Anonymous_namespace_EXP_HI_1.Pointer)[num8];
 				Llvm_lifetime_start_p0.Invoke(2L, &a2);
 				long num9 = (ushort)num4 & 7;
-				a2 = ((short*)Llvm_libc_20_1_2_anonymous_namespace_EXP_MID_2.Pointer)[num9];
+				a2 = ((short*)Anonymous_namespace_EXP_MID_2.Pointer)[num9];
 				result = Llvm_smul_fix_i16.Invoke(a, Llvm_smul_fix_i16.Invoke(a2, (short)(128 + num3), 7), 7);
 				Llvm_lifetime_end_p0.Invoke(2L, &a2);
 				Llvm_lifetime_end_p0.Invoke(2L, &a);

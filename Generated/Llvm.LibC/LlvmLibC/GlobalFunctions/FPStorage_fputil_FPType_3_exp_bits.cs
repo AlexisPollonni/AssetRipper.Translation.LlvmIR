@@ -13,7 +13,7 @@ internal static partial class FPStorage_fputil_FPType_3_exp_bits
 	{
 		unchecked
 		{
-			Int128 @int = NumericHelper.BitwiseAnd(((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0, 0L);
+			Int128 @int = NumericHelper.BitwiseAnd(((Fputil_internal_FPStorage_w3h7gw*)This)->field_0, 0L);
 			return *(Struct_fiz2nb*)(&@int);
 		}
 	}

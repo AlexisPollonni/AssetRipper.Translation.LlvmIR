@@ -13,7 +13,7 @@ internal static partial class Internal_strtointeger_unsigned_int
 	[return: NativeType("__llvm_libc_20_1_2_::StrToNumResult<unsigned int>")]
 	public unsafe static Struct_fiz2nb Invoke([MangledName("src")][NativeType("char const*")] void* Src, [MangledName("base")][NativeType("int")] int Base, [MangledName("src_len")][NativeType("unsigned long")] long Src_len)
 	{
-		Llvm_libc_20_1_2_StrToNumResult_imtnam llvm_libc_20_1_2_StrToNumResult_imtnam = default(Llvm_libc_20_1_2_StrToNumResult_imtnam);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		int num = 0;
 		sbyte b = 0;
 		long num2 = 0L;
@@ -39,11 +39,11 @@ internal static partial class Internal_strtointeger_unsigned_int
 		{
 			if (Src_len == 0L)
 			{
-				StrToNumResult_unsigned_int_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_imtnam, 0, 0L, 0);
+				StrToNumResult_unsigned_int_Constructor.Invoke(&strToNumResult_imtnam, 0, 0L, 0);
 			}
 			else if (num8 < 0 || num8 == 1 || num8 > 36)
 			{
-				StrToNumResult_unsigned_int_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_imtnam, 0, 0L, 22);
+				StrToNumResult_unsigned_int_Constructor.Invoke(&strToNumResult_imtnam, 0, 0L, 22);
 			}
 			else
 			{
@@ -133,7 +133,7 @@ internal static partial class Internal_strtointeger_unsigned_int
 				{
 					if ((b4 & 1) == 1 || true)
 					{
-						StrToNumResult_unsigned_int_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_imtnam, Integer_impl_unsigned_int_0u_4294967295u_max.Invoke(), parsed_len, num3);
+						StrToNumResult_unsigned_int_Constructor.Invoke(&strToNumResult_imtnam, Integer_impl_unsigned_int_0u_4294967295u_max.Invoke(), parsed_len, num3);
 					}
 					else
 					{
@@ -141,12 +141,12 @@ internal static partial class Internal_strtointeger_unsigned_int
 						int value;
 						long parsed_len2;
 						int error;
-						StrToNumResult_unsigned_int_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_imtnam, value, parsed_len2, error);
+						StrToNumResult_unsigned_int_Constructor.Invoke(&strToNumResult_imtnam, value, parsed_len2, error);
 					}
 				}
 				else
 				{
-					StrToNumResult_unsigned_int_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_imtnam, ((b4 & 1) != 1) ? (-num) : num, parsed_len, num3);
+					StrToNumResult_unsigned_int_Constructor.Invoke(&strToNumResult_imtnam, ((b4 & 1) != 1) ? (-num) : num, parsed_len, num3);
 				}
 				Llvm_lifetime_end_p0.Invoke(8L, &parsed_len);
 				Llvm_lifetime_end_p0.Invoke(4L, &num6);
@@ -160,7 +160,7 @@ internal static partial class Internal_strtointeger_unsigned_int
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(1L, &b);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
-			return *(Struct_fiz2nb*)(&llvm_libc_20_1_2_StrToNumResult_imtnam);
+			return *(Struct_fiz2nb*)(&strToNumResult_imtnam);
 		}
 	}
 }

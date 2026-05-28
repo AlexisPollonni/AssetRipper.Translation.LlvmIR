@@ -10,7 +10,7 @@ internal static partial class BigInt_320ul_false_unsigned_long_BigInt_unsigned_i
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm320ELb0EmEC2IovEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<320ul, false, unsigned long>::BigInt<unsigned __int128, void>(unsigned __int128)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_76gxx6* This, [MangledName("v.coerce0")] long V, [MangledName("v.coerce1")] long T_SIZE)
+	public unsafe static void Invoke([MangledName("this")] BigInt_76gxx6* This, [MangledName("v.coerce0")] long V, [MangledName("v.coerce1")] long T_SIZE)
 	{
 		Int128 @int = default(Int128);
 		long num = 0L;

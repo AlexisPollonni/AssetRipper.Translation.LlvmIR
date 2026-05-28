@@ -10,5 +10,5 @@ namespace LlvmLibC.Structures;
 public partial struct Anon_zfq63p
 {
 	[FieldOffset(0)]
-	public Llvm_libc_20_1_2_internal_ExpandedFloat_9jummq field_0;
+	public Internal_ExpandedFloat_9jummq field_0;
 }

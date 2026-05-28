@@ -12,8 +12,8 @@ internal static partial class Cpp_bit_cast_Complex_float_float_complex
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (__llvm_libc_20_1_2_::Complex<float>) == sizeof (float complex) && cpp::is_trivially_constructible<__llvm_libc_20_1_2_::Complex<float>>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::Complex<float>>::value && cpp::is_trivially_copyable<float complex>::value, __llvm_libc_20_1_2_::Complex<float>>::type")]
 	public unsafe static InlineArray2_Single Invoke([MangledName("from")][NativeType("float complex const&")] void* From)
 	{
-		Llvm_libc_20_1_2_ExpRangeReduction llvm_libc_20_1_2_ExpRangeReduction = default(Llvm_libc_20_1_2_ExpRangeReduction);
-		Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_ExpRangeReduction, From, 8L, isVolatile: false);
-		return *unchecked((InlineArray2_Single*)(&llvm_libc_20_1_2_ExpRangeReduction));
+		ExpRangeReduction expRangeReduction = default(ExpRangeReduction);
+		Llvm_memcpy_p0_p0_i64.Invoke(&expRangeReduction, From, 8L, isVolatile: false);
+		return *unchecked((InlineArray2_Single*)(&expRangeReduction));
 	}
 }

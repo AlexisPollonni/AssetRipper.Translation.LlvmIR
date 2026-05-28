@@ -12,8 +12,8 @@ internal static partial class Optional_char_Constructor_rumc48
 	{
 		unchecked
 		{
-			OptionalStorage_char_false_OptionalStorage_char.Invoke(&((Llvm_libc_20_1_2_cpp_optional_77yu8f*)This)->Storage, Cpp_move_char.Invoke(T));
-			((Llvm_libc_20_1_2_cpp_optional_77yu8f*)This)->Storage.In_use = 1;
+			OptionalStorage_char_false_OptionalStorage_char.Invoke(&((Cpp_optional_77yu8f*)This)->Storage, Cpp_move_char.Invoke(T));
+			((Cpp_optional_77yu8f*)This)->Storage.In_use = 1;
 		}
 	}
 }

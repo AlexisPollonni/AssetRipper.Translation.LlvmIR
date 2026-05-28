@@ -17,7 +17,7 @@ internal static partial class FPBits_float128_FPBits_unsigned_int128
 			((long*)(&@int))[1] = X_coerce1;
 			Int128 field_ = @int;
 			FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_Constructor.Invoke(This);
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
+			((Fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
 		}
 	}
 }

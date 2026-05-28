@@ -10,12 +10,12 @@ internal static partial class Memmove_cpp_array_unsigned_char_vector_16_4ul_loop
 	[DemangledName("__llvm_libc_20_1_2_::generic::Memmove<__llvm_libc_20_1_2_::cpp::array<unsigned char vector[16], 4ul>>::loop_and_tail_backward(__llvm_libc_20_1_2_::cpp::byte*, __llvm_libc_20_1_2_::cpp::byte const*, unsigned long)")]
 	public unsafe static void Invoke([MangledName("dst")][NativeType("__llvm_libc_20_1_2_::cpp::byte*")] void* Dst, [MangledName("src")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* Src, [MangledName("count")][NativeType("unsigned long")] long Count)
 	{
-		Llvm_libc_20_1_2_cpp_array_2b9gdz llvm_libc_20_1_2_cpp_array_2b9gdz = default(Llvm_libc_20_1_2_cpp_array_2b9gdz);
+		Cpp_array_2b9gdz cpp_array_2b9gdz = default(Cpp_array_2b9gdz);
 		long num = 0L;
-		Llvm_libc_20_1_2_cpp_array_2b9gdz llvm_libc_20_1_2_cpp_array_2b9gdz2 = default(Llvm_libc_20_1_2_cpp_array_2b9gdz);
-		Llvm_lifetime_start_p0.Invoke(64L, &llvm_libc_20_1_2_cpp_array_2b9gdz);
-		Llvm_memset_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_array_2b9gdz, -86, 64L, isVolatile: false);
-		Generic_load_cpp_array_unsigned_char_vector_16_4ul.Invoke(&llvm_libc_20_1_2_cpp_array_2b9gdz, Src);
+		Cpp_array_2b9gdz cpp_array_2b9gdz2 = default(Cpp_array_2b9gdz);
+		Llvm_lifetime_start_p0.Invoke(64L, &cpp_array_2b9gdz);
+		Llvm_memset_p0_i64.Invoke(&cpp_array_2b9gdz, -86, 64L, isVolatile: false);
+		Generic_load_cpp_array_unsigned_char_vector_16_4ul.Invoke(&cpp_array_2b9gdz, Src);
 		Llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
@@ -26,10 +26,10 @@ internal static partial class Memmove_cpp_array_unsigned_char_vector_16_4ul_loop
 				num -= 64L;
 			}
 			while (num >= 0L);
-			Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_array_2b9gdz2, &llvm_libc_20_1_2_cpp_array_2b9gdz, 64L, isVolatile: false);
-			Generic_store_cpp_array_unsigned_char_vector_16_4ul.Invoke(Dst, &llvm_libc_20_1_2_cpp_array_2b9gdz2);
+			Llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_2b9gdz2, &cpp_array_2b9gdz, 64L, isVolatile: false);
+			Generic_store_cpp_array_unsigned_char_vector_16_4ul.Invoke(Dst, &cpp_array_2b9gdz2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
-			Llvm_lifetime_end_p0.Invoke(64L, &llvm_libc_20_1_2_cpp_array_2b9gdz);
+			Llvm_lifetime_end_p0.Invoke(64L, &cpp_array_2b9gdz);
 		}
 	}
 }

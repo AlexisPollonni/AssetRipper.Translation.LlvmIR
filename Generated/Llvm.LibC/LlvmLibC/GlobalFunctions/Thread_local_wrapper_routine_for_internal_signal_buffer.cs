@@ -10,6 +10,6 @@ internal static partial class Thread_local_wrapper_routine_for_internal_signal_b
 	[DemangledName("thread-local wrapper routine for __llvm_libc_20_1_2_::internal::signal_buffer")]
 	public unsafe static void* Invoke()
 	{
-		return Llvm_threadlocal_address_p0.Invoke(Llvm_libc_20_1_2_internal_signal_buffer.Pointer);
+		return Llvm_threadlocal_address_p0.Invoke(Internal_signal_buffer.Pointer);
 	}
 }

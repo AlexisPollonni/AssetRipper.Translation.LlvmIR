@@ -12,20 +12,20 @@ internal static partial class BigInt_128ul_false_unsigned_long_Operator_srrb86
 	[CleanName("BigInt_128ul_false_unsigned_long_Operator")]
 	public unsafe static Anon_izyfb7* Invoke([MangledName("this")] Anon_izyfb7* This, [MangledName("s")][NativeType("unsigned long")] long S)
 	{
-		Llvm_libc_20_1_2_cpp_array_i3937k llvm_libc_20_1_2_cpp_array_i3937k = default(Llvm_libc_20_1_2_cpp_array_i3937k);
-		Llvm_libc_20_1_2_cpp_array_i3937k llvm_libc_20_1_2_cpp_array_i3937k2 = default(Llvm_libc_20_1_2_cpp_array_i3937k);
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_array_i3937k);
+		Cpp_array_i3937k cpp_array_i3937k = default(Cpp_array_i3937k);
+		Cpp_array_i3937k cpp_array_i3937k2 = default(Cpp_array_i3937k);
+		Llvm_lifetime_start_p0.Invoke(16L, &cpp_array_i3937k);
 		unchecked
 		{
-			Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_array_i3937k2, &((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, 16L, isVolatile: false);
-			Struct_fiz2nb struct_fiz2nb = Multiword_shift_multiword_Direction_1_false_unsigned_long_2ul.Invoke(*(long*)(&llvm_libc_20_1_2_cpp_array_i3937k2), ((long*)(&llvm_libc_20_1_2_cpp_array_i3937k2))[1], S);
-			InlineArray2_Int64* ptr = &llvm_libc_20_1_2_cpp_array_i3937k.Data;
+			Llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_i3937k2, &((BigInt_qdkjbh*)This)->Val, 16L, isVolatile: false);
+			Struct_fiz2nb struct_fiz2nb = Multiword_shift_multiword_Direction_1_false_unsigned_long_2ul.Invoke(*(long*)(&cpp_array_i3937k2), ((long*)(&cpp_array_i3937k2))[1], S);
+			InlineArray2_Int64* ptr = &cpp_array_i3937k.Data;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			((Struct_fiz2nb*)ptr)->field_0 = struct_fiz2nb2.field_0;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			((Struct_fiz2nb*)ptr)->field_1 = struct_fiz2nb3.field_1;
-			Llvm_memcpy_p0_p0_i64.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, &llvm_libc_20_1_2_cpp_array_i3937k, 16L, isVolatile: false);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_array_i3937k);
+			Llvm_memcpy_p0_p0_i64.Invoke(&((BigInt_qdkjbh*)This)->Val, &cpp_array_i3937k, 16L, isVolatile: false);
+			Llvm_lifetime_end_p0.Invoke(16L, &cpp_array_i3937k);
 			return This;
 		}
 	}

@@ -12,7 +12,7 @@ internal static partial class Uname
 	{
 		int num = 0;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = Llvm_libc_20_1_2_syscall_impl_int_utsname.Invoke(63L, Name);
+		num = Syscall_impl_int_utsname.Invoke(63L, Name);
 		int result;
 		if (num >= 0)
 		{
@@ -20,7 +20,7 @@ internal static partial class Uname
 		}
 		else
 		{
-			Errno_Assignment.Invoke(A: -num, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+			Errno_Assignment.Invoke(A: -num, This: Libc_errno.Pointer);
 			result = -1;
 		}
 		Llvm_lifetime_end_p0.Invoke(4L, &num);

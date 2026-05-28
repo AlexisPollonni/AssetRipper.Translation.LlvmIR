@@ -16,7 +16,7 @@ internal static partial class FloatToString_double_0_is_lowest_block
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
 		unchecked
 		{
-			num = (int)((ulong)checked(-unchecked((Llvm_libc_20_1_2_FloatToString_rwjwy3*)This)->field_1) / 16uL);
+			num = (int)((ulong)checked(-unchecked((FloatToString_rwjwy3*)This)->field_1) / 16uL);
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
 			long num3 = num;
 			long num4 = (ushort)((short*)POW10_OFFSET_2_173.Pointer)[num3] + Negative_block_index;

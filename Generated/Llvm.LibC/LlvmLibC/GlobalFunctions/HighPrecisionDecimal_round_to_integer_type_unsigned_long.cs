@@ -10,7 +10,7 @@ internal static partial class HighPrecisionDecimal_round_to_integer_type_unsigne
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal21round_to_integer_typeImEET_NS0_14RoundDirectionE")]
 	[DemangledName("unsigned long __llvm_libc_20_1_2_::internal::HighPrecisionDecimal::round_to_integer_type<unsigned long>(__llvm_libc_20_1_2_::internal::RoundDirection)")]
 	[return: NativeType("unsigned long")]
-	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
+	public unsafe static long Invoke([MangledName("this")] Internal_HighPrecisionDecimal* This, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
 	{
 		long num = 0L;
 		int i = 0;

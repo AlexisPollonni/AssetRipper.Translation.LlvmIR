@@ -10,7 +10,7 @@ internal static partial class HighPrecisionDecimal_get_num_new_digits
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal18get_num_new_digitsEj")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::get_num_new_digits(unsigned int)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This, [MangledName("lshift_amount")][NativeType("unsigned int")] int Lshift_amount)
+	public unsafe static int Invoke([MangledName("this")] Internal_HighPrecisionDecimal* This, [MangledName("lshift_amount")][NativeType("unsigned int")] int Lshift_amount)
 	{
 		void* ptr = null;
 		int num = 0;
@@ -18,9 +18,9 @@ internal static partial class HighPrecisionDecimal_get_num_new_digits
 		Llvm_lifetime_start_p0.Invoke(8L, &ptr);
 		unchecked
 		{
-			ptr = ((Llvm_libc_20_1_2_internal_LShiftTableEntry*)Llvm_libc_20_1_2_internal_HighPrecisionDecimal_LEFT_SHIFT_DIGIT_TABLE.Pointer)[(uint)Lshift_amount].Power_of_five;
+			ptr = ((Internal_LShiftTableEntry*)Internal_HighPrecisionDecimal_LEFT_SHIFT_DIGIT_TABLE.Pointer)[(uint)Lshift_amount].Power_of_five;
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = ((Llvm_libc_20_1_2_internal_LShiftTableEntry*)Llvm_libc_20_1_2_internal_HighPrecisionDecimal_LEFT_SHIFT_DIGIT_TABLE.Pointer)[(uint)Lshift_amount].New_digits;
+			num = ((Internal_LShiftTableEntry*)Internal_HighPrecisionDecimal_LEFT_SHIFT_DIGIT_TABLE.Pointer)[(uint)Lshift_amount].New_digits;
 			Llvm_lifetime_start_p0.Invoke(4L, &num2);
 			num2 = 0;
 			int result;

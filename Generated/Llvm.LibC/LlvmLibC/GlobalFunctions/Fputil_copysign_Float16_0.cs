@@ -12,19 +12,19 @@ internal static partial class Fputil_copysign_Float16_0
 	[return: NativeType("_Float16")]
 	public unsafe static Half Invoke([MangledName("x")][NativeType("_Float16")] Half X, [MangledName("y")][NativeType("_Float16")] Half Y)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_2fahva llvm_libc_20_1_2_fputil_FPBits_2fahva = default(Llvm_libc_20_1_2_fputil_FPBits_2fahva);
+		Fputil_FPBits_2fahva fputil_FPBits_2fahva = default(Fputil_FPBits_2fahva);
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
-		Llvm_libc_20_1_2_fputil_FPBits_2fahva llvm_libc_20_1_2_fputil_FPBits_2fahva2 = default(Llvm_libc_20_1_2_fputil_FPBits_2fahva);
-		Llvm_lifetime_start_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva);
-		*unchecked((short*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva)) = -21846;
-		FPBits_Float16_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva, X);
-		Llvm_lifetime_start_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva2);
-		FPBits_Float16_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva2, Y);
-		anon_izyfb.Val = FPStorage_fputil_FPType_0_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva2);
-		FPStorage_fputil_FPType_0_set_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva, anon_izyfb.Val);
-		Llvm_lifetime_end_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva2);
-		Half result = FPBits_Float16_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva);
-		Llvm_lifetime_end_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva);
+		Fputil_FPBits_2fahva fputil_FPBits_2fahva2 = default(Fputil_FPBits_2fahva);
+		Llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva);
+		*unchecked((short*)(&fputil_FPBits_2fahva)) = -21846;
+		FPBits_Float16_Constructor.Invoke(&fputil_FPBits_2fahva, X);
+		Llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
+		FPBits_Float16_Constructor.Invoke(&fputil_FPBits_2fahva2, Y);
+		anon_izyfb.Val = FPStorage_fputil_FPType_0_sign.Invoke(&fputil_FPBits_2fahva2);
+		FPStorage_fputil_FPType_0_set_sign.Invoke(&fputil_FPBits_2fahva, anon_izyfb.Val);
+		Llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva2);
+		Half result = FPBits_Float16_get_val.Invoke(&fputil_FPBits_2fahva);
+		Llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva);
 		return result;
 	}
 }

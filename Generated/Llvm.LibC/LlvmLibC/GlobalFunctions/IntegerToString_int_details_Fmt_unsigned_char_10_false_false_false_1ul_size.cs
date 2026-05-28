@@ -7,7 +7,7 @@ internal static partial class IntegerToString_int_details_Fmt_unsigned_char_10_f
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_15IntegerToStringIiNS_7details3FmtILh10ELb0ELb0ELb0ELm1EEEE4sizeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::IntegerToString<int, __llvm_libc_20_1_2_::details::Fmt<(unsigned char)10, false, false, false, 1ul>>::size() const")]
-	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_IntegerToString_bz5c8a* This)
+	public unsafe static long Invoke([MangledName("this")] IntegerToString_bz5c8a* This)
 	{
 		return This->Written;
 	}

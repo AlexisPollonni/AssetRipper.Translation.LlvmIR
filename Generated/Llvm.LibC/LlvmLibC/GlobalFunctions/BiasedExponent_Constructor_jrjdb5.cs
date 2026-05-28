@@ -10,13 +10,13 @@ internal static partial class BiasedExponent_Constructor_jrjdb5
 	[CleanName("BiasedExponent_Constructor")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("exp.coerce")][NativeType("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)0>::Exponent")] int Exp)
 	{
-		Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent = new Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent
+		Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent = new Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent
 		{
 			field_0 = 
 			{
 				field_0 = Exp
 			}
 		};
-		TypedInt_unsigned_int_Constructor_bta9fy.Invoke(This, TypedInt_int_ToInt32_cib7hi.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent) + 15);
+		TypedInt_unsigned_int_Constructor_bta9fy.Invoke(This, TypedInt_int_ToInt32_cib7hi.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent) + 15);
 	}
 }

@@ -12,25 +12,25 @@ internal static partial class Printf_core_convert_inf_nan
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core15convert_inf_nanEPNS0_6WriterERKNS0_13FormatSectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::convert_inf_nan(__llvm_libc_20_1_2_::printf_core::Writer*, __llvm_libc_20_1_2_::printf_core::FormatSection const&)")]
-	public unsafe static int Invoke([MangledName("writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Llvm_libc_20_1_2_printf_core_Writer* Writer, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::printf_core::FormatSection const&")] Llvm_libc_20_1_2_printf_core_FormatSection* To_conv)
+	public unsafe static int Invoke([MangledName("writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Printf_core_Writer* Writer, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::printf_core::FormatSection const&")] Printf_core_FormatSection* To_conv)
 	{
 		int result = 0;
 		sbyte b = 0;
 		Int128 x = default(Int128);
 		Int128 @int = default(Int128);
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
 		Int128 int2 = default(Int128);
 		Int128 int3 = default(Int128);
 		long x2 = 0L;
-		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+		Fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm = default(Fputil_FPBits_wjhbrm);
 		sbyte b2 = 0;
 		int num = 0;
 		int num2 = 0;
 		int num3 = 0;
 		int num4 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		int num5 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view2 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view2 = default(Cpp_string_view);
 		int num6 = 0;
 		Llvm_lifetime_start_p0.Invoke(1L, &b);
 		b = -86;
@@ -42,12 +42,12 @@ internal static partial class Printf_core_convert_inf_nan
 			{
 				Llvm_lifetime_start_p0.Invoke(16L, &@int);
 				@int = To_conv->Conv_val_raw;
-				Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
-				*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = -6148914691236517206L;
+				Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi);
+				*(Int128*)(&fputil_FPBits_ubgsi) = -6148914691236517206L;
 				int2 = @int;
-				FPBits_long_double_FPBits_unsigned_int128.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, *(long*)(&int2), ((long*)(&int2))[1]);
-				b = (FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_neg.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
-				Struct_fiz2nb struct_fiz2nb = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_get_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+				FPBits_long_double_FPBits_unsigned_int128.Invoke(&fputil_FPBits_ubgsi, *(long*)(&int2), ((long*)(&int2))[1]);
+				b = (FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_neg.Invoke(&fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
+				Struct_fiz2nb struct_fiz2nb = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_get_mantissa.Invoke(&fputil_FPBits_ubgsi);
 				Int128* num7 = &int3;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 				*(long*)num7 = struct_fiz2nb2.field_0;
@@ -55,19 +55,19 @@ internal static partial class Printf_core_convert_inf_nan
 				Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 				*(long*)num8 = struct_fiz2nb3.field_1;
 				x = int3;
-				Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+				Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 				Llvm_lifetime_end_p0.Invoke(16L, &@int);
 			}
 			else
 			{
 				Llvm_lifetime_start_p0.Invoke(8L, &x2);
 				x2 = (long)To_conv->Conv_val_raw;
-				Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-				*(long*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm) = -6148914691236517206L;
-				FPBits_double_FPBits_unsigned_long.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm, x2);
-				b = (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm)) ? ((sbyte)1) : ((sbyte)0));
-				x = (Int128)(UInt128)(ulong)FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm));
-				Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+				Llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
+				*(long*)(&fputil_FPBits_wjhbrm) = -6148914691236517206L;
+				FPBits_double_FPBits_unsigned_long.Invoke(&fputil_FPBits_wjhbrm, x2);
+				b = (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg.Invoke((Fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm)) ? ((sbyte)1) : ((sbyte)0));
+				x = (Int128)(UInt128)(ulong)FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_mantissa.Invoke((Fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm));
+				Llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
 				Llvm_lifetime_end_p0.Invoke(8L, &x2);
 			}
 			Llvm_lifetime_start_p0.Invoke(1L, &b2);
@@ -136,8 +136,8 @@ internal static partial class Printf_core_convert_inf_nan
 			{
 				Llvm_lifetime_start_p0.Invoke(4L, &num4);
 				void* ptr = Writer;
-				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, (!Internal_islower_qy8nhx.Invoke(To_conv->Conv_name)) ? Str_1_166.Pointer : Str_165.Pointer);
-				num4 = Writer_write.Invoke((Llvm_libc_20_1_2_printf_core_Writer*)ptr, *(void**)(&llvm_libc_20_1_2_cpp_string_view), ((long*)(&llvm_libc_20_1_2_cpp_string_view))[1]);
+				String_view_Constructor.Invoke(&cpp_string_view, (!Internal_islower_qy8nhx.Invoke(To_conv->Conv_name)) ? Str_1_166.Pointer : Str_165.Pointer);
+				num4 = Writer_write.Invoke((Printf_core_Writer*)ptr, *(void**)(&cpp_string_view), ((long*)(&cpp_string_view))[1]);
 				int num9;
 				if (num4 < 0)
 				{
@@ -161,8 +161,8 @@ internal static partial class Printf_core_convert_inf_nan
 			{
 				Llvm_lifetime_start_p0.Invoke(4L, &num5);
 				void* ptr2 = Writer;
-				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view2, (!Internal_islower_qy8nhx.Invoke(To_conv->Conv_name)) ? Str_3_168.Pointer : Str_2_167.Pointer);
-				num5 = Writer_write.Invoke((Llvm_libc_20_1_2_printf_core_Writer*)ptr2, *(void**)(&llvm_libc_20_1_2_cpp_string_view2), ((long*)(&llvm_libc_20_1_2_cpp_string_view2))[1]);
+				String_view_Constructor.Invoke(&cpp_string_view2, (!Internal_islower_qy8nhx.Invoke(To_conv->Conv_name)) ? Str_3_168.Pointer : Str_2_167.Pointer);
+				num5 = Writer_write.Invoke((Printf_core_Writer*)ptr2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 				int num9;
 				if (num5 < 0)
 				{

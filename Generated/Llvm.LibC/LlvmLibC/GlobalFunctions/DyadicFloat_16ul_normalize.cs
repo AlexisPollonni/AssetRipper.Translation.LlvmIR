@@ -8,7 +8,7 @@ internal static partial class DyadicFloat_16ul_normalize
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11DyadicFloatILm16EE9normalizeEv")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::DyadicFloat<16ul>::normalize()")]
-	public unsafe static Llvm_libc_20_1_2_fputil_DyadicFloat_jvghxm* Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_DyadicFloat_jvghxm* This)
+	public unsafe static Fputil_DyadicFloat_jvghxm* Invoke([MangledName("this")] Fputil_DyadicFloat_jvghxm* This)
 	{
 		int num = 0;
 		if (!BigInt_16ul_false_unsigned_short_is_zero.Invoke(&This->Mantissa))

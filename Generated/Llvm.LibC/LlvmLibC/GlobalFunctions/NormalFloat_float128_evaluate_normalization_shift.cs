@@ -10,7 +10,7 @@ internal static partial class NormalFloat_float128_evaluate_normalization_shift
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIgE28evaluate_normalization_shiftEo")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<__float128>::evaluate_normalization_shift(unsigned __int128)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie* This, [MangledName("m.coerce0")] long M, [MangledName("m.coerce1")] long Shift)
+	public unsafe static int Invoke([MangledName("this")] Fputil_NormalFloat_wqb3ie* This, [MangledName("m.coerce0")] long M, [MangledName("m.coerce1")] long Shift)
 	{
 		Int128 @int = default(Int128);
 		int num = 0;

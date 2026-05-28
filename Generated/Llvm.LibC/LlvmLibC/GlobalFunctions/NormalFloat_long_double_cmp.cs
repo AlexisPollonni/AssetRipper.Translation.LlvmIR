@@ -17,10 +17,10 @@ internal static partial class NormalFloat_long_double_cmp
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
 		unchecked
 		{
-			num = InstructionHelper.Select(Sign_is_neg.Invoke(&((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)This)->Sign), -1, 1);
-			Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, &((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)This)->Sign, 1L, isVolatile: false);
-			Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb2, &((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)Other)->Sign, 1L, isVolatile: false);
-			int result = ((!Llvm_libc_20_1_2_NotEquals_rpctvi.Invoke(anon_izyfb.Val, anon_izyfb2.Val)) ? ((((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)This)->Exponent <= ((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)Other)->Exponent) ? ((((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)This)->Exponent != ((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)Other)->Exponent) ? checked(-num) : ((!NumericHelper.IntCmpUgt(((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)This)->Mantissa, ((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)Other)->Mantissa)) ? ((!NumericHelper.IntCmpEq(((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)This)->Mantissa, ((Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie*)Other)->Mantissa)) ? checked(-num) : 0) : num)) : num) : num);
+			num = InstructionHelper.Select(Sign_is_neg.Invoke(&((Fputil_NormalFloat_wqb3ie*)This)->Sign), -1, 1);
+			Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, &((Fputil_NormalFloat_wqb3ie*)This)->Sign, 1L, isVolatile: false);
+			Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb2, &((Fputil_NormalFloat_wqb3ie*)Other)->Sign, 1L, isVolatile: false);
+			int result = ((!NotEquals_rpctvi.Invoke(anon_izyfb.Val, anon_izyfb2.Val)) ? ((((Fputil_NormalFloat_wqb3ie*)This)->Exponent <= ((Fputil_NormalFloat_wqb3ie*)Other)->Exponent) ? ((((Fputil_NormalFloat_wqb3ie*)This)->Exponent != ((Fputil_NormalFloat_wqb3ie*)Other)->Exponent) ? checked(-num) : ((!NumericHelper.IntCmpUgt(((Fputil_NormalFloat_wqb3ie*)This)->Mantissa, ((Fputil_NormalFloat_wqb3ie*)Other)->Mantissa)) ? ((!NumericHelper.IntCmpEq(((Fputil_NormalFloat_wqb3ie*)This)->Mantissa, ((Fputil_NormalFloat_wqb3ie*)Other)->Mantissa)) ? checked(-num) : 0) : num)) : num) : num);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
 			return result;
 		}

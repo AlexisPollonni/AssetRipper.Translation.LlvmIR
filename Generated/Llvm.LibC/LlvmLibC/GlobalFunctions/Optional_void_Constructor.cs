@@ -11,8 +11,8 @@ internal static partial class Optional_void_Constructor
 	{
 		unchecked
 		{
-			OptionalStorage_void_false_OptionalStorage_void.Invoke(&((Llvm_libc_20_1_2_cpp_optional_77yu8f*)This)->Storage, Cpp_move_void.Invoke(T));
-			((Llvm_libc_20_1_2_cpp_optional_77yu8f*)This)->Storage.In_use = 1;
+			OptionalStorage_void_false_OptionalStorage_void.Invoke(&((Cpp_optional_77yu8f*)This)->Storage, Cpp_move_void.Invoke(T));
+			((Cpp_optional_77yu8f*)This)->Storage.In_use = 1;
 		}
 	}
 
@@ -20,6 +20,6 @@ internal static partial class Optional_void_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<void*>::optional()")]
 	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		OptionalStorage_void_false_Constructor.Invoke(&unchecked((Llvm_libc_20_1_2_cpp_optional_77yu8f*)This)->Storage);
+		OptionalStorage_void_false_Constructor.Invoke(&unchecked((Cpp_optional_77yu8f*)This)->Storage);
 	}
 }

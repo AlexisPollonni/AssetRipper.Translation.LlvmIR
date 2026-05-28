@@ -29,6 +29,6 @@ internal static partial class Str_1_125
 	unsafe static Str_1_125()
 	{
 		Value = InlineArrayHelper.Create<InlineArray4_SByte, byte>("nan\0"u8);
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

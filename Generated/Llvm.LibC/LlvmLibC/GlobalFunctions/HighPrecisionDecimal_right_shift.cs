@@ -8,7 +8,7 @@ internal static partial class HighPrecisionDecimal_right_shift
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal11right_shiftEj")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::right_shift(unsigned int)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This, [MangledName("shift_amount")][NativeType("unsigned int")] int Shift_amount)
+	public unsafe static void Invoke([MangledName("this")] Internal_HighPrecisionDecimal* This, [MangledName("shift_amount")][NativeType("unsigned int")] int Shift_amount)
 	{
 		int num = 0;
 		int num2 = 0;

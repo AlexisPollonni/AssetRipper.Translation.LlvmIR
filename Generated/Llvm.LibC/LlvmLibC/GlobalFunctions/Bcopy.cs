@@ -8,6 +8,6 @@ internal static partial class Bcopy
 	[DemangledName("bcopy")]
 	public unsafe static void Invoke([MangledName("src")] void* Src, [MangledName("dst")] void* Dst, [MangledName("count")] long Count)
 	{
-		Llvm_libc_20_1_2_inline_memmove.Invoke(Dst, Src, Count);
+		Inline_memmove.Invoke(Dst, Src, Count);
 	}
 }

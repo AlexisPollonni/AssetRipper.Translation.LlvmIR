@@ -13,7 +13,7 @@ internal static partial class Internal_strtointeger_unsigned_short
 	[return: NativeType("__llvm_libc_20_1_2_::StrToNumResult<unsigned short>")]
 	public unsafe static Struct_fiz2nb Invoke([MangledName("src")][NativeType("char const*")] void* Src, [MangledName("base")][NativeType("int")] int Base, [MangledName("src_len")][NativeType("unsigned long")] long Src_len)
 	{
-		Llvm_libc_20_1_2_StrToNumResult_wwcts2 llvm_libc_20_1_2_StrToNumResult_wwcts = default(Llvm_libc_20_1_2_StrToNumResult_wwcts2);
+		StrToNumResult_wwcts2 strToNumResult_wwcts = default(StrToNumResult_wwcts2);
 		short num = 0;
 		sbyte b = 0;
 		long num2 = 0L;
@@ -39,11 +39,11 @@ internal static partial class Internal_strtointeger_unsigned_short
 		{
 			if (Src_len == 0L)
 			{
-				StrToNumResult_unsigned_short_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_wwcts, 0, 0L, 0);
+				StrToNumResult_unsigned_short_Constructor.Invoke(&strToNumResult_wwcts, 0, 0L, 0);
 			}
 			else if (num8 < 0 || num8 == 1 || num8 > 36)
 			{
-				StrToNumResult_unsigned_short_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_wwcts, 0, 0L, 22);
+				StrToNumResult_unsigned_short_Constructor.Invoke(&strToNumResult_wwcts, 0, 0L, 22);
 			}
 			else
 			{
@@ -133,7 +133,7 @@ internal static partial class Internal_strtointeger_unsigned_short
 				{
 					if ((b4 & 1) == 1 || true)
 					{
-						StrToNumResult_unsigned_short_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_wwcts, Integer_impl_unsigned_short_unsigned_short_0_unsigned_short_65535_max.Invoke(), parsed_len, num3);
+						StrToNumResult_unsigned_short_Constructor.Invoke(&strToNumResult_wwcts, Integer_impl_unsigned_short_unsigned_short_0_unsigned_short_65535_max.Invoke(), parsed_len, num3);
 					}
 					else
 					{
@@ -141,12 +141,12 @@ internal static partial class Internal_strtointeger_unsigned_short
 						short value;
 						long parsed_len2;
 						int error;
-						StrToNumResult_unsigned_short_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_wwcts, value, parsed_len2, error);
+						StrToNumResult_unsigned_short_Constructor.Invoke(&strToNumResult_wwcts, value, parsed_len2, error);
 					}
 				}
 				else
 				{
-					StrToNumResult_unsigned_short_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_wwcts, (short)(((b4 & 1) != 1) ? checked(-unchecked((ushort)num)) : ((ushort)num)), parsed_len, num3);
+					StrToNumResult_unsigned_short_Constructor.Invoke(&strToNumResult_wwcts, (short)(((b4 & 1) != 1) ? checked(-unchecked((ushort)num)) : ((ushort)num)), parsed_len, num3);
 				}
 				Llvm_lifetime_end_p0.Invoke(8L, &parsed_len);
 				Llvm_lifetime_end_p0.Invoke(2L, &num6);
@@ -160,7 +160,7 @@ internal static partial class Internal_strtointeger_unsigned_short
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(1L, &b);
 			Llvm_lifetime_end_p0.Invoke(2L, &num);
-			return *(Struct_fiz2nb*)(&llvm_libc_20_1_2_StrToNumResult_wwcts);
+			return *(Struct_fiz2nb*)(&strToNumResult_wwcts);
 		}
 	}
 }

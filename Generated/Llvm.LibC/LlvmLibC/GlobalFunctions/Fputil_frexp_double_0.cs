@@ -11,36 +11,36 @@ internal static partial class Fputil_frexp_double_0
 	[return: NativeType("double")]
 	public unsafe static double Invoke([MangledName("x")][NativeType("double")] double X, [MangledName("exp")][NativeType("int&")] void* Exp)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-		Llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk = default(Llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk);
-		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm2 = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-		Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+		Fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm = default(Fputil_FPBits_wjhbrm);
+		Fputil_NormalFloat_vc4yvk fputil_NormalFloat_vc4yvk = default(Fputil_NormalFloat_vc4yvk);
+		Fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(Fputil_FPBits_wjhbrm);
+		Llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
 		unchecked
 		{
-			*(long*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm) = -6148914691236517206L;
-			FPBits_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm, X);
+			*(long*)(&fputil_FPBits_wjhbrm) = -6148914691236517206L;
+			FPBits_double_Constructor.Invoke(&fputil_FPBits_wjhbrm, X);
 			double result;
-			if (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm)))
+			if (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan.Invoke((Fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm)))
 			{
 				result = X;
 			}
-			else if (FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_zero.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm)))
+			else if (FPRepSem_fputil_FPType_2_fputil_FPBits_double_is_zero.Invoke((Fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm)))
 			{
 				*(int*)Exp = 0;
 				result = X;
 			}
 			else
 			{
-				Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk);
-				*(int*)(&llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk) = -1431655766;
-				sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk) + 4;
+				Llvm_lifetime_start_p0.Invoke(24L, &fputil_NormalFloat_vc4yvk);
+				*(int*)(&fputil_NormalFloat_vc4yvk) = -1431655766;
+				sbyte* ptr = (sbyte*)(&fputil_NormalFloat_vc4yvk) + 4;
 				*ptr = -86;
 				ptr[1] = -86;
 				ptr[2] = -86;
 				ptr[3] = -86;
-				((long*)(&llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk))[1] = -6148914691236517206L;
-				((sbyte*)(&llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk))[16] = -86;
-				sbyte* ptr2 = (sbyte*)(&llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk) + 17;
+				((long*)(&fputil_NormalFloat_vc4yvk))[1] = -6148914691236517206L;
+				((sbyte*)(&fputil_NormalFloat_vc4yvk))[16] = -86;
+				sbyte* ptr2 = (sbyte*)(&fputil_NormalFloat_vc4yvk) + 17;
 				*ptr2 = -86;
 				ptr2[1] = -86;
 				ptr2[2] = -86;
@@ -48,14 +48,14 @@ internal static partial class Fputil_frexp_double_0
 				ptr2[4] = -86;
 				ptr2[5] = -86;
 				ptr2[6] = -86;
-				Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm2, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm, 8L, isVolatile: false);
-				NormalFloat_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk, llvm_libc_20_1_2_fputil_FPBits_wjhbrm2.FPRepImpl.FPRepSem.FPStorage.Val);
-				*(int*)Exp = checked(llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk.Exponent + 1);
-				llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk.Exponent = -1;
-				result = NormalFloat_double_ToDouble.Invoke(&llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk);
-				Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk);
+				Llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_wjhbrm2, &fputil_FPBits_wjhbrm, 8L, isVolatile: false);
+				NormalFloat_double_Constructor.Invoke(&fputil_NormalFloat_vc4yvk, fputil_FPBits_wjhbrm2.FPRepImpl.FPRepSem.FPStorage.Val);
+				*(int*)Exp = checked(fputil_NormalFloat_vc4yvk.Exponent + 1);
+				fputil_NormalFloat_vc4yvk.Exponent = -1;
+				result = NormalFloat_double_ToDouble.Invoke(&fputil_NormalFloat_vc4yvk);
+				Llvm_lifetime_end_p0.Invoke(24L, &fputil_NormalFloat_vc4yvk);
 			}
-			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+			Llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
 			return result;
 		}
 	}

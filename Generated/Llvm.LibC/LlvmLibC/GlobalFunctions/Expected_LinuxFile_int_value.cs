@@ -7,8 +7,8 @@ internal static partial class Expected_LinuxFile_int_value
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8expectedIPNS_9LinuxFileEiE5valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::expected<__llvm_libc_20_1_2_::LinuxFile*, int>::value()")]
-	public unsafe static Llvm_libc_20_1_2_LinuxFile** Invoke([MangledName("this")] void* This)
+	public unsafe static LinuxFile** Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_LinuxFile**)(&((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->field));
+		return unchecked((LinuxFile**)(&((Cpp_optional_char_OptionalStorage*)This)->field));
 	}
 }

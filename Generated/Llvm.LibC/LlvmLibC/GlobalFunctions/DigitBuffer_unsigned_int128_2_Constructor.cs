@@ -9,7 +9,7 @@ internal static partial class DigitBuffer_unsigned_int128_2_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal11DigitBufferIoLi2EEC2EPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::DigitBuffer<unsigned __int128, 2>::DigitBuffer(char const*)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_DigitBuffer_wtdk7c* This, [MangledName("str")][NativeType("char const*")] void* Str)
+	public unsafe static void Invoke([MangledName("this")] Internal_DigitBuffer_wtdk7c* This, [MangledName("str")][NativeType("char const*")] void* Str)
 	{
 		void* ptr = Str;
 		InlineArray128_SByte* digits = &This->Digits;

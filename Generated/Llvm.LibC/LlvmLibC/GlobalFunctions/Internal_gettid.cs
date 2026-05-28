@@ -12,7 +12,7 @@ internal static partial class Internal_gettid
 		void* ptr = null;
 		Llvm_lifetime_start_p0.Invoke(8L, &ptr);
 		ptr = Internal_get_tid_cache.Invoke();
-		int result = unchecked((!Details_expects_bool_condition_bool.Invoke(ptr == null || *(int*)ptr <= 0, Expected: false)) ? (*(int*)ptr) : Llvm_libc_20_1_2_syscall_impl_int.Invoke(186L));
+		int result = unchecked((!Details_expects_bool_condition_bool.Invoke(ptr == null || *(int*)ptr <= 0, Expected: false)) ? (*(int*)ptr) : Syscall_impl_int.Invoke(186L));
 		Llvm_lifetime_end_p0.Invoke(8L, &ptr);
 		return result;
 	}

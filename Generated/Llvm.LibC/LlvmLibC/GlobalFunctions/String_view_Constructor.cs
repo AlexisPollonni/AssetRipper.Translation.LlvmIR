@@ -11,8 +11,8 @@ internal static partial class String_view_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_data = Str;
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size = String_view_length.Invoke(Str);
+			((Cpp_string_view*)This)->Span_data = Str;
+			((Cpp_string_view*)This)->Span_size = String_view_length.Invoke(Str);
 		}
 	}
 
@@ -22,8 +22,8 @@ internal static partial class String_view_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_data = Str;
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size = N;
+			((Cpp_string_view*)This)->Span_data = Str;
+			((Cpp_string_view*)This)->Span_size = N;
 		}
 	}
 
@@ -33,8 +33,8 @@ internal static partial class String_view_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_data = null;
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size = 0L;
+			((Cpp_string_view*)This)->Span_data = null;
+			((Cpp_string_view*)This)->Span_size = 0L;
 		}
 	}
 }

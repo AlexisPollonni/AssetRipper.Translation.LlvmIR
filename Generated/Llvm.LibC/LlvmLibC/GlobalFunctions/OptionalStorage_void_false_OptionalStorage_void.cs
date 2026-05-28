@@ -12,9 +12,9 @@ internal static partial class OptionalStorage_void_false_OptionalStorage_void
 	{
 		unchecked
 		{
-			Anon_5uk363* field = &((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->field;
+			Anon_5uk363* field = &((Cpp_optional_char_OptionalStorage*)This)->field;
 			*(IntPtr*)field = *(IntPtr*)Cpp_forward_void.Invoke(Args);
-			((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->In_use = 0;
+			((Cpp_optional_char_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 }

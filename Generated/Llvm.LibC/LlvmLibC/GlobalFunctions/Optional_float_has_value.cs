@@ -7,7 +7,7 @@ internal static partial class Optional_float_has_value
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_3cpp8optionalIfE9has_valueEv")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<float>::has_value() const")]
-	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_cpp_optional_xmxtsi* This)
+	public unsafe static bool Invoke([MangledName("this")] Cpp_optional_xmxtsi* This)
 	{
 		return (This->Storage.In_use & 1) == 1;
 	}

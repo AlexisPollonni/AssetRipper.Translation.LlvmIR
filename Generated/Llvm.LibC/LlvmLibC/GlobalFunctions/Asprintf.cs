@@ -14,9 +14,9 @@ internal static partial class Asprintf
 	public unsafe static int Invoke([MangledName("buffer")] void* Buffer, [MangledName("format")] void* Format, ReadOnlySpan<nint> args)
 	{
 		InlineArray1_Va_list_tag inlineArray1_Va_list_tag = default(InlineArray1_Va_list_tag);
-		Llvm_libc_20_1_2_internal_ArgList llvm_libc_20_1_2_internal_ArgList = default(Llvm_libc_20_1_2_internal_ArgList);
+		Internal_ArgList internal_ArgList = default(Internal_ArgList);
 		int num = 0;
-		Llvm_libc_20_1_2_internal_ArgList llvm_libc_20_1_2_internal_ArgList2 = default(Llvm_libc_20_1_2_internal_ArgList);
+		Internal_ArgList internal_ArgList2 = default(Internal_ArgList);
 		Llvm_lifetime_start_p0.Invoke(24L, &inlineArray1_Va_list_tag);
 		unchecked
 		{
@@ -26,22 +26,22 @@ internal static partial class Asprintf
 			*(IntPtr*)((byte*)ptr + 8) = unchecked((nint)(-6148914691236517206L));
 			*(IntPtr*)((byte*)ptr + 16) = unchecked((nint)(-6148914691236517206L));
 			InstructionHelper.VAStart((void**)(&inlineArray1_Va_list_tag), args);
-			Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_internal_ArgList);
-			Va_list_tag* ptr2 = (Va_list_tag*)(&llvm_libc_20_1_2_internal_ArgList);
+			Llvm_lifetime_start_p0.Invoke(24L, &internal_ArgList);
+			Va_list_tag* ptr2 = (Va_list_tag*)(&internal_ArgList);
 			*(int*)ptr2 = -1431655766;
 			((int*)ptr2)[1] = -1431655766;
 			*(IntPtr*)((byte*)ptr2 + 8) = unchecked((nint)(-6148914691236517206L));
 			*(IntPtr*)((byte*)ptr2 + 16) = unchecked((nint)(-6148914691236517206L));
-			ArgList_Constructor_7zbjxz.Invoke(&llvm_libc_20_1_2_internal_ArgList, (Va_list_tag*)(&inlineArray1_Va_list_tag));
+			ArgList_Constructor_7zbjxz.Invoke(&internal_ArgList, (Va_list_tag*)(&inlineArray1_Va_list_tag));
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
-			ArgList_Constructor_z4jw9r.Invoke(&llvm_libc_20_1_2_internal_ArgList2, &llvm_libc_20_1_2_internal_ArgList);
-			int num2 = Printf_core_vasprintf_internal.Invoke(Buffer, Format, &llvm_libc_20_1_2_internal_ArgList2);
-			ArgList_Destructor.Invoke(&llvm_libc_20_1_2_internal_ArgList2);
+			ArgList_Constructor_z4jw9r.Invoke(&internal_ArgList2, &internal_ArgList);
+			int num2 = Printf_core_vasprintf_internal.Invoke(Buffer, Format, &internal_ArgList2);
+			ArgList_Destructor.Invoke(&internal_ArgList2);
 			num = num2;
 			int result = num;
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
-			ArgList_Destructor.Invoke(&llvm_libc_20_1_2_internal_ArgList);
-			Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_internal_ArgList);
+			ArgList_Destructor.Invoke(&internal_ArgList);
+			Llvm_lifetime_end_p0.Invoke(24L, &internal_ArgList);
 			Llvm_lifetime_end_p0.Invoke(24L, &inlineArray1_Va_list_tag);
 			return result;
 		}

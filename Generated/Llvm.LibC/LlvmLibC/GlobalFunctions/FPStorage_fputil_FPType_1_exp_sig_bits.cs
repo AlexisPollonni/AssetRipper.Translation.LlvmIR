@@ -9,6 +9,6 @@ internal static partial class FPStorage_fputil_FPType_1_exp_sig_bits
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)1>::exp_sig_bits() const")]
 	public unsafe static int Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 & 0x7FFFFFFF;
+		return unchecked((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 & 0x7FFFFFFF;
 	}
 }

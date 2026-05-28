@@ -8,7 +8,7 @@ internal static partial class Memcpy
 	[DemangledName("memcpy")]
 	public unsafe static void* Invoke([MangledName("dst")] void* Dst, [MangledName("src")] void* Src, [MangledName("size")] long Size)
 	{
-		Llvm_libc_20_1_2_inline_memcpy.Invoke(Dst, Src, Size);
+		Inline_memcpy.Invoke(Dst, Src, Size);
 		return Dst;
 	}
 }

@@ -10,19 +10,19 @@ internal static partial class Internal_btowc
 	[DemangledName("__llvm_libc_20_1_2_::internal::btowc(int)")]
 	public unsafe static long Invoke([MangledName("c")][NativeType("int")] int C)
 	{
-		Llvm_libc_20_1_2_cpp_optional_g66fk4 llvm_libc_20_1_2_cpp_optional_g66fk = default(Llvm_libc_20_1_2_cpp_optional_g66fk4);
+		Cpp_optional_g66fk4 cpp_optional_g66fk = default(Cpp_optional_g66fk4);
 		int num = 0;
 		if (C > 127 || C < 0)
 		{
-			Optional_unsigned_int_Constructor_d3whqv.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk);
+			Optional_unsigned_int_Constructor_d3whqv.Invoke(&cpp_optional_g66fk);
 		}
 		else
 		{
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = C;
-			Optional_unsigned_int_Constructor_sqgrhj.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk, &num);
+			Optional_unsigned_int_Constructor_sqgrhj.Invoke(&cpp_optional_g66fk, &num);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
 		}
-		return *unchecked((long*)(&llvm_libc_20_1_2_cpp_optional_g66fk.Storage));
+		return *unchecked((long*)(&cpp_optional_g66fk.Storage));
 	}
 }

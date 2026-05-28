@@ -9,11 +9,11 @@ internal static partial class StringStream_str
 	[DemangledName("__llvm_libc_20_1_2_::cpp::StringStream::str() const")]
 	public unsafe static Struct_kqhe8i Invoke([MangledName("this")] void* This)
 	{
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		unchecked
 		{
-			String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, Span_char_data.Invoke(&((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Buffer), ((Llvm_libc_20_1_2_details_StringBufferWriterImpl*)This)->Index);
-			return *(Struct_kqhe8i*)(&llvm_libc_20_1_2_cpp_string_view);
+			String_view_Constructor.Invoke(&cpp_string_view, Span_char_data.Invoke(&((Details_StringBufferWriterImpl*)This)->Buffer), ((Details_StringBufferWriterImpl*)This)->Index);
+			return *(Struct_kqhe8i*)(&cpp_string_view);
 		}
 	}
 }

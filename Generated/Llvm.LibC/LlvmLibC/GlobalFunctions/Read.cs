@@ -1,4 +1,3 @@
-using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.GlobalVariables;
 using LlvmLibC.Intrinsics.Implemented;
@@ -7,7 +6,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class Read
 {
-	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<int, void*, long, long>)(&Invoke));
+	public unsafe static readonly void* __pointer = (delegate*<int, void*, long, long>)(&Invoke);
 
 	[MangledName("read")]
 	[DemangledName("read")]
@@ -15,13 +14,13 @@ internal static partial class Read
 	{
 		long num = 0L;
 		Llvm_lifetime_start_p0.Invoke(8L, &num);
-		num = Llvm_libc_20_1_2_syscall_impl_long_int_void_unsigned_long.Invoke(0L, Fd, Buf, Count);
+		num = Syscall_impl_long_int_void_unsigned_long.Invoke(0L, Fd, Buf, Count);
 		unchecked
 		{
 			long result;
 			if (num < 0L)
 			{
-				Errno_Assignment.Invoke(A: (int)checked(-num), This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: (int)checked(-num), This: Libc_errno.Pointer);
 				result = -1L;
 			}
 			else

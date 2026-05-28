@@ -20,7 +20,7 @@ internal static partial class Futex_wait
 		num = InstructionHelper.Select((b & 1) == 1, 9, 137);
 		unchecked
 		{
-			if (Optional_internal_AbsTimeout_ToBoolean.Invoke((Llvm_libc_20_1_2_cpp_optional_59q3zq*)Timeout) && AbsTimeout_is_realtime.Invoke(Optional_internal_AbsTimeout_PointerDereference.Invoke((Llvm_libc_20_1_2_cpp_optional_59q3zq*)Timeout)))
+			if (Optional_internal_AbsTimeout_ToBoolean.Invoke((Cpp_optional_59q3zq*)Timeout) && AbsTimeout_is_realtime.Invoke(Optional_internal_AbsTimeout_PointerDereference.Invoke((Cpp_optional_59q3zq*)Timeout)))
 			{
 				num |= 0x100;
 			}
@@ -33,7 +33,7 @@ internal static partial class Futex_wait
 					break;
 				}
 				Llvm_lifetime_start_p0.Invoke(8L, &num2);
-				num2 = Llvm_libc_20_1_2_syscall_impl_long_Futex_unsigned_int_unsigned_int_timespec_const_std_nullptr_t_unsigned_int.Invoke(202L, This, num, Expected, (!Optional_internal_AbsTimeout_ToBoolean.Invoke((Llvm_libc_20_1_2_cpp_optional_59q3zq*)Timeout)) ? null : AbsTimeout_get_timespec.Invoke(Optional_internal_AbsTimeout_PointerDereference.Invoke((Llvm_libc_20_1_2_cpp_optional_59q3zq*)Timeout)), null, -1);
+				num2 = Syscall_impl_long_Futex_unsigned_int_unsigned_int_timespec_const_std_nullptr_t_unsigned_int.Invoke(202L, This, num, Expected, (!Optional_internal_AbsTimeout_ToBoolean.Invoke((Cpp_optional_59q3zq*)Timeout)) ? null : AbsTimeout_get_timespec.Invoke(Optional_internal_AbsTimeout_PointerDereference.Invoke((Cpp_optional_59q3zq*)Timeout)), null, -1);
 				if (num2 == -4L)
 				{
 					num3 = 3;

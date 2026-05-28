@@ -13,19 +13,19 @@ internal static partial class Fputil_fminimum_mag_num_Float16_0
 	[return: NativeType("_Float16")]
 	public unsafe static Half Invoke([MangledName("x")][NativeType("_Float16")] Half X, [MangledName("y")][NativeType("_Float16")] Half Y)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_2fahva llvm_libc_20_1_2_fputil_FPBits_2fahva = default(Llvm_libc_20_1_2_fputil_FPBits_2fahva);
-		Llvm_libc_20_1_2_fputil_FPBits_2fahva llvm_libc_20_1_2_fputil_FPBits_2fahva2 = default(Llvm_libc_20_1_2_fputil_FPBits_2fahva);
-		Llvm_lifetime_start_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva);
+		Fputil_FPBits_2fahva fputil_FPBits_2fahva = default(Fputil_FPBits_2fahva);
+		Fputil_FPBits_2fahva fputil_FPBits_2fahva2 = default(Fputil_FPBits_2fahva);
+		Llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva);
 		unchecked
 		{
-			*(short*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva) = -21846;
-			FPBits_Float16_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva, X);
-			Llvm_lifetime_start_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva2);
-			*(short*)(&llvm_libc_20_1_2_fputil_FPBits_2fahva2) = -21846;
-			FPBits_Float16_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_2fahva2, Y);
+			*(short*)(&fputil_FPBits_2fahva) = -21846;
+			FPBits_Float16_Constructor.Invoke(&fputil_FPBits_2fahva, X);
+			Llvm_lifetime_start_p0.Invoke(2L, &fputil_FPBits_2fahva2);
+			*(short*)(&fputil_FPBits_2fahva2) = -21846;
+			FPBits_Float16_Constructor.Invoke(&fputil_FPBits_2fahva2, Y);
 			Half result = ((!NumericHelper.FcmpOlt(Fputil_abs_Float16_0.Invoke(X), Fputil_abs_Float16_0.Invoke(Y))) ? ((!NumericHelper.FcmpOlt(Fputil_abs_Float16_0.Invoke(Y), Fputil_abs_Float16_0.Invoke(X))) ? Fputil_fminimum_num_Float16_0.Invoke(X, Y) : Y) : X);
-			Llvm_lifetime_end_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva2);
-			Llvm_lifetime_end_p0.Invoke(2L, &llvm_libc_20_1_2_fputil_FPBits_2fahva);
+			Llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva2);
+			Llvm_lifetime_end_p0.Invoke(2L, &fputil_FPBits_2fahva);
 			return result;
 		}
 	}

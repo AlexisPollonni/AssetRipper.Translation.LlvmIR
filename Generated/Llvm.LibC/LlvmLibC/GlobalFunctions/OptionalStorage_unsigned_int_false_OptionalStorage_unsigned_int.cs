@@ -12,9 +12,9 @@ internal static partial class OptionalStorage_unsigned_int_false_OptionalStorage
 	{
 		unchecked
 		{
-			Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt* field = &((Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage*)This)->field;
+			Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt* field = &((Cpp_optional_int_OptionalStorage*)This)->field;
 			*(int*)field = *(int*)Cpp_forward_unsigned_int.Invoke(Args);
-			((Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage*)This)->In_use = 0;
+			((Cpp_optional_int_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 }

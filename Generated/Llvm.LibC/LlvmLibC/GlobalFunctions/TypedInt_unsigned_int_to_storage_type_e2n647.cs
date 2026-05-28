@@ -13,7 +13,7 @@ internal static partial class TypedInt_unsigned_int_to_storage_type_e2n647
 	{
 		unchecked
 		{
-			Int128 @int = (Int128)(UInt128)(uint)((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0;
+			Int128 @int = (Int128)(UInt128)(uint)((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0;
 			return *(Struct_fiz2nb*)(&@int);
 		}
 	}

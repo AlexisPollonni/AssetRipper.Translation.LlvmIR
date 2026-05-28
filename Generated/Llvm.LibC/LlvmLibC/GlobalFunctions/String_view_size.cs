@@ -9,6 +9,6 @@ internal static partial class String_view_size
 	[DemangledName("__llvm_libc_20_1_2_::cpp::string_view::size() const")]
 	public unsafe static long Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size;
+		return unchecked((Cpp_string_view*)This)->Span_size;
 	}
 }

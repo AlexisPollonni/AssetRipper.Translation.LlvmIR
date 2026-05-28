@@ -13,7 +13,7 @@ internal static partial class Strstr
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
 		Llvm_lifetime_start_p0.Invoke(1L, &anon_izyfb);
 		*unchecked((sbyte*)(&anon_izyfb)) = -86;
-		void* result = Llvm_libc_20_1_2_inline_strstr_strstr_impl_char_const_char_const_0.Invoke(Haystack, Needle, &anon_izyfb);
+		void* result = Inline_strstr_strstr_impl_char_const_char_const_0.Invoke(Haystack, Needle, &anon_izyfb);
 		Llvm_lifetime_end_p0.Invoke(1L, &anon_izyfb);
 		return result;
 	}

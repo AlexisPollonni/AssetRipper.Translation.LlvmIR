@@ -10,6 +10,6 @@ internal static partial class FPRepSem_fputil_FPType_4_fputil_FPBits_long_double
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepSem<(__llvm_libc_20_1_2_::fputil::FPType)4, __llvm_libc_20_1_2_::fputil::FPBits<long double>>::get_implicit_bit() const")]
 	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0, long.MinValue), 0L);
+		return NumericHelper.IntCmpNe(NumericHelper.BitwiseAnd(unchecked((Fputil_internal_FPStorage_w3h7gw*)This)->field_0, long.MinValue), 0L);
 	}
 }

@@ -9,6 +9,6 @@ internal static partial class Accumulator_unsigned_long_carry
 	[DemangledName("__llvm_libc_20_1_2_::multiword::Accumulator<unsigned long>::carry() const")]
 	public unsafe static long Invoke([MangledName("this")] void* This)
 	{
-		return *unchecked((long*)Array_unsigned_long_2ul_back_g5j3kr.Invoke((Llvm_libc_20_1_2_cpp_array_i3937k*)This));
+		return *unchecked((long*)Array_unsigned_long_2ul_back_g5j3kr.Invoke((Cpp_array_i3937k*)This));
 	}
 }

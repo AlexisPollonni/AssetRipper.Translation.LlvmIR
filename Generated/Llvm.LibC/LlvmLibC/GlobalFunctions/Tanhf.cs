@@ -14,9 +14,9 @@ internal static partial class Tanhf
 	[DemangledName("tanhf")]
 	public unsafe static float Invoke([MangledName("x")] float X)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs = default(Fputil_FPBits_5nkvcs);
 		int num = 0;
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs2 = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs2 = default(Fputil_FPBits_5nkvcs);
 		int num2 = 0;
 		InlineArray5_Double inlineArray5_Double = default(InlineArray5_Double);
 		double num3 = 0.0;
@@ -34,7 +34,7 @@ internal static partial class Tanhf
 		long num7 = 0L;
 		long x3 = 0L;
 		double num8 = 0.0;
-		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+		Fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm = default(Fputil_FPBits_wjhbrm);
 		double num9 = 0.0;
 		InlineArray4_Double inlineArray4_Double = default(InlineArray4_Double);
 		double x4 = 0.0;
@@ -42,20 +42,20 @@ internal static partial class Tanhf
 		double a_yc74sk2 = 0.0;
 		double a_ijazrn2 = 0.0;
 		double num10 = 0.0;
-		Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
 		unchecked
 		{
-			*(int*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs) = -1431655766;
-			FPBits_float_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, X);
+			*(int*)(&fputil_FPBits_5nkvcs) = -1431655766;
+			FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs, X);
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
-			Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
-			int field_ = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs));
-			llvm_libc_20_1_2_fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-			int num11 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs2));
-			Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
+			Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
+			int field_ = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs));
+			fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
+			int num11 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
+			Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 			num = num11;
 			Llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = InstructionHelper.Select(FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs)), 1, 0);
+			num2 = InstructionHelper.Select(FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_neg.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs)), 1, 0);
 			float result;
 			if (Details_expects_bool_condition_bool.Invoke((uint)num >= 1097859072u || (uint)num <= 1033895936u, Expected: false))
 			{
@@ -99,7 +99,7 @@ internal static partial class Tanhf
 						Llvm_lifetime_end_p0.Invoke(40L, &inlineArray5_Double);
 					}
 				}
-				else if (Details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), Expected: false))
+				else if (Details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_nan.Invoke(&fputil_FPBits_5nkvcs), Expected: false))
 				{
 					result = X + 1f;
 				}
@@ -112,7 +112,7 @@ internal static partial class Tanhf
 					InlineArray2_Single* ptr2 = (InlineArray2_Single*)(&inlineArray2_InlineArray2_Single) + 1;
 					*(float*)ptr2 = -1f;
 					((float*)ptr2)[1] = 2.9802322E-08f;
-					result = ((!Details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_inf.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), Expected: false)) ? (Unsafe.As<InlineArray2_InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref inlineArray2_InlineArray2_Single, (nint)num2 * (nint)sizeof(InlineArray2_Single))) + Unsafe.As<InlineArray2_InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref Unsafe.AddByteOffset(ref inlineArray2_InlineArray2_Single, (nint)num2 * (nint)sizeof(InlineArray2_Single)), sizeof(float)))) : Unsafe.As<InlineArray2_InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref inlineArray2_InlineArray2_Single, (nint)num2 * (nint)sizeof(InlineArray2_Single))));
+					result = ((!Details_expects_bool_condition_bool.Invoke(FPRepSem_fputil_FPType_1_fputil_FPBits_float_is_inf.Invoke(&fputil_FPBits_5nkvcs), Expected: false)) ? (Unsafe.As<InlineArray2_InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref inlineArray2_InlineArray2_Single, (nint)num2 * (nint)sizeof(InlineArray2_Single))) + Unsafe.As<InlineArray2_InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref Unsafe.AddByteOffset(ref inlineArray2_InlineArray2_Single, (nint)num2 * (nint)sizeof(InlineArray2_Single)), sizeof(float)))) : Unsafe.As<InlineArray2_InlineArray2_Single, float>(ref Unsafe.AddByteOffset(ref inlineArray2_InlineArray2_Single, (nint)num2 * (nint)sizeof(InlineArray2_Single))));
 					Llvm_lifetime_end_p0.Invoke(16L, &inlineArray2_InlineArray2_Single);
 				}
 			}
@@ -135,12 +135,12 @@ internal static partial class Tanhf
 				long num12 = num6 & 0x1F;
 				checked
 				{
-					x3 = unchecked((long*)Llvm_libc_20_1_2_ExpBase_EXP_2_MID.Pointer)[num12] + num7;
+					x3 = unchecked((long*)ExpBase_EXP_2_MID.Pointer)[num12] + num7;
 					Llvm_lifetime_start_p0.Invoke(8L, &num8);
-					Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-					FPBits_double_FPBits_unsigned_long.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm, x3);
-					double num13 = FPBits_double_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-					Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+					Llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
+					FPBits_double_FPBits_unsigned_long.Invoke(&fputil_FPBits_wjhbrm, x3);
+					double num13 = FPBits_double_get_val.Invoke(&fputil_FPBits_wjhbrm);
+					Llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
 					num8 = num13;
 					Llvm_lifetime_start_p0.Invoke(8L, &num9);
 					num9 = Fputil_multiply_add_double.Invoke(x2, -2.572804622327669E-14, Fputil_multiply_add_double.Invoke(x2, -0.010830424696223417, num5));
@@ -178,7 +178,7 @@ internal static partial class Tanhf
 			}
 			Llvm_lifetime_end_p0.Invoke(4L, &num2);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
-			Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+			Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
 			return result;
 		}
 	}

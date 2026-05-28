@@ -8,7 +8,7 @@ internal static partial class Parser_internal_ArgList_get_next_arg_value_unsigne
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core6ParserINS_8internal7ArgListEE18get_next_arg_valueIjEET_v")]
 	[DemangledName("unsigned int __llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::get_next_arg_value<unsigned int>()")]
 	[return: NativeType("unsigned int")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_Parser* This)
+	public unsafe static int Invoke([MangledName("this")] Printf_core_Parser* This)
 	{
 		return ArgList_next_var_unsigned_int.Invoke(&This->Args_cur);
 	}

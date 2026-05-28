@@ -20,7 +20,7 @@ internal static partial class Cprojf128
 			double* ptr = &struct_unhbb2.field_1;
 			struct_unhbb2.field_0 = field_;
 			*ptr = field_2;
-			Llvm_libc_20_1_2_project_float128_complex.Invoke(&struct_unhbb, &struct_unhbb2);
+			Project_float128_complex.Invoke(&struct_unhbb, &struct_unhbb2);
 			double field_3 = struct_unhbb.field_0;
 			double field_4 = struct_unhbb.field_1;
 			Llvm_lifetime_end_p0.Invoke(32L, &struct_unhbb2);

@@ -11,7 +11,7 @@ internal static partial class Internal_strtointeger_long_long
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal12strtointegerIxEENS_14StrToNumResultIT_EEPKcim")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<long long> __llvm_libc_20_1_2_::internal::strtointeger<long long>(char const*, int, unsigned long)")]
 	[return: NativeType("__llvm_libc_20_1_2_::StrToNumResult<long long>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_StrToNumResult_gbeb3a* Agg_result, [MangledName("src")][NativeType("char const*")] void* Src, [MangledName("base")][NativeType("int")] int Base, [MangledName("src_len")][NativeType("unsigned long")] long Src_len)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_gbeb3a* Agg_result, [MangledName("src")][NativeType("char const*")] void* Src, [MangledName("base")][NativeType("int")] int Base, [MangledName("src_len")][NativeType("unsigned long")] long Src_len)
 	{
 		long num = 0L;
 		sbyte b = 0;

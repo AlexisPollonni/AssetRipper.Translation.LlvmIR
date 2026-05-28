@@ -11,15 +11,15 @@ internal static partial class DoubleWide_unsigned_long_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::multiword::DoubleWide<unsigned long>::DoubleWide(unsigned long, unsigned long)")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("lo")][NativeType("unsigned long")] long Lo, [MangledName("hi")][NativeType("unsigned long")] long Hi)
 	{
-		Llvm_libc_20_1_2_cpp_array_i3937k llvm_libc_20_1_2_cpp_array_i3937k = default(Llvm_libc_20_1_2_cpp_array_i3937k);
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_array_i3937k);
-		InlineArray2_Int64* ptr = &llvm_libc_20_1_2_cpp_array_i3937k.Data;
+		Cpp_array_i3937k cpp_array_i3937k = default(Cpp_array_i3937k);
+		Llvm_lifetime_start_p0.Invoke(16L, &cpp_array_i3937k);
+		InlineArray2_Int64* ptr = &cpp_array_i3937k.Data;
 		unchecked
 		{
 			*(long*)ptr = Lo;
 			((long*)ptr)[1] = Hi;
-			Llvm_memcpy_p0_p0_i64.Invoke(This, &llvm_libc_20_1_2_cpp_array_i3937k, 16L, isVolatile: false);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_array_i3937k);
+			Llvm_memcpy_p0_p0_i64.Invoke(This, &cpp_array_i3937k, 16L, isVolatile: false);
+			Llvm_lifetime_end_p0.Invoke(16L, &cpp_array_i3937k);
 		}
 	}
 }

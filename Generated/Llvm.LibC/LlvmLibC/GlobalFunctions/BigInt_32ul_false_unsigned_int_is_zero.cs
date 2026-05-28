@@ -9,7 +9,7 @@ internal static partial class BigInt_32ul_false_unsigned_int_is_zero
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm32ELb0EjE7is_zeroEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<32ul, false, unsigned int>::is_zero() const")]
-	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_vtm4cw* This)
+	public unsafe static bool Invoke([MangledName("this")] BigInt_vtm4cw* This)
 	{
 		bool result = false;
 		void* ptr = null;
@@ -22,9 +22,9 @@ internal static partial class BigInt_32ul_false_unsigned_int_is_zero
 			ptr = (void*)12297829382473034410uL;
 			ptr = &This->Val;
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr2);
-			ptr2 = Array_unsigned_int_1ul_begin.Invoke((Llvm_libc_20_1_2_cpp_array_2v7m9i*)ptr);
+			ptr2 = Array_unsigned_int_1ul_begin.Invoke((Cpp_array_2v7m9i*)ptr);
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr3);
-			ptr3 = Array_unsigned_int_1ul_end.Invoke((Llvm_libc_20_1_2_cpp_array_2v7m9i*)ptr);
+			ptr3 = Array_unsigned_int_1ul_end.Invoke((Cpp_array_2v7m9i*)ptr);
 			int num2;
 			while (true)
 			{

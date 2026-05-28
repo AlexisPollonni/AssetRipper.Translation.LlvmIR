@@ -8,7 +8,7 @@ internal static partial class NormalFloat_double_mul2
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6fputil11NormalFloatIdE4mul2Ei")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::mul2(int) const")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk* Agg_result, [MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk* This, [MangledName("e")] int E)
+	public unsafe static void Invoke([MangledName("agg.result")] Fputil_NormalFloat_vc4yvk* Agg_result, [MangledName("this")] Fputil_NormalFloat_vc4yvk* This, [MangledName("e")] int E)
 	{
 		unchecked
 		{

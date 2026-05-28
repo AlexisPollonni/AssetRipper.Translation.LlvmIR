@@ -15,7 +15,7 @@ internal static partial class FPStorage_fputil_FPType_3_Constructor
 		{
 			*(long*)(&field_) = Value;
 			((long*)(&field_))[1] = Value_coerce1;
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
+			((Fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
 		}
 	}
 
@@ -23,6 +23,6 @@ internal static partial class FPStorage_fputil_FPType_3_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)3>::FPStorage()")]
 	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = 0L;
+		unchecked((Fputil_internal_FPStorage_w3h7gw*)This)->field_0 = 0L;
 	}
 }

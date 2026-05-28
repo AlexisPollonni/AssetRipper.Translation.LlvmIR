@@ -20,7 +20,7 @@ internal static partial class Sysconf
 		}
 		else if (num < 0L)
 		{
-			Errno_Assignment.Invoke(Llvm_libc_20_1_2_libc_errno.Pointer, 22);
+			Errno_Assignment.Invoke(Libc_errno.Pointer, 22);
 			result = -1L;
 		}
 		else

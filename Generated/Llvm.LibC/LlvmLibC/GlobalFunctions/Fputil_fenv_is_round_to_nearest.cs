@@ -12,7 +12,7 @@ internal static partial class Fputil_fenv_is_round_to_nearest
 	{
 		float num = 0f;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = Llvm_libc_20_1_2_fputil_fenv_is_round_to_nearest_x.Value;
+		num = Fputil_fenv_is_round_to_nearest_x.Value;
 		bool result = 1.5f + num == 1.5f - num;
 		Llvm_lifetime_end_p0.Invoke(4L, &num);
 		return result;

@@ -10,5 +10,5 @@ namespace LlvmLibC.Structures;
 public partial struct Anon_rgz75h
 {
 	[FieldOffset(0)]
-	public Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv field_0;
+	public Internal_ExpandedFloat_k68bhv field_0;
 }

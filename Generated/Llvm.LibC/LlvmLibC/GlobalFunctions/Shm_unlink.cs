@@ -12,25 +12,25 @@ internal static partial class Shm_unlink
 	public unsafe static int Invoke([MangledName("name")] void* Name)
 	{
 		int result = 0;
-		Llvm_libc_20_1_2_cpp_optional_hnriuf llvm_libc_20_1_2_cpp_optional_hnriuf = default(Llvm_libc_20_1_2_cpp_optional_hnriuf);
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
-		Llvm_lifetime_start_p0.Invoke(266L, &llvm_libc_20_1_2_cpp_optional_hnriuf);
-		Llvm_memset_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_optional_hnriuf, -86, 266L, isVolatile: false);
-		String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, Name);
+		Cpp_optional_hnriuf cpp_optional_hnriuf = default(Cpp_optional_hnriuf);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
+		Llvm_lifetime_start_p0.Invoke(266L, &cpp_optional_hnriuf);
+		Llvm_memset_p0_i64.Invoke(&cpp_optional_hnriuf, -86, 266L, isVolatile: false);
+		String_view_Constructor.Invoke(&cpp_string_view, Name);
 		unchecked
 		{
-			Shm_common_translate_name.Invoke(&llvm_libc_20_1_2_cpp_optional_hnriuf, *(void**)(&llvm_libc_20_1_2_cpp_string_view), ((long*)(&llvm_libc_20_1_2_cpp_string_view))[1]);
+			Shm_common_translate_name.Invoke(&cpp_optional_hnriuf, *(void**)(&cpp_string_view), ((long*)(&cpp_string_view))[1]);
 			int num;
-			if (Optional_cpp_array_char_265ul_ToBoolean.Invoke(&llvm_libc_20_1_2_cpp_optional_hnriuf))
+			if (Optional_cpp_array_char_265ul_ToBoolean.Invoke(&cpp_optional_hnriuf))
 			{
-				result = ((delegate*<void*, int>)Unlink.__pointer)(Array_char_265ul_data.Invoke(Optional_cpp_array_char_265ul_PointerDereference.Invoke(&llvm_libc_20_1_2_cpp_optional_hnriuf)));
+				result = ((delegate*<void*, int>)Unlink.__pointer)(Array_char_265ul_data.Invoke(Optional_cpp_array_char_265ul_PointerDereference.Invoke(&cpp_optional_hnriuf)));
 				num = 1;
 			}
 			else
 			{
 				num = 0;
 			}
-			Llvm_lifetime_end_p0.Invoke(266L, &llvm_libc_20_1_2_cpp_optional_hnriuf);
+			Llvm_lifetime_end_p0.Invoke(266L, &cpp_optional_hnriuf);
 			switch (num)
 			{
 			case 0:

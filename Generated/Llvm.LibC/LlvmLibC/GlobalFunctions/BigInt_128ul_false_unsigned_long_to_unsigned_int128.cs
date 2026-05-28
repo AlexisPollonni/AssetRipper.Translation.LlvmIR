@@ -22,13 +22,13 @@ internal static partial class BigInt_128ul_false_unsigned_long_to_unsigned_int12
 		Llvm_lifetime_start_p0.Invoke(16L, &@int);
 		unchecked
 		{
-			@int = (Int128)(UInt128)(*(ulong*)Array_unsigned_long_2ul_Index_j6w6uu.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, 0L));
+			@int = (Int128)(UInt128)(*(ulong*)Array_unsigned_long_2ul_Index_j6w6uu.Invoke(&((BigInt_qdkjbh*)This)->Val, 0L));
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = 2L;
 			Llvm_lifetime_start_p0.Invoke(8L, &num3);
 			for (num3 = 1L; (ulong)num3 < 2uL; num3++)
 			{
-				@int = NumericHelper.Add(y: NumericHelper.ShiftLeft((Int128)(UInt128)(*(ulong*)Array_unsigned_long_2ul_Index_j6w6uu.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, num3)), (Int128)(UInt128)(ulong)(64L * num3)), x: @int);
+				@int = NumericHelper.Add(y: NumericHelper.ShiftLeft((Int128)(UInt128)(*(ulong*)Array_unsigned_long_2ul_Index_j6w6uu.Invoke(&((BigInt_qdkjbh*)This)->Val, num3)), (Int128)(UInt128)(ulong)(64L * num3)), x: @int);
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num3);
 			Int128 int2 = @int;

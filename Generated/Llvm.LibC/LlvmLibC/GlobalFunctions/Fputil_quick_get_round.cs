@@ -14,7 +14,7 @@ internal static partial class Fputil_quick_get_round
 		float num = 0f;
 		float num2 = 0f;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = Llvm_libc_20_1_2_fputil_quick_get_round_x.Value;
+		num = Fputil_quick_get_round_x.Value;
 		Llvm_lifetime_start_p0.Invoke(4L, &num2);
 		num2 = 1.0000001f + num + (-1f - num);
 		int result = ((num2 != 0f) ? ((num2 != 1.1920929E-07f) ? InstructionHelper.Select(2f + num == 2f, 0, 2048) : 3072) : 1024);

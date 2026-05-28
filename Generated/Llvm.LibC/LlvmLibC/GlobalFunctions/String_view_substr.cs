@@ -9,13 +9,13 @@ internal static partial class String_view_substr
 	[DemangledName("__llvm_libc_20_1_2_::cpp::string_view::substr(unsigned long, unsigned long) const")]
 	public unsafe static Struct_kqhe8i Invoke([MangledName("this")] void* This, [NativeType("unsigned long")] long Start, [NativeType("unsigned long")] long N)
 	{
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		long a = Start;
 		unchecked
 		{
-			a = String_view_min.Invoke(a, ((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size);
-			String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, (byte*)((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_data + a, String_view_min.Invoke(N, ((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size - a));
-			return *(Struct_kqhe8i*)(&llvm_libc_20_1_2_cpp_string_view);
+			a = String_view_min.Invoke(a, ((Cpp_string_view*)This)->Span_size);
+			String_view_Constructor.Invoke(&cpp_string_view, (byte*)((Cpp_string_view*)This)->Span_data + a, String_view_min.Invoke(N, ((Cpp_string_view*)This)->Span_size - a));
+			return *(Struct_kqhe8i*)(&cpp_string_view);
 		}
 	}
 }

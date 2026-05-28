@@ -11,11 +11,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class _55
 {
 	[FixedAddressValueType]
-	private static InlineArray7_Llvm_libc_20_1_2_NumberPair __value;
+	private static InlineArray7_NumberPair __value;
 
-	public unsafe static InlineArray7_Llvm_libc_20_1_2_NumberPair* Pointer => unchecked((InlineArray7_Llvm_libc_20_1_2_NumberPair*)Unsafe.AsPointer(ref __value));
+	public unsafe static InlineArray7_NumberPair* Pointer => unchecked((InlineArray7_NumberPair*)Unsafe.AsPointer(ref __value));
 
-	public static InlineArray7_Llvm_libc_20_1_2_NumberPair Value
+	public static InlineArray7_NumberPair Value
 	{
 		get
 		{
@@ -29,44 +29,44 @@ internal static partial class _55
 
 	unsafe static _55()
 	{
-		Value = new InlineArrayBuilder<InlineArray7_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
+		Value = new InlineArrayBuilder<InlineArray7_NumberPair, NumberPair>
 		{
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 0.0,
 				Hi = 1.0
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 0.0,
 				Hi = 1.0
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 0.0,
 				Hi = 0.5
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 9.25185853854297E-18,
 				Hi = 1.0 / 6.0
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 2.3129646346357427E-18,
 				Hi = 1.0 / 24.0
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 1.1564823173178714E-19,
 				Hi = 1.0 / 120.0
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = -5.300543954373577E-20,
 				Hi = 1.0 / 720.0
 			}
 		};
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

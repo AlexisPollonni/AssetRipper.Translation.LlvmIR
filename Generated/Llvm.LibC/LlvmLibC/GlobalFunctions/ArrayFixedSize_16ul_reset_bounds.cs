@@ -11,8 +11,8 @@ internal static partial class ArrayFixedSize_16ul_reset_bounds
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_data = ArrayFixedSize_16ul_get_internal.Invoke(This, I);
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size = S;
+			((Cpp_string_view*)This)->Span_data = ArrayFixedSize_16ul_get_internal.Invoke(This, I);
+			((Cpp_string_view*)This)->Span_size = S;
 		}
 	}
 }

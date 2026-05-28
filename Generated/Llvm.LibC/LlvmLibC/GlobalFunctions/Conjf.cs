@@ -22,7 +22,7 @@ internal static partial class Conjf
 			float* ptr = &struct_kh2xpj3.field_1;
 			struct_kh2xpj3.field_0 = field_;
 			*ptr = field_2;
-			*(InlineArray2_Single*)(&struct_kh2xpj4) = Llvm_libc_20_1_2_conjugate_float_complex.Invoke(*(InlineArray2_Single*)(&struct_kh2xpj3));
+			*(InlineArray2_Single*)(&struct_kh2xpj4) = Conjugate_float_complex.Invoke(*(InlineArray2_Single*)(&struct_kh2xpj3));
 			float field_3 = struct_kh2xpj4.field_0;
 			float field_4 = struct_kh2xpj4.field_1;
 			float* ptr2 = &struct_kh2xpj.field_1;

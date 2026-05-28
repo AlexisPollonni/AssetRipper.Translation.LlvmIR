@@ -9,7 +9,7 @@ internal static partial class BigInt_320ul_false_unsigned_long_extend
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm320ELb0EmE6extendEmb")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<320ul, false, unsigned long>::extend(unsigned long, bool)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_76gxx6* This, [MangledName("index")][NativeType("unsigned long")] long Index, [MangledName("is_neg")][NativeType("bool")] bool Is_neg)
+	public unsafe static void Invoke([MangledName("this")] BigInt_76gxx6* This, [MangledName("index")][NativeType("unsigned long")] long Index, [MangledName("is_neg")][NativeType("bool")] bool Is_neg)
 	{
 		long num = 0L;
 		long num2 = 0L;

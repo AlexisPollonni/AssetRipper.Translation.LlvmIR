@@ -9,26 +9,26 @@ internal static partial class Expected_LinuxFile_int_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::cpp::expected<__llvm_libc_20_1_2_::LinuxFile*, int>::expected(__llvm_libc_20_1_2_::cpp::unexpected<int>)")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("unexp.coerce")][NativeType("__llvm_libc_20_1_2_::cpp::unexpected<int>")] int Unexp)
 	{
-		Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt = new Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt
+		Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt = new Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt
 		{
 			field_0 = Unexp
 		};
 		unchecked
 		{
-			Anon_5uk363* field = &((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->field;
-			*(int*)field = Unexpected_int_error.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt);
-			((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->In_use = 0;
+			Anon_5uk363* field = &((Cpp_optional_char_OptionalStorage*)This)->field;
+			*(int*)field = Unexpected_int_error.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt);
+			((Cpp_optional_char_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp8expectedIPNS_9LinuxFileEiEC2ES3_")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::expected<__llvm_libc_20_1_2_::LinuxFile*, int>::expected(__llvm_libc_20_1_2_::LinuxFile*)")]
-	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("exp")][NativeType("__llvm_libc_20_1_2_::LinuxFile*")] Llvm_libc_20_1_2_LinuxFile* Exp)
+	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("exp")][NativeType("__llvm_libc_20_1_2_::LinuxFile*")] LinuxFile* Exp)
 	{
 		unchecked
 		{
-			*(Llvm_libc_20_1_2_LinuxFile**)(&((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->field) = Exp;
-			((Llvm_libc_20_1_2_cpp_optional_char_OptionalStorage*)This)->In_use = 1;
+			*(LinuxFile**)(&((Cpp_optional_char_OptionalStorage*)This)->field) = Exp;
+			((Cpp_optional_char_OptionalStorage*)This)->In_use = 1;
 		}
 	}
 }

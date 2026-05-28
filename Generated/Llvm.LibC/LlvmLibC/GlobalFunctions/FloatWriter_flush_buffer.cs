@@ -9,19 +9,19 @@ internal static partial class FloatWriter_flush_buffer
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11FloatWriter12flush_bufferEb")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::flush_buffer(bool)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_FloatWriter* This, [MangledName("round_up_max_blocks")][NativeType("bool")] bool Round_up_max_blocks)
+	public unsafe static int Invoke([MangledName("this")] Printf_core_FloatWriter* This, [MangledName("round_up_max_blocks")][NativeType("bool")] bool Round_up_max_blocks)
 	{
 		int result = 0;
 		sbyte new_char = 0;
 		int num = 0;
 		long num2 = 0L;
 		int num3 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		int num4 = 0;
 		int num5 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view2 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view2 = default(Cpp_string_view);
 		int num6 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view3 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view3 = default(Cpp_string_view);
 		long num7 = 0L;
 		int num8 = 0;
 		int num9 = 0;
@@ -65,9 +65,9 @@ internal static partial class FloatWriter_flush_buffer
 			if ((ulong)num2 > 0uL)
 			{
 				Llvm_lifetime_start_p0.Invoke(4L, &num3);
-				Llvm_libc_20_1_2_printf_core_Writer* writer = This->Writer;
-				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, &This->Block_buffer, num2);
-				num3 = Writer_write.Invoke(writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view), ((long*)(&llvm_libc_20_1_2_cpp_string_view))[1]);
+				Printf_core_Writer* writer = This->Writer;
+				String_view_Constructor.Invoke(&cpp_string_view, &This->Block_buffer, num2);
+				num3 = Writer_write.Invoke(writer, *(void**)(&cpp_string_view), ((long*)(&cpp_string_view))[1]);
 				if (num3 < 0)
 				{
 					result = num3;
@@ -105,9 +105,9 @@ internal static partial class FloatWriter_flush_buffer
 					if ((ulong)(This->Buffered_digits - num2) > 0uL)
 					{
 						Llvm_lifetime_start_p0.Invoke(4L, &num5);
-						Llvm_libc_20_1_2_printf_core_Writer* writer2 = This->Writer;
-						String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view2, (byte*)(&This->Block_buffer) + num2, This->Buffered_digits - num2);
-						num5 = Writer_write.Invoke(writer2, *(void**)(&llvm_libc_20_1_2_cpp_string_view2), ((long*)(&llvm_libc_20_1_2_cpp_string_view2))[1]);
+						Printf_core_Writer* writer2 = This->Writer;
+						String_view_Constructor.Invoke(&cpp_string_view2, (byte*)(&This->Block_buffer) + num2, This->Buffered_digits - num2);
+						num5 = Writer_write.Invoke(writer2, *(void**)(&cpp_string_view2), ((long*)(&cpp_string_view2))[1]);
 						if (num5 < 0)
 						{
 							result = num5;
@@ -143,9 +143,9 @@ internal static partial class FloatWriter_flush_buffer
 			if ((ulong)This->Buffered_digits > 0uL)
 			{
 				Llvm_lifetime_start_p0.Invoke(4L, &num6);
-				Llvm_libc_20_1_2_printf_core_Writer* writer3 = This->Writer;
-				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view3, &This->Block_buffer, This->Buffered_digits);
-				num6 = Writer_write.Invoke(writer3, *(void**)(&llvm_libc_20_1_2_cpp_string_view3), ((long*)(&llvm_libc_20_1_2_cpp_string_view3))[1]);
+				Printf_core_Writer* writer3 = This->Writer;
+				String_view_Constructor.Invoke(&cpp_string_view3, &This->Block_buffer, This->Buffered_digits);
+				num6 = Writer_write.Invoke(writer3, *(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1]);
 				if (num6 < 0)
 				{
 					result = num6;

@@ -10,5 +10,5 @@ namespace LlvmLibC.Structures;
 public partial struct Anon_hnnzgy
 {
 	[FieldOffset(0)]
-	public Llvm_libc_20_1_2_cpp_string_view field_0;
+	public Cpp_string_view field_0;
 }

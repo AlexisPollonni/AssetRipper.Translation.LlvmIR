@@ -9,7 +9,7 @@ internal static partial class PaddingWriter_write_right_padding
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core13PaddingWriter19write_right_paddingEPNS0_6WriterEm")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::PaddingWriter::write_right_padding(__llvm_libc_20_1_2_::printf_core::Writer*, unsigned long)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_PaddingWriter* This, [MangledName("writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Llvm_libc_20_1_2_printf_core_Writer* Writer, [MangledName("total_digits")][NativeType("unsigned long")] long Total_digits)
+	public unsafe static int Invoke([MangledName("this")] Printf_core_PaddingWriter* This, [MangledName("writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Printf_core_Writer* Writer, [MangledName("total_digits")][NativeType("unsigned long")] long Total_digits)
 	{
 		int result = 0;
 		int num = 0;

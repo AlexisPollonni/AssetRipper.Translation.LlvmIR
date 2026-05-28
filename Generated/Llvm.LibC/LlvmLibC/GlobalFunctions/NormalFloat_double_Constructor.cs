@@ -9,19 +9,19 @@ internal static partial class NormalFloat_double_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIdEC2ENS0_6FPBitsIdEE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::NormalFloat(__llvm_libc_20_1_2_::fputil::FPBits<double>)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk* This, [MangledName("bits.coerce")][NativeType("__llvm_libc_20_1_2_::fputil::FPBits<double>")] long Bits)
+	public unsafe static void Invoke([MangledName("this")] Fputil_NormalFloat_vc4yvk* This, [MangledName("bits.coerce")][NativeType("__llvm_libc_20_1_2_::fputil::FPBits<double>")] long Bits)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm2 = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-		llvm_libc_20_1_2_fputil_FPBits_wjhbrm.FPRepImpl.FPRepSem.FPStorage.Val = Bits;
-		Llvm_memcpy_p0_p0_i64.Invoke(&This->Sign, Llvm_libc_20_1_2_Sign_POS.Pointer, 1L, isVolatile: false);
-		Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm2, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm, 8L, isVolatile: false);
-		NormalFloat_double_init_from_bits.Invoke(This, llvm_libc_20_1_2_fputil_FPBits_wjhbrm2.FPRepImpl.FPRepSem.FPStorage.Val);
+		Fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm = default(Fputil_FPBits_wjhbrm);
+		Fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm2 = default(Fputil_FPBits_wjhbrm);
+		fputil_FPBits_wjhbrm.FPRepImpl.FPRepSem.FPStorage.Val = Bits;
+		Llvm_memcpy_p0_p0_i64.Invoke(&This->Sign, Sign_POS.Pointer, 1L, isVolatile: false);
+		Llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_wjhbrm2, &fputil_FPBits_wjhbrm, 8L, isVolatile: false);
+		NormalFloat_double_init_from_bits.Invoke(This, fputil_FPBits_wjhbrm2.FPRepImpl.FPRepSem.FPStorage.Val);
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIdEC2ENS_4SignEim")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<double>::NormalFloat(__llvm_libc_20_1_2_::Sign, int, unsigned long)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_vc4yvk* This, [MangledName("s.coerce")][NativeType("__llvm_libc_20_1_2_::Sign")] sbyte S, [MangledName("e")][NativeType("int")] int E, [MangledName("m")][NativeType("unsigned long")] long M)
+	public unsafe static void Invoke([MangledName("this")] Fputil_NormalFloat_vc4yvk* This, [MangledName("s.coerce")][NativeType("__llvm_libc_20_1_2_::Sign")] sbyte S, [MangledName("e")][NativeType("int")] int E, [MangledName("m")][NativeType("unsigned long")] long M)
 	{
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
 		int num = 0;

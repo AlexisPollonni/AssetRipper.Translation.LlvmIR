@@ -11,8 +11,8 @@ internal static partial class Cpp_bit_cast_cpp_array_unsigned_long_2ul_unsigned_
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>) == sizeof (unsigned __int128) && cpp::is_trivially_constructible<__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>>::value && cpp::is_trivially_copyable<unsigned __int128>::value, __llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>>::type")]
 	public unsafe static Struct_fiz2nb Invoke([MangledName("from")][NativeType("unsigned __int128 const&")] void* From)
 	{
-		Llvm_libc_20_1_2_cpp_array_i3937k llvm_libc_20_1_2_cpp_array_i3937k = default(Llvm_libc_20_1_2_cpp_array_i3937k);
-		Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_array_i3937k, From, 16L, isVolatile: false);
-		return *unchecked((Struct_fiz2nb*)(&llvm_libc_20_1_2_cpp_array_i3937k.Data));
+		Cpp_array_i3937k cpp_array_i3937k = default(Cpp_array_i3937k);
+		Llvm_memcpy_p0_p0_i64.Invoke(&cpp_array_i3937k, From, 16L, isVolatile: false);
+		return *unchecked((Struct_fiz2nb*)(&cpp_array_i3937k.Data));
 	}
 }

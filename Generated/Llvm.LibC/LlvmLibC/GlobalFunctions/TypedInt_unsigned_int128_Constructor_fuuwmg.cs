@@ -16,7 +16,7 @@ internal static partial class TypedInt_unsigned_int128_Constructor_fuuwmg
 		{
 			*(long*)(&field_) = Value;
 			((long*)(&field_))[1] = Value_coerce1;
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
+			((Fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
 		}
 	}
 }

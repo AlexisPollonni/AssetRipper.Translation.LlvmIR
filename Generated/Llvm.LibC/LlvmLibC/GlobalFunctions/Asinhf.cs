@@ -12,10 +12,10 @@ internal static partial class Asinhf
 	[DemangledName("asinhf")]
 	public unsafe static float Invoke([MangledName("x")] float X)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs = default(Fputil_FPBits_5nkvcs);
 		int num = 0;
 		int num2 = 0;
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs2 = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs2 = default(Fputil_FPBits_5nkvcs);
 		double num3 = 0.0;
 		double x = 0.0;
 		double y = 0.0;
@@ -24,20 +24,20 @@ internal static partial class Asinhf
 		double num5 = 0.0;
 		Anon_prxz47 anon_prxz = default(Anon_prxz47);
 		Anon_prxz47 anon_prxz2 = default(Anon_prxz47);
-		Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
 		float result;
 		unchecked
 		{
-			*(int*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs) = -1431655766;
-			FPBits_float_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, X);
+			*(int*)(&fputil_FPBits_5nkvcs) = -1431655766;
+			FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs, X);
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
-			num = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs));
+			num = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs));
 			Llvm_lifetime_start_p0.Invoke(4L, &num2);
-			Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
-			int field_ = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs));
-			llvm_libc_20_1_2_fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-			int num6 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs2));
-			Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
+			Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
+			int field_ = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_abs.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs));
+			fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
+			int num6 = FPRepImpl_fputil_FPType_1_fputil_FPBits_float_uintval.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs2));
+			Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 			num2 = num6;
 			if (Details_expects_bool_condition_bool.Invoke((uint)num2 <= 1048576000u, Expected: false))
 			{
@@ -75,7 +75,7 @@ internal static partial class Asinhf
 			anon_prxz2.field_0 = num4;
 			if (Details_expects_bool_condition_bool.Invoke((uint)num2 >= 1272800677u, Expected: false))
 			{
-				if (Details_expects_bool_condition_bool.Invoke(FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_inf_or_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs)), Expected: false))
+				if (Details_expects_bool_condition_bool.Invoke(FPRepImpl_fputil_FPType_1_fputil_FPBits_float_is_inf_or_nan.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs)), Expected: false))
 				{
 					result = X;
 				}
@@ -160,7 +160,7 @@ internal static partial class Asinhf
 			goto IL_04ae;
 		}
 		IL_0482:
-		result = (float)(num4 * Llvm_libc_20_1_2_log_eval_xbkv4j.Invoke(Fputil_multiply_add_double.Invoke(num5, num4, Fputil_sqrt_double_double.Invoke(Fputil_multiply_add_double.Invoke(num5, num5, 1.0)))));
+		result = (float)(num4 * Log_eval_xbkv4j.Invoke(Fputil_multiply_add_double.Invoke(num5, num4, Fputil_sqrt_double_double.Invoke(Fputil_multiply_add_double.Invoke(num5, num5, 1.0)))));
 		goto IL_04ae;
 		IL_04ae:
 		Llvm_lifetime_end_p0.Invoke(8L, &anon_prxz2);
@@ -172,7 +172,7 @@ internal static partial class Asinhf
 		IL_0500:
 		Llvm_lifetime_end_p0.Invoke(4L, &num2);
 		Llvm_lifetime_end_p0.Invoke(4L, &num);
-		Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
 		return result;
 	}
 }

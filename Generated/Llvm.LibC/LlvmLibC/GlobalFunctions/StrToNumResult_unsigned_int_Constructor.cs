@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_unsigned_int_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_StrToNumResult_imtnam*)This)->Value = Value;
-			((Llvm_libc_20_1_2_StrToNumResult_imtnam*)This)->Error = Error;
-			((Llvm_libc_20_1_2_StrToNumResult_imtnam*)This)->Parsed_len = Parsed_len;
+			((StrToNumResult_imtnam*)This)->Value = Value;
+			((StrToNumResult_imtnam*)This)->Error = Error;
+			((StrToNumResult_imtnam*)This)->Parsed_len = Parsed_len;
 		}
 	}
 }

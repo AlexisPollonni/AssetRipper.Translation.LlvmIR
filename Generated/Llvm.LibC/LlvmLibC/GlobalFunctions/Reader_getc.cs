@@ -8,7 +8,7 @@ internal static partial class Reader_getc
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core6Reader4getcEv")]
 	[DemangledName("__llvm_libc_20_1_2_::scanf_core::Reader::getc()")]
-	public unsafe static sbyte Invoke([MangledName("this")] Llvm_libc_20_1_2_scanf_core_Reader* This)
+	public unsafe static sbyte Invoke([MangledName("this")] Scanf_core_Reader* This)
 	{
 		sbyte b = 0;
 		unchecked

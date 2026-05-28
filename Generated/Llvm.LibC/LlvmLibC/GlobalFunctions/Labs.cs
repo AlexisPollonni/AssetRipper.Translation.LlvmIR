@@ -8,6 +8,6 @@ internal static partial class Labs
 	[DemangledName("labs")]
 	public static long Invoke([MangledName("n")] long N)
 	{
-		return Llvm_libc_20_1_2_integer_abs_long_zg646g.Invoke(N);
+		return Integer_abs_long_zg646g.Invoke(N);
 	}
 }

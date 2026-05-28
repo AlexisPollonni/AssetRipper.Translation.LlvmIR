@@ -8,7 +8,7 @@ internal static partial class FloatToString_float_0_zero_blocks_after_point
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIfLi0EE23zero_blocks_after_pointEv")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<float, 0>::zero_blocks_after_point()")]
-	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_FloatToString_vnf553* This)
+	public unsafe static long Invoke([MangledName("this")] FloatToString_vnf553* This)
 	{
 		unchecked
 		{

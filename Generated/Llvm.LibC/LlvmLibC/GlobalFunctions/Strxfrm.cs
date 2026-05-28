@@ -16,7 +16,7 @@ internal static partial class Strxfrm
 		{
 			if ((ulong)N > (ulong)num)
 			{
-				Llvm_libc_20_1_2_inline_memcpy.Invoke(Dest, Src, num + 1L);
+				Inline_memcpy.Invoke(Dest, Src, num + 1L);
 			}
 			long result = num;
 			Llvm_lifetime_end_p0.Invoke(8L, &num);

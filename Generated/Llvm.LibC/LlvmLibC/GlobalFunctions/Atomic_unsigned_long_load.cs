@@ -9,7 +9,7 @@ internal static partial class Atomic_unsigned_long_load
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_3cpp6AtomicImE4loadENS0_11MemoryOrderENS0_11MemoryScopeE")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned long>::load(__llvm_libc_20_1_2_::cpp::MemoryOrder, __llvm_libc_20_1_2_::cpp::MemoryScope)")]
-	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn* This, [MangledName("mem_ord")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder Mem_ord, [MangledName("mem_scope")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope Mem_scope)
+	public unsafe static long Invoke([MangledName("this")] Fputil_internal_FPStorage_v3nexn* This, [MangledName("mem_ord")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryOrder")] MemoryOrder Mem_ord, [MangledName("mem_scope")][NativeType("__llvm_libc_20_1_2_::cpp::MemoryScope")] MemoryScope Mem_scope)
 	{
 		long num = 0L;
 		Llvm_lifetime_start_p0.Invoke(8L, &num);

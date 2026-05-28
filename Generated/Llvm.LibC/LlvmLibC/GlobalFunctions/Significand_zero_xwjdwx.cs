@@ -10,8 +10,8 @@ internal static partial class Significand_zero_xwjdwx
 	[CleanName("Significand_zero")]
 	public unsafe static long Invoke()
 	{
-		Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg = default(Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg);
-		Significand_Constructor_zv26wp.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg, 0L);
-		return llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg.FPStorage.Val;
+		Fputil_internal_FPRepSem_fq8nhg fputil_internal_FPRepSem_fq8nhg = default(Fputil_internal_FPRepSem_fq8nhg);
+		Significand_Constructor_zv26wp.Invoke(&fputil_internal_FPRepSem_fq8nhg, 0L);
+		return fputil_internal_FPRepSem_fq8nhg.FPStorage.Val;
 	}
 }

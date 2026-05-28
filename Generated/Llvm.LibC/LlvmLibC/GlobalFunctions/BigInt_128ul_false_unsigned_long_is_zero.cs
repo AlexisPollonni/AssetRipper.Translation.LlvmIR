@@ -20,11 +20,11 @@ internal static partial class BigInt_128ul_false_unsigned_long_is_zero
 		unchecked
 		{
 			ptr = (void*)12297829382473034410uL;
-			ptr = &((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val;
+			ptr = &((BigInt_qdkjbh*)This)->Val;
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr2);
-			ptr2 = Array_unsigned_long_2ul_begin.Invoke((Llvm_libc_20_1_2_cpp_array_i3937k*)ptr);
+			ptr2 = Array_unsigned_long_2ul_begin.Invoke((Cpp_array_i3937k*)ptr);
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr3);
-			ptr3 = Array_unsigned_long_2ul_end.Invoke((Llvm_libc_20_1_2_cpp_array_i3937k*)ptr);
+			ptr3 = Array_unsigned_long_2ul_end.Invoke((Cpp_array_i3937k*)ptr);
 			int num2;
 			while (true)
 			{

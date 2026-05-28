@@ -11,25 +11,25 @@ internal static partial class Nan
 	[DemangledName("nan")]
 	public unsafe static double Invoke([MangledName("arg")] void* Arg)
 	{
-		Llvm_libc_20_1_2_StrToNumResult_k826n6 llvm_libc_20_1_2_StrToNumResult_k826n = default(Llvm_libc_20_1_2_StrToNumResult_k826n6);
-		Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_k826n);
+		StrToNumResult_k826n6 strToNumResult_k826n = default(StrToNumResult_k826n6);
+		Llvm_lifetime_start_p0.Invoke(24L, &strToNumResult_k826n);
 		unchecked
 		{
-			*(double*)(&llvm_libc_20_1_2_StrToNumResult_k826n) = double.NaN;
-			((int*)(&llvm_libc_20_1_2_StrToNumResult_k826n))[2] = -1431655766;
-			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_StrToNumResult_k826n) + 12;
+			*(double*)(&strToNumResult_k826n) = double.NaN;
+			((int*)(&strToNumResult_k826n))[2] = -1431655766;
+			sbyte* ptr = (sbyte*)(&strToNumResult_k826n) + 12;
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
 			ptr[3] = -86;
-			((long*)(&llvm_libc_20_1_2_StrToNumResult_k826n))[2] = -6148914691236517206L;
-			Internal_strtonan_double.Invoke(&llvm_libc_20_1_2_StrToNumResult_k826n, Arg);
-			if (StrToNumResult_double_has_error.Invoke(&llvm_libc_20_1_2_StrToNumResult_k826n))
+			((long*)(&strToNumResult_k826n))[2] = -6148914691236517206L;
+			Internal_strtonan_double.Invoke(&strToNumResult_k826n, Arg);
+			if (StrToNumResult_double_has_error.Invoke(&strToNumResult_k826n))
 			{
-				Errno_Assignment.Invoke(A: llvm_libc_20_1_2_StrToNumResult_k826n.Error, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: strToNumResult_k826n.Error, This: Libc_errno.Pointer);
 			}
-			double value = llvm_libc_20_1_2_StrToNumResult_k826n.Value;
-			Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_k826n);
+			double value = strToNumResult_k826n.Value;
+			Llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_k826n);
 			return value;
 		}
 	}

@@ -44,13 +44,13 @@ public partial struct Stat
 	public long St_blocks;
 
 	[FieldOffset(72)]
-	public Llvm_libc_20_1_2_AuxEntry St_atim;
+	public AuxEntry St_atim;
 
 	[FieldOffset(88)]
-	public Llvm_libc_20_1_2_AuxEntry St_mtim;
+	public AuxEntry St_mtim;
 
 	[FieldOffset(104)]
-	public Llvm_libc_20_1_2_AuxEntry St_ctim;
+	public AuxEntry St_ctim;
 
 	[FieldOffset(120)]
 	public InlineArray3_Int64 Glibc_reserved;

@@ -9,7 +9,7 @@ internal static partial class CharVector_append
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_10CharVector6appendEc")]
 	[DemangledName("__llvm_libc_20_1_2_::CharVector::append(char)")]
-	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_CharVector* This, [MangledName("new_char")][NativeType("char")] sbyte New_char)
+	public unsafe static bool Invoke([MangledName("this")] CharVector* This, [MangledName("new_char")][NativeType("char")] sbyte New_char)
 	{
 		bool result = false;
 		void* ptr = null;

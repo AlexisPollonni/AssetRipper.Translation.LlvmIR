@@ -12,7 +12,7 @@ internal static partial class FPStorage_fputil_FPType_0_sign
 	public unsafe static sbyte Invoke([MangledName("this")] void* This)
 	{
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
-		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, ((unchecked((ushort)((Llvm_libc_20_1_2_fputil_internal_FPStorage_za9n4f*)This)->field_0) & 0x8000) == 0) ? Llvm_libc_20_1_2_Sign_POS.Pointer : Llvm_libc_20_1_2_Sign_NEG.Pointer, 1L, isVolatile: false);
+		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, ((unchecked((ushort)((Fputil_internal_FPStorage_za9n4f*)This)->field_0) & 0x8000) == 0) ? Sign_POS.Pointer : Sign_NEG.Pointer, 1L, isVolatile: false);
 		return anon_izyfb.Val;
 	}
 }

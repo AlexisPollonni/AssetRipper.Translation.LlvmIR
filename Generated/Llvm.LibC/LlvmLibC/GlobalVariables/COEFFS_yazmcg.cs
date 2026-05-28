@@ -12,11 +12,11 @@ namespace LlvmLibC.GlobalVariables;
 internal static partial class COEFFS_yazmcg
 {
 	[FixedAddressValueType]
-	private static InlineArray6_Llvm_libc_20_1_2_NumberPair __value;
+	private static InlineArray6_NumberPair __value;
 
-	public unsafe static InlineArray6_Llvm_libc_20_1_2_NumberPair* Pointer => unchecked((InlineArray6_Llvm_libc_20_1_2_NumberPair*)Unsafe.AsPointer(ref __value));
+	public unsafe static InlineArray6_NumberPair* Pointer => unchecked((InlineArray6_NumberPair*)Unsafe.AsPointer(ref __value));
 
-	public static InlineArray6_Llvm_libc_20_1_2_NumberPair Value
+	public static InlineArray6_NumberPair Value
 	{
 		get
 		{
@@ -30,39 +30,39 @@ internal static partial class COEFFS_yazmcg
 
 	unsafe static COEFFS_yazmcg()
 	{
-		Value = new InlineArrayBuilder<InlineArray6_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
+		Value = new InlineArrayBuilder<InlineArray6_NumberPair, NumberPair>
 		{
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 2.0355273740950545E-17,
 				Hi = 1.4426950408889634
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = -1.0177636921052553E-17,
 				Hi = -0.7213475204444817
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 2.5046067001847476E-17,
 				Hi = 0.4808983469629878
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 1.4933885608475666E-17,
 				Hi = -0.3606737602222407
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = -5.9310858384503784E-18,
 				Hi = 0.28853900862513104
 			},
-			new Llvm_libc_20_1_2_NumberPair
+			new NumberPair
 			{
 				Lo = 8.16367584820295E-18,
 				Hi = -0.24044930263082626
 			}
 		};
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

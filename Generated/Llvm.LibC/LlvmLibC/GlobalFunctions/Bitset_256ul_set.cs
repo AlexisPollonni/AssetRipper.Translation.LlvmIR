@@ -10,6 +10,6 @@ internal static partial class Bitset_256ul_set
 	public unsafe static void Invoke([MangledName("this")] void* This, [NativeType("unsigned long")] long Index)
 	{
 		long num = Bitset_256ul_mask.Invoke(Index);
-		unchecked(((long*)(&((Llvm_libc_20_1_2_cpp_array_jgy3xh*)This)->Data))[(ulong)Index / 64uL]) |= num;
+		unchecked(((long*)(&((Cpp_array_jgy3xh*)This)->Data))[(ulong)Index / 64uL]) |= num;
 	}
 }

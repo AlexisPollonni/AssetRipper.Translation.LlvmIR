@@ -12,8 +12,8 @@ internal static partial class Expected_int_int_Constructor_mrm7sc
 	{
 		unchecked
 		{
-			*(int*)(&((Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage*)This)->field) = Exp;
-			((Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage*)This)->In_use = 1;
+			*(int*)(&((Cpp_optional_int_OptionalStorage*)This)->field) = Exp;
+			((Cpp_optional_int_OptionalStorage*)This)->In_use = 1;
 		}
 	}
 }

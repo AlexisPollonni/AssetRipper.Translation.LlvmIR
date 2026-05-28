@@ -12,7 +12,7 @@ internal static partial class Bitset_256ul_Constructor
 	{
 		unchecked
 		{
-			InlineArray4_Int64* data = &((Llvm_libc_20_1_2_cpp_array_jgy3xh*)This)->Data;
+			InlineArray4_Int64* data = &((Cpp_array_jgy3xh*)This)->Data;
 			*(long*)data = 0L;
 			nint num = (nint)((byte*)data + 8);
 			long* ptr = (long*)data + 4;

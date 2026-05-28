@@ -11,23 +11,23 @@ internal static partial class NormalFloat_float128_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIgEC2ENS0_6FPBitsIgEE")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<__float128>::NormalFloat(__llvm_libc_20_1_2_::fputil::FPBits<__float128>)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie* This, [MangledName("bits.coerce0")] long Bits, [MangledName("bits.coerce1")] long Bits_coerce1)
+	public unsafe static void Invoke([MangledName("this")] Fputil_NormalFloat_wqb3ie* This, [MangledName("bits.coerce0")] long Bits, [MangledName("bits.coerce1")] long Bits_coerce1)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi2 = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi2 = default(Fputil_FPBits_ubgsi2);
 		unchecked
 		{
-			*(long*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = Bits;
-			((long*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi))[1] = Bits_coerce1;
-			Llvm_memcpy_p0_p0_i64.Invoke(&This->Sign, Llvm_libc_20_1_2_Sign_POS.Pointer, 1L, isVolatile: false);
-			Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2, &llvm_libc_20_1_2_fputil_FPBits_ubgsi, 16L, isVolatile: false);
-			NormalFloat_float128_init_from_bits.Invoke(This, *(long*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2), ((long*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2))[1]);
+			*(long*)(&fputil_FPBits_ubgsi) = Bits;
+			((long*)(&fputil_FPBits_ubgsi))[1] = Bits_coerce1;
+			Llvm_memcpy_p0_p0_i64.Invoke(&This->Sign, Sign_POS.Pointer, 1L, isVolatile: false);
+			Llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_ubgsi2, &fputil_FPBits_ubgsi, 16L, isVolatile: false);
+			NormalFloat_float128_init_from_bits.Invoke(This, *(long*)(&fputil_FPBits_ubgsi2), ((long*)(&fputil_FPBits_ubgsi2))[1]);
 		}
 	}
 
 	[MangledName("_ZN19__llvm_libc_20_1_2_6fputil11NormalFloatIgEC2ENS_4SignEio")]
 	[DemangledName("__llvm_libc_20_1_2_::fputil::NormalFloat<__float128>::NormalFloat(__llvm_libc_20_1_2_::Sign, int, unsigned __int128)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_fputil_NormalFloat_wqb3ie* This, [MangledName("s.coerce")] sbyte S, [MangledName("e")] int E, [MangledName("m.coerce0")] long M, [MangledName("m.coerce1")] long Normalization_shift)
+	public unsafe static void Invoke([MangledName("this")] Fputil_NormalFloat_wqb3ie* This, [MangledName("s.coerce")] sbyte S, [MangledName("e")] int E, [MangledName("m.coerce0")] long M, [MangledName("m.coerce1")] long Normalization_shift)
 	{
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
 		Int128 @int = default(Int128);

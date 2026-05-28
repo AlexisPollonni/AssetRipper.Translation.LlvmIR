@@ -10,5 +10,5 @@ namespace LlvmLibC.Structures;
 public partial struct Anon_m9wkkk
 {
 	[FieldOffset(0)]
-	public Llvm_libc_20_1_2_BigInt_76gxx6 field_0;
+	public BigInt_76gxx6 field_0;
 }

@@ -10,6 +10,6 @@ internal static partial class TypedInt_unsigned_int_to_storage_type_wwhq92
 	[CleanName("TypedInt_unsigned_int_to_storage_type")]
 	public unsafe static short Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((short)((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
+		return unchecked((short)((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
 	}
 }

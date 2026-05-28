@@ -13,8 +13,8 @@ internal static partial class Internal_strtofloatingpoint_float
 	[return: NativeType("__llvm_libc_20_1_2_::StrToNumResult<float>")]
 	public unsafe static Struct_fiz2nb Invoke([MangledName("src")][NativeType("char const*")] void* Src)
 	{
-		Llvm_libc_20_1_2_StrToNumResult_cqc3yy llvm_libc_20_1_2_StrToNumResult_cqc3yy = default(Llvm_libc_20_1_2_StrToNumResult_cqc3yy);
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		StrToNumResult_cqc3yy strToNumResult_cqc3yy = default(StrToNumResult_cqc3yy);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs = default(Fputil_FPBits_5nkvcs);
 		sbyte b = 0;
 		sbyte b2 = 0;
 		int error = 0;
@@ -22,23 +22,23 @@ internal static partial class Internal_strtofloatingpoint_float
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
 		int num2 = 0;
 		int round = 0;
-		Llvm_libc_20_1_2_StrToNumResult_kkgahp llvm_libc_20_1_2_StrToNumResult_kkgahp = default(Llvm_libc_20_1_2_StrToNumResult_kkgahp);
-		Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up = default(Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up);
-		Llvm_libc_20_1_2_StrToNumResult_kkgahp llvm_libc_20_1_2_StrToNumResult_kkgahp2 = default(Llvm_libc_20_1_2_StrToNumResult_kkgahp);
-		Llvm_libc_20_1_2_StrToNumResult_kkgahp llvm_libc_20_1_2_StrToNumResult_kkgahp3 = default(Llvm_libc_20_1_2_StrToNumResult_kkgahp);
+		StrToNumResult_kkgahp strToNumResult_kkgahp = default(StrToNumResult_kkgahp);
+		Internal_ExpandedFloat_i7t5up internal_ExpandedFloat_i7t5up = default(Internal_ExpandedFloat_i7t5up);
+		StrToNumResult_kkgahp strToNumResult_kkgahp2 = default(StrToNumResult_kkgahp);
+		StrToNumResult_kkgahp strToNumResult_kkgahp3 = default(StrToNumResult_kkgahp);
 		int num3 = 0;
 		long num4 = 0L;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs2 = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs2 = default(Fputil_FPBits_5nkvcs);
 		Anon_izyfb7 anon_izyfb2 = default(Anon_izyfb7);
-		Llvm_libc_20_1_2_fputil_FPBits_5nkvcs llvm_libc_20_1_2_fputil_FPBits_5nkvcs3 = default(Llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Fputil_FPBits_5nkvcs fputil_FPBits_5nkvcs3 = default(Fputil_FPBits_5nkvcs);
 		Anon_izyfb7 anon_izyfb3 = default(Anon_izyfb7);
-		Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+		Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
 		unchecked
 		{
-			*(int*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs) = -1431655766;
-			Llvm_memset_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, 0, 4L, isVolatile: false);
-			FPBits_float_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+			*(int*)(&fputil_FPBits_5nkvcs) = -1431655766;
+			Llvm_memset_p0_i64.Invoke(&fputil_FPBits_5nkvcs, 0, 4L, isVolatile: false);
+			FPBits_float_Constructor.Invoke(&fputil_FPBits_5nkvcs);
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
 			b = 0;
 			Llvm_lifetime_start_p0.Invoke(1L, &b2);
@@ -54,8 +54,8 @@ internal static partial class Internal_strtofloatingpoint_float
 			}
 			if (b2 == 45)
 			{
-				Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, Llvm_libc_20_1_2_Sign_NEG.Pointer, 1L, isVolatile: false);
-				FPStorage_fputil_FPType_1_set_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, anon_izyfb.Val);
+				Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, Sign_NEG.Pointer, 1L, isVolatile: false);
+				FPStorage_fputil_FPType_1_set_sign.Invoke(&fputil_FPBits_5nkvcs, anon_izyfb.Val);
 			}
 			if (Internal_isdigit_u2vjuj.Invoke(((sbyte*)Src)[num]) || ((sbyte*)Src)[num] == 46)
 			{
@@ -84,47 +84,47 @@ internal static partial class Internal_strtofloatingpoint_float
 					round = 1;
 					break;
 				}
-				Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_kkgahp);
-				sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_StrToNumResult_kkgahp);
+				Llvm_lifetime_start_p0.Invoke(24L, &strToNumResult_kkgahp);
+				sbyte* ptr = (sbyte*)(&strToNumResult_kkgahp);
 				*(int*)ptr = -1431655766;
 				((int*)ptr)[1] = -1431655766;
-				((int*)(&llvm_libc_20_1_2_StrToNumResult_kkgahp))[2] = -1431655766;
-				sbyte* ptr2 = (sbyte*)(&llvm_libc_20_1_2_StrToNumResult_kkgahp) + 12;
+				((int*)(&strToNumResult_kkgahp))[2] = -1431655766;
+				sbyte* ptr2 = (sbyte*)(&strToNumResult_kkgahp) + 12;
 				*ptr2 = -86;
 				ptr2[1] = -86;
 				ptr2[2] = -86;
 				ptr2[3] = -86;
-				((long*)(&llvm_libc_20_1_2_StrToNumResult_kkgahp))[2] = -6148914691236517206L;
-				llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up.Mantissa = 0;
-				llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up.Exponent = 0;
-				StrToNumResult_internal_ExpandedFloat_float_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_kkgahp, *(long*)(&llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up));
+				((long*)(&strToNumResult_kkgahp))[2] = -6148914691236517206L;
+				internal_ExpandedFloat_i7t5up.Mantissa = 0;
+				internal_ExpandedFloat_i7t5up.Exponent = 0;
+				StrToNumResult_internal_ExpandedFloat_float_Constructor.Invoke(&strToNumResult_kkgahp, *(long*)(&internal_ExpandedFloat_i7t5up));
 				if (num2 == 16)
 				{
-					Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_kkgahp2);
-					Internal_hexadecimal_string_to_float_float.Invoke(&llvm_libc_20_1_2_StrToNumResult_kkgahp2, (byte*)Src + num, 46, (RoundDirection_b3pcwy)round);
-					Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_StrToNumResult_kkgahp, &llvm_libc_20_1_2_StrToNumResult_kkgahp2, 24L, isVolatile: false);
-					Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_kkgahp2);
+					Llvm_lifetime_start_p0.Invoke(24L, &strToNumResult_kkgahp2);
+					Internal_hexadecimal_string_to_float_float.Invoke(&strToNumResult_kkgahp2, (byte*)Src + num, 46, (RoundDirection_b3pcwy)round);
+					Llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_kkgahp, &strToNumResult_kkgahp2, 24L, isVolatile: false);
+					Llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_kkgahp2);
 				}
 				else
 				{
-					Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_kkgahp3);
-					Internal_decimal_string_to_float_float.Invoke(&llvm_libc_20_1_2_StrToNumResult_kkgahp3, (byte*)Src + num, 46, (RoundDirection_b3pcwy)round);
-					Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_StrToNumResult_kkgahp, &llvm_libc_20_1_2_StrToNumResult_kkgahp3, 24L, isVolatile: false);
-					Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_kkgahp3);
+					Llvm_lifetime_start_p0.Invoke(24L, &strToNumResult_kkgahp3);
+					Internal_decimal_string_to_float_float.Invoke(&strToNumResult_kkgahp3, (byte*)Src + num, 46, (RoundDirection_b3pcwy)round);
+					Llvm_memcpy_p0_p0_i64.Invoke(&strToNumResult_kkgahp, &strToNumResult_kkgahp3, 24L, isVolatile: false);
+					Llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_kkgahp3);
 				}
-				b = ((llvm_libc_20_1_2_StrToNumResult_kkgahp.Parsed_len != 0L) ? ((sbyte)1) : ((sbyte)0));
-				FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), llvm_libc_20_1_2_StrToNumResult_kkgahp.Value.Mantissa);
-				FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_biased_exponent.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_vhj4tm*)(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), llvm_libc_20_1_2_StrToNumResult_kkgahp.Value.Exponent);
-				long parsed_len = llvm_libc_20_1_2_StrToNumResult_kkgahp.Parsed_len;
+				b = ((strToNumResult_kkgahp.Parsed_len != 0L) ? ((sbyte)1) : ((sbyte)0));
+				FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_mantissa.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs), strToNumResult_kkgahp.Value.Mantissa);
+				FPRepImpl_fputil_FPType_1_fputil_FPBits_float_set_biased_exponent.Invoke((Fputil_internal_FPRepImpl_vhj4tm*)(&fputil_FPBits_5nkvcs), strToNumResult_kkgahp.Value.Exponent);
+				long parsed_len = strToNumResult_kkgahp.Parsed_len;
 				num = checked(num + parsed_len);
-				error = llvm_libc_20_1_2_StrToNumResult_kkgahp.Error;
-				Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_StrToNumResult_kkgahp);
+				error = strToNumResult_kkgahp.Error;
+				Llvm_lifetime_end_p0.Invoke(24L, &strToNumResult_kkgahp);
 				Llvm_lifetime_end_p0.Invoke(4L, &round);
 				Llvm_lifetime_end_p0.Invoke(4L, &num2);
 			}
 			else if (Internal_tolower_b2645y.Invoke(((sbyte*)Src)[num]) == 110)
 			{
-				if (Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 1L)]) == ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_nan_string.Value)[1] && Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 2L)]) == ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_nan_string.Value)[2])
+				if (Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 1L)]) == ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_nan_string.Value)[1] && Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 2L)]) == ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_nan_string.Value)[2])
 				{
 					b = 1;
 					num = checked(num + 3L);
@@ -140,8 +140,8 @@ internal static partial class Internal_strtofloatingpoint_float
 						if (((sbyte*)Src)[num] == 41)
 						{
 							num = checked(num + 1L);
-							String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, (byte*)Src + (num4 + 1L), num - num4 - 2L);
-							num3 = Internal_nan_mantissa_from_ncharseq_float.Invoke(*(void**)(&llvm_libc_20_1_2_cpp_string_view), ((long*)(&llvm_libc_20_1_2_cpp_string_view))[1]);
+							String_view_Constructor.Invoke(&cpp_string_view, (byte*)Src + (num4 + 1L), num - num4 - 2L);
+							num3 = Internal_nan_mantissa_from_ncharseq_float.Invoke(*(void**)(&cpp_string_view), ((long*)(&cpp_string_view))[1]);
 						}
 						else
 						{
@@ -149,41 +149,41 @@ internal static partial class Internal_strtofloatingpoint_float
 						}
 						Llvm_lifetime_end_p0.Invoke(8L, &num4);
 					}
-					Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
-					anon_izyfb2.Val = FPStorage_fputil_FPType_1_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+					Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
+					anon_izyfb2.Val = FPStorage_fputil_FPType_1_sign.Invoke(&fputil_FPBits_5nkvcs);
 					int field_ = FPRepSem_fputil_FPType_1_fputil_FPBits_float_quiet_nan.Invoke(V: num3, Sign: anon_izyfb2.Val);
-					llvm_libc_20_1_2_fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
-					Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2, 4L, isVolatile: false);
-					Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs2);
+					fputil_FPBits_5nkvcs2.FPRepImpl.FPRepSem.field_0.field_0 = field_;
+					Llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs, &fputil_FPBits_5nkvcs2, 4L, isVolatile: false);
+					Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs2);
 					Llvm_lifetime_end_p0.Invoke(4L, &num3);
 				}
 			}
-			else if (Internal_tolower_b2645y.Invoke(((sbyte*)Src)[num]) == 105 && Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 1L)]) == ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[1] && Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 2L)]) == ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[2])
+			else if (Internal_tolower_b2645y.Invoke(((sbyte*)Src)[num]) == 105 && Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 1L)]) == ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[1] && Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 2L)]) == ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[2])
 			{
 				b = 1;
-				Llvm_lifetime_start_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs3);
-				anon_izyfb3.Val = FPStorage_fputil_FPType_1_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
+				Llvm_lifetime_start_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
+				anon_izyfb3.Val = FPStorage_fputil_FPType_1_sign.Invoke(&fputil_FPBits_5nkvcs);
 				int field_2 = FPRepSem_fputil_FPType_1_fputil_FPBits_float_inf.Invoke(anon_izyfb3.Val);
-				llvm_libc_20_1_2_fputil_FPBits_5nkvcs3.FPRepImpl.FPRepSem.field_0.field_0 = field_2;
-				Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs3, 4L, isVolatile: false);
-				Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs3);
-				num = ((Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 3L)]) != ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[3] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 4L)]) != ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[4] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 5L)]) != ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[5] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 6L)]) != ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[6] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 7L)]) != ((sbyte*)Llvm_libc_20_1_2_StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[7]) ? checked(num + 3L) : checked(num + 8L));
+				fputil_FPBits_5nkvcs3.FPRepImpl.FPRepSem.field_0.field_0 = field_2;
+				Llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_5nkvcs, &fputil_FPBits_5nkvcs3, 4L, isVolatile: false);
+				Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs3);
+				num = ((Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 3L)]) != ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[3] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 4L)]) != ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[4] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 5L)]) != ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[5] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 6L)]) != ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[6] || Internal_tolower_b2645y.Invoke(((sbyte*)Src)[checked(num + 7L)]) != ((sbyte*)StrToNumResult_float_internal_strtofloatingpoint_float_char_const_inf_string.Value)[7]) ? checked(num + 3L) : checked(num + 8L));
 			}
 			if ((b & 1) != 1)
 			{
-				StrToNumResult_float_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_cqc3yy, 0f, 0L, error);
+				StrToNumResult_float_Constructor.Invoke(&strToNumResult_cqc3yy, 0f, 0L, error);
 			}
 			else
 			{
-				Internal_set_implicit_bit_float.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
-				StrToNumResult_float_Constructor.Invoke(&llvm_libc_20_1_2_StrToNumResult_cqc3yy, FPBits_float_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_5nkvcs), num, error);
+				Internal_set_implicit_bit_float.Invoke(&fputil_FPBits_5nkvcs);
+				StrToNumResult_float_Constructor.Invoke(&strToNumResult_cqc3yy, FPBits_float_get_val.Invoke(&fputil_FPBits_5nkvcs), num, error);
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
 			Llvm_lifetime_end_p0.Invoke(4L, &error);
 			Llvm_lifetime_end_p0.Invoke(1L, &b2);
 			Llvm_lifetime_end_p0.Invoke(1L, &b);
-			Llvm_lifetime_end_p0.Invoke(4L, &llvm_libc_20_1_2_fputil_FPBits_5nkvcs);
-			return *(Struct_fiz2nb*)(&llvm_libc_20_1_2_StrToNumResult_cqc3yy);
+			Llvm_lifetime_end_p0.Invoke(4L, &fputil_FPBits_5nkvcs);
+			return *(Struct_fiz2nb*)(&strToNumResult_cqc3yy);
 		}
 	}
 }

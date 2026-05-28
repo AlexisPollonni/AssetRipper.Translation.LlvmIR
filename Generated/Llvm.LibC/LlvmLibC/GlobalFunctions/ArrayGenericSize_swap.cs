@@ -33,9 +33,9 @@ internal static partial class ArrayGenericSize_swap
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr2);
 			ptr2 = ArrayGenericSize_get_internal.Invoke(This, J);
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = (long)((ulong)((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buff_cur % 4uL);
+			num2 = (long)((ulong)((Scanf_core_ReadBuffer*)This)->Buff_cur % 4uL);
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr3);
-			ptr3 = (byte*)ptr + (((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buff_cur - num2);
+			ptr3 = (byte*)ptr + (((Scanf_core_ReadBuffer*)This)->Buff_cur - num2);
 			while (ptr != ptr3)
 			{
 				Llvm_memcpy_p0_p0_i64.Invoke(&inlineArray4_SByte, ptr, 4L, isVolatile: false);

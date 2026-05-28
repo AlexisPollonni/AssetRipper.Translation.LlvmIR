@@ -15,7 +15,7 @@ internal static partial class Atomic_unsigned_int_compare_exchange_strong
 		int num = Desired;
 		unchecked
 		{
-			void* location = Atomic_unsigned_int_addressof.Invoke(&((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
+			void* location = Atomic_unsigned_int_addressof.Invoke(&((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0);
 			int num2 = Atomic_unsigned_int_order.Invoke(Mem_ord);
 			void* ptr = Atomic_unsigned_int_addressof.Invoke(Expected);
 			void* ptr2 = Atomic_unsigned_int_addressof.Invoke(&num);

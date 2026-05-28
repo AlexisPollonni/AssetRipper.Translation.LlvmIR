@@ -10,7 +10,7 @@ internal static partial class Multiword_shift_multiword_Direction_1_false_unsign
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword5shiftILNS0_9DirectionE1ELb0EmLm5EEENS_3cpp5arrayIT1_XT2_EEES6_m")]
 	[DemangledName("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul> __llvm_libc_20_1_2_::multiword::shift<(__llvm_libc_20_1_2_::multiword::Direction)1, false, unsigned long, 5ul>(__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>, unsigned long)")]
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_cpp_array_msasyg* Agg_result, [MangledName("array")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>")] void* Array, [MangledName("offset")][NativeType("unsigned long")] long Offset)
+	public unsafe static void Invoke([MangledName("agg.result")] Cpp_array_msasyg* Agg_result, [MangledName("array")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 5ul>")] void* Array, [MangledName("offset")][NativeType("unsigned long")] long Offset)
 	{
 		long num = 0L;
 		long num2 = 0L;

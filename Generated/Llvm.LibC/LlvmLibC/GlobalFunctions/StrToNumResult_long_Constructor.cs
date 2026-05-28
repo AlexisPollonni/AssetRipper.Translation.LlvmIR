@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_long_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_StrToNumResult_gbeb3a*)This)->Value = Value;
-			((Llvm_libc_20_1_2_StrToNumResult_gbeb3a*)This)->Error = Error;
-			((Llvm_libc_20_1_2_StrToNumResult_gbeb3a*)This)->Parsed_len = Parsed_len;
+			((StrToNumResult_gbeb3a*)This)->Value = Value;
+			((StrToNumResult_gbeb3a*)This)->Error = Error;
+			((StrToNumResult_gbeb3a*)This)->Parsed_len = Parsed_len;
 		}
 	}
 }

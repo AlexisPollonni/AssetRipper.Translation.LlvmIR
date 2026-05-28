@@ -8,6 +8,6 @@ internal static partial class Geteuid
 	[DemangledName("geteuid")]
 	public static int Invoke()
 	{
-		return Llvm_libc_20_1_2_syscall_impl_unsigned_int.Invoke(107L);
+		return Syscall_impl_unsigned_int.Invoke(107L);
 	}
 }

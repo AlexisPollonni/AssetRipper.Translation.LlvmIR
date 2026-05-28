@@ -9,6 +9,6 @@ internal static partial class AlignHelper_8ul_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::AlignHelper<8ul>::AlignHelper(__llvm_libc_20_1_2_::cpp::byte const*)")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("ptr")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* Ptr)
 	{
-		unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_v3nexn*)This)->Val = Llvm_libc_20_1_2_distance_to_next_aligned_8ul.Invoke(Ptr);
+		unchecked((Fputil_internal_FPStorage_v3nexn*)This)->Val = Distance_to_next_aligned_8ul.Invoke(Ptr);
 	}
 }

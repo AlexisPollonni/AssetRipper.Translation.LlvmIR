@@ -1,5 +1,4 @@
 using System.Runtime.CompilerServices;
-using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.InlineArrays;
 
@@ -28,6 +27,6 @@ internal static partial class Str_110
 
 	unsafe static Str_110()
 	{
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

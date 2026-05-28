@@ -14,7 +14,7 @@ internal static partial class Printf_core_convert_float_hex_exp
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core21convert_float_hex_expEPNS0_6WriterERKNS0_13FormatSectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::convert_float_hex_exp(__llvm_libc_20_1_2_::printf_core::Writer*, __llvm_libc_20_1_2_::printf_core::FormatSection const&)")]
-	public unsafe static int Invoke([MangledName("writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Llvm_libc_20_1_2_printf_core_Writer* Writer, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::printf_core::FormatSection const&")] Llvm_libc_20_1_2_printf_core_FormatSection* To_conv)
+	public unsafe static int Invoke([MangledName("writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Printf_core_Writer* Writer, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::printf_core::FormatSection const&")] Printf_core_FormatSection* To_conv)
 	{
 		int result = 0;
 		sbyte b = 0;
@@ -23,11 +23,11 @@ internal static partial class Printf_core_convert_float_hex_exp
 		sbyte b2 = 0;
 		int num2 = 0;
 		Int128 @int = default(Int128);
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
 		Int128 int2 = default(Int128);
 		Int128 int3 = default(Int128);
 		long x2 = 0L;
-		Llvm_libc_20_1_2_fputil_FPBits_wjhbrm llvm_libc_20_1_2_fputil_FPBits_wjhbrm = default(Llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+		Fputil_FPBits_wjhbrm fputil_FPBits_wjhbrm = default(Fputil_FPBits_wjhbrm);
 		sbyte b3 = 0;
 		long num3 = 0L;
 		long num4 = 0L;
@@ -50,38 +50,38 @@ internal static partial class Printf_core_convert_float_hex_exp
 		int num14 = 0;
 		long num15 = 0L;
 		InlineArray2_SByte inlineArray2_SByte = default(InlineArray2_SByte);
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		sbyte b7 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view2 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view2 = default(Cpp_string_view);
 		sbyte new_char = 0;
 		int num16 = 0;
 		int num17 = 0;
 		int num18 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view3 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view3 = default(Cpp_string_view);
 		int num19 = 0;
 		int num20 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view4 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view4 = default(Cpp_string_view);
 		int num21 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view5 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view5 = default(Cpp_string_view);
 		int num22 = 0;
 		int num23 = 0;
 		int num24 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view6 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view6 = default(Cpp_string_view);
 		int num25 = 0;
 		int num26 = 0;
 		int num27 = 0;
 		int num28 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view7 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view7 = default(Cpp_string_view);
 		int num29 = 0;
 		int num30 = 0;
 		int num31 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view8 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view8 = default(Cpp_string_view);
 		int num32 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view9 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view9 = default(Cpp_string_view);
 		int num33 = 0;
 		int num34 = 0;
 		int num35 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view10 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view10 = default(Cpp_string_view);
 		Llvm_lifetime_start_p0.Invoke(1L, &b);
 		b = -86;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
@@ -99,13 +99,13 @@ internal static partial class Printf_core_convert_float_hex_exp
 				num2 = 63;
 				Llvm_lifetime_start_p0.Invoke(16L, &@int);
 				@int = To_conv->Conv_val_raw;
-				Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
-				*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = -6148914691236517206L;
+				Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi);
+				*(Int128*)(&fputil_FPBits_ubgsi) = -6148914691236517206L;
 				int2 = @int;
-				FPBits_long_double_FPBits_unsigned_int128.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, *(long*)(&int2), ((long*)(&int2))[1]);
-				b = (FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_neg.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
-				num = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_exponent.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
-				Struct_fiz2nb struct_fiz2nb = FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+				FPBits_long_double_FPBits_unsigned_int128.Invoke(&fputil_FPBits_ubgsi, *(long*)(&int2), ((long*)(&int2))[1]);
+				b = (FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_neg.Invoke(&fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
+				num = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_exponent.Invoke(&fputil_FPBits_ubgsi);
+				Struct_fiz2nb struct_fiz2nb = FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_get_explicit_mantissa.Invoke(&fputil_FPBits_ubgsi);
 				Int128* num36 = &int3;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 				*(long*)num36 = struct_fiz2nb2.field_0;
@@ -113,8 +113,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 				Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 				*(long*)num37 = struct_fiz2nb3.field_1;
 				x = int3;
-				b2 = (FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_inf_or_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
-				Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+				b2 = (FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_is_inf_or_nan.Invoke(&fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
+				Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 				Llvm_lifetime_end_p0.Invoke(16L, &@int);
 			}
 			else
@@ -122,14 +122,14 @@ internal static partial class Printf_core_convert_float_hex_exp
 				num2 = 52;
 				Llvm_lifetime_start_p0.Invoke(8L, &x2);
 				x2 = (long)To_conv->Conv_val_raw;
-				Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
-				*(long*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm) = -6148914691236517206L;
-				FPBits_double_FPBits_unsigned_long.Invoke(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm, x2);
-				b = (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm)) ? ((sbyte)1) : ((sbyte)0));
-				num = FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_explicit_exponent.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm));
-				x = (Int128)(UInt128)(ulong)FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_fq8nhg*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm));
-				b2 = (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq*)(&llvm_libc_20_1_2_fputil_FPBits_wjhbrm)) ? ((sbyte)1) : ((sbyte)0));
-				Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_fputil_FPBits_wjhbrm);
+				Llvm_lifetime_start_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
+				*(long*)(&fputil_FPBits_wjhbrm) = -6148914691236517206L;
+				FPBits_double_FPBits_unsigned_long.Invoke(&fputil_FPBits_wjhbrm, x2);
+				b = (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_neg.Invoke((Fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm)) ? ((sbyte)1) : ((sbyte)0));
+				num = FPRepImpl_fputil_FPType_2_fputil_FPBits_double_get_explicit_exponent.Invoke((Fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm));
+				x = (Int128)(UInt128)(ulong)FPRepSem_fputil_FPType_2_fputil_FPBits_double_get_explicit_mantissa.Invoke((Fputil_internal_FPRepSem_fq8nhg*)(&fputil_FPBits_wjhbrm));
+				b2 = (FPRepImpl_fputil_FPType_2_fputil_FPBits_double_is_inf_or_nan.Invoke((Fputil_internal_FPRepImpl_ucubaq*)(&fputil_FPBits_wjhbrm)) ? ((sbyte)1) : ((sbyte)0));
+				Llvm_lifetime_end_p0.Invoke(8L, &fputil_FPBits_wjhbrm);
 				Llvm_lifetime_end_p0.Invoke(8L, &x2);
 			}
 			if ((b2 & 1) == 1)
@@ -299,19 +299,19 @@ internal static partial class Printf_core_convert_float_hex_exp
 			((sbyte*)(&inlineArray2_SByte))[1] = -86;
 			*(sbyte*)(&inlineArray2_SByte) = 48;
 			Unsafe.As<InlineArray2_SByte, sbyte>(ref Unsafe.AddByteOffset(ref inlineArray2_SByte, 1)) = InstructionHelper.Select(Internal_islower_qy8nhx.Invoke(To_conv->Conv_name), (sbyte)120, (sbyte)88);
-			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
-			*(IntPtr*)(&llvm_libc_20_1_2_cpp_string_view) = unchecked((nint)(-6148914691236517206L));
-			((long*)(&llvm_libc_20_1_2_cpp_string_view))[1] = -6148914691236517206L;
-			String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, &inlineArray2_SByte, 2L);
+			Llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view);
+			*(IntPtr*)(&cpp_string_view) = unchecked((nint)(-6148914691236517206L));
+			((long*)(&cpp_string_view))[1] = -6148914691236517206L;
+			String_view_Constructor.Invoke(&cpp_string_view, &inlineArray2_SByte, 2L);
 			if (To_conv->Precision > (int)(num10 - 1L))
 			{
 				num13 = To_conv->Precision - (num10 - 1L);
 			}
 			Llvm_lifetime_start_p0.Invoke(1L, &b7);
 			b7 = (((ulong)num10 > 1uL || ((byte)To_conv->Flags & 8) == 8) ? ((sbyte)1) : ((sbyte)0));
-			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view2);
-			*(InlineArray2_SByte**)(&llvm_libc_20_1_2_cpp_string_view2) = Str_4_162.Pointer;
-			((long*)(&llvm_libc_20_1_2_cpp_string_view2))[1] = 1L;
+			Llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view2);
+			*(InlineArray2_SByte**)(&cpp_string_view2) = Str_4_162.Pointer;
+			((long*)(&cpp_string_view2))[1] = 1L;
 			Llvm_lifetime_start_p0.Invoke(1L, &new_char);
 			new_char = InstructionHelper.Select(Internal_islower_qy8nhx.Invoke(To_conv->Conv_name), (sbyte)112, (sbyte)80);
 			Llvm_lifetime_start_p0.Invoke(4L, &num16);
@@ -347,8 +347,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 					}
 				}
 				Llvm_lifetime_start_p0.Invoke(4L, &num18);
-				Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_string_view3, &llvm_libc_20_1_2_cpp_string_view, 16L, isVolatile: false);
-				num18 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view3), ((long*)(&llvm_libc_20_1_2_cpp_string_view3))[1]);
+				Llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view3, &cpp_string_view, 16L, isVolatile: false);
+				num18 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1]);
 				if (num18 < 0)
 				{
 					result = num18;
@@ -388,8 +388,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 				if ((b7 & 1) == 1)
 				{
 					Llvm_lifetime_start_p0.Invoke(4L, &num20);
-					Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_string_view4, &llvm_libc_20_1_2_cpp_string_view2, 16L, isVolatile: false);
-					num20 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view4), ((long*)(&llvm_libc_20_1_2_cpp_string_view4))[1]);
+					Llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view4, &cpp_string_view2, 16L, isVolatile: false);
+					num20 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view4), ((long*)(&cpp_string_view4))[1]);
 					if (num20 < 0)
 					{
 						result = num20;
@@ -411,8 +411,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 				if ((ulong)num10 > 1uL)
 				{
 					Llvm_lifetime_start_p0.Invoke(4L, &num21);
-					String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view5, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray16_SByte, 1)), num10 - 1L);
-					num21 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view5), ((long*)(&llvm_libc_20_1_2_cpp_string_view5))[1]);
+					String_view_Constructor.Invoke(&cpp_string_view5, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray16_SByte, 1)), num10 - 1L);
+					num21 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view5), ((long*)(&cpp_string_view5))[1]);
 					if (num21 < 0)
 					{
 						result = num21;
@@ -473,8 +473,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 					goto IL_148f;
 				}
 				Llvm_lifetime_start_p0.Invoke(4L, &num24);
-				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view6, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray6_SByte, (nint)num12)), 6L - num12);
-				num24 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view6), ((long*)(&llvm_libc_20_1_2_cpp_string_view6))[1]);
+				String_view_Constructor.Invoke(&cpp_string_view6, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray6_SByte, (nint)num12)), 6L - num12);
+				num24 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view6), ((long*)(&cpp_string_view6))[1]);
 				if (num24 < 0)
 				{
 					result = num24;
@@ -563,8 +563,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 					}
 				}
 				Llvm_lifetime_start_p0.Invoke(4L, &num28);
-				Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_string_view7, &llvm_libc_20_1_2_cpp_string_view, 16L, isVolatile: false);
-				num28 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view7), ((long*)(&llvm_libc_20_1_2_cpp_string_view7))[1]);
+				Llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view7, &cpp_string_view, 16L, isVolatile: false);
+				num28 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view7), ((long*)(&cpp_string_view7))[1]);
 				if (num28 < 0)
 				{
 					result = num28;
@@ -626,8 +626,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 				if ((b7 & 1) == 1)
 				{
 					Llvm_lifetime_start_p0.Invoke(4L, &num31);
-					Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_string_view8, &llvm_libc_20_1_2_cpp_string_view2, 16L, isVolatile: false);
-					num31 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view8), ((long*)(&llvm_libc_20_1_2_cpp_string_view8))[1]);
+					Llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view8, &cpp_string_view2, 16L, isVolatile: false);
+					num31 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view8), ((long*)(&cpp_string_view8))[1]);
 					if (num31 < 0)
 					{
 						result = num31;
@@ -649,8 +649,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 				if ((ulong)num10 > 1uL)
 				{
 					Llvm_lifetime_start_p0.Invoke(4L, &num32);
-					String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view9, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray16_SByte, 1)), num10 - 1L);
-					num32 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view9), ((long*)(&llvm_libc_20_1_2_cpp_string_view9))[1]);
+					String_view_Constructor.Invoke(&cpp_string_view9, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray16_SByte, 1)), num10 - 1L);
+					num32 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view9), ((long*)(&cpp_string_view9))[1]);
 					if (num32 < 0)
 					{
 						result = num32;
@@ -711,8 +711,8 @@ internal static partial class Printf_core_convert_float_hex_exp
 					goto IL_148f;
 				}
 				Llvm_lifetime_start_p0.Invoke(4L, &num35);
-				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view10, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray6_SByte, (nint)num12)), 6L - num12);
-				num35 = Writer_write.Invoke(Writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view10), ((long*)(&llvm_libc_20_1_2_cpp_string_view10))[1]);
+				String_view_Constructor.Invoke(&cpp_string_view10, Unsafe.AsPointer(ref Unsafe.AddByteOffset(ref inlineArray6_SByte, (nint)num12)), 6L - num12);
+				num35 = Writer_write.Invoke(Writer, *(void**)(&cpp_string_view10), ((long*)(&cpp_string_view10))[1]);
 				if (num35 < 0)
 				{
 					result = num35;
@@ -744,9 +744,9 @@ internal static partial class Printf_core_convert_float_hex_exp
 		IL_148f:
 		Llvm_lifetime_end_p0.Invoke(4L, &num16);
 		Llvm_lifetime_end_p0.Invoke(1L, &new_char);
-		Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view2);
+		Llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);
 		Llvm_lifetime_end_p0.Invoke(1L, &b7);
-		Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
+		Llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view);
 		Llvm_lifetime_end_p0.Invoke(2L, &inlineArray2_SByte);
 		Llvm_lifetime_end_p0.Invoke(8L, &num15);
 		Llvm_lifetime_end_p0.Invoke(4L, &num14);

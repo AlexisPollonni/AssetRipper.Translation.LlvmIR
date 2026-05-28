@@ -9,13 +9,13 @@ internal static partial class Div
 	[DemangledName("div")]
 	public unsafe static long Invoke([MangledName("x")] int X, [MangledName("y")] int Y)
 	{
-		Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up = default(Llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up);
+		Internal_ExpandedFloat_i7t5up internal_ExpandedFloat_i7t5up = default(Internal_ExpandedFloat_i7t5up);
 		unchecked
 		{
-			*(int*)(&llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up) = -1431655766;
-			((int*)(&llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up))[1] = -1431655766;
-			Llvm_libc_20_1_2_integer_rem_quo_int.Invoke(X, Y, &llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up.Mantissa, &llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up.Exponent);
-			return *(long*)(&llvm_libc_20_1_2_internal_ExpandedFloat_i7t5up);
+			*(int*)(&internal_ExpandedFloat_i7t5up) = -1431655766;
+			((int*)(&internal_ExpandedFloat_i7t5up))[1] = -1431655766;
+			Integer_rem_quo_int.Invoke(X, Y, &internal_ExpandedFloat_i7t5up.Mantissa, &internal_ExpandedFloat_i7t5up.Exponent);
+			return *(long*)(&internal_ExpandedFloat_i7t5up);
 		}
 	}
 }

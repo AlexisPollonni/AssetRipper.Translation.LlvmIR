@@ -16,7 +16,7 @@ internal static partial class BigInt_128ul_false_unsigned_long_to_unsigned_short
 		Llvm_lifetime_start_p0.Invoke(8L, &num);
 		num = 16L;
 		Llvm_lifetime_start_p0.Invoke(2L, &num2);
-		num2 = unchecked((short)(*(long*)Array_unsigned_long_2ul_Index_j6w6uu.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, 0L)));
+		num2 = unchecked((short)(*(long*)Array_unsigned_long_2ul_Index_j6w6uu.Invoke(&((BigInt_qdkjbh*)This)->Val, 0L)));
 		short result = num2;
 		Llvm_lifetime_end_p0.Invoke(2L, &num2);
 		Llvm_lifetime_end_p0.Invoke(8L, &num);

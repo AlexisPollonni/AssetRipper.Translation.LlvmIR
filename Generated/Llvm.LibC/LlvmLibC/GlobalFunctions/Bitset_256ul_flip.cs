@@ -16,8 +16,8 @@ internal static partial class Bitset_256ul_flip
 		{
 			for (num = 0L; (ulong)num < 4uL; num++)
 			{
-				long num2 = ((long*)(&((Llvm_libc_20_1_2_cpp_array_jgy3xh*)This)->Data))[num] ^ -1L;
-				((long*)(&((Llvm_libc_20_1_2_cpp_array_jgy3xh*)This)->Data))[num] = num2;
+				long num2 = ((long*)(&((Cpp_array_jgy3xh*)This)->Data))[num] ^ -1L;
+				((long*)(&((Cpp_array_jgy3xh*)This)->Data))[num] = num2;
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
 		}

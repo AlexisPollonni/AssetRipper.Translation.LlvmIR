@@ -10,13 +10,13 @@ internal static partial class FPStorage_fputil_FPType_1_encode_7kqkhk
 	[CleanName("FPStorage_fputil_FPType_1_encode")]
 	public unsafe static int Invoke([MangledName("value.coerce")][NativeType("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)1>::Significand")] int Value)
 	{
-		Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent = new Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent
+		Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent = new Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent
 		{
 			field_0 = 
 			{
 				field_0 = Value
 			}
 		};
-		return TypedInt_unsigned_int_to_storage_type_c8hg2g.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent) & 0x7FFFFF;
+		return TypedInt_unsigned_int_to_storage_type_c8hg2g.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent) & 0x7FFFFF;
 	}
 }

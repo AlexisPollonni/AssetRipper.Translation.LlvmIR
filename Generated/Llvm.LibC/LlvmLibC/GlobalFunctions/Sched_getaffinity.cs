@@ -14,11 +14,11 @@ internal static partial class Sched_getaffinity
 		void* ptr = null;
 		long num2 = 0L;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = Llvm_libc_20_1_2_syscall_impl_int_int_unsigned_long_cpu_set_t.Invoke(204L, Tid, Cpuset_size, Mask);
+		num = Syscall_impl_int_int_unsigned_long_cpu_set_t.Invoke(204L, Tid, Cpuset_size, Mask);
 		int result;
 		if (num < 0)
 		{
-			Errno_Assignment.Invoke(A: -num, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+			Errno_Assignment.Invoke(A: -num, This: Libc_errno.Pointer);
 			result = -1;
 		}
 		else

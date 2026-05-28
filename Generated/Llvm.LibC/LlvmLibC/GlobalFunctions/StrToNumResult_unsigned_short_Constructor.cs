@@ -12,9 +12,9 @@ internal static partial class StrToNumResult_unsigned_short_Constructor
 		short value = Value;
 		unchecked
 		{
-			((Llvm_libc_20_1_2_StrToNumResult_wwcts2*)This)->Value = value;
-			((Llvm_libc_20_1_2_StrToNumResult_wwcts2*)This)->Error = Error;
-			((Llvm_libc_20_1_2_StrToNumResult_wwcts2*)This)->Parsed_len = Parsed_len;
+			((StrToNumResult_wwcts2*)This)->Value = value;
+			((StrToNumResult_wwcts2*)This)->Error = Error;
+			((StrToNumResult_wwcts2*)This)->Parsed_len = Parsed_len;
 		}
 	}
 }

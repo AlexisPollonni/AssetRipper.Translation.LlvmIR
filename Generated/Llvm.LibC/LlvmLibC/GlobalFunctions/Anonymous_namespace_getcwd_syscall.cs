@@ -12,16 +12,16 @@ internal static partial class Anonymous_namespace_getcwd_syscall
 	{
 		int num = 0;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = Llvm_libc_20_1_2_syscall_impl_int_char_unsigned_long.Invoke(79L, Buf, Size);
+		num = Syscall_impl_int_char_unsigned_long.Invoke(79L, Buf, Size);
 		bool result;
 		if (num < 0)
 		{
-			Errno_Assignment.Invoke(A: -num, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+			Errno_Assignment.Invoke(A: -num, This: Libc_errno.Pointer);
 			result = false;
 		}
 		else if (num == 0 || *unchecked((sbyte*)Buf) != 47)
 		{
-			Errno_Assignment.Invoke(Llvm_libc_20_1_2_libc_errno.Pointer, 2);
+			Errno_Assignment.Invoke(Libc_errno.Pointer, 2);
 			result = false;
 		}
 		else

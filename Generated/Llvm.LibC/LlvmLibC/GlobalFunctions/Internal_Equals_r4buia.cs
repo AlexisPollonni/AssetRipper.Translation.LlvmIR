@@ -10,10 +10,10 @@ internal static partial class Internal_Equals_r4buia
 	[CleanName("Internal_Equals")]
 	public unsafe static bool Invoke([MangledName("a.coerce")][NativeType("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>")] long A, [MangledName("b.coerce")][NativeType("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)2, __llvm_libc_20_1_2_::fputil::FPBits<double>>")] long B)
 	{
-		Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq = default(Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq);
-		Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq2 = default(Llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq);
-		llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq.FPRepSem.FPStorage.Val = A;
-		llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq2.FPRepSem.FPStorage.Val = B;
-		return FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq) == FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepImpl_ucubaq2);
+		Fputil_internal_FPRepImpl_ucubaq fputil_internal_FPRepImpl_ucubaq = default(Fputil_internal_FPRepImpl_ucubaq);
+		Fputil_internal_FPRepImpl_ucubaq fputil_internal_FPRepImpl_ucubaq2 = default(Fputil_internal_FPRepImpl_ucubaq);
+		fputil_internal_FPRepImpl_ucubaq.FPRepSem.FPStorage.Val = A;
+		fputil_internal_FPRepImpl_ucubaq2.FPRepSem.FPStorage.Val = B;
+		return FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke(&fputil_internal_FPRepImpl_ucubaq) == FPRepImpl_fputil_FPType_2_fputil_FPBits_double_uintval.Invoke(&fputil_internal_FPRepImpl_ucubaq2);
 	}
 }

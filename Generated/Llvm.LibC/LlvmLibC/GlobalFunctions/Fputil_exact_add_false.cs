@@ -11,32 +11,32 @@ internal static partial class Fputil_exact_add_false
 	[return: NativeType("__llvm_libc_20_1_2_::NumberPair<double>")]
 	public unsafe static Struct_4ydhja Invoke([MangledName("a")][NativeType("double")] double A, [MangledName("b")][NativeType("double")] double B)
 	{
-		Llvm_libc_20_1_2_NumberPair llvm_libc_20_1_2_NumberPair = default(Llvm_libc_20_1_2_NumberPair);
+		NumberPair numberPair = default(NumberPair);
 		double num = 0.0;
 		double num2 = 0.0;
 		double num3 = 0.0;
 		double num4 = 0.0;
 		unchecked
 		{
-			*(double*)(&llvm_libc_20_1_2_NumberPair) = double.NaN;
-			((double*)(&llvm_libc_20_1_2_NumberPair))[1] = double.NaN;
-			llvm_libc_20_1_2_NumberPair.Lo = 0.0;
-			llvm_libc_20_1_2_NumberPair.Hi = 0.0;
-			llvm_libc_20_1_2_NumberPair.Hi = A + B;
+			*(double*)(&numberPair) = double.NaN;
+			((double*)(&numberPair))[1] = double.NaN;
+			numberPair.Lo = 0.0;
+			numberPair.Hi = 0.0;
+			numberPair.Hi = A + B;
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = llvm_libc_20_1_2_NumberPair.Hi - A;
+			num = numberPair.Hi - A;
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
-			num2 = llvm_libc_20_1_2_NumberPair.Hi - num;
+			num2 = numberPair.Hi - num;
 			Llvm_lifetime_start_p0.Invoke(8L, &num3);
 			num3 = B - num;
 			Llvm_lifetime_start_p0.Invoke(8L, &num4);
 			num4 = A - num2;
-			llvm_libc_20_1_2_NumberPair.Lo = num3 + num4;
+			numberPair.Lo = num3 + num4;
 			Llvm_lifetime_end_p0.Invoke(8L, &num4);
 			Llvm_lifetime_end_p0.Invoke(8L, &num3);
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
-			return *(Struct_4ydhja*)(&llvm_libc_20_1_2_NumberPair);
+			return *(Struct_4ydhja*)(&numberPair);
 		}
 	}
 }

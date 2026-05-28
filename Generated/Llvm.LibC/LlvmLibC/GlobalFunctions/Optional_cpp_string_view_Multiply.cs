@@ -9,6 +9,6 @@ internal static partial class Optional_cpp_string_view_Multiply
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<__llvm_libc_20_1_2_::cpp::string_view>::operator*() &")]
 	public unsafe static void* Invoke([MangledName("this")] void* This)
 	{
-		return &unchecked((Llvm_libc_20_1_2_cpp_optional_bnt67x*)This)->Storage.field;
+		return &unchecked((Cpp_optional_bnt67x*)This)->Storage.field;
 	}
 }

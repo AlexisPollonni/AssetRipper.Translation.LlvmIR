@@ -9,32 +9,32 @@ internal static partial class Internal_binary_exp_to_float_double
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::FloatConvertReturn<double> __llvm_libc_20_1_2_::internal::binary_exp_to_float<double>(__llvm_libc_20_1_2_::internal::ExpandedFloat<double>, bool, __llvm_libc_20_1_2_::internal::RoundDirection)")]
 	[return: NativeType("__llvm_libc_20_1_2_::internal::FloatConvertReturn<double>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_internal_FloatConvertReturn_g92bm8* Agg_result, [MangledName("init_num.coerce0")] long Init_num, [MangledName("init_num.coerce1")] int Truncated, [MangledName("truncated")] bool Round, [MangledName("round")] int Mantissa)
+	public unsafe static void Invoke([MangledName("agg.result")] Internal_FloatConvertReturn_g92bm8* Agg_result, [MangledName("init_num.coerce0")] long Init_num, [MangledName("init_num.coerce1")] int Truncated, [MangledName("truncated")] bool Round, [MangledName("round")] int Mantissa)
 	{
-		Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv = default(Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv);
+		Internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv = default(Internal_ExpandedFloat_k68bhv);
 		long num = 0L;
 		int num2 = 0;
 		int num3 = 0;
 		int num4 = 0;
 		int num5 = 0;
-		Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv2 = default(Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv);
+		Internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv2 = default(Internal_ExpandedFloat_k68bhv);
 		int num6 = 0;
-		Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv3 = default(Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv);
+		Internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv3 = default(Internal_ExpandedFloat_k68bhv);
 		long num7 = 0L;
 		long num8 = 0L;
 		sbyte b = 0;
 		sbyte b2 = 0;
 		sbyte b3 = 0;
-		Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv4 = default(Llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv);
+		Internal_ExpandedFloat_k68bhv internal_ExpandedFloat_k68bhv4 = default(Internal_ExpandedFloat_k68bhv);
 		unchecked
 		{
-			*(long*)(&llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv) = Init_num;
-			((int*)(&llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv))[2] = Truncated;
+			*(long*)(&internal_ExpandedFloat_k68bhv) = Init_num;
+			((int*)(&internal_ExpandedFloat_k68bhv))[2] = Truncated;
 			sbyte b4 = (Round ? ((sbyte)1) : ((sbyte)0));
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
-			num = llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv.Mantissa;
+			num = internal_ExpandedFloat_k68bhv.Mantissa;
 			Llvm_lifetime_start_p0.Invoke(4L, &num2);
-			num2 = llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv.Exponent;
+			num2 = internal_ExpandedFloat_k68bhv.Exponent;
 			*(long*)Agg_result = -6148914691236517206L;
 			((int*)Agg_result)[2] = -1431655766;
 			sbyte* ptr = (sbyte*)Agg_result + 12;
@@ -59,11 +59,11 @@ internal static partial class Internal_binary_exp_to_float_double
 			num5 = checked(num2 + 64 + 1023 - 1);
 			if (num5 >= 2047)
 			{
-				Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv2);
-				llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv2.Mantissa = 0L;
-				llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv2.Exponent = 2047;
-				Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Num, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv2, 16L, isVolatile: false);
-				Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv2);
+				Llvm_lifetime_start_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv2);
+				internal_ExpandedFloat_k68bhv2.Mantissa = 0L;
+				internal_ExpandedFloat_k68bhv2.Exponent = 2047;
+				Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Num, &internal_ExpandedFloat_k68bhv2, 16L, isVolatile: false);
+				Llvm_lifetime_end_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv2);
 				Agg_result->Error = 34;
 				goto IL_04eb;
 			}
@@ -75,11 +75,11 @@ internal static partial class Internal_binary_exp_to_float_double
 				num5 = 0;
 				if ((uint)num6 > 64u)
 				{
-					Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv3);
-					llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv3.Mantissa = 0L;
-					llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv3.Exponent = 0;
-					Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Num, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv3, 16L, isVolatile: false);
-					Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv3);
+					Llvm_lifetime_start_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv3);
+					internal_ExpandedFloat_k68bhv3.Mantissa = 0L;
+					internal_ExpandedFloat_k68bhv3.Exponent = 0;
+					Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Num, &internal_ExpandedFloat_k68bhv3, 16L, isVolatile: false);
+					Llvm_lifetime_end_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv3);
 					Agg_result->Error = 34;
 					goto IL_04d9;
 				}
@@ -136,11 +136,11 @@ internal static partial class Internal_binary_exp_to_float_double
 			{
 				Agg_result->Error = 34;
 			}
-			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv4);
-			llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv4.Mantissa = num & 0xFFFFFFFFFFFFFL;
-			llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv4.Exponent = num5;
-			Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Num, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv4, 16L, isVolatile: false);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_internal_ExpandedFloat_k68bhv4);
+			Llvm_lifetime_start_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv4);
+			internal_ExpandedFloat_k68bhv4.Mantissa = num & 0xFFFFFFFFFFFFFL;
+			internal_ExpandedFloat_k68bhv4.Exponent = num5;
+			Llvm_memcpy_p0_p0_i64.Invoke(&Agg_result->Num, &internal_ExpandedFloat_k68bhv4, 16L, isVolatile: false);
+			Llvm_lifetime_end_p0.Invoke(16L, &internal_ExpandedFloat_k68bhv4);
 			Llvm_lifetime_end_p0.Invoke(1L, &b3);
 			Llvm_lifetime_end_p0.Invoke(1L, &b2);
 			Llvm_lifetime_end_p0.Invoke(1L, &b);

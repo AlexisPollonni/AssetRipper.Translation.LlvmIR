@@ -17,10 +17,10 @@ internal static partial class Internal_quick_sort_impl_internal_ArrayFixedSize_4
 		long num3 = 0L;
 		Anon_7y5tgm anon_7y5tgm = default(Anon_7y5tgm);
 		long num4 = 0L;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		void* ptr = null;
 		long num5 = 0L;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view2 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view2 = default(Cpp_string_view);
 		void* ptr2 = Ancestor_pivot;
 		long num6 = Limit;
 		unchecked
@@ -68,37 +68,37 @@ internal static partial class Internal_quick_sort_impl_internal_ArrayFixedSize_4
 						}
 						else
 						{
-							Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
-							*(IntPtr*)(&llvm_libc_20_1_2_cpp_string_view) = unchecked((nint)(-6148914691236517206L));
-							((long*)(&llvm_libc_20_1_2_cpp_string_view))[1] = -6148914691236517206L;
+							Llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view);
+							*(IntPtr*)(&cpp_string_view) = unchecked((nint)(-6148914691236517206L));
+							((long*)(&cpp_string_view))[1] = -6148914691236517206L;
 							Struct_kqhe8i struct_kqhe8i = ArrayFixedSize_4ul_make_array.Invoke(Array, 0L, num4);
-							Llvm_libc_20_1_2_cpp_string_view* num9 = &llvm_libc_20_1_2_cpp_string_view;
+							Cpp_string_view* num9 = &cpp_string_view;
 							Struct_kqhe8i struct_kqhe8i2 = struct_kqhe8i;
 							*(void**)num9 = struct_kqhe8i2.field_0;
-							byte* num10 = (byte*)(&llvm_libc_20_1_2_cpp_string_view) + 8u;
+							byte* num10 = (byte*)(&cpp_string_view) + 8u;
 							Struct_kqhe8i struct_kqhe8i3 = struct_kqhe8i;
 							*(long*)num10 = struct_kqhe8i3.field_1;
 							Llvm_lifetime_start_p0.Invoke(8L, &ptr);
 							ptr = ArrayFixedSize_4ul_get.Invoke(Array, num4);
 							Llvm_lifetime_start_p0.Invoke(8L, &num5);
 							num5 = num4 + 1L;
-							Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view2);
-							*(IntPtr*)(&llvm_libc_20_1_2_cpp_string_view2) = unchecked((nint)(-6148914691236517206L));
-							((long*)(&llvm_libc_20_1_2_cpp_string_view2))[1] = -6148914691236517206L;
+							Llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view2);
+							*(IntPtr*)(&cpp_string_view2) = unchecked((nint)(-6148914691236517206L));
+							((long*)(&cpp_string_view2))[1] = -6148914691236517206L;
 							Struct_kqhe8i struct_kqhe8i4 = ArrayFixedSize_4ul_make_array.Invoke(Array, num5, ArrayFixedSize_4ul_len.Invoke(Array) - num5);
-							Llvm_libc_20_1_2_cpp_string_view* num11 = &llvm_libc_20_1_2_cpp_string_view2;
+							Cpp_string_view* num11 = &cpp_string_view2;
 							Struct_kqhe8i struct_kqhe8i5 = struct_kqhe8i4;
 							*(void**)num11 = struct_kqhe8i5.field_0;
-							byte* num12 = (byte*)(&llvm_libc_20_1_2_cpp_string_view2) + 8u;
+							byte* num12 = (byte*)(&cpp_string_view2) + 8u;
 							Struct_kqhe8i struct_kqhe8i6 = struct_kqhe8i4;
 							*(long*)num12 = struct_kqhe8i6.field_1;
-							Invoke(&llvm_libc_20_1_2_cpp_string_view, ptr2, num6, Is_less);
-							Llvm_memcpy_p0_p0_i64.Invoke(Array, &llvm_libc_20_1_2_cpp_string_view2, 16L, isVolatile: false);
+							Invoke(&cpp_string_view, ptr2, num6, Is_less);
+							Llvm_memcpy_p0_p0_i64.Invoke(Array, &cpp_string_view2, 16L, isVolatile: false);
 							ptr2 = ptr;
-							Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view2);
+							Llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);
 							Llvm_lifetime_end_p0.Invoke(8L, &num5);
 							Llvm_lifetime_end_p0.Invoke(8L, &ptr);
-							Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
+							Llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view);
 							num7 = 0;
 						}
 						Llvm_lifetime_end_p0.Invoke(8L, &num4);

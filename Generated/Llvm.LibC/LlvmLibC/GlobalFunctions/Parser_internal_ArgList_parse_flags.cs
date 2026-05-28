@@ -9,7 +9,7 @@ internal static partial class Parser_internal_ArgList_parse_flags
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core6ParserINS_8internal7ArgListEE11parse_flagsEPm")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::Parser<__llvm_libc_20_1_2_::internal::ArgList>::parse_flags(unsigned long*)")]
-	public unsafe static FormatFlags_hin2uh Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_Parser* This, [MangledName("local_pos")][NativeType("unsigned long*")] void* Local_pos)
+	public unsafe static FormatFlags_hin2uh Invoke([MangledName("this")] Printf_core_Parser* This, [MangledName("local_pos")][NativeType("unsigned long*")] void* Local_pos)
 	{
 		sbyte b = 0;
 		sbyte b2 = 0;

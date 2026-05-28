@@ -12,8 +12,8 @@ internal static partial class OptionalStorage_unsigned_int_false_OptionalStorage
 	{
 		unchecked
 		{
-			*(sbyte*)(&((Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage*)This)->field) = 0;
-			((Llvm_libc_20_1_2_cpp_optional_int_OptionalStorage*)This)->In_use = 0;
+			*(sbyte*)(&((Cpp_optional_int_OptionalStorage*)This)->field) = 0;
+			((Cpp_optional_int_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 }

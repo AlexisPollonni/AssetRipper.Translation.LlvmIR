@@ -12,13 +12,13 @@ internal static partial class Readlink
 	{
 		long num = 0L;
 		Llvm_lifetime_start_p0.Invoke(8L, &num);
-		num = Llvm_libc_20_1_2_syscall_impl_long_char_const_char_unsigned_long.Invoke(89L, Path, Buf, Bufsize);
+		num = Syscall_impl_long_char_const_char_unsigned_long.Invoke(89L, Path, Buf, Bufsize);
 		unchecked
 		{
 			long result;
 			if (num < 0L)
 			{
-				Errno_Assignment.Invoke(A: (int)checked(-num), This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: (int)checked(-num), This: Libc_errno.Pointer);
 				result = -1L;
 			}
 			else

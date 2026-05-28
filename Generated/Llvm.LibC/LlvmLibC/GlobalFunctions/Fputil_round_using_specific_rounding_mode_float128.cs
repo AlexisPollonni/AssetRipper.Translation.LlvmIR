@@ -13,7 +13,7 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<__float128>, __float128>::type")]
 	public unsafe static double Invoke([MangledName("x")][NativeType("__float128")] double X, [MangledName("rnd")][NativeType("int")] int Rnd)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
 		sbyte b = 0;
 		int num = 0;
 		Int128 x = default(Int128);
@@ -21,7 +21,7 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 		Int128 @int = default(Int128);
 		Int128 int2 = default(Int128);
 		Int128 int3 = default(Int128);
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi2 = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi2 = default(Fputil_FPBits_ubgsi2);
 		Int128 int4 = default(Int128);
 		double num3 = 0.0;
 		Int128 x2 = default(Int128);
@@ -29,22 +29,22 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 		Int128 y = default(Int128);
 		Int128 x4 = default(Int128);
 		Int128 x5 = default(Int128);
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+		Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 		unchecked
 		{
-			*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = -6148914691236517206L;
-			FPBits_float128_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, X);
+			*(Int128*)(&fputil_FPBits_ubgsi) = -6148914691236517206L;
+			FPBits_float128_Constructor.Invoke(&fputil_FPBits_ubgsi, X);
 			double result;
-			if (FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_inf_or_nan.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) || FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi)))
+			if (FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_inf_or_nan.Invoke(&fputil_FPBits_ubgsi) || FPRepSem_fputil_FPType_3_fputil_FPBits_float128_is_zero.Invoke((Fputil_internal_FPRepSem_f94eua*)(&fputil_FPBits_ubgsi)))
 			{
 				result = X;
 			}
 			else
 			{
 				Llvm_lifetime_start_p0.Invoke(1L, &b);
-				b = (FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_neg.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
+				b = (FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_is_neg.Invoke(&fputil_FPBits_ubgsi) ? ((sbyte)1) : ((sbyte)0));
 				Llvm_lifetime_start_p0.Invoke(4L, &num);
-				num = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_exponent.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+				num = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_exponent.Invoke(&fputil_FPBits_ubgsi);
 				if (num >= 112)
 				{
 					result = X;
@@ -68,7 +68,7 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 					default:
 						if (num > -2)
 						{
-							Struct_fiz2nb struct_fiz2nb = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+							Struct_fiz2nb struct_fiz2nb = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa.Invoke(&fputil_FPBits_ubgsi);
 							Int128* num4 = &x;
 							Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 							*(long*)num4 = struct_fiz2nb2.field_0;
@@ -90,7 +90,7 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 					Llvm_lifetime_start_p0.Invoke(4L, &num2);
 					num2 = checked(112 - num);
 					Llvm_lifetime_start_p0.Invoke(16L, &@int);
-					Struct_fiz2nb struct_fiz2nb4 = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_uintval.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+					Struct_fiz2nb struct_fiz2nb4 = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_uintval.Invoke(&fputil_FPBits_ubgsi);
 					Int128* num6 = &int2;
 					Struct_fiz2nb struct_fiz2nb5 = struct_fiz2nb4;
 					*(long*)num6 = struct_fiz2nb5.field_0;
@@ -106,14 +106,14 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 					}
 					else
 					{
-						Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-						*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2) = -6148914691236517206L;
+						Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
+						*(Int128*)(&fputil_FPBits_ubgsi2) = -6148914691236517206L;
 						int4 = int3;
-						FPBits_float128_FPBits_unsigned_int128.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2, *(long*)(&int4), ((long*)(&int4))[1]);
+						FPBits_float128_FPBits_unsigned_int128.Invoke(&fputil_FPBits_ubgsi2, *(long*)(&int4), ((long*)(&int4))[1]);
 						Llvm_lifetime_start_p0.Invoke(16L, &num3);
-						num3 = FPBits_float128_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+						num3 = FPBits_float128_get_val.Invoke(&fputil_FPBits_ubgsi2);
 						Llvm_lifetime_start_p0.Invoke(16L, &x2);
-						Struct_fiz2nb struct_fiz2nb7 = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+						Struct_fiz2nb struct_fiz2nb7 = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa.Invoke(&fputil_FPBits_ubgsi);
 						Int128* num8 = &x3;
 						Struct_fiz2nb struct_fiz2nb8 = struct_fiz2nb7;
 						*(long*)num8 = struct_fiz2nb8.field_0;
@@ -124,7 +124,7 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 						Llvm_lifetime_start_p0.Invoke(16L, &y);
 						y = NumericHelper.ShiftLeft(y: (Int128)(UInt128)(uint)(num2 - 1), x: 1L);
 						Llvm_lifetime_start_p0.Invoke(16L, &x4);
-						Struct_fiz2nb struct_fiz2nb10 = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+						Struct_fiz2nb struct_fiz2nb10 = FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_get_mantissa.Invoke(&fputil_FPBits_ubgsi2);
 						Int128* num10 = &x5;
 						Struct_fiz2nb struct_fiz2nb11 = struct_fiz2nb10;
 						*(long*)num10 = struct_fiz2nb11.field_0;
@@ -144,7 +144,7 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 						Llvm_lifetime_end_p0.Invoke(16L, &y);
 						Llvm_lifetime_end_p0.Invoke(16L, &x2);
 						Llvm_lifetime_end_p0.Invoke(16L, &num3);
-						Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+						Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
 					}
 					Llvm_lifetime_end_p0.Invoke(16L, &int3);
 					Llvm_lifetime_end_p0.Invoke(16L, &@int);
@@ -153,7 +153,7 @@ internal static partial class Fputil_round_using_specific_rounding_mode_float128
 				Llvm_lifetime_end_p0.Invoke(4L, &num);
 				Llvm_lifetime_end_p0.Invoke(1L, &b);
 			}
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+			Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 			return result;
 		}
 	}

@@ -8,6 +8,6 @@ internal static partial class Abs
 	[DemangledName("abs")]
 	public static int Invoke([MangledName("n")] int N)
 	{
-		return Llvm_libc_20_1_2_integer_abs_int.Invoke(N);
+		return Integer_abs_int.Invoke(N);
 	}
 }

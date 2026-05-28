@@ -9,6 +9,6 @@ internal static partial class ArrayFixedSize_4ul_get_internal
 	[DemangledName("__llvm_libc_20_1_2_::internal::ArrayFixedSize<4ul>::get_internal(unsigned long) const")]
 	public unsafe static void* Invoke([MangledName("this")] void* This, [MangledName("i")][NativeType("unsigned long")] long I)
 	{
-		return unchecked((byte*)((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_data + I * 4L);
+		return unchecked((byte*)((Cpp_string_view*)This)->Span_data + I * 4L);
 	}
 }

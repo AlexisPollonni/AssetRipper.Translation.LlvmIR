@@ -13,7 +13,7 @@ internal static partial class FPRepImpl_fputil_FPType_4_fputil_FPBits_long_doubl
 	{
 		unchecked
 		{
-			Int128 @int = NumericHelper.BitwiseAnd(((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0, -1L);
+			Int128 @int = NumericHelper.BitwiseAnd(((Fputil_internal_FPStorage_w3h7gw*)This)->field_0, -1L);
 			return *(Struct_fiz2nb*)(&@int);
 		}
 	}

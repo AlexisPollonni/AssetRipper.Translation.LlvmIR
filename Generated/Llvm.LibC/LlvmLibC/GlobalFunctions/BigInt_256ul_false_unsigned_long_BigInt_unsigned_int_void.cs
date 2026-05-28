@@ -9,7 +9,7 @@ internal static partial class BigInt_256ul_false_unsigned_long_BigInt_unsigned_i
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm256ELb0EmEC2IjvEET_")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>::BigInt<unsigned int, void>(unsigned int)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_x9dsed* This, [MangledName("v")][NativeType("unsigned int")] int V)
+	public unsafe static void Invoke([MangledName("this")] BigInt_x9dsed* This, [MangledName("v")][NativeType("unsigned int")] int V)
 	{
 		long num = 0L;
 		sbyte b = 0;

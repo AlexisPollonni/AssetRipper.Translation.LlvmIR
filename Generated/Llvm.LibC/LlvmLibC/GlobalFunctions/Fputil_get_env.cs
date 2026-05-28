@@ -15,9 +15,9 @@ internal static partial class Fputil_get_env
 		ptr = Envp;
 		unchecked
 		{
-			Internal_get_x87_state_descriptor.Invoke(&((Llvm_libc_20_1_2_fputil_internal_FPState*)ptr)->X87_status);
+			Internal_get_x87_state_descriptor.Invoke(&((Fputil_internal_FPState*)ptr)->X87_status);
 			int mxcsr = Internal_get_mxcsr.Invoke();
-			((Llvm_libc_20_1_2_fputil_internal_FPState*)ptr)->Mxcsr = mxcsr;
+			((Fputil_internal_FPState*)ptr)->Mxcsr = mxcsr;
 			Llvm_lifetime_end_p0.Invoke(8L, &ptr);
 			return 0;
 		}

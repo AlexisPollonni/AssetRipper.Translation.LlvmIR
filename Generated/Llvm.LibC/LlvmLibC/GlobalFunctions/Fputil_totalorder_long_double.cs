@@ -13,23 +13,23 @@ internal static partial class Fputil_totalorder_long_double
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<cpp::is_floating_point_v<long double>, bool>::type")]
 	public unsafe static bool Invoke([MangledName("x")][NativeType("long double")] double X, [MangledName("y")][NativeType("long double")] double Y)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi2 = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi2 = default(Fputil_FPBits_ubgsi2);
 		Int128 x = default(Int128);
 		Int128 @int = default(Int128);
 		Int128 y = default(Int128);
 		Int128 int2 = default(Int128);
 		sbyte b = 0;
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+		Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 		unchecked
 		{
-			*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = -6148914691236517206L;
-			FPBits_long_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, X);
-			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-			*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2) = -6148914691236517206L;
-			FPBits_long_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2, Y);
+			*(Int128*)(&fputil_FPBits_ubgsi) = -6148914691236517206L;
+			FPBits_long_double_Constructor.Invoke(&fputil_FPBits_ubgsi, X);
+			Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
+			*(Int128*)(&fputil_FPBits_ubgsi2) = -6148914691236517206L;
+			FPBits_long_double_Constructor.Invoke(&fputil_FPBits_ubgsi2, Y);
 			Llvm_lifetime_start_p0.Invoke(16L, &x);
-			Struct_fiz2nb struct_fiz2nb = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_uintval.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+			Struct_fiz2nb struct_fiz2nb = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_uintval.Invoke(&fputil_FPBits_ubgsi);
 			Int128* num = &@int;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num = struct_fiz2nb2.field_0;
@@ -38,7 +38,7 @@ internal static partial class Fputil_totalorder_long_double
 			*(long*)num2 = struct_fiz2nb3.field_1;
 			x = @int;
 			Llvm_lifetime_start_p0.Invoke(16L, &y);
-			Struct_fiz2nb struct_fiz2nb4 = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_uintval.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+			Struct_fiz2nb struct_fiz2nb4 = FPRepImpl_fputil_FPType_4_fputil_FPBits_long_double_uintval.Invoke(&fputil_FPBits_ubgsi2);
 			Int128* num3 = &int2;
 			Struct_fiz2nb struct_fiz2nb5 = struct_fiz2nb4;
 			*(long*)num3 = struct_fiz2nb5.field_0;
@@ -52,8 +52,8 @@ internal static partial class Fputil_totalorder_long_double
 			Llvm_lifetime_end_p0.Invoke(1L, &b);
 			Llvm_lifetime_end_p0.Invoke(16L, &y);
 			Llvm_lifetime_end_p0.Invoke(16L, &x);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+			Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
+			Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 			return result;
 		}
 	}

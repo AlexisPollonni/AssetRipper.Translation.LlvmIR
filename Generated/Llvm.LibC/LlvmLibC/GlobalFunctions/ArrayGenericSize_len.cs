@@ -9,6 +9,6 @@ internal static partial class ArrayGenericSize_len
 	[DemangledName("__llvm_libc_20_1_2_::internal::ArrayGenericSize::len() const")]
 	public unsafe static long Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buff_len;
+		return unchecked((Scanf_core_ReadBuffer*)This)->Buff_len;
 	}
 }

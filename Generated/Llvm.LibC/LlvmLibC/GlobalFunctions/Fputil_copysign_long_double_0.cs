@@ -12,19 +12,19 @@ internal static partial class Fputil_copysign_long_double_0
 	[return: NativeType("long double")]
 	public unsafe static double Invoke([MangledName("x")][NativeType("long double")] double X, [MangledName("y")][NativeType("long double")] double Y)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi2 = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
-		*unchecked((Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi)) = -6148914691236517206L;
-		FPBits_long_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, X);
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-		FPBits_long_double_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2, Y);
-		anon_izyfb.Val = FPStorage_fputil_FPType_4_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-		FPStorage_fputil_FPType_4_set_sign.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, anon_izyfb.Val);
-		Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-		double result = FPBits_long_double_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
-		Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi2 = default(Fputil_FPBits_ubgsi2);
+		Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi);
+		*unchecked((Int128*)(&fputil_FPBits_ubgsi)) = -6148914691236517206L;
+		FPBits_long_double_Constructor.Invoke(&fputil_FPBits_ubgsi, X);
+		Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
+		FPBits_long_double_Constructor.Invoke(&fputil_FPBits_ubgsi2, Y);
+		anon_izyfb.Val = FPStorage_fputil_FPType_4_sign.Invoke(&fputil_FPBits_ubgsi2);
+		FPStorage_fputil_FPType_4_set_sign.Invoke(&fputil_FPBits_ubgsi, anon_izyfb.Val);
+		Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
+		double result = FPBits_long_double_get_val.Invoke(&fputil_FPBits_ubgsi);
+		Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 		return result;
 	}
 }

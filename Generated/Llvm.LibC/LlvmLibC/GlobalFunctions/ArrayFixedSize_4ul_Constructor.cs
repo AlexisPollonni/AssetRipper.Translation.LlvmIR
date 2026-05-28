@@ -11,8 +11,8 @@ internal static partial class ArrayFixedSize_4ul_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_data = A;
-			((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size = S;
+			((Cpp_string_view*)This)->Span_data = A;
+			((Cpp_string_view*)This)->Span_size = S;
 		}
 	}
 }

@@ -8,7 +8,7 @@ internal static partial class FloatWriter_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11FloatWriterC2EPNS0_6WriterEbRKNS0_13PaddingWriterE")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::FloatWriter(__llvm_libc_20_1_2_::printf_core::Writer*, bool, __llvm_libc_20_1_2_::printf_core::PaddingWriter const&)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_FloatWriter* This, [MangledName("init_writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Llvm_libc_20_1_2_printf_core_Writer* Init_writer, [MangledName("init_has_decimal_point")][NativeType("bool")] bool Init_has_decimal_point, [MangledName("init_padding_writer")][NativeType("__llvm_libc_20_1_2_::printf_core::PaddingWriter const&")] Llvm_libc_20_1_2_printf_core_PaddingWriter* Init_padding_writer)
+	public unsafe static void Invoke([MangledName("this")] Printf_core_FloatWriter* This, [MangledName("init_writer")][NativeType("__llvm_libc_20_1_2_::printf_core::Writer*")] Printf_core_Writer* Init_writer, [MangledName("init_has_decimal_point")][NativeType("bool")] bool Init_has_decimal_point, [MangledName("init_padding_writer")][NativeType("__llvm_libc_20_1_2_::printf_core::PaddingWriter const&")] Printf_core_PaddingWriter* Init_padding_writer)
 	{
 		sbyte b = (Init_has_decimal_point ? ((sbyte)1) : ((sbyte)0));
 		This->Buffered_digits = 0L;

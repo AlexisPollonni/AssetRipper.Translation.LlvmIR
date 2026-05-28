@@ -9,7 +9,7 @@ internal static partial class Scanf_core_write_int_with_length
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core21write_int_with_lengthEmRKNS0_13FormatSectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::scanf_core::write_int_with_length(unsigned long, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
-	public unsafe static void Invoke([MangledName("output_val")][NativeType("unsigned long")] long Output_val, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::scanf_core::FormatSection const&")] Llvm_libc_20_1_2_scanf_core_FormatSection* To_conv)
+	public unsafe static void Invoke([MangledName("output_val")][NativeType("unsigned long")] long Output_val, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::scanf_core::FormatSection const&")] Scanf_core_FormatSection* To_conv)
 	{
 		void* ptr = null;
 		int num = 0;

@@ -8,7 +8,7 @@ internal static partial class Memset
 	[DemangledName("memset")]
 	public unsafe static void* Invoke([MangledName("dst")] void* Dst, [MangledName("value")] int Value, [MangledName("count")] long Count)
 	{
-		Llvm_libc_20_1_2_inline_memset_achmsp.Invoke(Dst, unchecked((sbyte)Value), Count);
+		Inline_memset_achmsp.Invoke(Dst, unchecked((sbyte)Value), Count);
 		return Dst;
 	}
 }

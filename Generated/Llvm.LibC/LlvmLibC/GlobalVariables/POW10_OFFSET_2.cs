@@ -37,6 +37,6 @@ internal static partial class POW10_OFFSET_2
 			1743, 1810, 1878, 1947, 2017, 2088, 2161, 2235, 2311, 2387,
 			2465, 2544, 2625, 2706, 2789, 2873, 2959, 3046, 3133
 		});
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

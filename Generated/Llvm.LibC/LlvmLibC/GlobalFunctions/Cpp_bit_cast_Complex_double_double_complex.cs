@@ -11,8 +11,8 @@ internal static partial class Cpp_bit_cast_Complex_double_double_complex
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (__llvm_libc_20_1_2_::Complex<double>) == sizeof (double complex) && cpp::is_trivially_constructible<__llvm_libc_20_1_2_::Complex<double>>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::Complex<double>>::value && cpp::is_trivially_copyable<double complex>::value, __llvm_libc_20_1_2_::Complex<double>>::type")]
 	public unsafe static Struct_4ydhja Invoke([MangledName("from")][NativeType("double complex const&")] void* From)
 	{
-		Llvm_libc_20_1_2_NumberPair llvm_libc_20_1_2_NumberPair = default(Llvm_libc_20_1_2_NumberPair);
-		Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_NumberPair, From, 16L, isVolatile: false);
-		return *unchecked((Struct_4ydhja*)(&llvm_libc_20_1_2_NumberPair));
+		NumberPair numberPair = default(NumberPair);
+		Llvm_memcpy_p0_p0_i64.Invoke(&numberPair, From, 16L, isVolatile: false);
+		return *unchecked((Struct_4ydhja*)(&numberPair));
 	}
 }

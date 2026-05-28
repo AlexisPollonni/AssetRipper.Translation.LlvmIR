@@ -12,7 +12,7 @@ internal static partial class HighPrecisionDecimal_round_to_integer_type_unsigne
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal21round_to_integer_typeIoEET_NS0_14RoundDirectionE")]
 	[DemangledName("unsigned __int128 __llvm_libc_20_1_2_::internal::HighPrecisionDecimal::round_to_integer_type<unsigned __int128>(__llvm_libc_20_1_2_::internal::RoundDirection)")]
 	[return: NativeType("unsigned __int128")]
-	public unsafe static Struct_fiz2nb Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
+	public unsafe static Struct_fiz2nb Invoke([MangledName("this")] Internal_HighPrecisionDecimal* This, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::internal::RoundDirection")] RoundDirection_b3pcwy Round)
 	{
 		Int128 x = default(Int128);
 		int i = 0;

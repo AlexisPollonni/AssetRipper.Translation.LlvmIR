@@ -22,8 +22,8 @@ internal static partial class Memmove_cpp_array_unsigned_char_vector_16_2ul_alig
 			src = (void*)((nint)(*(IntPtr*)Src) + (nint)(*(long*)Count));
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = 0L;
-			Llvm_libc_20_1_2_align_to_next_boundary_32ul_Arg_1_cpp_byte_cpp_byte_const.Invoke(&dst, &src, &num);
-			Llvm_libc_20_1_2_adjust_cpp_byte_cpp_byte_const.Invoke(-64L, &dst, &src, &num);
+			Align_to_next_boundary_32ul_Arg_1_cpp_byte_cpp_byte_const.Invoke(&dst, &src, &num);
+			Adjust_cpp_byte_cpp_byte_const.Invoke(-64L, &dst, &src, &num);
 			Memmove_cpp_array_unsigned_char_vector_16_2ul_head_tail.Invoke(dst, src, num);
 			*(long*)Count -= num;
 			Llvm_lifetime_end_p0.Invoke(8L, &num);

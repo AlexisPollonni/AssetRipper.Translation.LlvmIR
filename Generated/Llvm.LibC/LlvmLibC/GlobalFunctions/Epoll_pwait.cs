@@ -12,11 +12,11 @@ internal static partial class Epoll_pwait
 	{
 		int num = 0;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = unchecked(Llvm_libc_20_1_2_syscall_impl_int_int_long_int_int_long_int.Invoke(281L, Epfd, (long)Events, Maxevents, Timeout, (long)Sigmask, 8));
+		num = unchecked(Syscall_impl_int_int_long_int_int_long_int.Invoke(281L, Epfd, (long)Events, Maxevents, Timeout, (long)Sigmask, 8));
 		int result;
 		if (num < 0)
 		{
-			Errno_Assignment.Invoke(A: -num, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+			Errno_Assignment.Invoke(A: -num, This: Libc_errno.Pointer);
 			result = -1;
 		}
 		else

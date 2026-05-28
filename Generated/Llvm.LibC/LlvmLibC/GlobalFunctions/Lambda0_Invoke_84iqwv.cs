@@ -17,7 +17,7 @@ internal static partial class Lambda0_Invoke_84iqwv
 		unchecked
 		{
 			num = Lambda_Invoke_qyqp9n.Invoke(((Anon_6je4un*)This)->field_0, Index);
-			long result = ((num >= 0) ? ((num < 4) ? (*(long*)Array_unsigned_long_4ul_Index_6jyt8f.Invoke((Llvm_libc_20_1_2_cpp_array_jgy3xh*)((Anon_6je4un*)This)->field_1, num)) : 0) : 0);
+			long result = ((num >= 0) ? ((num < 4) ? (*(long*)Array_unsigned_long_4ul_Index_6jyt8f.Invoke((Cpp_array_jgy3xh*)((Anon_6je4un*)This)->field_1, num)) : 0) : 0);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
 			return result;
 		}

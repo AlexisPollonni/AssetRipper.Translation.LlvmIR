@@ -11,13 +11,13 @@ internal static partial class FPRepImpl_fputil_FPType_4_fputil_FPBits_long_doubl
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("biased.coerce0")] long Biased, [MangledName("biased.coerce1")] long Biased_coerce1)
 	{
 		Int128 @int = default(Int128);
-		Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent = default(Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
+		Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent = default(Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent);
 		unchecked
 		{
 			*(long*)(&@int) = Biased;
 			((long*)(&@int))[1] = Biased_coerce1;
-			BiasedExponent_Constructor_w8dba9.Invoke(&llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent, (int)@int);
-			FPStorage_fputil_FPType_4_set_biased_exponent.Invoke(This, llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent.field_0.field_0);
+			BiasedExponent_Constructor_w8dba9.Invoke(&fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent, (int)@int);
+			FPStorage_fputil_FPType_4_set_biased_exponent.Invoke(This, fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_BiasedExponent.field_0.field_0);
 		}
 	}
 }

@@ -29,6 +29,6 @@ internal static partial class Str_103
 	unsafe static Str_103()
 	{
 		Value = InlineArrayHelper.Create<InlineArray16_SByte, byte>("/proc/self/auxv\0"u8);
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

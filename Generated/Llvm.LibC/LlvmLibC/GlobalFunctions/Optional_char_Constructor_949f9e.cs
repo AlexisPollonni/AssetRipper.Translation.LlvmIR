@@ -10,6 +10,6 @@ internal static partial class Optional_char_Constructor_949f9e
 	[CleanName("Optional_char_Constructor")]
 	public unsafe static void Invoke([MangledName("this")][NativeType("__llvm_libc_20_1_2_::cpp::nullopt_t")] void* This)
 	{
-		OptionalStorage_char_false_Constructor.Invoke(&unchecked((Llvm_libc_20_1_2_cpp_optional_77yu8f*)This)->Storage);
+		OptionalStorage_char_false_Constructor.Invoke(&unchecked((Cpp_optional_77yu8f*)This)->Storage);
 	}
 }

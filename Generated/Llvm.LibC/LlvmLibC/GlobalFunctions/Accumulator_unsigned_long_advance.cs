@@ -14,10 +14,10 @@ internal static partial class Accumulator_unsigned_long_advance
 		Llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
-			num = *(long*)Array_unsigned_long_2ul_front_p2cipe.Invoke((Llvm_libc_20_1_2_cpp_array_i3937k*)This);
-			long num2 = *(long*)Array_unsigned_long_2ul_back_p5fzf7.Invoke((Llvm_libc_20_1_2_cpp_array_i3937k*)This);
-			*(long*)Array_unsigned_long_2ul_front_p2cipe.Invoke((Llvm_libc_20_1_2_cpp_array_i3937k*)This) = num2;
-			*(long*)Array_unsigned_long_2ul_back_p5fzf7.Invoke((Llvm_libc_20_1_2_cpp_array_i3937k*)This) = Carry_in;
+			num = *(long*)Array_unsigned_long_2ul_front_p2cipe.Invoke((Cpp_array_i3937k*)This);
+			long num2 = *(long*)Array_unsigned_long_2ul_back_p5fzf7.Invoke((Cpp_array_i3937k*)This);
+			*(long*)Array_unsigned_long_2ul_front_p2cipe.Invoke((Cpp_array_i3937k*)This) = num2;
+			*(long*)Array_unsigned_long_2ul_back_p5fzf7.Invoke((Cpp_array_i3937k*)This) = Carry_in;
 			long result = num;
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
 			return result;

@@ -8,9 +8,9 @@ internal static partial class Anonymous_namespace_atan_eval
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_12_GLOBAL__N_19atan_evalERKNS_10NumberPairIdEE")]
 	[DemangledName("__llvm_libc_20_1_2_::(anonymous namespace)::atan_eval(__llvm_libc_20_1_2_::NumberPair<double> const&)")]
-	public unsafe static Struct_4ydhja Invoke([MangledName("x")][NativeType("__llvm_libc_20_1_2_::NumberPair<double> const&")] Llvm_libc_20_1_2_NumberPair* X)
+	public unsafe static Struct_4ydhja Invoke([MangledName("x")][NativeType("__llvm_libc_20_1_2_::NumberPair<double> const&")] NumberPair* X)
 	{
-		Llvm_libc_20_1_2_NumberPair llvm_libc_20_1_2_NumberPair = default(Llvm_libc_20_1_2_NumberPair);
+		NumberPair numberPair = default(NumberPair);
 		double num = 0.0;
 		double z = 0.0;
 		double y = 0.0;
@@ -20,10 +20,10 @@ internal static partial class Anonymous_namespace_atan_eval
 		double z2 = 0.0;
 		unchecked
 		{
-			*(double*)(&llvm_libc_20_1_2_NumberPair) = double.NaN;
-			((double*)(&llvm_libc_20_1_2_NumberPair))[1] = double.NaN;
-			NumberPair_double_Constructor.Invoke(&llvm_libc_20_1_2_NumberPair);
-			llvm_libc_20_1_2_NumberPair.Hi = X->Hi;
+			*(double*)(&numberPair) = double.NaN;
+			((double*)(&numberPair))[1] = double.NaN;
+			NumberPair_double_Constructor.Invoke(&numberPair);
+			numberPair.Hi = X->Hi;
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = X->Hi * X->Hi;
 			Llvm_lifetime_start_p0.Invoke(8L, &z);
@@ -38,7 +38,7 @@ internal static partial class Anonymous_namespace_atan_eval
 			y2 = Fputil_multiply_add_double.Invoke(num2, y, z);
 			Llvm_lifetime_start_p0.Invoke(8L, &z2);
 			z2 = Fputil_multiply_add_double.Invoke(num2 - num, X->Lo, X->Lo);
-			llvm_libc_20_1_2_NumberPair.Lo = Fputil_multiply_add_double.Invoke(x, y2, z2);
+			numberPair.Lo = Fputil_multiply_add_double.Invoke(x, y2, z2);
 			Llvm_lifetime_end_p0.Invoke(8L, &z2);
 			Llvm_lifetime_end_p0.Invoke(8L, &y2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
@@ -46,7 +46,7 @@ internal static partial class Anonymous_namespace_atan_eval
 			Llvm_lifetime_end_p0.Invoke(8L, &y);
 			Llvm_lifetime_end_p0.Invoke(8L, &z);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
-			return *(Struct_4ydhja*)(&llvm_libc_20_1_2_NumberPair);
+			return *(Struct_4ydhja*)(&numberPair);
 		}
 	}
 }

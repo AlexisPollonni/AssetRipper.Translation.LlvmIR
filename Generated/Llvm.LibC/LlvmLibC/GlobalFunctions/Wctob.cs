@@ -10,11 +10,11 @@ internal static partial class Wctob
 	[DemangledName("wctob")]
 	public unsafe static int Invoke([MangledName("c")] int C)
 	{
-		Llvm_libc_20_1_2_cpp_optional_g66fk4 llvm_libc_20_1_2_cpp_optional_g66fk = default(Llvm_libc_20_1_2_cpp_optional_g66fk4);
-		Llvm_lifetime_start_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_optional_g66fk);
+		Cpp_optional_g66fk4 cpp_optional_g66fk = default(Cpp_optional_g66fk4);
+		Llvm_lifetime_start_p0.Invoke(8L, &cpp_optional_g66fk);
 		unchecked
 		{
-			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_cpp_optional_g66fk);
+			sbyte* ptr = (sbyte*)(&cpp_optional_g66fk);
 			*(int*)ptr = -1431655766;
 			ptr[4] = -86;
 			sbyte* ptr2 = ptr + 5;
@@ -22,9 +22,9 @@ internal static partial class Wctob
 			ptr2[1] = -86;
 			ptr2[2] = -86;
 			long storage = Internal_wctob.Invoke(C);
-			*(long*)(&llvm_libc_20_1_2_cpp_optional_g66fk.Storage) = storage;
-			int result = ((!Optional_int_has_value.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk)) ? (-1) : (*(int*)Optional_int_value.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk)));
-			Llvm_lifetime_end_p0.Invoke(8L, &llvm_libc_20_1_2_cpp_optional_g66fk);
+			*(long*)(&cpp_optional_g66fk.Storage) = storage;
+			int result = ((!Optional_int_has_value.Invoke(&cpp_optional_g66fk)) ? (-1) : (*(int*)Optional_int_value.Invoke(&cpp_optional_g66fk)));
+			Llvm_lifetime_end_p0.Invoke(8L, &cpp_optional_g66fk);
 			return result;
 		}
 	}

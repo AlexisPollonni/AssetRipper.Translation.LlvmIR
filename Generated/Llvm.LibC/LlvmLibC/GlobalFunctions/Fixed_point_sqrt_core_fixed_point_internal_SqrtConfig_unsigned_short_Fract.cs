@@ -35,10 +35,10 @@ internal static partial class Fixed_point_sqrt_core_fixed_point_internal_SqrtCon
 			long num2 = num;
 			unchecked
 			{
-				a = ((sbyte*)Llvm_libc_20_1_2_fixed_point_internal_SqrtConfig_unsigned_short_Fract_FIRST_APPROX.Pointer)[(nint)num2 * sizeof(InlineArray2_SByte)];
+				a = ((sbyte*)Fixed_point_internal_SqrtConfig_unsigned_short_Fract_FIRST_APPROX.Pointer)[(nint)num2 * sizeof(InlineArray2_SByte)];
 				Llvm_lifetime_start_p0.Invoke(1L, &b3);
 				long num3 = num;
-				b3 = (sbyte)((byte*)Llvm_libc_20_1_2_fixed_point_internal_SqrtConfig_unsigned_short_Fract_FIRST_APPROX.Pointer + (nint)num3 * sizeof(InlineArray2_SByte))[1];
+				b3 = (sbyte)((byte*)Fixed_point_internal_SqrtConfig_unsigned_short_Fract_FIRST_APPROX.Pointer + (nint)num3 * sizeof(InlineArray2_SByte))[1];
 				Llvm_lifetime_start_p0.Invoke(1L, &b4);
 				b4 = (sbyte)(Llvm_umul_fix_i8.Invoke(a, b, 8) + b3);
 				Llvm_lifetime_start_p0.Invoke(4L, &i);

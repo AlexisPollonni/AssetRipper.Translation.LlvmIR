@@ -10,15 +10,15 @@ internal static partial class Internal_RightShift_ueqxwn
 	[CleanName("Internal_RightShift")]
 	public unsafe static short Invoke([MangledName("a.coerce")][NativeType("__llvm_libc_20_1_2_::fputil::internal::FPStorage<(__llvm_libc_20_1_2_::fputil::FPType)0>::Significand")] short A, [MangledName("shift")][NativeType("int")] int Shift)
 	{
-		Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h = default(Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h);
-		Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h2 = new Llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h
+		Fputil_internal_FPRepSem_i7nz4h fputil_internal_FPRepSem_i7nz4h = default(Fputil_internal_FPRepSem_i7nz4h);
+		Fputil_internal_FPRepSem_i7nz4h fputil_internal_FPRepSem_i7nz4h2 = new Fputil_internal_FPRepSem_i7nz4h
 		{
 			FPStorage = 
 			{
 				field_0 = A
 			}
 		};
-		Significand_Constructor_n44wpn.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h, unchecked((short)((ushort)TypedInt_unsigned_short_to_storage_type.Invoke(&llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h2) >> Shift)));
-		return llvm_libc_20_1_2_fputil_internal_FPRepSem_i7nz4h.FPStorage.field_0;
+		Significand_Constructor_n44wpn.Invoke(&fputil_internal_FPRepSem_i7nz4h, unchecked((short)((ushort)TypedInt_unsigned_short_to_storage_type.Invoke(&fputil_internal_FPRepSem_i7nz4h2) >> Shift)));
+		return fputil_internal_FPRepSem_i7nz4h.FPStorage.field_0;
 	}
 }

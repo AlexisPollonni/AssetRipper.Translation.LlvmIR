@@ -16,7 +16,7 @@ internal static partial class FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_C
 			*(long*)(&@int) = X;
 			((long*)(&@int))[1] = X_coerce1;
 			Int128 int2 = @int;
-			FPRepSem_fputil_FPType_3_fputil_FPBits_float128_Constructor.Invoke((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)This, *(long*)(&int2), ((long*)(&int2))[1]);
+			FPRepSem_fputil_FPType_3_fputil_FPBits_float128_Constructor.Invoke((Fputil_internal_FPRepSem_f94eua*)This, *(long*)(&int2), ((long*)(&int2))[1]);
 		}
 	}
 
@@ -24,6 +24,6 @@ internal static partial class FPRepImpl_fputil_FPType_3_fputil_FPBits_float128_C
 	[DemangledName("__llvm_libc_20_1_2_::fputil::internal::FPRepImpl<(__llvm_libc_20_1_2_::fputil::FPType)3, __llvm_libc_20_1_2_::fputil::FPBits<__float128>>::FPRepImpl()")]
 	public unsafe static void Invoke([MangledName("this")] void* This)
 	{
-		FPRepSem_fputil_FPType_3_fputil_FPBits_float128_Constructor.Invoke(unchecked((Llvm_libc_20_1_2_fputil_internal_FPRepSem_f94eua*)This));
+		FPRepSem_fputil_FPType_3_fputil_FPBits_float128_Constructor.Invoke(unchecked((Fputil_internal_FPRepSem_f94eua*)This));
 	}
 }

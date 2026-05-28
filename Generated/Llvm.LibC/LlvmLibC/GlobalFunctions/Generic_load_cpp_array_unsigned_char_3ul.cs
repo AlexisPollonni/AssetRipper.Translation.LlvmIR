@@ -12,12 +12,12 @@ internal static partial class Generic_load_cpp_array_unsigned_char_3ul
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned char, 3ul>")]
 	public unsafe static InlineArray3_Byte Invoke([MangledName("src")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* Src)
 	{
-		Llvm_libc_20_1_2_cpp_array_txpwtz llvm_libc_20_1_2_cpp_array_txpwtz = default(Llvm_libc_20_1_2_cpp_array_txpwtz);
+		Cpp_array_txpwtz cpp_array_txpwtz = default(Cpp_array_txpwtz);
 		long num = 0L;
 		InlineArray3_Byte result = default(InlineArray3_Byte);
 		unchecked
 		{
-			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_cpp_array_txpwtz);
+			sbyte* ptr = (sbyte*)(&cpp_array_txpwtz);
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
@@ -25,10 +25,10 @@ internal static partial class Generic_load_cpp_array_unsigned_char_3ul
 			for (num = 0L; (ulong)num < 3uL; num++)
 			{
 				sbyte b = Generic_load_unsigned_char.Invoke((byte*)Src + num * 1L);
-				*(sbyte*)Array_unsigned_char_3ul_Index.Invoke(&llvm_libc_20_1_2_cpp_array_txpwtz, num) = b;
+				*(sbyte*)Array_unsigned_char_3ul_Index.Invoke(&cpp_array_txpwtz, num) = b;
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
-			Llvm_memcpy_p0_p0_i64.Invoke(&result, &llvm_libc_20_1_2_cpp_array_txpwtz.Data, 3L, isVolatile: false);
+			Llvm_memcpy_p0_p0_i64.Invoke(&result, &cpp_array_txpwtz.Data, 3L, isVolatile: false);
 			return result;
 		}
 	}

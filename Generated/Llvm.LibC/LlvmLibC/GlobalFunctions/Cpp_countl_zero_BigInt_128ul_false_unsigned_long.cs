@@ -10,6 +10,6 @@ internal static partial class Cpp_countl_zero_BigInt_128ul_false_unsigned_long
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<is_big_int_v<__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long>>, int>::type")]
 	public unsafe static int Invoke([MangledName("value")][NativeType("__llvm_libc_20_1_2_::BigInt<128ul, false, unsigned long> const&")] Anon_izyfb7* Value)
 	{
-		return Multiword_countl_zero_unsigned_long_2ul.Invoke(&unchecked((Llvm_libc_20_1_2_BigInt_qdkjbh*)Value)->Val);
+		return Multiword_countl_zero_unsigned_long_2ul.Invoke(&unchecked((BigInt_qdkjbh*)Value)->Val);
 	}
 }

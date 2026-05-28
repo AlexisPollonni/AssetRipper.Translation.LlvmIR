@@ -9,6 +9,6 @@ internal static partial class String_view_empty
 	[DemangledName("__llvm_libc_20_1_2_::cpp::string_view::empty() const")]
 	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_cpp_string_view*)This)->Span_size == 0L;
+		return unchecked((Cpp_string_view*)This)->Span_size == 0L;
 	}
 }

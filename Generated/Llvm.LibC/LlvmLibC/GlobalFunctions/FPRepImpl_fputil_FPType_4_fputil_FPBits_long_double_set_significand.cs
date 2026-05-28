@@ -17,7 +17,7 @@ internal static partial class FPRepImpl_fputil_FPType_4_fputil_FPBits_long_doubl
 			*(long*)(&@int) = SigVal;
 			((long*)(&@int))[1] = SigVal_coerce1;
 			Int128 int2 = @int;
-			Int128 field_2 = ((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0;
+			Int128 field_2 = ((Fputil_internal_FPStorage_w3h7gw*)This)->field_0;
 			long a = *(long*)(&field_2);
 			long b = ((long*)(&field_2))[1];
 			Int128 int3 = int2;
@@ -31,7 +31,7 @@ internal static partial class FPRepImpl_fputil_FPType_4_fputil_FPBits_long_doubl
 			byte* num2 = (byte*)(&field_) + 8u;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			*(long*)num2 = struct_fiz2nb3.field_1;
-			((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
+			((Fputil_internal_FPStorage_w3h7gw*)This)->field_0 = field_;
 		}
 	}
 }

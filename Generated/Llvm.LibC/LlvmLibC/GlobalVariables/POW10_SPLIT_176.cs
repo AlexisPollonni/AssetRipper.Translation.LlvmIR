@@ -1255,6 +1255,6 @@ internal static partial class POW10_SPLIT_176
 			InlineArrayHelper.Create<InlineArray3_Int64, long>(new long[3] { -8748647683959711624L, 197658450495420L, 0L }),
 			InlineArrayHelper.Create<InlineArray3_Int64, long>(new long[3] { 8310173728816391804L, 197658L, 0L })
 		};
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

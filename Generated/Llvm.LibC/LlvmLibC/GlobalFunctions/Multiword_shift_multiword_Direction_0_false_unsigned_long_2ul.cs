@@ -14,22 +14,22 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>")]
 	public unsafe static Struct_fiz2nb Invoke([MangledName("array.coerce0")] long Array, [MangledName("array.coerce1")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>")] long Offset, [MangledName("offset")][NativeType("unsigned long")] long WORD_BITS)
 	{
-		Llvm_libc_20_1_2_cpp_array_i3937k llvm_libc_20_1_2_cpp_array_i3937k = default(Llvm_libc_20_1_2_cpp_array_i3937k);
-		Llvm_libc_20_1_2_cpp_array_i3937k llvm_libc_20_1_2_cpp_array_i3937k2 = default(Llvm_libc_20_1_2_cpp_array_i3937k);
+		Cpp_array_i3937k cpp_array_i3937k = default(Cpp_array_i3937k);
+		Cpp_array_i3937k cpp_array_i3937k2 = default(Cpp_array_i3937k);
 		long num = 0L;
 		long num2 = 0L;
 		Int128 x = default(Int128);
 		Int128 @int = default(Int128);
 		unchecked
 		{
-			*(long*)(&llvm_libc_20_1_2_cpp_array_i3937k2) = Array;
-			((long*)(&llvm_libc_20_1_2_cpp_array_i3937k2))[1] = Offset;
+			*(long*)(&cpp_array_i3937k2) = Array;
+			((long*)(&cpp_array_i3937k2))[1] = Offset;
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = 64L;
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = 128L;
 			Llvm_lifetime_start_p0.Invoke(16L, &x);
-			Struct_fiz2nb struct_fiz2nb = Cpp_bit_cast_unsigned_int128_cpp_array_unsigned_long_2ul.Invoke(&llvm_libc_20_1_2_cpp_array_i3937k2);
+			Struct_fiz2nb struct_fiz2nb = Cpp_bit_cast_unsigned_int128_cpp_array_unsigned_long_2ul.Invoke(&cpp_array_i3937k2);
 			Int128* num3 = &@int;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num3 = struct_fiz2nb2.field_0;
@@ -39,7 +39,7 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 			x = @int;
 			x = NumericHelper.ShiftLeft(x, (Int128)(UInt128)(ulong)WORD_BITS);
 			Struct_fiz2nb struct_fiz2nb4 = Cpp_bit_cast_cpp_array_unsigned_long_2ul_unsigned_int128.Invoke(&x);
-			InlineArray2_Int64* ptr = &llvm_libc_20_1_2_cpp_array_i3937k.Data;
+			InlineArray2_Int64* ptr = &cpp_array_i3937k.Data;
 			Struct_fiz2nb struct_fiz2nb5 = struct_fiz2nb4;
 			((Struct_fiz2nb*)ptr)->field_0 = struct_fiz2nb5.field_0;
 			Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
@@ -47,7 +47,7 @@ internal static partial class Multiword_shift_multiword_Direction_0_false_unsign
 			Llvm_lifetime_end_p0.Invoke(16L, &x);
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
-			return *(Struct_fiz2nb*)(&llvm_libc_20_1_2_cpp_array_i3937k.Data);
+			return *(Struct_fiz2nb*)(&cpp_array_i3937k.Data);
 		}
 	}
 }

@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_long_double_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_StrToNumResult_uytq62*)This)->Value = Value;
-			((Llvm_libc_20_1_2_StrToNumResult_uytq62*)This)->Error = Error;
-			((Llvm_libc_20_1_2_StrToNumResult_uytq62*)This)->Parsed_len = Parsed_len;
+			((StrToNumResult_uytq62*)This)->Value = Value;
+			((StrToNumResult_uytq62*)This)->Error = Error;
+			((StrToNumResult_uytq62*)This)->Parsed_len = Parsed_len;
 		}
 	}
 }

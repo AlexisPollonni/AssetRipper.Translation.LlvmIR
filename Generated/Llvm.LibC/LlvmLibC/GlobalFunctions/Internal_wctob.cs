@@ -10,19 +10,19 @@ internal static partial class Internal_wctob
 	[DemangledName("__llvm_libc_20_1_2_::internal::wctob(unsigned int)")]
 	public unsafe static long Invoke([MangledName("c")][NativeType("unsigned int")] int C)
 	{
-		Llvm_libc_20_1_2_cpp_optional_g66fk4 llvm_libc_20_1_2_cpp_optional_g66fk = default(Llvm_libc_20_1_2_cpp_optional_g66fk4);
+		Cpp_optional_g66fk4 cpp_optional_g66fk = default(Cpp_optional_g66fk4);
 		int num = 0;
 		if ((C & -128) != 0)
 		{
-			Optional_int_Constructor_ucy85v.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk);
+			Optional_int_Constructor_ucy85v.Invoke(&cpp_optional_g66fk);
 		}
 		else
 		{
 			Llvm_lifetime_start_p0.Invoke(4L, &num);
 			num = C;
-			Optional_int_Constructor_952vg9.Invoke(&llvm_libc_20_1_2_cpp_optional_g66fk, &num);
+			Optional_int_Constructor_952vg9.Invoke(&cpp_optional_g66fk, &num);
 			Llvm_lifetime_end_p0.Invoke(4L, &num);
 		}
-		return *unchecked((long*)(&llvm_libc_20_1_2_cpp_optional_g66fk.Storage));
+		return *unchecked((long*)(&cpp_optional_g66fk.Storage));
 	}
 }

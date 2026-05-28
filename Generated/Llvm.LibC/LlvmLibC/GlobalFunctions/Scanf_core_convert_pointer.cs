@@ -10,7 +10,7 @@ internal static partial class Scanf_core_convert_pointer
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_10scanf_core15convert_pointerEPNS0_6ReaderERKNS0_13FormatSectionE")]
 	[DemangledName("__llvm_libc_20_1_2_::scanf_core::convert_pointer(__llvm_libc_20_1_2_::scanf_core::Reader*, __llvm_libc_20_1_2_::scanf_core::FormatSection const&)")]
-	public unsafe static int Invoke([MangledName("reader")][NativeType("__llvm_libc_20_1_2_::scanf_core::Reader*")] Llvm_libc_20_1_2_scanf_core_Reader* Reader, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::scanf_core::FormatSection const&")] Llvm_libc_20_1_2_scanf_core_FormatSection* To_conv)
+	public unsafe static int Invoke([MangledName("reader")][NativeType("__llvm_libc_20_1_2_::scanf_core::Reader*")] Scanf_core_Reader* Reader, [MangledName("to_conv")][NativeType("__llvm_libc_20_1_2_::scanf_core::FormatSection const&")] Scanf_core_FormatSection* To_conv)
 	{
 		sbyte b = 0;
 		long num = 0L;
@@ -23,7 +23,7 @@ internal static partial class Scanf_core_convert_pointer
 			{
 				int num2 = Internal_tolower_ec4z38.Invoke(b);
 				long num3 = num;
-				if (num2 != ((sbyte*)Llvm_libc_20_1_2_scanf_core_convert_pointer_scanf_core_Reader_scanf_core_FormatSection_const_nullptr_string.Pointer)[num3])
+				if (num2 != ((sbyte*)Scanf_core_convert_pointer_scanf_core_Reader_scanf_core_FormatSection_const_nullptr_string.Pointer)[num3])
 				{
 					break;
 				}

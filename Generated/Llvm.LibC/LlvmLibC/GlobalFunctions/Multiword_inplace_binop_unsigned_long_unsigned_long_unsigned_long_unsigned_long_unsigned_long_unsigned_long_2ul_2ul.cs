@@ -9,7 +9,7 @@ internal static partial class Multiword_inplace_binop_unsigned_long_unsigned_lon
 	[MangledName("_ZN19__llvm_libc_20_1_2_9multiword13inplace_binopIPFmmmmRmEmLm2ELm2EEET0_T_RNS_3cpp5arrayIS5_XT1_EEERKNS8_IS5_XT2_EEE")]
 	[DemangledName("unsigned long __llvm_libc_20_1_2_::multiword::inplace_binop<unsigned long (*)(unsigned long, unsigned long, unsigned long, unsigned long&), unsigned long, 2ul, 2ul>(unsigned long (*)(unsigned long, unsigned long, unsigned long, unsigned long&), __llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>&, __llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul> const&)")]
 	[return: NativeType("unsigned long")]
-	public unsafe static long Invoke([MangledName("op_with_carry")][NativeType("unsigned long (*)(unsigned long, unsigned long, unsigned long, unsigned long&)")] void* Op_with_carry, [MangledName("dst")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>&")] Llvm_libc_20_1_2_cpp_array_i3937k* Dst, [MangledName("rhs")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul> const&")] Llvm_libc_20_1_2_cpp_array_i3937k* Rhs)
+	public unsafe static long Invoke([MangledName("op_with_carry")][NativeType("unsigned long (*)(unsigned long, unsigned long, unsigned long, unsigned long&)")] void* Op_with_carry, [MangledName("dst")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul>&")] Cpp_array_i3937k* Dst, [MangledName("rhs")][NativeType("__llvm_libc_20_1_2_::cpp::array<unsigned long, 2ul> const&")] Cpp_array_i3937k* Rhs)
 	{
 		long num = 0L;
 		long num2 = 0L;

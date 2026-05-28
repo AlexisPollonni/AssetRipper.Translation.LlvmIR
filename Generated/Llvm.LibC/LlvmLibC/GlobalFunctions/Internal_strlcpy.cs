@@ -24,7 +24,7 @@ internal static partial class Internal_strlcpy
 			{
 				Llvm_lifetime_start_p0.Invoke(8L, &num2);
 				num2 = (((ulong)num >= (ulong)(Size - 1L)) ? (Size - 1L) : num);
-				Llvm_libc_20_1_2_inline_memcpy.Invoke(Dst, Src, num2);
+				Inline_memcpy.Invoke(Dst, Src, num2);
 				((sbyte*)Dst)[num2] = 0;
 				result = num;
 				Llvm_lifetime_end_p0.Invoke(8L, &num2);

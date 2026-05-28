@@ -18,7 +18,7 @@ internal static partial class Isatty
 		Llvm_lifetime_start_p0.Invoke(4L, &num2);
 		num2 = 305441741;
 		Llvm_lifetime_start_p0.Invoke(4L, &num3);
-		num3 = Llvm_libc_20_1_2_syscall_impl_int_int_int_int.Invoke(16L, Fd, 21540, &num2);
+		num3 = Syscall_impl_int_int_int_int.Invoke(16L, Fd, 21540, &num2);
 		int result;
 		if (num3 == 0)
 		{
@@ -26,7 +26,7 @@ internal static partial class Isatty
 		}
 		else
 		{
-			Errno_Assignment.Invoke(A: -num3, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+			Errno_Assignment.Invoke(A: -num3, This: Libc_errno.Pointer);
 			result = 0;
 		}
 		Llvm_lifetime_end_p0.Invoke(4L, &num3);

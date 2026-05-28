@@ -8,6 +8,6 @@ internal static partial class Imaxabs
 	[DemangledName("imaxabs")]
 	public static long Invoke([MangledName("j")] long J)
 	{
-		return Llvm_libc_20_1_2_integer_abs_long_ewbna6.Invoke(J);
+		return Integer_abs_long_ewbna6.Invoke(J);
 	}
 }

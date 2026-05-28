@@ -13,29 +13,29 @@ internal static partial class Tcgetattr
 	[DemangledName("tcgetattr")]
 	public unsafe static int Invoke([MangledName("fd")] int Fd, [MangledName("t")] Termios* T)
 	{
-		Llvm_libc_20_1_2_kernel_termios llvm_libc_20_1_2_kernel_termios = default(Llvm_libc_20_1_2_kernel_termios);
+		Kernel_termios kernel_termios = default(Kernel_termios);
 		int num = 0;
 		long num2 = 0L;
 		long num3 = 0L;
 		long num4 = 0L;
-		Llvm_lifetime_start_p0.Invoke(36L, &llvm_libc_20_1_2_kernel_termios);
-		Llvm_memset_p0_i64.Invoke(&llvm_libc_20_1_2_kernel_termios, -86, 36L, isVolatile: false);
+		Llvm_lifetime_start_p0.Invoke(36L, &kernel_termios);
+		Llvm_memset_p0_i64.Invoke(&kernel_termios, -86, 36L, isVolatile: false);
 		Llvm_lifetime_start_p0.Invoke(4L, &num);
-		num = Llvm_libc_20_1_2_syscall_impl_int_int_int_kernel_termios.Invoke(16L, Fd, 21505, &llvm_libc_20_1_2_kernel_termios);
+		num = Syscall_impl_int_int_int_kernel_termios.Invoke(16L, Fd, 21505, &kernel_termios);
 		int result;
 		if (num < 0)
 		{
-			Errno_Assignment.Invoke(A: -num, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+			Errno_Assignment.Invoke(A: -num, This: Libc_errno.Pointer);
 			result = -1;
 		}
 		else
 		{
-			T->C_iflag = llvm_libc_20_1_2_kernel_termios.C_iflag;
-			T->C_oflag = llvm_libc_20_1_2_kernel_termios.C_oflag;
-			T->C_cflag = llvm_libc_20_1_2_kernel_termios.C_cflag;
-			T->C_lflag = llvm_libc_20_1_2_kernel_termios.C_lflag;
-			T->C_ispeed = llvm_libc_20_1_2_kernel_termios.C_cflag & 0x100F;
-			T->C_ospeed = llvm_libc_20_1_2_kernel_termios.C_cflag & 0x100F;
+			T->C_iflag = kernel_termios.C_iflag;
+			T->C_oflag = kernel_termios.C_oflag;
+			T->C_cflag = kernel_termios.C_cflag;
+			T->C_lflag = kernel_termios.C_lflag;
+			T->C_ispeed = kernel_termios.C_cflag & 0x100F;
+			T->C_ospeed = kernel_termios.C_cflag & 0x100F;
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = 19L;
 			Llvm_lifetime_start_p0.Invoke(8L, &num3);
@@ -43,7 +43,7 @@ internal static partial class Tcgetattr
 			{
 				for (num3 = 0L; (ulong)num3 < (ulong)num2; num3++)
 				{
-					sbyte b = Unsafe.As<InlineArray19_SByte, sbyte>(ref Unsafe.AddByteOffset(ref llvm_libc_20_1_2_kernel_termios.C_cc, (nint)num3));
+					sbyte b = Unsafe.As<InlineArray19_SByte, sbyte>(ref Unsafe.AddByteOffset(ref kernel_termios.C_cc, (nint)num3));
 					((sbyte*)(&T->C_cc))[num3] = b;
 				}
 				Llvm_lifetime_end_p0.Invoke(8L, &num3);
@@ -61,7 +61,7 @@ internal static partial class Tcgetattr
 			}
 		}
 		Llvm_lifetime_end_p0.Invoke(4L, &num);
-		Llvm_lifetime_end_p0.Invoke(36L, &llvm_libc_20_1_2_kernel_termios);
+		Llvm_lifetime_end_p0.Invoke(36L, &kernel_termios);
 		return result;
 	}
 }

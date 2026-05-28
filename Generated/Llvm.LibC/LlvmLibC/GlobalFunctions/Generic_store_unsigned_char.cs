@@ -9,6 +9,6 @@ internal static partial class Generic_store_unsigned_char
 	[return: NativeType("void")]
 	public unsafe static void Invoke([MangledName("dst")][NativeType("__llvm_libc_20_1_2_::cpp::byte*")] void* Dst, [MangledName("value")][NativeType("unsigned char")] sbyte Value)
 	{
-		Llvm_libc_20_1_2_store_unsigned_char.Invoke(Dst, Value);
+		Store_unsigned_char.Invoke(Dst, Value);
 	}
 }

@@ -9,6 +9,6 @@ internal static partial class Atomic_unsigned_int_Constructor
 	[DemangledName("__llvm_libc_20_1_2_::cpp::Atomic<unsigned int>::Atomic(unsigned int)")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("v")][NativeType("unsigned int")] int V)
 	{
-		unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 = V;
+		unchecked((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 = V;
 	}
 }

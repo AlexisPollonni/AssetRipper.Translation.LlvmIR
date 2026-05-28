@@ -8,7 +8,7 @@ internal static partial class BigInt_256ul_false_unsigned_long_BigInt_512ul_fals
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_6BigIntILm256ELb0EmEC2ILm512ELb0EmEERKNS0_IXT_EXT0_ET1_EE")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<256ul, false, unsigned long>::BigInt<512ul, false, unsigned long>(__llvm_libc_20_1_2_::BigInt<512ul, false, unsigned long> const&)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_x9dsed* This, [MangledName("other")][NativeType("__llvm_libc_20_1_2_::BigInt<512ul, false, unsigned long> const&")] Llvm_libc_20_1_2_BigInt_fjg8pd* Other)
+	public unsafe static void Invoke([MangledName("this")] BigInt_x9dsed* This, [MangledName("other")][NativeType("__llvm_libc_20_1_2_::BigInt<512ul, false, unsigned long> const&")] BigInt_fjg8pd* Other)
 	{
 		sbyte b = 0;
 		long num = 0L;

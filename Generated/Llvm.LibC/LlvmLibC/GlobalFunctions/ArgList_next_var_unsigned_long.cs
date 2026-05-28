@@ -8,7 +8,7 @@ internal static partial class ArgList_next_var_unsigned_long
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal7ArgList8next_varImEET_v")]
 	[DemangledName("unsigned long __llvm_libc_20_1_2_::internal::ArgList::next_var<unsigned long>()")]
 	[return: NativeType("unsigned long")]
-	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_ArgList* This)
+	public unsafe static long Invoke([MangledName("this")] Internal_ArgList* This)
 	{
 		unchecked
 		{

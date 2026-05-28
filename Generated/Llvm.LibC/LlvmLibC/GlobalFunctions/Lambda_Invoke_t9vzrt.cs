@@ -10,7 +10,7 @@ internal static partial class Lambda_Invoke_t9vzrt
 	[CleanName("Lambda_Invoke")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [NativeType("void*")] void* parameter_1)
 	{
-		unchecked((delegate*<void*, long, int>)Munmap.__pointer)(Llvm_libc_20_1_2_auxv.Value, 1024L);
-		Llvm_libc_20_1_2_auxv.Value = null;
+		unchecked((delegate*<void*, long, int>)Munmap.__pointer)(Auxv.Value, 1024L);
+		Auxv.Value = null;
 	}
 }

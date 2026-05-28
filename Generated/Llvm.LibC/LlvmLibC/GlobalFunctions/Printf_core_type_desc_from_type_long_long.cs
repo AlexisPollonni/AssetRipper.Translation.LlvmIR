@@ -12,7 +12,7 @@ internal static partial class Printf_core_type_desc_from_type_long_long
 	[return: NativeType("__llvm_libc_20_1_2_::printf_core::TypeDesc")]
 	public unsafe static short Invoke()
 	{
-		Llvm_libc_20_1_2_printf_core_TypeDesc llvm_libc_20_1_2_printf_core_TypeDesc = default(Llvm_libc_20_1_2_printf_core_TypeDesc);
+		Printf_core_TypeDesc printf_core_TypeDesc = default(Printf_core_TypeDesc);
 		sbyte b = 0;
 		sbyte b2 = 0;
 		sbyte b3 = 0;
@@ -22,11 +22,11 @@ internal static partial class Printf_core_type_desc_from_type_long_long
 		b2 = 0;
 		Llvm_lifetime_start_p0.Invoke(1L, &b3);
 		b3 = 0;
-		llvm_libc_20_1_2_printf_core_TypeDesc.Size = 8;
-		llvm_libc_20_1_2_printf_core_TypeDesc.Primary_type = PrimaryType.Integer;
+		printf_core_TypeDesc.Size = 8;
+		printf_core_TypeDesc.Primary_type = PrimaryType.Integer;
 		Llvm_lifetime_end_p0.Invoke(1L, &b3);
 		Llvm_lifetime_end_p0.Invoke(1L, &b2);
 		Llvm_lifetime_end_p0.Invoke(1L, &b);
-		return *unchecked((short*)(&llvm_libc_20_1_2_printf_core_TypeDesc));
+		return *unchecked((short*)(&printf_core_TypeDesc));
 	}
 }

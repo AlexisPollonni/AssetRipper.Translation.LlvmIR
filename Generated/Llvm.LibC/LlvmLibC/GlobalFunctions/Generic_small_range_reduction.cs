@@ -15,12 +15,12 @@ internal static partial class Generic_small_range_reduction
 		Llvm_lifetime_start_p0.Invoke(8L, &num);
 		unchecked
 		{
-			num = X * *(double*)Llvm_libc_20_1_2_generic_THIRTYTWO_OVER_PI_28.Pointer;
+			num = X * *(double*)Generic_THIRTYTWO_OVER_PI_28.Pointer;
 			Llvm_lifetime_start_p0.Invoke(8L, &num2);
 			num2 = Fputil_nearest_integer.Invoke(num);
 			*(double*)Y = num - num2;
-			*(double*)Y = Fputil_multiply_add_double.Invoke(X, ((double*)Llvm_libc_20_1_2_generic_THIRTYTWO_OVER_PI_28.Pointer)[1], *(double*)Y);
-			*(double*)Y = Fputil_multiply_add_double.Invoke(X, ((double*)Llvm_libc_20_1_2_generic_THIRTYTWO_OVER_PI_28.Pointer)[2L], *(double*)Y);
+			*(double*)Y = Fputil_multiply_add_double.Invoke(X, ((double*)Generic_THIRTYTWO_OVER_PI_28.Pointer)[1], *(double*)Y);
+			*(double*)Y = Fputil_multiply_add_double.Invoke(X, ((double*)Generic_THIRTYTWO_OVER_PI_28.Pointer)[2L], *(double*)Y);
 			long result = (long)num2;
 			Llvm_lifetime_end_p0.Invoke(8L, &num2);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);

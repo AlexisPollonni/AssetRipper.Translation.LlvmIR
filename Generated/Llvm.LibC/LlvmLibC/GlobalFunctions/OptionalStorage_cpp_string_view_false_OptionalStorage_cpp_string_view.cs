@@ -12,8 +12,8 @@ internal static partial class OptionalStorage_cpp_string_view_false_OptionalStor
 	{
 		unchecked
 		{
-			Llvm_memcpy_p0_p0_i64.Invoke(&((Llvm_libc_20_1_2_cpp_optional_cpp_string_view_OptionalStorage*)This)->field, Cpp_forward_cpp_string_view.Invoke(Args), 16L, isVolatile: false);
-			((Llvm_libc_20_1_2_cpp_optional_cpp_string_view_OptionalStorage*)This)->In_use = 0;
+			Llvm_memcpy_p0_p0_i64.Invoke(&((Cpp_optional_cpp_string_view_OptionalStorage*)This)->field, Cpp_forward_cpp_string_view.Invoke(Args), 16L, isVolatile: false);
+			((Cpp_optional_cpp_string_view_OptionalStorage*)This)->In_use = 0;
 		}
 	}
 }

@@ -14,7 +14,7 @@ internal static partial class FPRepSem_fputil_FPType_4_fputil_FPBits_long_double
 		sbyte b = (ImplicitVal ? ((sbyte)1) : ((sbyte)0));
 		if (FPRepSem_fputil_FPType_4_fputil_FPBits_long_double_get_implicit_bit.Invoke(This) != ((b & 1) == 1))
 		{
-			Int128* field_ = &unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_w3h7gw*)This)->field_0;
+			Int128* field_ = &unchecked((Fputil_internal_FPStorage_w3h7gw*)This)->field_0;
 			*field_ = NumericHelper.BitwiseXor(*field_, long.MinValue);
 		}
 	}

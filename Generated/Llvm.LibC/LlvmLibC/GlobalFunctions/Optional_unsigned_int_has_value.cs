@@ -9,6 +9,6 @@ internal static partial class Optional_unsigned_int_has_value
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<unsigned int>::has_value() const")]
 	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return (unchecked((Llvm_libc_20_1_2_cpp_optional_g66fk4*)This)->Storage.In_use & 1) == 1;
+		return (unchecked((Cpp_optional_g66fk4*)This)->Storage.In_use & 1) == 1;
 	}
 }

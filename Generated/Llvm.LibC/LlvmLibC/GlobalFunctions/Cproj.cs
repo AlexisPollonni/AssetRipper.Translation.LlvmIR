@@ -19,7 +19,7 @@ internal static partial class Cproj
 		double* ptr = &struct_4ydhja2.field_1;
 		struct_4ydhja2.field_0 = field_;
 		*ptr = field_2;
-		Struct_4ydhja struct_4ydhja3 = Llvm_libc_20_1_2_project_double_complex.Invoke(struct_4ydhja2.field_0, struct_4ydhja2.field_1);
+		Struct_4ydhja struct_4ydhja3 = Project_double_complex.Invoke(struct_4ydhja2.field_0, struct_4ydhja2.field_1);
 		Struct_4ydhja struct_4ydhja4 = struct_4ydhja3;
 		double field_3 = struct_4ydhja4.field_0;
 		Struct_4ydhja struct_4ydhja5 = struct_4ydhja3;

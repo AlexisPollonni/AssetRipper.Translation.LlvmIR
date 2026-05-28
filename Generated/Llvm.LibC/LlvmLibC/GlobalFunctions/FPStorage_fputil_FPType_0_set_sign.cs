@@ -18,9 +18,9 @@ internal static partial class FPStorage_fputil_FPType_0_set_sign
 		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb3, &anon_izyfb, 1L, isVolatile: false);
 		unchecked
 		{
-			if (Llvm_libc_20_1_2_NotEquals_rpctvi.Invoke(anon_izyfb2.Val, anon_izyfb3.Val))
+			if (NotEquals_rpctvi.Invoke(anon_izyfb2.Val, anon_izyfb3.Val))
 			{
-				short* field_ = &((Llvm_libc_20_1_2_fputil_internal_FPStorage_za9n4f*)This)->field_0;
+				short* field_ = &((Fputil_internal_FPStorage_za9n4f*)This)->field_0;
 				*field_ = (short)((ushort)(*field_) ^ 0x8000);
 			}
 		}

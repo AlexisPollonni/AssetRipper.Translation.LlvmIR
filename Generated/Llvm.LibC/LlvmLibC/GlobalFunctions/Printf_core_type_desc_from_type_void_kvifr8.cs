@@ -12,11 +12,11 @@ internal static partial class Printf_core_type_desc_from_type_void_kvifr8
 	[return: NativeType("__llvm_libc_20_1_2_::printf_core::TypeDesc")]
 	public unsafe static short Invoke()
 	{
-		Llvm_libc_20_1_2_printf_core_TypeDesc llvm_libc_20_1_2_printf_core_TypeDesc = new Llvm_libc_20_1_2_printf_core_TypeDesc
+		Printf_core_TypeDesc printf_core_TypeDesc = new Printf_core_TypeDesc
 		{
 			Size = 0,
 			Primary_type = PrimaryType.Unknown
 		};
-		return *unchecked((short*)(&llvm_libc_20_1_2_printf_core_TypeDesc));
+		return *unchecked((short*)(&printf_core_TypeDesc));
 	}
 }

@@ -9,6 +9,6 @@ internal static partial class Optional_long_double_value
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<long double>::value() &")]
 	public unsafe static void* Invoke([MangledName("this")] void* This)
 	{
-		return &unchecked((Llvm_libc_20_1_2_cpp_optional_59q3zq*)This)->Storage.field;
+		return &unchecked((Cpp_optional_59q3zq*)This)->Storage.field;
 	}
 }

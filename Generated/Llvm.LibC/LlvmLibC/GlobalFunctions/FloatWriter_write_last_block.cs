@@ -13,21 +13,21 @@ internal static partial class FloatWriter_write_last_block
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_11printf_core11FloatWriter16write_last_blockEjmNS0_14RoundDirectionEic")]
 	[DemangledName("__llvm_libc_20_1_2_::printf_core::FloatWriter::write_last_block(unsigned int, unsigned long, __llvm_libc_20_1_2_::printf_core::RoundDirection, int, char)")]
-	public unsafe static int Invoke([MangledName("this")] Llvm_libc_20_1_2_printf_core_FloatWriter* This, [MangledName("block")][NativeType("unsigned int")] int Block, [MangledName("block_digits")][NativeType("unsigned long")] long Block_digits, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::printf_core::RoundDirection")] RoundDirection_zvveyk Round, [MangledName("exponent")][NativeType("int")] int Exponent, [MangledName("exp_char")][NativeType("char")] sbyte Exp_char)
+	public unsafe static int Invoke([MangledName("this")] Printf_core_FloatWriter* This, [MangledName("block")][NativeType("unsigned int")] int Block, [MangledName("block_digits")][NativeType("unsigned long")] long Block_digits, [MangledName("round")][NativeType("__llvm_libc_20_1_2_::printf_core::RoundDirection")] RoundDirection_zvveyk Round, [MangledName("exponent")][NativeType("int")] int Exponent, [MangledName("exp_char")][NativeType("char")] sbyte Exp_char)
 	{
 		int result = 0;
 		sbyte b = 0;
 		InlineArray9_SByte inlineArray9_SByte = default(InlineArray9_SByte);
-		Llvm_libc_20_1_2_IntegerToString_uuwdyc llvm_libc_20_1_2_IntegerToString_uuwdyc = default(Llvm_libc_20_1_2_IntegerToString_uuwdyc);
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		IntegerToString_uuwdyc integerToString_uuwdyc = default(IntegerToString_uuwdyc);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		long num = 0L;
 		sbyte b2 = 0;
 		sbyte b3 = 0;
 		sbyte b4 = 0;
 		int i = 0;
 		int j = 0;
-		Llvm_libc_20_1_2_IntegerToString_uuwdyc llvm_libc_20_1_2_IntegerToString_uuwdyc2 = default(Llvm_libc_20_1_2_IntegerToString_uuwdyc);
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view2 = default(Llvm_libc_20_1_2_cpp_string_view);
+		IntegerToString_uuwdyc integerToString_uuwdyc2 = default(IntegerToString_uuwdyc);
+		Cpp_string_view cpp_string_view2 = default(Cpp_string_view);
 		long num2 = 0L;
 		long num3 = 0L;
 		int num4 = 0;
@@ -36,7 +36,7 @@ internal static partial class FloatWriter_write_last_block
 		int num7 = 0;
 		int num8 = 0;
 		int num9 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view3 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view3 = default(Cpp_string_view);
 		int num10 = 0;
 		int num11 = 0;
 		int num12 = 0;
@@ -46,9 +46,9 @@ internal static partial class FloatWriter_write_last_block
 		long num16 = 0L;
 		int num17 = 0;
 		int num18 = 0;
-		Llvm_libc_20_1_2_IntegerToString_uuwdyc llvm_libc_20_1_2_IntegerToString_uuwdyc3 = default(Llvm_libc_20_1_2_IntegerToString_uuwdyc);
+		IntegerToString_uuwdyc integerToString_uuwdyc3 = default(IntegerToString_uuwdyc);
 		int num19 = 0;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view4 = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view4 = default(Cpp_string_view);
 		int num20 = Exponent;
 		sbyte b5 = Exp_char;
 		Llvm_lifetime_start_p0.Invoke(1L, &b);
@@ -65,8 +65,8 @@ internal static partial class FloatWriter_write_last_block
 			((sbyte*)(&inlineArray9_SByte))[6] = -86;
 			((sbyte*)(&inlineArray9_SByte))[7] = -86;
 			((sbyte*)(&inlineArray9_SByte))[8] = -86;
-			Llvm_lifetime_start_p0.Invoke(32L, &llvm_libc_20_1_2_IntegerToString_uuwdyc);
-			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc);
+			Llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc);
+			sbyte* ptr = (sbyte*)(&integerToString_uuwdyc);
 			*ptr = -86;
 			ptr[1] = -86;
 			ptr[2] = -86;
@@ -88,31 +88,31 @@ internal static partial class FloatWriter_write_last_block
 			ptr[18] = -86;
 			ptr[19] = -86;
 			ptr[20] = -86;
-			sbyte* ptr2 = (sbyte*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc) + 21;
+			sbyte* ptr2 = (sbyte*)(&integerToString_uuwdyc) + 21;
 			*ptr2 = -86;
 			ptr2[1] = -86;
 			ptr2[2] = -86;
-			((long*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc))[3] = -6148914691236517206L;
-			IntegerToString_long_details_Fmt_unsigned_char_10_false_false_false_1ul_Constructor.Invoke(&llvm_libc_20_1_2_IntegerToString_uuwdyc, (uint)(Block + 1000000000));
-			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
-			*(IntPtr*)(&llvm_libc_20_1_2_cpp_string_view) = unchecked((nint)(-6148914691236517206L));
-			((long*)(&llvm_libc_20_1_2_cpp_string_view))[1] = -6148914691236517206L;
-			Struct_kqhe8i struct_kqhe8i = IntegerToString_long_details_Fmt_unsigned_char_10_false_false_false_1ul_view.Invoke(&llvm_libc_20_1_2_IntegerToString_uuwdyc);
-			Llvm_libc_20_1_2_cpp_string_view* num21 = &llvm_libc_20_1_2_cpp_string_view;
+			((long*)(&integerToString_uuwdyc))[3] = -6148914691236517206L;
+			IntegerToString_long_details_Fmt_unsigned_char_10_false_false_false_1ul_Constructor.Invoke(&integerToString_uuwdyc, (uint)(Block + 1000000000));
+			Llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view);
+			*(IntPtr*)(&cpp_string_view) = unchecked((nint)(-6148914691236517206L));
+			((long*)(&cpp_string_view))[1] = -6148914691236517206L;
+			Struct_kqhe8i struct_kqhe8i = IntegerToString_long_details_Fmt_unsigned_char_10_false_false_false_1ul_view.Invoke(&integerToString_uuwdyc);
+			Cpp_string_view* num21 = &cpp_string_view;
 			Struct_kqhe8i struct_kqhe8i2 = struct_kqhe8i;
 			*(void**)num21 = struct_kqhe8i2.field_0;
-			byte* num22 = (byte*)(&llvm_libc_20_1_2_cpp_string_view) + 8u;
+			byte* num22 = (byte*)(&cpp_string_view) + 8u;
 			Struct_kqhe8i struct_kqhe8i3 = struct_kqhe8i;
 			*(long*)num22 = struct_kqhe8i3.field_1;
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
 			for (num = 0L; (ulong)num < (ulong)Block_digits; num++)
 			{
-				sbyte b6 = *(sbyte*)String_view_Index.Invoke(&llvm_libc_20_1_2_cpp_string_view, num + 1L + (9L - Block_digits));
+				sbyte b6 = *(sbyte*)String_view_Index.Invoke(&cpp_string_view, num + 1L + (9L - Block_digits));
 				Unsafe.As<InlineArray9_SByte, sbyte>(ref Unsafe.AddByteOffset(ref inlineArray9_SByte, (nint)num)) = b6;
 			}
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view);
-			Llvm_lifetime_end_p0.Invoke(32L, &llvm_libc_20_1_2_IntegerToString_uuwdyc);
+			Llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view);
+			Llvm_lifetime_end_p0.Invoke(32L, &integerToString_uuwdyc);
 			Llvm_lifetime_start_p0.Invoke(1L, &b2);
 			b2 = 48;
 			if ((ulong)Block_digits > 0uL)
@@ -184,8 +184,8 @@ internal static partial class FloatWriter_write_last_block
 					if ((b & 1) == 1)
 					{
 						num20 = checked(num20 + 1);
-						Llvm_lifetime_start_p0.Invoke(32L, &llvm_libc_20_1_2_IntegerToString_uuwdyc2);
-						sbyte* ptr5 = (sbyte*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc2);
+						Llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc2);
+						sbyte* ptr5 = (sbyte*)(&integerToString_uuwdyc2);
 						*ptr5 = -86;
 						ptr5[1] = -86;
 						ptr5[2] = -86;
@@ -207,24 +207,24 @@ internal static partial class FloatWriter_write_last_block
 						ptr5[18] = -86;
 						ptr5[19] = -86;
 						ptr5[20] = -86;
-						sbyte* ptr6 = (sbyte*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc2) + 21;
+						sbyte* ptr6 = (sbyte*)(&integerToString_uuwdyc2) + 21;
 						*ptr6 = -86;
 						ptr6[1] = -86;
 						ptr6[2] = -86;
-						((long*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc2))[3] = -6148914691236517206L;
-						IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_Constructor.Invoke(&llvm_libc_20_1_2_IntegerToString_uuwdyc2, num20);
-						Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view2);
-						*(IntPtr*)(&llvm_libc_20_1_2_cpp_string_view2) = unchecked((nint)(-6148914691236517206L));
-						((long*)(&llvm_libc_20_1_2_cpp_string_view2))[1] = -6148914691236517206L;
-						Struct_kqhe8i struct_kqhe8i4 = IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_view.Invoke(&llvm_libc_20_1_2_IntegerToString_uuwdyc2);
-						Llvm_libc_20_1_2_cpp_string_view* num23 = &llvm_libc_20_1_2_cpp_string_view2;
+						((long*)(&integerToString_uuwdyc2))[3] = -6148914691236517206L;
+						IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_Constructor.Invoke(&integerToString_uuwdyc2, num20);
+						Llvm_lifetime_start_p0.Invoke(16L, &cpp_string_view2);
+						*(IntPtr*)(&cpp_string_view2) = unchecked((nint)(-6148914691236517206L));
+						((long*)(&cpp_string_view2))[1] = -6148914691236517206L;
+						Struct_kqhe8i struct_kqhe8i4 = IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_view.Invoke(&integerToString_uuwdyc2);
+						Cpp_string_view* num23 = &cpp_string_view2;
 						Struct_kqhe8i struct_kqhe8i5 = struct_kqhe8i4;
 						*(void**)num23 = struct_kqhe8i5.field_0;
-						byte* num24 = (byte*)(&llvm_libc_20_1_2_cpp_string_view2) + 8u;
+						byte* num24 = (byte*)(&cpp_string_view2) + 8u;
 						Struct_kqhe8i struct_kqhe8i6 = struct_kqhe8i4;
 						*(long*)num24 = struct_kqhe8i6.field_1;
 						Llvm_lifetime_start_p0.Invoke(8L, &num2);
-						num2 = String_view_size.Invoke(&llvm_libc_20_1_2_cpp_string_view2);
+						num2 = String_view_size.Invoke(&cpp_string_view2);
 						Llvm_lifetime_start_p0.Invoke(8L, &num3);
 						num3 = This->Buffered_digits + This->Max_block_count * 9L + Block_digits;
 						This->Total_digits = InstructionHelper.Select((This->Has_decimal_point & 1) == 1, 1, 0) + num3 + 1L + num2;
@@ -320,9 +320,9 @@ internal static partial class FloatWriter_write_last_block
 									case 0:
 									{
 										Llvm_lifetime_start_p0.Invoke(4L, &num9);
-										Llvm_libc_20_1_2_printf_core_Writer* writer = This->Writer;
-										Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_string_view3, &llvm_libc_20_1_2_cpp_string_view2, 16L, isVolatile: false);
-										num9 = Writer_write.Invoke(writer, *(void**)(&llvm_libc_20_1_2_cpp_string_view3), ((long*)(&llvm_libc_20_1_2_cpp_string_view3))[1]);
+										Printf_core_Writer* writer = This->Writer;
+										Llvm_memcpy_p0_p0_i64.Invoke(&cpp_string_view3, &cpp_string_view2, 16L, isVolatile: false);
+										num9 = Writer_write.Invoke(writer, *(void**)(&cpp_string_view3), ((long*)(&cpp_string_view3))[1]);
 										if (num9 < 0)
 										{
 											result = num9;
@@ -353,8 +353,8 @@ internal static partial class FloatWriter_write_last_block
 						}
 						Llvm_lifetime_end_p0.Invoke(8L, &num3);
 						Llvm_lifetime_end_p0.Invoke(8L, &num2);
-						Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_cpp_string_view2);
-						Llvm_lifetime_end_p0.Invoke(32L, &llvm_libc_20_1_2_IntegerToString_uuwdyc2);
+						Llvm_lifetime_end_p0.Invoke(16L, &cpp_string_view2);
+						Llvm_lifetime_end_p0.Invoke(32L, &integerToString_uuwdyc2);
 					}
 					else
 					{
@@ -537,8 +537,8 @@ internal static partial class FloatWriter_write_last_block
 							default:
 								goto end_IL_0d99;
 							}
-							Llvm_lifetime_start_p0.Invoke(32L, &llvm_libc_20_1_2_IntegerToString_uuwdyc3);
-							sbyte* ptr7 = (sbyte*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc3);
+							Llvm_lifetime_start_p0.Invoke(32L, &integerToString_uuwdyc3);
+							sbyte* ptr7 = (sbyte*)(&integerToString_uuwdyc3);
 							*ptr7 = -86;
 							ptr7[1] = -86;
 							ptr7[2] = -86;
@@ -560,22 +560,22 @@ internal static partial class FloatWriter_write_last_block
 							ptr7[18] = -86;
 							ptr7[19] = -86;
 							ptr7[20] = -86;
-							sbyte* ptr8 = (sbyte*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc3) + 21;
+							sbyte* ptr8 = (sbyte*)(&integerToString_uuwdyc3) + 21;
 							*ptr8 = -86;
 							ptr8[1] = -86;
 							ptr8[2] = -86;
-							((long*)(&llvm_libc_20_1_2_IntegerToString_uuwdyc3))[3] = -6148914691236517206L;
-							IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_Constructor.Invoke(&llvm_libc_20_1_2_IntegerToString_uuwdyc3, num20);
+							((long*)(&integerToString_uuwdyc3))[3] = -6148914691236517206L;
+							IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_Constructor.Invoke(&integerToString_uuwdyc3, num20);
 							Llvm_lifetime_start_p0.Invoke(4L, &num19);
-							Llvm_libc_20_1_2_printf_core_Writer* writer2 = This->Writer;
-							Struct_kqhe8i struct_kqhe8i7 = IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_view.Invoke(&llvm_libc_20_1_2_IntegerToString_uuwdyc3);
-							Llvm_libc_20_1_2_cpp_string_view* num26 = &llvm_libc_20_1_2_cpp_string_view4;
+							Printf_core_Writer* writer2 = This->Writer;
+							Struct_kqhe8i struct_kqhe8i7 = IntegerToString_long_details_Fmt_unsigned_char_10_false_true_false_2ul_view.Invoke(&integerToString_uuwdyc3);
+							Cpp_string_view* num26 = &cpp_string_view4;
 							Struct_kqhe8i struct_kqhe8i8 = struct_kqhe8i7;
 							*(void**)num26 = struct_kqhe8i8.field_0;
-							byte* num27 = (byte*)(&llvm_libc_20_1_2_cpp_string_view4) + 8u;
+							byte* num27 = (byte*)(&cpp_string_view4) + 8u;
 							Struct_kqhe8i struct_kqhe8i9 = struct_kqhe8i7;
 							*(long*)num27 = struct_kqhe8i9.field_1;
-							num19 = Writer_write.Invoke(writer2, *(void**)(&llvm_libc_20_1_2_cpp_string_view4), ((long*)(&llvm_libc_20_1_2_cpp_string_view4))[1]);
+							num19 = Writer_write.Invoke(writer2, *(void**)(&cpp_string_view4), ((long*)(&cpp_string_view4))[1]);
 							if (num19 < 0)
 							{
 								result = num19;
@@ -592,7 +592,7 @@ internal static partial class FloatWriter_write_last_block
 								num25 = 0;
 								break;
 							}
-							Llvm_lifetime_end_p0.Invoke(32L, &llvm_libc_20_1_2_IntegerToString_uuwdyc3);
+							Llvm_lifetime_end_p0.Invoke(32L, &integerToString_uuwdyc3);
 							switch (num25)
 							{
 							case 0:

@@ -8,7 +8,7 @@ internal static partial class FloatToString_long_double_0_get_positive_blocks
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_13FloatToStringIeLi0EE19get_positive_blocksEv")]
 	[DemangledName("__llvm_libc_20_1_2_::FloatToString<long double, 0>::get_positive_blocks()")]
-	public unsafe static long Invoke([MangledName("this")] Llvm_libc_20_1_2_FloatToString_8m29tk* This)
+	public unsafe static long Invoke([MangledName("this")] FloatToString_8m29tk* This)
 	{
 		int num = 0;
 		unchecked

@@ -8,7 +8,7 @@ internal static partial class ArgList_next_var_Fract
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal7ArgList8next_varIDRiEET_v")]
 	[DemangledName("_Fract __llvm_libc_20_1_2_::internal::ArgList::next_var<_Fract>()")]
 	[return: NativeType("_Fract")]
-	public unsafe static short Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_ArgList* This)
+	public unsafe static short Invoke([MangledName("this")] Internal_ArgList* This)
 	{
 		unchecked
 		{

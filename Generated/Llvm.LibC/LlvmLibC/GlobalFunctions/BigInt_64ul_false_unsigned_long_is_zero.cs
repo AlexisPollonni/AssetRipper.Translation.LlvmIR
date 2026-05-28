@@ -9,7 +9,7 @@ internal static partial class BigInt_64ul_false_unsigned_long_is_zero
 {
 	[MangledName("_ZNK19__llvm_libc_20_1_2_6BigIntILm64ELb0EmE7is_zeroEv")]
 	[DemangledName("__llvm_libc_20_1_2_::BigInt<64ul, false, unsigned long>::is_zero() const")]
-	public unsafe static bool Invoke([MangledName("this")] Llvm_libc_20_1_2_BigInt_555ggs* This)
+	public unsafe static bool Invoke([MangledName("this")] BigInt_555ggs* This)
 	{
 		bool result = false;
 		void* ptr = null;
@@ -22,9 +22,9 @@ internal static partial class BigInt_64ul_false_unsigned_long_is_zero
 			ptr = (void*)12297829382473034410uL;
 			ptr = &This->Val;
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr2);
-			ptr2 = Array_unsigned_long_1ul_begin.Invoke((Llvm_libc_20_1_2_cpp_array_rpgxvv*)ptr);
+			ptr2 = Array_unsigned_long_1ul_begin.Invoke((Cpp_array_rpgxvv*)ptr);
 			Llvm_lifetime_start_p0.Invoke(8L, &ptr3);
-			ptr3 = Array_unsigned_long_1ul_end.Invoke((Llvm_libc_20_1_2_cpp_array_rpgxvv*)ptr);
+			ptr3 = Array_unsigned_long_1ul_end.Invoke((Cpp_array_rpgxvv*)ptr);
 			int num2;
 			while (true)
 			{

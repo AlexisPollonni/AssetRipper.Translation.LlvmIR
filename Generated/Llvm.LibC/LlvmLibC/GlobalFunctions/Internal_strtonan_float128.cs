@@ -11,26 +11,26 @@ internal static partial class Internal_strtonan_float128
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal8strtonanIgEENS_14StrToNumResultIT_EEPKc")]
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<__float128> __llvm_libc_20_1_2_::internal::strtonan<__float128>(char const*)")]
 	[return: NativeType("__llvm_libc_20_1_2_::StrToNumResult<__float128>")]
-	public unsafe static void Invoke([MangledName("agg.result")] Llvm_libc_20_1_2_StrToNumResult_c5b6ms* Agg_result, [MangledName("arg")][NativeType("char const*")] void* Arg)
+	public unsafe static void Invoke([MangledName("agg.result")] StrToNumResult_c5b6ms* Agg_result, [MangledName("arg")][NativeType("char const*")] void* Arg)
 	{
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi = default(Fputil_FPBits_ubgsi2);
 		int error = 0;
 		Int128 @int = default(Int128);
 		long num = 0L;
-		Llvm_libc_20_1_2_cpp_string_view llvm_libc_20_1_2_cpp_string_view = default(Llvm_libc_20_1_2_cpp_string_view);
+		Cpp_string_view cpp_string_view = default(Cpp_string_view);
 		Int128 int2 = default(Int128);
-		Llvm_libc_20_1_2_fputil_FPBits_ubgsi2 llvm_libc_20_1_2_fputil_FPBits_ubgsi2 = default(Llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
+		Fputil_FPBits_ubgsi2 fputil_FPBits_ubgsi2 = default(Fputil_FPBits_ubgsi2);
 		Anon_izyfb7 anon_izyfb = default(Anon_izyfb7);
 		Int128 int3 = default(Int128);
 		if (Details_expects_bool_condition_bool.Invoke(Arg == null, Expected: false))
 		{
 			Llvm_trap.Invoke();
 		}
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+		Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 		unchecked
 		{
-			*(Int128*)(&llvm_libc_20_1_2_fputil_FPBits_ubgsi) = -6148914691236517206L;
-			FPBits_float128_Constructor.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+			*(Int128*)(&fputil_FPBits_ubgsi) = -6148914691236517206L;
+			FPBits_float128_Constructor.Invoke(&fputil_FPBits_ubgsi);
 			Llvm_lifetime_start_p0.Invoke(4L, &error);
 			error = 0;
 			Llvm_lifetime_start_p0.Invoke(16L, &@int);
@@ -41,8 +41,8 @@ internal static partial class Internal_strtonan_float128
 			}
 			if (((sbyte*)Arg)[num] == 0)
 			{
-				String_view_Constructor.Invoke(&llvm_libc_20_1_2_cpp_string_view, Arg, num);
-				Struct_fiz2nb struct_fiz2nb = Internal_nan_mantissa_from_ncharseq_float128.Invoke(*(void**)(&llvm_libc_20_1_2_cpp_string_view), ((long*)(&llvm_libc_20_1_2_cpp_string_view))[1]);
+				String_view_Constructor.Invoke(&cpp_string_view, Arg, num);
+				Struct_fiz2nb struct_fiz2nb = Internal_nan_mantissa_from_ncharseq_float128.Invoke(*(void**)(&cpp_string_view), ((long*)(&cpp_string_view))[1]);
 				Int128* num2 = &int2;
 				Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 				*(long*)num2 = struct_fiz2nb2.field_0;
@@ -51,24 +51,24 @@ internal static partial class Internal_strtonan_float128
 				*(long*)num3 = struct_fiz2nb3.field_1;
 				@int = int2;
 			}
-			Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-			Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, Llvm_libc_20_1_2_Sign_POS.Pointer, 1L, isVolatile: false);
+			Llvm_lifetime_start_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
+			Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb, Sign_POS.Pointer, 1L, isVolatile: false);
 			Int128 int4 = @int;
 			sbyte val = anon_izyfb.Val;
 			int3 = int4;
 			Struct_fiz2nb struct_fiz2nb4 = FPRepSem_fputil_FPType_3_fputil_FPBits_float128_quiet_nan.Invoke(val, *(long*)(&int3), ((long*)(&int3))[1]);
-			Int128* ptr = &llvm_libc_20_1_2_fputil_FPBits_ubgsi2.Val.Data.FPStorage.field_0;
+			Int128* ptr = &fputil_FPBits_ubgsi2.Val.Data.FPStorage.field_0;
 			Struct_fiz2nb struct_fiz2nb5 = struct_fiz2nb4;
 			((Struct_fiz2nb*)ptr)->field_0 = struct_fiz2nb5.field_0;
 			Struct_fiz2nb struct_fiz2nb6 = struct_fiz2nb4;
 			((Struct_fiz2nb*)ptr)->field_1 = struct_fiz2nb6.field_1;
-			Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2, 16L, isVolatile: false);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi2);
-			StrToNumResult_float128_Constructor.Invoke(Agg_result, FPBits_float128_get_val.Invoke(&llvm_libc_20_1_2_fputil_FPBits_ubgsi), 0L, error);
+			Llvm_memcpy_p0_p0_i64.Invoke(&fputil_FPBits_ubgsi, &fputil_FPBits_ubgsi2, 16L, isVolatile: false);
+			Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi2);
+			StrToNumResult_float128_Constructor.Invoke(Agg_result, FPBits_float128_get_val.Invoke(&fputil_FPBits_ubgsi), 0L, error);
 			Llvm_lifetime_end_p0.Invoke(8L, &num);
 			Llvm_lifetime_end_p0.Invoke(16L, &@int);
 			Llvm_lifetime_end_p0.Invoke(4L, &error);
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_fputil_FPBits_ubgsi);
+			Llvm_lifetime_end_p0.Invoke(16L, &fputil_FPBits_ubgsi);
 		}
 	}
 }

@@ -9,6 +9,6 @@ internal static partial class ArrayGenericSize_get_internal
 	[DemangledName("__llvm_libc_20_1_2_::internal::ArrayGenericSize::get_internal(unsigned long) const")]
 	public unsafe static void* Invoke([MangledName("this")] void* This, [MangledName("i")][NativeType("unsigned long")] long I)
 	{
-		return unchecked((byte*)((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buffer + I * ((Llvm_libc_20_1_2_scanf_core_ReadBuffer*)This)->Buff_cur);
+		return unchecked((byte*)((Scanf_core_ReadBuffer*)This)->Buffer + I * ((Scanf_core_ReadBuffer*)This)->Buff_cur);
 	}
 }

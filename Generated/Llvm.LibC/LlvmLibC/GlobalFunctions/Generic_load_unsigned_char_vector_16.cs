@@ -10,6 +10,6 @@ internal static partial class Generic_load_unsigned_char_vector_16
 	[return: NativeType("unsigned char vector[16]")]
 	public unsafe static InlineArray16_SByte Invoke([MangledName("src")][NativeType("__llvm_libc_20_1_2_::cpp::byte const*")] void* Src)
 	{
-		return Llvm_libc_20_1_2_load_unsigned_char_vector_16.Invoke(Src);
+		return Load_unsigned_char_vector_16.Invoke(Src);
 	}
 }

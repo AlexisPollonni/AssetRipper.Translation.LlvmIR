@@ -9,6 +9,6 @@ internal static partial class AuxvFdGuard_valid
 	[DemangledName("__llvm_libc_20_1_2_::AuxvFdGuard::valid() const")]
 	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 != -1;
+		return unchecked((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 != -1;
 	}
 }

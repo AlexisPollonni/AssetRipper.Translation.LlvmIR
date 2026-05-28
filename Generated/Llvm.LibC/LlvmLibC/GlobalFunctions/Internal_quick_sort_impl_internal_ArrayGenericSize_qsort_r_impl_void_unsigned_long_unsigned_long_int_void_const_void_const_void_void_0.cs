@@ -17,10 +17,10 @@ internal static partial class Internal_quick_sort_impl_internal_ArrayGenericSize
 		long num3 = 0L;
 		Anon_e6q534 anon_e6q = default(Anon_e6q534);
 		long num4 = 0L;
-		Llvm_libc_20_1_2_scanf_core_ReadBuffer llvm_libc_20_1_2_scanf_core_ReadBuffer = default(Llvm_libc_20_1_2_scanf_core_ReadBuffer);
+		Scanf_core_ReadBuffer scanf_core_ReadBuffer = default(Scanf_core_ReadBuffer);
 		void* ptr = null;
 		long num5 = 0L;
-		Llvm_libc_20_1_2_scanf_core_ReadBuffer llvm_libc_20_1_2_scanf_core_ReadBuffer2 = default(Llvm_libc_20_1_2_scanf_core_ReadBuffer);
+		Scanf_core_ReadBuffer scanf_core_ReadBuffer2 = default(Scanf_core_ReadBuffer);
 		void* ptr2 = Ancestor_pivot;
 		long num6 = Limit;
 		unchecked
@@ -68,27 +68,27 @@ internal static partial class Internal_quick_sort_impl_internal_ArrayGenericSize
 						}
 						else
 						{
-							Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_scanf_core_ReadBuffer);
-							*(IntPtr*)(&llvm_libc_20_1_2_scanf_core_ReadBuffer) = unchecked((nint)(-6148914691236517206L));
-							((long*)(&llvm_libc_20_1_2_scanf_core_ReadBuffer))[1] = -6148914691236517206L;
-							((long*)(&llvm_libc_20_1_2_scanf_core_ReadBuffer))[2] = -6148914691236517206L;
-							ArrayGenericSize_make_array.Invoke(&llvm_libc_20_1_2_scanf_core_ReadBuffer, Array, 0L, num4);
+							Llvm_lifetime_start_p0.Invoke(24L, &scanf_core_ReadBuffer);
+							*(IntPtr*)(&scanf_core_ReadBuffer) = unchecked((nint)(-6148914691236517206L));
+							((long*)(&scanf_core_ReadBuffer))[1] = -6148914691236517206L;
+							((long*)(&scanf_core_ReadBuffer))[2] = -6148914691236517206L;
+							ArrayGenericSize_make_array.Invoke(&scanf_core_ReadBuffer, Array, 0L, num4);
 							Llvm_lifetime_start_p0.Invoke(8L, &ptr);
 							ptr = ArrayGenericSize_get.Invoke(Array, num4);
 							Llvm_lifetime_start_p0.Invoke(8L, &num5);
 							num5 = num4 + 1L;
-							Llvm_lifetime_start_p0.Invoke(24L, &llvm_libc_20_1_2_scanf_core_ReadBuffer2);
-							*(IntPtr*)(&llvm_libc_20_1_2_scanf_core_ReadBuffer2) = unchecked((nint)(-6148914691236517206L));
-							((long*)(&llvm_libc_20_1_2_scanf_core_ReadBuffer2))[1] = -6148914691236517206L;
-							((long*)(&llvm_libc_20_1_2_scanf_core_ReadBuffer2))[2] = -6148914691236517206L;
-							ArrayGenericSize_make_array.Invoke(&llvm_libc_20_1_2_scanf_core_ReadBuffer2, Array, num5, ArrayGenericSize_len.Invoke(Array) - num5);
-							Invoke(&llvm_libc_20_1_2_scanf_core_ReadBuffer, ptr2, num6, Is_less);
-							Llvm_memcpy_p0_p0_i64.Invoke(Array, &llvm_libc_20_1_2_scanf_core_ReadBuffer2, 24L, isVolatile: false);
+							Llvm_lifetime_start_p0.Invoke(24L, &scanf_core_ReadBuffer2);
+							*(IntPtr*)(&scanf_core_ReadBuffer2) = unchecked((nint)(-6148914691236517206L));
+							((long*)(&scanf_core_ReadBuffer2))[1] = -6148914691236517206L;
+							((long*)(&scanf_core_ReadBuffer2))[2] = -6148914691236517206L;
+							ArrayGenericSize_make_array.Invoke(&scanf_core_ReadBuffer2, Array, num5, ArrayGenericSize_len.Invoke(Array) - num5);
+							Invoke(&scanf_core_ReadBuffer, ptr2, num6, Is_less);
+							Llvm_memcpy_p0_p0_i64.Invoke(Array, &scanf_core_ReadBuffer2, 24L, isVolatile: false);
 							ptr2 = ptr;
-							Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_scanf_core_ReadBuffer2);
+							Llvm_lifetime_end_p0.Invoke(24L, &scanf_core_ReadBuffer2);
 							Llvm_lifetime_end_p0.Invoke(8L, &num5);
 							Llvm_lifetime_end_p0.Invoke(8L, &ptr);
-							Llvm_lifetime_end_p0.Invoke(24L, &llvm_libc_20_1_2_scanf_core_ReadBuffer);
+							Llvm_lifetime_end_p0.Invoke(24L, &scanf_core_ReadBuffer);
 							num7 = 0;
 						}
 						Llvm_lifetime_end_p0.Invoke(8L, &num4);

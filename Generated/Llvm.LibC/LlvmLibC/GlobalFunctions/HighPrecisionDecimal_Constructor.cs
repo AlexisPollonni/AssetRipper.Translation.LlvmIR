@@ -8,12 +8,12 @@ internal static partial class HighPrecisionDecimal_Constructor
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimalC2EPKcm")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::HighPrecisionDecimal(char const*, unsigned long)")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This, [MangledName("num_string")][NativeType("char const*")] void* Num_string, [MangledName("num_len")][NativeType("unsigned long")] long Num_len)
+	public unsafe static void Invoke([MangledName("this")] Internal_HighPrecisionDecimal* This, [MangledName("num_string")][NativeType("char const*")] void* Num_string, [MangledName("num_len")][NativeType("unsigned long")] long Num_len)
 	{
 		sbyte b = 0;
 		long num = 0L;
 		int num2 = 0;
-		Llvm_libc_20_1_2_StrToNumResult_imtnam llvm_libc_20_1_2_StrToNumResult_imtnam = default(Llvm_libc_20_1_2_StrToNumResult_imtnam);
+		StrToNumResult_imtnam strToNumResult_imtnam = default(StrToNumResult_imtnam);
 		int num3 = 0;
 		long num4 = 0L;
 		This->Num_digits = 0;
@@ -72,22 +72,22 @@ internal static partial class HighPrecisionDecimal_Constructor
 				num++;
 				if (Internal_isdigit_u2vjuj.Invoke(((sbyte*)Num_string)[num]) || ((sbyte*)Num_string)[num] == 43 || ((sbyte*)Num_string)[num] == 45)
 				{
-					Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_imtnam);
-					*(int*)(&llvm_libc_20_1_2_StrToNumResult_imtnam) = -1431655766;
-					((int*)(&llvm_libc_20_1_2_StrToNumResult_imtnam))[1] = -1431655766;
-					((long*)(&llvm_libc_20_1_2_StrToNumResult_imtnam))[1] = -6148914691236517206L;
+					Llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_imtnam);
+					*(int*)(&strToNumResult_imtnam) = -1431655766;
+					((int*)(&strToNumResult_imtnam))[1] = -1431655766;
+					((long*)(&strToNumResult_imtnam))[1] = -6148914691236517206L;
 					Struct_fiz2nb struct_fiz2nb = Internal_strtointeger_int.Invoke((byte*)Num_string + num, 10, Num_len - num);
-					Llvm_libc_20_1_2_StrToNumResult_imtnam* num5 = &llvm_libc_20_1_2_StrToNumResult_imtnam;
+					StrToNumResult_imtnam* num5 = &strToNumResult_imtnam;
 					Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 					*(long*)num5 = struct_fiz2nb2.field_0;
-					byte* num6 = (byte*)(&llvm_libc_20_1_2_StrToNumResult_imtnam) + 8u;
+					byte* num6 = (byte*)(&strToNumResult_imtnam) + 8u;
 					Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 					*(long*)num6 = struct_fiz2nb3.field_1;
-					if (!StrToNumResult_int_has_error.Invoke(&llvm_libc_20_1_2_StrToNumResult_imtnam))
+					if (!StrToNumResult_int_has_error.Invoke(&strToNumResult_imtnam))
 					{
 					}
 					Llvm_lifetime_start_p0.Invoke(4L, &num3);
-					num3 = llvm_libc_20_1_2_StrToNumResult_imtnam.Value;
+					num3 = strToNumResult_imtnam.Value;
 					Llvm_lifetime_start_p0.Invoke(8L, &num4);
 					checked
 					{
@@ -104,7 +104,7 @@ internal static partial class HighPrecisionDecimal_Constructor
 					This->Decimal_point = (int)num4;
 					Llvm_lifetime_end_p0.Invoke(8L, &num4);
 					Llvm_lifetime_end_p0.Invoke(4L, &num3);
-					Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_imtnam);
+					Llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_imtnam);
 				}
 			}
 			HighPrecisionDecimal_trim_trailing_zeroes.Invoke(This);

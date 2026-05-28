@@ -12,8 +12,8 @@ internal static partial class Cpp_bit_cast_Complex_Float16_Float16_complex
 	[return: NativeType("__llvm_libc_20_1_2_::cpp::enable_if<sizeof (__llvm_libc_20_1_2_::Complex<_Float16>) == sizeof (_Float16 complex) && cpp::is_trivially_constructible<__llvm_libc_20_1_2_::Complex<_Float16>>::value && cpp::is_trivially_copyable<__llvm_libc_20_1_2_::Complex<_Float16>>::value && cpp::is_trivially_copyable<_Float16 complex>::value, __llvm_libc_20_1_2_::Complex<_Float16>>::type")]
 	public unsafe static InlineArray2_Half Invoke([MangledName("from")][NativeType("_Float16 complex const&")] void* From)
 	{
-		Llvm_libc_20_1_2_Complex_mify6x llvm_libc_20_1_2_Complex_mify6x = default(Llvm_libc_20_1_2_Complex_mify6x);
-		Llvm_memcpy_p0_p0_i64.Invoke(&llvm_libc_20_1_2_Complex_mify6x, From, 4L, isVolatile: false);
-		return *unchecked((InlineArray2_Half*)(&llvm_libc_20_1_2_Complex_mify6x));
+		Complex_mify6x complex_mify6x = default(Complex_mify6x);
+		Llvm_memcpy_p0_p0_i64.Invoke(&complex_mify6x, From, 4L, isVolatile: false);
+		return *unchecked((InlineArray2_Half*)(&complex_mify6x));
 	}
 }

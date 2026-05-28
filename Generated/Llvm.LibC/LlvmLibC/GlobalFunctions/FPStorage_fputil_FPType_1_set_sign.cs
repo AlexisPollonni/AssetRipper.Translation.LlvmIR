@@ -16,9 +16,9 @@ internal static partial class FPStorage_fputil_FPType_1_set_sign
 		anon_izyfb.Val = SignVal;
 		anon_izyfb2.Val = FPStorage_fputil_FPType_1_sign.Invoke(This);
 		Llvm_memcpy_p0_p0_i64.Invoke(&anon_izyfb3, &anon_izyfb, 1L, isVolatile: false);
-		if (Llvm_libc_20_1_2_NotEquals_rpctvi.Invoke(anon_izyfb2.Val, anon_izyfb3.Val))
+		if (NotEquals_rpctvi.Invoke(anon_izyfb2.Val, anon_izyfb3.Val))
 		{
-			unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 ^= int.MinValue;
+			unchecked((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 ^= int.MinValue;
 		}
 	}
 }

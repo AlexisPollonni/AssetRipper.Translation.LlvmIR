@@ -12,29 +12,29 @@ internal static partial class Nanf16
 	[DemangledName("nanf16")]
 	public unsafe static Half Invoke([MangledName("arg")] void* Arg)
 	{
-		Llvm_libc_20_1_2_StrToNumResult_stcih6 llvm_libc_20_1_2_StrToNumResult_stcih = default(Llvm_libc_20_1_2_StrToNumResult_stcih6);
-		Llvm_lifetime_start_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_stcih);
+		StrToNumResult_stcih6 strToNumResult_stcih = default(StrToNumResult_stcih6);
+		Llvm_lifetime_start_p0.Invoke(16L, &strToNumResult_stcih);
 		unchecked
 		{
-			*(Half*)(&llvm_libc_20_1_2_StrToNumResult_stcih) = default(Half);
-			sbyte* ptr = (sbyte*)(&llvm_libc_20_1_2_StrToNumResult_stcih) + 2;
+			*(Half*)(&strToNumResult_stcih) = default(Half);
+			sbyte* ptr = (sbyte*)(&strToNumResult_stcih) + 2;
 			*ptr = -86;
 			ptr[1] = -86;
-			((int*)(&llvm_libc_20_1_2_StrToNumResult_stcih))[1] = -1431655766;
-			((long*)(&llvm_libc_20_1_2_StrToNumResult_stcih))[1] = -6148914691236517206L;
+			((int*)(&strToNumResult_stcih))[1] = -1431655766;
+			((long*)(&strToNumResult_stcih))[1] = -6148914691236517206L;
 			Struct_fiz2nb struct_fiz2nb = Internal_strtonan_Float16.Invoke(Arg);
-			Llvm_libc_20_1_2_StrToNumResult_stcih6* num = &llvm_libc_20_1_2_StrToNumResult_stcih;
+			StrToNumResult_stcih6* num = &strToNumResult_stcih;
 			Struct_fiz2nb struct_fiz2nb2 = struct_fiz2nb;
 			*(long*)num = struct_fiz2nb2.field_0;
-			byte* num2 = (byte*)(&llvm_libc_20_1_2_StrToNumResult_stcih) + 8u;
+			byte* num2 = (byte*)(&strToNumResult_stcih) + 8u;
 			Struct_fiz2nb struct_fiz2nb3 = struct_fiz2nb;
 			*(long*)num2 = struct_fiz2nb3.field_1;
-			if (StrToNumResult_Float16_has_error.Invoke(&llvm_libc_20_1_2_StrToNumResult_stcih))
+			if (StrToNumResult_Float16_has_error.Invoke(&strToNumResult_stcih))
 			{
-				Errno_Assignment.Invoke(A: llvm_libc_20_1_2_StrToNumResult_stcih.Error, This: Llvm_libc_20_1_2_libc_errno.Pointer);
+				Errno_Assignment.Invoke(A: strToNumResult_stcih.Error, This: Libc_errno.Pointer);
 			}
-			Half value = llvm_libc_20_1_2_StrToNumResult_stcih.Value;
-			Llvm_lifetime_end_p0.Invoke(16L, &llvm_libc_20_1_2_StrToNumResult_stcih);
+			Half value = strToNumResult_stcih.Value;
+			Llvm_lifetime_end_p0.Invoke(16L, &strToNumResult_stcih);
 			return value;
 		}
 	}

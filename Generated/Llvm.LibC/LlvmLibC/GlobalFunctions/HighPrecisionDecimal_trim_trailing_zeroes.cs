@@ -7,7 +7,7 @@ internal static partial class HighPrecisionDecimal_trim_trailing_zeroes
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_8internal20HighPrecisionDecimal20trim_trailing_zeroesEv")]
 	[DemangledName("__llvm_libc_20_1_2_::internal::HighPrecisionDecimal::trim_trailing_zeroes()")]
-	public unsafe static void Invoke([MangledName("this")] Llvm_libc_20_1_2_internal_HighPrecisionDecimal* This)
+	public unsafe static void Invoke([MangledName("this")] Internal_HighPrecisionDecimal* This)
 	{
 		unchecked
 		{

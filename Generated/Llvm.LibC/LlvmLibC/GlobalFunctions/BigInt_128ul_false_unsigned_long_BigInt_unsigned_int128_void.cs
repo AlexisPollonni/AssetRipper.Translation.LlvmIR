@@ -21,7 +21,7 @@ internal static partial class BigInt_128ul_false_unsigned_long_BigInt_unsigned_i
 			*(long*)(&@int) = V;
 			((long*)(&@int))[1] = T_SIZE;
 			Int128 int2 = @int;
-			Llvm_memset_p0_i64.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val.Data, 0, 16L, isVolatile: false);
+			Llvm_memset_p0_i64.Invoke(&((BigInt_qdkjbh*)This)->Val.Data, 0, 16L, isVolatile: false);
 			Llvm_lifetime_start_p0.Invoke(8L, &num);
 			num = 128L;
 			Llvm_lifetime_start_p0.Invoke(1L, &b);
@@ -43,7 +43,7 @@ internal static partial class BigInt_128ul_false_unsigned_long_BigInt_unsigned_i
 					break;
 				}
 				long num4 = (long)int2;
-				*(long*)Array_unsigned_long_2ul_Index_6dk93t.Invoke(&((Llvm_libc_20_1_2_BigInt_qdkjbh*)This)->Val, num2) = num4;
+				*(long*)Array_unsigned_long_2ul_Index_6dk93t.Invoke(&((BigInt_qdkjbh*)This)->Val, num2) = num4;
 				int2 = NumericHelper.ShiftRightLogical(int2, 64L);
 				num2++;
 			}

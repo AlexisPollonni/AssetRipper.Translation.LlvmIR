@@ -1,4 +1,3 @@
-using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 using LlvmLibC.Intrinsics.Implemented;
 
@@ -6,7 +5,7 @@ namespace LlvmLibC.GlobalFunctions;
 
 internal static partial class Strncpy
 {
-	public unsafe static readonly void* __pointer = PointerIndices.Register((delegate*<void*, void*, long, void*>)(&Invoke));
+	public unsafe static readonly void* __pointer = (delegate*<void*, void*, long, void*>)(&Invoke);
 
 	[MangledName("strncpy")]
 	[DemangledName("strncpy")]

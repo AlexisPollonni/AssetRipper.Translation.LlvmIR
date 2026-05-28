@@ -9,6 +9,6 @@ internal static partial class StrToNumResult_unsigned_int128_has_error
 	[DemangledName("__llvm_libc_20_1_2_::StrToNumResult<unsigned __int128>::has_error()")]
 	public unsafe static bool Invoke([MangledName("this")] void* This)
 	{
-		return unchecked((Llvm_libc_20_1_2_StrToNumResult_i4jxtt*)This)->Error != 0;
+		return unchecked((StrToNumResult_i4jxtt*)This)->Error != 0;
 	}
 }

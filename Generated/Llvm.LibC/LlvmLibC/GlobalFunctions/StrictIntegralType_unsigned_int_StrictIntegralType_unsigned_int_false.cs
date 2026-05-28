@@ -9,6 +9,6 @@ internal static partial class StrictIntegralType_unsigned_int_StrictIntegralType
 	[DemangledName("__llvm_libc_20_1_2_::StrictIntegralType<unsigned int>::StrictIntegralType<unsigned int, false>(unsigned int)")]
 	public unsafe static void Invoke([MangledName("this")] void* This, [MangledName("value")][NativeType("unsigned int")] int Value)
 	{
-		unchecked((Llvm_libc_20_1_2_fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 = Value;
+		unchecked((Fputil_internal_FPStorage_fputil_FPType_IEEE754_Binary128_TypedInt*)This)->field_0 = Value;
 	}
 }

@@ -9,6 +9,6 @@ internal static partial class Optional_void_value
 	[DemangledName("__llvm_libc_20_1_2_::cpp::optional<void*>::value() &")]
 	public unsafe static void* Invoke([MangledName("this")] void* This)
 	{
-		return &unchecked((Llvm_libc_20_1_2_cpp_optional_77yu8f*)This)->Storage.field;
+		return &unchecked((Cpp_optional_77yu8f*)This)->Storage.field;
 	}
 }

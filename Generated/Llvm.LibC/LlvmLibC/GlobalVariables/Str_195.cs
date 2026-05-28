@@ -29,6 +29,6 @@ internal static partial class Str_195
 	unsafe static Str_195()
 	{
 		Value = InlineArrayHelper.Create<InlineArray14_SByte, byte>("Unknown error\0"u8);
-		PointerIndices.Register(Pointer);
+		_ = Pointer;
 	}
 }

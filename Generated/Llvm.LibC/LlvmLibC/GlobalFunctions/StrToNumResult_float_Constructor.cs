@@ -11,9 +11,9 @@ internal static partial class StrToNumResult_float_Constructor
 	{
 		unchecked
 		{
-			((Llvm_libc_20_1_2_StrToNumResult_cqc3yy*)This)->Value = Value;
-			((Llvm_libc_20_1_2_StrToNumResult_cqc3yy*)This)->Error = Error;
-			((Llvm_libc_20_1_2_StrToNumResult_cqc3yy*)This)->Parsed_len = Parsed_len;
+			((StrToNumResult_cqc3yy*)This)->Value = Value;
+			((StrToNumResult_cqc3yy*)This)->Error = Error;
+			((StrToNumResult_cqc3yy*)This)->Parsed_len = Parsed_len;
 		}
 	}
 }

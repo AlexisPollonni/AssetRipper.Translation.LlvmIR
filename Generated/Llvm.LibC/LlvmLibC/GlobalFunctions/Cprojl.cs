@@ -20,7 +20,7 @@ internal static partial class Cprojl
 			double* ptr = &struct_29m54m.field_1;
 			struct_29m54m.field_0 = field_;
 			*ptr = field_2;
-			Struct_29m54m struct_29m54m2 = Llvm_libc_20_1_2_project_long_double_complex.Invoke(&struct_29m54m);
+			Struct_29m54m struct_29m54m2 = Project_long_double_complex.Invoke(&struct_29m54m);
 			Struct_29m54m struct_29m54m3 = struct_29m54m2;
 			double field_3 = struct_29m54m3.field_0;
 			Struct_29m54m struct_29m54m4 = struct_29m54m2;
