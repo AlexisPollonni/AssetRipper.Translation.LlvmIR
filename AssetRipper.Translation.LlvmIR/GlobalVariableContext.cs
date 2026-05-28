@@ -286,14 +286,6 @@ internal sealed class GlobalVariableContext : IHasName, IVariable
 				instructions.Pop();
 
 				instructions.Add(CilOpCodes.Call, PointerMethod);
-				instructions.Add(
-					CilOpCodes.Call,
-					Module.ImportRuntimeMethod(
-						Module
-							.InjectedTypes[typeof(PointerIndices)]
-							.GetMethodByName(nameof(PointerIndices.Register))
-					)
-				);
 				instructions.Add(CilOpCodes.Pop);
 
 				instructions.Add(CilOpCodes.Ret);

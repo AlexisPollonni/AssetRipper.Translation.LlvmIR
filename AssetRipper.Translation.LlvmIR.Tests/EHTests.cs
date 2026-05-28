@@ -128,6 +128,10 @@ public class EHTests
 		{
 			DisplayName = nameof(LandingPadTypedCatchAndResume),
 		};
+	}
+
+	public static IEnumerable<TestDataRow<string>> GetUnsupportedWinEhCases()
+	{
 		yield return new(WinEhCatchSwitchCatchPadCatchRet)
 		{
 			DisplayName = nameof(WinEhCatchSwitchCatchPadCatchRet),
@@ -150,6 +154,25 @@ public class EHTests
 	public Task EhIr_DecompilesSuccessfully(string llvmCode)
 	{
 		return AssertionHelpers.AssertDecompilesSuccessfully(llvmCode.TranslateToCIL());
+	}
+
+	[Test]
+	[MethodDataSource(nameof(GetUnsupportedWinEhCases))]
+	public async Task WinEhIr_FailsFast(string llvmCode)
+	{
+		NotSupportedException? exception = null;
+		try
+		{
+			llvmCode.TranslateToCIL();
+		}
+		catch (NotSupportedException ex)
+		{
+			exception = ex;
+		}
+
+		await Assert.That(exception is not null).IsTrue();
+		await Assert.That(exception!.Message.Contains("Windows/MSVC EH opcode")).IsTrue();
+		await Assert.That(exception.Message.Contains("Linux x64")).IsTrue();
 	}
 
 	[Test]

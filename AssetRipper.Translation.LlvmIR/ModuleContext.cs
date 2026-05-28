@@ -560,16 +560,21 @@ internal sealed partial class ModuleContext
 
 	public unsafe TypeSignature GetTypeSignature(LLVMValueRef value)
 	{
+		LLVMOpcode opcode = value.GetOpcode();
 		return value.Kind switch
 		{
 			LLVMValueKind.LLVMInstructionValueKind or LLVMValueKind.LLVMConstantExprValueKind =>
-				value.GetOpcode() switch
+				opcode switch
 				{
 					LLVMOpcode.LLVMAlloca => GetTypeSignature(LLVM.GetAllocatedType(value))
 						.MakePointerType(),
-					LLVMOpcode.LLVMCatchPad or LLVMOpcode.LLVMCleanupPad => GetRuntimeTypeSignature(
-						typeof(ExceptionInfo)
-					),
+					LLVMOpcode.LLVMCatchSwitch
+						or LLVMOpcode.LLVMCatchPad
+						or LLVMOpcode.LLVMCleanupPad
+						or LLVMOpcode.LLVMCatchRet
+						or LLVMOpcode.LLVMCleanupRet => throw new NotSupportedException(
+							$"Windows/MSVC EH opcode '{opcode}' is not supported on Linux x64."
+						),
 					LLVMOpcode.LLVMGetElementPtr => GetGEPFinalType(value).MakePointerType(),
 					LLVMOpcode.LLVMRet => Definition.CorLibTypeFactory.Void,
 					LLVMOpcode.LLVMStore => Definition.CorLibTypeFactory.Void,

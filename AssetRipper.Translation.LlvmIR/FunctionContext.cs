@@ -404,14 +404,6 @@ internal sealed class FunctionContext : IHasName
 			}
 
 			instructions.Add(CilOpCodes.Ldftn, Definition);
-			instructions.Add(
-				CilOpCodes.Call,
-				Module.ImportRuntimeMethod(
-					Module
-						.InjectedTypes[typeof(PointerIndices)]
-						.GetMethodByName(nameof(PointerIndices.Register))
-				)
-			);
 			instructions.Add(CilOpCodes.Stsfld, PointerField);
 			instructions.Add(CilOpCodes.Ret);
 		}

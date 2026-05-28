@@ -123,36 +123,6 @@ internal readonly unsafe struct InstructionLifter
 
 	private void AddInstruction(BasicBlock basicBlock, LLVMValueRef instruction)
 	{
-		if (
-			TryMatchImageOffset(
-				instruction,
-				module,
-				out FunctionContext? function2,
-				out GlobalVariableContext? variable2
-			)
-		)
-		{
-			MethodDefinition getIndexMethod = module
-				.InjectedTypes[typeof(PointerIndices)]
-				.GetMethodByName(nameof(PointerIndices.GetIndex));
-
-			if (function2 is not null)
-			{
-				LoadVariable(basicBlock, new FunctionPointerVariable(function2));
-			}
-			else if (variable2 is not null)
-			{
-				basicBlock.Add(new AddressOfInstruction(variable2));
-			}
-			else
-			{
-				Debug.Fail("This should be unreachable.");
-			}
-			Call(basicBlock, getIndexMethod);
-			StoreResult(basicBlock, instruction);
-			return;
-		}
-
 		LLVMValueRef[] operands = instruction.GetOperands();
 		LLVMOpcode opcode = instruction.GetOpcode();
 		switch (opcode)
@@ -469,191 +439,13 @@ internal readonly unsafe struct InstructionLifter
 				}
 				break;
 			case LLVMOpcode.LLVMCatchSwitch:
-				{
-					Debug.Assert(
-						operands.Length >= 1,
-						"Catch switch instruction should have at least one operand"
-					);
-
-					Debug.Assert(function is not null);
-					Debug.Assert(function.PersonalityFunction is not null);
-					Debug.Assert(
-						function.PersonalityFunction.IsIntrinsic,
-						"Personality function should be intrinsic and not have instructions"
-					);
-					Debug.Assert(
-						function.PersonalityFunction.ReturnTypeSignature
-							is CorLibTypeSignature { ElementType: ElementType.I4 }
-					);
-					Debug.Assert(function.PersonalityFunction.NormalParameters.Length == 0);
-					Debug.Assert(function.PersonalityFunction.IsVariadic);
-
-					// The first operand is the parent catch switch
-
-					bool hasDefaultUnwind =
-						operands.Length >= 2
-						&& operands[1].IsBasicBlock
-						&& operands[1]
-							.AsBasicBlock()
-							.GetInstructions()
-							.FirstOrDefault(static i => i.IsACleanupPadInst != default) != default;
-
-					LLVMBasicBlockRef defaultUnwindTargetRef = hasDefaultUnwind
-						? operands[1].AsBasicBlock()
-						: default;
-					ReadOnlySpan<LLVMValueRef> handlerBlocks = hasDefaultUnwind
-						? operands.AsSpan(2)
-						: operands.AsSpan(1);
-					LLVMValueRef[] catchPads = new LLVMValueRef[handlerBlocks.Length];
-					for (int i = 0; i < handlerBlocks.Length; i++)
-					{
-						LLVMBasicBlockRef handlerBlock = handlerBlocks[i].AsBasicBlock();
-						catchPads[i] = handlerBlock
-							.GetInstructions()
-							.First(static i => i.IsACatchPadInst != default);
-					}
-					Debug.Assert(
-						catchPads.Length > 0,
-						"Catch switch instruction should have at least one catch pad"
-					);
-
-					// Catch pads
-					for (int i = 0; i < catchPads.Length; i++)
-					{
-						LLVMValueRef catchPad = catchPads[i];
-						ReadOnlySpan<LLVMValueRef> catchPadArguments = catchPad
-							.GetOperands()
-							.AsSpan()[..^1]; // The last operand is the catch switch
-						LLVMBasicBlockRef catchPadBasicBlockRef = catchPad.InstructionParent;
-
-						IVariable argumentsInReadOnlySpan = LoadVariadicArguments(
-							basicBlock,
-							catchPadArguments,
-							module
-						);
-
-						// Call personality function
-						basicBlock.Add(new LoadVariableInstruction(argumentsInReadOnlySpan));
-						Call(basicBlock, function.PersonalityFunction.Definition);
-
-						BasicBlock targetBlock;
-						if (catchPadBasicBlockRef.StartsWithPhi())
-						{
-							BasicBlock helperBasicBlock = new();
-							basicBlockList.Add(helperBasicBlock);
-
-							Branch(
-								helperBasicBlock,
-								basicBlockRefs[basicBlock],
-								catchPadBasicBlockRef
-							);
-
-							targetBlock = helperBasicBlock;
-						}
-						else
-						{
-							targetBlock = basicBlocks[catchPadBasicBlockRef];
-						}
-
-						basicBlock.Add(new BranchIfFalseInstruction(targetBlock));
-					}
-
-					if (hasDefaultUnwind)
-					{
-						Branch(basicBlock, defaultUnwindTargetRef);
-					}
-					else
-					{
-						// Unwind to caller
-						basicBlock.Add(
-							new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType)
-						);
-					}
-				}
-				break;
 			case LLVMOpcode.LLVMCatchPad:
 			case LLVMOpcode.LLVMCleanupPad:
-				{
-					FieldDefinition exceptionInfoField = module
-						.InjectedTypes[typeof(ExceptionInfo)]
-						.GetFieldByName(nameof(ExceptionInfo.Current));
-
-					// Store the current exception info in a local variable
-					basicBlock.Add(new LoadFieldInstruction(exceptionInfoField));
-					StoreResult(basicBlock, instruction);
-
-					// Set the current exception info to null
-					LoadVariable(
-						basicBlock,
-						new DefaultVariable(exceptionInfoField.Signature!.FieldType)
-					);
-					basicBlock.Add(new StoreFieldInstruction(exceptionInfoField));
-				}
-				break;
 			case LLVMOpcode.LLVMCatchRet:
-				{
-					Debug.Assert(
-						operands.Length == 2,
-						"Catch return instruction should have exactly two operands"
-					);
-					Debug.Assert(
-						operands[0].IsACatchPadInst != default,
-						"First operand of catch return instruction should be a catch pad"
-					);
-					Debug.Assert(
-						operands[1].IsBasicBlock,
-						"Second operand of catch return instruction should be a basic block"
-					);
-
-					LLVMValueRef catchPad = operands[0];
-					LLVMBasicBlockRef targetBlockRef = operands[1].AsBasicBlock();
-
-					LoadValue(basicBlock, catchPad);
-
-					Call(
-						basicBlock,
-						module
-							.InjectedTypes[typeof(ExceptionInfo)]
-							.Methods.Single(m =>
-								m.Name == nameof(ExceptionInfo.Dispose) && m.IsPublic
-							)
-					);
-
-					Branch(basicBlock, targetBlockRef);
-				}
-				break;
 			case LLVMOpcode.LLVMCleanupRet:
-				{
-					Debug.Assert(function is not null);
-					Debug.Assert(
-						operands.Length is 1 or 2,
-						"Cleanup return instruction should have one or two operands"
-					);
-
-					LLVMValueRef cleanupPad = operands[0];
-					bool unwindsToCaller = operands.Length == 1;
-
-					FieldDefinition exceptionInfoField = module
-						.InjectedTypes[typeof(ExceptionInfo)]
-						.GetFieldByName(nameof(ExceptionInfo.Current));
-
-					// Restore the current exception info from the cleanup pad
-					LoadValue(basicBlock, cleanupPad);
-					basicBlock.Add(new StoreFieldInstruction(exceptionInfoField));
-
-					if (unwindsToCaller)
-					{
-						basicBlock.Add(
-							new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType)
-						);
-					}
-					else
-					{
-						// Unwind to an exception handler switch or another cleanup pad
-						Branch(basicBlock, operands[1].AsBasicBlock());
-					}
-				}
-				break;
+				throw new NotSupportedException(
+					$"Windows/MSVC EH opcode '{opcode}' is not supported on Linux x64."
+				);
 		case LLVMOpcode.LLVMCall:
 		case LLVMOpcode.LLVMInvoke:
 			{
@@ -928,17 +720,6 @@ internal readonly unsafe struct InstructionLifter
 					}
 
 					MaybeStoreResult(basicBlock, instruction);
-
-					if (opcode is LLVMOpcode.LLVMInvoke)
-					{
-						// Fallback invoke path: reached only for indirect (null functionCalled)
-						// or va_start/va_end invokes that cannot be wrapped in a structured EH
-						// region. Exceptions from these calls propagate directly via CLR EH
-						// rather than through the legacy ExceptionInfo.Current sentinel.
-						// TODO: wrap indirect-invoke call sites in a proper CIL try/catch region.
-						LLVMBasicBlockRef defaultBlockRef = operands[^3].AsBasicBlock();
-						Branch(basicBlock, defaultBlockRef);
-					}
 
 					static bool IsInvisibleFunction(FunctionContext functionCalled)
 					{
@@ -2677,78 +2458,4 @@ internal readonly unsafe struct InstructionLifter
 		}
 	}
 
-	private static bool TryMatchImageOffset(
-		LLVMValueRef instruction,
-		ModuleContext module,
-		out FunctionContext? function,
-		out GlobalVariableContext? variable
-	)
-	{
-		if (instruction.Kind is not LLVMValueKind.LLVMConstantExprValueKind)
-		{
-			return False(out function, out variable);
-		}
-
-		LLVMValueRef trunc = instruction;
-		if (
-			trunc.ConstOpcode is not LLVMOpcode.LLVMTrunc
-			|| trunc.TypeOf is not { Kind: LLVMTypeKind.LLVMIntegerTypeKind, IntWidth: 32 }
-		)
-		{
-			return False(out function, out variable);
-		}
-
-		LLVMValueRef sub = trunc.GetOperand(0);
-		if (
-			sub.ConstOpcode is not LLVMOpcode.LLVMSub
-			|| sub.TypeOf is not { Kind: LLVMTypeKind.LLVMIntegerTypeKind, IntWidth: 64 }
-		)
-		{
-			return False(out function, out variable);
-		}
-
-		LLVMValueRef ptrToInt_Left = sub.GetOperand(0);
-		LLVMValueRef ptrToInt_Right = sub.GetOperand(1);
-		if (
-			ptrToInt_Left.ConstOpcode is not LLVMOpcode.LLVMPtrToInt
-			|| ptrToInt_Right.ConstOpcode is not LLVMOpcode.LLVMPtrToInt
-		)
-		{
-			return False(out function, out variable);
-		}
-
-		LLVMValueRef imageBase = ptrToInt_Right.GetOperand(0);
-		if (
-			imageBase.Kind is not LLVMValueKind.LLVMGlobalVariableValueKind
-			|| imageBase.Name is not "__ImageBase"
-		)
-		{
-			return False(out function, out variable);
-		}
-
-		LLVMValueRef address = ptrToInt_Left.GetOperand(0);
-		if (address.Kind is LLVMValueKind.LLVMFunctionValueKind)
-		{
-			function = module.Methods[address];
-			variable = null;
-			return true;
-		}
-		else if (address.Kind is LLVMValueKind.LLVMGlobalVariableValueKind)
-		{
-			variable = module.GlobalVariables[address];
-			function = null;
-			return true;
-		}
-		else
-		{
-			return False(out function, out variable);
-		}
-
-		static bool False(out FunctionContext? function, out GlobalVariableContext? variable)
-		{
-			function = null;
-			variable = null;
-			return false;
-		}
-	}
 }
