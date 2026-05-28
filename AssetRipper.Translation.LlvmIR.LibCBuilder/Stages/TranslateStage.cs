@@ -20,7 +20,7 @@ internal static class TranslateStage
 	                                        <PropertyGroup>
 	                                          <TargetFramework>net10.0</TargetFramework>
 	                                          <Nullable>enable</Nullable>
-	                                          <ImplicitUsings>enable</ImplicitUsings>
+	                                          <ImplicitUsings>false</ImplicitUsings>
 	                                          <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	                                          <!-- Generated LLVM IR code uses intentional arithmetic overflow -->
 	                                          <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
