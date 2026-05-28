@@ -1,6 +1,6 @@
 ﻿namespace AssetRipper.Translation.LlvmIR;
 
-public sealed record class TranslatorOptions
+public sealed record TranslatorOptions
 {
 	/// <summary>
 	/// The root namespace to use for the generated assembly.
@@ -35,10 +35,26 @@ public sealed record class TranslatorOptions
 	{
 		foreach (string prefix in StripNamePrefixes)
 		{
-			// Strip leading occurrence: "prefix_foo" → "foo"
-			if (name.Length > prefix.Length && name.StartsWith(prefix, StringComparison.Ordinal))
+			// Strip leading occurrence: "prefix_foo" → "foo".
+			// CleanName() capitalizes an initial lowercase letter, so also accept the
+			// capitalized form (e.g. "llvm_libc_20_1_2_" → "Llvm_libc_20_1_2_").
+			string capitalizedPrefix =
+				prefix.Length == 0
+					? prefix
+					: char.ToUpperInvariant(prefix[0]) + prefix[1..];
+			if (
+				name.Length > prefix.Length
+				&& (name.StartsWith(prefix, StringComparison.Ordinal)
+					|| name.StartsWith(capitalizedPrefix, StringComparison.Ordinal))
+				)
 			{
-				name = name[prefix.Length..];
+				name = name.StartsWith(prefix, StringComparison.Ordinal)
+					? name[prefix.Length..]
+					: name[capitalizedPrefix.Length..];
+				if (name.Length > 0 && char.IsLower(name[0]))
+				{
+					name = char.ToUpperInvariant(name[0]) + name[1..];
+				}
 			}
 
 			// Strip mid-name occurrences: "Type_prefix_foo" → "Type_foo"
