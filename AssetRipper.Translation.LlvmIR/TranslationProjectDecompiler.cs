@@ -5,6 +5,8 @@ using ICSharpCode.Decompiler.CSharp.Syntax;
 using ICSharpCode.Decompiler.CSharp.Transforms;
 using ICSharpCode.Decompiler.Metadata;
 using ICSharpCode.Decompiler.TypeSystem;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace AssetRipper.Translation.LlvmIR;
 
@@ -40,6 +42,28 @@ public class TranslationProjectDecompiler : WholeProjectDecompiler
 		UniversalAssemblyResolver assemblyResolver = new(null, true, ".NETCoreApp,Version=v9.0");
 		assemblyResolver.AddSearchDirectory(AppContext.BaseDirectory); // for any NuGet references
 		return assemblyResolver;
+	}
+
+	/// <summary>
+	/// Decompiles the module and writes the generated project file to <c>&lt;projectName&gt;.csproj</c>.
+	/// If <paramref name="customProjectFileContent"/> is provided, that content is written instead
+	/// of the decompiler-generated project XML.
+	/// </summary>
+	public void DecompileProject(
+		ModuleDefinition module,
+		string outputDirectory,
+		string projectName,
+		string? customProjectFileContent = null)
+	{
+		using StringWriter projectWriter = new();
+		DecompileProject(module, outputDirectory, projectWriter);
+
+		string projectContent = string.IsNullOrEmpty(customProjectFileContent)
+			? projectWriter.ToString()
+			: customProjectFileContent;
+
+		string projectPath = Path.Combine(outputDirectory, $"{projectName}.csproj");
+		File.WriteAllText(projectPath, projectContent, new UTF8Encoding(false));
 	}
 
 	public void DecompileProject(

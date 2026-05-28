@@ -1,5 +1,6 @@
 using System.Runtime.Versioning;
 using AsmResolver.DotNet;
+using System.Diagnostics;
 
 namespace AssetRipper.Translation.LlvmIR.LibCBuilder.Stages;
 
@@ -13,11 +14,36 @@ namespace AssetRipper.Translation.LlvmIR.LibCBuilder.Stages;
 [SupportedOSPlatform("linux")]
 internal static class TranslateStage
 {
+	private const string ProjectContent = """
+	                                      <Project Sdk="Microsoft.NET.Sdk">
+
+	                                        <PropertyGroup>
+	                                          <TargetFramework>net10.0</TargetFramework>
+	                                          <Nullable>enable</Nullable>
+	                                          <ImplicitUsings>enable</ImplicitUsings>
+	                                          <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	                                          <!-- Generated LLVM IR code uses intentional arithmetic overflow -->
+	                                          <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+	                                          <!-- Suppress DirectoryBuildProps from the solution that would re-enable overflow checks -->
+	                                          <DirectoryBuildPropsPath />
+	                                          <DirectoryBuildTargetsPath />
+	                                        </PropertyGroup>
+
+	                                        <ItemGroup>
+	                                          <PackageReference Include="System.Numerics.Tensors" Version="10.0.0" />
+	                                          <!-- Runtime helpers (IntrinsicFunctions, InlineArrayHelper, etc.) live in the Runtime assembly -->
+	                                          <ProjectReference Include="../../AssetRipper.Translation.LlvmIR.Runtime/AssetRipper.Translation.LlvmIR.Runtime.csproj" />
+	                                        </ItemGroup>
+
+	                                      </Project>
+	                                      """;
+	
 	public static void Run(
 		string bcPath,
 		string outputDir,
 		ToolchainInfo toolchain,
-		bool clean
+		bool clean,
+		bool verifyBuild
 	)
 	{
 		if (!clean && Directory.Exists(outputDir))
@@ -52,14 +78,19 @@ internal static class TranslateStage
 			StripNamePrefixes = [toolchain.StripPrefix],
 			InlineAssemblySubstitutions = LibCSubstitutions.Build(),
 		};
-
+			
 		Console.WriteLine("[Translate] Translating...");
 		ModuleDefinition module = Translator.Translate("LlvmLibC", data, options);
 
 		Console.WriteLine("[Translate] Decompiling to C#...");
-		new TranslationProjectDecompiler().DecompileProject(module, outputDir, TextWriter.Null);
+		new TranslationProjectDecompiler().DecompileProject(module, outputDir, "Llvm.LibC", ProjectContent);
 
 		Console.WriteLine("[Translate] Done.");
+
+		if (verifyBuild)
+		{
+			VerifyBuild(Path.Combine(outputDir, "Llvm.LibC.csproj"));
+		}
 	}
 
 	private static DateTime GetDirectoryMtime(string dir)
@@ -75,4 +106,32 @@ internal static class TranslateStage
 		}
 		return max;
 	}
+	private static void VerifyBuild(string csprojPath)
+	{
+		// TODO: Replace this dotnet-build shell-out with an in-process Roslyn compilation
+		// using the Microsoft.CodeAnalysis.CSharp NuGet package so that the tool has no
+		// external SDK dependency and errors can be reported as structured diagnostics.
+		Console.WriteLine("[ProjectFile] Running dotnet build to verify generated code...");
+
+		ProcessStartInfo psi = new("dotnet")
+		{
+			Arguments = $"build \"{csprojPath}\" --nologo -v minimal",
+			UseShellExecute = false,
+		};
+		using Process proc =
+			Process.Start(psi) ?? throw new InvalidOperationException("Failed to start 'dotnet'.");
+		proc.WaitForExit();
+
+		if (proc.ExitCode == 0)
+		{
+			Console.WriteLine("[ProjectFile] Build succeeded.");
+		}
+		else
+		{
+			Console.WriteLine(
+				$"[ProjectFile] Build failed (exit code {proc.ExitCode}). Check output above for errors."
+			);
+		}
+	}
 }
+

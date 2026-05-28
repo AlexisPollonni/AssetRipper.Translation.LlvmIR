@@ -65,10 +65,7 @@ string archivePath = NinjaBuildStage.Run(workDir, parsedArgs.Clean);
 string bcPath = LinkStage.Run(workDir, archivePath, toolchain, parsedArgs.Clean);
 
 // ── Stage 5+6: Translate + Decompile ─────────────────────────────────────────
-TranslateStage.Run(bcPath, outputDir, toolchain, parsedArgs.Clean);
-
-// ── Stage 7+8: Project file ───────────────────────────────────────────────────
-ProjectFileStage.Run(outputDir, parsedArgs.VerifyBuild);
+TranslateStage.Run(bcPath, outputDir, toolchain, parsedArgs.Clean, parsedArgs.VerifyBuild);
 
 Console.WriteLine("All stages completed successfully.");
 
