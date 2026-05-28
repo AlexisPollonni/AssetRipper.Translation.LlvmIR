@@ -9,7 +9,7 @@ using LlvmLibC.Structures;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(129)]
-public partial struct InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 : IEquatable<InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4>, IEqualityOperators<InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4>
+public partial struct InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 : IEquatable<InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4>, IEqualityOperators<InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, bool>, IEnumerable, IInlineArray<InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4>
 {
 	private Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 __element0;
 
@@ -44,7 +44,7 @@ public partial struct InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4 
 		return this.GetHashCode<InlineArray129_Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4, Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<Llvm_libc_20_1_2_fputil_DyadicFloat_kt2kd4>)this).GetEnumerator();
 	}

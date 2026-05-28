@@ -9,7 +9,7 @@ using LlvmLibC.Structures;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(2)]
-public partial struct InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping : IEquatable<InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping>, IEqualityOperators<InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping, InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping, Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping>
+public partial struct InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping : IEquatable<InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping>, IEqualityOperators<InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping, InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping, bool>, IEnumerable, IInlineArray<InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping, Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping>
 {
 	private Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping __element0;
 
@@ -44,7 +44,7 @@ public partial struct InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_
 		return this.GetHashCode<InlineArray2_Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping, Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<Llvm_libc_20_1_2_fputil_ExceptValues_float_6_Mapping>)this).GetEnumerator();
 	}

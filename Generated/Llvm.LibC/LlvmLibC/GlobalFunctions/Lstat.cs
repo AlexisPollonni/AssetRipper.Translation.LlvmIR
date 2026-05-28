@@ -9,7 +9,7 @@ internal static partial class Lstat
 {
 	[MangledName("lstat")]
 	[DemangledName("lstat")]
-	public unsafe static int Invoke([MangledName("path")] void* Path, [MangledName("statbuf")] LlvmLibC.Structures.Stat* Statbuf)
+	public unsafe static int Invoke([MangledName("path")] void* Path, [MangledName("statbuf")] global::LlvmLibC.Structures.Stat* Statbuf)
 	{
 		int num = 0;
 		Llvm_lifetime_start_p0.Invoke(4L, &num);

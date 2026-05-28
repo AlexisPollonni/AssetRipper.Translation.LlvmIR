@@ -8,7 +8,7 @@ using AssetRipper.Translation.LlvmIR.Runtime;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(3)]
-public partial struct InlineArray3_InlineArray3_InlineArray2_Double : IEquatable<InlineArray3_InlineArray3_InlineArray2_Double>, IEqualityOperators<InlineArray3_InlineArray3_InlineArray2_Double, InlineArray3_InlineArray3_InlineArray2_Double, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray3_InlineArray3_InlineArray2_Double, InlineArray3_InlineArray2_Double>, IInlineArray<InlineArray3_InlineArray3_InlineArray2_Double, double>
+public partial struct InlineArray3_InlineArray3_InlineArray2_Double : IEquatable<InlineArray3_InlineArray3_InlineArray2_Double>, IEqualityOperators<InlineArray3_InlineArray3_InlineArray2_Double, InlineArray3_InlineArray3_InlineArray2_Double, bool>, IEnumerable, IInlineArray<InlineArray3_InlineArray3_InlineArray2_Double, InlineArray3_InlineArray2_Double>, IInlineArray<InlineArray3_InlineArray3_InlineArray2_Double, double>
 {
 	private InlineArray3_InlineArray2_Double __element0;
 
@@ -45,7 +45,7 @@ public partial struct InlineArray3_InlineArray3_InlineArray2_Double : IEquatable
 		return this.GetHashCode<InlineArray3_InlineArray3_InlineArray2_Double, InlineArray3_InlineArray2_Double>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<InlineArray3_InlineArray2_Double>)this).GetEnumerator();
 	}

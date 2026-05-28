@@ -8,7 +8,7 @@ internal static partial class Llvm_libc_20_1_2_statx
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_5statxEiPKciP4stat")]
 	[DemangledName("__llvm_libc_20_1_2_::statx(int, char const*, int, stat*)")]
-	public unsafe static int Invoke([MangledName("dirfd")][NativeType("int")] int Dirfd, [MangledName("path")][NativeType("char const*")] void* Path, [MangledName("flags")][NativeType("int")] int Flags, [MangledName("statbuf")][NativeType("stat*")] LlvmLibC.Structures.Stat* Statbuf)
+	public unsafe static int Invoke([MangledName("dirfd")][NativeType("int")] int Dirfd, [MangledName("path")][NativeType("char const*")] void* Path, [MangledName("flags")][NativeType("int")] int Flags, [MangledName("statbuf")][NativeType("stat*")] global::LlvmLibC.Structures.Stat* Statbuf)
 	{
 		Anonymous_namespace_statx_buf anonymous_namespace_statx_buf = default(Anonymous_namespace_statx_buf);
 		int num = 0;

@@ -9,7 +9,7 @@ using LlvmLibC.Structures;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(61)]
-public partial struct InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry : IEquatable<InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry>, IEqualityOperators<InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry, InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry, Llvm_libc_20_1_2_internal_LShiftTableEntry>
+public partial struct InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry : IEquatable<InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry>, IEqualityOperators<InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry, InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry, bool>, IEnumerable, IInlineArray<InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry, Llvm_libc_20_1_2_internal_LShiftTableEntry>
 {
 	private Llvm_libc_20_1_2_internal_LShiftTableEntry __element0;
 
@@ -44,7 +44,7 @@ public partial struct InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry :
 		return this.GetHashCode<InlineArray61_Llvm_libc_20_1_2_internal_LShiftTableEntry, Llvm_libc_20_1_2_internal_LShiftTableEntry>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<Llvm_libc_20_1_2_internal_LShiftTableEntry>)this).GetEnumerator();
 	}

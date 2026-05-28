@@ -8,7 +8,7 @@ using AssetRipper.Translation.LlvmIR.Runtime;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(6)]
-public partial struct InlineArray6_InlineArray4_Int32 : IEquatable<InlineArray6_InlineArray4_Int32>, IEqualityOperators<InlineArray6_InlineArray4_Int32, InlineArray6_InlineArray4_Int32, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray6_InlineArray4_Int32, InlineArray4_Int32>, IInlineArray<InlineArray6_InlineArray4_Int32, int>, IInlineArray<InlineArray6_InlineArray4_Int32, uint>
+public partial struct InlineArray6_InlineArray4_Int32 : IEquatable<InlineArray6_InlineArray4_Int32>, IEqualityOperators<InlineArray6_InlineArray4_Int32, InlineArray6_InlineArray4_Int32, bool>, IEnumerable, IInlineArray<InlineArray6_InlineArray4_Int32, InlineArray4_Int32>, IInlineArray<InlineArray6_InlineArray4_Int32, int>, IInlineArray<InlineArray6_InlineArray4_Int32, uint>
 {
 	private InlineArray4_Int32 __element0;
 
@@ -47,7 +47,7 @@ public partial struct InlineArray6_InlineArray4_Int32 : IEquatable<InlineArray6_
 		return this.GetHashCode<InlineArray6_InlineArray4_Int32, InlineArray4_Int32>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<InlineArray4_Int32>)this).GetEnumerator();
 	}

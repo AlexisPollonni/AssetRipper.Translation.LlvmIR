@@ -9,7 +9,7 @@ using LlvmLibC.Structures;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(128)]
-public partial struct InlineArray128_Llvm_libc_20_1_2_NumberPair : IEquatable<InlineArray128_Llvm_libc_20_1_2_NumberPair>, IEqualityOperators<InlineArray128_Llvm_libc_20_1_2_NumberPair, InlineArray128_Llvm_libc_20_1_2_NumberPair, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray128_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
+public partial struct InlineArray128_Llvm_libc_20_1_2_NumberPair : IEquatable<InlineArray128_Llvm_libc_20_1_2_NumberPair>, IEqualityOperators<InlineArray128_Llvm_libc_20_1_2_NumberPair, InlineArray128_Llvm_libc_20_1_2_NumberPair, bool>, IEnumerable, IInlineArray<InlineArray128_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>
 {
 	private Llvm_libc_20_1_2_NumberPair __element0;
 
@@ -44,7 +44,7 @@ public partial struct InlineArray128_Llvm_libc_20_1_2_NumberPair : IEquatable<In
 		return this.GetHashCode<InlineArray128_Llvm_libc_20_1_2_NumberPair, Llvm_libc_20_1_2_NumberPair>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<Llvm_libc_20_1_2_NumberPair>)this).GetEnumerator();
 	}

@@ -8,7 +8,7 @@ using AssetRipper.Translation.LlvmIR.Runtime;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(1224)]
-public partial struct InlineArray1224_InlineArray3_Int64 : IEquatable<InlineArray1224_InlineArray3_Int64>, IEqualityOperators<InlineArray1224_InlineArray3_Int64, InlineArray1224_InlineArray3_Int64, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray1224_InlineArray3_Int64, InlineArray3_Int64>, IInlineArray<InlineArray1224_InlineArray3_Int64, long>, IInlineArray<InlineArray1224_InlineArray3_Int64, ulong>
+public partial struct InlineArray1224_InlineArray3_Int64 : IEquatable<InlineArray1224_InlineArray3_Int64>, IEqualityOperators<InlineArray1224_InlineArray3_Int64, InlineArray1224_InlineArray3_Int64, bool>, IEnumerable, IInlineArray<InlineArray1224_InlineArray3_Int64, InlineArray3_Int64>, IInlineArray<InlineArray1224_InlineArray3_Int64, long>, IInlineArray<InlineArray1224_InlineArray3_Int64, ulong>
 {
 	private InlineArray3_Int64 __element0;
 
@@ -47,7 +47,7 @@ public partial struct InlineArray1224_InlineArray3_Int64 : IEquatable<InlineArra
 		return this.GetHashCode<InlineArray1224_InlineArray3_Int64, InlineArray3_Int64>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<InlineArray3_Int64>)this).GetEnumerator();
 	}

@@ -8,7 +8,7 @@ using AssetRipper.Translation.LlvmIR.Runtime;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(12)]
-public partial struct InlineArray12_InlineArray2_Int16 : IEquatable<InlineArray12_InlineArray2_Int16>, IEqualityOperators<InlineArray12_InlineArray2_Int16, InlineArray12_InlineArray2_Int16, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray12_InlineArray2_Int16, InlineArray2_Int16>, IInlineArray<InlineArray12_InlineArray2_Int16, short>, IInlineArray<InlineArray12_InlineArray2_Int16, ushort>, IInlineArray<InlineArray12_InlineArray2_Int16, char>
+public partial struct InlineArray12_InlineArray2_Int16 : IEquatable<InlineArray12_InlineArray2_Int16>, IEqualityOperators<InlineArray12_InlineArray2_Int16, InlineArray12_InlineArray2_Int16, bool>, IEnumerable, IInlineArray<InlineArray12_InlineArray2_Int16, InlineArray2_Int16>, IInlineArray<InlineArray12_InlineArray2_Int16, short>, IInlineArray<InlineArray12_InlineArray2_Int16, ushort>, IInlineArray<InlineArray12_InlineArray2_Int16, char>
 {
 	private InlineArray2_Int16 __element0;
 
@@ -49,7 +49,7 @@ public partial struct InlineArray12_InlineArray2_Int16 : IEquatable<InlineArray1
 		return this.GetHashCode<InlineArray12_InlineArray2_Int16, InlineArray2_Int16>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<InlineArray2_Int16>)this).GetEnumerator();
 	}

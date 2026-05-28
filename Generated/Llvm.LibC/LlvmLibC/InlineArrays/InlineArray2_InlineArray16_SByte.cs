@@ -8,7 +8,7 @@ using AssetRipper.Translation.LlvmIR.Runtime;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(2)]
-public partial struct InlineArray2_InlineArray16_SByte : IEquatable<InlineArray2_InlineArray16_SByte>, IEqualityOperators<InlineArray2_InlineArray16_SByte, InlineArray2_InlineArray16_SByte, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray2_InlineArray16_SByte, InlineArray16_SByte>, IInlineArray<InlineArray2_InlineArray16_SByte, sbyte>, IInlineArray<InlineArray2_InlineArray16_SByte, byte>
+public partial struct InlineArray2_InlineArray16_SByte : IEquatable<InlineArray2_InlineArray16_SByte>, IEqualityOperators<InlineArray2_InlineArray16_SByte, InlineArray2_InlineArray16_SByte, bool>, IEnumerable, IInlineArray<InlineArray2_InlineArray16_SByte, InlineArray16_SByte>, IInlineArray<InlineArray2_InlineArray16_SByte, sbyte>, IInlineArray<InlineArray2_InlineArray16_SByte, byte>
 {
 	private InlineArray16_SByte __element0;
 
@@ -47,7 +47,7 @@ public partial struct InlineArray2_InlineArray16_SByte : IEquatable<InlineArray2
 		return this.GetHashCode<InlineArray2_InlineArray16_SByte, InlineArray16_SByte>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<InlineArray16_SByte>)this).GetEnumerator();
 	}

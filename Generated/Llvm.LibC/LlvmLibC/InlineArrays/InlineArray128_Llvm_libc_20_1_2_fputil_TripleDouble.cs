@@ -9,7 +9,7 @@ using LlvmLibC.Structures;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(128)]
-public partial struct InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble : IEquatable<InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble>, IEqualityOperators<InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble, InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble, Llvm_libc_20_1_2_fputil_TripleDouble>
+public partial struct InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble : IEquatable<InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble>, IEqualityOperators<InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble, InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble, bool>, IEnumerable, IInlineArray<InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble, Llvm_libc_20_1_2_fputil_TripleDouble>
 {
 	private Llvm_libc_20_1_2_fputil_TripleDouble __element0;
 
@@ -44,7 +44,7 @@ public partial struct InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble : IEqu
 		return this.GetHashCode<InlineArray128_Llvm_libc_20_1_2_fputil_TripleDouble, Llvm_libc_20_1_2_fputil_TripleDouble>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<Llvm_libc_20_1_2_fputil_TripleDouble>)this).GetEnumerator();
 	}

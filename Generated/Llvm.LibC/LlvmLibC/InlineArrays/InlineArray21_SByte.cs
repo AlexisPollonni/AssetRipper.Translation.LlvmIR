@@ -8,7 +8,7 @@ using AssetRipper.Translation.LlvmIR.Runtime;
 namespace LlvmLibC.InlineArrays;
 
 [InlineArray(21)]
-public partial struct InlineArray21_SByte : IEquatable<InlineArray21_SByte>, IEqualityOperators<InlineArray21_SByte, InlineArray21_SByte, bool>, System.Collections.IEnumerable, IInlineArray<InlineArray21_SByte, sbyte>, IInlineArray<InlineArray21_SByte, byte>
+public partial struct InlineArray21_SByte : IEquatable<InlineArray21_SByte>, IEqualityOperators<InlineArray21_SByte, InlineArray21_SByte, bool>, IEnumerable, IInlineArray<InlineArray21_SByte, sbyte>, IInlineArray<InlineArray21_SByte, byte>
 {
 	private sbyte __element0;
 
@@ -43,7 +43,7 @@ public partial struct InlineArray21_SByte : IEquatable<InlineArray21_SByte>, IEq
 		return this.GetHashCode<InlineArray21_SByte, sbyte>();
 	}
 
-	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable<sbyte>)this).GetEnumerator();
 	}

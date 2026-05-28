@@ -8,7 +8,7 @@ internal static partial class Statfs_utils_statfs_to_statvfs
 {
 	[MangledName("_ZN19__llvm_libc_20_1_2_12statfs_utils17statfs_to_statvfsERK6statfs")]
 	[DemangledName("__llvm_libc_20_1_2_::statfs_utils::statfs_to_statvfs(statfs const&)")]
-	public unsafe static void Invoke([MangledName("agg.result")] LlvmLibC.Structures.Statvfs* Agg_result, [MangledName("in")][NativeType("statfs const&")] Statfs* In)
+	public unsafe static void Invoke([MangledName("agg.result")] global::LlvmLibC.Structures.Statvfs* Agg_result, [MangledName("in")][NativeType("statfs const&")] Statfs* In)
 	{
 		Llvm_memset_p0_i64.Invoke(Agg_result, -86, 88L, isVolatile: false);
 		Agg_result->F_bsize = In->F_bsize;

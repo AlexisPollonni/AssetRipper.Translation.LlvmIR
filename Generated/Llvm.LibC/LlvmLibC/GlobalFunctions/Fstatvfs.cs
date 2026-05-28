@@ -9,10 +9,10 @@ internal static partial class Fstatvfs
 {
 	[MangledName("fstatvfs")]
 	[DemangledName("fstatvfs")]
-	public unsafe static int Invoke([MangledName("fd")] int Fd, [MangledName("buf")] LlvmLibC.Structures.Statvfs* Buf)
+	public unsafe static int Invoke([MangledName("fd")] int Fd, [MangledName("buf")] global::LlvmLibC.Structures.Statvfs* Buf)
 	{
 		Llvm_libc_20_1_2_cpp_optional_qbe95b llvm_libc_20_1_2_cpp_optional_qbe95b = default(Llvm_libc_20_1_2_cpp_optional_qbe95b);
-		LlvmLibC.Structures.Statvfs statvfs = default(LlvmLibC.Structures.Statvfs);
+		global::LlvmLibC.Structures.Statvfs statvfs = default(global::LlvmLibC.Structures.Statvfs);
 		Llvm_lifetime_start_p0.Invoke(128L, &llvm_libc_20_1_2_cpp_optional_qbe95b);
 		Llvm_memset_p0_i64.Invoke(&llvm_libc_20_1_2_cpp_optional_qbe95b, -86, 128L, isVolatile: false);
 		Statfs_utils_linux_fstatfs.Invoke(&llvm_libc_20_1_2_cpp_optional_qbe95b, Fd);
