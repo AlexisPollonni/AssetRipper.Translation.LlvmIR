@@ -1373,11 +1373,8 @@ public static unsafe partial class IntrinsicFunctions
 
 	private sealed class AssertExceptionInfo : ExceptionInfo
 	{
-		public string Message { get; }
-
-		public AssertExceptionInfo(string message)
+		public AssertExceptionInfo(string message) : base(message)
 		{
-			Message = message;
 		}
 
 		public override string? GetMessage() => Message;

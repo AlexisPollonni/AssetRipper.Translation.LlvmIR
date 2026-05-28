@@ -7,6 +7,7 @@ using AsmResolver.DotNet.Collections;
 using AsmResolver.DotNet.Signatures;
 using AsmResolver.PE.DotNet.Cil;
 using AssetRipper.Translation.LlvmIR.Extensions;
+using AssetRipper.Translation.LlvmIR.Runtime;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
 namespace AssetRipper.Translation.LlvmIR;
@@ -55,6 +56,10 @@ internal static partial class IntrinsicFunctionImplementer
 			MoveToImplementedType(context);
 		}
 		else if (TryImplementNoOpIntrinsic(context))
+		{
+			MoveToImplementedType(context);
+		}
+		else if (TryImplementEhTypeidForIntrinsic(context))
 		{
 			MoveToImplementedType(context);
 		}
@@ -214,6 +219,43 @@ internal static partial class IntrinsicFunctionImplementer
 		}
 		operationName = null;
 		return false;
+	}
+
+	/// <summary>
+	/// Handles <c>llvm.eh.typeid.for</c> (and <c>llvm.eh.typeid.for.p0</c>, etc.).
+	/// These intrinsics return the DWARF type-info ID for a given C++ type-info pointer,
+	/// used by landing-pad type-dispatch code (<c>icmp eq %sel, %tid</c>).
+	/// This maps to <see cref="ExceptionInfo.GetTypeIdFor(void*)"/> so translated
+	/// landing-pad selector checks can perform deterministic typed comparisons.
+	/// </summary>
+	private static bool TryImplementEhTypeidForIntrinsic(FunctionContext context)
+	{
+		if (!context.MangledName.StartsWith("llvm.eh.typeid.for", StringComparison.Ordinal))
+		{
+			return false;
+		}
+
+		// Must return an integer (i32).
+		if (context.IsVoidReturn)
+		{
+			return false;
+		}
+
+		if (context.NormalParameters.Length != 1)
+		{
+			return false;
+		}
+
+		MethodDefinition typeIdHelper = context
+			.Module
+			.InjectedTypes[typeof(ExceptionInfo)]
+			.Methods.Single(m => m.Name == nameof(ExceptionInfo.GetTypeIdFor));
+
+		CilInstructionCollection instructions = context.Definition.CilMethodBody!.Instructions;
+		instructions.Add(CilOpCodes.Ldarg_0);
+		instructions.Add(CilOpCodes.Call, context.Module.ImportRuntimeMethod(typeIdHelper));
+		instructions.Add(CilOpCodes.Ret);
+		return true;
 	}
 
 	private static bool TryImplementNoOpIntrinsic(FunctionContext context)

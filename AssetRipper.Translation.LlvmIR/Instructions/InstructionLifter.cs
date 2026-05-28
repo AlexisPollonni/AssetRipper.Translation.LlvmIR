@@ -654,17 +654,31 @@ internal readonly unsafe struct InstructionLifter
 					}
 				}
 				break;
-			case LLVMOpcode.LLVMCall:
-			case LLVMOpcode.LLVMInvoke:
+		case LLVMOpcode.LLVMCall:
+		case LLVMOpcode.LLVMInvoke:
+			{
+				Debug.Assert(function is not null);
+
+				LLVMValueRef functionOperand = operands[^1];
+				FunctionContext? functionCalled = module.Methods.TryGetValue(functionOperand);
+
+				LLVMTypeRef calledFunctionType = LLVM.GetCalledFunctionType(instruction);
+				int argumentCount = (int)calledFunctionType.ParamTypesCount;
+				ReadOnlySpan<LLVMValueRef> argumentOperands = operands.AsSpan(0, argumentCount);
+
+				// For LLVMInvoke: resolve the two successor blocks up front so
+				// structured EH can be emitted directly.
+				LLVMBasicBlockRef invokeNormalRef = default;
+				LLVMBasicBlockRef invokeCatchRef = default;
+				bool useStructuredEhInvoke = false;
+				if (opcode is LLVMOpcode.LLVMInvoke)
 				{
-					Debug.Assert(function is not null);
-
-					LLVMValueRef functionOperand = operands[^1];
-					FunctionContext? functionCalled = module.Methods.TryGetValue(functionOperand);
-
-					LLVMTypeRef calledFunctionType = LLVM.GetCalledFunctionType(instruction);
-					int argumentCount = (int)calledFunctionType.ParamTypesCount;
-					ReadOnlySpan<LLVMValueRef> argumentOperands = operands.AsSpan(0, argumentCount);
+					// operands layout for invoke:
+					//   [args...] [normal_bb] [unwind_bb] [callee]
+					invokeCatchRef = operands[^2].AsBasicBlock();
+					invokeNormalRef = operands[^3].AsBasicBlock();
+					useStructuredEhInvoke = CanUseStructuredInvoke(functionCalled);
+				}
 
 					if (functionCalled is null)
 					{
@@ -821,6 +835,53 @@ internal readonly unsafe struct InstructionLifter
 						int variadicParameterCount =
 							argumentOperands.Length - functionCalled.NormalParameters.Length;
 
+						if (useStructuredEhInvoke)
+						{
+							IReadOnlyList<IVariable> invokeArguments = PrepareInvokeArguments(
+								basicBlock,
+								functionCalled,
+								argumentOperands,
+								variadicParameterCount
+							);
+
+							FieldDefinition exceptionInfoField = module
+							                                     .InjectedTypes[typeof(ExceptionInfo)]
+							                                     .GetFieldByName(nameof(ExceptionInfo.Current));
+							TypeDefinition exceptionInfoTypeDef =
+								module.InjectedTypes[typeof(ExceptionInfo)];
+
+							BasicBlock invokeNormalTarget = ResolveInvokeLeaveTarget(
+								basicBlock,
+								invokeNormalRef
+							);
+							BasicBlock invokeCatchTarget = ResolveInvokeLeaveTarget(
+								basicBlock,
+								invokeCatchRef
+							);
+
+							IVariable? resultVariable = instructionResults.TryGetValue(
+								instruction,
+								out IVariable? rv
+							)
+								? rv
+								: null;
+
+							basicBlock.Add(
+								new InvokeInstruction(
+									functionCalled.Definition,
+									invokeArguments,
+									resultVariable,
+									invokeNormalTarget,
+									invokeCatchTarget,
+									exceptionInfoField,
+									exceptionInfoTypeDef
+								)
+							);
+							// InvokeInstruction stores the result and emits leave instructions;
+							// skip MaybeStoreResult and the old invoke branch logic.
+							break;
+						}
+
 						if (!functionCalled.IsVariadic)
 						{
 							Debug.Assert(
@@ -840,9 +901,9 @@ internal readonly unsafe struct InstructionLifter
 								LoadValue(basicBlock, argumentOperands[i]);
 							}
 							TypeSignature variadicArrayType = functionCalled
-								.Definition
-								.Signature!
-								.ParameterTypes[^1];
+							                                  .Definition
+							                                  .Signature!
+							                                  .ParameterTypes[^1];
 							basicBlock.Add(
 								new LoadVariableInstruction(new DefaultVariable(variadicArrayType))
 							);
@@ -868,34 +929,15 @@ internal readonly unsafe struct InstructionLifter
 
 					MaybeStoreResult(basicBlock, instruction);
 
-					if (opcode is LLVMOpcode.LLVMCall)
+					if (opcode is LLVMOpcode.LLVMInvoke)
 					{
-						if (
-							functionCalled is null or { MightThrowAnException: true }
-							&& function.MightThrowAnException
-						)
-						{
-							basicBlock.Add(
-								ReturnIfExceptionInfoNotNullInstruction.Create(
-									function.Definition.Signature!.ReturnType,
-									module
-								)
-							);
-						}
-					}
-					else if (opcode is LLVMOpcode.LLVMInvoke)
-					{
-						LLVMBasicBlockRef catchBlockRef = operands[^2].AsBasicBlock();
+						// Fallback invoke path: reached only for indirect (null functionCalled)
+						// or va_start/va_end invokes that cannot be wrapped in a structured EH
+						// region. Exceptions from these calls propagate directly via CLR EH
+						// rather than through the legacy ExceptionInfo.Current sentinel.
+						// TODO: wrap indirect-invoke call sites in a proper CIL try/catch region.
 						LLVMBasicBlockRef defaultBlockRef = operands[^3].AsBasicBlock();
-
-						basicBlock.Add(
-							new LoadFieldInstruction(
-								module
-									.InjectedTypes[typeof(ExceptionInfo)]
-									.GetFieldByName(nameof(ExceptionInfo.Current))
-							)
-						);
-						ConditionalBranch(basicBlock, catchBlockRef, defaultBlockRef);
+						Branch(basicBlock, defaultBlockRef);
 					}
 
 					static bool IsInvisibleFunction(FunctionContext functionCalled)
@@ -1379,33 +1421,80 @@ internal readonly unsafe struct InstructionLifter
 					StoreResult(basicBlock, instruction);
 				}
 				break;
-			case LLVMOpcode.LLVMLandingPad:
+		case LLVMOpcode.LLVMLandingPad:
+			{
+				// Build the Itanium landing-pad result struct { i8* exceptionPtr, i32 selector }.
+				// Selector calculation is clause-aware:
+				//   - typed catch clause: match on type_info* equality
+				//   - catch-all clause: matches immediately
+				//   - no match / cleanup-only: selector remains 0
+				Debug.Assert(function is not null);
+
+				// Fast-path: if the landingpad aggregate result is never consumed by any
+				// subsequent instruction (cleanup-only landing pads that just resume/return),
+				// call BeginLandingPadWithoutResult() which updates exception state without
+				// producing a void* or struct local.  This avoids creating a struct-typed local
+				// containing a void* field in a method that also has CLR EH regions — the JIT
+				// refuses to compile such methods (InvalidProgramException at JIT time) even
+				// though ILVerify accepts them.
+				if (instruction.FirstUse == default)
 				{
-					// Itanium C++ ABI landing pad — not supported in the .NET EH model.
-					// Emit a default value for the result struct so the function can continue.
-					// https://llvm.org/docs/LangRef.html#landingpad-instruction
-					TypeSignature type = module.GetTypeSignature(instruction);
-					LoadVariable(basicBlock, ConstantVariable.CreateDefault(type));
-					StoreResult(basicBlock, instruction);
-					Console.WriteLine(
-						$"Warning: LLVM LandingPad instruction is not currently supported; it is being ignored inside {function?.Name}."
-					);
+					MethodDefinition beginLandingPadWithoutResult = module
+						.InjectedTypes[typeof(ExceptionInfo)]
+						.GetMethodByName(nameof(ExceptionInfo.BeginLandingPadWithoutResult));
+					Call(basicBlock, beginLandingPadWithoutResult);
+					break;
 				}
-				break;
-			case LLVMOpcode.LLVMResume:
+
+				// Use BeginLandingPadAsNInt (returns nint) instead of BeginLandingPad (returns void*)
+				// so that the exception-pointer local is a verifiable managed type.
+				// The CLR verifier forbids void* locals in methods that also have EH regions.
+				MethodDefinition beginLandingPad = module
+					.InjectedTypes[typeof(ExceptionInfo)]
+					.GetMethodByName(nameof(ExceptionInfo.BeginLandingPadAsNInt));
+				MethodDefinition updateSelector = module
+					.InjectedTypes[typeof(ExceptionInfo)]
+					.Methods.Single(m => m.Name == nameof(ExceptionInfo.UpdateLandingPadSelector));
+
+				LocalVariable exceptionPointerLocal = new(beginLandingPad.Signature!.ReturnType);
+				Call(basicBlock, beginLandingPad);
+				basicBlock.Add(new StoreVariableInstruction(exceptionPointerLocal));
+
+				LocalVariable selectorLocal = new(module.Definition.CorLibTypeFactory.Int32);
+				LoadVariable(basicBlock, new ConstantI4(0, module.Definition));
+				basicBlock.Add(new StoreVariableInstruction(selectorLocal));
+
+				ReadOnlySpan<LLVMValueRef> clauses = instruction.GetOperands();
+				foreach (var clause in clauses)
 				{
-					// Itanium C++ ABI resume (rethrow) — not supported in the .NET EH model.
-					// Emit a return-default to terminate the block gracefully.
-					// https://llvm.org/docs/LangRef.html#resume-instruction
-					Debug.Assert(function is not null);
-					basicBlock.Add(
-						new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType)
-					);
-					Console.WriteLine(
-						$"Warning: LLVM Resume instruction is not currently supported; it is being ignored inside {function?.Name}."
-					);
+					basicBlock.Add(new LoadVariableInstruction(selectorLocal));
+					LoadValue(basicBlock, clause);
+					Call(basicBlock, updateSelector);
+					basicBlock.Add(new StoreVariableInstruction(selectorLocal));
 				}
-				break;
+
+				EmitLandingPadResult(basicBlock, instruction, exceptionPointerLocal, selectorLocal);
+			}
+			break;
+		case LLVMOpcode.LLVMResume:
+			{
+				// Itanium C++ ABI resume: re-propagate the exception being handled.
+				// ExceptionInfo.ResumePropagation() clears BeingHandled and rethrows
+				// via ExceptionDispatchInfo so the original stack trace is preserved.
+				Debug.Assert(function is not null);
+
+				MethodDefinition resumePropagation = module
+					.InjectedTypes[typeof(ExceptionInfo)]
+					.GetMethodByName(nameof(ExceptionInfo.ResumePropagation));
+				Call(basicBlock, resumePropagation);
+
+				// ResumePropagation is [DoesNotReturn]; this instruction is unreachable
+				// but the CIL needs a valid block terminator.
+				basicBlock.Add(
+					new ReturnDefaultInstruction(function.Definition.Signature!.ReturnType)
+				);
+			}
+			break;
 			default:
 				if (BinaryMathInstruction.Supported(opcode))
 				{
@@ -2267,6 +2356,12 @@ internal readonly unsafe struct InstructionLifter
 		{
 			basicBlock.Add(new StoreVariableInstruction(result));
 		}
+		else if (basicBlock.Count > 0 && basicBlock[^1].PushCount > 0)
+		{
+			// Dead call/bitcast results still occupy the IL stack.
+			// Discard them explicitly to keep the block stack-balanced.
+			basicBlock.Add(PopInstruction.Instance);
+		}
 	}
 
 	private static void LoadVariable(BasicBlock basicBlock, IVariable variable)
@@ -2380,6 +2475,137 @@ internal readonly unsafe struct InstructionLifter
 				$"Warning: LLVM AtomicRMW operation {operation} with type {valueType} is not currently supported inside {functionName}."
 			);
 		}
+	}
+
+	private static bool CanUseStructuredInvoke(FunctionContext? functionCalled)
+	{
+		if (functionCalled is null)
+		{
+			return false;
+		}
+
+		if (functionCalled.MangledName is "llvm.va_end.p0" or "llvm.va_start.p0")
+		{
+			return false;
+		}
+
+		// Variadic direct calls are wrapped in InvokeInstruction just like non-variadic
+		// ones: arguments are already pushed in the correct order before this point.
+		return true;
+	}
+
+	private IReadOnlyList<IVariable> PrepareInvokeArguments(
+		BasicBlock basicBlock,
+		FunctionContext functionCalled,
+		ReadOnlySpan<LLVMValueRef> argumentOperands,
+		int variadicParameterCount
+	)
+	{
+		List<IVariable> arguments = new(argumentOperands.Length + 1);
+
+		if (!functionCalled.IsVariadic)
+		{
+			Debug.Assert(
+				variadicParameterCount == 0,
+				"Function should not have variadic parameters"
+			);
+
+			foreach (LLVMValueRef argumentOperand in argumentOperands)
+			{
+				arguments.Add(MaterializeInvokeArgument(basicBlock, argumentOperand));
+			}
+		}
+		else if (variadicParameterCount == 0)
+		{
+			for (int i = 0; i < functionCalled.NormalParameters.Length; i++)
+			{
+				arguments.Add(MaterializeInvokeArgument(basicBlock, argumentOperands[i]));
+			}
+
+			TypeSignature variadicArrayType = functionCalled.Definition.Signature!.ParameterTypes[^1];
+			LocalVariable variadicDefaultLocal = new(variadicArrayType);
+			basicBlock.Add(new LoadVariableInstruction(new DefaultVariable(variadicArrayType)));
+			basicBlock.Add(new StoreVariableInstruction(variadicDefaultLocal));
+			arguments.Add(variadicDefaultLocal);
+		}
+		else
+		{
+			for (int i = 0; i < functionCalled.NormalParameters.Length; i++)
+			{
+				arguments.Add(MaterializeInvokeArgument(basicBlock, argumentOperands[i]));
+			}
+
+			IVariable intPtrReadOnlySpanLocal = LoadVariadicArguments(
+				basicBlock,
+				argumentOperands[functionCalled.NormalParameters.Length..],
+				module
+			);
+			arguments.Add(intPtrReadOnlySpanLocal);
+		}
+
+		return arguments;
+	}
+
+	private IVariable MaterializeInvokeArgument(BasicBlock basicBlock, LLVMValueRef argumentOperand)
+	{
+		TypeSignature argumentType = module.GetTypeSignature(argumentOperand);
+		LocalVariable argumentLocal = new(argumentType);
+		LoadValue(basicBlock, argumentOperand);
+		basicBlock.Add(new StoreVariableInstruction(argumentLocal));
+		return argumentLocal;
+	}
+
+	private BasicBlock ResolveInvokeLeaveTarget(BasicBlock sourceBlock, LLVMBasicBlockRef targetRef)
+	{
+		if (!targetRef.StartsWithPhi())
+		{
+			return basicBlocks[targetRef];
+		}
+
+		BasicBlock helperBlock = new();
+		basicBlockList.Add(helperBlock);
+		Branch(helperBlock, basicBlockRefs[sourceBlock], targetRef);
+		return helperBlock;
+	}
+
+	private void EmitLandingPadResult(
+		BasicBlock basicBlock,
+		LLVMValueRef landingPadInstruction,
+		LocalVariable exceptionPointerLocal,
+		LocalVariable selectorLocal
+	)
+	{
+		TypeSignature resultType = module.GetTypeSignature(landingPadInstruction);
+		TypeDefinition structType = (TypeDefinition)resultType.ToTypeDefOrRef();
+
+		FieldDefinition field0 = structType.GetInstanceField(0); // void* exceptionPointer
+		FieldDefinition field1 = structType.GetInstanceField(1); // int32 selector
+
+		LocalVariable resultLocal = new(resultType);
+		basicBlock.Add(new InitializeInstruction(resultLocal));
+
+		basicBlock.Add(new AddressOfInstruction(resultLocal));
+		basicBlock.Add(new LoadFieldAddressInstruction(field0));
+		basicBlock.Add(new LoadVariableInstruction(exceptionPointerLocal));
+		// exceptionPointerLocal is nint (from BeginLandingPadAsNInt); field0 is void*.
+		// Emit conv.u to convert native int → unmanaged pointer before stind.
+		if (exceptionPointerLocal.VariableType is CorLibTypeSignature
+		    {
+			    ElementType: ElementType.I or ElementType.U
+		    }
+		    && field0.Signature!.FieldType is PointerTypeSignature)
+		{
+			basicBlock.Add(Instruction.FromOpCode(CilOpCodes.Conv_U));
+		}
+		basicBlock.Add(new StoreIndirectInstruction(field0.Signature!.FieldType));
+
+		basicBlock.Add(new AddressOfInstruction(resultLocal));
+		basicBlock.Add(new LoadFieldAddressInstruction(field1));
+		basicBlock.Add(new LoadVariableInstruction(selectorLocal));
+		basicBlock.Add(new StoreIndirectInstruction(field1.Signature!.FieldType));
+
+		basicBlock.Add(new LoadVariableInstruction(resultLocal));
+		StoreResult(basicBlock, landingPadInstruction);
 	}
 
 	/// <summary>

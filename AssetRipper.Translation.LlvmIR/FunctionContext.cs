@@ -514,11 +514,13 @@ internal sealed class FunctionContext : IHasName
 			CilInstructionLabel returnLabel = new();
 
 			ICilLabel tryStartLabel = instructions[0].CreateLabel();
-			ICilLabel tryEndLabel = instructions.Add(CilOpCodes.Leave, returnLabel).CreateLabel();
+			instructions.Add(CilOpCodes.Leave, returnLabel);
+			ICilLabel tryEndLabel = instructions.Add(CilOpCodes.Nop).CreateLabel();
 
 			ICilLabel handlerStartLabel = instructions.Add(CilOpCodes.Pop).CreateLabel();
 			instructions.Add(CilOpCodes.Call, exitToUserCodeImported); // Clean up the stack frame.
-			ICilLabel handlerEndLabel = instructions.Add(CilOpCodes.Rethrow).CreateLabel(); // Continue propagating the exception.
+			instructions.Add(CilOpCodes.Rethrow); // Continue propagating the exception.
+			ICilLabel handlerEndLabel = instructions.Add(CilOpCodes.Nop).CreateLabel();
 
 			returnLabel.Instruction = instructions.Add(CilOpCodes.Call, exitToUserCodeImported); // Clean up the stack frame and maybe throw an exception.
 
@@ -529,7 +531,7 @@ internal sealed class FunctionContext : IHasName
 				TryEnd = tryEndLabel,
 				HandlerStart = handlerStartLabel,
 				HandlerEnd = handlerEndLabel,
-				ExceptionType = Module.Definition.CorLibTypeFactory.Object.ToTypeDefOrRef(),
+				ExceptionType = Module.Definition.DefaultImporter.ImportType(typeof(Exception)),
 			};
 			instructions.Owner.ExceptionHandlers.Add(exceptionHandler);
 		}

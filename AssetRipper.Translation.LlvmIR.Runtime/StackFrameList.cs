@@ -16,19 +16,14 @@ public struct StackFrameList
 		return frame;
 	}
 
+	/// <summary>
+	/// Called at the boundary where translated code returns to user code.
+	/// Clears all tracked stack frames (frees native locals).
+	/// Exceptions propagate through normal CLR EH regions — no sentinel polling.
+	/// </summary>
 	public static void ExitToUserCode()
 	{
-		if (ExceptionInfo.Current is null)
-		{
-			Current.Clear();
-		}
-		else
-		{
-			string? message = ExceptionInfo.Current.GetMessage();
-			ExceptionInfo.Current = null;
-			Current.Clear();
-			throw new Exception(message);
-		}
+		Current.Clear();
 	}
 
 	internal readonly void Clear()

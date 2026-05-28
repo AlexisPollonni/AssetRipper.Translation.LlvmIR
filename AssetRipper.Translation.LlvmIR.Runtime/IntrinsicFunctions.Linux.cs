@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using AssetRipper.Translation.LlvmIR.Runtime.Attributes;
 
@@ -210,6 +211,7 @@ public static unsafe partial class IntrinsicFunctions
 			+ $"{Marshal.PtrToStringUTF8((IntPtr)file)}:{line}: "
 			+ $"{Marshal.PtrToStringUTF8((IntPtr)function)}";
 		ExceptionInfo.Current = new AssertExceptionInfo(msg);
+		throw ExceptionInfo.Current;
 	}
 
 	[MangledName("__assert_perror_fail")]
@@ -219,6 +221,7 @@ public static unsafe partial class IntrinsicFunctions
 		string msg =
 			$"Assertion failed (errno={errnum}): {Marshal.PtrToStringUTF8((IntPtr)file)}:{line}: {Marshal.PtrToStringUTF8((IntPtr)function)}";
 		ExceptionInfo.Current = new AssertExceptionInfo(msg);
+		throw ExceptionInfo.Current;
 	}
 
 	// ── errno ─────────────────────────────────────────────────────────────────
@@ -373,28 +376,43 @@ public static unsafe partial class IntrinsicFunctions
 	{
 		// https://itanium-cxx-abi.github.io/cxx-abi/abi-eh.html#cxx-throw
 		ExceptionInfo.Current = new ItaniumExceptionInfo(thrownException, typeInfo, destructor);
+		throw ExceptionInfo.Current;
 	}
 
 	[MangledName("__cxa_rethrow")]
 	[MightThrow]
 	public static void CxaRethrow()
 	{
-		// Current ExceptionInfo.Current is already set; re-propagation is handled by the caller.
+		ExceptionInfo? current = ExceptionInfo.Current;
+		if (current is null)
+		{
+			throw new InvalidOperationException("No active Itanium exception to rethrow.");
+		}
+
+		ExceptionDispatchInfo.Capture(current).Throw();
 	}
 
 	[MangledName("__cxa_begin_catch")]
 	public static void* CxaBeginCatch(void* exceptionObject)
 	{
-		// Returns a pointer to the caught exception object.
-		if (ExceptionInfo.Current is ItaniumExceptionInfo itanium)
+		// exceptionObject comes from field 0 of the landing-pad result struct, which was
+		// populated by ExceptionInfo.BeginLandingPad() (the ClientExceptionObject pointer).
+		// Return it directly so the C++ catch body gets the right pointer.
+		// If it is null (e.g. catch-all clause), fall back to BeingHandled.
+		if (exceptionObject != null)
+			return exceptionObject;
+		if (ExceptionInfo.BeingHandled is ItaniumExceptionInfo itanium)
 			return itanium.ExceptionPointer;
-		return exceptionObject;
+		return null;
 	}
 
 	[MangledName("__cxa_end_catch")]
 	public static void CxaEndCatch()
 	{
-		// Exception handling is finished; resources will be freed when ExceptionInfo is disposed.
+		// Dispose the exception and clear the BeingHandled slot.
+		ExceptionInfo? exc = ExceptionInfo.BeingHandled;
+		ExceptionInfo.BeingHandled = null;
+		exc?.Dispose();
 	}
 
 	[MangledName("__cxa_pure_virtual")]
@@ -754,6 +772,12 @@ public static unsafe partial class IntrinsicFunctions
 			TypeInfo = typeInfo;
 			_destructor = destructor;
 		}
+
+		/// <inheritdoc/>
+		public override void* ClientExceptionObject => ExceptionPointer;
+
+		/// <inheritdoc/>
+		public override void* ClientTypeInfo => TypeInfo;
 
 		protected override void Dispose(bool disposing)
 		{
